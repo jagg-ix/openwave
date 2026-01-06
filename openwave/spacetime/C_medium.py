@@ -1,5 +1,5 @@
 """
-SCALAR-FIELD Method Data-Grid
+SCALAR-FIELD Method Medium Data-Grid
 
 Object Classes @spacetime module.
 
