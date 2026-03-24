@@ -1,6 +1,6 @@
 # ROADMAP
 
-## [PHASE 0: Tooling](#phase-0-tooling--details)
+## ✅ [PHASE 0: Tooling](#phase-0-tooling--details)
 
 - ✅ Build 1D wave sandbox (matplotlib, interactive controls)
 - ✅ Phasor superposition (analytical amplitude, replaces EMA-RMS)
@@ -11,7 +11,7 @@
 - ✅ Parameter sweep: force vs separation from 2λ to 10λ (`sweep_force_vs_separation.py`)
 - ✅ Validate 1/r² force scaling — interaction energy E_int ∝ |Z₁|·|Z₂| ∝ 1/r gives F ∝ 1/r² (confirmed numerically)
 
-## [PHASE 1: FAR-FIELD Force (1D Sandbox only)](01_far_field.md)
+## ✅ [PHASE 1: FAR-FIELD Force (1D Sandbox only)](01_far_field.md)
 
 - [ ] Resolve far-field oscillatory force (MAIN BLOCKER — sinc nodes in out-wave)
   - ✅ Implemented F = -∇E as standard force computation (replaces A·∇A chain rule expansion)
@@ -64,7 +64,7 @@
 
 > **Phase 1b CONCLUSION**: the base wave exists (standing wave, physically validated). WCs must interact with it through **elastic disturbance** (changing wave character, not reflecting). The L→T spin conversion is the only charge-sensitive mechanism found — it needs true vector displacement (Phase 1c) and variable λ in the energy equation (Phase 1d) to fully work. Carry-forward tasks: energy redistribution, far-field drainage, force emergence, Coulomb validation — all require Phase 1d/1c capabilities.
 
-### 🔶 [PHASE 1c: Vector Wave Force](01c_vector_wave.md#phase-1c-vector-wave-force)
+### ✅ [PHASE 1c: Vector Wave Force](01c_vector_wave.md#phase-1c-vector-wave-force)
 
 > **From Phase 1b**: L→T spin conversion (Option G) is the ONLY charge-sensitive mechanism found (10 models tested). Quadrature phasor proxy showed charge discrimination but is limited — needs true independent L/T displacement.
 >
@@ -72,53 +72,73 @@
 >
 > **Force mechanism**: `F = -∇E_total = -∇E_L - ∇E_T`. One force, two directions: ∇E_L → electric (longitudinal/radial), ∇E_T → magnetic (transverse/perpendicular). L/T defined relative to radial from WC. Transverse has 360° freedom → magnetic requires alignment/coherence to not cancel. Gravity = residual total energy deficit.
 
-Step 1 — 3D Vector Base Wave:
+Step 1 — 3D Vector Base Wave (`step1_base_wave.py`):
 
-- [ ] 3D grid with vector displacement: `ψ(r) = (ψ_x, ψ_y, ψ_z)`
-- [ ] Isotropic base wave from all directions → uniform energy density
-- [ ] L/T decomposition: `A_L = |ψ · r̂|`, `A_T = |ψ - (ψ · r̂)r̂|`
-- [ ] Verify: base wave alone → flat energy, zero force
+- ✅ 3D grid with vector displacement: `ψ(r) = (ψ_x, ψ_y, ψ_z)` — 64³ grid, 8λ extent, 200 Fibonacci sphere sources
+- ✅ Isotropic base wave from all directions → mean energy matches theory (ratio 1.003). Energy CV = 0.577 = 1/√3 (chi-squared(6) speckle — fundamental, not artifact)
+- ✅ L/T decomposition: `A_L = |ψ · r̂|`, `A_T = |ψ - (ψ · r̂)r̂|` — E_L/E = 1/3, E_T/E = 2/3 (isotropic prediction). Holds at all reference points. E_L + E_T = E exact to machine precision
+- ✅ Verify: base wave alone → force is speckle noise only (matches CV·E·k₀ estimate). No large-scale gradient. Null baseline confirmed
 
-Step 2 — WC as L→T Converter (Spin):
+Step 2 — WC as L→T Converter (Spin) (`step2_single_wc.py`):
 
-- [ ] L→T conversion at WC: reduce A_L, increase A_T, charge-dependent direction (CW/CCW)
-- [ ] Verify: single WC → energy concentration near, drainage far, `E_L + E_T = const`
-- [ ] Revisit M2 spin code (`interact_wc_spinUP/DOWN`) with improved understanding
+- ✅ L→T conversion at WC: spherical out-wave `sinc(kr)·exp(+i·phase)·[√(1-η)·r̂ + √η·q·(ẑ×r̂)]`. Sweep η from 0 to 1. Physical η = α ≈ 1/137 (fine structure constant)
+- ✅ Energy concentration: 1.98x at WC core, returns to 1.0x beyond 1λ. Standing wave formation from in-wave (base) + out-wave (WC) interference
+- ✅ L/T ratio shifts at WC core: E_L/E goes from baseline 0.33 up to 0.64 (η=0) or down to 0.17 (η=1). Shift is local (< 1λ)
+- ✅ CW/CCW produce identical energy for single WC. Spin sign matters in Step 3 (two WCs)
 
-Step 3 — Two-WC Force Test:
+Step 2a — Key Findings (Spin Scale & Sinc Resolution):
 
-- [ ] Two WCs at variable separation, compute `F = -∇(E_L + E_T)`
-- [ ] Sweep: does force direction depend on charge sign? Emergent, not imposed?
-- [ ] Re-test elastic spin with true independent L/T — does sinc oscillation break?
+- ✅ **Sinc oscillation = correct K=1 physics**: neutrino is neutral, no spin, no Coulomb. Lock-in IS the strong force / particle formation mechanism. The "main blocker" was never a bug
+- ✅ **Spin only at K≥10**: per EWT, single WC doesn't do L→T. Electron (K=10, tetrahedral) has spin from off-node WC repositioning
+- ✅ **Annihilation from sinc**: opposite phase wells at r=0 (deepest), barriers at λ/2 (positronium). Same phase wells at λ/2 (lock-in)
+- ✅ **No neutrino observational data**: all validation must be at K≥10 (Coulomb, annihilation, magnetic)
+- ✅ **M3 electron unstable**: tetrahedral geometry has 15/45 pairs at non-node distances (√3×λ/2, √2×λ/2). Needs variable λ (Phase 1d) and/or vector forces (M4)
+- ✅ **Jeff Yee + Dieter Hauger engaged**: Hauger (wavelength shells co-author) may have insights on standing→traveling transition
 
-Step 4 — Coulomb Validation:
+Step 3 — Two-WC Force Test (`step3_two_wc_force.py`):
 
-- [ ] Force magnitude vs Coulomb reference at multiple separations
-- [ ] 1/r² scaling check
-- [ ] Newton's 3rd law (equal and opposite)
+- ❌ Tested 4 spin configs (CW-CW, CCW-CCW, CW-CCW, CCW-CW) at η=α, 0.1, 0.5 across separations 2-6λ
+- ❌ ALL configs show MIXED force directions — no consistent charge-dependent pattern
+- ❌ Root cause: on-axis limitation. T component is perpendicular to WC axis → creates magnetic force, not electric. L component still has sinc oscillation → no Coulomb
+- ✅ **Conclusion**: spin creates magnetic force (Phase 4), NOT electric force. Electric force needs variable λ(r) (Phase 1d)
+- ✅ **LaFreniere phase shift discovery**: electron core (1λ diameter) creates λ/2 phase shift from medium compression (7x). This phase shift — not spin — is what creates charge sign. Connects directly to Phase 1d variable λ(r)
 
-Step 5 — Convergence with Phase 1d:
+Steps 4-5 — merged into Phase 1d:
 
-- [ ] Add variable λ(r) to energy: `E = ρV(c·A/λ(r))²`
-- [ ] Test combined: vector displacement + variable λ
-- [ ] Evaluate "one force, different directions" — electric (L), magnetic (T), gravitational (deficit)
-- [ ] Connect to elliptical rotation handedness (CW = electron, CCW = positron)
+- [ ] Phase 1c vector infrastructure (Steps 1-2) ready for Phase 1d integration
+- [ ] Variable λ(r) from Yee & Hauger shells + LaFreniere core phase shift → electric force
+- [ ] Combined vector displacement + variable λ → full force decomposition (electric from ∇λ, magnetic from spin T, gravitational from deficit)
 
-### 🚧 [PHASE 1d: Non-Linear Wave Equations](01d_non_linear.md#phase-1d-non-linear-wave-equations)
+### ✅ [PHASE 1d: Non-Linear Wave Equations](01d_non_linear.md#phase-1d-non-linear-wave-equations)
 
-> **From Phase 1b**: elastic phase warp (Option F) produces zero force because `E = ρV(fA)²` uses constant f — can't see λ variation. Phase 1d must implement `E = ρV(c·A/λ(r))²` where `∇λ` creates force from wavelength gradients. Converges with Phase 1c.
+> **From Phase 1c**: spin → magnetic (not electric). Variable λ(r) → electric force candidate. Converges with Phase 1c vector infrastructure.
 
-- [ ] Implement variable λ(r) in energy equation: `E = ρV(c·A/λ(r))²` — the `∇λ` force term
-- [ ] Implement λ(r) profile from Yee & Hauger discrete wavelength shells, WKB phase integral
-- [ ] Implement variable ρ(x) in 1D sandbox (density from granule velocity / wave interference)
-- [ ] Test Smoliński Ψ³ cubic non-linearity (NLS soliton stabilizer — F(Ψ, ε_G, |ε_M|, N_ν))
-- [ ] Test F = -∇E with spatially variable ρ(x), f(x), A(x) — all three gradients contributing
-- [ ] Evaluate Smoliński Push-out Operator P̂Φ = -∇·(η_stat/η_soliton)∇Φ as variable-ρ force formalization
-- [ ] Evaluate whether non-linear spatial structure breaks the sinc periodicity and resolves force direction
-- [ ] Re-test elastic phase warp (Option F) with variable-λ energy equation
-- [ ] If successful, validate against Coulomb reference (direction + 1/r² scaling)
+1D Variable-λ Test (`step1d_variable_lambda.py`):
 
-## [PHASE 2: NEAR-FIELD Forces (1D Sandbox only)](02_near_field.md)
+- ✅ Implement variable λ(r) from Yee & Hauger shells + WKB phase integral
+- ✅ Implement variable-λ energy equation: `E = ρV(c·A/λ(r))²`
+- ✅ Test K=1 (neutrino): no λ variation → sinc persists → neutral. Correct.
+- ✅ Test K=10 (electron): ∇λ term IS active (reverses force vs const-λ at some separations)
+- ❌ Charge-blind: ∇λ creates same force for all phase configs (λ depends on K, not charge)
+- ⚠️ **1D on-axis limitation**: sinc oscillation dominates on-axis. But 3D spherical integration may average out the sinc through different oscillation periods at different angles
+
+Sinc Elimination Tests:
+
+- ❌ **#5 Statistical averaging** (step1d_averaged_force.py): sinc perfectly symmetric → averaging gives 50/50, not a direction
+- ❌ **#1 Broadband shells** (step1d_broadband.py): multiple cosines still oscillate, no convergence
+- ⚠️ **#4 1D Flux** (step1d_flux_force.py): same-charge K=10 = 50/50 REP (CONSISTENT, first ever!), but opp-charge also REP (baseline push dominates in 1D)
+- ⚠️ **#4 2D Flux** (step1d_flux_force_2d.py): **100% charge discrimination** — same ≠ opposite at ALL 22 separations. Sinc persists (direction flips every λ/2) but charge sensitivity is perfect. Coulomb correct at half-integer λ separations.
+
+> **Phase 1 CONCLUSION**: the sinc oscillation cos(k·Δr) is intrinsic to monochromatic spherical wave interference. It cannot be removed by variable λ, spin, decomposition, averaging, or broadband. However, the 2D radiation pressure (flux) produces 100% charge discrimination — same and opposite ALWAYS get opposite force directions. The sinc determines WHERE the equilibrium/lock-in points are; the charge difference determines WHICH direction at each point.
+
+Carry-Over to Phase 2:
+
+- [ ] Investigate flux-based force (`S = -c²·ψ·∇ψ`) as the primary Coulomb mechanism instead of `F = -∇E`
+- [ ] Test 3D flux integration — does full spherical flux produce consistent Coulomb at any K?
+- [ ] Explore whether sinc lock-in + charge discrimination IS the unified force (near-field = strong, far-field = Coulomb envelope)
+- [ ] Variable ρ(x), Ψ³ non-linearity, combined vector + variable λ (deferred from Phase 1d)
+
+## 🔶 [PHASE 2: BUILDING BLOCKS)](02_BUILDING_BLOCKS.md)
 
 - [ ] Same-phase lock-in: verify oscillatory force creates stable energy wells
 - [ ] Opposite-phase monotonic attraction: verify consistent attraction to annihilation
@@ -127,7 +147,18 @@ Step 5 — Convergence with Phase 1d:
 - [ ] Test with Verlet/leapfrog integrator (energy conservation for lock-in stability)
 - [ ] Test with f64 precision (check if numerical drift causes escape from wells)
 
-## [PHASE 3: Forces — 3D Validation (Taichi, port from 1D)](03_forces_3D.md)
+- [ ] Build M4 vector wave engine with transverse displacement
+- [ ] Validate elliptical displacement trajectories (6 phasor numbers)
+- [ ] Model spin as toroidal wave flow
+- [ ] Demonstrate magnetic force from transverse wave interference
+- [ ] Separate longitudinal (electric) and transverse (magnetic) force components
+
+- [ ] Test wave shading with particle clusters
+- [ ] Test Smoliński buoyancy model: ρ(x) and f(x) as local variables
+- [ ] Validate 10⁻⁴² EM-to-gravitational force ratio
+- [ ] Validate computed G against Smoliński's Scilab reference values
+
+## [PHASE 3: 3D RENDERING](03_3D_RENDERING.md)
 
 > **Conditional scheduling**: Ports validated 1D results from  Phase 1c (vector) and/or Phase 1d (non-linear) to 3D engines. Phases 1c and 1d may converge here — non-linear toroidal dynamics naturally produce vector patterns that carry charge information.
 
@@ -149,33 +180,18 @@ M4 VECTOR:
 - [ ] Test elliptical rotation handedness as charge-sign indicator in M4
 - [ ] Evaluate impact on near-field lock-in and far-field force scaling
 
-## [PHASE 4: Magnetic Force (M4 Vector Waves)](04_magnetic_vector.md)
+## [PHASE 4: EMERGENT WAVES](04_EMERGENT_WAVES.md)
 
-- [ ] Build M4 vector wave engine with transverse displacement
-- [ ] Validate elliptical displacement trajectories (6 phasor numbers)
-- [ ] Model spin as toroidal wave flow
-- [ ] Demonstrate magnetic force from transverse wave interference
-- [ ] Separate longitudinal (electric) and transverse (magnetic) force components
+- [ ] Demonstrate photon-like traveling wave packets
+- [ ] Test thermal energy as standing wave dynamics
+- [ ] Validate electromagnetic wave emergence from medium disturbances
 
-## [PHASE 5: Gravitational Force (M3, Multi-Particle)](05_gravitational.md)
-
-- [ ] Test wave shading with particle clusters
-- [ ] Test Smoliński buoyancy model: ρ(x) and f(x) as local variables
-- [ ] Validate 10⁻⁴² EM-to-gravitational force ratio
-- [ ] Validate computed G against Smoliński's Scilab reference values
-
-## [PHASE 6: Time Dynamics (M4 or new method)](06_time_dynamics.md)
+## [PHASE 5: TIME DYNAMICS](05_TIME_DYNAMICS.md)
 
 - [ ] Implement variable λ per voxel (local dt)
 - [ ] Demonstrate time dilation from energy starvation mechanism
 - [ ] Connect λ modulation → granule velocity → pressure → gravity
 - [ ] Test force control via frequency/spin manipulation
-
-## [PHASE 7: Emergent Waves](07_emergent_waves.md)
-
-- [ ] Demonstrate photon-like traveling wave packets
-- [ ] Test thermal energy as standing wave dynamics
-- [ ] Validate electromagnetic wave emergence from medium disturbances
 
 ---
 
