@@ -333,6 +333,7 @@ OpenWave uses several open-source libraries. See [THIRD_PARTY_NOTICES](THIRD_PAR
 - **Taichi Lang** (Apache 2.0) - GPU-accelerated computing and rendering
 - **NumPy** (BSD-3) - Numerical computing
 - **SciPy** (BSD-3) - Scientific computing
+- **SimPy** (BSD-3) - Symbolic Computation
 - **Matplotlib** (BSD-compatible) - Visualization
 - **PyAutoGUI** (BSD-3) - GUI automation
 
