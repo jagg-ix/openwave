@@ -2,11 +2,11 @@
 
 This is the hands-on, start-to-finish guide for a newcomer. It takes you from a clean machine to running a simulation, validating a model, scaffolding your own model, and opening a pull request.
 
-## TL;DR: If you only read one thing first, read this section: [START HERE](#0-start-here-drive-openwave-with-an-ai-agent)
+## TL;DR: If you only read one thing first, read this section: [START HERE](#0-start-here-drive-openwave-with-an-ai-coding-agent)
 
 | You want to | Jump to |
 | --- | --- |
-| Move fast with an AI agent | [0. START HERE: drive OpenWave with an AI agent](#0-start-here-drive-openwave-with-an-ai-agent) |
+| Move fast with an AI agent | [0. START HERE: drive OpenWave with an AI agent](#0-start-here-drive-openwave-with-an-ai-coding-agent) |
 | Get the code running | [1. Set up your environment](#1-set-up-your-environment) |
 | Know the house rules | [2. Community: conduct and contributing](#2-community-conduct-and-contributing) |
 | Understand the two ways to run | [3. The two solvers: headless vs rendered](#3-the-two-solvers-headless-sandbox-vs-rendered) |
@@ -19,7 +19,7 @@ New to the project itself? Read [`WELCOME.md`](WELCOME.md) and the [`README.md`]
 
 ---
 
-## 0. START HERE: drive OpenWave with an AI agent
+## 0. START HERE: drive OpenWave with an AI coding agent
 
 ### The single biggest recommendation for a newcomer
 
