@@ -30,6 +30,19 @@
 | Free parameters | EWT analytic wave constants (A, λ, f, ρ, c) + electron K = 10, outer-shell Oe, orbital gλ |
 | Anchor | electron (K = 10 tetrahedron), neutrino (K = 1 seed); constants calibrated to measured electron radius / energy / mass |
 
+## Decision-Relevant Attributes
+
+Model-level attributes to weigh the column: parameter economy, the formal artifacts that
+back the claims, and what would falsify the model next. The EWT record lives on the M3
+scalar engine, so these link into `m3_wolff_lafreniere/`. (Held here for now; a consolidated
+cross-model version may return to `MODELS.md` later.)
+
+| Attribute | M4 (EWT) |
+| --- | --- |
+| Free parameters | EWT's analytic wave constants (amplitude, wavelength, density); in-sim runs add documented envelope/threshold choices per script<br>[`../m3_wolff_lafreniere/research/0a_equations.md`](../m3_wolff_lafreniere/research/0a_equations.md) |
+| Formal artifacts | Runnable scripts + an explicit honest-blockers status doc<br>[`../m3_wolff_lafreniere/research/0_STATUS.md`](../m3_wolff_lafreniere/research/0_STATUS.md) |
+| Falsifiable near-term tests | K-selectivity under perturbation (currently failing, and documented as such)<br>[`../m3_wolff_lafreniere/research/0_STATUS.md`](../m3_wolff_lafreniere/research/0_STATUS.md) |
+
 ## Field Configuration of Particles
 
 Same particle picture as M3 (the EWT family), now on a vector substrate. All configurations

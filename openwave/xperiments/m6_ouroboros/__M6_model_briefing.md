@@ -33,9 +33,22 @@
 | Solve method | 1D radial ODE / BVP (scipy), sandbox-only |
 | Next falsifier | sub-MeV direct-detection; six-peak Gaia-stream annual modulation of the J-field flux; NEGF vertex check |
 
+## Decision-Relevant Attributes
+
+Model-level attributes to weigh the column: parameter economy, the formal artifacts that
+back the claims, and what would falsify the model next. (Held here for now; a consolidated
+cross-model version may return to `MODELS.md` later.)
+
+| Attribute | M6 |
+| --- | --- |
+| Free parameters | 3 claimed (g, λ, ω); the neutral sector's exact scaling symmetry closes the (g, λ) plane, making m_J parameter-free (in-platform result)<br>[`research/0c_sandbox_v11.md`](research/0c_sandbox_v11.md) |
+| Formal artifacts | Author's Lean 4 proof artifacts (linking number, mountain-pass existence, power counting) + our independent numerical reproduction of the canonical profile and benchmark<br>[`research/0d_canonical.md`](research/0d_canonical.md) |
+| Falsifiable near-term tests | Author's roadmap: NEGF vertex check, sub-MeV searches, six-peak Gaia-stream annual modulation of the J-field flux<br>[`research/0e_dm_paper_review.md`](research/0e_dm_paper_review.md) |
+| Direct-detection compatibility (DM) | Dipole-suppressed chaoiton-proton cross section claimed compatible with direct-detection bounds (the monopole coupling vanishes by angular-momentum orthogonality; the numerical chain is still being reconciled on the author's side)<br>[`research/0e_dm_paper_review.md`](research/0e_dm_paper_review.md), [`research/sandbox_v11/dm_paper_supplement/`](research/sandbox_v11/dm_paper_supplement/) |
+
 ## Field Configuration of Particles
 
-Duda's standing demand of any particle model: *state the field configuration of each
+Standing demand of any particle model: *state the field configuration of each
 particle, and say whether it uses topological vortices.* M6's answers:
 
 | Particle | Field configuration in M6 | Topological vortex? |
@@ -46,7 +59,7 @@ particle, and say whether it uses topological vortices.* M6's answers:
 | Pion+ (candidate) | charged chaoiton at ω = 15.0 → 3.25% | ✅ |
 | Neutral chaoiton (DM) | `Q_CS = 0`, l = 1 p-wave → m_χ = 0.460 MeV, m_J = 0.6184 MeV, C = 770 MeV·fm | ✅ neutral knot |
 
-Honest caveat on Duda's test: the clock is *built into* the `e^{iωt}` ansatz (assumed, not
+Honest caveat on this test: the clock is *built into* the `e^{iωt}` ansatz (assumed, not
 yet derived as the energy-minimizer), and no discrete-spectrum mechanism selects the lepton
 ω values (every ω in 1-60 localizes equally). Charge quantization is Lean-proved plus
 author-claimed, not yet re-derived in-platform.
