@@ -87,6 +87,27 @@ onto the phases: M7.1-M7.3 stay in the charge-free Trkalian/neutral regime, and 
 training wheels , the constant-λ → variable-λ transition where the charge `∇·F` first appears** (§ 6).
 Marc may bring in the **Spanish Beltrami school** (Enciso & Peralta-Salas, § 3 #6) as collaborators.
 
+**Pisello's precedent (via Álvaro García López, Models-of-Particles thread, 2026-06-30).** Daniel
+Pisello's 1979 book *Gravitation, Electromagnetism and Quantised Charge* (§ 3 #16) builds a **toroidal
+Hopf-knot** EM solution whose **charge is quantized ∝ the homotopy class of the knot** , not Rañada's
+helicity-only zero-charge hopfion, but a genuinely **charged** knot from an electrovacuum Lagrangian
+yielding **non-homogeneous equations á la Fleury-Dos Santos** (charge density ∝ the potential and its
+derivatives, i.e. gauge-fixed, **A-primary**). This is the **closest published precedent to the M7
+target** (a charged toroidal Beltrami knot) and sharpens three open questions: it **unifies** the
+divergence charge with the topological / homotopy charge (Q3), shows a divergence-ful field **does**
+hold a quantized-charge knot (Q5), and gives a concrete gauge-fixed charge-carrying construction (Q7).
+Álvaro García López's own *Massive wave solutions to the Einstein-Maxwell equations* (§ 3 #17, Zitter
+Institute) is the partner mechanism: the **electrovacuum as a charged nonlinear optical medium**, with
+**Klein-Gordon from gauge-fixing** (M7.6) and an EM origin of mass.
+
+The primary math is in **Pisello's 1977 paper** (§ 3 #18, the Lagrangian + **target-space S²**), now in
+the corpus, alongside **Faber's geometric model** (§ 3 #19, arXiv:2201.13262), which builds the same
+object on **target-space S³** (a soliton = electron with quantized charge, mass = field energy, spin),
+plus **Faber & Golubich's precision lattice electron** (§ 3 #20, arXiv:2604.12021), the `α⁻¹ ≈ 137`
+SU(2)-dipole result that is the M7.2 / M5.11 validation target. The **S² (Pisello) vs S³ (Faber)**
+target-space choice is itself a live input to the substrate question **Q1** (what manifold the M7
+field maps into).
+
 ---
 
 ## 1. Fleury's toroidal model , the analytic target to reproduce first
@@ -165,12 +186,17 @@ the same Lagrangian, `m_J`, `g`, and the `H/Q` benchmark into a full 3D lattice.
 | 7 | Faddeev & Niemi, *Knots and particles* | Nature **387** (1997); hep-th/9610193 | the 4th-order **Hopfion stabilizer** (Derrick-evading, parallels M5's Skyrme term) | 🚧 fetch |
 | 8 | Sutcliffe, *Knots in the Skyrme-Faddeev model* | arXiv:0705.1468 | the canonical **numerical** Hopfion relaxation recipe | 🚧 fetch |
 | 9 | Werbos, *Stable Oscillatory Chaoitons in a 2-vector-field theory* | Zenodo 20030162 | the Ouroboros Lagrangian + soliton baseline | 🚧 fetch |
-| 10 | Werbos, *Evaluating Universe Model Alternatives v5* | `theory/` `.docx` | Ouroboros / TUFT params, `H/Q = 1.6969` | ✅ present |
+| 10 | Werbos, *Evaluating Universe Model Alternatives v5* | shared `.docx` (June 2026) | Ouroboros / TUFT params, `H/Q = 1.6969` | ✅ in `electron_beltrami/` (recovered) |
 | 11 | **Sato & Yamada, *Local Representation and Construction of Beltrami Fields*** (Marc's Beltrami source) | arXiv:**1809.03136** (Physica D, 2019) | the construction recipe for the toroidal-Beltrami **seeder** (eikonal + equal-scale-factor rule); inhomogeneous + non-solenoidal `h` | ✅ [arXiv:1809.03136](https://arxiv.org/abs/1809.03136) (local PDF gitignored) + note [`sato_yamada_beltrami.md`](../theory/sato_yamada_beltrami.md) |
 | 12 | Duda superfluid mapping | arXiv:2108.07896 | the EM ≡ hydrodynamics equivalence already cited in M5 | 🚧 fetch |
 | 13 | Marc's **2 non-constant-λ (variable-λ) Beltrami papers** = **Kaiser** (*Force-free fields, nonconstant α*, CMP 211, 2000) + **Kravchenko** (*Beltrami fields, nonconstant proportionality factor*, J.Phys.A 36, 2003) | in the corpus (§ 3b) | the **variable-λ** case where the charge lives (`∇·w ≠ 0`); the target to generalize S&Y onto | ✅ both in `electron_beltrami/` (+ the Kravchenko & Oviedo *...on the plane* companion); the core of Q7 / M7.4 |
 | 14 | Ceperley, *Rotating Waves* (Fleury's ref [13]) | Am. J. Phys. **60**, 938 (1992); DOI 10.1119/1.17020 | the **phase-vortex / rotating-wave** formalism; **circularly-polarized EM at `m=1` = Fleury's torus** (Eq 15), spin `L_z=mU/ω` + QM bridge (`U/ω=ℏ`), spherical + radiating forms, **Bessel envelope** (= Fleury's § 5.2 fix) | ✅ [DOI 10.1119/1.17020](https://doi.org/10.1119/1.17020) (paywalled; local PDF gitignored) + note [`ceperley_rotating_waves.md`](../theory/ceperley_rotating_waves.md) |
 | 15 | Velazco & Ceperley, *Rotating Wave Fields for Microwave Applications* | IEEE Trans. MTT **41**(2), 330 (1993) | applications companion to #14: the **full cylindrical-cavity `E,H` field set** + the `ω_rot=ω/m` derivation | ✅ [DOI 10.1109/22.216476](https://doi.org/10.1109/22.216476) (paywalled; local PDF gitignored) |
+| 16 | Pisello, *Gravitation, Electromagnetism and Quantised Charge: The Einstein Insight* | book, Ann Arbor Science (1979), ISBN 9780250402861 | a **toroidal Hopf-knot** EM solution with **charge quantized ∝ the knot's homotopy class** (vs Rañada's helicity / zero charge); electrovacuum Lagrangian → **non-homogeneous (charged) equations á la Fleury-Dos Santos** , the **closest published precedent to the M7 charged toroidal knot** | ⚠️ out-of-print book; acquire used (the Manfried/Marc/Zitter circle has it) |
+| 17 | García López, *Massive wave solutions to the Einstein-Maxwell equations* | Zitter Institute / URJC (arXiv, ID TBC) | the **electrovacuum as a charged nonlinear optical medium**; mass + current from self-coupling + gravitational back-reaction; **Klein-Gordon from gauge-fixing** , the partner charge + KG mechanism (M7.6) | 🚧 fetch ([zitter-institute.org](https://www.zitter-institute.org/)) |
+| 18 | Pisello, *Nonlinear Classical Theory of Electromagnetism* | Int. J. Theor. Phys. **16**(11), 863-866 (1977) | the **original "donut electron"** , the primary paper behind #16, with the actual Lagrangian + **target space S²** | ✅ in `electron_beltrami/` |
+| 19 | Faber, *A geometric model in 3+1D space-time for electrodynamic phenomena* | arXiv:**2201.13262**; Universe **8**(2):73 (2022), [DOI 10.3390/universe8020073](https://doi.org/10.3390/universe8020073) | a spherically-symmetric **topological soliton = electron**: quantized charge, **mass = field energy**, spin; **target space S³** , the Faber model we already reproduce in M5.11 | ✅ in `electron_beltrami/` (open access) |
+| 20 | Faber & Golubich, *High-precision lattice determination of the SU(2) solitonic-dipole potential vs QED* | arXiv:**2604.12021** (2026) | the **precision Faber electron**: `E(d)=2m_ec²−α_sol ℏc/d`, `α_sol⁻¹=137.1`, QED running of `α(d)` via CG lattice minimization , the **M7.2 / M5.11 validation target** | ✅ in `electron_beltrami/` (also in M5 theory) |
 
 Note on #11: Marc shared the Sato-Yamada writeup directly (the Gemini share link is Google-auth
 gated and cannot be fetched headless). The paper + Marc's summary are now in `theory/`; the summary
@@ -178,7 +204,7 @@ note ties each result to a specific M7 piece.
 
 ### 3b. Marc's electron-Beltrami corpus (consolidated + complete , 2026-06-30)
 
-Marc sent his **complete consolidated library**: **48 PDFs** in
+Marc sent his **complete consolidated library**: **52 PDFs + 1 docx** in
 [`../theory/electron_beltrami/`](../theory/electron_beltrami/) (year-prefixed `YEAR - Author -
 Title.pdf`). This is the **source-of-record** , a superset of the original 20-source NotebookLM list
 ("HydroBoros: the Beltrami-OpenWave implementation") plus ~28 further papers. **All originals are now
@@ -425,11 +451,11 @@ inherits it wholesale; that is why M5 is the **third source** (§ 0), not merely
 
 | ID | Question | Status |
 | --- | --- | --- |
-| **Q1** | **Substrate field:** the Ouroboros doublet `(A_μ, J_μ)` read as Riemann-Silberstein (candidate B) vs single-field RS `F = E + icB` (candidate A); does Clebsch/`ψ` (D) enter only as a knot **seeder**? | 🔶 OPEN , narrowed to **B** by Marc's **A-primary** commitment (`A` fundamental, `F = dA`, charge derived); RS kept as a derived diagnostic; confirm at M7.1 |
+| **Q1** | **Substrate field:** the Ouroboros doublet `(A_μ, J_μ)` read as Riemann-Silberstein (candidate B) vs single-field RS `F = E + icB` (candidate A); does Clebsch/`ψ` (D) enter only as a knot **seeder**? what **target manifold** (Pisello S² vs Faber S³, § 0)? | 🔶 OPEN , narrowed to **B** by Marc's **A-primary** commitment (`A` fundamental, `F = dA`, charge derived); RS kept as a derived diagnostic; confirm at M7.1 |
 | **Q2** | Exact 4th-order stabilizer form: Faddeev-Niemi `\|F×(∇×F)\|²/\|F\|²` vs a Skyrme-Faddeev variant; coefficient `κ` scale | 🚧 OPEN , settle empirically at M7.1/M7.4 |
-| **Q3** | Are Fleury's divergence charge and Ouroboros's helicity/linking charge **forced equal**, or independent observables that must be reconciled? | 🚧 OPEN , the conceptual core of the blend |
+| **Q3** | Are Fleury's divergence charge and Ouroboros's helicity/linking charge **forced equal**, or independent observables that must be reconciled? | 🔶 OPEN , **Pisello's toroidal knot** (§ 0, #16) is a published precedent that **unifies** them (charge quantized ∝ homotopy class AND non-homogeneous / divergence); the conceptual core of the blend |
 | **Q4** | Beltrami / ABC source papers + further material from Marc | 🔶 PARTLY IN , Sato-Yamada landed (arXiv:1809.03136 + note in `theory/`, § 3 #11); more Marc material expected (#13) |
-| **Q5** | Does a **variable-λ (divergence-ful)** Beltrami field still admit clean, stable knots, or does non-zero `∇·F` destabilize the Hopfion? | 🚧 OPEN , M7.4 answers it (the research question) |
+| **Q5** | Does a **variable-λ (divergence-ful)** Beltrami field still admit clean, stable knots, or does non-zero `∇·F` destabilize the Hopfion? | 🔶 OPEN , **Pisello** answers YES in principle (a charged toroidal Hopf-knot exists, #16); M7.4 must reproduce it on the lattice |
 | **Q6** | The `f(J·J)` potential form for M7: keep M6's `(g/4) s²`, or a form better suited to the toroidal sector? | 🚧 OPEN , revisit at M7.3 |
 | **Q7** | The **charge-carrying ansatz**: start from exact Trkalian (constant-λ) solutions (S&Y) and **generalize to variable-λ** to introduce `∇·F` = charge; what is the right `λ(x)` profile + how does it evolve? | 🔶 OPEN , **approach endorsed by Marc** (2026-06-30, "the way to build it"); the specific `λ(x)` profile is the open part; the core of M7.4 |
 
@@ -456,7 +482,7 @@ inherits it wholesale; that is why M5 is the **third source** (§ 0), not merely
   [`../theory/sato_yamada_beltrami.md`](../theory/sato_yamada_beltrami.md) ([arXiv:1809.03136](https://arxiv.org/abs/1809.03136)) ·
   [`../theory/ceperley_rotating_waves.md`](../theory/ceperley_rotating_waves.md) (Ceperley rotating-wave equations; [AJP DOI 10.1119/1.17020](https://doi.org/10.1119/1.17020) / [IEEE DOI 10.1109/22.216476](https://doi.org/10.1109/22.216476)) ·
   [`../theory/feynman_maxwell_equations.md`](../theory/feynman_maxwell_equations.md) (Feynman Lectures II Ch 18, the Maxwell baseline for M7.2)
-- Source corpus (Marc's consolidated library, 48 PDFs): [`../theory/electron_beltrami/`](../theory/electron_beltrami/) (Beltrami / force-free / knotted-EM / ball-lightning / LENR canon, § 3b)
+- Source corpus (the consolidated library, 52 PDFs + 1 docx): [`../theory/electron_beltrami/`](../theory/electron_beltrami/) , manifest [`../theory/SOURCES.md`](../theory/SOURCES.md) (Beltrami / force-free / knotted-EM / ball-lightning / LENR / Pisello-Faber canon, § 3b)
 - Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/11a_vortex_loop.md) (M5.11 vortex-loop)
 - Wave-physics library to mine (§ 0, not parents): [`m1_granule_motion`](../../m1_granule_motion/) · [`m2_free_wave`](../../m2_free_wave/) · [`m3_wolff_lafreniere`](../../m3_wolff_lafreniere/) · [`m4_ewt`](../../m4_ewt/)
 - Ouroboros canonical spec: [`../../m6_ouroboros/research/0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) ·
