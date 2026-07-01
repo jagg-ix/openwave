@@ -57,10 +57,10 @@ particle, and say whether it uses topological vortices.* M5's answers:
 | --- | --- | --- |
 | Electron | biaxial hedgehog defect of `M`, winding `Q = -1`, with internal de Broglie clock | ✅ disclination hedgehog |
 | Positron | the `Q → -Q` reflected defect | ✅ |
-| Photon / EM wave | a twist-like wave, like the wake behind a marine propeller (at c) | ❌ (radiation, not a defect) |
 | Neutrinos | light, charge-0 loop of quark string; flavour = SO(3) spatial rotation | ✅ loop |
 | Quarks | fractional-charge segment of a 1D quark string (fraction-of-π rotation) | ✅ string |
 | Baryons / mesons | knots of quark strings (baryon = simplest knot; pion = twist / reconnection) | ✅ knot |
+| Photon / EM wave | a twist-like wave, like the wake behind a marine propeller (at c) | ❌ (radiation, not a defect) |
 
 The de Broglie clock is *derived*, not assumed: the Zitterbewegung frequency is the one
 that minimizes the field energy (M5.8), exactly the "preferred time derivative". Neutrino mixing (PMNS, δ_CP) falls out of the SO(3) flavour rotation, a
