@@ -33,8 +33,8 @@
 
 ## Field Configuration of Particles
 
-Duda's standing demand: *state the field configuration of each particle, and say whether it
-uses topological vortices.* M3's answers (all "no topology": it is a scalar field, so there
+Standing demand of any particle model: *state the field configuration of each particle, and
+say whether it uses topological vortices.* M3's answers (all "no topology": it is a scalar field, so there
 is no winding number, no vortex, unlike M5's defects or M7's toroidal knots):
 
 | Particle | Field configuration in M3 | Topological vortex? |

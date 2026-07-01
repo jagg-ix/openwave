@@ -36,6 +36,18 @@
 | Formal artifacts | every MODELS.md cell backed by a runnable script + note; negatives preserved (M5.2, M5.7) |
 | Next falsifier | g-factor ≈ 2 (order confirmed), the absolute-ω calibration chain, neutrino δ_CP = 180° (JUNO/DUNE) |
 
+## Decision-Relevant Attributes
+
+Model-level attributes to weigh the column: parameter economy, the formal artifacts that
+back the claims, and what would falsify the model next. (Held here for now; a consolidated
+cross-model version may return to `MODELS.md` later.)
+
+| Attribute | M5 |
+| --- | --- |
+| Free parameters | δ (quantum phase), g (gravity/time axis), plus 1-2 potential (LdG) coefficients; the boost dressing b enters the clock sector. Calibration handles: Faber r₀ (mass), Coulomb units<br>[`research/4c_convo_2026.06.08.md`](research/4c_convo_2026.06.08.md) |
+| Formal artifacts | Every claim backed by a runnable open script + research note; documented negatives (M5.2, the M5.7 nulls) preserved as results<br>[`research/99_summary_report.md`](research/99_summary_report.md) § Reproduction |
+| Falsifiable near-term tests | Unit-free g-factor ≈ 2 from the fixed-clock electron (**#219 ✅: right-order g ≈ 2, the box ladder [1.97, 2.22] brackets 2.0023**); the absolute-ω calibration chain (Coulomb units + LdG-to-rest-energy). **Calibration Phase A+B (2026-06-17, #208):** the scale-free unit map has two free dials (`c` emergent, `ℏ`=action unit); **α = \|b\|/(ℏc) ≈ 1/178** from the Coulomb coupling (right order vs 137.036, pure-topology un-tuned, c-cone factor pending); the clock runs **28.2× below** the electron ZBW under the energy anchor (structural, ω rigid vs energy). Faber's `E₀=α·ℏc·π/(4r₀)` contains α, so the clock is the lone independent absolute-frequency test. **Lever budget (#217, 2026-06-17):** V-on is **null** on frequency (V is rotation-invariant; the clock is a pure rotation, so `∂V/∂clock=0` exactly), the **faithful F-commutator kinetic** is the one real lever but bounded **×3.04**, leaving **~9-20×** = the missing length anchor. **Length anchor (#218, 2026-06-17):** anchoring on the Faber `r₀` (length) gives ω **~36× HIGH** (mirror of the energy route's 28× low); the two anchors **BRACKET the ZBW** and their **geometric mean reproduces it to ~13%** (c=2). The model's particle obeys `E·r₀ = α·(π/4)·ℏc` **exactly** (the classical-radius relation, `r₀ = α·(π/4)·ƛ_C` ~174× below the Compton wavelength). **So the gap is a calibration SPLIT, not an irreducible deficit**: the ZBW scale is recoverable by anchoring energy + length **jointly** (the `E·r₀=const` line), not the energy postulate alone; the geometric-mean law awaits a mass-family test (**#220**). **Neutrino sector (#199 ✅, 2026-06-18):** the SO(3) route's **δ_CP = 180°** is a sharp near-term falsifier: JUNO/DUNE settling δ_CP far from 180° kills the pure-SO(3) neutrino structure (currently CONSISTENT, NuFIT 6.0 best fit ~177°)<br>[`research/0b_M5_roadmap.md`](research/0b_M5_roadmap.md) § ELECTRON-ID, [`research/sandbox_vn/m5_8_2x_findings.md`](research/sandbox_vn/m5_8_2x_findings.md), [`research/sandbox_vn/m5_8_2y_findings.md`](research/sandbox_vn/m5_8_2y_findings.md), [`research/sandbox_vn/m5_8_2z_findings.md`](research/sandbox_vn/m5_8_2z_findings.md) |
+
 ## Field Configuration of Particles
 
 Standing demand of any particle model: *state the field configuration of each
