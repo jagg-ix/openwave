@@ -28,13 +28,14 @@
 | --- | --- | --- | --- | --- |
 | **Fleury** (hydrodynamics school), [arXiv:2510.22384](https://arxiv.org/abs/2510.22384) | EM field `E, B` confined to a torus | closed-form **analytic** ansatz + Heaviside mask | `ρ = ∇·E` (geometric / divergence charge) | physics parent; limit: mask unphysical at boundary, energy `0.795 m_e c²`, **no dynamics/PDE** |
 | **Werbos Ouroboros** (M6), [`0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) | **double vector field** `(A_μ, J_μ)` | **reduced 1D ODE / BVP** (cylindrical `(α,β)`; spherical `l=1`) | `Q_CS` = Chern-Simons **linking** number | physics parent; limit: never a full **3D** field, electron only a radial profile (`H/Q = 1.6969`) |
-| **M5** (Liquid Crystal, Duda) , the **method + rigor** source | 3×3 / 4×4 tensor field `M = ODO^T` | **full 3D Taichi-AD lattice + FIRE / L-BFGS minimizer** (M5.11) | topological winding (Gauss-Bonnet integer) | M7 borrows the **method + engine + workflow + physics primitives**, not the substrate |
 
 The honest gap the two physics parents share: **neither has ever been evolved as a full 3D nonlinear
 PDE on a lattice.** Fleury is analytic; M6 is a 1D radial reduction. That is exactly the gap M5.11
 closed for the tensor model (Taichi-AD lattice + FIRE / L-BFGS minimizer, reproduce Faber's electron
 from the relaxed 3D field). **M7's contribution is to build the rigorous 3D PDE simulation neither
 parent did**, with the toroidal vortex as the soliton sector.
+
+**M5 as a reference** (Liquid Crystal, Duda) , the **method + rigor** source | 3×3 / 4×4 tensor field `M = ODO^T` | **full 3D Taichi-AD lattice + FIRE / L-BFGS minimizer** (M5.11) | topological winding (Gauss-Bonnet integer) | M7 borrows the **method + engine + workflow + physics primitives**, not the substrate
 
 **M5 is the third source , for its proven method, not its substrate.** M7 is built on OpenWave's
 M5-validated lattice + energy-minimizer and inherits M5's physics primitives (the **4th-order term
@@ -321,13 +322,12 @@ column exists in MODELS.md.** Note: **Coulomb rides with the electron**, not as 
 once the divergence charge `∇·F` exists (M7.4), its `1/r` field is immediate (Gauss's law), and the
 two-body `E(d) ~ 1/d` is confirmed at M7.6, exactly as M5 got Coulomb in its first `m5_1` milestone.
 
-**Duda's prescription (Jarek Duda, 2026-06-29 models-of-particles thread; Ouroboros #247).** Duda's
-standing demand of any particle-model framework: *specify the field configuration of each particle*
+**Prescription (Jarek Duda, 2026-06-29 models-of-particles thread; Ouroboros #247).** Standing demand of any particle-model framework: *specify the field configuration of each particle*
 (electron, neutrino, photon, mesons, baryons), and *does it use topological vortices?* HydroBoros
 answers head-on , the electron's field configuration **is** the self-linked toroidal Beltrami vortex
 (§ 0), a topological vortex. His two concrete tests map onto the plan exactly:
 
-| Duda's test | What it prescribes | M7 phase |
+| Test | What it prescribes | M7 phase |
 | --- | --- | --- |
 | **Coulomb** | assume **two** charge field-configurations, read the `1/r` interaction energy `E(d)` | M7.4 (single-charge `1/r`) + M7.6 (two-charge `E(d)~1/d`), the M5 `m5_1` way |
 | **the clock** | the de Broglie frequency is the one that **minimizes the energy** | M7.5 (clock + stability), = the M5.8 energy-minimizing-clock mechanism |

@@ -108,11 +108,13 @@ The coverage matrix scores phenomena; this companion table scores the model-leve
 
 ## Per-model results of record
 
-| Model | Deep dive |
-| --- | --- |
-| Liquid Crystal (M5) | [`99_summary_report.md`](openwave/xperiments/m5_liquid_crystal/research/99_summary_report.md): the results-of-record; [`0b_M5_roadmap.md`](openwave/xperiments/m5_liquid_crystal/research/0b_M5_roadmap.md): full program; [`0b_question_tracker.md`](openwave/xperiments/m5_liquid_crystal/research/0b_question_tracker.md): emergence catalog + open questions |
-| Ouroboros (M6) | [`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/0d_canonical.md): canonical numerical specification |
-| EWT (M4) | [`0_STATUS.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_STATUS.md): targets, achieved, honest blockers |
+| Model | Briefing | Deep dive |
+| --- | --- | --- |
+| Liquid Crystal (M5) | [`__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [`99_summary_report.md`](openwave/xperiments/m5_liquid_crystal/research/99_summary_report.md): the results-of-record; [`0b_M5_roadmap.md`](openwave/xperiments/m5_liquid_crystal/research/0b_M5_roadmap.md): full program; [`0b_question_tracker.md`](openwave/xperiments/m5_liquid_crystal/research/0b_question_tracker.md): emergence catalog + open questions |
+| Ouroboros (M6) | [`__M6_model_briefing.md`](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/0d_canonical.md): canonical numerical specification |
+| EWT (M4) | [`__M4_model_briefing.md`](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [`0_STATUS.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_STATUS.md): targets, achieved, honest blockers |
+
+The one-page model briefings summarize what each model brings (identity, profile, per-particle field configurations, status, roadmap, contribution invite). Beyond the three scored columns above: [`M3 Wolff-LaFreniere`](openwave/xperiments/m3_wolff_lafreniere/__M3_model_briefing.md) (the scalar engine behind the EWT record), [`M7 HydroBoros`](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md) (pre-implementation), and the wave-physics library [`M1 Granule Motion`](openwave/xperiments/m1_granule_motion/__M1_model_briefing.md) + [`M2 Free Wave`](openwave/xperiments/m2_free_wave/__M2_model_briefing.md).
 
 ## Contributing a model or a validation
 

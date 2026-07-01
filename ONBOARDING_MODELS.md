@@ -126,6 +126,7 @@ You do not need to fork or write code to *start*. The lowest-friction on-ramp is
 | Piece | What it is | Where it lives |
 | --- | --- | --- |
 | Model directory | A new home for your framework. | `openwave/xperiments/<your-model>/` with a `research/` subfolder |
+| Model briefing | A one-page front door: identity, profile, per-particle field configs, status, roadmap, invite (Section 3.1). | `openwave/xperiments/<your-model>/__<MID>_model_briefing.md` |
 | Column in the table | Your framework as a new column scored against the shared rows. | [`MODELS.md`](MODELS.md) coverage matrix |
 | Per-cell status | One of the legend icons per criterion. | each table cell |
 | Backing per claim | A runnable script **or** a short research note documenting pass/fail. | under your model directory |
@@ -143,6 +144,23 @@ Status legend (same as the table):
 A good first PR adds the column plus a model directory with one or two cells actually backed (a runnable script + a note), and the rest marked 🚧 honestly. Finite-difference / first-pass now, fuller validation later, is fine and expected.
 
 A maintainer reviews with a **light PR review** focused on two things only: (1) a runnable script that reproduces the claim, and (2) a research note documenting pass/fail honestly. It is not ideological gatekeeping.
+
+### 3.1 The model briefing (a self-test and the column's front door)
+
+Every model directory carries a one-page briefing, `__<MID>_model_briefing.md` (e.g. `__M5_model_briefing.md`), that summarizes what the model brings. Write yours early. It is the front door a reader, a maintainer, or the Models-of-Particles group hits first, and drafting it honestly is itself a **self-test**: it forces the same statements Sections 1, 4 and 5 ask for, in a form anyone can scan in a minute.
+
+Use [`m5_liquid_crystal/__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) as the worked template. Its six sections and the self-test each one enforces:
+
+| Section | What it states | Self-test it enforces |
+| --- | --- | --- |
+| Identity | ID, name, author, lineage, primary sources, in-repo files | provenance is explicit and citable |
+| Model Profile | short-form rows: substrate, particle, charge, Derrick escape, clock, EM, gravity, free parameters, lab anchor, next falsifier | the honest ledger (§1.2) + a falsifier (§1.4) at a glance |
+| Field Configuration of Particles | per-particle field config + "topological vortex?"; whether the clock is derived or assumed | you can actually specify each particle, not just name it |
+| Implementation Status | per-sector ✅ / ⚠️ / ❌ / 🚧 against the shared criteria + deep-dive links | honest status, negatives included (§5.1) |
+| Roadmap | what lands next, with issue numbers | the open work is named, not hidden |
+| Help Wanted | how others can contribute a validation, a falsifier, or a rival config | the column stays open |
+
+A new column's briefing may be mostly 🚧 at first, that is expected. The point is that it exists, is honest, and reads as a scannable one-pager. It does not replace the deeper docs (roadmap, question tracker, summary report); it is the index to them.
 
 ---
 
@@ -220,6 +238,7 @@ A practical pattern: run the reproducer and the independent recomputer first (do
 | Doc | For |
 | --- | --- |
 | [`MODELS.md`](MODELS.md) | The comparison table, the shared criteria, the validation legend |
+| [`m5_liquid_crystal/__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | The model-briefing template (Section 3.1), a worked one-pager to copy |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Canonical setup, fork/branch/PR flow, DCO sign-off |
 | [`SYS_ARCH.md`](SYS_ARCH.md) | Repository structure and tech stack |
 | [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | Community expectations |

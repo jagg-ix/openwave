@@ -159,10 +159,6 @@ To launch the Xperiments Selector Menu:
 - **GRANULE-MOTION Model** provides particle-based visualizations for intuitive understanding
 - Both are computational frameworks for testing model predictions against experimental data
 
-## OPENWAVE MODELS
-
-![models](images/models.png)
-
 ## Getting Help and Contributing
 
 - See the main [README](README.md) for contribution guidelines
