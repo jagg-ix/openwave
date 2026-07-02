@@ -427,7 +427,7 @@ phases feed their observables into the renderer as they land, identical to how M
 
 ---
 
-## 9. Method & workflow (inherited from M5)
+## 9. Method & Workflow
 
 M7 runs the same development workflow that took M5 to 16 validated MODELS.md cells. Each element has
 an M5 precedent and a concrete M7 instance:
