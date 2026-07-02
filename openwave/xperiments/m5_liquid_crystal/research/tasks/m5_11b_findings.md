@@ -4,9 +4,9 @@
 > the AD + chiral + Frank machinery ✅ validated, P2 (the stable neutrino loop) is the open frontier ,
 > 5 clean experiments map it onto a 2×2 whose one un-filled cell is a forced-singular knotted/linked
 > disclination line (§ "P2 SINGULAR HOPFION (run 5)" + the 2×2 map). **Resume guide + the 3-way fork:**
-> [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md § "PARKED , pick up here").
-> Plan + physics: [`m5.11a_vortex_loop.md`](m5.11a_vortex_loop.md). This document mirrors the
-> [`10e`](m5.10e_findings_N4c.md) structure (headline, phases, tables, figures, caveats, artifacts) and is the
+> [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md).
+> Plan + physics: [`m5_11a_vortex_loop.md`](m5_11a_vortex_loop.md). This document mirrors the
+> [`10e`](m5_10e_findings_N4c.md) structure (headline, phases, tables, figures, caveats, artifacts) and is the
 > canonical record of the simulation that answers Duda's 2026-06-22 critique. Code: `sandbox_v11/`.
 
 ## 0. Headline
@@ -123,7 +123,7 @@ Built a closed `+1/2` disclination ring seeder in the M5 tensor field (director 
 | N=28, R0=7 | 7 → 8 vox | 9.78 → 0.65 (**6.6%**) | dissolved |
 | N=40, R0=12 | 12 → 14 vox | 12.64 → 0.67 (**5.3%**) | dissolved |
 
-The plain uniaxial disclination ring **combs out** , its curvature energy relaxes to ~0 and the texture smooths to near-uniform. This is physically correct (a plain `+1/2` disclination ring is not topologically protected; it can shrink/smooth and annihilate) and is exactly the fork [`11a § 6`](m5.11a_vortex_loop.md) anticipated: _"a stable vortex LOOP may need the chiral/knot structure ... we build the plain loop first, then add chirality/linking if it collapses."_
+The plain uniaxial disclination ring **combs out** , its curvature energy relaxes to ~0 and the texture smooths to near-uniform. This is physically correct (a plain `+1/2` disclination ring is not topologically protected; it can shrink/smooth and annihilate) and is exactly the fork [`11a § 6`](m5_11a_vortex_loop.md) anticipated: _"a stable vortex LOOP may need the chiral/knot structure ... we build the plain loop first, then add chirality/linking if it collapses."_
 
 **FORK flagged, not crossed (guardrail).** The stabilizing structure is Duda's own neutrino specification , the **chiral nematic vortex knot** (his Abrikosov / Smalyukh "fusion and fission of chiral nematic vortex knots" slides), protected by chirality + linking/Hopf number. Building that seeder (and choosing plain-disclination-loop vs a specific knot/linking) is the reserved competence-showing question for Duda, and a substantial open construction , so it is held for an attended run rather than guessed unattended. The validated P0 minimizer + 3D `Γ/R` machinery are ready for it.
 
@@ -298,7 +298,7 @@ No raw data files > 1 MB were written (all outputs are small JSON + PNGs).
 
 ## Cross-refs
 
-[`m5.11a_vortex_loop.md`](m5.11a_vortex_loop.md) (plan) · [`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md) (the
+[`m5_11a_vortex_loop.md`](m5_11a_vortex_loop.md) (plan) · [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md) (the
 symmetry/overlap result this makes dynamical) · [`sandbox_v8`](../scripts)/[`sandbox_vn`](../scripts) (the
 M5.8 clock-breather machinery) · [#199](https://github.com/openwave-labs/openwave/issues/199) ·
 [#236](https://github.com/openwave-labs/openwave/issues/236) (HELD).

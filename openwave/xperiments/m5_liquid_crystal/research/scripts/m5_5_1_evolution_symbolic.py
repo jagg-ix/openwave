@@ -2,7 +2,7 @@
 M5.5.1 — sympy mirror of Duda's Fig.9 derivation (headless)
 
 Reproduces the symbolic foundation of the Eq.18 evolution equation and validates
-it against Duda's stated results (m5.5a_lagrangian_evolution.md §5, §7). Three stages,
+it against Duda's stated results (m5_5a_lagrangian_evolution.md §5, §7). Three stages,
 each independently meaningful:
 
   A. OPERATOR IDENTITY (Eq.20 Maurer–Cartan) — generic symbolic matrices:

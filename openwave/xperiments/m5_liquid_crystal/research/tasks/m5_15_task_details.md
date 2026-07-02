@@ -10,4 +10,4 @@ This doc is the task's full record: planning + findings + future planning + docu
 
 composites — its own research file (§5)
 
-- **[15a — Composite Particles](m5.15a_composite_particles.md)** — hopfions, knots → nuclei, atomic orbitals. Test program 15a.1 → 15a.5 (Liu et al. 2026 lab anchor). Pursued if foundations succeed and resources permit.
+- **[15a — Composite Particles](m5_15a_composite_particles.md)** — hopfions, knots → nuclei, atomic orbitals. Test program 15a.1 → 15a.5 (Liu et al. 2026 lab anchor). Pursued if foundations succeed and resources permit.

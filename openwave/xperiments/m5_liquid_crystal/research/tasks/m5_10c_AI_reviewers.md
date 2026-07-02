@@ -1,7 +1,7 @@
 # AI peer-review of the neutrino findings , two cold reads (verbatim archive)
 
 > **LOCAL / HELD.** Verbatim record of two independent AI peer reviews of
-> [`m5.10b_findings_N4b.md`](m5.10b_findings_N4b.md) (the consolidated N0-N4b record), OpenWave issue
+> [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md) (the consolidated N0-N4b record), OpenWave issue
 > [#236](https://github.com/openwave-labs/openwave/issues/236). Both reviewers were given **only the findings
 > document**, with **no context** on the M5 substrate, the OpenWave engine, the precursor SO(3)/TBM result
 > [#199](https://github.com/openwave-labs/openwave/issues/199), the effective-Dirac Lagrangian
@@ -10,8 +10,8 @@
 > document alone?
 >
 > The triage of these reviews (what to implement vs what is a context gap) and the response plan are in
-> [`m5.10d_bullet_proof_run.md`](m5.10d_bullet_proof_run.md); the executed response + adjusted findings are in
-> [`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md).
+> [`m5_10d_bullet_proof_run.md`](m5_10d_bullet_proof_run.md); the executed response + adjusted findings are in
+> [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md).
 
 This doc is the raw input. It records the two reviews exactly as received so the response (10d/10e) can be
 checked against the source. Both converged, independently, on the same central point (the mu-tau symmetry is an
@@ -573,7 +573,7 @@ As a result, the work is presently best viewed as an interesting phenomenologica
 
 ## Cross-refs
 
-Findings under review: [`m5.10b_findings_N4b.md`](m5.10b_findings_N4b.md) · Triage + response plan:
-[`m5.10d_bullet_proof_run.md`](m5.10d_bullet_proof_run.md) · Executed response + adjusted findings:
-[`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md) · Master plan: [`m5.10a_neutrino_oscillations.md`](m5.10a_neutrino_oscillations.md) ·
+Findings under review: [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md) · Triage + response plan:
+[`m5_10d_bullet_proof_run.md`](m5_10d_bullet_proof_run.md) · Executed response + adjusted findings:
+[`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md) · Master plan: [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md) ·
 Issue [#236](https://github.com/openwave-labs/openwave/issues/236) (HELD).

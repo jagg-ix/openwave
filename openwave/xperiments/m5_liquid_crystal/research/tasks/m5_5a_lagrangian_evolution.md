@@ -6,7 +6,7 @@
 
 **Source:** Duda, *Framework for liquid crystal based particle models* (arxiv:2108.07896 v7), §II–IV + Fig.9 (math reading **confirmed by Rodrigo 2026-05-26**); Faber & Golubich, *Universe* 11/2025/113 (regularization, §5c).
 
-**Sister docs:** [m5.4a_convo_2026.05.12.md](m5.4a_convo_2026.05.12.md) (paper digest, eigenvalue map), [m5_roadmap.md § M5.5–M5.6](../m5_roadmap.md), [m5.1a_lagrangian_framework.md](m5.1a_lagrangian_framework.md), [[reference_faber_regularization]].
+**Sister docs:** [m5_4a_convo_2026.05.12.md](m5_4a_convo_2026.05.12.md) (paper digest, eigenvalue map), [m5_roadmap.md § M5.5–M5.6](../m5_roadmap.md), [m5_1a_lagrangian_framework.md](m5_1a_lagrangian_framework.md), [[reference_faber_regularization]].
 
 ---
 
@@ -36,7 +36,7 @@ This is the core reason we prototype in sympy/numpy before Taichi.
 `F_{μ0}` (time index) are the "electric" curvatures `E_i`; `F_{μν}` (spatial) are the
 "magnetic" curvatures `B_i`. In the rotation-generator basis the curvatures are 3-vectors
 `R = F*` (dual tensor), split by energy scale into `B^1/E^1` (high-energy EM tilts),
-`B^2/E^2`, `B^3/E^3` (low-energy QM twist) — see [4a §8](m5.4a_convo_2026.05.12.md).
+`B^2/E^2`, `B^3/E^3` (low-energy QM twist) — see [4a §8](m5_4a_convo_2026.05.12.md).
 
 ## 3. Potential `V(M)` (Eq.12 → Eq.13) — the Q7-open part, simple→graduate
 

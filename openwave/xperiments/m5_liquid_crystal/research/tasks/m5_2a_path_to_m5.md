@@ -6,8 +6,8 @@ Implementation plan for **M5 / LIQUID-CRYSTAL MODEL** (directory `openwave/xperi
 
 **Spec inputs**:
 
-- [m5.1a_lagrangian_framework.md](m5.1a_lagrangian_framework.md) — Lagrangian framework evaluation, 8 experiments, Duda/Close context
-- [m5.1c_lagrangian_experiments.md](m5.1c_lagrangian_experiments.md) — sandbox numerical results (experiment-by-experiment)
+- [m5_1a_lagrangian_framework.md](m5_1a_lagrangian_framework.md) — Lagrangian framework evaluation, 8 experiments, Duda/Close context
+- [m5_1c_lagrangian_experiments.md](m5_1c_lagrangian_experiments.md) — sandbox numerical results (experiment-by-experiment)
 - [0_WAVE_EQUATION.md](../../../m3_wolff_lafreniere/research/0_WAVE_EQUATION.md) — the M2/M3 vs Lagrangian comparison and why the equation is the *consequence*, not the goal
 
 **Production code references**:
@@ -94,7 +94,7 @@ The specific `V(ψ)` is selected from sandbox results:
 | Landau-de Gennes | `V(M) = a·Tr(M²) − b·Tr(M³) + c·(Tr M²)²` | ⚠️ mechanism validated (Exp 6); specific parameters deferred to M5.6 |
 | Close's elastic solid | Eq. 19 `∂²Q = −c²·∇×∇×Q` (linear limit) + **Eq. 23** (particle equation, preserves `∇·s = 0`, Close's recommendation 2026-04-18) — optional Eq. 21 nonlinear terms `−u·∇s + w×s` for comparison | ✅ Eq. 19 validated (Exp 7 v2); Eq. 23 selected per Close's explicit guidance — **M5's base wave dynamics layer** |
 | Klein-Gordon mass term | `V(ψ) = ½m²·ψ²` → `∂V/∂ψ = m²·ψ` | ✅ validated (Exp 4) — **selected as M5's perturbation-mass mechanism** |
-| Mixed / composite | linear combination (topology seeding + Close dynamics + KG mass + optional Skyrme) | **adopted** — full recipe in [3a § Winning Approach](m5.1c_lagrangian_experiments.md#winning-approach-for-m5) |
+| Mixed / composite | linear combination (topology seeding + Close dynamics + KG mass + optional Skyrme) | **adopted** — full recipe in [3a § Winning Approach](m5_1c_lagrangian_experiments.md#winning-approach-for-m5) |
 
 ### 2. True independent vector components (no radial constraint)
 
@@ -167,7 +167,7 @@ Duda's vacuum is **not** the same as M2's base wave. The distinction:
 | Time dependence | Built in (ω·t) | None — oscillations arise from the dynamics, not the ground state |
 | Mathematical role | Initial condition + driving term | Minimum of V(ψ) — the potential well |
 
-So M5's vacuum is **more fundamental** than M2's base wave: it explains *why* fields oscillate (defects oscillate because they have mass and interact with V(ψ)) rather than assuming the universe comes pre-oscillating. See [m5.1a_lagrangian_framework.md § Impact on Base Wave Architecture](m5.1a_lagrangian_framework.md#impact-on-base-wave-architecture--m2-vs-m3-philosophy) for the full comparison and how this resolves Duda's time-crystal insight.
+So M5's vacuum is **more fundamental** than M2's base wave: it explains *why* fields oscillate (defects oscillate because they have mass and interact with V(ψ)) rather than assuming the universe comes pre-oscillating. See [m5_1a_lagrangian_framework.md § Impact on Base Wave Architecture](m5_1a_lagrangian_framework.md#impact-on-base-wave-architecture--m2-vs-m3-philosophy) for the full comparison and how this resolves Duda's time-crystal insight.
 
 ### Concrete Consequence for M5 `seed_*` Kernels
 
@@ -185,7 +185,7 @@ This mirrors how the sandbox experiments seed their fields (a hedgehog is "unifo
 
 ### Why This Does NOT Invalidate M3's Results
 
-M3's lock-in, annihilation, and K=10 stability are real near-field wave physics — they happen regardless of whether the far field is modeled as vacuum or void. What M3 cannot do, because of its "no background" philosophy, is measure topological charge or produce far-field Coulomb without sinc barriers. M5 keeps M3's near-field physics as validated phenomena and adds the background-vacuum architecture where it matters (topology, charge quantization, far-field interactions). Cf. [m5.1a_lagrangian_framework.md § Practical Implication](m5.1a_lagrangian_framework.md).
+M3's lock-in, annihilation, and K=10 stability are real near-field wave physics — they happen regardless of whether the far field is modeled as vacuum or void. What M3 cannot do, because of its "no background" philosophy, is measure topological charge or produce far-field Coulomb without sinc barriers. M5 keeps M3's near-field physics as validated phenomena and adds the background-vacuum architecture where it matters (topology, charge quantization, far-field interactions). Cf. [m5_1a_lagrangian_framework.md § Practical Implication](m5_1a_lagrangian_framework.md).
 
 ---
 
@@ -233,7 +233,7 @@ M5 sandbox is complete (2026-04-16 / 2026-04-17). The architectural decisions fo
 | Does the PDE evolution produce Klein-Gordon dispersion? | ✅ **Yes** — ω² = c²k² + m² validated to R² = 0.999982 across 9 modes | Exp 4 |
 | Is leapfrog + nonlinear potential stable with Lorentz-correct kinematics? | ✅ **Yes** — kink v = 0.4997c (input 0.9c), width L/γ matched, energy drift 1.5e-6 | Exp 1 |
 
-**Headline finding**: topology (Exps 1, 2, 3) is load-bearing; pure nonlinearity (Exps 7, 8) is insufficient on its own; Klein-Gordon wave dynamics (Exp 4) are the correct perturbative layer. Full context in [m5.1c_lagrangian_experiments.md § OVERALL CONCLUSIONS](m5.1c_lagrangian_experiments.md#overall-conclusions).
+**Headline finding**: topology (Exps 1, 2, 3) is load-bearing; pure nonlinearity (Exps 7, 8) is insufficient on its own; Klein-Gordon wave dynamics (Exp 4) are the correct perturbative layer. Full context in [m5_1c_lagrangian_experiments.md § OVERALL CONCLUSIONS](m5_1c_lagrangian_experiments.md#overall-conclusions).
 
 ---
 
@@ -326,7 +326,7 @@ In one sentence: **M5 doesn't simulate the EWT vacuum's oscillations — there a
 
 The M4 Max is excellent for M5.0–M5.4 (uniform grid, electron-scale runs). The 12–24 hour electron headline run is borderline (long jobs at high GPU utilization risk thermal events; ties up the dev machine for a day). **A laptop is not the right tool for multi-day production runs.**
 
-Per the existing analysis in [`dev_docs/distributed_computing/m4_max_vs_aws.md`](../dev_docs/distributed_computing/m4_max_vs_aws.md) and [`system_upgrade_options.md`](../dev_docs/distributed_computing/system_upgrade_options.md), key constraints:
+Per the existing analysis in [`dev_docs/distributed_computing/m4_max_vs_aws.md`](../../../../../dev_docs/distributed_computing/m4_max_vs_aws.md) and [`system_upgrade_options.md`](../../../../../dev_docs/distributed_computing/system_upgrade_options.md), key constraints:
 
 - **Taichi is single-GPU bound**. Multi-GPU AWS instances (`p3.8xlarge`, `p4d.24xlarge`) only use 1 of N GPUs without an MPI / domain-decomposition rewrite (~2–3 months engineering)
 - **Single-GPU AWS instances are barely faster than M4 Max** — V100 is ~1.16× M4 Max FP32 at $3.06/hr; A10G is ~2.3× at $1.01/hr. None are step-change improvements
@@ -370,7 +370,7 @@ When a phase requires cloud compute, the playbook is:
 
 ---
 
-> **Per-phase task lists migrated to [`0c_roadmap.md`](0c_roadmap.md) § DETAILED**. This document keeps design rationale, M2/M4 inheritance, code mapping, resolution & performance plan, layered validation, external-comms milestones, and group feedback.
+> **Per-phase task lists migrated to [`0c_roadmap.md`](../m5_roadmap.md) § DETAILED**. This document keeps design rationale, M2/M4 inheritance, code mapping, resolution & performance plan, layered validation, external-comms milestones, and group feedback.
 
 ### What M5 does NOT implement
 
@@ -432,7 +432,7 @@ For the conceptual companion to this roadmap, see [m5_background.md § Where do 
 
 ### Long-term research directions — phase, Berry, and entanglement experiments
 
-A separate research direction prompted by the 2026-04 Models of Particles thread on the Orion–Akkermans paper *"Topological sum rule for geometric phases of quantum gates"* (arxiv:2603.29795). The paper's headline corollary is that nontrivial Hamiltonian topology (`ν_H ≠ 0`) is a **necessary condition for quantum entanglement** — and M5's defect framework satisfies it by construction (every defect has nonzero winding). This opens up a class of experiments that test whether M5's twist degree of freedom (see [m5.1b_topological_defect.md § The twist degree of freedom](m5.1b_topological_defect.md#the-twist-degree-of-freedom--quantum-phase-as-a-derived-field-state)) reproduces the geometric-phase / entanglement structure of standard QM.
+A separate research direction prompted by the 2026-04 Models of Particles thread on the Orion–Akkermans paper *"Topological sum rule for geometric phases of quantum gates"* (arxiv:2603.29795). The paper's headline corollary is that nontrivial Hamiltonian topology (`ν_H ≠ 0`) is a **necessary condition for quantum entanglement** — and M5's defect framework satisfies it by construction (every defect has nonzero winding). This opens up a class of experiments that test whether M5's twist degree of freedom (see [m5_1b_topological_defect.md § The twist degree of freedom](m5_1b_topological_defect.md#the-twist-degree-of-freedom--quantum-phase-as-a-derived-field-state)) reproduces the geometric-phase / entanglement structure of standard QM.
 
 These are exploratory targets, not committed milestones. They naturally slot in after M5.7 (resonance hunt) provides the validated metastable-defect substrate and M5.9 (Cornell quark strings) provides validated string-defect dynamics. Prioritized below composites (15a).
 
@@ -501,7 +501,7 @@ Phase 4 (EM / magnetic emergence) is not yet detail-scoped at the per-experiment
 
 | Phase 4 goal | What it validates | Why it matters |
 | --- | --- | --- |
-| **L+T decomposition of defect-emitted wave as separable observables** | The defect's outgoing wave carries longitudinal (electric / scalar) AND transverse (magnetic) components, measurable independently and controllable independently | Already implicit in [m5.1b_topological_defect.md § Outgoing-wave L+T decomposition](m5.1b_topological_defect.md). Phase 4 elevates from "stated" to "numerically verified". Required for any method that targets L vs T independently |
+| **L+T decomposition of defect-emitted wave as separable observables** | The defect's outgoing wave carries longitudinal (electric / scalar) AND transverse (magnetic) components, measurable independently and controllable independently | Already implicit in [m5_1b_topological_defect.md § Outgoing-wave L+T decomposition](m5_1b_topological_defect.md). Phase 4 elevates from "stated" to "numerically verified". Required for any method that targets L vs T independently |
 | **Polarization-selective response in dielectric / ferromagnetic / metasurface analogs** | A simulated material with anisotropic structure exhibits selective transmission / reflection of L vs T components of the defect-emitted wave | Validates that the L+T decomposition is physically actionable — the components can be filtered, rotated, mode-converted by structures analogous to optical polarizers. Without this validation, "manipulate L and T separately" is a hopeful claim |
 | **Frequency-downshift inertial-response test** | Apply a heterodyne / low-pass / mixing operation on the high-ω T-component of a single defect's outgoing wave; measure whether the downshifted-effective-frequency variable mag field exerts measurable force on a test charged particle (electron analog) | Tests the underlying physics. The "averaged-out at high ω" intuition is correct; whether a downshift operation defeats that averaging is the falsifiable open question. Pass = downshift principle works; fail = the averaging is not recoverable, magnetism stays inertially invisible at all frequencies |
 | **Maxwell from director-field curl** (already implied) | Standard Maxwell equations emerge from the LdG director field's curl + boost-axis dynamics in the appropriate continuum limit | Existence proof that the M5 framework reproduces conventional EM at the macroscopic limit; required for credibility with the broader physics community |
@@ -512,13 +512,13 @@ This document is OpenWave's M5 roadmap and stops at the physics.
 
 ## STATUS
 
-Current M5 phase status (✅ / 🔶 / [ ]) lives in [`0c_roadmap.md`](0c_roadmap.md) § SUMMARY. See [`0c_roadmap.md`](0c_roadmap.md) § DETAILED for per-phase task lists. Architecture analysis (this document) covers everything *around* the linear roadmap: design rationale, inheritance, performance, validation, comms.
+Current M5 phase status (✅ / 🔶 / [ ]) lives in [`0c_roadmap.md`](../m5_roadmap.md) § SUMMARY. See [`0c_roadmap.md`](../m5_roadmap.md) § DETAILED for per-phase task lists. Architecture analysis (this document) covers everything *around* the linear roadmap: design rationale, inheritance, performance, validation, comms.
 
 ---
 
 ## EXTERNAL-COMMS MILESTONES — TRIGGER GATES FOR MODELS-OF-PARTICLES UPDATES
 
-Strategic decision 2026-05-11: M5.1 Coulomb result (R²=0.978 + visual EM-field-line geometry, documented in [`m5.3a_coulomb_visual_geometry.md`](m5.3a_coulomb_visual_geometry.md)) is correct but **not yet ready for an external update to the Models-of-Particles group**. Reasons for holding:
+Strategic decision 2026-05-11: M5.1 Coulomb result (R²=0.978 + visual EM-field-line geometry, documented in [`m5_3a_coulomb_visual_geometry.md`](m5_3a_coulomb_visual_geometry.md)) is correct but **not yet ready for an external update to the Models-of-Particles group**. Reasons for holding:
 
 | Concern | Why it's not email-ready |
 | --- | --- |
@@ -552,7 +552,7 @@ Recommended first send: **M5.2 + defect survives EVOLVE PSI** (the lowest bar th
 
 ## GROUP FEEDBACK (2026-04-17/18) — REFINEMENTS TO M5 PLAN
 
-Replies from Jarek Duda, Jeff Yee, and Robert Close to the Apr 17 sandbox-summary email produced four targeted refinements to the M5 plan. Full email thread in [m5.1a_lagrangian_framework.md § EMAIL THREAD](m5.1a_lagrangian_framework.md#email-thread).
+Replies from Jarek Duda, Jeff Yee, and Robert Close to the Apr 17 sandbox-summary email produced four targeted refinements to the M5 plan. Full email thread in [m5_1a_lagrangian_framework.md § EMAIL THREAD](m5_1a_lagrangian_framework.md#email-thread).
 
 ### Refinement 1 — Use Close's Eq. 23 as the particle equation (Robert Close)
 

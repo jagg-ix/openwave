@@ -4,7 +4,7 @@
 > *Numerical experiments — same spirit as OpenWave xperiments: controlled investigations of physics hypotheses through simulation. OpenWave is built as a shared experimental platform where wave-based and topological models can be tested, compared, and built upon by others.*
 
 Numerical results from the 8 Lagrangian framework experiments in `sandbox_phase3_lagrangian/`.
-See [m5.1a_lagrangian_framework.md](m5.1a_lagrangian_framework.md) for experiment specifications.
+See [m5_1a_lagrangian_framework.md](m5_1a_lagrangian_framework.md) for experiment specifications.
 
 ---
 
@@ -515,7 +515,7 @@ OpenWave's empirically-selected Combined Wolff-LaFreniere wave equation `ψ = 2A
 
 The second term `A·sin(ωt+φ)/r` has no radial wave structure (no `k` in the sine argument). Its Laplacian is `∇²(A·sin(ωt+φ)/r) = 0` everywhere except at the origin. Its time derivative is `−ω²·A·sin(ωt+φ)/r`. Their difference is `−c²k²·A·sin(ωt+φ)/r ≠ 0`, which is what sympy reports.
 
-Equivalently, this is the "Phase + Quadrature" decomposition from [2L3_particle_emergence.md](2L3_particle_emergence.md):
+Equivalently, this is the "Phase + Quadrature" decomposition from [2L3_particle_emergence.md](../../../m3_wolff_lafreniere/research/2L3_particle_emergence.md):
 
 ```text
 Phase     C_n = A·sin(kr)/r          is a free-wave solution
@@ -585,7 +585,7 @@ The Quadrature part would emerge naturally if the Lagrangian included a **source
 
 ### 5.7 Next Steps
 
-- **Update `m5.1a_lagrangian_framework.md` line ~418** to correct the "Combined W-L IS an exact solution" claim — **done** (incorporated finding)
+- **Update `m5_1a_lagrangian_framework.md` line ~418** to correct the "Combined W-L IS an exact solution" claim — **done** (incorporated finding)
 - **Use the sum form, not the product form, when referring to M4's wave equation in any future documentation** — the product form may be a computational shortcut but misrepresents the physics
 - **Open question for Exp 8**: if we use Smolinski's nonlinear Ψ³ term as the potential in an M5 simulation, can we recover a spatial pattern that looks like the Combined W-L product form? I.e., is the product form the *static nonlinear solution* of Smolinski's equation? Worth testing
 - **Continue to Experiment 8** (Smolinski Ψ³ K-selectivity — recommended next) now that its Lagrangian validity is confirmed
@@ -816,7 +816,7 @@ After properly reading the paper (not just proxying the equation class), the pic
 
 - Close's framework is **complementary to, not a replacement for**, the topology-first route (Exps 2, 3). Topology gives *static particles* (hedgehogs with integer charge, Coulomb interaction). Close's vector wave equation gives *wave dynamics* (first-order Dirac-like form, plane wave solutions, relativistic spin).
 - M5 can use **both**: topological defects for identity/charge, plus Close-style vector wave equations for dynamics on top of the vacuum. This mirrors Duda's recommendation (topology + waves) in a different mathematical framework
-- The **linear limit of Close's Eq. 19 is already consistent with M2**'s free-wave PDE physics — so porting it to M5 is a small delta from the M2 infrastructure (per `m5.2a_path_to_m5.md`)
+- The **linear limit of Close's Eq. 19 is already consistent with M2**'s free-wave PDE physics — so porting it to M5 is a small delta from the M2 infrastructure (per `m5_2a_path_to_m5.md`)
 
 ### 7.7 Important Caveats
 
@@ -829,7 +829,7 @@ After properly reading the paper (not just proxying the equation class), the pic
 - **Plane-wave dispersion test** (quick follow-up): seed a Q plane wave, verify ω = c|k|, check Hamiltonian conservation at better than 1% (should be achievable for a pure plane wave where nonlinear terms vanish exactly)
 - **Topological-seed variant**: instead of Y_l^m, seed Q with a hedgehog-like field (Q points radially, with Gaussian envelope). Tests whether Close's equation supports topologically-protected states. Expected yes, but should be verified
 - **Incompressibility projection**: upgrade the code to project out ∇·Q at each step, see if energy drift drops — this is the right numerical scheme for Close's assumed incompressible limit
-- **For M5**: the production engine should implement Close's Eq. 19 as the **base vector-wave equation** (massless transverse waves), with nonlinear terms added for particle dynamics. This is fully compatible with the M5 design in `m5.2a_path_to_m5.md` — Close's equation is one candidate for the "wave equation" layer, with topology (Exps 2, 3) providing the "defect" layer on top
+- **For M5**: the production engine should implement Close's Eq. 19 as the **base vector-wave equation** (massless transverse waves), with nonlinear terms added for particle dynamics. This is fully compatible with the M5 design in `m5_2a_path_to_m5.md` — Close's equation is one candidate for the "wave equation" layer, with topology (Exps 2, 3) providing the "defect" layer on top
 
 ---
 
@@ -1013,7 +1013,7 @@ All 8 sandbox experiments complete (2026-04-16 / 2026-04-17). The 8-test program
 
 ### Concrete Next Actions
 
-- **Implement M5.0 scaffold** per [m5.2a_path_to_m5.md](m5.2a_path_to_m5.md) — mirror M4's Taichi structure, add `psi_old/psi/psi_new` triple buffer, port M2's 6-point Laplacian
+- **Implement M5.0 scaffold** per [m5_2a_path_to_m5.md](m5_2a_path_to_m5.md) — mirror M4's Taichi structure, add `psi_old/psi/psi_new` triple buffer, port M2's 6-point Laplacian
 - **Implement `seed_vacuum` and `seed_hedgehog` kernels** as the first new physics (the M5.1 milestone) — direct port of Exps 2 and 3 to Taichi
 - **Implement Close's Eq. 19** (`∂²Q = −c²·∇×∇×Q`) as M5.2 wave dynamics — port from Exp 7 v2 (curl, divergence, curl-curl operators are already validated)
 - **Validate M5.0 linear limit** against M2's free-wave physics and Exp 4's Klein-Gordon dispersion — this is the "physics invariant test" for M5

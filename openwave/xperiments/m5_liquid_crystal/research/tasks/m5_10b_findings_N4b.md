@@ -4,16 +4,16 @@
 > [#236](https://github.com/openwave-labs/openwave/issues/236)), consolidating rounds N0-N4b for external
 > review (Dr. Jarek Duda, models-of-particles). It carries enough implementation detail to evaluate the
 > physics, links to every artifact for inspection, the headline results + tables, and an explicit list of
-> caveats and open questions. Master plan + Duda's verbatim replies: [`m5.10a_neutrino_oscillations.md`](m5.10a_neutrino_oscillations.md).
+> caveats and open questions. Master plan + Duda's verbatim replies: [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md).
 > Per-round detail: [`sandbox_v10/n_foundation_findings.md`](../findings/n_foundation_findings.md) (N0-N2),
 > [`sandbox_v10/n3_findings.md`](../findings/n3_findings.md) (N3),
 > [`sandbox_v10/n4_findings.md`](../findings/n4_findings.md) (N4),
 > [`sandbox_v10/n4b_findings.md`](../findings/n4b_findings.md) (N4b).
 >
-> ⚠️ **SUPERSEDED FOR FRAMING (read with [`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md)).** A cold-read peer review
-> ([`m5.10c_AI_reviewers.md`](m5.10c_AI_reviewers.md)) showed the "three of four parameters PREDICTED" headline below
+> ⚠️ **SUPERSEDED FOR FRAMING (read with [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md)).** A cold-read peer review
+> ([`m5_10c_AI_reviewers.md`](m5_10c_AI_reviewers.md)) showed the "three of four parameters PREDICTED" headline below
 > over-counts: the mu-tau mirror is ONE imposed symmetry, and `theta_23`, `theta_13=0`, \|`delta_CP`\|=90 are its
-> CONSEQUENCES, not independent predictions. The N4c response ([`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md))
+> CONSEQUENCES, not independent predictions. The N4c response ([`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md))
 > tested whether `theta_12`'s magic tilt is energetically selected (it is NOT , the substrate energy is flat in
 > the tilt) and checked the mass-ratio against data (~6x too compressed). The **honest scorecard is in 10e**;
 > this document is retained for the N0-N4b IMPLEMENTATION DETAIL, which is unchanged.
@@ -221,7 +221,7 @@ forms (`n4_topo.py` local azimuth, `n4_linking.py` global azimuth) and FAILED (b
 | N4b | [`n4b_potential`](../scripts/n4b_potential.py) · [`n4b_residual`](../scripts/n4b_residual.py) · [`n4b_chiral_origin`](../scripts/n4b_chiral_origin.py) | summaries | [n4b_findings.md](../findings/n4b_findings.md) |
 
 Progress log: [`sandbox_v10/checkpoints/`](../findings) (00-16). Master plan + Duda's verbatim
-replies + the N* sub-task wiring: [`m5.10a_neutrino_oscillations.md`](m5.10a_neutrino_oscillations.md). Precursor
+replies + the N* sub-task wiring: [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md). Precursor
 (the SO(3)/TBM group result this completes): [#199](https://github.com/openwave-labs/openwave/issues/199).
 Effective-Dirac / Lagrangian context: [#197](https://github.com/openwave-labs/openwave/issues/197).
 

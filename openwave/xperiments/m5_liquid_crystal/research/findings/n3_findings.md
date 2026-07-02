@@ -2,11 +2,11 @@
 
 > **LOCAL / HELD.** N3 (the parameter + potential search) of the neutrino N-program, OpenWave issue
 > [#236](https://github.com/openwave-labs/openwave/issues/236). Per
-> [`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) § "N1 + N2 foundation scope" WORKFLOW NOTE, all GitHub #236 posting is
+> [`../10a_neutrino_oscillations.md`](../tasks/m5_10a_neutrino_oscillations.md) § "N1 + N2 foundation scope" WORKFLOW NOTE, all GitHub #236 posting is
 > HELD until the whole N-program (N1-N5) finishes; #236 stays `In progress`, nothing is posted at the end
 > of N3. This doc is the local N3 record. Foundation (N0/N1/N2): [`n_foundation_findings.md`](n_foundation_findings.md).
 
-Master plan: [`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) (§ "Sub-tasks: phase-wired",
+Master plan: [`../10a_neutrino_oscillations.md`](../tasks/m5_10a_neutrino_oscillations.md) (§ "Sub-tasks: phase-wired",
 the ★ TBM gate, "the connecting hypothesis"). Target scorecard: [#199](https://github.com/openwave-labs/openwave/issues/199)
 (SO(3)/TBM vs NuFIT 6.0). Convention: index-0 (Duda), `D = diag(g, 1, delta, 0)`, `eta = diag(-1, 1, 1, 1)`
 ([`../_convention_refactor/CONVENTION.md`](../_convention_refactor/CONVENTION.md)).
@@ -151,7 +151,7 @@ maximal (45 -> 40.59, overshooting 43.30) , the physically expected one-paramete
 | [`n3_scorecard.py`](../scripts/n3_scorecard.py) + `n3_scorecard.json` + `n3_summary.png` | `python3 n3_scorecard.py` |
 | `checkpoints/04..07_*.md` | progress log (this run) |
 
-## Definition of Done (from [`../10a`](../tasks/m5.10a_neutrino_oscillations.md) § "Sub-tasks") , check
+## Definition of Done (from [`../10a`](../tasks/m5_10a_neutrino_oscillations.md) § "Sub-tasks") , check
 
 | DoD item | Status |
 | --- | --- |
@@ -172,4 +172,4 @@ the theta13 structural finding.
 > mu-tau-reflection result (Harrison-Scott) realized from the loop geometry. theta13 and delta_CP share ONE
 > chiral origin (the loop handedness). Reframes the N3 theta13 "fit" as the chiral partner of delta_CP. Open:
 > is the handedness a TOPOLOGICAL invariant (writhe) -> would make theta13 + delta_CP fully predicted. Cross-refs: [`n_foundation_findings.md`](n_foundation_findings.md),
-[`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md), [#199](https://github.com/openwave-labs/openwave/issues/199).
+[`../10a_neutrino_oscillations.md`](../tasks/m5_10a_neutrino_oscillations.md), [#199](https://github.com/openwave-labs/openwave/issues/199).

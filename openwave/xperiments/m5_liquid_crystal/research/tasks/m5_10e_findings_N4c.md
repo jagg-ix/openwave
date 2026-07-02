@@ -1,12 +1,12 @@
 # Neutrino PMNS mixing , N4c review-response findings (honest reframe + two decisive tests, #236)
 
 > **Purpose.** The canonical record AFTER the cold-read peer review. Two independent AI reviewers
-> ([`m5.10c_AI_reviewers.md`](m5.10c_AI_reviewers.md)), given only the findings with no M5/OpenWave/program context,
+> ([`m5_10c_AI_reviewers.md`](m5_10c_AI_reviewers.md)), given only the findings with no M5/OpenWave/program context,
 > converged on the same central critique and the same single decisive test. N4c runs that test, adds the
 > near-term mass falsifier the review flagged, and reframes the headline honestly. This document supersedes the
-> N0-N4b record [`m5.10b_findings_N4b.md`](m5.10b_findings_N4b.md) for the FRAMING of what is predicted vs imposed vs
-> fit; the N0-N4b implementation detail still lives there. Triage + plan: [`m5.10d_bullet_proof_run.md`](m5.10d_bullet_proof_run.md).
-> Master plan: [`m5.10a_neutrino_oscillations.md`](m5.10a_neutrino_oscillations.md). OpenWave issue
+> N0-N4b record [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md) for the FRAMING of what is predicted vs imposed vs
+> fit; the N0-N4b implementation detail still lives there. Triage + plan: [`m5_10d_bullet_proof_run.md`](m5_10d_bullet_proof_run.md).
+> Master plan: [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md). OpenWave issue
 > [#236](https://github.com/openwave-labs/openwave/issues/236) (posting HELD until the N-program finishes).
 
 ## 0. Headline (reframed, post cross-agent hostile-cold-reader-peer-reviewer pass)
@@ -162,7 +162,7 @@ because the experimental range is enormous (DUNE/HK are testing maximal CP, not 
 
 About 70% of both reviews is valid and survives full program context (acted on above); ~30% is a framework/scope
 gap (they reviewed a complete, SM-embedded, quantum theory of neutrinos). The full triage is in
-[`m5.10d_bullet_proof_run.md`](m5.10d_bullet_proof_run.md); the verbatim reviews in [`m5.10c_AI_reviewers.md`](m5.10c_AI_reviewers.md).
+[`m5_10d_bullet_proof_run.md`](m5_10d_bullet_proof_run.md); the verbatim reviews in [`m5_10c_AI_reviewers.md`](m5_10c_AI_reviewers.md).
 Briefly: the SM-embedding, quantum-oscillation-probability, 3-generation-count, and scale-origin asks are
 outside the deliberately narrowed 4-mixing-parameter scope (and are handled by #199 / #197), while the central
 circularity point, the `alpha*` selection test, the `delta_CP` sign, the mass-ratio check, the Gram/postulate
@@ -176,9 +176,9 @@ bridge, and the loop-stability concern are all valid and are implemented here.
 | N4c-2 (mass-ratio falsifier) | [`n4c_mass_ratio.py`](../scripts/n4c_mass_ratio.py) | [json](../data/n4c_mass_ratio_summary.json) · [png](../plots/n4c_mass_ratio.png) | [18](../findings/18_n4c_mass_ratio.md) |
 | N4c-3 (honest scorecard) | [`n4c_scorecard.py`](../scripts/n4c_scorecard.py) | [json](../data/n4c_scorecard.json) · [png](../plots/n4c_scorecard.png) | , |
 
-Reviewed N0-N4b record (implementation detail): [`m5.10b_findings_N4b.md`](m5.10b_findings_N4b.md). Verbatim reviews:
-[`m5.10c_AI_reviewers.md`](m5.10c_AI_reviewers.md). Triage + plan: [`m5.10d_bullet_proof_run.md`](m5.10d_bullet_proof_run.md).
-Master plan + Duda's replies: [`m5.10a_neutrino_oscillations.md`](m5.10a_neutrino_oscillations.md). Precursor:
+Reviewed N0-N4b record (implementation detail): [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md). Verbatim reviews:
+[`m5_10c_AI_reviewers.md`](m5_10c_AI_reviewers.md). Triage + plan: [`m5_10d_bullet_proof_run.md`](m5_10d_bullet_proof_run.md).
+Master plan + Duda's replies: [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md). Precursor:
 [#199](https://github.com/openwave-labs/openwave/issues/199). Lagrangian context:
 [#197](https://github.com/openwave-labs/openwave/issues/197).
 
@@ -186,5 +186,5 @@ Master plan + Duda's replies: [`m5.10a_neutrino_oscillations.md`](m5.10a_neutrin
 _N4c review-response findings for #236 (2026-06-22). Status: the honest scorecard is 1 imposed symmetry + 1
 geometrically-pinned angle (`theta_12`, not energy-selected) + 1 free coupling (`theta_13`) + an undetermined CP
 sign; the mass spectrum is in ~6x tension with data under the natural maps (N6 must resolve). N5 (article) and N6
-(absolute masses) remain deferred. This document is canonical for the FRAMING; [`m5.10b_findings_N4b.md`](m5.10b_findings_N4b.md)
+(absolute masses) remain deferred. This document is canonical for the FRAMING; [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md)
 carries the N0-N4b implementation detail._

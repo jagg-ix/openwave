@@ -5,13 +5,13 @@
 > the regularized field energy. First reproduce FABER's electron (the regularized hedgehog → 511 keV) to prove
 > the machinery, then the new piece , the neutrino as a regularized chiral vortex LOOP/KNOT, mass = loop-length
 > density , then re-derive the mixing on the real relaxed loops. This grounds the symmetry/overlap result of
-> [`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md) in real dynamics and directly answers Duda's 2026-06-22 critique.
-> Findings as we execute: [`m5.11b_findings.md`](m5.11b_findings.md). Code + checkpoints: `sandbox_v11/`.
+> [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md) in real dynamics and directly answers Duda's 2026-06-22 critique.
+> Findings as we execute: [`m5_11b_findings.md`](m5_11b_findings.md). Code + checkpoints: `sandbox_v11/`.
 > Convention: index-0 (`D = diag(g, 1, δ, 0)`, `η = diag(-1,1,1,1)`).
 
 | Item | Description |
 | --- | --- |
-| **M5.11 — the regularized neutrino vortex-loop** (answers Duda's 2026-06-22 "too simple" critique) , **⏸ PARKED 2026-06-23** | P0-P1 ✅: a true energy minimizer + **Faber's electron reproduced** (511.00 keV at `r₀=2.2132 fm`, `I=π/4`, non-circular) + **`α⁻¹→137.03`** from charge quantization. Machinery ✅: Taichi-AD gradient (==functional 1e-13) + the **chiral Lifshitz + Frank terms** (validated 1e-14). P2 (the stable neutrino LOOP) = the open frontier: 5 clean experiments map it onto a 2×2 whose one un-filled cell is a **forced-singular knotted/linked disclination line** (smooth knots expand, unknotted singular loops contract, a painted-on melt heals). **Resume guide + the 3-way fork** (A build it / B uniaxial reduction = recommended / C accept electron-only): the "PARKED" head of [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md); record [`m5.11a_vortex_loop.md`](m5.11a_vortex_loop.md) (plan) + [`m5.11b_findings.md`](m5.11b_findings.md) (findings). |
+| **M5.11 — the regularized neutrino vortex-loop** (answers Duda's 2026-06-22 "too simple" critique) , **⏸ PARKED 2026-06-23** | P0-P1 ✅: a true energy minimizer + **Faber's electron reproduced** (511.00 keV at `r₀=2.2132 fm`, `I=π/4`, non-circular) + **`α⁻¹→137.03`** from charge quantization. Machinery ✅: Taichi-AD gradient (==functional 1e-13) + the **chiral Lifshitz + Frank terms** (validated 1e-14). P2 (the stable neutrino LOOP) = the open frontier: 5 clean experiments map it onto a 2×2 whose one un-filled cell is a **forced-singular knotted/linked disclination line** (smooth knots expand, unknotted singular loops contract, a painted-on melt heals). **Resume guide + the 3-way fork** (A build it / B uniaxial reduction = recommended / C accept electron-only): the "PARKED" head of [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md); record [`m5_11a_vortex_loop.md`](m5_11a_vortex_loop.md) (plan) + [`m5_11b_findings.md`](m5_11b_findings.md) (findings). |
 
 ## 0. The challenge (Duda, 2026-06-22, verbatim)
 
@@ -23,8 +23,8 @@
 He is right. [`sandbox_v10`](../scripts) computes mixing from SEEDED loop ansatze via symmetry + overlap; it
 never regularizes, relaxes, or stabilizes a loop. M5.11 does the real thing , and it is grounded in Duda's OWN
 theory (his slides [`../theory/liquid_crystal_particles.pdf`](../../theory/liquid_crystal_particles.pdf), the
-[`4a`](m5.4a_convo_2026.05.12.md)/[`4c`](m5.4c_convo_2026.06.08.md)/[`4d`](m5.4d_convo_2026.06.11.md) exchanges, his
-[`9a`](m5.9a_lepton_mass_planning.md) review). **Goal: a simulation a working physicist trusts. No cut corners.**
+[`4a`](m5_4a_convo_2026.05.12.md)/[`4c`](m5_4c_convo_2026.06.08.md)/[`4d`](m5_4d_convo_2026.06.11.md) exchanges, his
+[`9a`](m5_9a_lepton_mass_planning.md) review). **Goal: a simulation a working physicist trusts. No cut corners.**
 
 ## 1. Duda's theory (what we are simulating, in his own terms)
 
@@ -102,11 +102,11 @@ minimization, a stationary loop should exist. M5.11 demonstrates it.
 | --- | --- | --- |
 | **P0 , infrastructure** | turn the Higgs/LdG potential ON in the index-0 engine (`V_M`, the hardest numerical step); the right scales (`g~1e10, δ~1e-10`) via the N1 graded method; add a true energy MINIMIZER (FIRE / L-BFGS to `\|δE/δM\| → 0`). | minimizer descends monotonically to a stationary point; `V_M` reproduces the analytic LdG free energy. |
 | **P1 , reproduce FABER's electron** | the regularized uniaxial hedgehog under Higgs `V = (‖n‖²−1)²`: melt the core (`n(0)=0`), minimize, integrate the field energy. | **`∫ ½\|E\|² = 511 keV` at the Faber core radius; running coupling `α(d)` curve; Coulomb `E(d) ≈ const + C/d`.** Match [`../theory/faber_universe_2025.pdf`](../../theory/faber_universe_2025.pdf). THE trust-rebuilder. |
-| **P2 , the vortex LOOP** | **Runs 3-5 (done):** chiral Lifshitz + Frank validated (1e-14). Five clean negatives map onto a 2×2 (smooth-vs-forced-singular director × unknotted-vs-knotted): smooth knots **expand** (run-2 Hopfion; run-5 singular Hopfion , a painted melt **heals**, not forced), singular `+1/2` loops **contract/dissolve** (runs 1, 4), the smooth chiral heliknoton → **blue-phase** in biaxial M5 (run 3). The one un-filled cell = a **forced-singular AND knotted/linked disclination LINE** (half-integer director singularity ON a knotted line). **Surviving target:** two Hopf-linked `+1/2` rings or a `+1/2` trefoil; cannot be shortcut by painting a melt on a smooth field. | a forced-singular knotted loop holds finite size; `⟨δF/δM⟩→0`. Runs 3-5 + next build: [`m5.11b_findings.md`](m5.11b_findings.md) §§ "P2 BUILD (run 3)", "(run 4)", "P2 SINGULAR HOPFION (run 5)". |
+| **P2 , the vortex LOOP** | **Runs 3-5 (done):** chiral Lifshitz + Frank validated (1e-14). Five clean negatives map onto a 2×2 (smooth-vs-forced-singular director × unknotted-vs-knotted): smooth knots **expand** (run-2 Hopfion; run-5 singular Hopfion , a painted melt **heals**, not forced), singular `+1/2` loops **contract/dissolve** (runs 1, 4), the smooth chiral heliknoton → **blue-phase** in biaxial M5 (run 3). The one un-filled cell = a **forced-singular AND knotted/linked disclination LINE** (half-integer director singularity ON a knotted line). **Surviving target:** two Hopf-linked `+1/2` rings or a `+1/2` trefoil; cannot be shortcut by painting a melt on a smooth field. | a forced-singular knotted loop holds finite size; `⟨δF/δM⟩→0`. Runs 3-5 + next build: [`m5_11b_findings.md`](m5_11b_findings.md) §§ "P2 BUILD (run 3)", "(run 4)", "P2 SINGULAR HOPFION (run 5)". |
 | **P3 , stability + the clock** | prove stable (Hessian `≥ 0` / real-time Minkowski evolution over many periods); add the M5.8 clock dressing (the `(0,α)` boost fuel) → the oscillating loop lowers energy. | no collapse mode; the loop persists; the clock lowers the energy (the de Broglie oscillation), `ω` measured. |
 | **P4 , mass from the loop** | mass = regularized loop field energy; the mass/length density; vary loop size/knot → the 3 neutrino masses. | the spectrum + `Δm²` hierarchy (the N4c spectrum was ~6× too compressed); the 6.2 pm loop scale; honest pass/fail vs data. |
 | **P5 , the parameter search (Duda's assignment)** | find the Higgs coefficients `(A,B,C)` / `Λ` and `g, δ` that give physical lepton + neutrino masses , the work Duda explicitly handed us ("you should start here, finding these parameters/details for agreements"). | the parameters that reproduce the masses + Faber's electron simultaneously; reported as the deliverable. |
-| **P6 , mixing on real loops** | recompute the PMNS overlap on the RELAXED stable loops at 3 SO(3) orientations (not seeds). | the [`10e`](m5.10e_findings_N4c.md) mixing re-derived from real solutions; whether the substrate now does work. |
+| **P6 , mixing on real loops** | recompute the PMNS overlap on the RELAXED stable loops at 3 SO(3) orientations (not seeds). | the [`10e`](m5_10e_findings_N4c.md) mixing re-derived from real solutions; whether the substrate now does work. |
 
 P0-P1 are tractable and decisive (reproducing Faber is the credibility gate). P2-P3 are the research core
 (stable vortex loop + clock). P4-P5 are the mass + parameter search Duda assigned. P6 closes back to mixing.
@@ -162,8 +162,8 @@ rebuilds trust; asking up front would not.
 
 | Artifact | Where |
 | --- | --- |
-| This plan | `m5.11a_vortex_loop.md` |
-| Findings (filled per phase, mirrors `10e`) | [`m5.11b_findings.md`](m5.11b_findings.md) |
+| This plan | `m5_11a_vortex_loop.md` |
+| Findings (filled per phase, mirrors `10e`) | [`m5_11b_findings.md`](m5_11b_findings.md) |
 | Code (one script per phase) + checkpoints | `sandbox_v11/` (`v11_p0_minimizer`, `v11_p1_faber_electron`, `v11_p2_loop`, `v11_p3_stability_clock`, `v11_p4_mass`, `v11_p5_params`, `v11_p6_mixing`) |
 | Figures | the regularized core, the Faber 511 keV field-energy curve, the stationary loop, the stability evolution, the mass family, the re-derived mixing |
 
@@ -175,14 +175,14 @@ Faber regularization, the vortex-knot neutrino, the clock) · [`../theory/faber_
 `α_sol ℏc=1.4387 MeV·fm`, `α⁻¹=137.1`, CG minimizer) · [`../theory/time_crystal_toy_model.pdf`](../../theory/time_crystal_toy_model.pdf)
 (READ IN FULL , Duda arXiv:2501.04036, the P3 clock: `−αR²` curvature + `+βR⁴` saturation → finite `ω=√(70α/(96β−35α²))`,
 the time crystal; the model "combines Skyrme + Landau-de Gennes") · [`../theory/liquid_crystal_model.pdf`](../../theory/liquid_crystal_model.pdf) + the Wolfram time-crystal writeup (the broader-model + online-discussion versions of the above; covered by proxy) ·
-the [`4a`](m5.4a_convo_2026.05.12.md)/[`4c`](m5.4c_convo_2026.06.08.md)/[`4d`](m5.4d_convo_2026.06.11.md)
-Duda exchanges + [`9a`](m5.9a_lepton_mass_planning.md) review · the M5 framework
-([`m5.1a_lagrangian_framework.md`](m5.1a_lagrangian_framework.md), [`m5.5a_lagrangian_evolution.md`](m5.5a_lagrangian_evolution.md),
+the [`4a`](m5_4a_convo_2026.05.12.md)/[`4c`](m5_4c_convo_2026.06.08.md)/[`4d`](m5_4d_convo_2026.06.11.md)
+Duda exchanges + [`9a`](m5_9a_lepton_mass_planning.md) review · the M5 framework
+([`m5_1a_lagrangian_framework.md`](m5_1a_lagrangian_framework.md), [`m5_5a_lagrangian_evolution.md`](m5_5a_lagrangian_evolution.md),
 [`m5_summary_report.md`](../m5_summary_report.md)) · the index-0 engine (`engine2_pde.py` `V_M` + curvature).
 
 ## Cross-refs
 
-[`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md) (the symmetry result this makes dynamical) ·
-[`m5.9a_lepton_mass_planning.md`](m5.9a_lepton_mass_planning.md) (the lepton-mass program, #200) ·
+[`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md) (the symmetry result this makes dynamical) ·
+[`m5_9a_lepton_mass_planning.md`](m5_9a_lepton_mass_planning.md) (the lepton-mass program, #200) ·
 [`sandbox_v8`](../scripts)/[`sandbox_vn`](../scripts) (the M5.8 clock machinery) ·
 [#199](https://github.com/openwave-labs/openwave/issues/199) · [#236](https://github.com/openwave-labs/openwave/issues/236) (HELD).

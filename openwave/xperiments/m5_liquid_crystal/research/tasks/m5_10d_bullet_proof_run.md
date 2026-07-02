@@ -1,9 +1,9 @@
 # N4c , bullet-proofing the neutrino findings against cold-read peer review (the plan)
 
-> **LOCAL / HELD.** The triage of the two AI peer reviews ([`m5.10c_AI_reviewers.md`](m5.10c_AI_reviewers.md)) and the
+> **LOCAL / HELD.** The triage of the two AI peer reviews ([`m5_10c_AI_reviewers.md`](m5_10c_AI_reviewers.md)) and the
 > plan for the N4c response round, OpenWave issue [#236](https://github.com/openwave-labs/openwave/issues/236).
-> Executed results + adjusted findings: [`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md). Reviewed doc (now renamed):
-> [`m5.10b_findings_N4b.md`](m5.10b_findings_N4b.md). Master plan: [`m5.10a_neutrino_oscillations.md`](m5.10a_neutrino_oscillations.md).
+> Executed results + adjusted findings: [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md). Reviewed doc (now renamed):
+> [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md). Master plan: [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md).
 
 ## Why this round
 
@@ -75,15 +75,15 @@ defensible and exactly what Duda would accept.
 | 1 | `n4c_alpha_energy.py` , the decisive test: `E(alpha)` (self-energy + tight-binding trace + ground state) over the tilt; locate stationary points; compare to `alpha*` | `n4c_alpha_energy_summary.json` + panel |
 | 2 | `n4c_mass_ratio.py` , gate eigenvalues -> splitting ratio under both natural maps (eigval = m, eigval = m^2) vs observed `Dm31^2/Dm21^2 ~ 33.6` | `n4c_mass_ratio_summary.json` + panel |
 | 3 | `n4c_scorecard.py` , the honest scorecard figure (predictions vs imposed-symmetry consequences vs fit; NuFIT with error bars) | `n4c_scorecard.png` |
-| 4 | Write `m5.10e_findings_N4c.md` , same structure as the reviewed doc (sections, images, links); honest reframe; the two new results; bridge + stability elevated; framework + scope note | 10e |
-| 5 | Rename `10b_findings.md` -> `m5.10b_findings_N4b.md`; forward-pointer to 10e; update the 10a cross-ref | rename + edits |
+| 4 | Write `m5_10e_findings_N4c.md` , same structure as the reviewed doc (sections, images, links); honest reframe; the two new results; bridge + stability elevated; framework + scope note | 10e |
+| 5 | Rename `10b_findings.md` -> `m5_10b_findings_N4b.md`; forward-pointer to 10e; update the 10a cross-ref | rename + edits |
 
 Self-imposed honesty rule for this round: report the `alpha`-energy result as it comes out, including a negative
 (no dynamical selection). A negative is a real result and is recorded plainly, not spun.
 
 ## Cross-refs
 
-[`m5.10c_AI_reviewers.md`](m5.10c_AI_reviewers.md) (the verbatim reviews) · [`m5.10e_findings_N4c.md`](m5.10e_findings_N4c.md)
-(executed) · [`m5.10b_findings_N4b.md`](m5.10b_findings_N4b.md) (reviewed) ·
-[`m5.10a_neutrino_oscillations.md`](m5.10a_neutrino_oscillations.md) (master plan) ·
+[`m5_10c_AI_reviewers.md`](m5_10c_AI_reviewers.md) (the verbatim reviews) · [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md)
+(executed) · [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md) (reviewed) ·
+[`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md) (master plan) ·
 [#236](https://github.com/openwave-labs/openwave/issues/236) (HELD).

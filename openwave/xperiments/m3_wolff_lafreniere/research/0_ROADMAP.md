@@ -262,7 +262,7 @@ M4 vector model may be needed for spin (L→T conversion) → charge, Coulomb, m
 
 ## 🔶 [M5 / LIQUID-CRYSTAL MODEL — see 0c_roadmap.md](../../m5_liquid_crystal/research/0c_roadmap.md)
 
-The M5 implementation roadmap (M5.0 through 5d) and Phase 4 / TIME DYNAMICS future-extension task list have been consolidated into [`0c_roadmap.md`](../../m5_liquid_crystal/research/0c_roadmap.md) under the M5 model directory. Design rationale, M2/M4 inheritance, code mapping, resolution & performance plan, layered validation, external-comms milestones, and group feedback live in [`m5.2a_path_to_m5.md`](../../m5_liquid_crystal/research/tasks/m5.2a_path_to_m5.md).
+The M5 implementation roadmap (M5.0 through 5d) and Phase 4 / TIME DYNAMICS future-extension task list have been consolidated into [`0c_roadmap.md`](../../m5_liquid_crystal/research/0c_roadmap.md) under the M5 model directory. Design rationale, M2/M4 inheritance, code mapping, resolution & performance plan, layered validation, external-comms milestones, and group feedback live in [`m5_2a_path_to_m5.md`](../../m5_liquid_crystal/research/tasks/m5_2a_path_to_m5.md).
 
 ---
 

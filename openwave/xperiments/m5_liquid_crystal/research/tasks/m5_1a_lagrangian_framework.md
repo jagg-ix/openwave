@@ -6,11 +6,11 @@ A research phase evaluating whether a Lagrangian formulation could replace OpenW
 >
 > **Net verdict**: topology is the load-bearing ingredient (Exps 2, 3 confirmed charge quantization and far-field Coulomb); pure nonlinearity alone is insufficient (Exp 8 falsified Smolinski Ψ³ K-selectivity); Close's actual vector wave equation (Exp 7 v2) gives valid massless transverse wave dynamics consistent with his Dirac-equation factoring; Klein-Gordon dispersion `ω² = c²k² + m²` validated to R² = 0.999982 (Exp 4, the mass-from-potential mechanism).
 >
-> **Winning M5 recipe** (detailed in [1c § Winning Approach](m5.1c_lagrangian_experiments.md#winning-approach-for-m5)): topology from Exps 2/3 + Klein-Gordon from Exp 4 + Close's Eq. 19 from Exp 7 v2 + M3 near-field standing-wave lock-in + Skyrme stabilizer + (long-term) LdG biaxial potential for lepton masses.
+> **Winning M5 recipe** (detailed in [1c § Winning Approach](m5_1c_lagrangian_experiments.md#winning-approach-for-m5)): topology from Exps 2/3 + Klein-Gordon from Exp 4 + Close's Eq. 19 from Exp 7 v2 + M3 near-field standing-wave lock-in + Skyrme stabilizer + (long-term) LdG biaxial potential for lepton masses.
 >
 > **Documentation correction from Exp 5**: the docs' Combined W-L product form `2A·sin(kr/2)·cos(kr/2−(ωt+φ))/r` is NOT a free-wave solution — its quadrature term leaves a residual `−c²k²·sin(ωt+φ)/r ≠ 0`. The M4 code's equivalent *sum form* `A·[sin(kr+ωt+φ)+sin(kr−ωt−φ)]/(kr)` IS valid. M5 uses the sum form.
 >
-> This document is the **experimental plan & spec** — written before the sandbox; preserved for context. For live results see [m5.1c_lagrangian_experiments.md](m5.1c_lagrangian_experiments.md); conceptual walk-through in [m5_background.md § CONCEPT OVERVIEW](../m5_background.md#concept-overview); topology / time-crystal / Zitterbewegung deep-dive in [m5.1b_topological_defect.md](m5.1b_topological_defect.md); M5 implementation plan in [m5.2a_path_to_m5.md](m5.2a_path_to_m5.md); current phase status in [0c_roadmap.md](0c_roadmap.md).
+> This document is the **experimental plan & spec** — written before the sandbox; preserved for context. For live results see [m5_1c_lagrangian_experiments.md](m5_1c_lagrangian_experiments.md); conceptual walk-through in [m5_background.md § CONCEPT OVERVIEW](../m5_background.md#concept-overview); topology / time-crystal / Zitterbewegung deep-dive in [m5_1b_topological_defect.md](m5_1b_topological_defect.md); M5 implementation plan in [m5_2a_path_to_m5.md](m5_2a_path_to_m5.md); current phase status in [0c_roadmap.md](../m5_roadmap.md).
 
 ---
 
@@ -169,7 +169,7 @@ Rodrigo reported that all 8 sandbox experiments were complete and that the M5 / 
 
 Proposed M5 recipe combined: topological hedgehog defects + Klein-Gordon wave dynamics + Close's Eq. 19 base vector wave + retained M3 near-field lock-in + Skyrme stabilizer + LdG biaxial potential. Asked three targeted questions — to Dr. Duda about the extreme biaxial eigenvalue hierarchy needed for lepton ratios (~3477:1), to Dr. Close about fidelity of the Eqs. 19 & 21 implementation and what test would best exercise his nonlinear terms, and to Jeff about any concern with keeping M3 near-field physics alongside topology in the same engine.
 
-Full tables, scorecards, and architectural summary are preserved in [m5.1c_lagrangian_experiments.md](m5.1c_lagrangian_experiments.md) and [m5.2a_path_to_m5.md](m5.2a_path_to_m5.md).
+Full tables, scorecards, and architectural summary are preserved in [m5_1c_lagrangian_experiments.md](m5_1c_lagrangian_experiments.md) and [m5_2a_path_to_m5.md](m5_2a_path_to_m5.md).
 
 ### 2026-04-17 — Dr. Duda's substantive feedback
 
@@ -182,7 +182,7 @@ On the biaxial-hierarchy question specifically: the main mass contributions for 
 
 ![alt text](../images/qcd.png)
 
-![alt text](images/clock.png)
+![alt text](../images/clock.gif)
 
 *(Attached images, visual summary)*: (a) QCD quark strings / flux tubes modeled as Abrikosov vortex with the Cornell potential transitioning from Coulomb to linear confinement at ~1 GeV/fm; (b) electron / muon / tau and neutrino topological vortex loops, with the de Broglie clock visualized as SO(2)~U(1) 2D rotations and neutrino oscillations as SO(3)~SU(2) 3D rotations.
 
@@ -221,7 +221,7 @@ Dr. Duda clarified two points refining M5.6:
 
 ## REPLY ANALYSIS — KEY INSIGHTS FOR M5 (2026-04-19)
 
-Three replies, three distinct action items for M5. These refinements are incorporated into [m5.2a_path_to_m5.md](m5.2a_path_to_m5.md) § "Group Feedback (2026-04-17/18)".
+Three replies, three distinct action items for M5. These refinements are incorporated into [m5_2a_path_to_m5.md](m5_2a_path_to_m5.md) § "Group Feedback (2026-04-17/18)".
 
 ### From Jarek Duda
 

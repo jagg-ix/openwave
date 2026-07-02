@@ -4,7 +4,7 @@ Run 1 go: 2026-06-22 20:43 EDT (P0-P2). Run 2 go: 2026-06-22 21:54 EDT (Taichi-A
 Run 3 go: 2026-06-23 12:34 EDT (P2 heliknoton build: chiral Lifshitz + Frank terms).
 Run 4 go: 2026-06-23 14:18 EDT (P2 singular disclination loop ± chiral).
 Run 5 go: 2026-06-23 14:28 EDT (P2 singular Hopfion: Hopf charge + painted melt).
-Plan: [`m5.11a_vortex_loop.md`](../tasks/m5.11a_vortex_loop.md). Findings: [`m5.11b_findings.md`](../tasks/m5.11b_findings.md).
+Plan: [`m5_11a_vortex_loop.md`](../tasks/m5_11a_vortex_loop.md). Findings: [`m5_11b_findings.md`](../tasks/m5_11b_findings.md).
 
 ## ⏸ PARKED , pick up here
 

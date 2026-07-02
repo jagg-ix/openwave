@@ -12,7 +12,7 @@
 | **15a.4 / Atomic orbitals** | Layer 5 | Single electron orbiting a nucleus; verify discrete orbital shells emerge from standing-wave interference at atomic scales |
 | **15a.5 / Multi-electron atom** | Layer 5 | Z electrons in a single-nucleus configuration; verify shell structure (Pauli-like exclusion via wave interference + topology) |
 
-## Cross-mass-class machinery required for 15a.4+ (per [3c § How different-frequency Zitterbewegung emissions interfere](m5.1b_topological_defect.md#how-different-frequency-zitterbewegung-emissions-interferehydrogen-vs-positronium))
+## Cross-mass-class machinery required for 15a.4+ (per [3c § How different-frequency Zitterbewegung emissions interfere](m5_1b_topological_defect.md#how-different-frequency-zitterbewegung-emissions-interferehydrogen-vs-positronium))
 
 Atom-scale simulations (15a.4 onward) need additional architectural capability beyond the same-mass-class physics validated by M5.7–M5.8. The reason: in hydrogen-like systems, the proton ticks at `ω_p ≈ 1836 × ω_e`, so direct e-p Zitterbewegung interference does NOT form coherent standing waves. Instead, three layered mechanisms must work together:
 
