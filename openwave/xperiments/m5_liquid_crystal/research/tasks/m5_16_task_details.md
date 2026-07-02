@@ -34,12 +34,27 @@ M5.11 P0-P1 built the machinery and validated it at placeholder parameters:
 
 | Sub-piece | Deliverable |
 | --- | --- |
-| **P-A / physical (g, δ) regime** | run the minimizer at `g~1e10`, `δ~1e-10` via a **non-dimensionalized formulation or a perturbative δ-expansion** (the ~`1e20` dynamic range exceeds f32/f64) |
+| **P-A / physical (g, δ) regime** | run the minimizer at `g~1e10`, `δ~1e-10` via a **non-dimensionalized formulation or a perturbative δ-expansion** (the ~`1e20` dynamic range exceeds f32/f64). **Reuse the validated N1 perturbative-δ machinery** (§ Existing machinery below), do not rebuild it |
 | **P-B / cylindrical reduction** | reduce the electron hedgehog + the neutrino vortex loop to an **axisymmetric (r, z) BVP** (Duda's dimension-reduction trick), so the physical regime is computationally reachable |
 | **P-C / potential calibration (Q7)** | fix the LdG `V(M)` coefficients `(a, b, c)` by **requiring the minimizer to reproduce the anchors** (electron 511 keV via Faber `r₀`; Coulomb; the electron-clock time scale) rather than guessing them; verify the minimum sits at eigenspectrum `(g,1,δ,0)` |
 | **P-D / core regularization (Q8)** | the hedgehog/vortex center regularization (Duda's "hardest part") under the calibrated potential, on the axisymmetric mesh |
 | **P-E / g from an anchor** | pin `g` from one of: the electron clock, neutrino oscillations, or baryon gravitational mass (Duda's three routes; "certain of only for baryons") |
 | **P-F / handoff** | publish locked `(g, δ, a, b, c, r₀)` + the run recipe as the calibration input consumed by M5.9.0 / M5.9 / M5.11 / `#220` |
+| **P-G / δ-continuation study (the M5.11 unlock probe)** | sweep δ from the placeholder 0.3 down (0.1 / 0.01 / 1e-3 / perturbative to 1e-10) and track (a) the substrate's **chiral response** (does the run-3 blue-phase obstruction relax toward a stable helix as the spatial spectrum `diag(1, δ, 0)` degenerates to quasi-uniaxial `(1, 0, 0)`?) and (b) whether the run-4 melt-heal behaviour changes. Tests the 2026-07-02 hypothesis that the M5.11 P2 loop negatives are **artifacts of the strongly-biaxial δ=0.3 regime**, cheaply, before any new loop construction. See [`m5_11_task_details.md`](m5_11_task_details.md) § Re-entry plan |
+
+## The δ-continuation hypothesis (P-G origin, 2026-07-02 roadmap review)
+
+All five M5.11 P2 loop experiments (the 2×2 elimination) ran at the placeholder `δ = 0.3`, where the spatial tensor `diag(1, 0.3, 0)` is **strongly biaxial**; run 3's obstruction was precisely biaxiality (the chiral term drives a blue-phase texture, the Tai/Smalyukh thesis's flagged hard case, p.132). But Duda's 2026-07-01 sketch ([`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) § 2) states the neutrino is a **uniaxial** nematic field with **1 distinguished axis**, and at the physical `δ ~ 1e-10` the substrate is **quasi-uniaxial**, exactly the regime where Smalyukh's chiral knots are known to stabilize. So the loop hunt may have been run in the wrong corner of parameter space, and M5.16's physical-regime run is the unlock, not just bookkeeping. P-G is the cheap test of that reading.
+
+## Existing machinery to reuse (do not rebuild)
+
+The `1e20` dynamic range already has a **built + validated** solution from the neutrino N-program foundation; P-A should reuse it, not re-derive it:
+
+| Asset | Where | State |
+| --- | --- | --- |
+| Perturbative-δ precision method (order-by-order in δ; recovers the θ₁₃-class breaking channel to **9.4e-16** where naive f64 returns exactly 0) | [`../scripts/m5_11_n1_precision_method.py`](../scripts/m5_11_n1_precision_method.py) | ✅ validated (cancellation test) |
+| Engine ↔ numpy-port equivalence gate (the f64 port verified against the production engine, not asserted) | [`../scripts/m5_11_n0_engine_equivalence.py`](../scripts/m5_11_n0_engine_equivalence.py) | ✅ validated |
+| Foundation record (method + gates + the honest tension log) | [`../findings/n_foundation_findings.md`](../findings/n_foundation_findings.md) | record of record |
 
 ## Numerical recipe (Golubich 2026-07-02) , the concrete minimizer build
 
@@ -55,6 +70,36 @@ Dr. Rudolf Golubich (co-author of Faber & Golubich [arXiv:2604.12021](https://ar
 | Cost | weeks on large lattices (confirms the M5.16 "serious simulation" scale; corroborates Duda `4e §1`) |
 
 **Topological readouts (adopt at the observable stage):** charge = the sign of `nᵢ` (radial field rotation out of the core); spin = `α(r)` covering the upper (`+½`) or lower (`−½`) half of SU(2)-S²; the SU(2) field couples to ED via the rotation axis `n̂`, constant along E field lines. These are analytic invariants of the solitonic solution, not fitted.
+
+## Rigor compliance: implementing Duda's model the way he asks (the bar, with sources)
+
+M5.11 was built to answer Duda's 2026-06-22 "too simple" critique ("I am trying to read these Python files, but they look very far from simulations I was expecting ... the code is much too simple ... I am very far from trusting them"), with the explicit standard "**a simulation a working physicist trusts. No cut corners**" ([`m5_11a_vortex_loop.md`](m5_11a_vortex_loop.md) § 0). M5.16 inherits and completes that standard. His rigor requirements, collected from the record, each mapped to how this task satisfies it:
+
+| Duda's requirement (source) | How M5.16 complies |
+| --- | --- |
+| "needs lattice or FEM, assuming initial field configuration like hedgehog for electron or vortex loop for neutrino, and numerically performing **energy minimization**" ([`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) § 1) | the task IS that instrument: the graduated M5.11-P0 static minimizer (FIRE + L-BFGS, plus the Golubich CG/Polak-Ribière cross-check, § Numerical recipe) |
+| "for both electron and neutrino we can assume **cylindrical symmetry** to reduce dimension" (`4e` § 1) | P-B: the axisymmetric `(r, z)` reduction for both the hedgehog and the vortex ring |
+| "the most difficult is **regularization in the center** of hedgehog or vortex, also requiring potential, which details are still to be established" (`4e` § 1; Q8) | P-D: core regularization on the axisymmetric mesh under the calibrated potential, guided by Faber's `derivatives.tex` difference-quotient scheme ([`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md)) |
+| "the first step should be **establishing two basic parameters: g, delta**"; the physical regime is `δ~1e-10`, `g~1e10`, NOT the placeholders 0.3/8 he flagged ([`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md) rounds 2-3; `4e` § 2) | P-A/P-E: every REPORTED number at the physical regime via the validated N1 perturbative-δ machinery; placeholder-parameter results are labelled scaffolding, never headlines |
+| potential minima = eigenspectrum `(g,1,δ,0)`, "Landau-de Gennes with traces of powers, still requiring to find its parameters" (`4e` § 2; Q7) | P-C: `(a, b, c)` FIXED by requiring the anchors (511 keV, Coulomb, clock), not guessed; the minimum verified to sit at `(g,1,δ,0)` |
+| his convention: `D = diag(g,1,δ,0)` with `η = diag(-1,1,1,1)`, minus on the g axis (rounds 2-3, the η correction he made twice) | the engine's index-0 convention since 2026-06-21; every M5.16 script states it in its docstring, no re-derivation ambiguity |
+| "**do less, but more rigorously**" (round 2, `10a`) | scope = the parameter lock ONLY; downstream observables are explicitly not the bar (§ Definition of done) |
+| serious sims are heavy: "not seconds but weeks; Faber said about weeks" (`4e` § 1; Golubich `4g` confirms weeks on large lattices) | the compute budget is accepted up front; convergence order + Richardson extrapolation where applicable (the P1b pattern), no fast-setup numbers reported as final |
+| the validation bar: state field configurations + pass an **independent benchmark** with "actual simulations", reproducible ([`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) § 1, the MODELS.md bar) | every claim = a runnable script + a pre-registered pass/fail gate vs a KNOWN anchor (the M5.11 P0-P1 trust-rebuilder pattern: reproduce Faber's electron + `α⁻¹` before any new claim); article-standard documentation of parameters / potential / configurations |
+| the earned method discipline ([`../m5_summary_report.md`](../m5_summary_report.md) § 4.3) | dt/discretization convergence as the discriminator; surrogate guides, direct quadrature decides; FFT-window + knob-gate rules where spectra/families appear |
+
+## Comms plan: deliver first, ask second (decided 2026-07-02)
+
+Strategy (Rodrigo): fix the infrastructure first, show Duda something **concrete, rigorous, and aligned with his theory design**, and only then ask questions, so the asks land as "doing our job right", not as leaning on him.
+
+| Step | What | When |
+| --- | --- | --- |
+| 1 | Run M5.16 with NO outbound questions (the parameter/potential search is ours; he handed it over: "you should start here") | now |
+| 2 | **Report the deliverable**: the locked `(g, δ, a, b, c, r₀)` + the rigor-compliant run recipe (the table above, satisfied item by item) | at M5.16 FINISH |
+| 3 | **The M5.11 pre-flight ask round**: ALL pending M5.11 questions batched in ONE email, backed by the deliverable: Q13 (chiral invariant), the loop-vs-knot choice (Hopf-linked pair vs trefoil vs the sketch's "two vortex types"), the δ_CP fork framing ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) | right before re-starting M5.11 |
+| 4 | His answers feed the fork B/A design; hit M5.11 | after replies |
+
+The prize is his own framing (round 3, `10a`): deriving the 4 PMNS parameters rigorously, "if writing convincing article able to pass peer review, this already would be huge."
 
 ## Definition of done
 

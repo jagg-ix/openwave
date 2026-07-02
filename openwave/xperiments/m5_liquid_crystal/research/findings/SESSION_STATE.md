@@ -8,6 +8,17 @@ Plan: [`m5_11a_vortex_loop.md`](../tasks/m5_11a_vortex_loop.md). Findings: [`m5_
 
 ## ⏸ PARKED , pick up here
 
+> **2026-07-02 re-entry decision (supersedes the 3-way fork below as the default).** Fork B
+> (uniaxial reduction) is upgraded from "de-risk" to **theory-motivated primary**: Duda's
+> 2026-07-01 sketch draws the neutrino as a UNIAXIAL 1-axis field, and at the physical
+> `δ ~ 1e-10` the substrate is quasi-uniaxial, so the P2 negatives at `δ = 0.3` (strongly
+> biaxial) are NOT conclusive. Sequencing: run **M5.16 first** (the `(g, δ, V)` parameter
+> lock + the P-G δ-continuation probe), report the deliverable to Duda, then the **M5.11
+> pre-flight ask round** (ALL pending M5.11 questions in one email: Q13 chiral invariant +
+> loop-vs-knot, backed by the deliverable), then re-enter here via fork B + re-run the P2
+> 2×2 at the physical regime. Full plan: [`m5_11_task_details.md`](../tasks/m5_11_task_details.md)
+> § Re-entry plan; hypothesis + P-G + rigor bar: [`m5_16_task_details.md`](../tasks/m5_16_task_details.md).
+
 M5.11 is parked in a **clean** state: every run FINISHED with findings written, nothing is
 mid-flight, and re-entry is a fresh decision (not the continuation of a stalled run). The
 credibility wins are SECURED; the neutrino-loop construction is the open frontier, now precisely
