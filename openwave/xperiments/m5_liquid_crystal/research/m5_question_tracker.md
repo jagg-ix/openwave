@@ -21,16 +21,16 @@
 ```text
 5 ASK NOW     The M5.12 pre-flight ask round is OPEN (M5.16 delivered
 (the pre-     2026-07-02, review approved; the deliverable report backs
-flight ask    the asks). ONE email, items sorted by criticality:
-round)          P1 Q13  chiral (Lifshitz) invariant in the M5 LdG: yes/no
-                P2 loop-vs-knot: the neutrino seed topology choice
-                P3 Q14  hedgehog core: point vs ring (what holds the
-                        symmetric hedgehog: Frank term? 6th-order? clock?)
-                P4 Q15  delta-pinning: 6th-order LdG invariant intended,
-                        or is delta dynamical (residual force 3b*delta)?
-                P5 parameter residuals: beta=b/c un-pinned by the electron
-                        sector (kappa_delta = 3b/2); g-anchor preference
-                        (statics measured g-blind)
+flight ask    the asks). ONE email; list order = priority:
+round)          Q13  chiral (Lifshitz) invariant in the M5 LdG: yes/no
+                Q16  neutrino seed topology: linked pair / trefoil /
+                     the "two vortex types" composite
+                Q14  hedgehog core: point vs ring (what holds the
+                     symmetric hedgehog: Frank term? 6th-order? clock?)
+                Q15  delta-pinning: 6th-order LdG invariant intended,
+                     or is delta dynamical (residual force 3b*delta)?
+                Q17  beta and g anchor preference (beta via
+                     kappa_delta = 3b/2; g: clock/boost vs baryon mass)
 
 2 DELIVERED   Q7  V(M) coeffs: LOCKED modulo beta (M5.16 P-C); residual
 (M5.16)           refinement lives in Q15
@@ -54,29 +54,33 @@ DETERMINE         paper + numerical discriminator); not a Duda item
               Q5  substrate: full M = ODO^T vs Q-tensor (full M)
               Q6  eigenvalue -> physics mapping (1=EM, delta=QM, g=gravity)
 
-Total: 15 questions (5 in the ask round incl. Q13/Q14/Q15 + 2 batched
-items, 2 delivered, 1 self-determine, 4 background, 5 resolved).
-Sequence: M5.16 DONE -> the deliverable report + the pre-flight ask
-round (ONE email, this queue) -> Duda's answers feed phases A/C ->
-go M5.12. In-model delta_CP fork (180 vs 270) stays framing for Q13.
+Total: 17 questions (5 in the ask round, 2 delivered, 1 self-determine,
+4 background, 5 resolved). Sequence: M5.16 DONE -> ONE email = the
+deliverable report + the ask round (Q13, Q16, Q14, Q15, Q17) -> answers
+feed phases A/C/D -> go M5.12. The delta_CP fork (180 vs 270) is framing
+under Q13, not a standalone ask.
 ```
 
 ---
 
 ## OPEN QUESTIONS
 
-| ID | Question | Surfaced | Gates | Status |
-| --- | --- | --- | --- | --- |
-| Q7 | Exact V(M) form: Duda's Eq.13 Landau-de Gennes `V_LG = a Tr(M²) − b Tr(M³) + c (Tr(M²))²`, or "slightly different"? Duda calls this "the most difficult" part and an open research question. | Duda 2026-05-15 (`4a §12`) | ~~M5.6~~ → M5.9 / M5.16 | **DELIVERED (M5.16, 2026-07-02), residual → Q15.** M5.6 (✅) shipped the working interim: the 3-term Eq.13 form has **no biaxial minimum** (`∂V/∂λ` collapses nonzero eigenvalues to one root), so a `b≠0` term erodes δ → uniaxial; M5.6.5c uses a **`b=0` amplitude well** `V=a·Tr(M²)+c·(Tr(M²))²` (min at `Tr(M²)=1+δ²`) that confines amplitude while leaving δ exactly flat (live in production, `LDG_STIFFNESS_K`). A fully biaxial-STABLE vacuum needs an extra invariant: that exact `Λ=(1,δ,0)` form is the Duda-open piece, feeds M5.9 lepton calibration. **Duda 2026-07-01** (`4e`): the minima "should be eigenspectrum (g,1,delta,0), can be obtained in various ways, like Landau-de Gennes with traces of powers, still requiring to find its parameters": the coefficient-finding is now the M5.16 minimizer's job (fix `(a,b,c)` by requiring the anchors: electron 511 keV, Coulomb, clock). See [`m5_16_task_details.md`](tasks/m5_16_task_details.md) P-C, [`m5_4e_convo_2026.07.01.md`](tasks/m5_4e_convo_2026.07.01.md). **M5.16 DELIVERED (2026-07-02):** `(a,b,c)` LOCKED modulo one shape ratio: `c₂ = αħc/64π` (Coulomb, analytic), `a = (3b−4c)/2` (uniaxial vacuum, zero forcing), scale from m_e, leaving `β = b/c ∈ (0,2)` (r_half is β-flat, so the electron sector cannot pin it; its meaning = the δ-axis stiffness `κ_δ = (3/2)b`, the M5.12 phase-E anchor). Sharpened no-biaxial-minimum statement: the quartic trace-LdG carries an irreducible O(δ) residual force `3bδ` at `(1,δ,0)`, so the δ eigenvalue is a perturbative dressing unless a sixth-order invariant pins it: THE Q7 refinement to put to Duda at the ask round. [`m5_16_task_details.md § FINDINGS`](tasks/m5_16_task_details.md). |
-| Q8 | Faber regularization: exact form to "activate" V(M) and produce the running-coupling effect. Duda points to Faber's two papers as the starting scheme. | Duda 2026-04-19 / 05-15 | ~~M5.6~~ → M5.9 / M5.16 | **DELIVERED (M5.16, 2026-07-02), residual → Q14.** M5.6 (✅) **ported Faber's MTF** (`Universe` 11/2025/113): reproduced `E₀=α_f ℏc·π/(4r₀)`, mapped `Λ=q₀⁶/r₀⁴` onto `M=ODO^T` via spatially-melting eigenvalues, **mass pinned `E∝1/r₀`** (`r₀=2.2132 fm → 0.511 MeV`), and confirmed Faber `R=Γ×Γ` → homogeneous Maxwell + running-coupling onset at `r₀` (M5.6.4). The mass knob is now the physical `r₀` tied to `α_f`. The exact `arctan` profile re-derivation (vs imposed) is the remaining Duda-open piece → M5.9 BVP. **Duda 2026-07-01** (`4e`): "the most difficult is regularization in the center of hedgehog or vortex, also requiring potential" (Faber estimates **weeks** for the running-coupling minimization): this is M5.16 P-D (core regularization on the axisymmetric mesh under the calibrated potential). See [`m5_16_task_details.md`](tasks/m5_16_task_details.md). **M5.16 DELIVERED (2026-07-02):** core regularization = the melt profile `s(r)` under the calibrated V; the spherically-constrained hedgehog converges cleanly (virial 1.006) and predicts `r_half = 2.92-2.94 fm` vs Faber's 3.075 (parameter-free, ~5%). NEW M5-native finding: the UNCONSTRAINED axisym relax escapes the spherical hedgehog (melt collapses to lattice scale, winding spreads box-scale: the LdG point-vs-ring escape; no Frank quadratic term to hold it): the point-vs-ring question is the concrete form of "regularization details still to be established" for the ask round. [`m5_16_task_details.md § FINDINGS`](tasks/m5_16_task_details.md). |
-| Q11 | Close's Eq.23 exact implementation form — direct form vs vector-potential `s = ∇×A` vs divergence-cleaning projection; and should the resonance amplitude sweep span the full `m ∈ {−1, 0, +1}` dipole family? | Rodrigo → Close 2026-04-19 (`1a`) | M5.7 | OPEN, pending Close. **PLAN B = self-determination (and likely Plan A — see below).** M5.7.1 already proceeded on best-current reading. We do NOT need to wait on Close: (1) Eq.23 is in his **published** paper (`../theory/Equation-of-Everything.pdf`) — we can read it directly and **empirically test all three candidate forms ourselves** (the physical one preserves `∇·s = 0` + gives bounded, energy-conserving dynamics — a numerical discriminator, not an opinion); (2) the deeper "seeded resonance vs the defect's intrinsic oscillation" question is **empirical** — the simulation answers it (M5.7.1: seeded l=1 disperses; M5.7.2: does the intrinsic oscillation cohere?), Close's view is confirmation not gate. Close's framework is cited (published); the answers are ours to derive. M5 must not bottleneck on advisor email latency. |
-| Q4 | Liu et al. *Nature Physics* 2026 (first direct laser creation of isolated hopfions + skyrmions) — does the lab confirmation change what the framework should simulate first (hedgehog before hopfion? simpler stabilizer before LdG?)? | `3b` (2026-05-12) | — | OPEN. Lab-existence anchor for topology-as-particles. Current plan keeps hedgehog-first; hopfion is post-M5.8 frontier (`project_particle_defect_correspondence`). |
-| Q10 | Weak force — is there a clean matrix mechanism (SU(2) chiral) the way EM/gravity/strong have one? | `4a §7` | — | OPEN GAP. Partial answer in slides: beta decay appears as a topology-reconnection event (defect-class transition), not a force in the EM/gravity sense. No clean SU(2) mechanism yet. |
-| Q9 | Is there a deeper substrate beneath the matrix field M (an "anisotropic fluid")? Duda hints the matrix may be effective, with something deeper below. | Duda 2026-05-15 (`4a §1, §12`) | — | OPEN / PARKED. Matches OpenWave's existing granule-level picture (matrix effective, granules deeper). Not actionable now. |
-| Q12 | How does M5's definite-orientation defect (real spin axis + clock phase, deterministic local PDE) reconcile with Bell / Kochen-Specker contextuality? | Duda↔Hadley thread 2026-05-11; Close/Adenier thread 2026-05 | — | OPEN (foundational). Defense template: field evolution is local-realistic (cannot violate Bell); QM statistics enter at the measurement/collapse layer (Duda's Malus analogy + Feynman-ensemble), bridged by MERW `ρ=\|ψ\|²` (`4a §11b.4`). Close building the parallel Adenier / Eq.10-factoring defense. Full note in [`m5_1b_topological_defect.md` § Foundational stance](tasks/m5_1b_topological_defect.md#foundational-stance--m5-as-a-local-realistic-field-bell--kochen-specker). |
-| Q13 | **Does the M5 LdG substrate carry a chiral (Lifshitz / cholesteric) invariant** `2q₀L ε_ikl M_ij ∂_k M_lj` (+ its Frank partner), or is uniform-vacuum achirality intended? | 2026-07-02 roadmap review; seeded by N4b's "open substrate question" ([`tasks/m5_10e_findings_N4c.md`](tasks/m5_10e_findings_N4c.md) Q1) | M5.12 (phases A-C, F), the CP sector | OPEN: **queued for the M5.12 pre-flight ask round** (post-M5.16, batched; see § Ask queue). Three independent threads converge on it: (a) the **CP sector**: achiral LdG gives NO CP phase; `\|δ_CP\| = 90°` needs a chiral term (N4b); (b) **θ₁₃**: reaches the measured 8.56° at O(1) chiral coupling `g_chiral* ≈ 0.94`, a free coupling until the term's coefficient is microscopic; (c) **loop stabilization**: the Smalyukh heliknoton mechanism (the M5.12 phase-A route) rides on Frank + chiral, and the term is already built + validated in the AD functional (`m5_11_p2_heliknoton.py`, AD==numpy 1e-14). Physical motivation: neutrinos are chiral particles. Evidence bundle for the ask: the P2 runs 3-5 negatives + the N4 `δ_CP` result. |
-| Q14 | **Hedgehog core: point vs ring.** M5.16 measured the spherical hedgehog to be a SADDLE of the unconstrained axisym functional (a perturbed relax descends 35% below the spherical minimum; the melt moves off-origin): with no Frank quadratic term, the M5 quartic functional prefers the escaped/ring-core texture (the textbook LdG point-vs-ring escape). Is the electron intended as the SYMMETRIC hedgehog, and if so what holds it (a Frank-type quadratic term? a sixth-order LdG invariant? the clock dressing?), or is the ring-core texture acceptable as the electron? | M5.16 stability probe (2026-07-02), [`m5_16_task_details.md § FINDINGS`](tasks/m5_16_task_details.md) | M5.12 phase D (stability), the Q8 residual, the calibration's constrained-class choice | OPEN: **ask round P3**. Note the same Frank+chiral pair that would hold the point defect is exactly the Q13 term set: the two questions are coupled. Evidence: `data/m5_16_axisym_b100_n64_stability.json` |
-| Q15 | **δ-pinning: is a sixth-order LdG invariant intended?** The quartic trace-LdG `a·Tr(M²) − b·Tr(M³) + c·(Tr M²)²` canNOT be exactly stationary at the biaxial spectrum `(1, δ, 0)`: the residual force on the δ eigenvalue is `3bδ` (≈ 3e-10·b at δ_phys), so δ is a perturbative dressing, not a vacuum eigenvalue. Options: (a) a sixth-order invariant (e.g. `Tr(M³)²` or `(Tr M²)³`) pins the biaxial minimum exactly; (b) δ is DYNAMICAL (maintained by the clock, consistent with his 2026-06-09 "δ is dynamical" remark) and the residual is physical. Which does the model intend? | M5.16 P-C derivation (2026-07-02), sharpening the M5.6 "no biaxial minimum" finding | the Q7 residual, the vacuum structure, M5.9 lepton calibration | OPEN: **ask round P4**. The δ-axis stiffness `κ_δ = (3/2)b` (the cubic alone) is the quantitative handle either way |
+> Sorted by priority: the ask-round questions first (row order = the order we need Duda's answers), then delivered, self-determined, and background. Full history + evidence per question: [`§ QUESTION DETAILS`](#question-details-open-questions) at the end of this file (anchor per ID).
+
+| ID | Title | Question (one line) | Gates |
+| --- | --- | --- | --- |
+| [Q13](#q13-detail) | Chiral invariant | Does the M5 LdG substrate carry a chiral (Lifshitz) invariant `2q₀L ε_ikl M_ij ∂_k M_lj` + Frank partner, or is achirality intended? | M5.12 phases A-C, F; the CP sector |
+| [Q16](#q16-detail) | Neutrino seed topology | Which object is the neutrino: a Hopf-linked `+1/2` disclination pair, a `+1/2` trefoil knot, or the `4f` sketch's "two vortex types" composite? | M5.12 phases A/C seeds |
+| [Q14](#q14-detail) | Hedgehog core: point vs ring | The spherical hedgehog is measured to be a saddle of the unconstrained functional: is the electron the symmetric hedgehog (and what holds it), or is the ring-core texture acceptable? | electron ground state; Q8 residual; M5.12 phase D |
+| [Q15](#q15-detail) | δ-pinning | The quartic trace-LdG cannot be stationary at `(1, δ, 0)` (residual force `3bδ`): sixth-order invariant intended, or is δ dynamical? | Q7 residual; vacuum structure; M5.9 |
+| [Q17](#q17-detail) | β and g anchors | Preferred anchors for the two open lock slots: β = b/c (via `κ_δ = (3/2)b`) and g (statics measured g-blind: clock/boost vs baryon mass)? | full `(g, δ, a, b, c)` lock; `#220`; M5.9 |
+| [Q7](#q7-detail) | V(M) coefficients | ~~Exact LdG coefficients~~ **DELIVERED by M5.16** (locked modulo β); the residual intent question lives in Q15 | ~~M5.16~~ done |
+| [Q8](#q8-detail) | Faber regularization | ~~Exact core-regularization form~~ **DELIVERED by M5.16** (melt profile under the calibrated V, virial 1.006); the residual lives in Q14 | ~~M5.16~~ done |
+| [Q11](#q11-detail) | Close's Eq.23 form | Direct form vs `s = ∇×A` vs divergence-cleaning: SELF-DETERMINE (published paper + numerical discriminator), not a Duda item | M5.7.3 |
+| [Q4](#q4-detail) | Liu lab anchor | Does the 2026 lab creation of isolated hopfions/skyrmions change what to simulate first? | background |
+| [Q10](#q10-detail) | Weak-force mechanism | Is there a clean SU(2)-chiral matrix mechanism for the weak force? | background |
+| [Q9](#q9-detail) | Deeper substrate | Is the matrix M effective, with an "anisotropic fluid" beneath? | background / parked |
+| [Q12](#q12-detail) | Bell / Kochen-Specker | How does the definite-orientation defect reconcile with contextuality? | background / foundational |
 
 ### In-model discriminator: the δ_CP fork (180° vs 270°), flagged 2026-07-02
 
@@ -101,23 +105,28 @@ The outbound sequence:
 | --- | --- | --- |
 | 1 | ✅ Nothing while M5.16 ran (done: 2026-07-02, 1h12m, review approved) | done |
 | 2 | ✅ **The deliverable report is READY**: [`findings/m5_16_report.md`](findings/m5_16_report.md) (the locked parameters + the rigor-compliant recipe + the headline, lean inspection surface) | send now |
-| 3 | **The M5.12 pre-flight ask round**: ONE email = the report link + the 5 asks below in priority order | same email as step 2 (merged: the report IS the backing) |
+| 3 | **The M5.12 pre-flight ask round**: ONE email = the report link + the 5 asks below (Q13, Q16, Q14, Q15, Q17; table order = priority) | same email as step 2 (merged: the report IS the backing) |
 | 4 | (his answers feed the M5.12 phase A/C/D design; then M5.12 runs; nailing it = his own "convincing article able to pass peer review ... would be huge") | after replies |
 
-The ask list, sorted by criticality (what we most need Duda to answer, first):
+The ask list (row order = priority; these five go in the ONE pre-flight email):
 
-| Priority | Item | Why it is critical | What it unblocks |
+| ID | Ask | Why it is critical | What it unblocks |
 | --- | --- | --- | --- |
-| **P1** | **Q13: does the M5 LdG substrate carry a chiral (Lifshitz) invariant** `2q₀L ε_ikl M_ij ∂_k M_lj` + Frank partner, or is uniform-vacuum achirality intended? | Three sectors converge on this ONE term: the CP phase (achiral LdG gives none; the chiral μ-τ route gives \|δ_CP\| = 90°), θ₁₃ (rides `g_chiral ≈ 0.94`, free until the coefficient is microscopic), and loop stabilization (the Smalyukh heliknoton mechanism = Frank + chiral, the M5.12 phase-A route). A "no" reshapes phases A-C AND kills the chiral CP story before we build on it | M5.12 phases A, C, F; the CP sector |
-| **P2** | **Loop-vs-knot: the neutrino seed topology.** His `4f` sketch says "two vortex types" (uniaxial); the M5.11 elimination left the forced-singular KNOTTED/linked cell as the one un-built object. Which target: a Hopf-linked `+1/2` disclination pair, a `+1/2` trefoil, or the sketch's two-vortex composite? | The seed choice is the first line of phase A/C code; building the wrong topology class wastes the heaviest compute of the program | M5.12 phases A/C seeds |
-| **P3** | **Q14: hedgehog core, point vs ring.** We MEASURED the spherical hedgehog to be a saddle of the unconstrained functional (perturbed relax −35%, melt moves off-origin). Is the electron the symmetric hedgehog, and if so what holds it (Frank term? sixth-order LdG? the clock dressing?), or is the ring-core texture acceptable? | Decides whether the calibration's spherically-constrained class is the model's intent or a scaffold; couples to Q13 (the same Frank+chiral pair is the natural point-stabilizer); feeds M5.12 phase D stability | the electron ground state; Q8 residual; M5.12 D |
-| **P4** | **Q15: δ-pinning.** The quartic trace-LdG cannot be stationary at `(1, δ, 0)`: residual force `3bδ`. Sixth-order invariant intended, or is δ dynamical (his 2026-06-09 "δ is dynamical")? | Decides the vacuum structure the whole program minimizes toward; `κ_δ = (3/2)b` is the quantitative handle either way | Q7 residual; M5.9 lepton calibration |
-| **P5** | **Parameter residuals (report + short ask):** β = b/c is un-pinned by the electron sector (r_half is β-flat; κ_δ = (3/2)b is its meaning): preferred anchor? And g: statics are measured g-blind (E identical at g = 8 vs 1e10), so g must come from clock/boost or baryon mass: which anchor does he want first? | Closes the two honest open slots of the lock table | the full `(g, δ, a, b, c)` lock; `#220` |
-| framing | The δ_CP fork (180° pure-SO(3) vs 270° chiral) | NOT a standalone ask: one paragraph of framing under Q13 (it is what the Q13 answer decides in-model) | M5.12 phase F |
-| hold | Q4 (Liu lab anchor), Q9 (deeper substrate), Q10 (weak SU(2)), Q12 (Bell/KS) | background / long-tail; none gates M5.12 | later rounds |
-| not Duda | Q11 (Close Eq.23) | self-determination plan stands; Close's thread | M5.7.3 |
+| **Q13** | Does the M5 LdG substrate carry a chiral (Lifshitz) invariant `2q₀L ε_ikl M_ij ∂_k M_lj` + Frank partner, or is uniform-vacuum achirality intended? | Three sectors converge on this ONE term: the CP phase (achiral LdG gives none; the chiral μ-τ route gives \|δ_CP\| = 90°), θ₁₃ (rides `g_chiral ≈ 0.94`, free until the coefficient is microscopic), and loop stabilization (the Smalyukh heliknoton mechanism = Frank + chiral, the M5.12 phase-A route). A "no" reshapes phases A-C AND kills the chiral CP story before we build on it. Framing paragraph: the δ_CP fork (180° pure-SO(3) vs 270° chiral; NuFIT ~212° between) is what this answer decides in-model | M5.12 phases A, C, F; the CP sector |
+| **Q16** | The neutrino seed topology: his `4f` sketch says "two vortex types" (uniaxial); the M5.11 elimination left the forced-singular KNOTTED/linked cell as the one un-built object. Which target: a Hopf-linked `+1/2` disclination pair, a `+1/2` trefoil, or the sketch's two-vortex composite? | The seed choice is the first line of phase A/C code; building the wrong topology class wastes the heaviest compute of the program | M5.12 phases A/C seeds |
+| **Q14** | Hedgehog core, point vs ring: we MEASURED the spherical hedgehog to be a saddle of the unconstrained functional (perturbed relax −35%, melt moves off-origin). Is the electron the symmetric hedgehog, and if so what holds it (Frank term? sixth-order LdG? the clock dressing?), or is the ring-core texture acceptable? | Decides whether the calibration's spherically-constrained class is the model's intent or a scaffold; couples to Q13 (the same Frank+chiral pair is the natural point-stabilizer); feeds M5.12 phase D stability | the electron ground state; Q8 residual; M5.12 phase D |
+| **Q15** | δ-pinning: the quartic trace-LdG cannot be stationary at `(1, δ, 0)` (residual force `3bδ`). Sixth-order invariant intended, or is δ dynamical (his 2026-06-09 "δ is dynamical")? | Decides the vacuum structure the whole program minimizes toward; `κ_δ = (3/2)b` is the quantitative handle either way | Q7 residual; M5.9 lepton calibration |
+| **Q17** | β and g anchor preference (report + short ask): β = b/c is un-pinned by the electron sector (r_half is β-flat; `κ_δ = (3/2)b` is its meaning) and statics are measured g-blind (E identical at g = 8 vs 1e10), so g must come from clock/boost or baryon mass. Which anchors does he want first? | Closes the two honest open slots of the lock table | the full `(g, δ, a, b, c)` lock; `#220` |
 
-Rules that still stand: ONE email (never a drip); the report link leads, the asks follow; do not ask what we can measure ourselves (Q7/Q8 were delivered, not asked; Q14/Q15 are asked only because they are THEORY-INTENT questions the minimizer cannot decide).
+Not in this round:
+
+| Item | Disposition |
+| --- | --- |
+| The δ_CP fork (180° vs 270°) | not a standalone ask: one framing paragraph under Q13 (it is what the Q13 answer decides in-model); the in-model decider is M5.12 phase F |
+| Q4 (Liu lab anchor), Q9 (deeper substrate), Q10 (weak SU(2)), Q12 (Bell/KS) | background / long-tail; none gates M5.12; later rounds |
+| Q11 (Close Eq.23) | not a Duda item: self-determination plan stands; Close's thread |
+
+Rules that still stand: ONE email (never a drip); the report link leads, the asks follow; do not ask what we can measure ourselves (Q7/Q8 were delivered, not asked; Q13-Q17 are asked because they are THEORY-INTENT or design-choice questions the minimizer cannot decide).
 
 ---
 
@@ -380,3 +389,58 @@ Imported from `m6_ouroboros/research/0b_model_gates.md` § "What M6 offers regar
 
 - This tracker covers **M5 physics/framework questions for the group** (Duda / Close / Yee) plus the hardest-pieces board. M5.4 implementation decisions (Taichi storage layout, eigen-kernel design, granule/glyph UX calls) are tracked as **roadmap tasks** in [`m5_roadmap.md`](m5_roadmap.md) and [`m5_4b_rendering_features.md`](tasks/m5_4b_rendering_features.md), not here — same split as M6 (questions here, sandbox tasks in the work log).
 - **Email cadence (updated 2026-07-02).** The Duda thread is ACTIVE: rounds `4c` (2026-06-08 δ/g calibration + Faber added), `4d` (06-11), the #236 rounds 2-3 (06-20/21, "do less but more rigorously" + the parameter search handed to us), the "too simple" critique + M5.11 response (06-22), and the same-day pair `4e` (07-01 serious sims + g/δ lock, direct) + `4f` (07-01 field-config sketch, group list). Golubich joined 07-02 (`4g`, the SU(2) lattice recipe). **The outbound queue is governed by § QUESTIONS TO DUDA (ask queue) above.** M5.16 DELIVERED 2026-07-02 (review approved): the deliverable report [`findings/m5_16_report.md`](findings/m5_16_report.md) + the pre-flight ask round go out as ONE email (P1 Q13 chiral · P2 loop-vs-knot · P3 Q14 point-vs-ring · P4 Q15 δ-pinning · P5 β/g residuals); Q7/Q8 were delivered, not asked (M5.16 P-C/P-D). After his answers: go M5.12. The earlier note here (last reply 2026-05-15, Q7/Q8 outreach seeds) is superseded.
+
+---
+
+## QUESTION DETAILS (open questions)
+
+> The lean [`§ OPEN QUESTIONS`](#open-questions) table links here (one anchor per ID). This section carries each question's full statement, provenance, history, and evidence.
+
+### Q13 detail
+
+**Chiral (Lifshitz / cholesteric) invariant.** Does the M5 LdG substrate carry `2q₀L ε_ikl M_ij ∂_k M_lj` (+ its Frank partner `K|∇M|²`), or is uniform-vacuum achirality intended? Surfaced: 2026-07-02 roadmap review; seeded by N4b's "open substrate question" ([`tasks/m5_10e_findings_N4c.md`](tasks/m5_10e_findings_N4c.md) Q1). Three independent threads converge on this one term: (a) the **CP sector**: achiral LdG gives NO CP phase; `|δ_CP| = 90°` needs a chiral term (N4b); (b) **θ₁₃**: reaches the measured 8.56° at O(1) chiral coupling `g_chiral* ≈ 0.94`, a free coupling until the term's coefficient is microscopic; (c) **loop stabilization**: the Smalyukh heliknoton mechanism (the M5.12 phase-A route) rides on Frank + chiral, and the term is already built + validated in the AD functional (`m5_11_p2_heliknoton.py`, AD == numpy 1e-14). Physical motivation: neutrinos are chiral particles. Evidence bundle for the ask: the M5.11 P2 runs-3-5 negatives + the N4 δ_CP result + the M5.16 P-G monotone δ-trends. Framing: the δ_CP fork (§ In-model discriminator, above) is what this answer decides in-model.
+
+### Q16 detail
+
+**Neutrino seed topology (loop vs knot).** Duda's `4f` sketch ([`tasks/m5_4f_convo_2026.07.01.md`](tasks/m5_4f_convo_2026.07.01.md) § 2) draws the neutrino as a UNIAXIAL object with "two vortex types"; the M5.11 2×2 elimination ([`tasks/m5_11b_findings.md`](tasks/m5_11b_findings.md)) left the forced-singular KNOTTED/linked disclination cell as the one un-built object. Which construction is the intended target: a Hopf-linked pair of `+1/2` disclination loops, a single `+1/2` trefoil knot, or the sketch's two-vortex composite? Surfaced: the reserved competence-showing question from `m5_11a § 5` (2026-06-22), formalized with an ID 2026-07-02. The answer is the first line of M5.12 phase A/C code; the wrong topology class wastes the heaviest compute of the program.
+
+### Q14 detail
+
+**Hedgehog core: point vs ring.** M5.16 measured the spherical hedgehog to be a SADDLE of the unconstrained axisym functional: a perturbed 2D relax descends 35% below the spherical minimum (25.14 → 16.23) and the melt minimum moves off-origin to `(ρ, z) ≈ (1.5, 2.5)`; with no Frank quadratic term, the M5 quartic functional prefers the escaped/ring-core texture (the textbook LdG point-vs-ring escape). Is the electron intended as the SYMMETRIC hedgehog, and if so what holds it (a Frank-type quadratic term? a sixth-order LdG invariant? the clock dressing?), or is the ring-core texture acceptable as the electron? Surfaced: the M5.16 stability probe (2026-07-02), [`tasks/m5_16_task_details.md § FINDINGS`](tasks/m5_16_task_details.md); evidence `data/m5_16_axisym_b100_n64_stability.json`. Coupling: the same Frank+chiral pair that would hold the point defect is exactly the Q13 term set, so the two answers should be read together. Inherits the Q8 residual.
+
+### Q15 detail
+
+**δ-pinning: is a sixth-order LdG invariant intended?** The quartic trace-LdG `a·Tr(M²) − b·Tr(M³) + c·(Tr M²)²` cannot be exactly stationary at the biaxial spectrum `(1, δ, 0)`: the residual force on the δ eigenvalue is `3bδ` (≈ 3e-10·b at δ_phys), so δ is a perturbative dressing, not a vacuum eigenvalue. Options: (a) a sixth-order invariant (e.g. `Tr(M³)²` or `(Tr M²)³`) pins the biaxial minimum exactly; (b) δ is DYNAMICAL (maintained by the clock, consistent with Duda's 2026-06-09 "δ is dynamical" remark) and the residual is physical. Which does the model intend? Surfaced: the M5.16 P-C derivation (2026-07-02), sharpening the M5.6 "no biaxial minimum" finding. The δ-axis stiffness `κ_δ = (3/2)b` (the cubic alone restores the δ eigenvalue) is the quantitative handle either way. Inherits the Q7 residual.
+
+### Q17 detail
+
+**β and g anchor preference (the two open lock slots).** M5.16 locked `c₂ = αħc/64π` (Coulomb) and `(a, b, c)` modulo the shape ratio `β = b/c ∈ (0, 2)`: the electron sector cannot pin β (the r_half prediction is β-flat, 2.916-2.939 fm), and its physical meaning is the δ-axis stiffness `κ_δ = (3/2)b`, so the natural anchor is the neutrino sector (M5.12 phase E). And g: statics are measured EXACTLY g-blind (gate G8: E identical at g = 8 and g = 1e10), so g must come from the clock/boost sector (`GEM ∝ (b_boost·g)²`, `4c § 5`; electron-clock absolute ω, `#220`) or baryon gravitational mass (his `4e` "certain of only for baryons"). Which anchors does he want first? Surfaced: the M5.16 lock residuals (2026-07-02), [`tasks/m5_16_task_details.md § FINDINGS`](tasks/m5_16_task_details.md).
+
+### Q7 detail
+
+**Exact V(M) form (DELIVERED, M5.16 2026-07-02; residual → Q15).** Original question (Duda 2026-05-15, `4a §12`): Eq.13 LdG `V_LG = a Tr(M²) − b Tr(M³) + c (Tr(M²))²`, or "slightly different"? History: M5.6 (✅) shipped the working interim: the 3-term Eq.13 form has **no biaxial minimum** (`∂V/∂λ` collapses nonzero eigenvalues to one root), so a `b≠0` term erodes δ → uniaxial; M5.6.5c used a `b=0` amplitude well `V = a·Tr(M²) + c·(Tr(M²))²` (min at `Tr(M²) = 1+δ²`), live in production (`LDG_STIFFNESS_K`). Duda 2026-07-01 (`4e`): the minima "should be eigenspectrum (g,1,delta,0), can be obtained in various ways, like Landau-de Gennes with traces of powers, still requiring to find its parameters". **M5.16 delivered:** `(a, b, c)` LOCKED modulo β: `c₂ = αħc/64π` (Coulomb, analytic), `a = (3b − 4c)/2` (uniaxial vacuum, zero forcing), scale from m_e; `b > 0` required for shape selection; the sharpened no-biaxial-minimum statement (irreducible O(δ) residual `3bδ`) became Q15. [`tasks/m5_16_task_details.md § FINDINGS`](tasks/m5_16_task_details.md), [`tasks/m5_4e_convo_2026.07.01.md`](tasks/m5_4e_convo_2026.07.01.md).
+
+### Q8 detail
+
+**Faber regularization (DELIVERED, M5.16 2026-07-02; residual → Q14).** Original question (Duda 2026-04-19 / 05-15): the exact form to "activate" V(M) and produce the running-coupling effect; Faber's two papers as the starting scheme. History: M5.6 (✅) ported Faber's MTF (`Universe` 11/2025/113): reproduced `E₀ = α_f ℏc·π/(4r₀)`, mapped `Λ = q₀⁶/r₀⁴` onto `M = ODOᵀ` via spatially-melting eigenvalues, mass pinned `E ∝ 1/r₀` (`r₀ = 2.2132 fm → 0.511 MeV`), confirmed Faber `R = Γ×Γ` → homogeneous Maxwell + running-coupling onset at `r₀` (M5.6.4). Duda 2026-07-01 (`4e`): "the most difficult is regularization in the center of hedgehog or vortex, also requiring potential" (Faber estimates weeks). **M5.16 delivered:** core regularization = the melt profile `s(r)` under the calibrated V; the spherically-constrained hedgehog converges cleanly (virial 1.006) and predicts `r_half = 2.926 fm` vs Faber's 3.075 (parameter-free, −4.8%, h-converged). The new point-vs-ring finding became Q14. [`tasks/m5_16_task_details.md § FINDINGS`](tasks/m5_16_task_details.md).
+
+### Q11 detail
+
+**Close's Eq.23 exact implementation form.** Direct form vs vector-potential `s = ∇×A` vs divergence-cleaning projection; and should the resonance amplitude sweep span the full `m ∈ {−1, 0, +1}` dipole family? Surfaced: Rodrigo → Close 2026-04-19 (`1a`). PLAN = self-determination: Eq.23 is in Close's **published** paper (`../theory/Equation-of-Everything.pdf`), so the three candidate forms can be tested empirically (the physical one preserves `∇·s = 0` + gives bounded, energy-conserving dynamics: a numerical discriminator, not an opinion); the deeper "seeded resonance vs intrinsic oscillation" question is empirical (M5.7.1: seeded l=1 disperses). Close's view is confirmation, not gate; M5 must not bottleneck on advisor email latency. Not a Duda item.
+
+### Q4 detail
+
+**Liu et al. lab anchor.** *Nature Physics* 2026: first direct laser creation of isolated hopfions + skyrmions. Does the lab confirmation change what the framework should simulate first (hedgehog before hopfion? simpler stabilizer before LdG)? Surfaced: `3b` (2026-05-12). Lab-existence anchor for topology-as-particles; the current plan keeps hedgehog-first; hopfion is the M5.12/M5.15 frontier (`project_particle_defect_correspondence`).
+
+### Q10 detail
+
+**Weak-force mechanism.** Is there a clean matrix mechanism (SU(2) chiral) for the weak force, the way EM/gravity/strong have one? Surfaced: `4a §7`. Partial answer in the slides: beta decay appears as a topology-reconnection event (defect-class transition, the `4e § 3` beta-decay cartoon), not a force in the EM/gravity sense. No clean SU(2) mechanism yet.
+
+### Q9 detail
+
+**Deeper substrate.** Is there a deeper substrate beneath the matrix field M (an "anisotropic fluid")? Duda hints the matrix may be effective, with something deeper below (2026-05-15, `4a §1, §12`). Matches OpenWave's existing granule-level picture (matrix effective, granules deeper). Parked, not actionable now.
+
+### Q12 detail
+
+**Bell / Kochen-Specker.** How does M5's definite-orientation defect (real spin axis + clock phase, deterministic local PDE) reconcile with Bell / Kochen-Specker contextuality? Surfaced: Duda↔Hadley thread 2026-05-11; Close/Adenier thread 2026-05. Defense template: field evolution is local-realistic (cannot violate Bell); QM statistics enter at the measurement/collapse layer (Duda's Malus analogy + Feynman-ensemble), bridged by MERW `ρ = |ψ|²` (`4a §11b.4`). Close is building the parallel Adenier / Eq.10-factoring defense. Full note: [`m5_1b_topological_defect.md § Foundational stance`](tasks/m5_1b_topological_defect.md#foundational-stance--m5-as-a-local-realistic-field-bell--kochen-specker).
+

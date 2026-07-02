@@ -30,7 +30,7 @@ All five M5.11 P2 loop experiments ran at the placeholder `δ = 0.3`, where the 
 | Gate | Delivers |
 | --- | --- |
 | **M5.16** (the parameter-lock task) | locked `(g, δ, a, b, c, r₀)` + the calibrated axisymmetric minimizer + the P-G δ-continuation read (does the blue-phase obstruction relax toward quasi-uniaxial?) |
-| **The pre-flight ask round** (one email to Duda, backed by the M5.16 deliverable) | his answers to **Q13** (does the substrate carry a chiral Lifshitz invariant?) and the **loop-vs-knot choice** (Hopf-linked `+1/2` pair vs `+1/2` trefoil vs the sketch's "two vortex types"), + any parameter residual ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) |
+| **The pre-flight ask round** (one email to Duda, backed by the M5.16 deliverable) | his answers to the ask round **Q13** (chiral Lifshitz invariant), **Q16** (loop-vs-knot seed topology: Hopf-linked `+1/2` pair vs `+1/2` trefoil vs the sketch's "two vortex types"), **Q14** (hedgehog core point-vs-ring), **Q15** (δ-pinning), **Q17** (β/g anchors) ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) |
 
 ## The phased plan
 
@@ -80,6 +80,6 @@ A **stable, regularized neutrino loop at the physical `(g, δ, V)` regime** (or 
 
 - Predecessor (closed): [`m5_11_task_details.md`](m5_11_task_details.md) · frozen findings [`m5_11b_findings.md`](m5_11b_findings.md) · resume-state archive [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md)
 - Gate task: [`m5_16_task_details.md`](m5_16_task_details.md) (parameter lock + P-G + rigor bar + comms plan)
-- Ask round: [`../m5_question_tracker.md`](../m5_question_tracker.md) § QUESTIONS TO DUDA (Q13 + loop-vs-knot) · § δ_CP fork
+- Ask round: [`../m5_question_tracker.md`](../m5_question_tracker.md) § QUESTIONS TO DUDA (Q13/Q16/Q14/Q15/Q17) · § δ_CP fork
 - Theory inputs: [`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) (serious-sims bar, SO(2)/SO(3) slide) · [`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) (uniaxial-neutrino sketch) · [`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md) (Golubich lattice recipe)
 - Honest-scorecard baseline the F phase must beat: [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md)
