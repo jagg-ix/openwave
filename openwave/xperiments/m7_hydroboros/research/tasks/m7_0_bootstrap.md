@@ -1,8 +1,8 @@
 # M7.0, bootstrap (collect the theory corpus + planning scaffolding)
 
-> Task **M7.0** (M7 / HydroBoros). taskID = M7.N iteration. Status: **In Progress** · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
+> Task **M7.0** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-02) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
-This doc is the task's full record: planning + findings + future planning + documentation. **M7.0 (bootstrap)** is the task currently in progress: assemble the theory-source corpus and stand up the initial planning scaffolding before the M7.1 build begins.
+This doc is the task's full record: planning + findings + future planning + documentation. **M7.0 (bootstrap) is complete** (2026-07-02): the theory-source corpus is assembled (64 docs in `electron_beltrami/`, evolving from Marc's library) and the planning scaffolding stands up (background, question-tracker, roadmap, `research/` structure). The build proceeds at **M7.1**.
 
 ---
 

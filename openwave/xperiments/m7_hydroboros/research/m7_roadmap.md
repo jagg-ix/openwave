@@ -8,7 +8,7 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| [M7.0](tasks/m7_0_bootstrap.md) | bootstrap | Collect the theory-source corpus (Fleury torus, Ouroboros/M6, Beltrami/Trkalian, Marc's 52-PDF `electron_beltrami/` library) and stand up the initial planning scaffolding (implementation plan, background + question-tracker stubs, the `research/` folder structure). | corpus consolidated in [`../theory/`](../theory/); plan + roadmap + task structure in place |
+| [M7.1](tasks/m7_1_infra.md) | infra | A-primary field on a 3D periodic lattice; AD energy gradient; FIRE minimizer; Bateman/Hopf + **Trkalian (constant-λ) Beltrami** seeders (S&Y exact solutions) | AD == numpy grad to `1e-12`; minimizer descends monotonically |
 
 ## BACKLOG
 
@@ -16,7 +16,6 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| [M7.1](tasks/m7_1_infra.md) | infra | A-primary field on a 3D periodic lattice; AD energy gradient; FIRE minimizer; Bateman/Hopf + **Trkalian (constant-λ) Beltrami** seeders (S&Y exact solutions) | AD == numpy grad to `1e-12`; minimizer descends monotonically |
 | M7.2 | reproduce Fleury on the lattice | seed the paper's toroidal ansatz; integrate charge, μ, spin, energy | recover `Q_rms = e`, `R₀ ≈ 1.573 r_c`, `E₀ ≈ 0.286 E_S`, `U ≈ 0.795 m_e c²`, `ω = 2c/R₀`. **M7's "reproduce Faber" trust-builder.** |
 | M7.3 | reproduce M6's electron in full 3D | switch on the Ouroboros coupling; relax the 3D doublet | recover `H/Q = 1.6969` from the **3D** field (M6 only ever got it from a 1D radial BVP) |
 | M7.4 | the charged soliton (constant-λ → variable-λ) + its Coulomb field (NEW physics) | turn the Trkalian seed into a **variable-λ** Beltrami knot (`∇·F ≠ 0` = the charge); relax with the 4th-order stabilizer; read off the far field | stable finite-size soliton; `‖∇E‖ → 0`; helicity / Hopf charge quantized; **charge `= ∇·F` = the variable-λ divergence**; **Coulomb `1/r`** sourced by it (Gauss's law) |
@@ -119,8 +118,7 @@ Reference layout: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`mediu
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-
-*none currently.*
+| [M7.0](tasks/m7_0_bootstrap.md) | bootstrap | Collect the theory-source corpus (Fleury torus, Ouroboros/M6, Beltrami/Trkalian, Marc's evolving `electron_beltrami/` library, now 64 docs) and stand up the planning scaffolding (background, question-tracker, roadmap, the `research/` folder structure). | ✅ corpus consolidated (64 docs) in [`../theory/`](../theory/) + [manifest](../theory/SOURCES.md); plan + roadmap + tracker in place (2026-07-02) |
 
 ---
 
