@@ -99,7 +99,7 @@ The three frameworks escape Derrick's theorem three different ways (standing-wav
 
 | Model | Briefing | Deep dive |
 | --- | --- | --- |
-| Liquid Crystal (M5) | [`__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [`99_summary_report.md`](openwave/xperiments/m5_liquid_crystal/research/99_summary_report.md): the results-of-record; [`m5_roadmap.md`](openwave/xperiments/m5_liquid_crystal/research/m5_roadmap.md): full program; [`m5_question_tracker.md`](openwave/xperiments/m5_liquid_crystal/research/m5_question_tracker.md): emergence catalog + open questions |
+| Liquid Crystal (M5) | [`__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [`m5_summary_report.md`](openwave/xperiments/m5_liquid_crystal/research/m5_summary_report.md): the results-of-record; [`m5_roadmap.md`](openwave/xperiments/m5_liquid_crystal/research/m5_roadmap.md): full program; [`m5_question_tracker.md`](openwave/xperiments/m5_liquid_crystal/research/m5_question_tracker.md): emergence catalog + open questions |
 | Ouroboros (M6) | [`__M6_model_briefing.md`](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/0d_canonical.md): canonical numerical specification |
 | EWT (M4) | [`__M4_model_briefing.md`](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [`0_STATUS.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_STATUS.md): targets, achieved, honest blockers |
 
