@@ -49,7 +49,7 @@ cell = a **knotted/linked HALF-INTEGER DISCLINATION LINE**.
 Faber's high-order method, P1b'); the smooth / painted-melt knots and the biaxial cholesteric
 helix (11b runs 3-5).
 
-**Machinery is ready:** [`v11_p2_heliknoton.py`](../scripts/v11_p2_heliknoton.py) carries the validated
+**Machinery is ready:** [`m5_11_p2_heliknoton.py`](../scripts/m5_11_p2_heliknoton.py) carries the validated
 functional (`4th-order + V_M + Frank + chiral`) + seeds (`disclination_loop_tensor`,
 `singular_hopfion_tensor`, `heliknoton_director`) + diagnostics (`melt_diag`, `director_ring_R`,
 `curvature_only`). The Taichi kernel is offline-cached; the FIRST run after any kernel-source edit
@@ -59,16 +59,16 @@ recompiles (~6 min on this machine), driver-only edits are free.
 
 | Phase | Script | Result |
 | --- | --- | --- |
-| P0 minimizer + V_M/LdG | `v11_p0_minimizer.py` | all gates pass |
-| P1a Faber electron | `v11_p1_faber_electron.py` | 511.00 keV at r0=2.2132 fm, I=π/4 to 6e-6 |
-| P1b machinery + α⁻¹ | `v11_p1b_lattice.py`, `v11_p1b_dipole.py` | 3D+axisym Γ/R validated; charge→1e, 1/α_sol→137.03 |
-| AD engine (run 2) | `v11_ad_energy.py` | Taichi reverse-mode AD == P0 (E 4e-16, grad 1.8e-13) |
-| P2 run1 plain ring | `v11_p2_vortex_loop.py` | dissolves (curvature combs out) |
-| P2 run2 Hopfion | `v11_p2_hopfion.py` | smooth knot EXPANDS (curvature 65→0.10); AD-FIRE monotone |
-| P2 run3 chiral+Frank | `v11_p2_heliknoton.py` | chiral Lifshitz + Frank terms built + validated (AD==numpy 1e-14, gradcheck 1.4e-8); biaxial obstruction (see below) |
-| P2 run4 singular disc loop | `v11_p2_heliknoton.py` mode `disc` | melted-core +1/2 loop DISSOLVES under L=0 AND chiral (melt heals, vol→0); unknotted = unprotected |
-| P2 run5 singular Hopfion | `v11_p2_heliknoton.py` mode `shopf` | painted melt on a smooth Hopf knot HEALS (vol 904→0 by it 100) → EXPANDS (all melt depths). melt must be FORCED, not painted |
-| P1b' running α(d) | `v11_p1b_running.py` | machinery built+validated; α_sol not cleanly extractable in fast setup (honest negative) |
+| P0 minimizer + V_M/LdG | `m5_11_p0_minimizer.py` | all gates pass |
+| P1a Faber electron | `m5_11_p1_faber_electron.py` | 511.00 keV at r0=2.2132 fm, I=π/4 to 6e-6 |
+| P1b machinery + α⁻¹ | `m5_11_p1b_lattice.py`, `m5_11_p1b_dipole.py` | 3D+axisym Γ/R validated; charge→1e, 1/α_sol→137.03 |
+| AD engine (run 2) | `m5_11_ad_energy.py` | Taichi reverse-mode AD == P0 (E 4e-16, grad 1.8e-13) |
+| P2 run1 plain ring | `m5_11_p2_vortex_loop.py` | dissolves (curvature combs out) |
+| P2 run2 Hopfion | `m5_11_p2_hopfion.py` | smooth knot EXPANDS (curvature 65→0.10); AD-FIRE monotone |
+| P2 run3 chiral+Frank | `m5_11_p2_heliknoton.py` | chiral Lifshitz + Frank terms built + validated (AD==numpy 1e-14, gradcheck 1.4e-8); biaxial obstruction (see below) |
+| P2 run4 singular disc loop | `m5_11_p2_heliknoton.py` mode `disc` | melted-core +1/2 loop DISSOLVES under L=0 AND chiral (melt heals, vol→0); unknotted = unprotected |
+| P2 run5 singular Hopfion | `m5_11_p2_heliknoton.py` mode `shopf` | painted melt on a smooth Hopf knot HEALS (vol 904→0 by it 100) → EXPANDS (all melt depths). melt must be FORCED, not painted |
+| P1b' running α(d) | `m5_11_p1b_running.py` | machinery built+validated; α_sol not cleanly extractable in fast setup (honest negative) |
 
 ## The conclusion, sharpened across run 2 + run 3
 
@@ -107,8 +107,8 @@ Run 3 added the chiral term and refined this:
    reduction** where Smalyukh's chiral heliknotons are known to live (then map back to biaxial M5),
    OR accept that the M5 functional as-is stabilizes only the point hedgehog (electron) and the
    neutrino needs an added substrate ingredient. Machinery (functional + seeds + diagnostics) ready
-   in `v11_p2_heliknoton.py`.
-2. **Running α(d) (P1b') , honest negative (2026-06-23).** `v11_p1b_running.py` built + validated
+   in `m5_11_p2_heliknoton.py`.
+2. **Running α(d) (P1b') , honest negative (2026-06-23).** `m5_11_p1b_running.py` built + validated
    (single soliton gradcheck 2e-6); `α_sol` not cleanly extractable in the fast 2nd-order setup
    (non-uniform FIRE + small-difference-of-large-energies). Needs Faber's high-order method. The
    robust α⁻¹→137 already stands on the charge route (P1b). Not a priority.

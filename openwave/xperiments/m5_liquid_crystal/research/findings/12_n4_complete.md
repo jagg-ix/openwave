@@ -6,10 +6,10 @@ All three open questions resolved + the final NuFIT 6.0 scorecard assembled. Rec
 
 | Study | Question | Answer | Script |
 | --- | --- | --- | --- |
-| A | is theta13=8.56 natural or strong-coupling? | **NATURAL**: continuous, near-linear, reaches 8.56 at `g_chiral* = 0.937` (O(1)), mass gap stable (no resonance) | `n4_refine.py` |
-| B | what fixes the delta_CP sign? | **the loop HANDEDNESS**: `delta_CP_sign = -sign(g_chiral)` (chi-screw sign irrelevant); `g_chiral>0 -> 270 deg` (data-preferred) | `n4_refine.py` |
-| C | mu-tau-respecting topological theta13? | **NO** (two attempts: local-azimuth `N*s` and global-azimuth `N*phi` both break mu-tau). theta13 is CONTINUOUS (chiral material coupling), not topological | `n4_topo.py`, `n4_linking.py` |
-| D | final NuFIT 6.0 scorecard | assembled + figure; **gate FULLY CLOSED** | `n4_final_scorecard.py` |
+| A | is theta13=8.56 natural or strong-coupling? | **NATURAL**: continuous, near-linear, reaches 8.56 at `g_chiral* = 0.937` (O(1)), mass gap stable (no resonance) | `m5_11_n4_refine.py` |
+| B | what fixes the delta_CP sign? | **the loop HANDEDNESS**: `delta_CP_sign = -sign(g_chiral)` (chi-screw sign irrelevant); `g_chiral>0 -> 270 deg` (data-preferred) | `m5_11_n4_refine.py` |
+| C | mu-tau-respecting topological theta13? | **NO** (two attempts: local-azimuth `N*s` and global-azimuth `N*phi` both break mu-tau). theta13 is CONTINUOUS (chiral material coupling), not topological | `m5_11_n4_topo.py`, `m5_11_n4_linking.py` |
+| D | final NuFIT 6.0 scorecard | assembled + figure; **gate FULLY CLOSED** | `m5_11_n4_final_scorecard.py` |
 
 ## FINAL scorecard (chi=1.2, delta=0.1, g_chiral*=0.937)
 

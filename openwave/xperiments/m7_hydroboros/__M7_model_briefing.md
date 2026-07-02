@@ -17,7 +17,7 @@
 | Blend | Fleury's toroidal EM electron (arXiv:2510.22384) fused with Werbos's Ouroboros self-confinement (M6) |
 | Lineage | force-free / Beltrami (Trkalian → variable-λ) + knotted-EM / Clebsch + Faber geometric soliton |
 | Primary sources | Fleury / dos Santos arXiv:2510.22384; Werbos M6; Faber arXiv:2201.13262 + Faber & Golubich arXiv:2604.12021; Sato-Yamada arXiv:1809.03136; Ceperley; Pisello 1977 |
-| In-repo | [`research/0a_implementation_plan.md`](research/0a_implementation_plan.md) (master plan); `theory/` (52-PDF electron-Beltrami corpus + notes); `images/` icon |
+| In-repo | [`research/m7_roadmap.md`](research/m7_roadmap.md) (roadmap) + [`m7_background.md`](research/m7_background.md) (background) + [`m7_question_tracker.md`](research/m7_question_tracker.md) (Q1-Q7); `theory/` (64-doc electron-Beltrami corpus + notes); `images/` icon |
 
 ## Model Profile (what it brings, short form)
 
@@ -47,22 +47,23 @@ lepton / neutrino family (M7.12), quarks / baryons / mesons (M7.14).
 
 ## Implementation Status
 
-**Pre-implementation / planning stage.** No sandbox runs yet (`research/sandbox_v1` is an
-empty stub), and there is no MODELS.md column yet (adding it is the M7.7 milestone). The
-master plan is complete and the 52-PDF Beltrami theory corpus is assembled. The decisive
+**Pre-implementation / planning stage.** No runs yet (`research/scripts/`, `data/`, `plots/`
+are empty), and there is no MODELS.md column yet (adding it is the M7.7 milestone). The
+plan is complete and the 64-doc Beltrami theory corpus is assembled. The decisive
 credibility gates are M7.1-M7.3: reproduce *both* parents (Fleury's torus and M6's `H/Q`)
 from one lattice code, then earn the new physics (the charged variable-λ soliton) at M7.4.
 
 ## Roadmap
 
-Three arcs, phases M7.1 → M7.14 (full detail in
-[`research/0a_implementation_plan.md`](research/0a_implementation_plan.md) § 6):
+Five phases, M7.1 → M7.16 (full detail in [`research/m7_roadmap.md`](research/m7_roadmap.md)):
 
-| Arc | Phases | What lands |
+| Phase | Tasks | What lands |
 | --- | --- | --- |
 | A , electron + the column | M7.1-M7.7 | infra → reproduce Fleury → reproduce M6 in 3D → charged soliton (constant-λ → variable-λ, the new physics) + Coulomb → clock + stability → observables → consolidate the M7 column (milestone) |
 | B , forces + sectors | M7.8-M7.13 | magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
 | C , composites | M7.14 | quarks, baryons, mesons, orbital quantization |
+| D , MODELS.md column | M7.15 | complete + govern the 21-cell HydroBoros column |
+| E , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
 
 Open questions Q1-Q7: substrate + target manifold (Q1), the 4th-order form + κ (Q2), whether
 divergence-charge and linking-charge are forced equal (Q3), whether variable-λ fields still
@@ -87,3 +88,7 @@ maintainer adds the column at the M7.7 milestone. See
 [`../../../ONBOARDING_MODELS.md`](../../../ONBOARDING_MODELS.md),
 [`../../../CONTRIBUTING.md`](../../../CONTRIBUTING.md). Model discussion runs in the
 Models-of-Particles group.
+
+## Rich Context for Deep Reader
+
+This is a top level documentation and orientation content. For additional context on this model, a detailed read in the /theory and /research folders is recommended, as well as the production files in this model root folder, that may contain the canonical full PDE implementation of the theory.

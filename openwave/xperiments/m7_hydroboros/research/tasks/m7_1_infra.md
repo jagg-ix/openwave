@@ -1,6 +1,6 @@
 # M7.1, infra (define the substrate field + stand up the lattice / minimizer)
 
-> Task **M7.1** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Backlog** · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
+> Task **M7.1** (M7 / HydroBoros). taskID = M7.N iteration. Status: **In Progress** · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation. **M7.1 (infra)** stands up the A-primary field on a 3D periodic lattice, the AD energy gradient (validated to `1e-12` vs a numpy finite-difference reference), the FIRE / L-BFGS minimizer, and the Bateman/Hopf + Trkalian (constant-λ) Beltrami seeders. Its first design decision, captured here, is **which substrate field** the lattice evolves (Open Question Q1).
 

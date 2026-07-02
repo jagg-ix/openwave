@@ -4,7 +4,7 @@
 > third-party copyrighted papers + author docs kept **local only** (gitignored for size + copyright;
 > OpenWave is a public repo). This manifest is the tracked record; obtain the files from the original
 > venues (DOIs/arXiv) or Marc Fleury's shared library. The theory root holds only our own `.md` notes.
-> Curated reading-by-theme + M7-relevant roles: [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md) § 3 / § 3b.
+> Curated reading-by-theme + M7-relevant roles: [`../research/tasks/m7_0_bootstrap.md`](../research/tasks/m7_0_bootstrap.md) (Task-0 source table + § 3b).
 
 Total: **64 documents** in `electron_beltrami/` (as of 2026-07-02). Filenames follow `YEAR - Author - Title`. This is an **evolving M7 corpus**: it **started from Marc Fleury's consolidated library** (entries 1-53, the source-of-record) and is **extended with separately-sourced papers** as M7 needs them (entries 54-64, provenance noted below).
 

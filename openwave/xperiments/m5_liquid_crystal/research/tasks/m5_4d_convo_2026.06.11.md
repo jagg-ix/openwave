@@ -43,6 +43,6 @@ The H(b_star) curve has a clear minimum 21% below the clock-stopped value, with 
 
 ## 4. Open follow-ups
 
-- Two-defect ± annihilation on the production matrix field (upgrade of the 1D `sine_gordon_annihilation.py`): needs a new multi-defect initializer + a director-winding Q tracker on the M-field. Named, not yet run.
+- Two-defect ± annihilation on the production matrix field (upgrade of the 1D `m5_14_sine_gordon_annihilation.py`): needs a new multi-defect initializer + a director-winding Q tracker on the M-field. Named, not yet run.
 - ELECTRON-ID EID-B / EID-C completion (real μ via tilt channel, J finite + box-robust); ω(δ) direct probe.
 - The dynamical de-Broglie-frequency energy sweep (settled-clock vs frozen-seed H at a converged timestep) to confirm the 2u seed-level direction dynamically.

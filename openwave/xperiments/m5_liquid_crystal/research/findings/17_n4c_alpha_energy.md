@@ -4,7 +4,7 @@ The single most important review point (both cold readers, independently): is th
 energetically SELECTED (`dE/dalpha = 0` there), making `theta_12 = 35.26` a real prediction, or just the tilt
 where trimaximal mixing is read off (a fit)?
 
-## Result (`n4c_alpha_energy.py`)
+## Result (`m5_11_n4c_alpha_energy.py`)
 
 | quantity | value |
 | --- | --- |
@@ -38,5 +38,5 @@ conditional on the mu-tau arrangement; not energetically selected." Combined wit
 (`theta_23`, `theta_13=0`, \|`delta_CP`\|=90 are consequences), the real content is: 1 imposed symmetry + 1
 geometrically-pinned angle (`theta_12`) + 1 free coupling (`theta_13`) + `delta_CP` magnitude (sign open).
 
-Artifacts: `n4c_alpha_energy.py`, `n4c_alpha_energy_summary.json`, `n4c_alpha_energy.png`. Next: mass-ratio
-falsifier (`n4c_mass_ratio.py`).
+Artifacts: `m5_11_n4c_alpha_energy.py`, `m5_11_n4c_alpha_energy_summary.json`, `m5_11_n4c_alpha_energy.png`. Next: mass-ratio
+falsifier (`m5_11_n4c_mass_ratio.py`).

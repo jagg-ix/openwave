@@ -10,8 +10,8 @@ Scope source: `research/10a_neutrino_oscillations.md § N1 + N2 foundation scope
 
 | Phase | Deliverable | Script |
 | --- | --- | --- |
-| N1 | precision-safe numerical method (non-dim + perturbative-delta), Duda index-0 convention, cancellation test passes | `n1_precision_method.py` |
-| N2 | closed-vortex-loop seeder + 3 flavour states + SO(3) rotation + mixing observables (in the N1 formulation) | `n2_closed_loop.py` |
+| N1 | precision-safe numerical method (non-dim + perturbative-delta), Duda index-0 convention, cancellation test passes | `m5_11_n1_precision_method.py` |
+| N2 | closed-vortex-loop seeder + 3 flavour states + SO(3) rotation + mixing observables (in the N1 formulation) | `m5_11_n2_closed_loop.py` |
 
 ## The precision problem (from Duda round-2, made concrete by reading the engine)
 

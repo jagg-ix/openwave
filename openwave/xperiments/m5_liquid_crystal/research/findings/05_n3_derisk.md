@@ -1,6 +1,6 @@
 # N3 checkpoint 05 , de-risk PASS + what it tells the loop search
 
-`n3_derisk.py` PASS (summary: `n3_derisk_summary.json`). The flavour-space mass-matrix <-> PMNS
+`m5_11_n3_derisk.py` PASS (summary: `m5_11_n3_derisk_summary.json`). The flavour-space mass-matrix <-> PMNS
 scaffold is verified, so any later TBM miss is loop PHYSICS, not bookkeeping.
 
 | Test | Result |
@@ -40,7 +40,7 @@ mu-tau asymmetry, so an effective breaking ~0.18 gives 8.5 deg. This reframes th
 does the LC delta=1e-10 produce an EFFECTIVE flavour-space breaking ~0.18 (needs ~1.8e9 amplification, e.g.
 a near-degenerate m1<->m3 gap), or does the mixing see a larger effective delta? -> the S3 question.
 
-## Next: S1 `n3_mass_matrix.py`
+## Next: S1 `m5_11_n3_mass_matrix.py`
 Seed 3 closed loops (mu-tau mirror arrangement, e on axis, tunable geometry) as LdG 4x4 fields (index-0,
 N1 precision-safe when dressed); compute the 3x3 symmetric coupling matrix from the LdG energy overlaps;
 diagonalize -> U -> angles. Verify the matrix lands in the [[x,y,y],[y,z,w],[y,w,z]] mu-tau form by

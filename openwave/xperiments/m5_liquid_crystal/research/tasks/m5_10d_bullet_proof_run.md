@@ -29,10 +29,10 @@ how `theta_12` is framed in 10e.
 
 | Critique | Raised by | Verdict | N4c action |
 | --- | --- | --- | --- |
-| `alpha*` not shown energy-selected -> `theta_12` may be a fit | both | valid, decisive | `n4c_alpha_energy.py`: `E(alpha)` + `dE/dalpha` at `alpha*` |
+| `alpha*` not shown energy-selected -> `theta_12` may be a fit | both | valid, decisive | `m5_11_n4c_alpha_energy.py`: `E(alpha)` + `dE/dalpha` at `alpha*` |
 | Scorecard triple-counts ONE mu-tau assumption as 3 predictions | both | valid; our own Q3 contradicts the headline | reframe scorecard (below) |
 | `delta_CP` SIGN not predicted: `E(+chi)=E(-chi)` (our N4b-3) | Claude | valid, consistent with our data | downgrade to \|`delta_CP`\|=90; sign open |
-| Mass ratios 1:1.15:1.68 checkable NOW, look compressed | Claude | valid, near-term falsifier | `n4c_mass_ratio.py`: ratio vs observed |
+| Mass ratios 1:1.15:1.68 checkable NOW, look compressed | Claude | valid, near-term falsifier | `m5_11_n4c_mass_ratio.py`: ratio vs observed |
 | "Hessian" is a large-displacement Gram/overlap; `U=eigvecs` asserted | both | valid | fix terminology; label the bridge a postulate |
 | Loop instability (`dE/dL>0`) -> mass matrix on non-stationary configs | both | valid, elevate | promote from Q7; tie to the `alpha`-energy work |
 | `delta` + potential independence = "substrate dropped out" of angles | both | valid, uncomfortable | reframe robustness honestly (angles are symmetry-generic) |
@@ -72,9 +72,9 @@ defensible and exactly what Duda would accept.
 
 | # | Step | Output |
 | --- | --- | --- |
-| 1 | `n4c_alpha_energy.py` , the decisive test: `E(alpha)` (self-energy + tight-binding trace + ground state) over the tilt; locate stationary points; compare to `alpha*` | `n4c_alpha_energy_summary.json` + panel |
-| 2 | `n4c_mass_ratio.py` , gate eigenvalues -> splitting ratio under both natural maps (eigval = m, eigval = m^2) vs observed `Dm31^2/Dm21^2 ~ 33.6` | `n4c_mass_ratio_summary.json` + panel |
-| 3 | `n4c_scorecard.py` , the honest scorecard figure (predictions vs imposed-symmetry consequences vs fit; NuFIT with error bars) | `n4c_scorecard.png` |
+| 1 | `m5_11_n4c_alpha_energy.py` , the decisive test: `E(alpha)` (self-energy + tight-binding trace + ground state) over the tilt; locate stationary points; compare to `alpha*` | `m5_11_n4c_alpha_energy_summary.json` + panel |
+| 2 | `m5_11_n4c_mass_ratio.py` , gate eigenvalues -> splitting ratio under both natural maps (eigval = m, eigval = m^2) vs observed `Dm31^2/Dm21^2 ~ 33.6` | `m5_11_n4c_mass_ratio_summary.json` + panel |
+| 3 | `m5_11_n4c_scorecard.py` , the honest scorecard figure (predictions vs imposed-symmetry consequences vs fit; NuFIT with error bars) | `m5_11_n4c_scorecard.png` |
 | 4 | Write `m5_10e_findings_N4c.md` , same structure as the reviewed doc (sections, images, links); honest reframe; the two new results; bridge + stability elevated; framework + scope note | 10e |
 | 5 | Rename `10b_findings.md` -> `m5_10b_findings_N4b.md`; forward-pointer to 10e; update the 10a cross-ref | rename + edits |
 

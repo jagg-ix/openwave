@@ -1,6 +1,6 @@
 # N4 checkpoint 10 , chiral coupling: delta_CP = MAXIMAL (predicted) + theta13<->delta_CP unified
 
-`n4_chiral.py` (summary `n4_chiral_summary.json`) + robustness check. Major result.
+`m5_11_n4_chiral.py` (summary `m5_11_n4_chiral_summary.json`) + robustness check. Major result.
 
 ## What the chiral (Lifshitz/cholesteric) coupling adds
 

@@ -26,12 +26,12 @@
 
 `C` is the curl-like Lifshitz overlap (the cholesteric chiral term of a real liquid crystal): antisymmetric in
 `(a,b)` -> `i*C` Hermitian; reflection-odd -> a true handedness. `g_chiral -> 0` recovers N3 exactly (real,
-CP-conserving). Run: `n4_chiral.py`.
+CP-conserving). Run: `m5_11_n4_chiral.py`.
 
 ## FINAL scorecard vs NuFIT 6.0 (NO) , the article table
 
-`n4_final_scorecard.py` ([`n4_final_scorecard.json`](../data/n4_final_scorecard.json), figure
-[`n4_final_scorecard.png`](../plots/n4_final_scorecard.png)). Headline point: `chi = 1.2, delta = 0.1, g_chiral* = 0.937`.
+`m5_11_n4_final_scorecard.py` ([`m5_11_n4_final_scorecard.json`](../data/m5_11_n4_final_scorecard.json), figure
+[`m5_11_n4_final_scorecard.png`](../plots/m5_11_n4_final_scorecard.png)). Headline point: `chi = 1.2, delta = 0.1, g_chiral* = 0.937`.
 
 | Parameter | TBM baseline | N4 full | NuFIT 6.0 (NO) | status |
 | --- | --- | --- | --- | --- |
@@ -45,28 +45,28 @@ strength). theta23 = 45 and delta_CP = 270 are exact predictions; theta12 = 35.2
 NuFIT 33.68 (the standard TBM-vs-data gap); delta_CP = 270 vs NuFIT 212 (data leans toward maximal; DUNE/HK
 will decide).
 
-## Study A , theta13 reach: NATURAL, continuous, near-linear (`n4_refine.py`)
+## Study A , theta13 reach: NATURAL, continuous, near-linear (`m5_11_n4_refine.py`)
 
 At the gate (mu-tau-symmetric, alpha* re-found), `theta13(g_chiral)` at `chi = 1.2, delta = 0.1` rises smoothly
 and near-linearly (slope ~9.5 deg/g, mass gap stable ~1.5 , NO resonance), crossing **8.56 deg at
 `g_chiral* = 0.937`** with `theta23 = 45`, `delta_CP = -90` held. So `theta13 = 8.56` needs only O(1) chirality
 , NATURAL, not strong/fine-tuned. (`theta12` drifts 35.26 -> 35.72 as chirality rises.)
 
-## Study B , the delta_CP sign = the loop handedness (`n4_refine.py`)
+## Study B , the delta_CP sign = the loop handedness (`m5_11_n4_refine.py`)
 
 Flipping the signs of `(chi, g_chiral)`: **`delta_CP_sign = -sign(g_chiral)` ALONE** , the chi-screw sign is
 IRRELEVANT. So the sign of `delta_CP` is fixed by the loop HANDEDNESS (the sign of the chiral coupling). One
 definite handedness (`g_chiral > 0`) gives `delta_CP = -90 (= 270 deg)`, the data-preferred value , a sharp,
 falsifiable statement (the theory predicts which way CP is violated, given the loop handedness).
 
-## Study C , is theta13 TOPOLOGICAL? NO (two independent attempts) (`n4_topo.py`, `n4_linking.py`)
+## Study C , is theta13 TOPOLOGICAL? NO (two independent attempts) (`m5_11_n4_topo.py`, `m5_11_n4_linking.py`)
 
 Tested whether the handedness is a quantized self-linking integer N (Calugareanu: `Lk = Tw + Wr`):
 
 | Attempt | framing | result |
 | --- | --- | --- |
-| `n4_topo.py` | `N * s` (LOCAL azimuth, mu-tau-ODD under the z->-z mirror) | breaks mu-tau, degrades TBM |
-| `n4_linking.py` | `N * phi` (GLOBAL azimuth, intended mu-tau-even) | ALSO breaks mu-tau (the secondary FRAME still transforms), degrades TBM |
+| `m5_11_n4_topo.py` | `N * s` (LOCAL azimuth, mu-tau-ODD under the z->-z mirror) | breaks mu-tau, degrades TBM |
+| `m5_11_n4_linking.py` | `N * phi` (GLOBAL azimuth, intended mu-tau-even) | ALSO breaks mu-tau (the secondary FRAME still transforms), degrades TBM |
 
 Both break the TBM baseline rather than cleanly stepping `theta13`. **Conclusion: `theta13` is NOT
 topologically quantized in this theory; it is CONTINUOUS, set by the chiral material coupling `g_chiral` (the
@@ -105,11 +105,11 @@ support it; a CP-conserving value (180) would disfavour it.
 
 | Artifact | Regenerate |
 | --- | --- |
-| [`n4_chiral.py`](../scripts/n4_chiral.py) + `n4_chiral_summary.json` | `python3 n4_chiral.py` (the delta_CP=maximal result, 16-core) |
-| [`n4_refine.py`](../scripts/n4_refine.py) + `n4_refine_summary.json` | `python3 n4_refine.py` (Study A theta13 reach + Study B sign) |
-| [`n4_topo.py`](../scripts/n4_topo.py) + `n4_topo_summary.json` | `python3 n4_topo.py` (topological test, local azimuth , negative) |
-| [`n4_linking.py`](../scripts/n4_linking.py) + `n4_linking_summary.json` | `python3 n4_linking.py` (Study C mu-tau-even framing , negative) |
-| [`n4_final_scorecard.py`](../scripts/n4_final_scorecard.py) + `n4_final_scorecard.json` + `n4_final_scorecard.png` | `python3 n4_final_scorecard.py` |
+| [`m5_11_n4_chiral.py`](../scripts/m5_11_n4_chiral.py) + `m5_11_n4_chiral_summary.json` | `python3 m5_11_n4_chiral.py` (the delta_CP=maximal result, 16-core) |
+| [`m5_11_n4_refine.py`](../scripts/m5_11_n4_refine.py) + `m5_11_n4_refine_summary.json` | `python3 m5_11_n4_refine.py` (Study A theta13 reach + Study B sign) |
+| [`m5_11_n4_topo.py`](../scripts/m5_11_n4_topo.py) + `m5_11_n4_topo_summary.json` | `python3 m5_11_n4_topo.py` (topological test, local azimuth , negative) |
+| [`m5_11_n4_linking.py`](../scripts/m5_11_n4_linking.py) + `m5_11_n4_linking_summary.json` | `python3 m5_11_n4_linking.py` (Study C mu-tau-even framing , negative) |
+| [`m5_11_n4_final_scorecard.py`](../scripts/m5_11_n4_final_scorecard.py) + `m5_11_n4_final_scorecard.json` + `m5_11_n4_final_scorecard.png` | `python3 m5_11_n4_final_scorecard.py` |
 | `checkpoints/09_n4_design.md` .. `12_n4_complete.md` | progress log |
 
 ## Cross-refs

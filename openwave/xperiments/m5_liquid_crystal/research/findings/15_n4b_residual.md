@@ -1,6 +1,6 @@
 # N4b checkpoint 15 , item 3: the theta12/theta23 residuals (which are free, which cost predictions)
 
-`n4b_residual.py` (`n4b_residual_summary.json`). Key structural fact: theta23=45 + delta_CP=+-90 come from
+`m5_11_n4b_residual.py` (`m5_11_n4b_residual_summary.json`). Key structural fact: theta23=45 + delta_CP=+-90 come from
 the mu-tau MIRROR (holds at ANY tilt alpha); theta12 comes from the MAGIC crossing (a specific alpha).
 
 | Part | Result |

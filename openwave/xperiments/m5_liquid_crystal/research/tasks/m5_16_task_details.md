@@ -22,13 +22,13 @@ M5.11 P0-P1 built the machinery and validated it at placeholder parameters:
 
 | Asset | Where | State |
 | --- | --- | --- |
-| Static energy minimizer (FIRE + L-BFGS to `\|dE/dM\|→0`), mirrors the production functional | [`../scripts/v11_p0_minimizer.py`](../scripts/v11_p0_minimizer.py) | ✅ all gates pass (gradcheck 1e-6, φ⁴-kink, V_M ≡ engine2_pde) |
-| Faber electron reproduced | [`../scripts/v11_p1_faber_electron.py`](../scripts/v11_p1_faber_electron.py) | ✅ 511.00 keV at `r₀=2.2132 fm`, `I=π/4` to 6e-6 |
-| `α⁻¹ → 137.03` from charge quantization | [`../scripts/v11_p1b_lattice.py`](../scripts/v11_p1b_lattice.py), `v11_p1b_dipole.py` | ✅ 3D + axisym Γ/R; charge→1e |
-| Taichi reverse-mode AD gradient ≡ production functional | [`../scripts/v11_ad_energy.py`](../scripts/v11_ad_energy.py) | ✅ E 4e-16, grad 1.8e-13 |
-| Chiral Lifshitz + Frank terms | [`../scripts/v11_p2_heliknoton.py`](../scripts/v11_p2_heliknoton.py) | ✅ AD ≡ numpy 1e-14 |
+| Static energy minimizer (FIRE + L-BFGS to `\|dE/dM\|→0`), mirrors the production functional | [`../scripts/m5_11_p0_minimizer.py`](../scripts/m5_11_p0_minimizer.py) | ✅ all gates pass (gradcheck 1e-6, φ⁴-kink, V_M ≡ engine2_pde) |
+| Faber electron reproduced | [`../scripts/m5_11_p1_faber_electron.py`](../scripts/m5_11_p1_faber_electron.py) | ✅ 511.00 keV at `r₀=2.2132 fm`, `I=π/4` to 6e-6 |
+| `α⁻¹ → 137.03` from charge quantization | [`../scripts/m5_11_p1b_lattice.py`](../scripts/m5_11_p1b_lattice.py), `m5_11_p1b_dipole.py` | ✅ 3D + axisym Γ/R; charge→1e |
+| Taichi reverse-mode AD gradient ≡ production functional | [`../scripts/m5_11_ad_energy.py`](../scripts/m5_11_ad_energy.py) | ✅ E 4e-16, grad 1.8e-13 |
+| Chiral Lifshitz + Frank terms | [`../scripts/m5_11_p2_heliknoton.py`](../scripts/m5_11_p2_heliknoton.py) | ✅ AD ≡ numpy 1e-14 |
 
-**The gap:** the minimizer runs at placeholder `g=8, δ=0.3` (`v11_p0_minimizer.py:41-42`), never at the physical `g~1e10, δ~1e-10`; the `V(M)` coefficients `(a, b, c)` are uncalibrated; cylindrical-symmetry reduction is not yet used to make the physical regime tractable; and the whole thing is scoped inside the neutrino task rather than being the program's calibration instrument.
+**The gap:** the minimizer runs at placeholder `g=8, δ=0.3` (`m5_11_p0_minimizer.py:41-42`), never at the physical `g~1e10, δ~1e-10`; the `V(M)` coefficients `(a, b, c)` are uncalibrated; cylindrical-symmetry reduction is not yet used to make the physical regime tractable; and the whole thing is scoped inside the neutrino task rather than being the program's calibration instrument.
 
 ## What M5.16 adds
 

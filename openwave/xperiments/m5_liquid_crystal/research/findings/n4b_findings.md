@@ -13,9 +13,9 @@ N4b nails the four items that were still open after N4, so the Duda exchange has
 
 | item | question | answer | script |
 | --- | --- | --- | --- |
-| **2** | does the result survive a real LdG TENSOR potential? (Duda's #1) | the mu-tau predictions (theta23=45, theta13=0, delta_CP=+-90) are ROBUST to ALL 27 potentials; the magic/theta12 point is reached by tilt for 24/27 and RECOVERABLE by a 2nd geometric knob for the rest | [`n4b_potential.py`](../scripts/n4b_potential.py) |
-| **3** | the theta12 / theta23 residuals (~2 deg vs data) | theta12 is FREE (tunable by the tilt alpha; theta23 + delta_CP unaffected); theta23->43.3 costs ~14 deg of delta_CP (mu-tau breaking) | [`n4b_residual.py`](../scripts/n4b_residual.py) |
-| **6** | where does g_chiral come from + its scale? | CP requires g_chiral != 0 (a chiral substrate term); g_chiral=0 recovers CP-conservation; theta13 ~ O(10 deg) is natural at g_chiral* ~ 0.94 = O(1) | [`n4b_chiral_origin.py`](../scripts/n4b_chiral_origin.py) |
+| **2** | does the result survive a real LdG TENSOR potential? (Duda's #1) | the mu-tau predictions (theta23=45, theta13=0, delta_CP=+-90) are ROBUST to ALL 27 potentials; the magic/theta12 point is reached by tilt for 24/27 and RECOVERABLE by a 2nd geometric knob for the rest | [`m5_11_n4b_potential.py`](../scripts/m5_11_n4b_potential.py) |
+| **3** | the theta12 / theta23 residuals (~2 deg vs data) | theta12 is FREE (tunable by the tilt alpha; theta23 + delta_CP unaffected); theta23->43.3 costs ~14 deg of delta_CP (mu-tau breaking) | [`m5_11_n4b_residual.py`](../scripts/m5_11_n4b_residual.py) |
+| **6** | where does g_chiral come from + its scale? | CP requires g_chiral != 0 (a chiral substrate term); g_chiral=0 recovers CP-conservation; theta13 ~ O(10 deg) is natural at g_chiral* ~ 0.94 = O(1) | [`m5_11_n4b_chiral_origin.py`](../scripts/m5_11_n4b_chiral_origin.py) |
 | **4** | the two delta scales (mixing vs quantum-phase) | the TBM mixing is delta-INDEPENDENT (identical for delta = 1e-10 .. 0.3); Duda's 1e-10 plays no role in the mixing; theta13/delta_CP are chirality-driven | inline check (this doc) |
 
 ## item 2 , LdG tensor-potential robustness (answers Duda's "the potential is crucial")
@@ -99,9 +99,9 @@ predicted); the deferred masses (N6).
 
 | Artifact | Regenerate |
 | --- | --- |
-| [`n4b_potential.py`](../scripts/n4b_potential.py) + `n4b_potential_summary.json` | `python3 n4b_potential.py` (16-core) |
-| [`n4b_residual.py`](../scripts/n4b_residual.py) + `n4b_residual_summary.json` | `python3 n4b_residual.py` (16-core) |
-| [`n4b_chiral_origin.py`](../scripts/n4b_chiral_origin.py) + `n4b_chiral_origin_summary.json` | `python3 n4b_chiral_origin.py` |
+| [`m5_11_n4b_potential.py`](../scripts/m5_11_n4b_potential.py) + `m5_11_n4b_potential_summary.json` | `python3 m5_11_n4b_potential.py` (16-core) |
+| [`m5_11_n4b_residual.py`](../scripts/m5_11_n4b_residual.py) + `m5_11_n4b_residual_summary.json` | `python3 m5_11_n4b_residual.py` (16-core) |
+| [`m5_11_n4b_chiral_origin.py`](../scripts/m5_11_n4b_chiral_origin.py) + `m5_11_n4b_chiral_origin_summary.json` | `python3 m5_11_n4b_chiral_origin.py` |
 | `checkpoints/13_n4b_design.md` .. `16_n4b_origin_deltas.md` | progress log |
 
 ## Cross-refs

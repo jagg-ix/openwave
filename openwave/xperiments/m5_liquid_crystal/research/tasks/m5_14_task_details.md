@@ -30,7 +30,7 @@ On the antimatter / annihilation row the **accounting is already settled**, but 
 | --- | --- |
 | Charge ledger | ✅ single ±1 → Q ≈ ±1; the enclosing sphere of a ± pair → Q = 0 (additive) (`m5_8_2v_pair_annihilation_budget.py`) |
 | Energy ledger | ✅ pair rest energy ≈ 2× H_static, balances |
-| 1+1D principle trail | ✅ SG kink + antikink → breather → vacuum, Q = 0 throughout (`sine_gordon_annihilation.py`) |
+| 1+1D principle trail | ✅ SG kink + antikink → breather → vacuum, Q = 0 throughout (`m5_14_sine_gordon_annihilation.py`) |
 | **3D dynamical capture → breather → vacuum** | 🚧 open, this issue |
 
 `m5_8_2v` is a budget ledger (it sums charges and energies of a placed configuration); it does not evolve the pair. The missing piece is an EOM-driven 3D run where the two defects actually approach, capture, ring down through a breather, and decay to vacuum.
@@ -46,7 +46,7 @@ On the antimatter / annihilation row the **accounting is already settled**, but 
 
 A single headless script + plot showing `Q(t)`, the bound/radiated energy split, and the far-sphere flux for at least one separation, demonstrating capture → breather → vacuum with the energy ledger closing dynamically.
 
-Physics-only, headless. Builds directly on `m5_8_2v` and `sine_gordon_annihilation.py`.
+Physics-only, headless. Builds directly on `m5_8_2v` and `m5_14_sine_gordon_annihilation.py`.
 
 
 ---

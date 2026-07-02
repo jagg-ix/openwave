@@ -1,6 +1,6 @@
 # N3 checkpoint 07 , S3 the theta13 crux + central-tension RESOLUTION
 
-`n3_theta13.py` (summary `n3_theta13_summary.json`). The crux resolved, with a sharper (and more honest)
+`m5_11_n3_theta13.py` (summary `m5_11_n3_theta13_summary.json`). The crux resolved, with a sharper (and more honest)
 answer than the original connecting hypothesis.
 
 ## The three results
@@ -38,7 +38,7 @@ The theta13(delta,eps) map is clean+monotone for delta<=0.1; at large delta*eps 
 (the TBM baseline drifts, one outlier cell delta=0.2/eps=0.4=32 deg) , the bilinear gain is taken from the
 linear regime. Documented; not load-bearing for the conclusion (order-of-magnitude robust).
 
-## Next: S4 `n3_scorecard.py`
+## Next: S4 `m5_11_n3_scorecard.py`
 Assemble the full NuFIT 6.0 scorecard (theta12/theta23/theta13/delta_CP), state delta_CP=180 in the real
 CP-conserving limit (consistent with #199), generate the 3 key plots (magic-crossing TBM gate, theta13(delta,
 eps) map, mass spectrum), write the master findings doc `n3_findings.md`.

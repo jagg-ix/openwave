@@ -1,7 +1,7 @@
 # N4c checkpoint 18 , the mass-ratio near-term falsifier
 
 Reviewer (Claude) flagged: the spectrum 1:1.15:1.68 is checkable against data NOW, and looks compressed vs the
-observed splitting hierarchy. Tested in `n4c_mass_ratio.py`.
+observed splitting hierarchy. Tested in `m5_11_n4c_mass_ratio.py`.
 
 ## Result
 
@@ -22,5 +22,5 @@ near-term TENSION.
 mass-as-loop-length-density picture). A successful mass model (N6) must either spread the spectrum or use a
 nonlinear map. Worth stating plainly before building further (the reviewer's point stands).
 
-Artifacts: `n4c_mass_ratio.py`, `n4c_mass_ratio_summary.json`, `n4c_mass_ratio.png`. Next: honest scorecard
-figure (`n4c_scorecard.py`) + write `m5_10e_findings_N4c.md`.
+Artifacts: `m5_11_n4c_mass_ratio.py`, `m5_11_n4c_mass_ratio_summary.json`, `m5_11_n4c_mass_ratio.png`. Next: honest scorecard
+figure (`m5_11_n4c_scorecard.py`) + write `m5_10e_findings_N4c.md`.

@@ -1,6 +1,6 @@
 # N3 checkpoint 06 , ★ TBM GATE PASS (TBM angles from closed-loop field dynamics)
 
-`n3_search.py` (summary `n3_search_summary.json`). The ★ TBM milestone (10a § "Sub-tasks", the explicit
+`m5_11_n3_search.py` (summary `m5_11_n3_search_summary.json`). The ★ TBM milestone (10a § "Sub-tasks", the explicit
 gate) is PASSED: the 3 tribimaximal angles emerge from the closed-loop LC field theory, not the group
 argument.
 
@@ -41,7 +41,7 @@ novelty vs #199 (pure SO(3) group argument): a concrete field computation with a
 a mass spectrum. Be honest in the writeup that mu-tau is an assumed arrangement, magic is the derived
 condition.
 
-## Next: S3 `n3_theta13.py` , the crux (resolve the central tension)
+## Next: S3 `m5_11_n3_theta13.py` , the crux (resolve the central tension)
 theta13 = 0 holds by the EXACT mu-tau mirror. To source theta13 = 8.5 deg, break mu-tau. Connecting
 hypothesis (10a): the LC delta (index-2 eigenvalue) sources it. Physical mechanism to test: make the loops
 BIAXIAL (eigenvalues 1, delta, 0 with a secondary delta-twist director, Duda's D=diag(g,1,delta,0)); a

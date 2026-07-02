@@ -35,10 +35,10 @@ theta13 of the right size/sign.
 
 | Stage | File | What | Gate |
 | --- | --- | --- | --- |
-| D (de-risk) | `n3_derisk.py` | (D1) verify U=eigvecs(M) bridge on a KNOWN TBM mass matrix round-trips the angles; (D2) democratic Z3 matrix -> trimaximal (sin^2 th12=1/3); (D3) magic+mu-tau -> exact TBM; (D4) which breakings turn on theta13, sign/size | scaffold correct before touching loops |
-| S1 (machine) | `n3_mass_matrix.py` | loop-overlap field theory: seed 3 flavour loops (Z3 geometric), compute M_mass from LC energy overlaps (N1 precision-safe when dressed), diagonalize -> U -> angles. Convention index-0. | M_mass real-symmetric, sensible |
-| S2 (gate) | `n3_search.py` | SEARCH (g, delta, LdG a/b/c, R, loop arrangement, core, dressing b*) for U -> TBM. Grid + refine, 16-core parallel. ★ TBM GATE | 3 TBM angles within tol from dynamics |
-| S3 (crux) | `n3_theta13.py` | turn on delta at the TBM point; measure theta13(delta); resolve tension (is eff delta ~1e-10 -> need resonance, or larger?); test the near-degenerate-gap resonance amplification | theta13 derived or honest gap reported |
+| D (de-risk) | `m5_11_n3_derisk.py` | (D1) verify U=eigvecs(M) bridge on a KNOWN TBM mass matrix round-trips the angles; (D2) democratic Z3 matrix -> trimaximal (sin^2 th12=1/3); (D3) magic+mu-tau -> exact TBM; (D4) which breakings turn on theta13, sign/size | scaffold correct before touching loops |
+| S1 (machine) | `m5_11_n3_mass_matrix.py` | loop-overlap field theory: seed 3 flavour loops (Z3 geometric), compute M_mass from LC energy overlaps (N1 precision-safe when dressed), diagonalize -> U -> angles. Convention index-0. | M_mass real-symmetric, sensible |
+| S2 (gate) | `m5_11_n3_search.py` | SEARCH (g, delta, LdG a/b/c, R, loop arrangement, core, dressing b*) for U -> TBM. Grid + refine, 16-core parallel. ★ TBM GATE | 3 TBM angles within tol from dynamics |
+| S3 (crux) | `m5_11_n3_theta13.py` | turn on delta at the TBM point; measure theta13(delta); resolve tension (is eff delta ~1e-10 -> need resonance, or larger?); test the near-degenerate-gap resonance amplification | theta13 derived or honest gap reported |
 | S4 (deliverable) | findings + plots | full scorecard vs NuFIT 6.0 (th12/th23/th13/delta_CP), document every param, reproducibility | peer-review-grade record |
 
 ## Honest FAIL path (gate clause)
