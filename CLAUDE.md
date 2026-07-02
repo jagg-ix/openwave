@@ -27,7 +27,7 @@ OpenWave investigates, in one integrated simulator, four primary domains: **matt
 | Jeff Yee | Energy Wave Theory (EWT) | M3 |
 | Dr. Jarek Duda | Liquid Crystal Particle Analogs (arxiv 2108.07896, 2501.04036) | M5 |
 | Dr. Robert Close | Classical elastic-solid / "Equation of Everything" | M5 (shared) |
-| Manfried Faber | LdG regularization (Universe 11/2025/113) | M5.6 baseline |
+| Dr. Manfried Faber | LdG regularization (Universe 11/2025/113) | M5.6 baseline |
 | Dr. Paul Werbos | Ouroboros chaoiton Lagrangian | M6 |
 
 ### Known Challenges & Limitations

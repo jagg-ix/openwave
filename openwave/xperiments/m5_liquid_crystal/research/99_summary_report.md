@@ -2,7 +2,7 @@
 
 > **Index convention (2026-06-21).** The M5 engine now stores the order parameter at INDEX-0: `D = diag(g, 1, δ, 0)`, `eta = diag(-1, 1, 1, 1)` (time/g axis = array index 0, Duda's convention). Sections written before the flip use the legacy index-3 labels (`D = diag(1, δ, 0, g)`; the time-coupled curvature block called the `(α,3)` block) , the SAME physics under the relabel `index k -> (k+1) mod 4` (proven physics-neutral: [`_convention_refactor/CONVENTION.md`](_convention_refactor/CONVENTION.md)). Read `(α,3)` as `(α,0)`.
 
-**Purpose:** the results-of-record for the M5 Liquid-Crystal program (OpenWave). A narrative report of the 3+1D time-crystal field test, then every headline test as `topic | verdict + one-sentence finding + source script`, organized into the three validation bodies (**Liquid Crystal**, **Time Crystal**, **Zitterbewegung-clock existence**), then the **canonical implementation** (what works — the build that produced these results). The per-phase narrative lives in [`0b_M5_roadmap.md`](0b_M5_roadmap.md) and the hardest-pieces board in [`0b_question_tracker.md`](0b_question_tracker.md).
+**Purpose:** the results-of-record for the M5 Liquid-Crystal program (OpenWave). A narrative report of the 3+1D time-crystal field test, then every headline test as `topic | verdict + one-sentence finding + source script`, organized into the three validation bodies (**Liquid Crystal**, **Time Crystal**, **Zitterbewegung-clock existence**), then the **canonical implementation** (what works — the build that produced these results). The per-phase narrative lives in [`m5_roadmap.md`](m5_roadmap.md) and the hardest-pieces board in [`m5_question_tracker.md`](m5_question_tracker.md).
 
 **Reading the verdict column:** the first line of each descriptive cell is the result — ✅ PASS / POSITIVE, ❌ NEGATIVE, ⚠️ NEGATIVE-INFORMATIVE or caveat. Scope throughout (unless noted): single defect, natural/lattice units, Duda's Eq.18-class matrix dynamics `M = ODOᵀ`, sandbox grids 24³/48³, f32 GPU with f64 numpy cross-checks.
 
@@ -150,4 +150,4 @@ The build that produced every result above. This is the load-bearing configurati
 
 ## Reproduction
 
-Every script above lives under `research/sandbox_v8/` (the M5.8.0–2g arc) or `research/sandbox_vn/` (the N-1…N-6e ladder). The full command table — prerequisites, run times, expected outputs — is in [`0b_M5_roadmap.md`](0b_M5_roadmap.md) § *Reproduction commands*. Each script carries its own PREREQUISITE + RESULTS docstring with the caveats inline.
+Every script above lives under `research/sandbox_v8/` (the M5.8.0–2g arc) or `research/sandbox_vn/` (the N-1…N-6e ladder). The full command table — prerequisites, run times, expected outputs — is in [`m5_roadmap.md`](m5_roadmap.md) § *Reproduction commands*. Each script carries its own PREREQUISITE + RESULTS docstring with the caveats inline.

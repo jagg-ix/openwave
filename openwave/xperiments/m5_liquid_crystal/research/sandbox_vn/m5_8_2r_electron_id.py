@@ -1,6 +1,6 @@
 """
 M5.8.2r, ELECTRON-ID (EID): the 3-way EM/QM/GEM split + the 3x3 fixed-clock
-electron (mu and J). Spec: 0b_M5_roadmap.md § ELECTRON-ID PROJECT (frozen
+electron (mu and J). Spec: m5_roadmap.md § ELECTRON-ID PROJECT (frozen
 2026-06-09). Source: Duda round-3 ("try getting such electron with 3x3 field
 and fixed clock, to get proper magnetic dipole moment and angular momentum").
 
@@ -82,6 +82,7 @@ USAGE:
   python m5_8_2r_electron_id.py            # EID-B + EID-C at 24^3, phi=0
   python m5_8_2r_electron_id.py gates      # + phi sweep + box ladder 24/32/48
 """
+
 import sys
 from pathlib import Path
 
@@ -93,10 +94,19 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from openwave.xperiments.m5_liquid_crystal.research.sandbox_v8.m5_8_2a_4d_hamiltonian import (  # noqa: E402
-    conj, boost_field, matmul, rot4, gen4,
+    conj,
+    boost_field,
+    matmul,
+    rot4,
+    gen4,
 )
 from openwave.xperiments.m5_liquid_crystal.research.sandbox_v8.m5_8_2c1_full_evolution import (  # noqa: E402
-    L, B_STAR, A_BOOST, central, tw, A_apply,
+    L,
+    B_STAR,
+    A_BOOST,
+    central,
+    tw,
+    A_apply,
 )
 from openwave.xperiments.m5_liquid_crystal.research.sandbox_v8.m5_8_2cb_taichi_constrained import (  # noqa: E402
     build_grid_n,
@@ -109,7 +119,7 @@ DELTA = 0.3
 G_TIME = 8.0
 RC, RHOC = 0.8, 0.8
 BETA = 1.558
-OMEGA = 1.0                       # lattice clock rate (see OMEGA CONVENTION)
+OMEGA = 1.0  # lattice clock rate (see OMEGA CONVENTION)
 # SECTOR MAP (corrected by the first run, 2026-06-10): curvature components
 # label by the GENERATOR axis, not by the moved axes. R = Gamma x Gamma of two
 # TILTS points ALONG the major axis, whose generator acts in plane (2,3):
@@ -137,7 +147,7 @@ def grid_and_seed(n, delta=DELTA, g=G_TIME, b=B_STAR, plane=(2, 3), phi=0.0):
     D4 = D4_of(delta, g)
     M = conj(W, D4)
     G = gen4(plane)
-    Mth = conj(W, G @ D4 - D4 @ G)            # the analytic clock tangent
+    Mth = conj(W, G @ D4 - D4 @ G)  # the analytic clock tangent
     inter = np.zeros(gr["r"].shape, bool)
     inter[2:-2, 2:-2, 2:-2] = True
     act = inter & (gr["r"] > 2 * RC) & (gr["rho"] > RHOC)
@@ -146,6 +156,7 @@ def grid_and_seed(n, delta=DELTA, g=G_TIME, b=B_STAR, plane=(2, 3), phi=0.0):
 
 # ── EID-B: the 3-way split ───────────────────────────────────────────────────
 
+
 def split3(M, O4, act, h):
     """(EM, QM, GEM, H_quad) energies; F conjugated to the hedgehog frame."""
     Mi = [central(M, ax, h) for ax in range(3)]
@@ -153,7 +164,7 @@ def split3(M, O4, act, h):
     for i in range(3):
         for j in range(i + 1, 3):
             F = np_commf(Mi[i], Mi[j])
-            Fh = np.einsum("...ca,...cd,...db->...ab", O4, F, O4)   # O4^T F O4
+            Fh = np.einsum("...ca,...cd,...db->...ab", O4, F, O4)  # O4^T F O4
             t1 = sum(Fh[..., a, b] ** 2 for a, b in EM_PAIR)
             t2 = sum(Fh[..., a, b] ** 2 for a, b in QM_PAIRS)
             t3 = sum(Fh[..., a, b] ** 2 for a, b in GEM_PAIRS)
@@ -161,7 +172,7 @@ def split3(M, O4, act, h):
             qm = qm + 4.0 * t2
             gem = gem - 4.0 * t3
             quad = quad + 2.0 * np.einsum("...ab,...ab->...", F, tw(F))
-    s = lambda u: float(u[act].sum()) * h ** 3
+    s = lambda u: float(u[act].sum()) * h**3
     return s(em), s(qm), s(gem), s(quad)
 
 
@@ -170,7 +181,9 @@ def run_eid_b():
     print("EID-B: the 3-way EM/QM/GEM split  [hedgehog frame]")
     print("=" * 78)
     n = 24
-    print("\n  |    b   | EM (tilt-tilt R¹) | QM (tilt-twist R²R³) | GEM (boost) | sum-vs-H_quad |")
+    print(
+        "\n  |    b   | EM (tilt-tilt R¹) | QM (tilt-twist R²R³) | GEM (boost) | sum-vs-H_quad |"
+    )
     print("  | --- | --- | --- | --- | --- |")
     for b in (0.13, 0.01, 0.0):
         gr, W, M, _, act = grid_and_seed(n, b=b)
@@ -178,8 +191,10 @@ def run_eid_b():
         # b=0; at b>0 the boost is not undone - documented approximation).
         em, qm, gm, q = split3(M, gr["O4"], act, gr["h"])
         ok = "PASS ✓" if abs(em + qm + gm - q) < 1e-8 * max(1, abs(q)) else "FAIL ✗"
-        print(f"  | {b:5.2f} | {em:10.4f} | {qm:10.4f} | {gm:+11.4f} |"
-              f" {em + qm + gm - q:+.2e} {ok} |")
+        print(
+            f"  | {b:5.2f} | {em:10.4f} | {qm:10.4f} | {gm:+11.4f} |"
+            f" {em + qm + gm - q:+.2e} {ok} |"
+        )
 
     # the 2q gate must keep passing (H_static at delta=.3, g=8, b=.13)
     gr, W, M, _, act = grid_and_seed(n, b=0.13)
@@ -190,8 +205,10 @@ def run_eid_b():
             F = np_commf(Mi[i], Mi[j])
             u = u + 2.0 * np.einsum("...ab,...ab->...", F, tw(F))
     Hs = float((u + BETA * u * u)[act].sum()) * gr["h"] ** 3
-    print(f"\n  [gate] H_static(δ=0.3, g=8, b=0.13) = {Hs:.4f}  (record 16.7379)"
-          f"  {'PASS ✓' if abs(Hs - 16.7379) < 0.01 else 'FAIL ✗'}")
+    print(
+        f"\n  [gate] H_static(δ=0.3, g=8, b=0.13) = {Hs:.4f}  (record 16.7379)"
+        f"  {'PASS ✓' if abs(Hs - 16.7379) < 0.01 else 'FAIL ✗'}"
+    )
 
     # delta-scaling of the two spatial sectors at b=0: EM should approach the
     # delta-flat hedgehog floor (the 2q [C] result); QM carries the delta weight
@@ -207,6 +224,7 @@ def run_eid_b():
 
 # ── EID-C: the fixed-clock electron ─────────────────────────────────────────
 
+
 def director_of(W):
     """n = the major (eigenvalue-1) axis in space frame = first column of W's
     spatial block (exact at b=0; at b=0 W is orthogonal block-diag)."""
@@ -218,12 +236,13 @@ def J_of(gr, M, Mth, act):
     h = gr["h"]
     Mi = [central(M, ax, h) for ax in range(3)]
     P = A_apply(OMEGA * Mth, Mi)
-    p = np.stack([np.einsum("...ab,...ab->...", P, tw(central(M, ax, h)))
-                  for ax in range(3)], axis=-1)
+    p = np.stack(
+        [np.einsum("...ab,...ab->...", P, tw(central(M, ax, h))) for ax in range(3)], axis=-1
+    )
     n = M.shape[0]
     c = (n - 1) / 2.0
     idx = (np.indices((n, n, n)).transpose(1, 2, 3, 0) - c) * h
-    Jv = np.cross(idx, p)[act].sum(axis=0) * h ** 3
+    Jv = np.cross(idx, p)[act].sum(axis=0) * h**3
     return Jv
 
 
@@ -236,16 +255,21 @@ def EB_of(n_hat, dn_dphi, h):
     F23 = np.einsum("...a,...a->...", n_hat, np.cross(dn[1], dn[2]))
     B = np.stack([F23, -F13, F12], axis=-1)
     dtn = OMEGA * dn_dphi
-    E = np.stack([np.einsum("...a,...a->...", n_hat, np.cross(dtn, dn[ax]))
-                  for ax in range(3)], axis=-1)
+    E = np.stack(
+        [np.einsum("...a,...a->...", n_hat, np.cross(dtn, dn[ax])) for ax in range(3)], axis=-1
+    )
     return E, B
 
 
 def curl(V, h):
-    return np.stack([
-        central(V[..., 2], 1, h) - central(V[..., 1], 2, h),
-        central(V[..., 0], 2, h) - central(V[..., 2], 0, h),
-        central(V[..., 1], 0, h) - central(V[..., 0], 1, h)], axis=-1)
+    return np.stack(
+        [
+            central(V[..., 2], 1, h) - central(V[..., 1], 2, h),
+            central(V[..., 0], 2, h) - central(V[..., 2], 0, h),
+            central(V[..., 1], 0, h) - central(V[..., 0], 1, h),
+        ],
+        axis=-1,
+    )
 
 
 def mu_of(gr, EB_now, EB_next, dphi2, act):
@@ -257,7 +281,7 @@ def mu_of(gr, EB_now, EB_next, dphi2, act):
     n = E0.shape[0]
     c = (n - 1) / 2.0
     idx = (np.indices((n, n, n)).transpose(1, 2, 3, 0) - c) * h
-    mu = 0.5 * np.cross(idx, j)[act].sum(axis=0) * h ** 3
+    mu = 0.5 * np.cross(idx, j)[act].sum(axis=0) * h**3
     jmax = float(np.linalg.norm(j, axis=-1)[act].max())
     return mu, jmax, float(np.abs(E0[act]).max())
 
@@ -267,7 +291,9 @@ def run_eid_c(n=24, phis=(0.0,), planes=((2, 3), (1, 2)), bs=(0.0, B_STAR)):
     print(f"EID-C: the fixed-clock electron  [{n}³, ω={OMEGA}]")
     print("=" * 78)
     dphi, dphi2 = 1e-4, 1e-3
-    print("\n  | plane | b | φ | |J|(r×p) | |J|(loc-clock) | max|p| | |μ| | |L_EM| | L_int (Noether) |")
+    print(
+        "\n  | plane | b | φ | |J|(r×p) | |J|(loc-clock) | max|p| | |μ| | |L_EM| | L_int (Noether) |"
+    )
     print("  | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
     out = {}
     for plane in planes:
@@ -278,41 +304,44 @@ def run_eid_c(n=24, phis=(0.0,), planes=((2, 3), (1, 2)), bs=(0.0, B_STAR)):
                 h = gr["h"]
                 Mi = [central(M, ax, h) for ax in range(3)]
                 P = A_apply(OMEGA * Mth, Mi)
-                p = np.stack([np.einsum("...ab,...ab->...", P, tw(Mi[ax]))
-                              for ax in range(3)], axis=-1)
+                p = np.stack(
+                    [np.einsum("...ab,...ab->...", P, tw(Mi[ax])) for ax in range(3)], axis=-1
+                )
                 nn = M.shape[0]
                 c = (nn - 1) / 2.0
                 idx = (np.indices((nn, nn, nn)).transpose(1, 2, 3, 0) - c) * h
-                Jv = np.cross(idx, p)[act].sum(axis=0) * h ** 3
+                Jv = np.cross(idx, p)[act].sum(axis=0) * h**3
                 pmax = float(np.linalg.norm(p, axis=-1)[act].max())
                 # localized-clock variant: the dressing envelope w(r) breaks
                 # the rigid-rotation symmetry that cancels the uniform-clock J
                 w_env = np.exp(-((gr["r"] / 3.5) ** 2))
                 P_loc = A_apply(OMEGA * w_env[..., None, None] * Mth, Mi)
-                p_loc = np.stack([np.einsum("...ab,...ab->...", P_loc, tw(Mi[ax]))
-                                  for ax in range(3)], axis=-1)
-                Jloc = np.cross(idx, p_loc)[act].sum(axis=0) * h ** 3
+                p_loc = np.stack(
+                    [np.einsum("...ab,...ab->...", P_loc, tw(Mi[ax])) for ax in range(3)], axis=-1
+                )
+                Jloc = np.cross(idx, p_loc)[act].sum(axis=0) * h**3
+
                 # director route mu, with displacement current
                 def eb(ph):
                     _, Wx, _, _, _ = grid_and_seed(n, b=b, plane=plane, phi=ph)
                     n0 = director_of(Wx)
-                    _, Wy, _, _, _ = grid_and_seed(n, b=b, plane=plane,
-                                                   phi=ph + dphi)
+                    _, Wy, _, _, _ = grid_and_seed(n, b=b, plane=plane, phi=ph + dphi)
                     return EB_of(n0, (director_of(Wy) - n0) / dphi, h)
+
                 E0, B0 = eb(phi)
                 mu, jmax, Emax = mu_of(gr, (E0, B0), eb(phi + dphi2), dphi2, act)
                 # EM-sector angular momentum (Poynting): the Thomson pairing
-                LEM = np.cross(idx, np.cross(E0, B0))[act].sum(axis=0) * h ** 3
+                LEM = np.cross(idx, np.cross(E0, B0))[act].sum(axis=0) * h**3
                 # L_int: the Noether charge of the clock rotation (spin as
                 # internal rotation; the M6 L/Q = omega identity family).
                 # L_int = sum <P, Mth> h^3 = (2/omega) T_clock.
-                Lint = float(np.einsum("...ab,...ab->...", P,
-                                       tw(Mth))[act].sum()) * h ** 3
-                Jm, mum, Lm = (np.linalg.norm(Jv), np.linalg.norm(mu),
-                               np.linalg.norm(LEM))
-                print(f"  | {tag} | {b:4.2f} | {phi:4.2f} | {Jm:.3e} |"
-                      f" {np.linalg.norm(Jloc):.3e} | {pmax:.2e} | {mum:.3e} |"
-                      f" {Lm:.3e} | {Lint:+.4f} |")
+                Lint = float(np.einsum("...ab,...ab->...", P, tw(Mth))[act].sum()) * h**3
+                Jm, mum, Lm = (np.linalg.norm(Jv), np.linalg.norm(mu), np.linalg.norm(LEM))
+                print(
+                    f"  | {tag} | {b:4.2f} | {phi:4.2f} | {Jm:.3e} |"
+                    f" {np.linalg.norm(Jloc):.3e} | {pmax:.2e} | {mum:.3e} |"
+                    f" {Lm:.3e} | {Lint:+.4f} |"
+                )
                 out[(tag, b, phi)] = (Jm, mum, Lint, LEM, mu)
     return out
 

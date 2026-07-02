@@ -2,7 +2,7 @@
 
 **Purpose**: single source of truth for OpenWave M5's rendering/visualization stack — the **biggest differential OpenWave has as a simulator** (per `feedback_visual_rendering_priority`). Part 1 catalogs the as-shipped feature set (M5.1, Vector(3) ψ). Part 2 is the M5.4 repurposing plan when the substrate becomes the matrix field `M = ODO^T`. None of these features is dropped in the migration; each is re-sourced.
 
-> Director-glyph **design + as-shipped specifics** live in [`2b_director_glyph_rendering.md`](2b_director_glyph_rendering.md). This doc is the broader stack catalog + migration plan. M5.4 implementers: Part 2 is the work list; cross-ref [`0b_M5_roadmap.md` § Phase M5.4](0b_M5_roadmap.md#phase-m54--matrix-field-substrate-migration).
+> Director-glyph **design + as-shipped specifics** live in [`2b_director_glyph_rendering.md`](2b_director_glyph_rendering.md). This doc is the broader stack catalog + migration plan. M5.4 implementers: Part 2 is the work list; cross-ref [`m5_roadmap.md` § Phase M5.4](m5_roadmap.md#phase-m54--matrix-field-substrate-migration).
 >
 > **Reading order (2026-05-30):** Parts 1–3 are the as-built history (M5.1 inventory → M5.4 migration → M5.6.5b EM-wiring as-shipped). **Part 4 is the consolidated target** — the full "what we want to *see*" observable catalog for the EM + clock-state rendering, organized from Rodrigo's 2026-05-30 vision. **Part 5 is the implementation timeline + the M5.8 4×4 safety contract + the placeholder-sample strategy** (hard-coded analytic fields to validate rendering *before* the physics produces it). Start at Part 4 for the plan; Parts 1–3 for why things are the way they are.
 
@@ -626,7 +626,7 @@ the scalar **amplitude/clock/EM observable fields** with the *same names and mea
 `eigen_decompose` still emits a spatial `director_nhat` (the principal *spatial* director) + the
 Frobenius-deviation scalars, **every Part 4 render channel keeps working untouched**. The promotion
 changes *how* `director_nhat` is computed (4×4 eigensolve, or spatial-subblock), not *what the
-renderer reads*. → recorded as an M5.8 acceptance check in `0b_M5_roadmap.md`.
+renderer reads*. → recorded as an M5.8 acceptance check in `m5_roadmap.md`.
 
 **Will future EM-field viz be compromised by M5.8?** No — the opposite. M5.8 *adds* the missing
 ingredient: a twisting/spinning defect (the clock) produces the **real circulating B** that §4.5's

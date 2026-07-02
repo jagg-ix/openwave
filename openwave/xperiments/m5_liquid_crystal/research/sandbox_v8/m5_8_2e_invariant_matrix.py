@@ -29,7 +29,7 @@ USAGE:  python m5_8_2e_invariant_matrix.py <skyrme|euclid|omega|f64>
 PREREQUISITE: `_m5_8_2cb_ref.npz` (regenerate: `CB_STEPS=900 python
 m5_8_2cb_taichi_constrained.py ref`).
 
-RESULTS (2026-06-05 late night — full log in 0b_M5_roadmap.md § M5.8.2e):
+RESULTS (2026-06-05 late night — full log in m5_roadmap.md § M5.8.2e):
     skyrme — ALL THREE β_E (1.37/4.57/13.7) saturate (bounded, align
         0.936–0.948) but the clock is 10× weaker (|s| ~3×10⁻³): sign-blind,
         damps fuel AND clock. The SIGNED quartic is the time-crystal-preferred
@@ -46,6 +46,7 @@ RESULTS (2026-06-05 late night — full log in 0b_M5_roadmap.md § M5.8.2e):
     f64 — H 66.6 → 57.9 over 3000 steps, plateau→relax, NO runaway: the f32
         results stand at full precision (~1% per-probe agreement).
 """
+
 import sys
 import time
 from pathlib import Path
@@ -61,8 +62,17 @@ if str(REPO_ROOT) not in sys.path:
 import openwave.xperiments.m5_liquid_crystal.research.sandbox_v8.m5_8_2d_quartic_saturation as d2  # noqa: E402
 import taichi as ti  # noqa: E402
 from openwave.xperiments.m5_liquid_crystal.research.sandbox_v8.m5_8_2c1_full_evolution import (  # noqa: E402
-    DT, EPS_EIG, VCAP, SYM_BASIS, central, tw, to_coeff, from_coeff,
-    build_A_matrix, solve_constrained, A_apply,
+    DT,
+    EPS_EIG,
+    VCAP,
+    SYM_BASIS,
+    central,
+    tw,
+    to_coeff,
+    from_coeff,
+    build_A_matrix,
+    solve_constrained,
+    A_apply,
 )
 
 n = d2.n
@@ -96,22 +106,31 @@ def k_flux_gen(inv2h: ti.f32, beta_s: ti.f32, beta_e: ti.f32, euclid: ti.i32):
         pref_e = 2.0 * beta_e * u_e
         if euclid == 1:
             # full-Euclid: quadratic flux + optional Euclid quartic, no signs
-            Gf[0, i, j, k] = (4.0 * (pref_s + pref_e) * (comm(fxy, my) + comm(fxz, mz))
-                              + 4.0 * comm(comm(md, mx), md))
-            Gf[1, i, j, k] = (4.0 * (pref_s + pref_e) * (comm(-fxy, mx) + comm(fyz, mz))
-                              + 4.0 * comm(comm(md, my), md))
-            Gf[2, i, j, k] = (4.0 * (pref_s + pref_e) * (comm(-fxz, mx) + comm(-fyz, my))
-                              + 4.0 * comm(comm(md, mz), md))
+            Gf[0, i, j, k] = 4.0 * (pref_s + pref_e) * (
+                comm(fxy, my) + comm(fxz, mz)
+            ) + 4.0 * comm(comm(md, mx), md)
+            Gf[1, i, j, k] = 4.0 * (pref_s + pref_e) * (
+                comm(-fxy, mx) + comm(fyz, mz)
+            ) + 4.0 * comm(comm(md, my), md)
+            Gf[2, i, j, k] = 4.0 * (pref_s + pref_e) * (
+                comm(-fxz, mx) + comm(-fyz, my)
+            ) + 4.0 * comm(comm(md, mz), md)
         else:
-            Gf[0, i, j, k] = (4.0 * pref_s * (comm(twm(fxy), my) + comm(twm(fxz), mz))
-                              + 4.0 * pref_e * (comm(fxy, my) + comm(fxz, mz))
-                              + 4.0 * comm(twm(comm(md, mx)), md))
-            Gf[1, i, j, k] = (4.0 * pref_s * (comm(twm(-fxy), mx) + comm(twm(fyz), mz))
-                              + 4.0 * pref_e * (comm(-fxy, mx) + comm(fyz, mz))
-                              + 4.0 * comm(twm(comm(md, my)), md))
-            Gf[2, i, j, k] = (4.0 * pref_s * (comm(twm(-fxz), mx) + comm(twm(-fyz), my))
-                              + 4.0 * pref_e * (comm(-fxz, mx) + comm(-fyz, my))
-                              + 4.0 * comm(twm(comm(md, mz)), md))
+            Gf[0, i, j, k] = (
+                4.0 * pref_s * (comm(twm(fxy), my) + comm(twm(fxz), mz))
+                + 4.0 * pref_e * (comm(fxy, my) + comm(fxz, mz))
+                + 4.0 * comm(twm(comm(md, mx)), md)
+            )
+            Gf[1, i, j, k] = (
+                4.0 * pref_s * (comm(twm(-fxy), mx) + comm(twm(fyz), mz))
+                + 4.0 * pref_e * (comm(-fxy, mx) + comm(fyz, mz))
+                + 4.0 * comm(twm(comm(md, my)), md)
+            )
+            Gf[2, i, j, k] = (
+                4.0 * pref_s * (comm(twm(-fxz), mx) + comm(twm(-fyz), my))
+                + 4.0 * pref_e * (comm(-fxz, mx) + comm(-fyz, my))
+                + 4.0 * comm(twm(comm(md, mz)), md)
+            )
 
 
 @ti.kernel
@@ -126,8 +145,7 @@ def k_solve_e(inv2h: ti.f32):
         aloc = ti.Matrix.zero(ti.f32, 10, 10)
         for li in range(10):
             el = Bas[li]
-            ae = 4.0 * (comm(comm(el, mx), mx) + comm(comm(el, my), my)
-                        + comm(comm(el, mz), mz))
+            ae = 4.0 * (comm(comm(el, mx), mx) + comm(comm(el, my), my) + comm(comm(el, mz), mz))
             for kk in range(10):
                 aloc[kk, li] = (ae * Bas[kk]).sum()
         for p_ in range(10):
@@ -266,13 +284,20 @@ def run_gen(tag, beta_s, beta_e, euclid, seed, dt, steps, s_every=0):
             if onset is None and len(Hs) > 3 and H < 0:
                 onset = n_ + 1
             if n_ % 2000 == 1999:
-                print(f"   [{tag}] step {n_ + 1:5d} [{time.time() - t0:4.0f}s] "
-                      f"H={H:12.4f} align={al:.3f} |s|={abs(s):.2e}")
+                print(
+                    f"   [{tag}] step {n_ + 1:5d} [{time.time() - t0:4.0f}s] "
+                    f"H={H:12.4f} align={al:.3f} |s|={abs(s):.2e}"
+                )
             if not np.isfinite(H):
                 print(f"   [{tag}] NON-FINITE at step {n_ + 1}")
                 break
-    return dict(Hs=np.array(Hs), align=np.array(aligns), s=np.array(ss),
-                s_dense=np.array(s_dense), onset=onset)
+    return dict(
+        Hs=np.array(Hs),
+        align=np.array(aligns),
+        s=np.array(ss),
+        s_dense=np.array(s_dense),
+        onset=onset,
+    )
 
 
 def mode_skyrme():
@@ -298,8 +323,10 @@ def mode_skyrme():
         R = run_gen(f"skyrme β_E={b:.3g}", 0.0, b, False, seed, DT, 6000)
         bounded = d2.trend_report(R, f"β_E={b:.3g}")
         ok_any = ok_any or (bounded and R["align"][-1] > 0.8)
-    print(f"\n[A3 verdict] Skyrme Euclid-quartic saturates the signed dynamics: "
-          f"{'YES (≥1 β_E bounded+coherent)' if ok_any else 'NO in this scan'}")
+    print(
+        f"\n[A3 verdict] Skyrme Euclid-quartic saturates the signed dynamics: "
+        f"{'YES (≥1 β_E bounded+coherent)' if ok_any else 'NO in this scan'}"
+    )
     return 0 if ok_any else 1
 
 
@@ -313,8 +340,10 @@ def mode_euclid():
     R = run_gen("euclid", 0.0, 0.0, True, seed, DT, 24000, s_every=20)
     d2.trend_report(R, "euclid")
     np.savez(HERE / "_m5_8_2e_euclid.npz", **{k: v for k, v in R.items() if k != "onset"})
-    print(f"  s(t) dense series saved ({len(R['s_dense'])} samples) → "
-          f"_m5_8_2e_euclid.npz (spectrum vs the Minkowski winner in `omega`)")
+    print(
+        f"  s(t) dense series saved ({len(R['s_dense'])} samples) → "
+        f"_m5_8_2e_euclid.npz (spectrum vs the Minkowski winner in `omega`)"
+    )
     return 0
 
 
@@ -329,24 +358,30 @@ def mode_omega():
     np.savez(HERE / "_m5_8_2e_omega.npz", **{k: v for k, v in R.items() if k != "onset"})
     s = R["s_dense"]
     if len(s) > 1000:
-        late = s[len(s) // 2:]                       # post-bounce window
+        late = s[len(s) // 2 :]  # post-bounce window
         late = late - late.mean()
         f = np.fft.rfftfreq(len(late), d=20 * DT / 2)  # cycles per τ
         amp = np.abs(np.fft.rfft(late))
         pk = np.argmax(amp[1:]) + 1
         omega = 2 * np.pi * f[pk]
-        print(f"  [ω] dominant clock/breathing mode: ω = {omega:.3f} "
-              f"(2b-2 linear reference: 5.86; apolar-doubled field rate)")
+        print(
+            f"  [ω] dominant clock/breathing mode: ω = {omega:.3f} "
+            f"(2b-2 linear reference: 5.86; apolar-doubled field rate)"
+        )
         top = np.argsort(amp[1:])[::-1][:5] + 1
-        print("  [ω] top-5 peaks: " + ", ".join(
-            f"ω={2 * np.pi * f[i]:.3f}(A={amp[i]:.2e})" for i in top))
+        print(
+            "  [ω] top-5 peaks: "
+            + ", ".join(f"ω={2 * np.pi * f[i]:.3f}(A={amp[i]:.2e})" for i in top)
+        )
     return 0
 
 
 def mode_f64(beta=1.558, steps=3000):
     print("=" * 78)
-    print(f"[f64] numpy confirmation of the winning quartic config (β={beta}, "
-          f"{steps} steps — plateau→relax, NO runaway expected)")
+    print(
+        f"[f64] numpy confirmation of the winning quartic config (β={beta}, "
+        f"{steps} steps — plateau→relax, NO runaway expected)"
+    )
     print("=" * 78)
     seed = d2.load_seed()
     M0, Mth, act, core, rhat, h = seed
@@ -362,10 +397,11 @@ def mode_f64(beta=1.558, steps=3000):
         Mi = [central(M, ax, h) for ax in range(3)]
         dU, u = d2.np_quartic_dU(Mi, beta)
         dT = [-4.0 * d2.np_commf(tw(d2.np_commf(Md, Mi[i_])), Md) for i_ in range(3)]
-        force = (sum(central(dU[ax], ax, h) for ax in range(3))
-                 - sum(central(dT[ax], ax, h) for ax in range(3)))
+        force = sum(central(dU[ax], ax, h) for ax in range(3)) - sum(
+            central(dT[ax], ax, h) for ax in range(3)
+        )
         P = P + DT * force
-        for a_ in range(1, 4):                       # spatial-eigen boost axes {1,2,3} (index-0)
+        for a_ in range(1, 4):  # spatial-eigen boost axes {1,2,3} (index-0)
             P[..., a_, 0] -= P[..., a_, 0][actb].mean() * actb
             P[..., 0, a_] = P[..., a_, 0]
         Amat = build_A_matrix(Mi)
@@ -390,8 +426,10 @@ def mode_f64(beta=1.558, steps=3000):
                 return 1
     Hs = np.array(Hs)
     ok = bool(np.isfinite(Hs).all() and (Hs > 0).all() and Hs[0] > Hs[-1] > 0)
-    print(f"  [f64] H: {Hs[0]:.1f} → {Hs[-1]:.1f} over {steps} steps — "
-          f"{'CONFIRMS the f32 trajectory class (plateau→relax, no runaway)' if ok else 'MISMATCH — inspect'}")
+    print(
+        f"  [f64] H: {Hs[0]:.1f} → {Hs[-1]:.1f} over {steps} steps — "
+        f"{'CONFIRMS the f32 trajectory class (plateau→relax, no runaway)' if ok else 'MISMATCH — inspect'}"
+    )
     return 0 if ok else 1
 
 

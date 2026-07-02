@@ -6,7 +6,7 @@
 
 **Source:** Duda, *Framework for liquid crystal based particle models* (arxiv:2108.07896 v7), §II–IV + Fig.9 (math reading **confirmed by Rodrigo 2026-05-26**); Faber & Golubich, *Universe* 11/2025/113 (regularization, §5c).
 
-**Sister docs:** [4a_convo_2026.05.12.md](4a_convo_2026.05.12.md) (paper digest, eigenvalue map), [0b_M5_roadmap.md § M5.5–M5.6](0b_M5_roadmap.md), [1a_lagrangian_framework.md](1a_lagrangian_framework.md), [[reference_faber_regularization]].
+**Sister docs:** [4a_convo_2026.05.12.md](4a_convo_2026.05.12.md) (paper digest, eigenvalue map), [m5_roadmap.md § M5.5–M5.6](m5_roadmap.md), [1a_lagrangian_framework.md](1a_lagrangian_framework.md), [[reference_faber_regularization]].
 
 ---
 
@@ -594,7 +594,7 @@ M5.4 page-18 energy = `¼Σ‖F_μν‖²`.) This is a substantial numerical bui
 oscillations propelled by mass, like observed for electron and neutrinos* (arXiv:2501.04036 v2,
 24 Jul 2025; local PDF `../theory/time_crystal_toy_model.pdf`, 3pp). Math **read + verified by quadrature
 2026-05-29** (the variational anchors below reproduce to 4–5 digits). This is the mathematical
-foundation for the M5.8 build plan in [`0b_M5_roadmap.md § Phase M5.8`](0b_M5_roadmap.md).
+foundation for the M5.8 build plan in [`m5_roadmap.md § Phase M5.8`](m5_roadmap.md).
 
 **The distilled build-spec is §10e (canonical recipe)** — substrate + action + construction
 recipe + integrator constraints + the M5.8.2a G1–G7 gate table. §10a–§10d keep the derivations
@@ -865,7 +865,7 @@ The single self-contained statement of **what to build** — substrate, action, 
 construction recipe, integrator constraints, gates — distilled from §10a–§10d. A new contributor
 (or a future session) reads this subsection to rebuild the model from scratch; the evidentiary
 catalog (every headline claim + its runnable script) is the
-[`0b_question_tracker.md`](0b_question_tracker.md) § *Empirical validation* table.
+[`m5_question_tracker.md`](m5_question_tracker.md) § *Empirical validation* table.
 
 #### The substrate
 
