@@ -6,7 +6,7 @@
 
 | Doc | Purpose |
 | --- | --- |
-| [`0b_M5_roadmap.md`](0b_M5_roadmap.md) | Phase sequence (M5.0 → M5.9) + current state |
+| [`m5_roadmap.md`](m5_roadmap.md) | Phase sequence (M5.0 → M5.9) + current state |
 | [`3b_lagrangian_roadblocks.md`](3b_lagrangian_roadblocks.md) | M5.2 negative-result diagnosis + original group questions |
 | [`4a_convo_2026.05.12.md`](4a_convo_2026.05.12.md) | Duda thread study — substrate decision, eigenvalue map, slides |
 | [`1a_lagrangian_framework.md`](1a_lagrangian_framework.md) | Framework + the full email thread history |
@@ -328,5 +328,5 @@ Imported from `m6_ouroboros/research/0b_model_gates.md` § "What M6 offers regar
 
 ## Notes on scope
 
-- This tracker covers **M5 physics/framework questions for the group** (Duda / Close / Yee) plus the hardest-pieces board. M5.4 implementation decisions (Taichi storage layout, eigen-kernel design, granule/glyph UX calls) are tracked as **roadmap tasks** in [`0b_M5_roadmap.md`](0b_M5_roadmap.md) and [`4b_rendering_features.md`](4b_rendering_features.md), not here — same split as M6 (questions here, sandbox tasks in the work log).
+- This tracker covers **M5 physics/framework questions for the group** (Duda / Close / Yee) plus the hardest-pieces board. M5.4 implementation decisions (Taichi storage layout, eigen-kernel design, granule/glyph UX calls) are tracked as **roadmap tasks** in [`m5_roadmap.md`](m5_roadmap.md) and [`4b_rendering_features.md`](4b_rendering_features.md), not here — same split as M6 (questions here, sandbox tasks in the work log).
 - M5 has **no active email round in flight** (unlike M6's intense Werbos/DeepSeek cadence). Duda's last substantive reply was 2026-05-15. **M5.6 (complete 2026-05-27) now gives a strong results bundle to seed a Q7/Q8 outreach**: the Eq.18 action runs in production + is energy-conserving, KG mass is geometric (Fig.9), Maxwell recovered both routes, Faber ported with mass pinned `E∝1/r₀`, and the **V(M)-is-rotation-invariant finding** (V acts only on the eigenvalue/regularization sector, not the twist) + the **3-term-LdG-has-no-biaxial-minimum** result sharpen the Q7 ask — Duda's exact `Λ=(1,δ,0)` Eq.13 coeffs + Faber's exact running-coupling scheme (Q8) are the natural questions, now feeding M5.9 calibration. **M5.7 (complete 2026-05-28) adds a further outreach hook** — the free-disperses/driven-sustains split (the particle is 4D; the EM lever sustains a bounded `(A,ω)` excess) is a clean result to share with Close (Q11) + Duda, no longer a question. None blocks current work (M5.7 complete; next = M5.8, Rodrigo's call).

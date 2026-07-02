@@ -14,7 +14,7 @@ The two levers' signs are already established by the M5.6.5 diagnoses:
     on. The de Broglie clock IS that orientation/twist slosh. So V-on does
     NOT touch the clock frequency => NULL lever on the gap (factor 1.00).
     [refutes the #208 'core-geometry lifts omega' guess for the V lever]
-    Source: 0b_M5_roadmap.md M5.6.5c; sandbox_v6/m5_6_5c_potential_confinement.py
+    Source: m5_roadmap.md M5.6.5c; sandbox_v6/m5_6_5c_potential_confinement.py
 
   LEVER 2 - the faithful F-commutator kinetic (vs the shipped 1/2||Mdot||^2)
     M5.6.5d finding (re-run 2026-06-17): the faithful metric G's 5 PHYSICAL
@@ -27,10 +27,10 @@ The two levers' signs are already established by the M5.6.5 diagnoses:
 
 import numpy as np
 
-GAP = 28.2                      # #208: ZBW / omega_phys
-INERTIA_SPAN = (0.054, 1.447)   # 5d: faithful physical-mode inertia (5-95%)
-INERTIA_MEDIAN_PHYS = 0.265     # 5d median sorted physical eigenvalue (mid mode)
-SIMPLE_INERTIA = 0.5            # the shipped 1/2||Mdot||^2 uniform inertia
+GAP = 28.2  # #208: ZBW / omega_phys
+INERTIA_SPAN = (0.054, 1.447)  # 5d: faithful physical-mode inertia (5-95%)
+INERTIA_MEDIAN_PHYS = 0.265  # 5d median sorted physical eigenvalue (mid mode)
+SIMPLE_INERTIA = 0.5  # the shipped 1/2||Mdot||^2 uniform inertia
 
 
 def freq_factor(inertia):
@@ -51,12 +51,14 @@ def main():
     print("   orientation/twist sector the clock lives in. Does not move omega.\n")
 
     # Lever 2: faithful kinetic
-    f_best = freq_factor(INERTIA_SPAN[0])    # softest mode -> largest omega rise
-    f_worst = freq_factor(INERTIA_SPAN[1])   # stiffest mode -> omega drop
+    f_best = freq_factor(INERTIA_SPAN[0])  # softest mode -> largest omega rise
+    f_worst = freq_factor(INERTIA_SPAN[1])  # stiffest mode -> omega drop
     f_mid = freq_factor(INERTIA_MEDIAN_PHYS)
     print("LEVER 2  faithful F-commutator kinetic  ->  factor x[%.2f, %.2f]" % (f_worst, f_best))
-    print("   physical-mode inertia span [%.3f, %.3f] vs simple %.1f (M5.6.5d)." %
-          (INERTIA_SPAN[0], INERTIA_SPAN[1], SIMPLE_INERTIA))
+    print(
+        "   physical-mode inertia span [%.3f, %.3f] vs simple %.1f (M5.6.5d)."
+        % (INERTIA_SPAN[0], INERTIA_SPAN[1], SIMPLE_INERTIA)
+    )
     print("   best case (clock = softest mode): omega rises x%.2f" % f_best)
     print("   mid case  (clock = median mode):  omega x%.2f" % f_mid)
     print("   sign is clock-mode dependent; the BOUND is x%.2f (cannot exceed).\n" % f_best)
@@ -77,7 +79,10 @@ def main():
     print("  - V-on is a NULL lever on frequency (rotation-invariant).")
     print("  - the faithful kinetic is the ONE real lever, but bounded to x%.2f," % f_best)
     print("    so it closes at most ~3x, leaving >= %.0fx unaccounted." % res_best)
-    print("The dominant residual (~%.0f-%.0fx) is NOT a dynamics error: it is the" % (res_best, res_mid))
+    print(
+        "The dominant residual (~%.0f-%.0fx) is NOT a dynamics error: it is the"
+        % (res_best, res_mid)
+    )
     print("missing LENGTH ANCHOR at V=0 (no independent length scale fixes the")
     print("absolute frequency; the action<->hbar postulate carries it). Closing it")
     print("needs the Faber r0 length chain (E*r0=const, r0=2.2132 fm), i.e. an")

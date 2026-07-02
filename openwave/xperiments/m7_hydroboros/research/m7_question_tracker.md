@@ -75,4 +75,4 @@ The accepted risks + open unknowns, each with its mitigation. Promote a row here
 
 ---
 
-Cross-refs: roadmap [`m7_roadmap.md`](m7_roadmap.md) · background [`m7_background.md`](m7_background.md) (§ 5 dynamics + Derrick argument) · the M5 / M6 trackers this mirrors: [`0b_question_tracker.md`](../../m5_liquid_crystal/research/0b_question_tracker.md) (M5) · [`0b_question_tracker.md`](../../m6_ouroboros/research/0b_question_tracker.md) (M6).
+Cross-refs: roadmap [`m7_roadmap.md`](m7_roadmap.md) · background [`m7_background.md`](m7_background.md) (§ 5 dynamics + Derrick argument) · the M5 / M6 trackers this mirrors: [`m5_question_tracker.md`](../../m5_liquid_crystal/research/m5_question_tracker.md) (M5) · [`0b_question_tracker.md`](../../m6_ouroboros/research/0b_question_tracker.md) (M6).

@@ -1,6 +1,6 @@
 # m5_9 — PMNS neutrino mixing from the SO(3) rotation structure (#199)
 
-> Turns the model's standing commitment — **neutrino flavour oscillation = an SO(3) spatial-field rotation** (the δ-0 / axis-2↔3 swing of `M = O·diag(g,1,δ,0)·O^T` without the hedgehog winding; Duda's Wolfram slide, `0b_M5_roadmap.md` L786; `MODELS.md` Neutrinos row) — into a concrete, falsifiable **PMNS prediction** and compares it to the global oscillation fit (NuFIT 6.0). Driver: [`m5_9_pmns_so3.py`](m5_9_pmns_so3.py). Data: [`data/m5_9_pmns_summary.json`](data/m5_9_pmns_summary.json). Plot: [`plots/m5_9_pmns_so3.png`](plots/m5_9_pmns_so3.png). Date 2026-06-18.
+> Turns the model's standing commitment — **neutrino flavour oscillation = an SO(3) spatial-field rotation** (the δ-0 / axis-2↔3 swing of `M = O·diag(g,1,δ,0)·O^T` without the hedgehog winding; Duda's Wolfram slide, `m5_roadmap.md` L786; `MODELS.md` Neutrinos row) — into a concrete, falsifiable **PMNS prediction** and compares it to the global oscillation fit (NuFIT 6.0). Driver: [`m5_9_pmns_so3.py`](m5_9_pmns_so3.py). Data: [`data/m5_9_pmns_summary.json`](data/m5_9_pmns_summary.json). Plot: [`plots/m5_9_pmns_so3.png`](plots/m5_9_pmns_so3.png). Date 2026-06-18.
 >
 > **Headline:** the SO(3) commitment makes a **parameter-free structural prediction** — the **tri-bimaximal (TBM)** mixing pattern with **δ_CP = 180°**. The data confirm the pattern (θ₂₃ near-maximal ✓, θ₁₂ tri-maximal ✓, δ_CP ≈ 177° ✓) with **one** deviation: the reactor angle **θ₁₃ ≈ 8.5° ≠ 0**. That nonzero θ₁₃ is exactly the **SO(3)-breaking order parameter** — the *small* "second coupled rotation toward SU(3)" that #199 asks about. **Verdict: SO(3) is the leading structure; it is broken by a small (~8.5°) second rotation. The δ_CP = 180° platform prediction is currently CONSISTENT (not falsified).**
 
@@ -76,7 +76,7 @@ So the 0.28% is consistent with the projection picture, and the scale (0.28% ≪
 
 ## What's next (the dynamical follow-up)
 
-1. **Seed the δ-0 (axis-2↔3) excitation** without the hedgehog winding (per `0b_M5_roadmap.md` L792); verify light + stable + chargeless (∇·n̂ ≈ 0).
+1. **Seed the δ-0 (axis-2↔3) excitation** without the hedgehog winding (per `m5_roadmap.md` L792); verify light + stable + chargeless (∇·n̂ ≈ 0).
 2. **Measure the three mass eigenfrequencies** (the e/μ/τ neutrino states) and read the mixing **rotation angles geometrically** from the time-evolved state — confirm (or correct) the TBM + θ₁₃ structure from the field itself.
 3. **Measure the electron defect's off-primary-axis energy fraction** (the EM-tilt / twist / boost sector split on the validated electron-id defect) → the dynamical test of the 0.28%.
 4. **Propose the MODELS.md Neutrinos-row update**: from "SO(3) route, δ_CP=180° prediction" → "SO(3)→TBM structural prediction confirmed in pattern; θ₁₃ = the measured SO(3)-breaking; δ_CP=180° consistent (NuFIT 6.0)."

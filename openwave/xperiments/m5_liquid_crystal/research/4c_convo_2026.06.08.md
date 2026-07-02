@@ -1,10 +1,10 @@
 # Duda thread, June 2026 (4×4 clarification → δ/g calibration → boost/EM-GEM correction)
 
-Working record of the multi-day exchange with Jarek Duda (Manfried Faber added mid-thread) that followed the M5.8 results report (`99_summary_report.md`). Captures the correspondence and the runs it triggered, so the back-and-forth is preserved in one place alongside the findings-focused entry in `0b_M5_roadmap.md` ("DUDA 2026-06-08 FOLLOW-UP" + its 2026-06-09 addendum).
+Working record of the multi-day exchange with Jarek Duda (Manfried Faber added mid-thread) that followed the M5.8 results report (`99_summary_report.md`). Captures the correspondence and the runs it triggered, so the back-and-forth is preserved in one place alongside the findings-focused entry in `m5_roadmap.md` ("DUDA 2026-06-08 FOLLOW-UP" + its 2026-06-09 addendum).
 
 **Status:** the δ/g calibration question is closed at the seed level; gravity-domination retracted (Duda was right); EM/GEM split delivered. Round 3 (2026-06-09 afternoon) converged on the forward program: Duda's `F_μν` decomposition matches our split symbol-for-number, and his 3×3 fixed-clock electron suggestion became the **ElectronID project** (μ + J extraction, roadmap "ELECTRON-ID PROJECT"). Open: the δ (quantum-phase) sector is dynamical and not yet weighed; the absolute unit calibration (Coulomb + LdG-to-rest-energy) is the real axis.
 
-**Cross-refs:** [`0b_M5_roadmap.md`](0b_M5_roadmap.md) (DUDA FOLLOW-UP + 06-09 addendum, NG-12), [`99_summary_report.md`](99_summary_report.md), `sandbox_vn/m5_8_2q_delta_scaling.py` (energy sweep + Phase D/E boost/EM-GEM split), `sandbox_vn/m5_8_2q_omega.py` (ω(δ) scaffold, deferred), `../theory/faber_universe_2025.pdf`.
+**Cross-refs:** [`m5_roadmap.md`](m5_roadmap.md) (DUDA FOLLOW-UP + 06-09 addendum, NG-12), [`99_summary_report.md`](99_summary_report.md), `sandbox_vn/m5_8_2q_delta_scaling.py` (energy sweep + Phase D/E boost/EM-GEM split), `sandbox_vn/m5_8_2q_omega.py` (ω(δ) scaffold, deferred), `../theory/faber_universe_2025.pdf`.
 
 ---
 
@@ -105,7 +105,7 @@ Why his fixed-clock suggestion is the right route: the model has mass (rest ener
 | B: 3-way sector split | refine Phase E to his exact figure: EM (tilt-tilt) vs QM (tilt-twist) vs GEM (boosts), separating the spatial block | ✅ 2026-06-10: EM 16.34 / QM 2.23 / GEM −9.37 at clock dressing (his hierarchy confirmed); label correction: EM = the (1,2) component (R=Γ×Γ points along the major generator) |
 | C: the 3×3 fixed-clock electron | static hedgehog + pinned clock; integrate μ and J; compare to Bohr magneton (g≈2) and ℏ/2 | ⚠️ 2026-06-10: μ exists only via the TILT/precession channel (0.221 linear response); the twist clock (his Γ¹) is EM-silent; orbital J = 0 structurally (E∥B dyon, no Thomson term); spin = the Noether clock charge L_int (L/Q=ω family, 61.6 φ-flat); g ≈ 2 needs the Coulomb e_scale unit fix first (his "fix units by Coulomb" is REQUIRED, not optional). Full record: roadmap § EID results |
 
-Roadmap home: `0b_M5_roadmap.md` "ELECTRON-ID PROJECT". Connects to NG-8 (the magnetic-dipole placeholder this would make real) and supersedes the dynamical-route μ/J attempts.
+Roadmap home: `m5_roadmap.md` "ELECTRON-ID PROJECT". Connects to NG-8 (the magnetic-dipole placeholder this would make real) and supersedes the dynamical-route μ/J attempts.
 
 ## 10. Duda 2026-06-10 (round 4): the coverage-matrix review
 

@@ -220,7 +220,7 @@ openwave/xperiments/m5_liquid_crystal/research/sandbox_v8/_m5_8_2cb_ref_N*.npz
 openwave/xperiments/m5_liquid_crystal/research/sandbox_v8/_m5_8_2cb_ref_RC*.npz
 openwave/xperiments/m5_liquid_crystal/research/sandbox_v8/_m5_8_2cb_ref_RW*.npz
 
-# Heavy REGENERABLE npz caches (>1MB) — kept local, regen from the scripts (repro table in 0b_M5_roadmap.md).
+# Heavy REGENERABLE npz caches (>1MB) — kept local, regen from the scripts (repro table in m5_roadmap.md).
 # seed refs + precision twins (regen: <CB env> python m5_8_2cb_taichi_constrained.py <ref|ti cpu f64|...>)
 openwave/xperiments/m5_liquid_crystal/research/sandbox_v8/_m5_8_2cb_ref.npz
 openwave/xperiments/m5_liquid_crystal/research/sandbox_v8/_m5_8_2cb_ti_*.npz

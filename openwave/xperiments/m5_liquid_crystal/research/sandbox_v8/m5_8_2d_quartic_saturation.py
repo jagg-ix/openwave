@@ -48,7 +48,7 @@ PREREQUISITE: the seed npz `_m5_8_2cb_ref.npz` (uncommitted derived data) —
 regenerate with `CB_STEPS=900 python m5_8_2cb_taichi_constrained.py ref`
 (~5 min; the seed arrays are run-length-independent).
 
-RESULTS (2026-06-05 night — full log in 0b_M5_roadmap.md § M5.8.2d):
+RESULTS (2026-06-05 night — full log in m5_roadmap.md § M5.8.2d):
     D1 ✅ machine-symmetric; u_min(seed) = −0.963 ⇒ β scan {0.156, 0.519, 1.558}.
     D2 ✅ control onset 1300, H → −8.6×10⁹. The ladder kills the runaway:
     H_end −156 / −39 / +38.8 (β=1.558 stays POSITIVE, align 0.889, clock
@@ -61,6 +61,7 @@ RESULTS (2026-06-05 night — full log in 0b_M5_roadmap.md § M5.8.2d):
     (missed by 0.011) — read the per-β table, not the headline (the lesson
     that produced trend_report()).
 """
+
 import sys
 import time
 from pathlib import Path
@@ -74,8 +75,19 @@ if str(REPO_ROOT) not in sys.path:
 
 # ti-free import chain (the 2c-1 reference pieces)
 from openwave.xperiments.m5_liquid_crystal.research.sandbox_v8.m5_8_2c1_full_evolution import (  # noqa: E402
-    N, RC, R_W, DT, EPS_EIG, VCAP, B_STAR, SYM_BASIS,
-    seed_M, build_grid, central, tw, from_coeff,
+    N,
+    RC,
+    R_W,
+    DT,
+    EPS_EIG,
+    VCAP,
+    B_STAR,
+    SYM_BASIS,
+    seed_M,
+    build_grid,
+    central,
+    tw,
+    from_coeff,
 )
 
 import taichi as ti  # noqa: E402
@@ -86,13 +98,16 @@ STEPS = 6000
 PROBE = 100
 MAX_SWEEPS = 20
 JTOL2 = (2e-7) ** 2
-_SFX = ("" if N == 24 else f"_N{N}") + ("" if RC == 0.8 else f"_RC{RC:g}") + ("" if R_W == 3.5 else f"_RW{R_W:g}")
+_SFX = (
+    ("" if N == 24 else f"_N{N}")
+    + ("" if RC == 0.8 else f"_RC{RC:g}")
+    + ("" if R_W == 3.5 else f"_RW{R_W:g}")
+)
 REF_NPZ = HERE / f"_m5_8_2cb_ref{_SFX}.npz"
 
 
 def np_commf(A, B):
-    return (np.einsum("...ac,...cb->...ab", A, B)
-            - np.einsum("...ac,...cb->...ab", B, A))
+    return np.einsum("...ac,...cb->...ab", A, B) - np.einsum("...ac,...cb->...ab", B, A)
 
 
 def np_u_density(Mi):
@@ -149,8 +164,10 @@ def gate_D1():
     div = sum(central(dU[ax], ax, h) for ax in range(3))
     dana = float(np.einsum("...ab,...ab->...", div, dM).sum())
     ok = abs(dnum + dana) < 5e-3 * (abs(dnum) + 1e-30)
-    print(f"[D1] quartic-force gradient check (β={beta}): numeric dV/dε = "
-          f"{dnum:+.4e}, ⟨div flux, δM⟩ = {dana:+.4e} → {'PASS' if ok else 'FAIL'}")
+    print(
+        f"[D1] quartic-force gradient check (β={beta}): numeric dV/dε = "
+        f"{dnum:+.4e}, ⟨div flux, δM⟩ = {dana:+.4e} → {'PASS' if ok else 'FAIL'}"
+    )
     u_min = float(u[inter].min())
     print(f"     seed fuel floor: u_min = {u_min:.3f} (β scale anchor)")
     return ok, u_min
@@ -174,7 +191,9 @@ red = ti.field(ti.f32, shape=3)
 @ti.func
 def twm(A):
     B = A
-    for a_ in ti.static(range(1, 4)):     # spatial-eigen MATRIX axes {1,2,3}; time = index 0 (Duda / index-0)
+    for a_ in ti.static(
+        range(1, 4)
+    ):  # spatial-eigen MATRIX axes {1,2,3}; time = index 0 (Duda / index-0)
         B[a_, 0] = -B[a_, 0]
         B[0, a_] = -B[0, a_]
     return B
@@ -230,12 +249,15 @@ def k_flux(inv2h: ti.f32, beta: ti.f32):
         u = 2.0 * (sdot(fxy, fxy) + sdot(fxz, fxz) + sdot(fyz, fyz))
         uf[i, j, k] = u
         pref = 1.0 + 2.0 * beta * u
-        Gf[0, i, j, k] = (4.0 * pref * (comm(twm(fxy), my) + comm(twm(fxz), mz))
-                          + 4.0 * comm(twm(comm(md, mx)), md))
-        Gf[1, i, j, k] = (4.0 * pref * (comm(twm(-fxy), mx) + comm(twm(fyz), mz))
-                          + 4.0 * comm(twm(comm(md, my)), md))
-        Gf[2, i, j, k] = (4.0 * pref * (comm(twm(-fxz), mx) + comm(twm(-fyz), my))
-                          + 4.0 * comm(twm(comm(md, mz)), md))
+        Gf[0, i, j, k] = 4.0 * pref * (comm(twm(fxy), my) + comm(twm(fxz), mz)) + 4.0 * comm(
+            twm(comm(md, mx)), md
+        )
+        Gf[1, i, j, k] = 4.0 * pref * (comm(twm(-fxy), mx) + comm(twm(fyz), mz)) + 4.0 * comm(
+            twm(comm(md, my)), md
+        )
+        Gf[2, i, j, k] = 4.0 * pref * (comm(twm(-fxz), mx) + comm(twm(-fyz), my)) + 4.0 * comm(
+            twm(comm(md, mz)), md
+        )
 
 
 @ti.kernel
@@ -284,9 +306,11 @@ def k_solve(inv2h: ti.f32):
         aloc = ti.Matrix.zero(ti.f32, 10, 10)
         for li in range(10):
             el = Bas[li]
-            ae = 4.0 * (comm(twm(comm(el, mx)), mx)
-                        + comm(twm(comm(el, my)), my)
-                        + comm(twm(comm(el, mz)), mz))
+            ae = 4.0 * (
+                comm(twm(comm(el, mx)), mx)
+                + comm(twm(comm(el, my)), my)
+                + comm(twm(comm(el, mz)), mz)
+            )
             for kk in range(10):
                 aloc[kk, li] = (ae * Bas[kk]).sum()
         for p_ in range(10):
@@ -420,13 +444,14 @@ def run_beta(tag, beta, seed, dt, steps):
             if onset is None and len(Hs) > 3 and H < 0:
                 onset = n_ + 1
             if n_ % 1000 == 999:
-                print(f"   [{tag}] step {n_ + 1:5d} [{time.time() - t0:4.0f}s] "
-                      f"H={H:12.4f} align={al:.3f} |s|={abs(s):.2e}")
+                print(
+                    f"   [{tag}] step {n_ + 1:5d} [{time.time() - t0:4.0f}s] "
+                    f"H={H:12.4f} align={al:.3f} |s|={abs(s):.2e}"
+                )
             if not np.isfinite(H):
                 print(f"   [{tag}] NON-FINITE at step {n_ + 1}")
                 break
-    return dict(Hs=np.array(Hs), align=np.array(aligns), s=np.array(ss),
-                onset=onset)
+    return dict(Hs=np.array(Hs), align=np.array(aligns), s=np.array(ss), onset=onset)
 
 
 def load_seed():
@@ -441,8 +466,7 @@ def main():
     print("=" * 78)
     d1, u_min = gate_D1()
     betas = [0.3 / (2 * abs(u_min)), 1.0 / (2 * abs(u_min)), 3.0 / (2 * abs(u_min))]
-    print(f"  β scan (anchored to u_min={u_min:.2f}): "
-          + ", ".join(f"{b:.4g}" for b in betas))
+    print(f"  β scan (anchored to u_min={u_min:.2f}): " + ", ".join(f"{b:.4g}" for b in betas))
     seed = load_seed()
     results = {}
     print("\n[D2] β=0 control (must reproduce the ~1150-step runaway):")
@@ -454,36 +478,46 @@ def main():
     print("\n" + "=" * 78)
     H0 = results[0.0]
     d2 = H0["onset"] is not None and 800 < H0["onset"] < 1600
-    print(f"[D2] control onset = {H0['onset']} (expect ~1150) → "
-          f"{'PASS' if d2 else 'FAIL'}")
+    print(f"[D2] control onset = {H0['onset']} (expect ~1150) → " f"{'PASS' if d2 else 'FAIL'}")
     plateau = 17.5
     best = None
     for b in betas:
         R = results[b]
         Hs, al = R["Hs"], R["align"]
-        last3 = Hs[len(Hs) * 2 // 3:]
-        bounded = (np.isfinite(Hs).all() and np.abs(Hs).max() < 100 * plateau
-                   and not (last3[-1] < last3[0] - 50 * plateau))
+        last3 = Hs[len(Hs) * 2 // 3 :]
+        bounded = (
+            np.isfinite(Hs).all()
+            and np.abs(Hs).max() < 100 * plateau
+            and not (last3[-1] < last3[0] - 50 * plateau)
+        )
         d4 = al[-1] >= 0.9
-        d5 = np.abs(R["s"][len(R["s"]) // 2:]).max() > 1e-4
-        print(f"  β={b:.4g}: onset={R['onset']} |H|max={np.abs(Hs).max():9.2f} "
-              f"H_end={Hs[-1]:9.2f} align_end={al[-1]:.3f} "
-              f"|s|_late={np.abs(R['s'][len(R['s']) // 2:]).max():.2e} "
-              f"→ D3={'✔' if bounded else '✘'} D4={'✔' if d4 else '✘'} "
-              f"D5={'✔' if d5 else '✘'}")
+        d5 = np.abs(R["s"][len(R["s"]) // 2 :]).max() > 1e-4
+        print(
+            f"  β={b:.4g}: onset={R['onset']} |H|max={np.abs(Hs).max():9.2f} "
+            f"H_end={Hs[-1]:9.2f} align_end={al[-1]:.3f} "
+            f"|s|_late={np.abs(R['s'][len(R['s']) // 2:]).max():.2e} "
+            f"→ D3={'✔' if bounded else '✘'} D4={'✔' if d4 else '✘'} "
+            f"D5={'✔' if d5 else '✘'}"
+        )
         if bounded and d4 and best is None:
             best = b
     ok = d1 and d2 and best is not None
     print("\n" + "=" * 78)
     if best is not None:
-        print(f"SATURATION ACHIEVED at β={best:.4g} — run the D6 persistence: "
-              f"python {Path(__file__).name} d6 {best:.6g}")
+        print(
+            f"SATURATION ACHIEVED at β={best:.4g} — run the D6 persistence: "
+            f"python {Path(__file__).name} d6 {best:.6g}"
+        )
     else:
-        print("NO β in the scan saturates the runaway — the spatial-U quartic "
-              "alone is insufficient (next: the covariant 𝒮-form / the Duda "
-              "question sharpens)")
-    print(f"M5.8.2d scan: {'PASS' if ok else 'PARTIAL/FAIL'} "
-          f"(D1={d1} D2={d2} D3-D5 best β={best})")
+        print(
+            "NO β in the scan saturates the runaway — the spatial-U quartic "
+            "alone is insufficient (next: the covariant 𝒮-form / the Duda "
+            "question sharpens)"
+        )
+    print(
+        f"M5.8.2d scan: {'PASS' if ok else 'PARTIAL/FAIL'} "
+        f"(D1={d1} D2={d2} D3-D5 best β={best})"
+    )
     print("=" * 78)
     return 0 if ok else 1
 
@@ -494,16 +528,19 @@ def trend_report(R, tag):
     Hs, al, s = R["Hs"], R["align"], R["s"]
     npts = len(Hs)
     seg = max(npts // 6, 1)
-    slopes = [(Hs[min((i + 1) * seg, npts - 1)] - Hs[i * seg]) / seg
-              for i in range(min(6, npts // seg))]
-    bounded = bool(np.isfinite(Hs).all() and R["onset"] is None
-                   and np.abs(Hs).max() < 100 * 17.5)
-    print(f"  [{tag}] onset={R['onset']} H: max={Hs.max():.1f} end={Hs[-1]:.1f} "
-          f"| align end={al[-1]:.3f} | |s| end={abs(s[-1]):.2e}")
-    print(f"  [{tag}] H slope per probe-step by sixth: "
-          + " ".join(f"{x:+.3f}" for x in slopes))
-    print(f"  [{tag}] {'BOUNDED — no runaway signature' if bounded else 'NOT bounded'}"
-          f"; decelerating slopes ⇒ asymptote, steady ⇒ slow drain (open boundary?)")
+    slopes = [
+        (Hs[min((i + 1) * seg, npts - 1)] - Hs[i * seg]) / seg for i in range(min(6, npts // seg))
+    ]
+    bounded = bool(np.isfinite(Hs).all() and R["onset"] is None and np.abs(Hs).max() < 100 * 17.5)
+    print(
+        f"  [{tag}] onset={R['onset']} H: max={Hs.max():.1f} end={Hs[-1]:.1f} "
+        f"| align end={al[-1]:.3f} | |s| end={abs(s[-1]):.2e}"
+    )
+    print(f"  [{tag}] H slope per probe-step by sixth: " + " ".join(f"{x:+.3f}" for x in slopes))
+    print(
+        f"  [{tag}] {'BOUNDED — no runaway signature' if bounded else 'NOT bounded'}"
+        f"; decelerating slopes ⇒ asymptote, steady ⇒ slow drain (open boundary?)"
+    )
     return bounded
 
 
@@ -532,7 +569,7 @@ if __name__ == "__main__":
     if a and a[0] == "d6":
         raise SystemExit(run_d6(float(a[1])))
     if a and a[0] == "long":
-        if len(a) > 3:                      # optional dt scale (e.g. 0.5)
+        if len(a) > 3:  # optional dt scale (e.g. 0.5)
             globals()["DT"] = DT * float(a[3])
         raise SystemExit(run_long(float(a[1]), int(a[2])))
     raise SystemExit(main())
