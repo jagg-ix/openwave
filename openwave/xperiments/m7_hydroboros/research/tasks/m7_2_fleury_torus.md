@@ -23,7 +23,7 @@ The ansatz satisfies **Maxwell-with-sources where the sources are read off the f
 | --- | --- | --- |
 | 1 | **The Heaviside is inverted**: the paper defines `H(r−r₀) = 1 for r < r₀`, 0 outside (their Eq 1 text), the opposite of the standard `H` | implement their stated definition (fields live INSIDE the tube), never the formula's face value |
 | 2 | **Instantaneous charge integrates to zero** (`ρ ∝ sin(φ−ωt)` over one wavelength around the ring) | the electron charge is `Q_rms` (RMS over volume), their Eq 19: `√2 π² ε₀ E₀ r₀² = e`; compute RMS, not the plain integral |
-| 3 | **Complex-field energy convention**: the paper's `u(t) = ε₀E₀²(1 + R/4R₀)` (Eq 31) comes from the appendix's specific convention | pin the convention against the **FLDB Appendix** (corpus #1, Appendix PDF) before comparing `U`; if ambiguous, compute both real-part-instantaneous and complex-modulus averages and report which matches Eq 32 |
+| 3 | **Complex-field energy convention**: the paper's `u(t) = ε₀E₀²(1 + R/4R₀)` (Eq 31) comes from the appendix's specific convention | pin the convention against the **FLDB Appendix** (corpus #1, Appendix PDF) before comparing `U`; if ambiguous, compute both real-part-instantaneous and complex-modulus averages and report which matches Eq 32; tracked as **Q10** in [`../m7_question_tracker.md`](../m7_question_tracker.md) (a direct Marc ask, he is the author) |
 | 4 | **The mask's delta shell**: `∇·E` at the tube boundary is a distribution; the lattice smears it | grid-convergence study is mandatory (§ 4); report observables vs `h` with Richardson extrapolation |
 | 5 | `ω` is not free | enforce `ω = 2c/R₀` (Faraday); phase velocity `v_p = 2c` is a check, not a violation |
 

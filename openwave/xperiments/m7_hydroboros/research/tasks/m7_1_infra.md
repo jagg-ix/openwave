@@ -30,7 +30,7 @@ What any acceptable substrate must satisfy (the blend test):
 
 **A-primary ontology (Marc, committed 2026-06-30):** the work starts from an **"A primary"** ontology, the vector potential `A` is the fundamental field, with `F = dA`, the `E, B` fields and the charge `∇·E` all derived from it. This favors the potential-primary candidate **B** (the `A_μ` doublet, where `A` is literally the primary DoF) over the field-primary RS candidate **A**; the Riemann-Silberstein `F` reading is kept as a derived diagnostic, not the evolved DoF.
 
-The decision between A and B (and whether D enters only as a seeder) is **open**, tracked as **Q1** in [`../m7_question_tracker.md`](../m7_question_tracker.md), the M5-style question tracker (cf. [`0b_question_tracker.md`](../../../m6_ouroboros/research/0b_question_tracker.md)); the open questions Q1-Q9 live there. A structural argument now favoring **B**: Nadirashvili's theorem makes the pure-Maxwell (single-field) finite-energy Beltrami electron impossible, so the doublet's confinement sector is required for existence ([`../m7_background.md § 5b`](../m7_background.md)).
+The decision between A and B (and whether D enters only as a seeder) is **open**, tracked as **Q1** in [`../m7_question_tracker.md`](../m7_question_tracker.md), the M5-style question tracker (cf. [`0b_question_tracker.md`](../../../m6_ouroboros/research/0b_question_tracker.md)); the open questions Q1-Q10 live there (priority-sorted, the ask list for Marc). A structural argument now favoring **B**: Nadirashvili's theorem makes the pure-Maxwell (single-field) finite-energy Beltrami electron impossible, so the doublet's confinement sector is required for existence ([`../m7_background.md § 5b`](../m7_background.md)).
 
 **Duda's field-configuration bar (2026-07-01) constrains this decision.** On the models-of-particles list (2026-07-01, continuing the 2026-06-29 prescription captured in [`../m7_roadmap.md`](../m7_roadmap.md) § Phase A / Ouroboros [#247](https://github.com/openwave-labs/openwave/issues/247)), Duda re-stated the precondition for any particle model: **specify the field configuration of every particle** (photons, neutrinos, leptons, mesons, baryons, nuclei) and answer **"do you use topological vortices? for which particles?"** before simulating, validated against an independent benchmark ([MODELS.md](https://github.com/openwave-labs/openwave/blob/main/MODELS.md)), "not just talking to an LLM chatbot." He attached a comprehensive **liquid-crystal field-configuration sketch** (his own model's answer), decoded in [`../../../m5_liquid_crystal/research/tasks/m5_4f_convo_2026.07.01.md`](../../../m5_liquid_crystal/research/tasks/m5_4f_convo_2026.07.01.md) § 2; figure [`../../../m5_liquid_crystal/theory/duda_2026-07-01_particle_field_configs.png`](../../../m5_liquid_crystal/theory/duda_2026-07-01_particle_field_configs.png).
 
@@ -130,7 +130,14 @@ Method notes worth carrying forward: (1) the fixed-helicity constraint is enforc
 
 **Findings**: The M7 substrate infrastructure is stood up and theorem-gated: the time-harmonic `(A_μ, J_μ)` doublet lattice with AD gradients exact to `2e-15` and a fixed-helicity relaxer that reproduces Woltjer's 1958 theorem from random seeds (`λ → 2π/L` at `5.5e-6`). The M6 parent's calibration point (`H/Q = 1.6890` at `g = 1.0`) is independently reproduced by the seeder pipeline, and the Q8 gauge-sensitivity structure is now measured, not conjectured.
 
-**Research docs created / updated**: this doc (§ Findings) · script [`../scripts/m7_1_harmonic_lattice.py`](../scripts/m7_1_harmonic_lattice.py) · script [`../scripts/m7_1_gates.py`](../scripts/m7_1_gates.py) · data [`../data/m7_1_gates.json`](../data/m7_1_gates.json) · plots [`../plots/m7_1_woltjer_gate.png`](../plots/m7_1_woltjer_gate.png) (key plot: the λ → 2π/L convergence) + [`../plots/m7_1_seeder_gallery.png`](../plots/m7_1_seeder_gallery.png) · tracker [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q1/Q2/Q8 + the Ask-Marc list) · roadmap row → Done.
+**Research docs created / updated**: this doc (§ Findings) · script [`../scripts/m7_1_harmonic_lattice.py`](../scripts/m7_1_harmonic_lattice.py) · script [`../scripts/m7_1_gates.py`](../scripts/m7_1_gates.py) · data [`../data/m7_1_gates.json`](../data/m7_1_gates.json) · tracker [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q1/Q2/Q8 + the Ask-Marc list) · roadmap row → Done.
+
+### Plots
+
+![`../plots/m7_1_woltjer_gate.png`](../plots/m7_1_woltjer_gate.png)
+(key plot: the λ → 2π/L convergence)
+
+![`../plots/m7_1_seeder_gallery.png`](../plots/m7_1_seeder_gallery.png)
 
 ---
 
