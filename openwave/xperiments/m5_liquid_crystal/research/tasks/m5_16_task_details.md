@@ -41,6 +41,21 @@ M5.11 P0-P1 built the machinery and validated it at placeholder parameters:
 | **P-E / g from an anchor** | pin `g` from one of: the electron clock, neutrino oscillations, or baryon gravitational mass (Duda's three routes; "certain of only for baryons") |
 | **P-F / handoff** | publish locked `(g, δ, a, b, c, r₀)` + the run recipe as the calibration input consumed by M5.9.0 / M5.9 / M5.11 / `#220` |
 
+## Numerical recipe (Golubich 2026-07-02) , the concrete minimizer build
+
+Dr. Rudolf Golubich (co-author of Faber & Golubich [arXiv:2604.12021](https://arxiv.org/abs/2604.12021)) handed us the exact static-minimization recipe used for the source SU(2) soliton model ([`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md)); it is the concrete build for M5.16's minimizer and de-risks its numerics:
+
+| Element | Recipe |
+| --- | --- |
+| Objective | minimize the **total energy** on the field DOF; the minimum **directly gives the mass** |
+| Minimizer | **nonlinear conjugate gradient**, **Polak-Ribière** update (vs the current FIRE + L-BFGS in `m5_11_p0_minimizer.py`, a candidate swap / cross-check) |
+| Line search | **bracketing + golden-section** along the gradient |
+| Derivatives | the difference-quotient scheme in Faber's `derivatives.tex` (local-only, `theory/golubich_faber_su2/`); integrating it is the "main challenge" Golubich flags, maps onto P-D |
+| Free parameters | **one**: `r₀`; `r₀ = (π/4)·r_classical` reproduces electron mass + `α` + the perturbative-QED vacuum-polarization corrections (the source-model anchor M5.11 P1 already hit) |
+| Cost | weeks on large lattices (confirms the M5.16 "serious simulation" scale; corroborates Duda `4e §1`) |
+
+**Topological readouts (adopt at the observable stage):** charge = the sign of `nᵢ` (radial field rotation out of the core); spin = `α(r)` covering the upper (`+½`) or lower (`−½`) half of SU(2)-S²; the SU(2) field couples to ED via the rotation axis `n̂`, constant along E field lines. These are analytic invariants of the solitonic solution, not fitted.
+
 ## Definition of done
 
 A documented, reproducible **axisymmetric energy-minimization** run at the physical `(g, δ)` regime that (1) reproduces the electron anchors (mass, `α⁻¹`, Coulomb) with a **calibrated** `V(M)` and core regularization, (2) reports the **locked `(g, δ)` + `V(M)` coefficients** with their derivation/anchor, and (3) hands that parameter set to the calibration cluster. Matching every downstream observable is not the bar; the locked parameters + the honest run recipe are.

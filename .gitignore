@@ -241,6 +241,8 @@ openwave/xperiments/*/theory/**/*.epub
 openwave/xperiments/*/theory/**/*.ppt
 openwave/xperiments/*/theory/**/*.pptx
 openwave/xperiments/*/theory/**/*.djvu
+openwave/xperiments/*/theory/**/*.tex
+openwave/xperiments/*/theory/**/*.bib
 # m7 electron_beltrami/ is a pure local corpus , ignore the whole folder (incl. any non-doc strays).
 # Its manifest lives one level up at theory/SOURCES.md (a *.md, tracked by default).
 openwave/xperiments/m7_hydroboros/theory/electron_beltrami/*
