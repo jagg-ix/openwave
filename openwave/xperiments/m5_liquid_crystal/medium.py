@@ -23,7 +23,7 @@ the ∇²/∇·/∇× operators, V_psi) entirely. The live substrate is:
   - M_am / M_prev_am / M_new_am  — the 4×4 matrix triple buffer (the substrate)
   - director_nhat / eigenvalues  — DERIVED per-frame via eigen_decompose (the
     principal eigenvector of M's spatial block is the director the render + M5.1
-    Coulomb machinery consume). See 4b_rendering_features.md.
+    Coulomb machinery consume). See m5_4b_rendering_features.md.
 """
 
 import taichi as ti
@@ -172,7 +172,7 @@ class TensorField:
         self.M_new_am = ti.Matrix.field(MDIM, MDIM, dtype=ti.f32, shape=self.grid_size)  # M at t+dt
 
         # DERIVED per-frame from M_am by engine2_pde.eigen_decompose (the lynchpin
-        # kernel — see 4b_rendering_features.md). director_nhat is the principal
+        # kernel — see m5_4b_rendering_features.md). director_nhat is the principal
         # eigenvector (the apolar nematic director the M5.1 Frank/Coulomb/glyph
         # machinery consumes); eigenvalues are the (λ₁≥λ₂≥λ₃) spectrum, used by the
         # ‖M−D‖_F amplitude tracker and the biaxial-ellipsoid render option.

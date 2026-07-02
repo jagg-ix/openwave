@@ -7,7 +7,7 @@ The viz stack — OpenWave's biggest differential as a simulator:
   - update_director_glyphs     director-orientation line glyphs
 
 Reads pre-computed fields off tensor_field; no engine-func calls yet (M5.4 adds
-engine2_pde.eigen_decompose). Full repurposing plan in 4b_rendering_features.md.
+engine2_pde.eigen_decompose). Full repurposing plan in m5_4b_rendering_features.md.
 """
 
 import math

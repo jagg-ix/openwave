@@ -17,7 +17,7 @@
 > A primary deliverable is the **HydroBoros (M7) column** of the repo-root
 > [`MODELS.md`](../../../../MODELS.md) coverage matrix, every cell backed by a runnable in-platform
 > script, the same bar M5 meets (see the [roadmap](m7_roadmap.md) Phase D).
-> Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/11a_vortex_loop.md) (M5.11).
+> Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/tasks/m5_11a_vortex_loop.md) (M5.11).
 > Theory sources: [`../theory/`](../theory/). Findings as we execute: `research/scripts/`, `research/data/`, `research/plots/`, tracked in [`m7_roadmap.md`](m7_roadmap.md).
 
 ---
@@ -50,7 +50,7 @@ getting M7 to the same bar.
 | Rigor | Details |
 | --- | --- |
 | **AI-reviewer pass** | every canonical recipe + MODELS.md cell goes through an AI code-review (`/code-review`) before merge , the quality gate M5 uses |
-| **11a rigor standard** ([`11a_vortex_loop.md`](../../m5_liquid_crystal/research/11a_vortex_loop.md)) | energy-minimizer to `‖∇E‖ → 0`, AD-validated gradient (`1e-12`), each task gated against a known result, honest pass/fail (§ 5, the [roadmap](m7_roadmap.md)) |
+| **11a rigor standard** ([`m5_11a_vortex_loop.md`](../../m5_liquid_crystal/research/tasks/m5_11a_vortex_loop.md)) | energy-minimizer to `‖∇E‖ → 0`, AD-validated gradient (`1e-12`), each task gated against a known result, honest pass/fail (§ 5, the [roadmap](m7_roadmap.md)) |
 
 **The wider OpenWave wave-physics library (M1-M4) , mine for insights, not a source.** HydroBoros is
 fundamentally a *wave* model (rotating waves, EM waves, Beltrami flows, knotted light), and the other
@@ -72,7 +72,7 @@ wave is what that vortex looks like in the hydrodynamic / Maxwell reading. The *
 together: it is simultaneously Fleury's monochromatic toroidal eigenmode (`ω = 2c/R₀`) and the
 Ouroboros self-confinement. The bridge is already documented inside M5 (Fleury's Navier-Stokes ≡
 generalized-Maxwell equivalence, Duda's superfluid mapping): see
-[`../../m5_liquid_crystal/research/1b_topological_defect.md`](../../m5_liquid_crystal/research/1b_topological_defect.md)
+[`../../m5_liquid_crystal/research/1b_topological_defect.md`](../../m5_liquid_crystal/research/tasks/m5_1b_topological_defect.md)
 § "EM-hydrodynamics formal equivalence".
 
 ### Trkalian vs Beltrami: where the charge lives (Marc, 2026-06-30)
@@ -215,11 +215,11 @@ Solve it two ways, exactly as M5.11 does:
   [`../theory/ceperley_rotating_waves.md`](../theory/ceperley_rotating_waves.md) (Ceperley rotating-wave equations; [AJP DOI 10.1119/1.17020](https://doi.org/10.1119/1.17020) / [IEEE DOI 10.1109/22.216476](https://doi.org/10.1109/22.216476)) ·
   [`../theory/feynman_maxwell_equations.md`](../theory/feynman_maxwell_equations.md) (Feynman Lectures II Ch 18, the Maxwell baseline for M7.2)
 - Source corpus (the consolidated library, 52 PDFs + 1 docx): [`../theory/electron_beltrami/`](../theory/electron_beltrami/) , manifest [`../theory/SOURCES.md`](../theory/SOURCES.md) (Beltrami / force-free / knotted-EM / ball-lightning / LENR / Pisello-Faber canon, the M7.0 corpus)
-- Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/11a_vortex_loop.md) (M5.11 vortex-loop)
+- Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/tasks/m5_11a_vortex_loop.md) (M5.11 vortex-loop)
 - Wave-physics library to mine (§ 0, not parents): [`m1_granule_motion`](../../m1_granule_motion/) · [`m2_free_wave`](../../m2_free_wave/) · [`m3_wolff_lafreniere`](../../m3_wolff_lafreniere/) · [`m4_ewt`](../../m4_ewt/)
 - Ouroboros canonical spec: [`../../m6_ouroboros/research/0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) ·
   background [`../../m6_ouroboros/research/0a_background.md`](../../m6_ouroboros/research/0a_background.md)
-- EM ≡ hydrodynamics bridge (already in M5): [`../../m5_liquid_crystal/research/1b_topological_defect.md`](../../m5_liquid_crystal/research/1b_topological_defect.md) § "EM-hydrodynamics formal equivalence"
+- EM ≡ hydrodynamics bridge (already in M5): [`../../m5_liquid_crystal/research/1b_topological_defect.md`](../../m5_liquid_crystal/research/tasks/m5_1b_topological_defect.md) § "EM-hydrodynamics formal equivalence"
 - Production-engine template: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`medium.py`, `engine1_seeds.py` … `_launcher.py`)
 - Comparison table (the M7 column goal): [`MODELS.md`](../../../../MODELS.md) · new-model flow [`ONBOARDING_MODELS.md`](../../../../ONBOARDING_MODELS.md), [`CONTRIBUTING.md`](../../../../CONTRIBUTING.md)
 - Model briefing stub: [`../__M7_model_briefing.md`](../__M7_model_briefing.md)

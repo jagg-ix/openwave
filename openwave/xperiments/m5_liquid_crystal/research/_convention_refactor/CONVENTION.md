@@ -48,4 +48,4 @@ physics-neutral, run `python3 research/_convention_refactor/golden_master.py --c
 
 Cross-refs: the flip plan + site checklist = [`00_plan.md`](00_plan.md); the frozen-sandbox list =
 [`FROZEN_SANDBOXES.md`](FROZEN_SANDBOXES.md); the engine<->port equivalence =
-[`../sandbox_v10/n0_engine_equivalence.py`](../sandbox_v10/n0_engine_equivalence.py).
+[`../scripts/n0_engine_equivalence.py`](../scripts/n0_engine_equivalence.py).

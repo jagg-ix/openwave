@@ -6,7 +6,7 @@
 > venues (DOIs/arXiv) or Marc Fleury's shared library. The theory root holds only our own `.md` notes.
 > Curated reading-by-theme + M7-relevant roles: [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md) § 3 / § 3b.
 
-Total: 53 documents in `electron_beltrami/` (as of 2026-06-30). Filenames follow `YEAR - Author - Title`.
+Total: **64 documents** in `electron_beltrami/` (as of 2026-07-02). Filenames follow `YEAR - Author - Title`. This is an **evolving M7 corpus**: it **started from Marc Fleury's consolidated library** (entries 1-53, the source-of-record) and is **extended with separately-sourced papers** as M7 needs them (entries 54-64, provenance noted below).
 
 | # | Year | Document |
 | --- | --- | --- |
@@ -62,4 +62,22 @@ Total: 53 documents in `electron_beltrami/` (as of 2026-06-30). Filenames follow
 | 50 | 2025 | dos Santos - Electromagnetic Model of the Electron (FLDB Main) |
 | 51 | 2025 | dos Santos - Poloidal Toroidal System (v8e) |
 | 52 | 2026 | Faber Golubich - High-Precision Lattice SU(2) Solitonic Dipole |
-| 53 | 2026 | Werbos - Evaluating Universe Model Alternatives v5 |
+| 53 | 2026 | Werbos - Evaluating Universe Model Alternatives v5 (updated to newest v5, 2026-07) |
+
+## Extended M7 corpus (separately sourced, 2026-07)
+
+Papers added beyond Marc's consolidated library, to serve specific M7 needs. Each maps to a row in the M7.0 bootstrap Task-0 table ([`../research/tasks/m7_0_bootstrap.md`](../research/tasks/m7_0_bootstrap.md)).
+
+| # | Year | Document | Provenance / venue | M7.0 row |
+| --- | --- | --- | --- | --- |
+| 54 | 1979 | Pisello - Gravitation Electromagnetism and Quantised Charge | scanned PDF (out-of-print book, ISBN 9780250402861); image-only, no OCR | #16 |
+| 55 | 1989 | Ranada - A Topological Theory of the Electromagnetic Field | purchased PDF (Lett. Math. Phys. 18, 97-106) | #3 |
+| 56 | 1997 | Faddeev Niemi - Knots and Particles | [hep-th/9610193](https://arxiv.org/abs/hep-th/9610193) (Nature 387, 1997) | #7 |
+| 57 | 1999 | Faber - A Model for Topological Fermions | [hep-th/9910221](https://arxiv.org/abs/hep-th/9910221) (v4, 2000) | #21 |
+| 58 | 2007 | Sutcliffe - Knots in the Skyrme-Faddeev Model | [arXiv:0705.1468](https://arxiv.org/abs/0705.1468) | #8 |
+| 59 | 2012 | Enciso - Knots and Links in Steady Solutions of the Euler Equation | [arXiv:1003.3122](https://arxiv.org/abs/1003.3122) (Ann. Math. 175) | #6 |
+| 60 | 2013 | Kedia - Tying Knots in Light Fields | [arXiv:1302.0342](https://arxiv.org/abs/1302.0342) (PRL 111, 150404) | #5 |
+| 61 | 2021 | Duda - Framework for Liquid Crystal Based Particle Models | [arXiv:2108.07896](https://arxiv.org/abs/2108.07896) | #12 |
+| 62 | 2025 | Fleury Rousselle - Critical Review of Zitterbewegung Electron Models | [DOI 10.3390/sym17030360](https://doi.org/10.3390/sym17030360) (Symmetry 17, 360) | #2 |
+| 63 | 2025 | Garcia Lopez - Massive Wave Solutions to the Einstein-Maxwell Equations | [Preprints.org 202504.0927 v2](https://www.preprints.org/manuscript/202504.0927/v2) | #17 |
+| 64 | 2026 | Duda - Hydrodynamical Analogues of Quantum Phenomena (Couder walkers) | Duda slide-notes (walking-droplet / Couder-Fort pilot-wave) | #22 |
