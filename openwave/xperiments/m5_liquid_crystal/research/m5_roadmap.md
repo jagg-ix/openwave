@@ -1,13 +1,7 @@
 # M5 ROADMAP / LIQUID-CRYSTAL MODEL
 
 > **Index convention (2026-06-21).** The M5 engine now stores the order parameter at INDEX-0: `D = diag(g, 1, δ, 0)`, `eta = diag(-1, 1, 1, 1)` (time/g axis = array index 0, Duda's convention). Dated entries below written before the flip use the legacy index-3 labels (`D = diag(1, δ, 0, g)`; the time-coupled curvature block called the `(α,3)` block) , the SAME physics under the relabel `index k -> (k+1) mod 4` (proven physics-neutral: [`_convention_refactor/CONVENTION.md`](_convention_refactor/CONVENTION.md)). Read `(α,3)` as `(α,0)`.
-
-Full implementation plan, post-sandbox_v1.
-
-A research thread evaluating whether a Lagrangian / topological framework can replace OpenWave's empirical wave-equation search with a first-principles derivation, and produce charge quantization + far-field Coulomb that the M3 scalar model cannot. Sparked by email exchange with Jarek Duda (Jagiellonian) and Robert Close (Clark College) in the "Models of Particles" group.
-
-For design rationale, M2/M4 inheritance, code mapping, resolution & performance plan, and layered validation, see [2a_path_to_m5.md](2a_path_to_m5.md).
-
+>
 > **REORGANIZED 2026-07-02.** Future tasks live in the **BACKLOG** table (TaskID = M5.x.y, each linking a `tasks/<id>_task_details.md` with full detail + migrated GitHub issue content); the validated record is in **DONE**; deep per-phase logs stay verbatim in **ARCHIVE**. Read top-down; drill into a task_details or the archive for a phase's full history.
 
 ---
@@ -16,8 +10,7 @@ For design rationale, M2/M4 inheritance, code mapping, resolution & performance 
 
 | TaskID | Title | Description | Gated By |
 | --- | --- | --- | --- |
-
-*none currently.*
+| [M5.11](tasks/m5_11_task_details.md) | Neutrino vortex-loop + oscillation/PMNS parameters | The regularized neutrino vortex-loop (P2 = the stable loop, the open frontier) + the neutrino oscillation/PMNS parameters. #199 merged in. ⏸ PARKED. | electron reproduced (P0-P1 done) |
 
 ## BACKLOG
 
@@ -25,25 +18,24 @@ For design rationale, M2/M4 inheritance, code mapping, resolution & performance 
 
 | TaskID | Title | Description | Gated By |
 | --- | --- | --- | --- |
-| [M5.6.5b](tasks/m5_6_5b_task_details.md) | WM6 gauge-stable signed charge (winding density) | Gauge-stable signed charge view via the Brouwer winding density (WM6 `∇·n̂` flips under Evolve-PDE); needed when two-defect ± charge is load-bearing. | - |
+| [M5.8.3](tasks/m5_8_3_task_details.md) | Production engine port (4D seeder + faithful-kinetic variant) | The residual of M5.8.3: 4D extension of the M5.6.5a production seeder + the faithful-kinetic engine variant if production-scale clock runs need it. | - |
+| [M5.13](tasks/m5_13_task_details.md) | Dynamic on-screen demo suite (charge/ZBW/spin/2-charge/gravity/EM) | On-screen rendered demos (charge-stable, ZBW clock, spin/magnetism, two-charge, gravity, EM waves); demo-tier, gates nothing under headless-first (#213). | headless gates (demo-tier, non-gating) |
+| [M5.14](tasks/m5_14_task_details.md) | 3D dynamical pair-annihilation (capture to breather to vacuum) | Run the full 3D dynamical ± hedgehog pair-annihilation (capture → breather → vacuum), confirming topology cancellation releases energy as outgoing waves (#198). | - |
 | [M5.6.5e](tasks/m5_6_5e_task_details.md) | Two biaxial hedgehogs interaction demo | Two interacting biaxial hedgehogs under the live Eq.18 leapfrog (dynamic Coulomb analog); needs a multi-center seeder + the `π₁=Q₈` charge-class decision. | multi-center biaxial seeder, V-on (M5.6.5c) |
 | [M5.6.5f](tasks/m5_6_5f_task_details.md) | Magnetic-dipole viz Stage 2 (real circulating B + placeholder cleanup) | Point the dipole render at the live `∇×n̂`, compute μ from the field, delete the VIZ.4 placeholder scaffolding (incl. the hardcoded `+ẑ` moment). | M5.6.5e |
-| [M5.7.3](tasks/m5_7_3_task_details.md) | Close Eq.23 spin-density cross-check (optional) | Implement + test Close Eq.23 (spin-density wave, `∇·s=0`) as an alternative to Duda Eq.18; nice-to-have, the 4D-clock explanation already covers M5.7. | - |
-| [M5.8.3](tasks/m5_8_3_task_details.md) | Production engine port (4D seeder + faithful-kinetic variant) | The residual of M5.8.3: 4D extension of the M5.6.5a production seeder + the faithful-kinetic engine variant if production-scale clock runs need it. | - |
-| [M5.8.4](tasks/m5_8_4_task_details.md) | Cross-particle omega test | Seed defects of different masses at far separation; confirm each ticks at its own mass-derived ω independently. | - |
-| [M5.8.5](tasks/m5_8_5_task_details.md) | Negative-Hamiltonian propulsion toggle | Toggle the `−b·Tr(M³)` cubic on/off to identify which V(M) term is the propulsion mechanism. | - |
-| [M5.8.6](tasks/m5_8_6_task_details.md) | 2+1D pilot-wave intermediate rung | The missing 2+1D middle rung: intrinsic-clock-sourced pilot waves reproducing hydrodynamic-Casimir / walking-droplet quantum analogs. | M5.8.0 integrator |
 | [M5.8.7](tasks/m5_8_7_task_details.md) | Gravity / time-dilation viz + electron gravitational mass | Gravity/time-dilation render suite (g(x) well, ∇g pull, per-voxel clock-rate) + deriving the electron gravitational mass from the boost/GEM coupling (#209). | M5.8 4D g-axis live |
-| [M5.8.8](tasks/m5_8_8_task_details.md) | Disclination rod-localization energy check | After the 4D clock stabilizes the defect, recompute energyH and test whether the disclination rod localizes into a ring/shell (falsifiable, uncomputed). | 4D clock stabilized |
-| [M5.8.9](tasks/m5_8_9_task_details.md) | G-2c-2 hardening (stiff stepper + engine quartic port) | Stiffness-aware stepper for the deep-floor cascade, horizons ≫45 periods, and the engine-side quartic `(1+2β·u)` flux port for production-scale runs. | - |
-| [M5.8.10](tasks/m5_8_10_task_details.md) | BEC vortex-kinetics literature anchor | Skim the long-lived-oscillation-mode / BEC-vortex-kinetics literature (Duda 2026-05-13 PRA cite); compact-manifold geometry as a third Derrick escape. | - |
 | [M5.9](tasks/m5_9_task_details.md) | Leptons (e/mu/tau) + Cornell quark strings + neutrino-flavor beat | Three axis-choices of the biaxial Λ give e/μ/τ (calibrate mass ratios); Cornell `V(r)=−α/r+σr` quark strings; the neutrino as the δ-0 axis-swing. | M5.8, M5.9.0 calibration |
 | [M5.9.0](tasks/m5_9_0_task_details.md) | Duda delta/g calibration + unit-scale prep | Calibration prep: the δ/g energy scaling + EM/GEM boost split, the ω(δ) settled-state read, and the Coulomb-unit + LdG-to-rest-energy axis feeding M5.9. | - |
 | [M5.10](tasks/m5_10_task_details.md) | Effective Dirac description (toward a SM effective Lagrangian) | Show the M5 defect reduces to an effective Dirac equation, the first step toward a Standard-Model effective Lagrangian for the deep model (#197). | M5.9 |
-| [M5.11](tasks/m5_11_task_details.md) | Neutrino vortex-loop + oscillation/PMNS parameters | The regularized neutrino vortex-loop (P2 = the stable loop, the open frontier) + the neutrino oscillation/PMNS parameters. #199 merged in. ⏸ PARKED. | electron reproduced (P0-P1 done) |
-| [M5.13](tasks/m5_13_task_details.md) | Dynamic on-screen demo suite (charge/ZBW/spin/2-charge/gravity/EM) | On-screen rendered demos (charge-stable, ZBW clock, spin/magnetism, two-charge, gravity, EM waves); demo-tier, gates nothing under headless-first (#213). | headless gates (demo-tier, non-gating) |
-| [M5.14](tasks/m5_14_task_details.md) | 3D dynamical pair-annihilation (capture to breather to vacuum) | Run the full 3D dynamical ± hedgehog pair-annihilation (capture → breather → vacuum), confirming topology cancellation releases energy as outgoing waves (#198). | - |
 | [M5.15](tasks/m5_15_task_details.md) | Composite particles (hopfions/knots to nuclei, atomic orbitals) | Composites: hopfions/knots → nuclei, atomic orbitals; its own research file (15a), test program 15a.1→15a.5 (Liu et al. 2026 lab anchor). | M5.9 foundations |
+| [M5.6.5b](tasks/m5_6_5b_task_details.md) | WM6 gauge-stable signed charge (winding density) | Gauge-stable signed charge view via the Brouwer winding density (WM6 `∇·n̂` flips under Evolve-PDE); needed when two-defect ± charge is load-bearing. | - |
+| [M5.7.3](tasks/m5_7_3_task_details.md) | Close Eq.23 spin-density cross-check (optional) | Implement + test Close Eq.23 (spin-density wave, `∇·s=0`) as an alternative to Duda Eq.18; nice-to-have, the 4D-clock explanation already covers M5.7. | - |
+| [M5.8.4](tasks/m5_8_4_task_details.md) | Cross-particle omega test | Seed defects of different masses at far separation; confirm each ticks at its own mass-derived ω independently. | - |
+| [M5.8.5](tasks/m5_8_5_task_details.md) | Negative-Hamiltonian propulsion toggle | Toggle the `−b·Tr(M³)` cubic on/off to identify which V(M) term is the propulsion mechanism. | - |
+| [M5.8.6](tasks/m5_8_6_task_details.md) | 2+1D pilot-wave intermediate rung | The missing 2+1D middle rung: intrinsic-clock-sourced pilot waves reproducing hydrodynamic-Casimir / walking-droplet quantum analogs. | M5.8.0 integrator |
+| [M5.8.8](tasks/m5_8_8_task_details.md) | Disclination rod-localization energy check | After the 4D clock stabilizes the defect, recompute energyH and test whether the disclination rod localizes into a ring/shell (falsifiable, uncomputed). | 4D clock stabilized |
+| [M5.8.9](tasks/m5_8_9_task_details.md) | G-2c-2 hardening (stiff stepper + engine quartic port) | Stiffness-aware stepper for the deep-floor cascade, horizons ≫45 periods, and the engine-side quartic `(1+2β·u)` flux port for production-scale runs. | - |
+| [M5.8.10](tasks/m5_8_10_task_details.md) | BEC vortex-kinetics literature anchor | Skim the long-lived-oscillation-mode / BEC-vortex-kinetics literature (Duda 2026-05-13 PRA cite); compact-manifold geometry as a third Derrick escape. | - |
 
 ---
 
