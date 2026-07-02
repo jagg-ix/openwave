@@ -13,7 +13,7 @@
 | TaskID | Title | Description | Gated By |
 | --- | --- | --- | --- |
 | [M5.16](tasks/m5_16_task_details.md) | Axisymmetric energy-minimization calibration solver (the parameter-lock gate) | **⭐ Recommended next.** Graduate the M5.11-P0 minimizer to the physical `g~1e10, δ~1e-10` regime under cylindrical symmetry; calibrate the LdG `V(M)` coeffs by requiring the anchors (electron 511 keV, Coulomb, clock); lock `(g, δ, V)`. The static-minimization fork Duda re-prioritized 2026-07-01 (`4e`); plausibly why the absolute-ω scale never closed (V=0 dynamical route is scale-free). Gates the calibration cluster. **2026-07-02 additions:** P-G δ-continuation probe (does the run-3 blue-phase obstruction relax as δ walks to the physical quasi-uniaxial regime?); reuse the validated N1 perturbative-δ machinery; Golubich CG recipe (`4g`); rigor-compliance bar (Duda's serious-sims requirements, item by item) + the deliver-first-ask-second comms plan in the task details. | - (interim V + Faber melt exist; Q7/Q8 are inputs) |
-| [M5.11](tasks/m5_11_task_details.md) | Neutrino vortex-loop + oscillation/PMNS parameters | The regularized neutrino vortex-loop (P2 = the stable loop, the open frontier) + the neutrino oscillation/PMNS parameters. #199 merged in. ⏸ PARKED. **Its parameter-lock blocker (g, δ, V) = M5.16 (Duda 2026-07-01, `4e`); recommended to run M5.16 first.** **Re-entry plan (2026-07-02):** fork B (uniaxial reduction) upgraded to theory-motivated primary (Duda's `4f` uniaxial-neutrino sketch + the δ→0 quasi-uniaxial substrate limit); the P2 negatives at δ=0.3 are not conclusive, re-run the 2×2 at the physical regime; P6 wired to the N4c gaps + the δ_CP fork (tracker Q13 / § δ_CP fork). **The re-start is gated by the pre-flight ask round** (all pending M5.11 questions to Duda in one email, backed by the M5.16 deliverable). | electron reproduced (P0-P1 done); parameter-lock = M5.16; electron ID (μ, spin, g≈2) needs review; pre-flight ask round (post-M5.16) |
+| [M5.12](tasks/m5_12_task_details.md) | Neutrino vortex-loop at the physical regime (the fresh M5.11 re-entry) | **⭐ Next after M5.16 + the pre-flight ask round.** Successor of the closed M5.11, started FRESH (clean `m5_12_*` Duda-facing docs/scripts; the `m5_11_*` corpus stays frozen as the closed task's record, reused via the fork-on-use manifest). Phases A-F: A uniaxial heliknoton at the physical `(g, δ, V)` (theory-motivated primary: Duda's `4f` uniaxial-neutrino sketch + the δ→0 quasi-uniaxial limit); B map back to the biaxial tensor; C biaxial-native backup ansatz (Machon & Alexander); D stability + clock; E masses (mass/length density + knot-family spread vs the ~6× compression); F mixing on real loops (N4c gap closure + the δ_CP fork). Article-grade target (Duda round 3: the 4 PMNS parameters "would already be huge"). | **M5.16** (parameter lock) + **the pre-flight ask round** (Q13 + loop-vs-knot answers) |
 | [M5.9](tasks/m5_9_task_details.md) | Leptons (e/mu/tau) + Cornell quark strings + neutrino-flavor beat | Three axis-choices of the biaxial Λ give e/μ/τ (calibrate mass ratios); Cornell `V(r)=−α/r+σr` quark strings; the neutrino as the δ-0 axis-swing. | M5.8, M5.9.0 calibration (M5.16 parameter-lock) |
 
 ## BACKLOG
@@ -54,7 +54,15 @@
 
 ---
 
-## DONE — the validated record (in order of completion)
+## DONE (new workflow)
+
+> Tasks closed under the 2026-07-02 local-roadmap workflow (TaskID = M5.x, one row per task, task_details = the full record). The pre-migration validated record stays in LEGACY DONE below; do not conflate the two.
+
+| TaskID | Title | Description | Completed |
+| --- | --- | --- | --- |
+| [M5.11](tasks/m5_11_task_details.md) | Neutrino vortex-loop + oscillation/PMNS parameters | ✅ Closed COMPLETE on its evolved scope: answered Duda's "too simple" critique with real energy-minimized regularized solitons (**Faber electron 511.00 keV** at `r₀=2.2132 fm`, `I=π/4` to 6e-6, non-circular; **`α⁻¹→137.03`** from charge quantization); built + validated the **Taichi-AD gradient engine** (==functional 1e-13) and the **chiral Lifshitz + Frank terms** (1e-14); ran the PMNS N-ladder to its honest scorecard ([`tasks/m5_10e_findings_N4c.md`](tasks/m5_10e_findings_N4c.md)); **precisely isolated the open frontier** via the 2×2 elimination (5 clean negatives; the one un-built cell = a forced-singular knotted/linked disclination line), all at placeholder `δ=0.3`. Frontier → **[M5.12](tasks/m5_12_task_details.md)** (the physical-regime fresh re-entry); the `m5_11_*` scripts/findings corpus = the frozen validated record. #199 + #236 archived inside the task_details. | 2026-07-02 |
+
+## LEGACY DONE — the validated record (in order of completion)
 
 One line per result; the full logs live in the [ARCHIVE](#archive--detailed-phase-logs) below. Every headline claim has a runnable reproduction (the commands table at the end of this section + the tracker's evidentiary catalog).
 

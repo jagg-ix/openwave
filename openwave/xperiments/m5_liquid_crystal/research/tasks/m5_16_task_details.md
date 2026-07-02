@@ -1,6 +1,6 @@
 # M5.16: Axisymmetric energy-minimization calibration solver (the parameter-lock gate)
 
-> Task **M5.16** (M5 / Liquid-Crystal model). Status: **Backlog (recommended next)** · Gated by: - (interim `V(M)` + Faber melt already in engine1_seeds; Q7/Q8 are inputs, not blockers) · Gates: M5.9.0 real-calibration axis, M5.9, M5.11, `#220` absolute-ω · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.16** (M5 / Liquid-Crystal model). Status: **Backlog (recommended next)** · Gated by: - (interim `V(M)` + Faber melt already in engine1_seeds; Q7/Q8 are inputs, not blockers) · Gates: M5.9.0 real-calibration axis, M5.9, M5.12 (the neutrino re-entry), `#220` absolute-ω · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation.
 
@@ -39,8 +39,8 @@ M5.11 P0-P1 built the machinery and validated it at placeholder parameters:
 | **P-C / potential calibration (Q7)** | fix the LdG `V(M)` coefficients `(a, b, c)` by **requiring the minimizer to reproduce the anchors** (electron 511 keV via Faber `r₀`; Coulomb; the electron-clock time scale) rather than guessing them; verify the minimum sits at eigenspectrum `(g,1,δ,0)` |
 | **P-D / core regularization (Q8)** | the hedgehog/vortex center regularization (Duda's "hardest part") under the calibrated potential, on the axisymmetric mesh |
 | **P-E / g from an anchor** | pin `g` from one of: the electron clock, neutrino oscillations, or baryon gravitational mass (Duda's three routes; "certain of only for baryons") |
-| **P-F / handoff** | publish locked `(g, δ, a, b, c, r₀)` + the run recipe as the calibration input consumed by M5.9.0 / M5.9 / M5.11 / `#220` |
-| **P-G / δ-continuation study (the M5.11 unlock probe)** | sweep δ from the placeholder 0.3 down (0.1 / 0.01 / 1e-3 / perturbative to 1e-10) and track (a) the substrate's **chiral response** (does the run-3 blue-phase obstruction relax toward a stable helix as the spatial spectrum `diag(1, δ, 0)` degenerates to quasi-uniaxial `(1, 0, 0)`?) and (b) whether the run-4 melt-heal behaviour changes. Tests the 2026-07-02 hypothesis that the M5.11 P2 loop negatives are **artifacts of the strongly-biaxial δ=0.3 regime**, cheaply, before any new loop construction. See [`m5_11_task_details.md`](m5_11_task_details.md) § Re-entry plan |
+| **P-F / handoff** | publish locked `(g, δ, a, b, c, r₀)` + the run recipe as the calibration input consumed by M5.9.0 / M5.9 / M5.12 / `#220` |
+| **P-G / δ-continuation study (the M5.12 unlock probe)** | sweep δ from the placeholder 0.3 down (0.1 / 0.01 / 1e-3 / perturbative to 1e-10) and track (a) the substrate's **chiral response** (does the run-3 blue-phase obstruction relax toward a stable helix as the spatial spectrum `diag(1, δ, 0)` degenerates to quasi-uniaxial `(1, 0, 0)`?) and (b) whether the run-4 melt-heal behaviour changes. Tests the 2026-07-02 hypothesis that the M5.11 P2 loop negatives are **artifacts of the strongly-biaxial δ=0.3 regime**, cheaply, before any new loop construction. See [`m5_12_task_details.md`](m5_12_task_details.md) § The standing hypothesis |
 
 ## The δ-continuation hypothesis (P-G origin, 2026-07-02 roadmap review)
 
@@ -96,8 +96,8 @@ Strategy (Rodrigo): fix the infrastructure first, show Duda something **concrete
 | --- | --- | --- |
 | 1 | Run M5.16 with NO outbound questions (the parameter/potential search is ours; he handed it over: "you should start here") | now |
 | 2 | **Report the deliverable**: the locked `(g, δ, a, b, c, r₀)` + the rigor-compliant run recipe (the table above, satisfied item by item) | at M5.16 FINISH |
-| 3 | **The M5.11 pre-flight ask round**: ALL pending M5.11 questions batched in ONE email, backed by the deliverable: Q13 (chiral invariant), the loop-vs-knot choice (Hopf-linked pair vs trefoil vs the sketch's "two vortex types"), the δ_CP fork framing ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) | right before re-starting M5.11 |
-| 4 | His answers feed the fork B/A design; hit M5.11 | after replies |
+| 3 | **The M5.12 pre-flight ask round**: ALL pending neutrino-re-entry questions batched in ONE email, backed by the deliverable: Q13 (chiral invariant), the loop-vs-knot choice (Hopf-linked pair vs trefoil vs the sketch's "two vortex types"), the δ_CP fork framing ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) | right before starting M5.12 |
+| 4 | His answers feed the phase A/C design; go M5.12 ([`m5_12_task_details.md`](m5_12_task_details.md)) | after replies |
 
 The prize is his own framing (round 3, `10a`): deriving the 4 PMNS parameters rigorously, "if writing convincing article able to pass peer review, this already would be huge."
 
@@ -107,13 +107,13 @@ A documented, reproducible **axisymmetric energy-minimization** run at the physi
 
 ## Gating / relations
 
-- **Gates (unblocks):** M5.9.0 (the real calibration axis, currently a residual), M5.9 (lepton masses), M5.11 (neutrino vortex loop, whose own blocker is this exact parameter-lock), `#220` (absolute-ω).
+- **Gates (unblocks):** M5.9.0 (the real calibration axis, currently a residual), M5.9 (lepton masses), M5.12 (the neutrino re-entry, gated on this lock + the pre-flight ask round), `#220` (absolute-ω).
 - **Inputs (interim forms exist, not blockers):** Q7 (`V(M)` form, [`../m5_question_tracker.md`](../m5_question_tracker.md)) and Q8 (Faber regularization) — M5.16 turns these from "open" toward "pinned" by using the anchors to fix their parameters.
 - **Builds on:** the M5.11 P0-P1 minimizer + Taichi-AD engine (above); the `m5_4c` δ/g decoder-ring; the `#208`/`#218` calibration findings.
-- **Sequencing:** recommended **ahead of resuming M5.11** — M5.11 is parked precisely on the missing parameter-lock this task supplies ([`m5_11_task_details.md`](m5_11_task_details.md), SESSION_STATE fork B).
+- **Sequencing:** runs FIRST: M5.12 (the neutrino re-entry, successor of the closed M5.11) is gated on the parameter-lock this task supplies plus the pre-flight ask round it opens ([`m5_12_task_details.md`](m5_12_task_details.md) § Entry gates).
 
 ## Cross-links
 
 - Origin convo: [`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) · prior δ/g threads [`m5_4c_convo_2026.06.08.md`](m5_4c_convo_2026.06.08.md), [`m5_4d_convo_2026.06.11.md`](m5_4d_convo_2026.06.11.md)
 - Calibration record: [`../m5_summary_report.md`](../m5_summary_report.md) (§3 N-6b absolute-ω; DUDA follow-up) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q7, Q8)
-- Downstream: [`m5_9_0_task_details.md`](m5_9_0_task_details.md) · [`m5_9_task_details.md`](m5_9_task_details.md) · [`m5_11_task_details.md`](m5_11_task_details.md)
+- Downstream: [`m5_9_0_task_details.md`](m5_9_0_task_details.md) · [`m5_9_task_details.md`](m5_9_task_details.md) · [`m5_12_task_details.md`](m5_12_task_details.md) (predecessor record: [`m5_11_task_details.md`](m5_11_task_details.md), closed)

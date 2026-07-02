@@ -1,6 +1,8 @@
 # M5.11: Neutrino vortex-loop + oscillation/PMNS parameters
 
-> Task **M5.11** (M5 / Liquid-Crystal model). Status: **Backlog (PARKED 2026-06-23)** · Gated by: electron reproduced (P0-P1 done) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.11** (M5 / Liquid-Crystal model). Status: **✅ Done (CLOSED 2026-07-02)** · Successor: **[M5.12](m5_12_task_details.md)** (the physical-regime re-entry) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+
+> **CLOSURE (2026-07-02).** M5.11 is closed as COMPLETE on its evolved scope: it answered Duda's "too simple" critique with real energy-minimized regularized solitons (Faber electron 511.00 keV + `α⁻¹ → 137.03`), built + validated the AD gradient engine and the chiral Lifshitz + Frank machinery, ran the PMNS N-ladder to its honest scorecard, and **precisely isolated** the open frontier (the 2×2 elimination: the one un-built cell is a forced-singular knotted/linked disclination line). What remains open is a **different task**: the physical-regime `(g, δ, V)` build with uniaxial-primary construction and Duda's pre-flight answers in hand. That is **[M5.12](m5_12_task_details.md)**, started fresh so the Duda-facing surface is clean (`m5_12_*` docs + scripts only); the `m5_11_*` corpus below and in `scripts/`/`findings/` is the **frozen validated record** backing this closure, reused by M5.12 via copy-forks only (its § Script reuse manifest).
 
 This doc is the task's full record: planning + findings + future planning + documentation.
 
@@ -14,30 +16,9 @@ P0-P1 ✅: a true energy minimizer + **Faber's electron reproduced** (511.00 keV
 
 > **Neutrino field-config corroboration (Duda 2026-07-01 group sketch, [`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) § 2).** The sketch draws the **3 neutrinos as a uniaxial nematic unitary vector field with 1 distinguished axis** (vs the leptons' biaxial 3-axis), extremely light, in **two vortex types**. This matches the M5.11 closed-vortex-loop picture + the δ-0 axis-swing origin, and the "two vortex types" hint bears on the P2 loop-construction fork (the forced-singular knotted/linked disclination question).
 
-## Re-entry plan (2026-07-02 roadmap review): fork B upgraded from de-risk to theory-motivated primary
+## Re-entry plan: MIGRATED to M5.12 (2026-07-02)
 
-**The standing hypothesis.** All five P2 loop experiments (the 2×2 elimination in [`m5_11b_findings.md`](m5_11b_findings.md)) ran at the placeholder `δ = 0.3`, where the spatial tensor `diag(1, 0.3, 0)` is **strongly biaxial**, and run 3's obstruction was precisely biaxiality (chiral term → blue-phase texture, the Tai/Smalyukh thesis's flagged hard case, p.132). Duda's sketch (above) says the neutrino is **uniaxial, 1 distinguished axis**, and at the physical `δ ~ 1e-10` the substrate's spatial spectrum degenerates to quasi-uniaxial `(1, 0, 0)`, exactly the regime where Smalyukh's chiral knots are known stable. **So the P2 negatives at δ = 0.3 are not conclusive; the loop-stabilization question must be re-asked at the physical regime after the M5.16 lock.** The cheap first probe is M5.16 **P-G** (the δ-continuation study, [`m5_16_task_details.md`](m5_16_task_details.md)).
-
-**The pre-flight ask round (gates the re-start; strategy decided 2026-07-02).** Deliver first, ask second: M5.16 runs with no outbound questions; at its FINISH Duda gets the concrete deliverable (the locked `(g, δ, a, b, c, r₀)` + the rigor-compliant recipe, [`m5_16_task_details.md`](m5_16_task_details.md) § Rigor compliance / § Comms plan). Then, **right before re-starting M5.11, ALL pending M5.11 questions go to him in ONE email**, backed by that deliverable: **Q13** (does the substrate carry a chiral Lifshitz invariant?), the **loop-vs-knot choice** (Hopf-linked `+1/2` pair vs `+1/2` trefoil vs the sketch's "two vortex types"), plus any parameter residual M5.16 could not close ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue). His answers pick the fork B/A design; then M5.11 runs. The stake is his own bar (round 3, `10a`): a rigorous derivation of the 4 PMNS parameters "able to pass peer review ... would already be huge", publication/article grade.
-
-| Route | Status after the review | What it is |
-| --- | --- | --- |
-| **Fork B (PRIMARY, theory-motivated)** | upgraded from "low-risk de-risk" | uniaxial-director reduction (Frank `K\|∇n\|²` + chiral `2q0 n·(∇×n)`), where heliknotons are KNOWN stable; now motivated by Duda's own uniaxial-neutrino field config (`4f § 2`) + the δ→0 quasi-uniaxial substrate limit, not just tactics. Demonstrate the stable knot there, then walk δ back up (continuation) to find where/whether biaxiality breaks it |
-| **Fork A (backup, biaxial-native)** | held | the forced-singular knotted/linked disclination line from a literature single-valued ansatz (Machon & Alexander PNAS 2013; Alexander et al. RMP 2012), seeded + relaxed under the validated functional |
-| **Fork C (framing)** | superseded by the hypothesis | "electron-only" acceptance is premature while the physical-regime question is untested |
-| **Re-run the P2 2×2 at physical parameters** | queued behind M5.16 | repeat runs 3-5 (heliknoton, singular loop, singular Hopfion) under the locked `(g, δ, V)` + δ-continuation; only negatives at the physical regime count as verdicts |
-
-**P6 wiring (make the substrate do work on the angles).** When a stable loop family exists, P6 re-runs the mixing on REAL relaxed solutions and closes the N4c honest gaps ([`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md)):
-
-| N4c gap | P6 test on real loops |
-| --- | --- |
-| Q8 loop stability (foundational: overlaps computed on NON-solutions) | resolved by construction (the loops are stationary solutions) |
-| Q4 θ₁₂ not energy-selected (`E_self` flat to 0.09%) | re-test `dE/dα = 0` at the magic tilt with the real potential + stable loops |
-| Q7 the `U = eigvecs` Gram-bridge postulate | recompute the overlap matrix on solutions; test against a true second-variation Hessian (now well-defined) |
-| Q1/Q2 chiral origin of θ₁₃ + CP | if the substrate carries a chiral invariant (tracker Q13), derive `g_chiral` microscopically instead of fitting 0.94 |
-| the δ_CP fork (180° pure-SO(3) vs 270° chiral μ-τ reflection; NuFIT ~212 ± 30 sits between) | the real-loop mixing decides it in-model; DUNE/HK decide it in nature (tracker § δ_CP fork) |
-
-**Mass map (N6) note.** The N4c-2 tension stands: the loop spectrum `1 : 1.15 : 1.68` gives splitting ratios ~5-7× below the observed `Δm²₃₁/Δm²₂₁ ≈ 33.6` under both natural eigenvalue→mass maps. The resolution candidates, testable once a stable loop family exists: Duda's **mass/length density** map (oscillation = the loop changing length), plus a **knot-family spread** (Hopf-linked pair vs trefoil vs the sketch's "two vortex types" as distinct flavour carriers). If neither spreads the spectrum, the compression becomes the falsifier.
+The full re-entry plan drafted here on 2026-07-02 (the δ=0.3-inconclusive hypothesis, fork B upgraded to theory-motivated primary, the pre-flight ask round, the P6/N4c gap-closure wiring, the mass-map note) **moved to the successor task [`m5_12_task_details.md`](m5_12_task_details.md)** when M5.11 was closed the same day. M5.12 carries it as phases A-F + entry gates; nothing was dropped. This record stays frozen below as the M5.11 history.
 
 ---
 
