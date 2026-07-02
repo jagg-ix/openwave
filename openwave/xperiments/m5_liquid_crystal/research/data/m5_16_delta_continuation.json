@@ -1,0 +1,198 @@
+{
+  "task": "M5.16 P-G",
+  "script": "m5_16_delta_continuation.py",
+  "convention": "Duda index-0: D=diag(g,1,delta,0), eta=diag(-1,1,1,1)",
+  "settings": {
+    "N": 32,
+    "iters": 1200,
+    "pitch": 24.0,
+    "q0": 0.2617993877991494,
+    "R0": 6.0,
+    "L_helix": [
+      1.7,
+      5.0
+    ],
+    "L_knot": 1.7,
+    "ldg": "P2 sandbox amplitude well (b=0), NOT the calibrated M5.16 potential; relative trend only"
+  },
+  "deltas": [
+    0.3,
+    0.2,
+    0.1,
+    0.05,
+    0.02
+  ],
+  "rows": [
+    {
+      "delta": 0.3,
+      "vac_tr2": 1.18,
+      "helix": {
+        "1.7": {
+          "melt_frac": 0.0,
+          "ampdev": 0.31054033385140545,
+          "dMsp_max": 1.2571396197571398,
+          "E_final": -30143.181407542743,
+          "finite": true
+        },
+        "5.0": {
+          "melt_frac": 0.0,
+          "ampdev": 0.8512548882920254,
+          "dMsp_max": 1.3930376276442407,
+          "E_final": -48532.53825430388,
+          "finite": true
+        }
+      },
+      "knot": {
+        "retention": 1.538543896769349,
+        "localization": 1.3914052125818883,
+        "melt_frac": 0.0,
+        "ampdev": 0.3525943590597509,
+        "E_final": -29621.66685440478,
+        "seed_excess": 26993.245765147847,
+        "finite": true
+      }
+    },
+    {
+      "delta": 0.2,
+      "vac_tr2": 1.08,
+      "helix": {
+        "1.7": {
+          "melt_frac": 0.0,
+          "ampdev": 0.357349890261482,
+          "dMsp_max": 1.1870323035396115,
+          "E_final": -25986.528883450366,
+          "finite": true
+        },
+        "5.0": {
+          "melt_frac": 0.0,
+          "ampdev": 0.8348710755670536,
+          "dMsp_max": 1.311161273531113,
+          "E_final": -43597.60406037766,
+          "finite": true
+        }
+      },
+      "knot": {
+        "retention": 1.308837937526118,
+        "localization": 1.4655292471521255,
+        "melt_frac": 0.0,
+        "ampdev": 0.3486845334429518,
+        "E_final": -25540.858831619596,
+        "seed_excess": 30849.42373159754,
+        "finite": true
+      }
+    },
+    {
+      "delta": 0.1,
+      "vac_tr2": 1.02,
+      "helix": {
+        "1.7": {
+          "melt_frac": 0.0,
+          "ampdev": 0.3088772468199219,
+          "dMsp_max": 1.089199344722663,
+          "E_final": -23677.238084174616,
+          "finite": true
+        },
+        "5.0": {
+          "melt_frac": 0.0,
+          "ampdev": 0.817046697625452,
+          "dMsp_max": 1.2293442521787283,
+          "E_final": -40927.00324341882,
+          "finite": true
+        }
+      },
+      "knot": {
+        "retention": 1.1359249084750382,
+        "localization": 1.481931734554575,
+        "melt_frac": 0.0,
+        "ampdev": 0.30657654068604967,
+        "E_final": -23343.193632965485,
+        "seed_excess": 34705.601698047234,
+        "finite": true
+      }
+    },
+    {
+      "delta": 0.05,
+      "vac_tr2": 1.005,
+      "helix": {
+        "1.7": {
+          "melt_frac": 0.0,
+          "ampdev": 0.28794542188949657,
+          "dMsp_max": 1.0447230110464276,
+          "E_final": -23168.051220739202,
+          "finite": true
+        },
+        "5.0": {
+          "melt_frac": 0.0,
+          "ampdev": 0.8120492272919257,
+          "dMsp_max": 1.1884899550741426,
+          "E_final": -40364.51905911531,
+          "finite": true
+        }
+      },
+      "knot": {
+        "retention": 1.0668182786409977,
+        "localization": 1.6113603318415286,
+        "melt_frac": 0.0,
+        "ampdev": 0.31923808004189524,
+        "E_final": -22780.815716995006,
+        "seed_excess": 36633.69068127208,
+        "finite": true
+      }
+    },
+    {
+      "delta": 0.02,
+      "vac_tr2": 1.0008,
+      "helix": {
+        "1.7": {
+          "melt_frac": 0.0,
+          "ampdev": 0.3021935772076205,
+          "dMsp_max": 1.0246601650381542,
+          "E_final": -23044.237293472124,
+          "finite": true
+        },
+        "5.0": {
+          "melt_frac": 0.0,
+          "ampdev": 0.8111306060781385,
+          "dMsp_max": 1.1689043350451356,
+          "E_final": -40264.629224620956,
+          "finite": true
+        }
+      },
+      "knot": {
+        "retention": 1.0362710653390923,
+        "localization": 1.6165738405760466,
+        "melt_frac": 0.0,
+        "ampdev": 0.3179629163517368,
+        "E_final": -22654.408642045,
+        "seed_excess": 37790.54407120698,
+        "finite": true
+      }
+    }
+  ],
+  "trends": {
+    "helix_melt_frac_at_Lmax": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "knot_retention": [
+      1.538543896769349,
+      1.308837937526118,
+      1.1359249084750382,
+      1.0668182786409977,
+      1.0362710653390923
+    ],
+    "knot_localization": [
+      1.3914052125818883,
+      1.4655292471521255,
+      1.481931734554575,
+      1.6113603318415286,
+      1.6165738405760466
+    ],
+    "obstruction_relaxes_as_delta_drops": null,
+    "retention_not_worse_at_small_delta": false
+  },
+  "wall_s": 106.4
+}

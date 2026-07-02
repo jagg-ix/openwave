@@ -1,0 +1,16 @@
+{
+  "task": "M5.16",
+  "mode": "stability",
+  "E_radial": 25.13985881164072,
+  "E_after_perturbed_2d_relax": 16.23036771962231,
+  "drop_rel": 0.35439702182786215,
+  "escaped_hedgehog": true,
+  "melt_min_s": 0.5818855085202959,
+  "melt_min_location_rho_z": [
+    1.5,
+    2.5
+  ],
+  "sphericity_after": 0.09666202781980715,
+  "iters": 6000,
+  "note": "escaped=True means the spherical hedgehog is a SADDLE of the axisym functional at this (beta, cscale): the M5-native core-regularization question (Q8)"
+}

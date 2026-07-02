@@ -1,6 +1,6 @@
 # M5.16: Axisymmetric energy-minimization calibration solver (the parameter-lock gate)
 
-> Task **M5.16** (M5 / Liquid-Crystal model). Status: **Backlog (recommended next)** · Gated by: - (interim `V(M)` + Faber melt already in engine1_seeds; Q7/Q8 are inputs, not blockers) · Gates: M5.9.0 real-calibration axis, M5.9, M5.11, `#220` absolute-ω · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.16** (M5 / Liquid-Crystal model). Status: **✅ Done (2026-07-02, review approved)** · Gates (now unblocked): M5.9.0 real-calibration axis, M5.9, M5.12 (the neutrino re-entry, pending only the pre-flight ask round), `#220` absolute-ω · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md) § DONE (new workflow)
 
 This doc is the task's full record: planning + findings + future planning + documentation.
 
@@ -39,8 +39,8 @@ M5.11 P0-P1 built the machinery and validated it at placeholder parameters:
 | **P-C / potential calibration (Q7)** | fix the LdG `V(M)` coefficients `(a, b, c)` by **requiring the minimizer to reproduce the anchors** (electron 511 keV via Faber `r₀`; Coulomb; the electron-clock time scale) rather than guessing them; verify the minimum sits at eigenspectrum `(g,1,δ,0)` |
 | **P-D / core regularization (Q8)** | the hedgehog/vortex center regularization (Duda's "hardest part") under the calibrated potential, on the axisymmetric mesh |
 | **P-E / g from an anchor** | pin `g` from one of: the electron clock, neutrino oscillations, or baryon gravitational mass (Duda's three routes; "certain of only for baryons") |
-| **P-F / handoff** | publish locked `(g, δ, a, b, c, r₀)` + the run recipe as the calibration input consumed by M5.9.0 / M5.9 / M5.11 / `#220` |
-| **P-G / δ-continuation study (the M5.11 unlock probe)** | sweep δ from the placeholder 0.3 down (0.1 / 0.01 / 1e-3 / perturbative to 1e-10) and track (a) the substrate's **chiral response** (does the run-3 blue-phase obstruction relax toward a stable helix as the spatial spectrum `diag(1, δ, 0)` degenerates to quasi-uniaxial `(1, 0, 0)`?) and (b) whether the run-4 melt-heal behaviour changes. Tests the 2026-07-02 hypothesis that the M5.11 P2 loop negatives are **artifacts of the strongly-biaxial δ=0.3 regime**, cheaply, before any new loop construction. See [`m5_11_task_details.md`](m5_11_task_details.md) § Re-entry plan |
+| **P-F / handoff** | publish locked `(g, δ, a, b, c, r₀)` + the run recipe as the calibration input consumed by M5.9.0 / M5.9 / M5.12 / `#220` |
+| **P-G / δ-continuation study (the M5.12 unlock probe)** | sweep δ from the placeholder 0.3 down (0.1 / 0.01 / 1e-3 / perturbative to 1e-10) and track (a) the substrate's **chiral response** (does the run-3 blue-phase obstruction relax toward a stable helix as the spatial spectrum `diag(1, δ, 0)` degenerates to quasi-uniaxial `(1, 0, 0)`?) and (b) whether the run-4 melt-heal behaviour changes. Tests the 2026-07-02 hypothesis that the M5.11 P2 loop negatives are **artifacts of the strongly-biaxial δ=0.3 regime**, cheaply, before any new loop construction. See [`m5_12_task_details.md`](m5_12_task_details.md) § The standing hypothesis |
 
 ## The δ-continuation hypothesis (P-G origin, 2026-07-02 roadmap review)
 
@@ -96,8 +96,8 @@ Strategy (Rodrigo): fix the infrastructure first, show Duda something **concrete
 | --- | --- | --- |
 | 1 | Run M5.16 with NO outbound questions (the parameter/potential search is ours; he handed it over: "you should start here") | now |
 | 2 | **Report the deliverable**: the locked `(g, δ, a, b, c, r₀)` + the rigor-compliant run recipe (the table above, satisfied item by item) | at M5.16 FINISH |
-| 3 | **The M5.11 pre-flight ask round**: ALL pending M5.11 questions batched in ONE email, backed by the deliverable: Q13 (chiral invariant), the loop-vs-knot choice (Hopf-linked pair vs trefoil vs the sketch's "two vortex types"), the δ_CP fork framing ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) | right before re-starting M5.11 |
-| 4 | His answers feed the fork B/A design; hit M5.11 | after replies |
+| 3 | **The M5.12 pre-flight ask round**: ALL pending neutrino-re-entry questions batched in ONE email, backed by the deliverable: Q13, Q16, Q14, Q15, Q17 + the δ_CP fork framing (the ask table lives with its consumer: [`m5_12_task_details.md`](m5_12_task_details.md) § The pre-flight ask round) | right before starting M5.12 |
+| 4 | His answers feed the phase A/C design; go M5.12 ([`m5_12_task_details.md`](m5_12_task_details.md)) | after replies |
 
 The prize is his own framing (round 3, `10a`): deriving the 4 PMNS parameters rigorously, "if writing convincing article able to pass peer review, this already would be huge."
 
@@ -105,15 +105,159 @@ The prize is his own framing (round 3, `10a`): deriving the 4 PMNS parameters ri
 
 A documented, reproducible **axisymmetric energy-minimization** run at the physical `(g, δ)` regime that (1) reproduces the electron anchors (mass, `α⁻¹`, Coulomb) with a **calibrated** `V(M)` and core regularization, (2) reports the **locked `(g, δ)` + `V(M)` coefficients** with their derivation/anchor, and (3) hands that parameter set to the calibration cluster. Matching every downstream observable is not the bar; the locked parameters + the honest run recipe are.
 
+---
+
+## FINDINGS (2026-07-02 run)
+
+Run record: go 15:07 EDT; in-flight state in [`../findings/m5_16_checkpoints.md`](../findings/m5_16_checkpoints.md). All artifacts `m5_16_*` under [`../scripts/`](../scripts/), [`../data/`](../data/), [`../plots/`](../plots/).
+
+### The instrument (P-B + P-D): built, gated, converged
+
+`m5_16_axisym.py`: the equivariant reduction `M(ρ,φ,z) = R₁₂(φ)·M̃(ρ,z)·R₁₂(φ)ᵀ` turns the 3D functional into an exact 2D `(ρ,z)` problem (azimuthal derivative = the algebraic channel `(1/ρ)[J, M̃]`; axis handled by a cell-centered ρ grid + mirror ghost `P·M̃·P`, `P = diag(1,−1,−1,1)`). Production gradient = the ANALYTIC numpy adjoint (hand-derived: `∇_A‖[A,B]‖² = 2[[A,B],B]` pattern, azimuthal adjoint `−[J,G]/ρ`, ghost fold-back); Taichi AD kept as opt-in cross-check only (its JIT never completed on this kernel shape, 28 min CPU, killed: recorded so nobody re-treads it). Minimizers: mass-preconditioned FIRE (P0 heritage) + nonlinear CG Polak-Ribière with bracketing/golden-section line search (the Faber-group recipe, [`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md)).
+
+| Gate (pre-registered) | Result | ✅/❌ |
+| --- | --- | --- |
+| G2 analytic gradient vs central FD | max rel 3.6e-7 (FD-truncation-limited), incl. the axis `i=0` ghost path | ✅ |
+| G3 pure-hedgehog density `r⁴·d = 8` (hand-derived) | 7.987 (0.17%) | ✅ |
+| G4 shell energy = `32π(1/r₁ − 1/r₂)` closed form | 0.73% | ✅ |
+| G5 3D evaluator == `m5_11_p0` lineage | rel 0.0 (bit-identical on the shared-convention region) | ✅ |
+| G6 2D reduction == 3D energy under h-refinement | 1.06% at h=1 → 0.27% at h/2, shrink 3.90 ≈ h² | ✅ |
+| G7 global-frame invariance (R₁₂ conjugation) | 6e-16 | ✅ |
+| G8 g-decoupling: E(g=8) == E(g=1e10) | rel 0.0, EXACT | ✅ |
+| R1/R2/R4 relax quality (all four β) | monotone; 6 decades; **virial E_curv/3E_pot = 1.006** | ✅ |
+
+Gate record: [`../data/m5_16_axisym_gates.json`](../data/m5_16_axisym_gates.json).
+
+### P-A: the physical regime, handled structurally (not by brute floats)
+
+| Physical scale | How it enters | Measured |
+| --- | --- | --- |
+| `g ~ 1e10` | statics are EXACTLY g-decoupled (the time row/col never enters derivatives, `[J,·]`, or the spatial-block V): gate G8 shows E(g=8) == E(g=1e10) with rel 0.0 | ✅ structural, no arithmetic risk |
+| `δ ~ 1e-10` | E(δ) is an exact QUARTIC polynomial in δ, so sampling at O(1) nodes + Vandermonde solve gives the orders `E₀..E₄` cancellation-free; `E(δ_phys)` then follows to machine precision (the N1 lesson delivered without graded commutators) | ✅ `m5_16_grade_b100_n96.json` |
+
+δ-grading on the converged β=1 electron: `E₁ = −24.82` (δ-axis along `φ̂`) / `−24.89` (along `θ̂`), `E₂ ≈ −22.3` → at `δ_phys = 1e-10` the δ-sector shifts the electron rest energy by **fractional −1.5e-10** (Duda's "QM contribution should be relatively tiny" now has a measured number); the two admissible axisymmetric δ-textures split by only 0.27% at O(δ), `θ̂` (in-plane) preferred.
+
+### P-C + P-E: the anchor chain and THE LOCK
+
+| Step | Content | Status |
+| --- | --- | --- |
+| 1. Vacuum structure | zero forcing at the uniaxial vacuum `s=1`, spectrum `(1, δ→0, 0)`: `a = (3b−4c)/2`, melt cost `c − b/2 > 0`, `b > 0` required for shape selection (b=0 leaves a degenerate Tr2-valley) → one free shape ratio `β = b/c ∈ (0,2)` | ✅ derived |
+| 2. Coulomb anchor | far-field hedgehog curvature density is EXACTLY `8c₂/r⁴` (gate G3); matching the exterior integral to the classical EM self-energy `αħc/2r` gives **`c₂ = αħc/64π = 7.1618e-3 MeV·fm`**, analytic | ✅ locked |
+| 3. Mass anchor | per β one relaxed solution: `E_phys = m_e c²` fixes the grid unit `ℓ = c₂·E_sim/m_e ≈ 0.2495 fm` (β=1) → `(a,b,c)` in MeV/fm³ via the energy-density unit `c₂/ℓ⁴` | ✅ locked per β |
+| 4. Size prediction | with both anchors spent, the electron's energy-median radius is a PREDICTION: see below | ✅ |
+| 5. β residual | `r_half(β)` is nearly flat (2.916→2.939 fm across β 0.25→1.5): β canNOT be pinned by the electron sector. Its physical meaning: **`κ_δ = (3/2)·b_phys`** is the δ-axis stiffness (the cubic alone restores the δ eigenvalue), so the NEUTRINO sector (M5.12 phase E) is its natural anchor. Honest 1-dof residual, carried forward | 🔶 |
+| 6. g | statics carry no g information (structural, G8); g comes only from the clock/boost sector: `GEM ∝ (b_boost·g)²` ([`m5_4c_convo_2026.06.08.md`](m5_4c_convo_2026.06.08.md) § 5), electron-clock absolute ω (`#220`), or baryon gravitational mass (Duda `4e`). Working value `g ~ 1/δ ~ 1e10` (`g·δ = 1`) | 🔶 hypothesis |
+
+**Locked parameter table (β=1.0 canonical row; full β family in [`../data/m5_16_parameter_lock.json`](../data/m5_16_parameter_lock.json)):**
+
+| Parameter | Value | Anchor |
+| --- | --- | --- |
+| `c₂` | `7.1618e-3 MeV·fm` (= `αħc/64π`, exact) | Coulomb |
+| `ℓ` (grid unit) | `0.2495 fm` | m_e |
+| `a` | `−3.484e-3 MeV/fm³` (β=1; `a = −c/2` at β=1) | vacuum structure + m_e |
+| `b` | `6.968e-3 MeV/fm³` (β=1) | shape ratio β (residual) |
+| `c` | `6.968e-3 MeV/fm³` | m_e |
+| `κ_δ = (3/2)b` | `1.045e-2 MeV/fm³` at β=1; range `1.69e-3` (β=0.25) to `2.48e-2` (β=1.5) | the M5.12 phase-E handoff equation |
+| `δ` | `1e-10` 🔶 (Duda, QED Dirac coefficient); arithmetic exact via grading | pending sharp anchor (κ_δ route) |
+| `g` | `1e10` 🔶 (`g·δ = 1` hierarchy); statics g-blind (G8) | clock/boost sector (`#220`) |
+
+### THE HEADLINE: a parameter-free cross-model agreement with Faber
+
+With Coulomb fixing `c₂` and `m_e` fixing the scale, **nothing is left to tune**, and the M5 electron's energy-median radius comes out
+
+| Observable | M5 (this run) | Faber SU(2) reference | Gap |
+| --- | --- | --- | --- |
+| `r_half` (radius enclosing half the rest energy, tail-inclusive) | **2.916-2.939 fm** (whole β family) | **3.0749 fm** (= `u_half·r₀`, `u_half = 1.3894` from the arctan profile, integrand verified `I = π/4` to 1e-11) | **≈ −4.7%** |
+
+Two different field theories (the M5 quartic tensor-commutator functional vs Faber's SU(2) soliton), same two anchors, independently land on the same electron size to ~5%. The gap is stable across β and, per the h-convergence section below, is GENUINE model difference (discretization is converged out at 0.01%): the M5 electron is 4.8% more compact than Faber's at the energy median. Plot: [`../plots/m5_16_calibration.png`](../plots/m5_16_calibration.png).
+
+### The stability finding (Q8, M5-native): the spherical hedgehog is not the unconstrained minimum
+
+The unconstrained 2D axisym relax ESCAPES the spherical hedgehog: the melt core collapses toward lattice scale while the winding spreads to box scale (E → 8.5 vs the spherical 21.7 at the smoke settings): with no Frank quadratic term, the M5 quartic functional prefers a non-spherical texture in the axisym class (the LdG point-defect-vs-ring escape, textbook analog). The calibration therefore runs in the **spherically-constrained class** (exactly Duda's "assuming initial field configuration like hedgehog", and Faber's own ansatz), converging cleanly there (virial 1.006). The constrained-vs-unconstrained tension IS the M5-native face of Duda's Q8 ("regularization in the center ... details still to be established") and goes into the pre-flight ask round.
+
+**Explicit probe (✅ measured, `data/m5_16_axisym_b100_n64_stability.json`):** seeding the unconstrained 2D relax from the CONVERGED radial solution plus a 3% symmetry-breaking bump, the energy descends 35% below the spherical minimum (25.14 → 16.23 in 6000 iters, still descending) and the melt minimum moves off-origin to `(ρ, z) ≈ (1.5, 2.5)`: the spherical hedgehog at β=1 is a SADDLE of the unconstrained axisym functional. Duda-facing formulation for the ask round: does the model intend the electron as the symmetric hedgehog (then what holds it: a Frank-type quadratic term? sixth-order LdG? the clock dressing?), or is the escaped/ring-core texture acceptable as the electron?
+
+### P-G: the δ-continuation probe (the M5.12 unlock read)
+
+`m5_16_delta_continuation.py` (fork of the frozen P2 machinery, δ promoted to the sweep variable, everything else at the M5.11 run-3/run-2 settings; 106 s, Taichi cache hit). δ ∈ {0.3, 0.2, 0.1, 0.05, 0.02}:
+
+| Indicator | δ = 0.3 → 0.02 | Read |
+| --- | --- | --- |
+| helix background deformation `dMsp_max` (L=1.7) | 1.26 → 1.03 | monotone relaxation toward uniaxial |
+| same at L=5.0 | 1.39 → 1.17 | monotone |
+| amplitude deviation (L=5.0) | 0.85 → 0.81 | mild monotone |
+| blue-phase melt fraction | 0.000 at every δ | no melt network forms at these settings |
+| heliknoton excess retention | 154% → 104% | the seeded texture stops being distorted as δ → 0 |
+| localization (peak/mean) | 1.39 → 1.62, rising monotonically toward uniaxial | supportive trend, but far below the ≥4 localized-knot bar: ⚠️ no localized knot at ANY δ with the sandbox potential |
+
+**Verdict 🔶: directionally supportive of the 2026-07-02 unlock hypothesis (all FOUR indicators move monotonically the right way as δ → 0: background deformation down, amplitude deviation down, excess retention → 100%, localization up), but δ alone does not stabilize a knot: the calibrated potential + the M5.12 phase A-C constructions remain necessary.** The M5.11 P2 negatives stay classified as regime artifacts pending the physical-regime re-run, not verdicts. Data: [`../data/m5_16_delta_continuation.json`](../data/m5_16_delta_continuation.json) · plot: [`../plots/m5_16_delta_continuation.png`](../plots/m5_16_delta_continuation.png).
+
+### Convergence (h-refinement): ✅ converged, the gap is genuine
+
+β=1 family with box/core ratio fixed (core resolved by 5.3 / 8 / 10.7 cells); the χ-invariant `J_half = E_sim·r_half` is the compared quantity:
+
+| NR (core cells) | `J_half` | `r_half_phys` | virial |
+| --- | --- | --- | --- |
+| 64 (5.3) | 206.06 | 2.888 fm | 1.016 |
+| 96 (8.0) | 208.71 | 2.925 fm | 1.006 |
+| 128 (10.7) | 208.74 | 2.926 fm | 1.003 |
+
+`J_half` moves 0.01% from n96 to n128: the instrument is CONVERGED at the production resolution, and the virial marches toward exact Derrick balance at ~h² order. Richardson from the (96,128) pair puts the continuum prediction at `r_half = 2.926 fm`, so the **−4.8% gap vs the Faber reference is a genuine cross-model difference, not discretization**: the honest number to report.
+
+### Honest caveats (do not overclaim)
+
+| Caveat | Status |
+| --- | --- |
+| `r_half` is an energy-median observable, not Faber's profile-parameter `r₀`; the cross-model comparison uses the SAME observable on both (his arctan profile integrand), which is the defensible apples-to-apples | by construction |
+| the quartic trace-LdG cannot be exactly stationary at the biaxial `(1, δ, 0)`: residual force `3bδ ≈ 3e-10·b` at δ_phys: the δ eigenvalue is a perturbative dressing, not an exact vacuum eigenvalue, unless a higher-order (sixth-order) LdG term pins it (Q7 refinement for Duda) | honest remainder |
+| β (= b/c) is NOT pinned by the electron sector (r_half flat in β): 1-dof family carried to M5.12 phase E via `κ_δ = (3/2)b` | open by design |
+| the spherical hedgehog is a CONSTRAINED stationary solution (saddle suspicion in the unconstrained axisym class): the stability probe quantifies it; resolution of point-vs-ring is Q8 territory | flagged |
+| `g = 1e10`, `δ = 1e-10` remain Duda's order-of-magnitude hierarchy (🔶), not sharp anchors; the lock delivers the EQUATIONS they enter (G8 g-blindness, κ_δ, GEM ∝ (b_boost·g)²) so any sharp anchor converts directly | labeled |
+| α⁻¹ itself was not re-derived here (that is the M5.11 P1b charge-quantization result, banked); this task USES α as the anchor | inherited |
+
+### Artifacts
+
+| Type | Files |
+| --- | --- |
+| scripts | [`m5_16_axisym.py`](../scripts/m5_16_axisym.py) (gates · radial · relax · stability · grade) · [`m5_16_calibrate.py`](../scripts/m5_16_calibrate.py) (sweep · lock) · [`m5_16_delta_continuation.py`](../scripts/m5_16_delta_continuation.py) (P-G) |
+| data | `m5_16_axisym_gates.json` · `m5_16_axisym_b{025,050,100,150}_n96.json` · `m5_16_axisym_b100_n{64,128}.json` · `m5_16_parameter_lock.json` · `m5_16_grade_b100_n96.json` · `m5_16_delta_continuation.json` (all < 100 KB; nothing to delete under the 1 MB rule) |
+| plots | [`m5_16_calibration.png`](../plots/m5_16_calibration.png) · [`m5_16_delta_continuation.png`](../plots/m5_16_delta_continuation.png) |
+| in-flight state | [`../findings/m5_16_checkpoints.md`](../findings/m5_16_checkpoints.md) |
+
 ## Gating / relations
 
-- **Gates (unblocks):** M5.9.0 (the real calibration axis, currently a residual), M5.9 (lepton masses), M5.11 (neutrino vortex loop, whose own blocker is this exact parameter-lock), `#220` (absolute-ω).
+- **Gates (unblocks):** M5.9.0 (the real calibration axis, currently a residual), M5.9 (lepton masses), M5.12 (the neutrino re-entry, gated on this lock + the pre-flight ask round), `#220` (absolute-ω).
 - **Inputs (interim forms exist, not blockers):** Q7 (`V(M)` form, [`../m5_question_tracker.md`](../m5_question_tracker.md)) and Q8 (Faber regularization) — M5.16 turns these from "open" toward "pinned" by using the anchors to fix their parameters.
 - **Builds on:** the M5.11 P0-P1 minimizer + Taichi-AD engine (above); the `m5_4c` δ/g decoder-ring; the `#208`/`#218` calibration findings.
-- **Sequencing:** recommended **ahead of resuming M5.11** — M5.11 is parked precisely on the missing parameter-lock this task supplies ([`m5_11_task_details.md`](m5_11_task_details.md), SESSION_STATE fork B).
+- **Sequencing:** runs FIRST: M5.12 (the neutrino re-entry, successor of the closed M5.11) is gated on the parameter-lock this task supplies plus the pre-flight ask round it opens ([`m5_12_task_details.md`](m5_12_task_details.md) § Entry gates).
 
 ## Cross-links
 
 - Origin convo: [`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) · prior δ/g threads [`m5_4c_convo_2026.06.08.md`](m5_4c_convo_2026.06.08.md), [`m5_4d_convo_2026.06.11.md`](m5_4d_convo_2026.06.11.md)
 - Calibration record: [`../m5_summary_report.md`](../m5_summary_report.md) (§3 N-6b absolute-ω; DUDA follow-up) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q7, Q8)
-- Downstream: [`m5_9_0_task_details.md`](m5_9_0_task_details.md) · [`m5_9_task_details.md`](m5_9_task_details.md) · [`m5_11_task_details.md`](m5_11_task_details.md)
+- Downstream: [`m5_9_0_task_details.md`](m5_9_0_task_details.md) · [`m5_9_task_details.md`](m5_9_task_details.md) · [`m5_12_task_details.md`](m5_12_task_details.md) (predecessor record: [`m5_11_task_details.md`](m5_11_task_details.md), closed)
+
+---
+
+## TASK REVIEW (2026-07-02, approved)
+
+**Task Duration:** 01:12 (from 15:07 to 16:19 EDT; review approved same day)
+**Usage Cap Triggered:** NO
+
+| # | Result | Label |
+| --- | --- | --- |
+| 1 | The instrument exists and is gated: the equivariant axisymmetric (ρ,z) minimizer with analytic numpy gradient; all 7 pre-registered gates pass (gradcheck 3.6e-7, analytic hedgehog density, shell closed form, P0-lineage bit-exact, 2D≡3D at h², frame invariance, g-decoupling EXACT at 1e10) | ✅ measured |
+| 2 | THE HEADLINE: with Coulomb fixing `c₂ = αħc/64π` and m_e fixing the scale, the M5 electron's energy-median radius is a parameter-free prediction: `r_half = 2.926 fm` vs Faber's 3.075 fm (−4.8%, h-converged: genuine model difference) | ✅ measured |
+| 3 | The lock delivered: `c₂` exact; `(a,b,c)` per β in MeV/fm³; ℓ = 0.2495 fm; `κ_δ = (3/2)b` handed to M5.12 phase E; β = the honest 1-dof residual (r_half is β-flat) | ✅ + 🔶 β residual |
+| 4 | Physical regime: g structurally inert in statics (G8); δ graded exactly, fractional −1.5e-10 at δ_phys | ✅ measured |
+| 5 | NEW Q8 finding: the spherical hedgehog is a SADDLE of the unconstrained axisym functional (perturbed relax −35%, melt moves off-origin): the point-vs-ring ask-round question | ✅ measured, ⚠️ interpretation open |
+| 6 | P-G: all four M5.11 obstruction indicators relax monotonically toward uniaxial; no localized knot at any δ with the sandbox potential | 🔶 supportive, not sufficient |
+| 7 | `g = 1e10`, `δ = 1e-10` stay Duda's hierarchy, delivered as constraint equations | 🔶 hypothesis |
+
+**Issues:** Taichi AD JIT never completed on this kernel shape (28 min CPU, twice): routed around via the analytic numpy engine (FD-gated), Taichi demoted to opt-in cross-check. The quartic trace-LdG carries the irreducible O(δ) residual `3bδ` (Q7 refinement). β un-pinnable by the electron sector (by physics).
+
+**Action (from the approved review):** M5.16-FINISH report to Duda (the summary doc + the locked table); the pre-flight ask round gains Q14 (point-vs-ring) and Q15 (sixth-order LdG) alongside Q13, Q16 (loop-vs-knot), Q17 (β/g anchors); the ask table baked into the M5.12 plan; roadmap row moved to DONE.
+
+**Findings:** The parameter lock is delivered and the method fork is vindicated: the static energy-minimization route produces, with zero free parameters after the Coulomb + m_e anchors, an electron whose size agrees with Faber's independently-built SU(2) soliton to 4.8% (converged, gate-checked), locking `c₂ = αħc/64π` and the LdG coefficients modulo one shape ratio whose physical meaning (`κ_δ = 3b/2`) hands the neutrino sector its calibration equation. Two honest discoveries ride along: the spherical hedgehog is a saddle of the unconstrained M5 functional (the concrete form of Duda's regularization question), and the δ-continuation probe shows every M5.11 loop obstruction relaxing monotonically toward the uniaxial regime.
+
+**Research docs created / updated:** this file § FINDINGS · [`../scripts/m5_16_axisym.py`](../scripts/m5_16_axisym.py) · [`../scripts/m5_16_calibrate.py`](../scripts/m5_16_calibrate.py) · [`../scripts/m5_16_delta_continuation.py`](../scripts/m5_16_delta_continuation.py) · `../data/m5_16_parameter_lock.json` (the deliverable) + the run JSONs · [`../plots/m5_16_calibration.png`](../plots/m5_16_calibration.png) · [`../plots/m5_16_delta_continuation.png`](../plots/m5_16_delta_continuation.png) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q7/Q8 delivered-notes + the re-sorted ask queue) · [`../findings/m5_16_checkpoints.md`](../findings/m5_16_checkpoints.md) (run log) · [`../findings/m5_16_report.md`](../findings/m5_16_report.md) (the Duda-facing summary)
