@@ -1370,7 +1370,7 @@ M3's `WaveCenter` had a `source_offset ∈ {0, π}` field. M5's `seed_*` kernels
 | Initial phase of intrinsic oscillation (if needed) | Optional `initial_oscillation_phase` parameter on the seed kernel — only governing the time-crystal cycle, NOT charge |
 | Annihilation behavior | Determined by topology: opposite winding numbers → annihilation is topologically allowed when they meet; same winding → topologically forbidden (no annihilation, just elastic scattering or repulsion) |
 
-##### One-line summary
+##### One-liner
 
 > In M3: "Phase IS charge. Particles annihilate when their waves cancel."
 >
