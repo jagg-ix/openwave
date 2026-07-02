@@ -79,7 +79,7 @@ These are the M5.8 core: a time-periodic resonance — bounded, self-starting, s
 | Static reductions all closed (Track C) | ❌ NEGATIVE (decisive, ×3)<br>The global-clock BVP has no interior ghost minimum (C1), the static clock-phase twist is pure cost (C2-B), and the dressed minimum is UN-SITTABLE — K_bb(a*) = −67.6 < 0 with U″ > 0 (C3) — so the breathing state is irreducibly time-dependent: ḃ ≠ 0 IS the bounce.<br>`m5_8_2f_breathing_bvp.py` · `m5_8_2f2_localized_clock.py` · `m5_8_2f3_breather_orbit.py` |
 | Spontaneity confirmed at field level | ✅ POSITIVE<br>A damped-settled configuration restarted with P = 0 EXACT regrows kinetic energy 0 → 5.76 by τ = 4000, H conserved to 0.5%, dt/2-converged to 4 significant digits — from exactly zero momentum the field develops motion at conserved H: the clock self-starts.<br>`m5_8_2g_spontaneity.py` |
 | The invariant matrix is COMPLETE | ✅ PASS (all candidates classified)<br>Signed-u is the working invariant; Skyrme `β_E·u_E²` also saturates but damps the clock 10× (sign-blind); the M6-style amplitude quartic A4 is geometrically pinned (no lever arm — the fuel is curvature-sector); the covariant `𝒮+β𝒮²` is deferred-with-reason (cubic Legendre, static sector ≡ the validated quartic).<br>`m5_8_2e_invariant_matrix.py` · `m5_8_2l_invariant_completion.py` |
-| The defect HOLDS, resolution-robust (N-2) | ✅ POSITIVE (G-2c-1)<br>Under the 4D quartic stack with full backreaction the free defect's structural alignment decays SLOWER at 48³ than 24³ at every matched t — the anti-M5.7 signature (its wash-out strengthened with resolution; this reverses) — settling to a plateau 0.8–0.88 ≫ the 0.5 random baseline, mask-insensitive.<br>`sandbox_vn/m5_8_2i_dispersal_gate.py` |
+| The defect HOLDS, resolution-robust (N-2) | ✅ POSITIVE (G-2c-1)<br>Under the 4D quartic stack with full backreaction the free defect's structural alignment decays SLOWER at 48³ than 24³ at every matched t — the anti-M5.7 signature (its wash-out strengthened with resolution; this reverses) — settling to a plateau 0.8–0.88 ≫ the 0.5 random baseline, mask-insensitive.<br>`scripts/m5_8_2i_dispersal_gate.py` |
 
 ---
 
@@ -89,16 +89,16 @@ The split that matters: **existence** (rows 1–6, all ✅ — a self-starting c
 
 | Topic | Result · finding · source |
 | --- | --- |
-| ω is an ATTRACTOR (N-1) | ✅ POSITIVE<br>Kicked, exactly-unkicked, and jittered starts all settle to the same breathing fundamental ω₁ ≈ 1.1 + a 2ω₁ harmonic (detrend-stable across filter windows) — the frequency is a property of the STATE, not the preparation.<br>`sandbox_vn/m5_8_2h_omega_attractor.py` |
-| The "0.262 comb" was an FFT artifact (N-1) | ⚠️ NEGATIVE-INFORMATIVE (self-caught)<br>A window-length sweep showed the earlier "strictly periodic ω₀ = 0.262 + exact comb" was an FFT-window artifact (the peak moves with window length; the comb was bin arithmetic) — the real state is a resolved fundamental over a broadband, aperiodic background (classified below as low-dimensional chaos, N-6d).<br>`sandbox_vn/m5_8_2h_omega_attractor.py` (ref mode) |
-| The breather is NOT a disclination-rod mode (N-1) | ✅ POSITIVE<br>The motion is near-isotropic (anisotropy A_z ≈ 1.0–1.3 vs the static rod baseline 5.58) and core-centered (3× core-shell concentration early), with no excess on the z-axis rod — the clock lives on the defect core, not the line.<br>`sandbox_vn/m5_8_2h_omega_attractor.py` (W4) |
-| First ZBW ratio recorded (N-3) | ✅ MEASURED (no pass/fail)<br>ω₁/(2H_rest) = 0.0326–0.0343 across arms (5.4% spread, start-independent) in lattice-natural units — the first measurement of the ratio for the saturated breather, with the factor-2 apolar-doubling bookkeeping respected (no double-correction).<br>`sandbox_vn/m5_8_2j_zbw_ratio.py` |
-| ω is RIGID across a mass family (N-6a) | ✅ POSITIVE (a property of the core)<br>Across a knob-gated dressing-width family spanning 2.6× rest / 3.9× state energy, ω₁ is constant within one FFT bin (exponent ω ∝ H^0.03 vs the naive law's 1) — the frequency belongs to the defect core, which the scale-free V=0 frame cannot vary.<br>`sandbox_vn/m5_8_2m_zbw_law.py` |
-| Matter + light share a radial cone (N-4) | ✅ POSITIVE<br>The twist (KG) and both tilt (EM) channels hit the same maximal radial signal speed c(r̂)/2 = 1.0000 at N=48 and 64 — matter and light propagate on a common radial cone on the defect background (a necessary condition for emergent local Lorentz invariance, not a full demonstration); the tangential cone shapes differ per channel (one tilt polarization rank-1, non-propagating along one direction).<br>`sandbox_vn/m5_8_2k_tilt_cone.py` |
-| Molten clock classification (N-6d) | ✅ POSITIVE (classified)<br>The saturated breather is a MOLTEN CLOCK — a persistent ω₁ comb riding low-dimensional chaotic dressing (λ_max +0.4–0.7/τ, D₂ 2.7–3.0, control-anchored) whose intensity grows with excitation — the DTC literature's middle "melting" phase: a coherent clock dressed by low-dimensional chaos, not destroyed by it.<br>`sandbox_vn/m5_8_2n_chaos_battery.py` |
-| The clock regularizes toward the ground state (N-6c) | ✅ POSITIVE<br>The coldest measured state (deep-settle, T = 2.36) reads near-regular (λ_max +0.11 ≈ the estimator bias floor, D₂ 1.68 vs 2.7–3.0 hot): cold = ticking clock, hot = molten — and full coldness is FORBIDDEN by the un-sittability that drives the self-start (the clock and its excitation are one object).<br>`sandbox_vn/m5_8_2o_omega_of_E.py` |
-| First absolute ω (N-6b) | ⚠️ NEGATIVE-INFORMATIVE (structural gap)<br>Under two explicit postulates (H_rest ↔ 0.511 MeV; lattice action ↔ ℏ) the clock runs at 5.5×10¹⁹ rad/s — ~28× below the electron ZBW 2m_ec²/ℏ = 1.55×10²¹ — and because ω is rigid the gap is STRUCTURAL (not closable by energy bookkeeping), pointing at the V-on/Faber-r₀ core, the faithful kinetic, or the action↔ℏ postulate.<br>`sandbox_vn/m5_8_2j_zbw_ratio.py` (N-6b addendum) |
-| First spin readout (N-6e) | ⚠️ NEGATIVE-INFORMATIVE (clean null + bound)<br>The rotation Noether charge (gated ⟨P,Ṁ⟩/(2T) = 1.000000 exact) reads J = 0 on the clock kick — the Θ-twist cancels over the hedgehog sphere, so the breathing channel carries no net frame angular momentum; the measurement is bounded by box torque at 24³ (an ℏ/2-class result needs torque-free boundaries), and spin-½, if carried, lives in the polarized-seed / hopfion / far-field sectors.<br>`sandbox_vn/m5_8_2p_spin_readout.py` |
+| ω is an ATTRACTOR (N-1) | ✅ POSITIVE<br>Kicked, exactly-unkicked, and jittered starts all settle to the same breathing fundamental ω₁ ≈ 1.1 + a 2ω₁ harmonic (detrend-stable across filter windows) — the frequency is a property of the STATE, not the preparation.<br>`scripts/m5_8_2h_omega_attractor.py` |
+| The "0.262 comb" was an FFT artifact (N-1) | ⚠️ NEGATIVE-INFORMATIVE (self-caught)<br>A window-length sweep showed the earlier "strictly periodic ω₀ = 0.262 + exact comb" was an FFT-window artifact (the peak moves with window length; the comb was bin arithmetic) — the real state is a resolved fundamental over a broadband, aperiodic background (classified below as low-dimensional chaos, N-6d).<br>`scripts/m5_8_2h_omega_attractor.py` (ref mode) |
+| The breather is NOT a disclination-rod mode (N-1) | ✅ POSITIVE<br>The motion is near-isotropic (anisotropy A_z ≈ 1.0–1.3 vs the static rod baseline 5.58) and core-centered (3× core-shell concentration early), with no excess on the z-axis rod — the clock lives on the defect core, not the line.<br>`scripts/m5_8_2h_omega_attractor.py` (W4) |
+| First ZBW ratio recorded (N-3) | ✅ MEASURED (no pass/fail)<br>ω₁/(2H_rest) = 0.0326–0.0343 across arms (5.4% spread, start-independent) in lattice-natural units — the first measurement of the ratio for the saturated breather, with the factor-2 apolar-doubling bookkeeping respected (no double-correction).<br>`scripts/m5_8_2j_zbw_ratio.py` |
+| ω is RIGID across a mass family (N-6a) | ✅ POSITIVE (a property of the core)<br>Across a knob-gated dressing-width family spanning 2.6× rest / 3.9× state energy, ω₁ is constant within one FFT bin (exponent ω ∝ H^0.03 vs the naive law's 1) — the frequency belongs to the defect core, which the scale-free V=0 frame cannot vary.<br>`scripts/m5_8_2m_zbw_law.py` |
+| Matter + light share a radial cone (N-4) | ✅ POSITIVE<br>The twist (KG) and both tilt (EM) channels hit the same maximal radial signal speed c(r̂)/2 = 1.0000 at N=48 and 64 — matter and light propagate on a common radial cone on the defect background (a necessary condition for emergent local Lorentz invariance, not a full demonstration); the tangential cone shapes differ per channel (one tilt polarization rank-1, non-propagating along one direction).<br>`scripts/m5_8_2k_tilt_cone.py` |
+| Molten clock classification (N-6d) | ✅ POSITIVE (classified)<br>The saturated breather is a MOLTEN CLOCK — a persistent ω₁ comb riding low-dimensional chaotic dressing (λ_max +0.4–0.7/τ, D₂ 2.7–3.0, control-anchored) whose intensity grows with excitation — the DTC literature's middle "melting" phase: a coherent clock dressed by low-dimensional chaos, not destroyed by it.<br>`scripts/m5_8_2n_chaos_battery.py` |
+| The clock regularizes toward the ground state (N-6c) | ✅ POSITIVE<br>The coldest measured state (deep-settle, T = 2.36) reads near-regular (λ_max +0.11 ≈ the estimator bias floor, D₂ 1.68 vs 2.7–3.0 hot): cold = ticking clock, hot = molten — and full coldness is FORBIDDEN by the un-sittability that drives the self-start (the clock and its excitation are one object).<br>`scripts/m5_8_2o_omega_of_E.py` |
+| First absolute ω (N-6b) | ⚠️ NEGATIVE-INFORMATIVE (structural gap)<br>Under two explicit postulates (H_rest ↔ 0.511 MeV; lattice action ↔ ℏ) the clock runs at 5.5×10¹⁹ rad/s — ~28× below the electron ZBW 2m_ec²/ℏ = 1.55×10²¹ — and because ω is rigid the gap is STRUCTURAL (not closable by energy bookkeeping), pointing at the V-on/Faber-r₀ core, the faithful kinetic, or the action↔ℏ postulate.<br>`scripts/m5_8_2j_zbw_ratio.py` (N-6b addendum) |
+| First spin readout (N-6e) | ⚠️ NEGATIVE-INFORMATIVE (clean null + bound)<br>The rotation Noether charge (gated ⟨P,Ṁ⟩/(2T) = 1.000000 exact) reads J = 0 on the clock kick — the Θ-twist cancels over the hedgehog sphere, so the breathing channel carries no net frame angular momentum; the measurement is bounded by box torque at 24³ (an ℏ/2-class result needs torque-free boundaries), and spin-½, if carried, lives in the polarized-seed / hopfion / far-field sectors.<br>`scripts/m5_8_2p_spin_readout.py` |
 
 ---
 
@@ -150,9 +150,9 @@ The build that produced every result above. This is the load-bearing configurati
 
 ## Reproduction commands (the evidentiary index)
 
-Every script above lives under `research/sandbox_v8/` (the M5.8.0–2g arc) or `research/sandbox_vn/` (the N-1…N-6e ladder). The full command table — prerequisites, run times, expected outputs — is in [`m5_roadmap.md`](m5_roadmap.md) § *Reproduction commands*. Each script carries its own PREREQUISITE + RESULTS docstring with the caveats inline.
+Every script above lives under `research/scripts/` (the M5.8.0–2g arc) or `research/scripts/` (the N-1…N-6e ladder). The full command table — prerequisites, run times, expected outputs — is in [`m5_roadmap.md`](m5_roadmap.md) § *Reproduction commands*. Each script carries its own PREREQUISITE + RESULTS docstring with the caveats inline.
 
-**M5.8.2c/d/e/f REPRODUCTION COMMANDS** (from `research/sandbox_v8/`; all results above re-derivable from these — scripts carry PREREQUISITE + RESULTS notes in their docstrings):
+**M5.8.2c/d/e/f REPRODUCTION COMMANDS** (from `research/scripts/`; all results above re-derivable from these — scripts carry PREREQUISITE + RESULTS notes in their docstrings):
 
 | Result | Command | Expected |
 | --- | --- | --- |
@@ -169,15 +169,15 @@ Every script above lives under `research/sandbox_v8/` (the M5.8.0–2g arc) or `
 | 2f2 Track C C2-B (the twisted-frame clock) | `python m5_8_2f2_localized_clock.py all` (~50 s + one-time ~110 s 9-phase tabulation) | hard gates PASS (t-canary 0.01% post-9-pt-fix); NO twisted state below the t≡0 control; the marginal ΔH=−0.002 candidate self-refutes via the built-in twist-differential dial |
 | 2f3 Track C C3 (the reduced breather dynamics) | `python m5_8_2f3_breather_orbit.py all` (~36 s + one-time ~110 s kinetic tabulation) | all gates PASS; K_bΘ≡0 exact; the un-sittable minimum (K_bb(a*)=−67.6 direct); H3 = reduction boundary at det 𝕂 = 0 (compulsory motion, containment many-mode) |
 | 2g the spontaneity test (the field handoff) | `python m5_8_2g_spontaneity.py` (4×12k, ~6 min) then `settle 24000 16000` (~5 min) then `restart 0.5 8000` (~1 min) | unkicked = kicked end-state with \|s\|~1e-18 (blindness); S5 from settled, P=0 exact: T 0→5.76 at τ=4000, dt/2-converged to 4 digits — SPONTANEITY CONFIRMED |
-| 2h the ω-attractor + rod readout (from `research/sandbox_vn/`) | `python m5_8_2h_omega_attractor.py ref` (free, saved-data W1 scrutiny) then `run 48000` (4 arms dt/2, ~22 min) then `analyze` (re-print from npz) | W1: the 2e slow "ω₀" moves with window length (artifact); W2: ω₁ ≈ 1.09/1.15/1.07 + 2ω₁ across kicked/unkicked/jittered (detrend-stable) — ATTRACTOR; W4: A_z ≈ 1.0–1.3, frac_rod = volume fraction (not rod-riding); rig checks: dM 0.2501 @τ-equiv 4000 = 2g to 4 digits |
-| 2j the first ZBW ratio (from `research/sandbox_vn/`) | `python m5_8_2j_zbw_ratio.py` (CPU-only, seconds; needs the 2h npz) | ω₁/(2H_static) = 0.0326–0.0343 across arms (5.4%); H_static = 16.74; H_dyn/H_static ≈ 2.7–2.8 |
-| 2k the EM-tilt cone check (from `research/sandbox_vn/`) | `python m5_8_2k_tilt_cone.py` (CPU-only, ~3 min) | shared radial ceiling c(r̂)/2 = 1.0000 all channels; twist cone 1.743 N-stable; Gy near-rank-1; Gz rank-1 exact |
-| 2i the G-2c-1 dispersal gate (from `research/sandbox_vn/`) | `python m5_8_2i_dispersal_gate.py run 48000` (24³ 3 arms ~13 min) then `M58_N=48 ... run 48000` (~3.5 h; seed: `M58_N=48 CB_STEPS=2 ... ref`) then `analyze` | align decays SLOWER at 48³ (anti-M5.7) → plateau 0.8–0.88; mask-insensitive; G-2c-1 ✅; 48³ cascade at t≈13 |
-| 2l the invariant completion (from `research/sandbox_vn/`) | `python m5_8_2l_invariant_completion.py classify` (CPU sympy, instant) + `a4 6000` (~3 min GPU) | covariant: P cubic in q̇ ⇒ deferred; A4: dev p95 = 0.0000 ⇒ amplitude channel pinned, no lever |
-| 2m the ZBW-law family (from `research/sandbox_vn/`) | `python m5_8_2m_zbw_law.py run` (knob gate + 3 × ~33 min) | knob gate 177.8% spread; ω₁ = 1.152/1.188/1.191 across H 11/16.7/29.1 — RIGID (exponent ≈ 0) |
-| 2n the chaos battery (from `research/sandbox_vn/`) | `python m5_8_2n_chaos_battery.py` (CPU, ~3 min; needs the 2h npz) | controls calibrate the battery (K unreliable both ways); arms: MOLTEN CLOCK (λ +0.4–0.7, D₂ 2.7–3.0) |
-| 2o ω(E) + the ground clock (from `research/sandbox_vn/`) | `python m5_8_2o_omega_of_E.py run` (~70 min) then `settle 48000` + `restart 48000` (~11 + 35 min) | excitation floor ~1.7× H_rest (kicks can't cool); ground readout: λ +0.110, D₂ 1.68 at T = 2.36 — REGULARIZES |
-| 2p the first spin readout (from `research/sandbox_vn/`) | `python m5_8_2p_spin_readout.py 6000` (~2 min; needs the 2o settled npz) | G1 pairing 1.000000 exact; the clock kick is J-NEUTRAL (J < 1e-4 at t→0); G2 = box torque (secular J growth — the 24³ walls) |
+| 2h the ω-attractor + rod readout (from `research/scripts/`) | `python m5_8_2h_omega_attractor.py ref` (free, saved-data W1 scrutiny) then `run 48000` (4 arms dt/2, ~22 min) then `analyze` (re-print from npz) | W1: the 2e slow "ω₀" moves with window length (artifact); W2: ω₁ ≈ 1.09/1.15/1.07 + 2ω₁ across kicked/unkicked/jittered (detrend-stable) — ATTRACTOR; W4: A_z ≈ 1.0–1.3, frac_rod = volume fraction (not rod-riding); rig checks: dM 0.2501 @τ-equiv 4000 = 2g to 4 digits |
+| 2j the first ZBW ratio (from `research/scripts/`) | `python m5_8_2j_zbw_ratio.py` (CPU-only, seconds; needs the 2h npz) | ω₁/(2H_static) = 0.0326–0.0343 across arms (5.4%); H_static = 16.74; H_dyn/H_static ≈ 2.7–2.8 |
+| 2k the EM-tilt cone check (from `research/scripts/`) | `python m5_8_2k_tilt_cone.py` (CPU-only, ~3 min) | shared radial ceiling c(r̂)/2 = 1.0000 all channels; twist cone 1.743 N-stable; Gy near-rank-1; Gz rank-1 exact |
+| 2i the G-2c-1 dispersal gate (from `research/scripts/`) | `python m5_8_2i_dispersal_gate.py run 48000` (24³ 3 arms ~13 min) then `M58_N=48 ... run 48000` (~3.5 h; seed: `M58_N=48 CB_STEPS=2 ... ref`) then `analyze` | align decays SLOWER at 48³ (anti-M5.7) → plateau 0.8–0.88; mask-insensitive; G-2c-1 ✅; 48³ cascade at t≈13 |
+| 2l the invariant completion (from `research/scripts/`) | `python m5_8_2l_invariant_completion.py classify` (CPU sympy, instant) + `a4 6000` (~3 min GPU) | covariant: P cubic in q̇ ⇒ deferred; A4: dev p95 = 0.0000 ⇒ amplitude channel pinned, no lever |
+| 2m the ZBW-law family (from `research/scripts/`) | `python m5_8_2m_zbw_law.py run` (knob gate + 3 × ~33 min) | knob gate 177.8% spread; ω₁ = 1.152/1.188/1.191 across H 11/16.7/29.1 — RIGID (exponent ≈ 0) |
+| 2n the chaos battery (from `research/scripts/`) | `python m5_8_2n_chaos_battery.py` (CPU, ~3 min; needs the 2h npz) | controls calibrate the battery (K unreliable both ways); arms: MOLTEN CLOCK (λ +0.4–0.7, D₂ 2.7–3.0) |
+| 2o ω(E) + the ground clock (from `research/scripts/`) | `python m5_8_2o_omega_of_E.py run` (~70 min) then `settle 48000` + `restart 48000` (~11 + 35 min) | excitation floor ~1.7× H_rest (kicks can't cool); ground readout: λ +0.110, D₂ 1.68 at T = 2.36 — REGULARIZES |
+| 2p the first spin readout (from `research/scripts/`) | `python m5_8_2p_spin_readout.py 6000` (~2 min; needs the 2o settled npz) | G1 pairing 1.000000 exact; the clock kick is J-NEUTRAL (J < 1e-4 at t→0); G2 = box torque (secular J growth — the 24³ walls) |
 
 ## DUDA 2026-06-08 FOLLOW-UP — the δ / g calibration
 
@@ -193,7 +193,7 @@ After the report, Duda read `m5_summary_report.md` (now seeing the 3+1D **4×4**
 
 Plus: fix units by comparing to Coulomb or the clock (ours are dimensionless); tune the LdG potential to the particle rest energies. He found the 5.5×10¹⁹ rad/s clock "surprisingly close — especially for using much too large δ."
 
-**What we ran** (`sandbox_vn/m5_8_2q_delta_scaling.py` — seed-level, exact; gate reproduces H_static = 16.74 at δ=0.3, g=8):
+**What we ran** (`scripts/m5_8_2q_delta_scaling.py` — seed-level, exact; gate reproduces H_static = 16.74 at δ=0.3, g=8):
 
 | Finding | Result |
 | --- | --- |
@@ -242,19 +242,19 @@ Connects: NG-8 (the magnetic-dipole placeholder this makes real), NG-12(a) (EID-
 
 ### EID implementation spec (frozen 2026-06-09, run-ready)
 
-Both phases are SEED-LEVEL numpy (no evolution, no Taichi, no npz dependencies): the clock tangent comes analytically from `seed_M`, so the fixed-clock momentum needs no time stepping. New script: `sandbox_vn/m5_8_2r_electron_id.py`.
+Both phases are SEED-LEVEL numpy (no evolution, no Taichi, no npz dependencies): the clock tangent comes analytically from `seed_M`, so the fixed-clock momentum needs no time stepping. New script: `scripts/m5_8_2r_electron_id.py`.
 
 **Assets to reuse (verified on disk 2026-06-09):**
 
 | Asset | Where | Role |
 | --- | --- | --- |
-| `seed_M(g, b) → (M, Mth)` | `sandbox_v8/m5_8_2c1_full_evolution.py` | the seed AND the analytic clock tangent `Mth = conj(W, G·D4 − D4·G)`, `G = gen4(PLANE)`; fixed clock ⇒ `Ṁ = ω·Mth`, no evolution |
-| `rot4(plane, ψ)`, `gen4`, `conj`, `boost_field` | `sandbox_v8/m5_8_2a_4d_hamiltonian.py` | pin the clock at phase φ: `W(φ) = W·rot4(PLANE, φ)`; φ-sweep checks φ-independence of \|μ\|, \|J\| |
-| `build_grid_n(n, box)` | `sandbox_v8/m5_8_2cb_taichi_constrained.py` | grids at 24³/32³/48³ for the box-robustness gate |
-| seed constants `DELTA, RC, RHOC` / `L, B_STAR, R_W, PLANE, A_BOOST` | `sandbox_v6/m5_6_2a_biaxial_hedgehog.py` / `2c1` | the validated N-3 stack; `M58_DELTA`/`M58_G` env knobs exist |
-| 2-way sector split `u_sectors` + gate `H_static = 16.74` | `sandbox_vn/m5_8_2q_delta_scaling.py` | EID-B extends this; the gate must keep passing |
-| μ route A (abelian) | `sandbox_v6/m5_6_4a_hydro_em.py` | hydro↔EM dictionary: `B = ∇×A` from tilts, charge/current from the Lamb-vector divergence |
-| μ route B (primary, Faber) | `sandbox_v6/m5_6_4b_faber_curvature_em.py` | `Γ_i = q0∂_iq − (∂_iq0)q + q×∂_iq`, `R_ij = Γ_i×Γ_j`, `*F ∝ R`; current from static Ampère `j = ∇×B` |
+| `seed_M(g, b) → (M, Mth)` | `scripts/m5_8_2c1_full_evolution.py` | the seed AND the analytic clock tangent `Mth = conj(W, G·D4 − D4·G)`, `G = gen4(PLANE)`; fixed clock ⇒ `Ṁ = ω·Mth`, no evolution |
+| `rot4(plane, ψ)`, `gen4`, `conj`, `boost_field` | `scripts/m5_8_2a_4d_hamiltonian.py` | pin the clock at phase φ: `W(φ) = W·rot4(PLANE, φ)`; φ-sweep checks φ-independence of \|μ\|, \|J\| |
+| `build_grid_n(n, box)` | `scripts/m5_8_2cb_taichi_constrained.py` | grids at 24³/32³/48³ for the box-robustness gate |
+| seed constants `DELTA, RC, RHOC` / `L, B_STAR, R_W, PLANE, A_BOOST` | `scripts/m5_6_2a_biaxial_hedgehog.py` / `2c1` | the validated N-3 stack; `M58_DELTA`/`M58_G` env knobs exist |
+| 2-way sector split `u_sectors` + gate `H_static = 16.74` | `scripts/m5_8_2q_delta_scaling.py` | EID-B extends this; the gate must keep passing |
+| μ route A (abelian) | `scripts/m5_6_4a_hydro_em.py` | hydro↔EM dictionary: `B = ∇×A` from tilts, charge/current from the Lamb-vector divergence |
+| μ route B (primary, Faber) | `scripts/m5_6_4b_faber_curvature_em.py` | `Γ_i = q0∂_iq − (∂_iq0)q + q×∂_iq`, `R_ij = Γ_i×Γ_j`, `*F ∝ R`; current from static Ampère `j = ∇×B` |
 
 **EID-B recipe (the 3-way split):** the 2-way split partitions lab-frame index pairs, which cannot separate tilt from twist. Rotate `F` into the local eigenframe (exact on the seed: `F_eig = O4ᵀ F O4`, the analytic frame from `build_grid_n`'s `O4` + the boost). In the eigenframe with axes (0=major/1, 1=minor/δ, 2=zero, 3=time): TILT (EM) = pairs (0,1),(0,2) (they move the major axis); TWIST (QM) = pair (1,2) (rotation about the major axis, Duda's `Γ¹`); BOOST (GEM) = pairs (a,3). Gate: EM+QM+GEM = H_quad to machine precision, and at `b=0` the QM sector should carry the `δ²` weight Duda's figure predicts (`δR² − δ²R̃²`).
 
@@ -281,7 +281,7 @@ Both phases are SEED-LEVEL numpy (no evolution, no Taichi, no npz dependencies):
 
 **Run plan:** (1) EID-B at the `2q` operating points (~minutes), (2) EID-C at 24³ with both μ routes + φ-sweep, (3) the box-robustness ladder 32³/48³, (4) the g-factor assembly, (5) document in this section + `4c` §9 + report to the thread. Total estimated compute: well under an hour, all CPU numpy.
 
-### EID results (2026-06-10, `sandbox_vn/m5_8_2r_electron_id.py`)
+### EID results (2026-06-10, `scripts/m5_8_2r_electron_id.py`)
 
 Run-of-record numbers live in the script's RESULTS docstring; the outcome table above carries the headlines. The structural findings, one line each:
 
