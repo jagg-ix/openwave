@@ -62,6 +62,21 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 
 ---
 
+## Ask Marc Fleury (queued for the next contact)
+
+The open questions double as the ask-list for Marc (added 2026-07-02 at the M7.1 review). When we connect, these are the concrete asks, each tied to its tracker entry; the agent supplies the factual content, Rodrigo phrases the outbound message.
+
+| Ask | What we need from Marc | Tracker ref |
+| --- | --- | --- |
+| **S&Y eikonal recipe, variable-h** | the concrete construction steps for a **toroidal variable-`h`** Beltrami seed from Sato-Yamada's eikonal + equal-scale-factor method (M7.1 filled the seeder slot with the constant-λ CK spheromak; the variable-h construction is exactly what M7.4's charge sector wants) | Q7 · [`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings (G4) |
+| **The relax-and-measure reframe** | confirm the M7.4 reading of his "start Trkalian, take off the training wheels" (2026-06-30): rigidity (Clelland-Klotz) + Nadirashvili force relax-and-**measure** (`λ_eff` diagnostic) instead of hunting an exact `λ(x)` ansatz; does that match his intent, and does he know results beyond Kaiser 2000 on variable-α existence? | Q7 · Q5 · [`m7_background.md § 2`](m7_background.md) |
+| **FLDB energy convention (M7.2 trap #3)** | which complex-field energy convention Eq 31/32 of the paper uses (the appendix is the source; if ambiguous we compute both and report which matches), needed before the `U/m_ec² ≈ 0.795` comparison is trusted | [`tasks/m7_2_fleury_torus.md § 2`](tasks/m7_2_fleury_torus.md) |
+| **Target manifold, S² vs S³** | his read on the Pisello (S²) vs Faber (S³) target-space choice for the substrate; bears directly on what the doublet maps into | Q1 · [`m7_background.md § 2`](m7_background.md) |
+| **The promised Beltrami material** | the further source papers he mentioned (corpus #13) + the status of bringing in the Spanish school (Enciso & Peralta-Salas) as collaborators | Q4 |
+| **Divergence-ful knots** | his position on whether nonzero `∇·F` destabilizes the knot (Pisello says a charged toroidal Hopf-knot exists; M5.11's P2 measured smooth knots expanding without confinement) | Q5 · Q3 |
+
+---
+
 ## Risks / unknowns (the hardest pieces)
 
 The accepted risks + open unknowns, each with its mitigation. Promote a row here to a numbered question (above) once it becomes a decision the build must make.

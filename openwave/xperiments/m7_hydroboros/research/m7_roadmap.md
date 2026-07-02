@@ -8,7 +8,6 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| [M7.1](tasks/m7_1_infra.md) | infra | A-primary doublet on a 3D lattice in the **time-harmonic (fixed-ω) frame** (both parents are time-periodic; no static electron exists, [`m7_background.md § 5a`](m7_background.md)); **helicity observable + fixed-helicity relaxation**; AD energy gradient; FIRE / L-BFGS minimizer; Bateman/Hopf + Trkalian (constant-λ) seeders (ABC, S&Y); design decisions documented: **BCs** (vacuum-fixed for charged, periodic for neutral), **gauge handling** (Q8), **units contract** (M6 natural units) | AD == numpy grad to `1e-12`; **Woltjer-Taylor known-answer**: fixed-helicity relaxation on the periodic box converges to the constant-λ curl eigenfield (ABC), `λ → 2π/L` and `E → λH` to grid accuracy |
 
 ## BACKLOG
 
@@ -120,6 +119,7 @@ Reference layout: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`mediu
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
+| [M7.1](tasks/m7_1_infra.md) | infra | A-primary doublet on a 3D lattice in the **time-harmonic (fixed-ω) frame**; helicity observable + fixed-helicity relaxation; Taichi-AD energy gradient; FIRE minimizer; six seeders (ABC/Trkalian, CK spheromak, Bateman/Hopf, Fleury torus, M6 embedding, Ceperley mode); design decisions documented (BCs, gauge = Q8 evidence, M6 natural units) | ✅ ALL GATES PASS (2026-07-02, [findings](tasks/m7_1_infra.md)): AD vs complex-step `2.3e-15`; **Woltjer-Taylor**: random seed → constant-λ eigenfield, `λ → 2π/L` at `5.5e-6`, `E = λH`; M6 ledger `H/Q = 1.68897` reproduced by the seeder pipeline |
 | [M7.0](tasks/m7_0_bootstrap.md) | bootstrap | Collect the theory-source corpus (Fleury torus, Ouroboros/M6, Beltrami/Trkalian, Marc's evolving `electron_beltrami/` library, now 64 docs) and stand up the planning scaffolding (background, question-tracker, roadmap, the `research/` folder structure). | ✅ corpus consolidated (64 docs) in [`../theory/`](../theory/) + [manifest](../theory/SOURCES.md); plan + roadmap + tracker in place (2026-07-02) |
 
 ---

@@ -1,6 +1,6 @@
 # M7.1, infra (define the substrate field + stand up the lattice / minimizer)
 
-> Task **M7.1** (M7 / HydroBoros). taskID = M7.N iteration. Status: **In Progress** · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
+> Task **M7.1** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-02, all gates pass) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation. **M7.1 (infra)** stands up the A-primary doublet on a 3D lattice **in the time-harmonic (fixed-ω) frame** ([`../m7_background.md § 5a`](../m7_background.md): both parents are time-periodic, no static electron exists in this model), the **helicity observable + fixed-helicity relaxation**, the AD energy gradient (validated to `1e-12` vs a numpy finite-difference reference), the FIRE / L-BFGS minimizer, and the Bateman/Hopf + Trkalian (constant-λ) Beltrami seeders. It also fixes three design decisions (BCs, gauge, units, § below) and passes the **Woltjer-Taylor known-answer gate**. Its first design decision, captured here, is **which substrate field** the lattice evolves (Open Question Q1).
 
@@ -114,6 +114,23 @@ All gates ✅ measured (suite wall time 69 s, Taichi CPU f64; Metal has no f64, 
 | **Units** | M6 natural units adopted; every gate number is dimensionless, no conversion entered the code; the Fleury seed works in `r_c = 1` units directly |
 
 Method notes worth carrying forward: (1) the fixed-helicity constraint is enforced by gradient projection + the exact quadratic rescale `A → A√(H₀/H)` (helicity restored exactly every step, no drift term needed); (2) FIRE needed no tuning beyond defaults (dt_max 0.5), converging in ~500-1100 iterations; (3) the complex-step trick requires the numpy twin to be written holomorphically (`x·x`, never `abs`), which the module documents and enforces by construction.
+
+---
+
+## TASK REVIEW (2026-07-02)
+
+**Task Duration:** 00:23 (from 17:35 to 17:58 EDT)
+**Usage Cap Triggered:** NO
+
+**Results**: all deliverables 1-7 ✅ measured; the full gate table is in § Findings above (G1 bookkeeping bit-exact; G2 AD vs complex-step `2.3e-15`; G3 Woltjer `λ → 2π/L` at `5.5e-6` from pure-random seeds; G4 six seeders incl. the M6 ledger `H/Q = 1.68897` reproduced; G5 gauge probe = the Q8 evidence).
+
+**Issues / blockers**: none blocking. Three first-run G4 failures were gate-implementation artifacts (λ_eff division at ABC stagnation points, periodic-wrap contamination of the hopfion's non-periodic tail, thin-tube voxelization), fixed and documented; the physics never failed. Flagged: the S&Y seeder role is filled by the CK spheromak; the S&Y eikonal variable-h construction is deferred to M7.4 (an ask for Marc, [`../m7_question_tracker.md`](../m7_question_tracker.md) § Ask Marc). Workflow correction (Rodrigo): OpenWave-task resume checkpoints live in `research/checkpoints/` in THIS repo (gitignored), not in any external tracker.
+
+**Action needed**: Q8 scheme decision lands at the first coupled relaxation (M7.3). Next per the roadmap: M7.2 (parallel-safe Fleury quadrature) or the M7.3 verbatim-ODE pre-gate.
+
+**Findings**: The M7 substrate infrastructure is stood up and theorem-gated: the time-harmonic `(A_μ, J_μ)` doublet lattice with AD gradients exact to `2e-15` and a fixed-helicity relaxer that reproduces Woltjer's 1958 theorem from random seeds (`λ → 2π/L` at `5.5e-6`). The M6 parent's calibration point (`H/Q = 1.6890` at `g = 1.0`) is independently reproduced by the seeder pipeline, and the Q8 gauge-sensitivity structure is now measured, not conjectured.
+
+**Research docs created / updated**: this doc (§ Findings) · script [`../scripts/m7_1_harmonic_lattice.py`](../scripts/m7_1_harmonic_lattice.py) · script [`../scripts/m7_1_gates.py`](../scripts/m7_1_gates.py) · data [`../data/m7_1_gates.json`](../data/m7_1_gates.json) · plots [`../plots/m7_1_woltjer_gate.png`](../plots/m7_1_woltjer_gate.png) (key plot: the λ → 2π/L convergence) + [`../plots/m7_1_seeder_gallery.png`](../plots/m7_1_seeder_gallery.png) · tracker [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q1/Q2/Q8 + the Ask-Marc list) · roadmap row → Done.
 
 ---
 
