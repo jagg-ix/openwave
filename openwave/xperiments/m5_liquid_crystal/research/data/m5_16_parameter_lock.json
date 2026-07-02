@@ -1,0 +1,140 @@
+{
+  "task": "M5.16",
+  "date": "2026-07-02",
+  "convention": "Duda index-0: D=diag(g,1,delta,0), eta=diag(-1,1,1,1)",
+  "anchors": {
+    "coulomb": {
+      "c2_MeV_fm": 0.007161796112423039,
+      "formula": "c2 = alpha hbar c / (64 pi)",
+      "basis": "far-field 8 c2/r^4 == classical EM self-energy alpha hbar c/(2 r^2 ... ) exterior integral"
+    },
+    "mass": {
+      "m_e_c2_MeV": 0.51099895,
+      "fixes": "grid unit l = c2 E_sim / m_e per beta"
+    },
+    "faber_reference": {
+      "r0_fm": 2.21320516,
+      "u_half": 1.3893609856092664,
+      "r_half_fm": 3.074940902453114,
+      "I_check_pi4": 0.7853981634078261
+    }
+  },
+  "sweep_rows": [
+    {
+      "beta": 0.25,
+      "tag": "b025_n96",
+      "E_sim": 17.692152525307687,
+      "r_half_sim": 11.759746414960757,
+      "J_half": 208.05522723242598,
+      "ell_fm": 0.24796056660418592,
+      "r_half_phys_fm": 2.915953384175213,
+      "virial": 1.0063653498865899,
+      "sphericity": 7.771561172376096e-16,
+      "minimizer_agreement": 2.3334764820597612e-15,
+      "a_phys_MeV_fm3": -0.0073128796550605436,
+      "b_phys_MeV_fm3": 0.0011250584084708528,
+      "c_phys_MeV_fm3": 0.004500233633883411,
+      "cscale_used": 0.002375437391789587
+    },
+    {
+      "beta": 0.5,
+      "tag": "b050_n96",
+      "E_sim": 17.719216559489983,
+      "r_half_sim": 11.751102294297844,
+      "J_half": 208.2203263653831,
+      "ell_fm": 0.24833987676674737,
+      "r_half_phys_fm": 2.918267295639369,
+      "virial": 1.0063718110120845,
+      "sphericity": 7.771561172376096e-16,
+      "minimizer_agreement": 4.235839369434682e-15,
+      "a_phys_MeV_fm3": -0.006377577388559492,
+      "b_phys_MeV_fm3": 0.002551030955423796,
+      "c_phys_MeV_fm3": 0.005102061910847592,
+      "cscale_used": 0.0027096276560512637
+    },
+    {
+      "beta": 1.0,
+      "tag": "b100_n96",
+      "E_sim": 17.80215747914761,
+      "r_half_sim": 11.724043892028,
+      "J_half": 208.71327565832112,
+      "ell_fm": 0.24950231742531387,
+      "r_half_phys_fm": 2.925176120657083,
+      "virial": 1.0064018977341656,
+      "sphericity": 7.771561172376096e-16,
+      "minimizer_agreement": 2.7397490337871632e-15,
+      "a_phys_MeV_fm3": -0.0034841660042887993,
+      "b_phys_MeV_fm3": 0.006968332008577599,
+      "c_phys_MeV_fm3": 0.006968332008577599,
+      "cscale_used": 0.0037705544498939964
+    },
+    {
+      "beta": 1.5,
+      "tag": "b150_n96",
+      "E_sim": 17.975932138984277,
+      "r_half_sim": 11.665139829813844,
+      "J_half": 209.69176197249627,
+      "ell_fm": 0.2519378188744967,
+      "r_half_phys_fm": 2.938889885589317,
+      "virial": 1.0065273574535967,
+      "sphericity": 5.551115123125783e-16,
+      "minimizer_agreement": 5.8407884020912224e-15,
+      "a_phys_MeV_fm3": 0.0027539843563876734,
+      "b_phys_MeV_fm3": 0.016523906138326046,
+      "c_phys_MeV_fm3": 0.011015937425550699,
+      "cscale_used": 0.006196878312052743
+    }
+  ],
+  "beta_star_faber_crossing": null,
+  "closest_row": {
+    "beta": 1.5,
+    "tag": "b150_n96",
+    "E_sim": 17.975932138984277,
+    "r_half_sim": 11.665139829813844,
+    "J_half": 209.69176197249627,
+    "ell_fm": 0.2519378188744967,
+    "r_half_phys_fm": 2.938889885589317,
+    "virial": 1.0065273574535967,
+    "sphericity": 5.551115123125783e-16,
+    "minimizer_agreement": 5.8407884020912224e-15,
+    "a_phys_MeV_fm3": 0.0027539843563876734,
+    "b_phys_MeV_fm3": 0.016523906138326046,
+    "c_phys_MeV_fm3": 0.011015937425550699,
+    "cscale_used": 0.006196878312052743
+  },
+  "convergence": [
+    {
+      "NR": 64,
+      "NZ": 128,
+      "E_sim": 26.56436516018742,
+      "r_half": 7.7568850296622465,
+      "J_half": 206.05672643353915,
+      "virial": 1.0159816303250775
+    },
+    {
+      "NR": 96,
+      "NZ": 192,
+      "E_sim": 17.80215747914761,
+      "r_half": 11.724043892028,
+      "J_half": 208.71327565832112,
+      "virial": 1.0064018977341656
+    },
+    {
+      "NR": 128,
+      "NZ": 256,
+      "E_sim": 13.374002825772646,
+      "r_half": 15.607832226662637,
+      "J_half": 208.73919230357149,
+      "virial": 1.0033886145412125
+    }
+  ],
+  "delta_sector": {
+    "kappa_delta_equation": "kappa_delta = (3/2) b_phys (the cubic term alone restores the delta eigenvalue)",
+    "kappa_delta_MeV_fm3": 0.024785859207489068,
+    "vacuum_residual_force": "dV/dlambda_2 at delta = 3 b delta (the quartic LdG cannot be exactly stationary at biaxial (1,delta,0)); at delta=1e-10 this is a 3e-10 b residual, the honest Q7 remainder"
+  },
+  "g_sector": {
+    "statics": "exactly decoupled (gate G8): the electron mass anchor carries no g information",
+    "anchors": "g from the clock/boost sector only: GEM ~ (b_boost g)^2 (m5_4c Phase E), electron-clock absolute omega (#220), or baryon gravitational mass (Duda 4e). Duda hierarchy g ~ 1/delta ~ 1e10 with g*delta = 1 stands as the working value, label: hypothesis"
+  }
+}
