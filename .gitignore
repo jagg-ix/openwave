@@ -246,3 +246,7 @@ openwave/xperiments/*/theory/**/*.bib
 # m7 electron_beltrami/ is a pure local corpus , ignore the whole folder (incl. any non-doc strays).
 # Its manifest lives one level up at theory/SOURCES.md (a *.md, tracked by default).
 openwave/xperiments/m7_hydroboros/theory/electron_beltrami/*
+
+# Agent resume checkpoints (session-local in-flight state for any Mx model task; not research
+# artifacts, never tracked). Findings live in the tracked tasks/ + data/ + plots/ instead.
+openwave/xperiments/*/research/checkpoints/

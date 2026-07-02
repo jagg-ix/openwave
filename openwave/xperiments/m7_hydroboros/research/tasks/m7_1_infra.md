@@ -71,4 +71,50 @@ That demand IS the blend test above: the substrate must carry a **topological-vo
 
 ---
 
+## FINDINGS (2026-07-02, the gate suite run)
+
+Deliverables 1-7 built and gated. Code: [`../scripts/m7_1_harmonic_lattice.py`](../scripts/m7_1_harmonic_lattice.py) (the core module: harmonic fields, `E_ω` twins, AD, FIRE, helicity, seeders) + [`../scripts/m7_1_gates.py`](../scripts/m7_1_gates.py) (the gate suite). Results: [`../data/m7_1_gates.json`](../data/m7_1_gates.json) · plots [`../plots/m7_1_woltjer_gate.png`](../plots/m7_1_woltjer_gate.png), [`../plots/m7_1_seeder_gallery.png`](../plots/m7_1_seeder_gallery.png).
+
+### The harmonic reduction, exact bookkeeping (deliverable 1)
+
+Every component of `A_μ = (A⁰, A⃗)` and `J_μ = (J⁰, J⃗)` carries one global ω through a `(cos ωt, sin ωt)` pair: 16 real fields per lattice point (`a0c, a0s, a⃗c, a⃗s, j0c, j0s, j⃗c, j⃗s`). Conventions: Minkowski `(−,+,+,+)`, A-primary, `E⃗ = −∇A⁰ − ∂ₜA⃗`, `B⃗ = ∇×A⃗`, `A_μJ^μ = −A⁰J⁰ + A⃗·J⃗`, `s = J_μJ^μ = −(J⁰)² + \|J⃗\|²`, `f(s) = (g/4)s²` (M6 canonical, [`0d_canonical.md § 1`](../../../m6_ouroboros/research/0d_canonical.md)).
+
+| Piece | Exact closed form |
+| --- | --- |
+| derived fields per harmonic component | `E⃗c = −∇a0c − ω a⃗s`, `E⃗s = −∇a0s + ω a⃗c` (time derivative is algebraic in harmonic space); `B⃗c = ∇×a⃗c`, `B⃗s = ∇×a⃗s`; J sector identical |
+| bilinear averages | `⟨X(t)Y(t)⟩ = ½(XcYc + XsYs)` |
+| quartic average (NO rotating-wave truncation) | `s(t) = s₀ + s₁cos 2ωt + s₂sin 2ωt` with `s_cc = −j0c² + \|j⃗c\|²`, `s_ss = −j0s² + \|j⃗s\|²`, `s_cs = −j0c j0s + j⃗c·j⃗s`, `s₀ = ½(s_cc+s_ss)`, `s₁ = ½(s_cc−s_ss)`, `s₂ = s_cs`; then `⟨s²⟩ = s₀² + ½(s₁² + s₂²)` exactly |
+| the functional | `E_ω = ∫ [¼(\|E⃗c\|²+\|E⃗s\|²+\|B⃗c\|²+\|B⃗s\|²)_A + ¼(...)_J − m_J²⟨A·J⟩ + ⟨f(s)⟩] d³x` (interaction terms carry no time derivative, so `H_int = −L_int`) |
+
+Caveat kept honest: these signs and pairings are OUR reading of the M6 Lagrangian; the final arbiter is the M7.3 verbatim-ODE pre-gate ([`m7_3_ouroboros_3d.md § 1`](m7_3_ouroboros_3d.md)).
+
+### Gate results
+
+All gates ✅ measured (suite wall time 69 s, Taichi CPU f64; Metal has no f64, and the 1e-12 AD bar needs double precision):
+
+| Gate | Result | Key numbers |
+| --- | --- | --- |
+| **G1 bookkeeping** | ✅ | closed-form `E_ω` vs brute-force 16-sample period average: rel diff **0.0** (uniform sampling is exact for the degree-4 trig polynomial `u(t)`, so this gate is all-or-nothing) |
+| **G2 AD gradient** | ✅ | Taichi energy vs numpy twin: 1.6e-15; AD gradient vs **complex-step** directional derivatives (holomorphic twin, exact to machine precision, stronger than finite differences): max rel err **2.3e-15** over 10 random directions (the bar was 1e-12) |
+| **G3 Woltjer-Taylor** | ✅ | fixed-helicity FIRE from a pure-random seed converges to the constant-λ curl eigenfield: `λ_hat = E/H` matches the discrete curl eigenvalue `sin(kh)/h` to **3e-12** per N; Richardson `λ(h→0) = 6.283151` vs `2π/L = 6.283185` (rel 5.5e-6); pointwise `λ_eff` std/\|λ\| ≤ 1.1e-6; 471/620/1083 FIRE iterations at N = 24/32/48, 67 s |
+| **G4 ABC/Trkalian** | ✅ | discrete eigenrelation `∇×A = λ_h A` residual 1.8e-14 (machine); lattice `H`, `E_B` equal continuum × `sinc(kh)`, `sinc²` to 3e-16 (the closed-form O(h²) law) |
+| **G4 CK spheromak** | ✅ | toroidal constant-λ seed: interior `λ_eff` median dev 0.71% → 0.40% → 0.18% at N = 48/64/96 (O(h²)); the S&Y eikonal variable-h construction stays deferred to M7.4 |
+| **G4 Bateman hopfion** | ✅ | interior div-free O(h²) (1.1% → 0.28%); helicity Richardson `H_m = 9.6684`, `H_e = H_m` exactly (self-dual null field); `U = 19.7237 ≈ 2π²` (0.08% low, box-tail truncation) |
+| **G4 Fleury torus** | ✅ | inverted-Heaviside tube support 0.003311 vs analytic `2π²R₀r₀²/L³ = 0.003321` (0.3%, N = 128); `ω = 2/R₀` enforced; finite `E_ω`; observable reproduction is M7.2's |
+| **G4 M6 embedding** | ✅ | 1D profile solver reproduces the **ledger `H/Q = 1.68897` vs 1.6890** (benchmark ODE at g = 1.0, ω = 1); 3D straight-cylinder embedding quadrature err 0.062% → 0.013% (O(h²)); the toroidal-vs-cylindrical question stays M7.3's |
+| **G4 Ceperley mode** | ✅ | `m = 1` azimuthal winding measured 0.990 (nearest-grid loop sampling); `J₁` Bessel envelope, the M7.2 mask-replacement stretch |
+| **G5 gauge probe (Q8)** | ✅ | harmonic gauge transform (`A⁰ → A⁰ − ∂ₜχ`, `A⃗ → A⃗ + ∇χ`): `ΔE_ω/E = 0.0` at `m_J = 0` (machine zero, the Maxwell structure of the functional verified); `1.3e-3` at `m_J = 0.8` (the `m_J²A·J` term is gauge-sensitive off-shell, exactly as Q8 predicted) |
+
+### Design decisions concluded (deliverable 7)
+
+| Decision | Outcome |
+| --- | --- |
+| **BCs** | both modes in the module: periodic (gates ran periodic) + vacuum-fixed as a pinned zero boundary shell (`vacuum_mask`); charged sectors use vacuum-fixed per the design table above, box-size extrapolation at M7.3/M7.4 |
+| **Gauge (Q8)** | measured evidence, not yet a scheme decision: the static curl sector needs NO gauge fixing (its AD gradient is transverse: discrete div∘curl = 0 exactly, and G3 converged from random seeds with no gauge drift); the full `E_ω` is exactly gauge-invariant at `m_J = 0` and broken by `m_J²A·J` off-shell (G5). Q8 stays OPEN for the coupled-minimizer scheme (Coulomb-on-`a⃗` vs projection vs penalty), to be decided when the coupled sector first relaxes (M7.3) |
+| **Units** | M6 natural units adopted; every gate number is dimensionless, no conversion entered the code; the Fleury seed works in `r_c = 1` units directly |
+
+Method notes worth carrying forward: (1) the fixed-helicity constraint is enforced by gradient projection + the exact quadratic rescale `A → A√(H₀/H)` (helicity restored exactly every step, no drift term needed); (2) FIRE needed no tuning beyond defaults (dt_max 0.5), converging in ~500-1100 iterations; (3) the complex-step trick requires the numpy twin to be written holomorphically (`x·x`, never `abs`), which the module documents and enforces by construction.
+
+---
+
 Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (task M7.1, Phase A + the method frame note) · full background [`../m7_background.md`](../m7_background.md) (§ 5a harmonic frame, § 5b stabilization, § 5d decisions); open questions Q1/Q2/Q8 in [`../m7_question_tracker.md`](../m7_question_tracker.md) · M7.0 corpus [`m7_0_bootstrap.md`](m7_0_bootstrap.md) · downstream: [`m7_2_fleury_torus.md`](m7_2_fleury_torus.md) (parallel-safe) · [`m7_3_ouroboros_3d.md`](m7_3_ouroboros_3d.md) (verbatim-ODE gate) · [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md).

@@ -11,7 +11,7 @@
 | `m7_theory_canonical.md` (planned) | the canonical build-spec, lands at the M7.7 milestone |
 | [`tasks/`](tasks/) | per-task detail docs (`m7_N_*.md`) |
 
-**Last updated:** 2026-07-02 (plan refactor after the full theory review, [`m7_background.md § 5`](m7_background.md): Q2 rewritten with direction set (helicity + confinement in, Faddeev-Niemi out); Q3/Q5/Q7 sharpened with the corpus math facts (rigidity, Nadirashvili, the divergence identity); **Q8 (gauge/constraints) + Q9 (Werbos-v5 calibration dictionary) opened**).
+**Last updated:** 2026-07-02 (plan refactor after the full theory review, [`m7_background.md § 5`](m7_background.md): Q2 rewritten with direction set (helicity + confinement in, Faddeev-Niemi out); Q3/Q5/Q7 sharpened with the corpus math facts (rigidity, Nadirashvili, the divergence identity); **Q8 (gauge/constraints) + Q9 (Werbos-v5 calibration dictionary) opened**. Evening: **M7.1 gate suite ALL PASS** ([`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings): Q1 substrate built as B, Q2's Woltjer gate passed, Q8 gauge evidence measured).
 
 ---
 
@@ -19,7 +19,7 @@
 
 ```text
 9 OPEN  (0 resolved)
-  substrate / infra    (M7.1):  Q1 🔶 narrowed to B   Q2 🔶 direction set   Q8 🚧
+  substrate / infra    (M7.1):  Q1 🔶 built as B   Q2 🔶 Woltjer gate passed   Q8 🔶 evidence in
   potential + calibr.  (M7.3):  Q6 🚧   Q9 🚧
   charged soliton      (M7.4):  Q3 🔶   Q5 🔶   Q7 🔶
   sources              (M7.0):  Q4 🔶 partly in
@@ -35,9 +35,9 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 
 | ID | Question | Status / current read |
 | --- | --- | --- |
-| **Q1** | **Substrate field:** the Ouroboros doublet `(A_μ, J_μ)` read as Riemann-Silberstein (candidate B) vs single-field RS `F = E + icB` (candidate A); does Clebsch/`ψ` (D) enter only as a knot **seeder**? what **target manifold** (Pisello S² vs Faber S³, see [`m7_background.md § 0`](m7_background.md))? | 🔶 OPEN: narrowed to **B** by Marc's **A-primary** commitment (`A` fundamental, `F = dA`, charge derived); RS kept as a derived diagnostic; confirm at M7.1 |
-| **Q2** | Stabilizer: is a 4th-order term needed at all, and in which form? | 🔶 OPEN, **direction set** (2026-07-02 theory review): the drafted `\|F×(∇×F)\|²/\|F\|²` term **vanishes identically on every Beltrami configuration** (`∇×F ∥ F` makes the cross product zero, constant AND variable λ; rescaled Beltrami stays Beltrami) and is **singular** where `\|F\| → 0`, so it provides zero Derrick pressure on exactly the target family. Working stabilization = **helicity anti-collapse** (Arnold `E ≥ λ₁\|H\|`) + **Ouroboros confinement anti-expansion** (`~μ³`), with **Nadirashvili's theorem** forcing the confinement term to exist ([`m7_background.md § 5b`](m7_background.md)). 4th-order term demoted to an optional M7.4 experiment, **off by default**. Empirical confirmation: the M7.1 Woltjer gate + the M7.4 dilation probe |
-| **Q8** | **Gauge / constraint handling** for the A-primary minimizer: gauge orbits of `A` are flat directions; `m_J² A·J` is gauge-sensitive off-shell (`∂·J ≠ 0` configs); options: Coulomb gauge on `a⃗` + kept `a₀` / projection / penalty | 🚧 OPEN: decide at M7.1 empirically (minimizer conditioning); note M6's ansatz has `A₀ ≠ 0` (Weyl gauge incompatible) |
+| **Q1** | **Substrate field:** the Ouroboros doublet `(A_μ, J_μ)` read as Riemann-Silberstein (candidate B) vs single-field RS `F = E + icB` (candidate A); does Clebsch/`ψ` (D) enter only as a knot **seeder**? what **target manifold** (Pisello S² vs Faber S³, see [`m7_background.md § 0`](m7_background.md))? | 🔶 OPEN: narrowed to **B** by Marc's **A-primary** commitment (`A` fundamental, `F = dA`, charge derived); RS kept as a derived diagnostic. **M7.1 built the substrate as B** (the 16-component harmonic doublet, [`scripts/m7_1_harmonic_lattice.py`](scripts/m7_1_harmonic_lattice.py) via [`tasks/m7_1_infra.md`](tasks/m7_1_infra.md)); formal closure waits on M7.3/M7.4 confirming the doublet carries both charges |
+| **Q2** | Stabilizer: is a 4th-order term needed at all, and in which form? | 🔶 OPEN, **direction set** (2026-07-02 theory review): the drafted `\|F×(∇×F)\|²/\|F\|²` term **vanishes identically on every Beltrami configuration** (`∇×F ∥ F` makes the cross product zero, constant AND variable λ; rescaled Beltrami stays Beltrami) and is **singular** where `\|F\| → 0`, so it provides zero Derrick pressure on exactly the target family. Working stabilization = **helicity anti-collapse** (Arnold `E ≥ λ₁\|H\|`) + **Ouroboros confinement anti-expansion** (`~μ³`), with **Nadirashvili's theorem** forcing the confinement term to exist ([`m7_background.md § 5b`](m7_background.md)). 4th-order term demoted to an optional M7.4 experiment, **off by default**. Empirical confirmation: the M7.1 Woltjer gate (✅ passed 2026-07-02: fixed-helicity relaxation from random seeds lands on the constant-λ eigenfield, `λ → 2π/L` at 5.5e-6, [`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings) + the M7.4 dilation probe |
+| **Q8** | **Gauge / constraint handling** for the A-primary minimizer: gauge orbits of `A` are flat directions; `m_J² A·J` is gauge-sensitive off-shell (`∂·J ≠ 0` configs); options: Coulomb gauge on `a⃗` + kept `a₀` / projection / penalty | 🔶 OPEN, **measured evidence in** (M7.1 gate G5, [`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings): `E_ω` is **exactly gauge-invariant at `m_J = 0`** (machine zero, the Maxwell structure verified) and broken by `m_J²A·J` off-shell (`ΔE/E ≈ 1.3e-3` on random fields); the **static curl sector self-fixes** (transverse AD gradient, discrete div∘curl = 0; the Woltjer relaxation converged gauge-drift-free from random seeds). Scheme decision (Coulomb-on-`a⃗` / projection / penalty) deferred to the **first coupled relaxation (M7.3)**; M6's ansatz has `A₀ ≠ 0` (Weyl gauge incompatible) |
 
 ### Potential form + calibration (resolves at M7.3)
 
@@ -70,7 +70,7 @@ The accepted risks + open unknowns, each with its mitigation. Promote a row here
 | --- | --- |
 | The time-harmonic reduction goes subtly wrong (M6 needed ten sandbox versions to pin its 1D reduction: signs, regularity classes, Laplacians, measures) | the **M7.3 verbatim-ODE pre-gate**: the 3D functional restricted to M6's ansatz must reproduce the `(α,β)` ODE term by term BEFORE any relaxation run is trusted ([`0d_canonical.md § 6`](../../m6_ouroboros/research/0d_canonical.md) is the cautionary record) |
 | The 1D chaoiton may be **unstable to 3D symmetry breaking** (1D radial solutions often are) | an honest result either way; M7.3 relaxes with and without the symmetry constraint and reports the drift |
-| Gauge flat directions stall or misdirect the minimizer (Q8) | decide the gauge/constraint scheme at M7.1; monitor minimizer conditioning |
+| Gauge flat directions stall or misdirect the minimizer (Q8) | measured at M7.1 (G5): the curl sector self-fixes, only the `m_J²A·J`-coupled sector is exposed; scheme decision at the first coupled relaxation (M7.3) |
 | Confinement-term sign: `m_J² A·J` is not positive-definite, the anti-expansion balance is only empirically established (M6 1D) | the M7.4 **dilation probe** (`E(μ)` along rescalings) verifies the interior minimum directly; honest pass / fail |
 | Variable-λ Beltrami math "gets very hairy" (Marc), now sharpened: **rigidity obstructs exact nonconstant-λ solutions even locally** | M7.4 reframed to relax-and-measure (Q7): Trkalian seeds + full-functional relaxation, charge measured as the deviation, never imposed |
 | Does the divergence-ful field admit clean knots (Q5) | the open research question; honest pass / fail at M7.4; M5.11's P2 (smooth knots expand) is the cautionary datum, the confinement term is the mitigation |

@@ -1,0 +1,242 @@
+{
+  "G1_bookkeeping": {
+    "ok": true,
+    "E_closed": 14.286386378627894,
+    "E_time_avg": 14.286386378627894,
+    "rel_diff": 0.0,
+    "n_time_samples": 16,
+    "params": {
+      "N": 16,
+      "L": 2.0,
+      "omega": 1.3,
+      "mJ": 0.8,
+      "g": 1.7
+    },
+    "wall_s": 0.01
+  },
+  "G2_ad_gradient": {
+    "ok": true,
+    "energy_rel_diff_ti_vs_np": 1.6260633469486645e-15,
+    "grad_max_rel_err_vs_complex_step": 2.3321036978906458e-15,
+    "grad_rel_errs": [
+      9.990753598049099e-16,
+      1.2529126295323873e-16,
+      1.5443493527558624e-15,
+      2.863290509694119e-16,
+      1.2245291807302071e-16,
+      2.3321036978906458e-15,
+      7.123136986668682e-16,
+      6.20014407691357e-16,
+      8.600749104831083e-16,
+      7.978796427153452e-16
+    ],
+    "n_dirs": 10,
+    "N": 16,
+    "wall_s": 0.31
+  },
+  "G3_woltjer": {
+    "ok": true,
+    "rows": [
+      {
+        "N": 24,
+        "h": 0.041666666666666664,
+        "lam_hat": -6.211657082460586,
+        "lam_disc_expected": -6.211657082460498,
+        "rel_err_vs_disc": 1.415558882002588e-14,
+        "lam_eff_wmean": -6.211657082460631,
+        "lam_eff_wstd": 6.833383951409163e-07,
+        "E_final": 6.211657082460585,
+        "H_final": -0.9999999999999999,
+        "E_minus_lamH_rel": 0.0,
+        "grad_inf_final": 9.585846047054786e-10,
+        "iters": 471,
+        "sigma": -1.0
+      },
+      {
+        "N": 32,
+        "h": 0.03125,
+        "lam_hat": -6.242890304517246,
+        "lam_disc_expected": -6.242890304516104,
+        "rel_err_vs_disc": 1.8295971769808223e-13,
+        "lam_eff_wmean": -6.242890304517773,
+        "lam_eff_wstd": 1.889433153820969e-06,
+        "E_final": 6.24289030451727,
+        "H_final": -1.0000000000000038,
+        "E_minus_lamH_rel": 0.0,
+        "grad_inf_final": 9.463718927439635e-10,
+        "iters": 620,
+        "sigma": -1.0
+      },
+      {
+        "N": 48,
+        "h": 0.020833333333333332,
+        "lam_hat": -6.265257226580846,
+        "lam_disc_expected": -6.2652572265624755,
+        "rel_err_vs_disc": 2.932073431362812e-12,
+        "lam_eff_wmean": -6.265257226596662,
+        "lam_eff_wstd": 7.043802435102673e-06,
+        "E_final": 6.265257226582143,
+        "H_final": -1.0000000000002072,
+        "E_minus_lamH_rel": 0.0,
+        "grad_inf_final": 9.977169053226268e-10,
+        "iters": 1083,
+        "sigma": -1.0
+      }
+    ],
+    "lambda_richardson": 6.283150764231726,
+    "two_pi_over_L": 6.283185307179586,
+    "rel_err_extrap": 5.497680900934985e-06,
+    "disc_ok": true,
+    "pointwise_ok": true,
+    "wall_s": 67.0
+  },
+  "G4_seeders": {
+    "ok": true,
+    "abc": {
+      "ok": true,
+      "rows": [
+        {
+          "N": 24,
+          "eigenrel_residual": 8.590350653037149e-15,
+          "H_rel_err": 0.011384070534630829,
+          "E_rel_err": 0.022638544007324225,
+          "H_ratio_minus_sinc": 1.1102230246251565e-16,
+          "E_ratio_minus_sinc2": 2.220446049250313e-16
+        },
+        {
+          "N": 32,
+          "eigenrel_residual": 1.0658141036401503e-14,
+          "H_rel_err": 0.006413148855794202,
+          "E_rel_err": 0.012785169233341841,
+          "H_ratio_minus_sinc": 0.0,
+          "E_ratio_minus_sinc2": 1.1102230246251565e-16
+        },
+        {
+          "N": 48,
+          "eigenrel_residual": 1.7763568394002505e-14,
+          "H_rel_err": 0.002853342650363355,
+          "E_rel_err": 0.005698543736445713,
+          "H_ratio_minus_sinc": 3.3306690738754696e-16,
+          "E_ratio_minus_sinc2": 0.0
+        }
+      ],
+      "note": "discrete eigenrelation exact (machine); lattice H, E_B equal continuum x sinc, sinc^2 exactly (the closed-form O(h^2) law)"
+    },
+    "ck_spheromak": {
+      "ok": true,
+      "rows": [
+        {
+          "N": 48,
+          "lam_exact": 6.419156368441521,
+          "lam_eff_core_median_rel_dev": 0.007138763252456991,
+          "lam_eff_core_p95_rel_dev": 0.008720397191425543
+        },
+        {
+          "N": 64,
+          "lam_exact": 6.419156368441521,
+          "lam_eff_core_median_rel_dev": 0.004019662081519958,
+          "lam_eff_core_p95_rel_dev": 0.004934849439311733
+        },
+        {
+          "N": 96,
+          "lam_exact": 6.419156368441521,
+          "lam_eff_core_median_rel_dev": 0.0017881856821019152,
+          "lam_eff_core_p95_rel_dev": 0.0021921153780408635
+        }
+      ],
+      "note": "interior constant-lambda Beltrami, O(h^2); S&Y eikonal variable-h construction deferred to M7.4"
+    },
+    "hopfion": {
+      "ok": true,
+      "rows": [
+        {
+          "N": 48,
+          "rel_rms_divE": 0.011306273807904764,
+          "rel_rms_divB": 0.011306273807904764,
+          "H_magnetic": 9.66849442205315,
+          "H_electric": 9.66849442205315,
+          "energy": 19.723696222328364
+        },
+        {
+          "N": 64,
+          "rel_rms_divE": 0.006368711524422265,
+          "rel_rms_divB": 0.006368711524422264,
+          "H_magnetic": 9.668442605186172,
+          "H_electric": 9.668442605186174,
+          "energy": 19.72368235231899
+        },
+        {
+          "N": 96,
+          "rel_rms_divE": 0.002833179084748666,
+          "rel_rms_divB": 0.0028331790847486655,
+          "H_magnetic": 9.668405556910656,
+          "H_electric": 9.668405556910656,
+          "energy": 19.723672426488786
+        }
+      ],
+      "H_magnetic_richardson": 9.668375918290243,
+      "He_vs_Hm_rel_diff": 0.0,
+      "note": "null field: div-free O(h^2), H_e = H_m (self-dual), helicity nonzero (linked)"
+    },
+    "fleury": {
+      "ok": true,
+      "support_frac": 0.0033111572265625,
+      "support_frac_expected": 0.0033211759810203227,
+      "omega": 1.2714558169103625,
+      "period_avg_energy": 1.0740768706293813,
+      "note": "seed-level checks only; observable reproduction is task M7.2"
+    },
+    "m6_embedding": {
+      "ok": true,
+      "HQ_1d": 1.688970812452143,
+      "HQ_ledger": 1.689,
+      "HQ_ok": true,
+      "tail": 0.08064244208614693,
+      "rows": [
+        {
+          "N": 64,
+          "QJ_3d": 47.96117296181185,
+          "QJ_1d_x_2piLz": 47.93123803642379,
+          "rel_err": 0.0006245389565215675
+        },
+        {
+          "N": 96,
+          "QJ_3d": 47.937500169124036,
+          "QJ_1d_x_2piLz": 47.93123803642379,
+          "rel_err": 0.00013064825689427265
+        }
+      ],
+      "note": "profile = repo-validated benchmark ODE at g=1.0; straight-cylinder embedding; the toroidal question is M7.3's"
+    },
+    "ceperley": {
+      "ok": true,
+      "winding_measured": 0.9903571967281757,
+      "m": 1,
+      "kc": 2.1287255390041735,
+      "note": "J_m Bessel envelope rotating pair; the smooth mask replacement for the M7.2 stretch"
+    },
+    "wall_s": 1.1
+  },
+  "G5_gauge_probe": {
+    "ok": true,
+    "rel_dE_mJ0": 0.0,
+    "rel_dE_mJ0p8": 0.0012867384307356877,
+    "note": "E_omega gauge-invariant at mJ=0 (Maxwell structure verified); mJ^2 A.J breaks gauge invariance off-shell -> Q8 evidence",
+    "wall_s": 0.01
+  },
+  "summary": {
+    "all_pass": true,
+    "gates": {
+      "G1": true,
+      "G2": true,
+      "G3": true,
+      "G4": true,
+      "G5": true
+    },
+    "plots": [
+      "plots/m7_1_woltjer_gate.png",
+      "plots/m7_1_seeder_gallery.png"
+    ],
+    "wall_s_total": 69.1
+  }
+}
