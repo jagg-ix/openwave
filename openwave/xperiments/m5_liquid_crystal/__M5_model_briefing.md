@@ -23,7 +23,7 @@
 | Attribute | M5 |
 | --- | --- |
 | Substrate | `M`, a 4×4 real symmetric tensor field (`M = O·D·Oᵀ`); the eigenspectrum `D` is fixed only in vacuum (the potential minimum) |
-| Vacuum | the preferred shape `D = diag(g, 1, δ, 0)`, the minimum of the potential |
+| Vacuum | the preferred shape `D = diag(g, 1, δ, 0)`, the minimum of the potential, its dynamics unifies EM+QM+GEM |
 | Particle | defect of `M`: a point-like topological charge (elementary electric charge), a topological vortex line (quark string) |
 | Charge | integer winding of the director (Gauss-Bonnet), `\|Q\| = ±1`, additive |
 | Derrick escape | time-periodic resonance (no static soliton; the stable object is 4D) |

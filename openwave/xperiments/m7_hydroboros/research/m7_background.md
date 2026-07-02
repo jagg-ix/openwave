@@ -223,3 +223,5 @@ Solve it two ways, exactly as M5.11 does:
 - Production-engine template: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`medium.py`, `engine1_seeds.py` … `_launcher.py`)
 - Comparison table (the M7 column goal): [`MODELS.md`](../../../../MODELS.md) · new-model flow [`ONBOARDING_MODELS.md`](../../../../ONBOARDING_MODELS.md), [`CONTRIBUTING.md`](../../../../CONTRIBUTING.md)
 - Model briefing stub: [`../__M7_model_briefing.md`](../__M7_model_briefing.md)
+- Question Tracker: [m7_question_tracker.md](m7_question_tracker.md)
+- Roadmap: [m7_roadmap.md](m7_roadmap.md)
