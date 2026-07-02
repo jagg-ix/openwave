@@ -248,7 +248,7 @@ Physics limitations Duda (or his papers, as quoted in our notes) flags about his
 | 2 | **Regularization is the hardest part.** *"LdG regularization is where lepton masses come from, and it is the hardest part to include. The specific regularization form is still an open research question"* | `1a:230, 260` |
 | 3 | **Biaxial axis-length parameters need numerical calibration** — *"their exact values require numerical simulation … treat them as calibration parameters"* | `1a:262` |
 | 4 | **Charge magnitude + rigorous Coulomb derivation open** | `1a:115` |
-| 5 | **Lepton mass ratios deferred, mechanism only** | `_overview:393` |
+| 5 | **Lepton mass ratios deferred, mechanism only** | `m5_background.md § EMPIRICAL VALIDATION` |
 | 6 | **Static hedgehog doesn't survive dynamic evolution** — Q decays +0.996 → ~0 within 4–5 steps regardless of V(ψ); confirms the triple admission that no static stable solitons exist | `3b:2-9, 103` |
 | 7 | **Weak force mechanism unaddressed** — *"topology-changing events … still an open research question"* | `4a:337-354` |
 | 8 | **Deeper substrate beneath M hinted but unconfirmed** — *"there might be an even deeper 'anisotropic fluid' beneath"* | `4a:602` |
