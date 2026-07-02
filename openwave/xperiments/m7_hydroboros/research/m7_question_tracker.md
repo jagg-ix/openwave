@@ -26,7 +26,9 @@
                  Q5   divergence-ful knots: stable, or does div F kill them?
                  Q3   divergence charge vs linking charge: forced equal?
                  Q10  FLDB complex-field energy convention (Eq 31/32)
-                      [time-sensitive: gates the IN-PROGRESS M7.2]
+                      [NON-blocking for the in-progress M7.2: the plan
+                      computes both conventions; the answer picks the
+                      canonical column]
                  Q1   substrate reading + target manifold (S2 vs S3)
                  Q4   the promised Beltrami material + the Spanish school
 
@@ -56,7 +58,7 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 | [Q7](#q7-detail) 🔶 | Charge-carrying construction | Does the relax-and-measure implementation (charge = the measured `∇·F` deviation, `λ_eff` diagnostic) match Marc's "Trkalian first, then take off the training wheels", and is there a concrete S&Y eikonal recipe for a **variable-h toroidal** seed? | M7.4 (the research core) |
 | [Q5](#q5-detail) 🔶 | Divergence-ful knots | Does a divergence-ful field still admit clean, stable knots, or does nonzero `∇·F` destabilize the Hopfion? | M7.4 pass/fail |
 | [Q3](#q3-detail) 🔶 | The two charges | Are Fleury's divergence charge and Ouroboros's helicity/linking charge **forced equal**, or independent observables to reconcile? | M7.4 (the `(Q_div, H, linking)` deliverable) |
-| [Q10](#q10-detail) 🚧 | FLDB energy convention | Which complex-field energy convention do FLDB Eqs 31/32 use (the appendix form), needed before the `U/m_ec² ≈ 0.795` comparison is trusted? | **M7.2 § 3 (IN PROGRESS)** |
+| [Q10](#q10-detail) 🚧 | FLDB energy convention | Which complex-field energy convention do FLDB Eqs 31/32 use (the appendix form), needed to pick the canonical `U/m_ec² ≈ 0.795` comparison column? | M7.2 § 3 `U` target only, **non-blocking** (dual-convention fallback baked into the plan) |
 | [Q1](#q1-detail) 🔶 | Substrate + target manifold | The `(A_μ, J_μ)` doublet (candidate B, built at M7.1) vs single RS field (A); Clebsch as seeder only (D); and the target manifold: Pisello S² vs Faber S³? | M7.3/M7.4 closure |
 | [Q4](#q4-detail) 🔶 | Marc's source material | The further Beltrami papers he mentioned (corpus #13) + the status of bringing in Enciso & Peralta-Salas as collaborators? | corpus (M7.0, ongoing) |
 | [Q9](#q9-detail) 🚧 | Werbos-v5 calibration dictionary | The `(Ω, G) ↔ (ω, g, m_J)` map between v5's canonical point (`g = 1.0625`, `H/Q = 1.6969`) and M6's repo-validated canonical (`g = 1.0`, `H/Q = 1.6890`)? | M7.3 secondary gate · M7.12 islands |
@@ -117,7 +119,7 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 ### Q10 detail
 
-**FLDB complex-field energy convention (ask Marc, priority 4; time-sensitive).** Which convention does the paper's energy density `u(t) = ε₀E₀²(1 + R/4R₀)` (Eq 31) and the rest-energy integral (Eq 32) use for complex fields: real-part-instantaneous, or complex-modulus average? The appendix (FLDB Appendix, corpus #1) is the source; the M7.2 conventions contract carries it as trap #3 ([`tasks/m7_2_fleury_torus.md § 2`](tasks/m7_2_fleury_torus.md)), and the `U/m_ec² ≈ 0.795` target comparison is not trusted until it is pinned. Opened 2026-07-02 (previously an ID-less ask at the M7.1 review; assigned an ID at the tracker restructure). **Fallback if unanswered:** compute both conventions and report which matches Eq 32, as the M7.2 plan specifies. Marc is the author, so this is the cheapest possible ask. **Gates the IN-PROGRESS M7.2.**
+**FLDB complex-field energy convention (ask Marc, priority 4; time-sensitive).** Which convention does the paper's energy density `u(t) = ε₀E₀²(1 + R/4R₀)` (Eq 31) and the rest-energy integral (Eq 32) use for complex fields: real-part-instantaneous, or complex-modulus average? The appendix (FLDB Appendix, corpus #1) is the source; the M7.2 conventions contract carries it as trap #3 ([`tasks/m7_2_fleury_torus.md § 2`](tasks/m7_2_fleury_torus.md)), and the `U/m_ec² ≈ 0.795` target comparison is not trusted until it is pinned. Opened 2026-07-02 (previously an ID-less ask at the M7.1 review; assigned an ID at the tracker restructure). **NON-blocking for M7.2** (decision 2026-07-02: M7.2 runs without waiting for Marc): the plan computes BOTH conventions (real-part-instantaneous and complex-modulus average) and reports which matches Eq 32; only the `U/m_ec²` target is convention-sensitive, the other seven targets (charge, radii, ω, μ, spin, `∇·J` consistency) are not. Marc's answer later picks the canonical column; he is the author, so it is the cheapest possible ask.
 
 ### Q1 detail
 
