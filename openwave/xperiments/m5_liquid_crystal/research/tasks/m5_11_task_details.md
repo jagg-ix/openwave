@@ -12,6 +12,8 @@ P0-P1 ✅: a true energy minimizer + **Faber's electron reproduced** (511.00 keV
 
 > **The parameter-lock blocker = M5.16 (Duda 2026-07-01).** This task's stated blocker — "the parameter lock: `g`, `δ` and the vortex-core LdG tensor potential form" — is exactly what Duda re-prioritized on 2026-07-01 ([`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md)): "the first step should be establishing two basic parameters: g, delta", via a **static energy-minimization** run at the physical regime with a regularizing potential, under **cylindrical symmetry** (which he notes applies "for both electron and neutrino"). That is now [`m5_16_task_details.md`](m5_16_task_details.md), the graduation of this task's own P0 minimizer (`m5_11_p0_minimizer.py`) to the physical `g~1e10, δ~1e-10` regime. **Recommendation: run M5.16 before resuming M5.11** — it supplies the locked `(g, δ, V)` this task is parked on, and Duda's SO(3)~SU(2)_L neutrino-oscillation slide (the vortex-loop as a genuinely 3D object, vs the electron's SO(2) clock) is captured in `4e §3`.
 
+> **Neutrino field-config corroboration (Duda 2026-07-01 group sketch, [`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) § 2).** The sketch draws the **3 neutrinos as a uniaxial nematic unitary vector field with 1 distinguished axis** (vs the leptons' biaxial 3-axis), extremely light, in **two vortex types**. This matches the M5.11 closed-vortex-loop picture + the δ-0 axis-swing origin, and the "two vortex types" hint bears on the P2 loop-construction fork (the forced-singular knotted/linked disclination question).
+
 ---
 
 >**#199 merged into M5.11 (2026-07-02).** Per Rodrigo: the PMNS-mixing task (#199) folds into the neutrino vortex-loop task M5.11 (#236); both archived below.

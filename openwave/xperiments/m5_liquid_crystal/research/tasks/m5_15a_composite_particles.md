@@ -23,3 +23,17 @@ Atom-scale simulations (15a.4 onward) need additional architectural capability b
 This is structurally different from the same-mass cases: positronium (M5.7+) and quark-quark binding (M5.9) DO use direct Zitterbewegung interference; hydrogen-like atoms (15a.4) cannot. The transition criterion is `ω_a ≈ ω_b` (frequency-matched, direct interference works) vs `|ω_a − ω_b| ≫ min(ω_a, ω_b)` (frequency-mismatched, requires the three-mechanism layering above).
 
 This testing-architecture distinction is **gating** for atom-scale simulations: 15a.4 cannot succeed by simply scaling up the same-mass mechanism. The cross-mass machinery is a separate effort.
+
+## Field configurations from Duda's 2026-07-01 sketch (concrete targets for 15a.1–15a.3)
+
+Duda's group-thread sketch ([`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) § 2; figure [`../../theory/duda_2026-07-01_particle_field_configs.png`](../../theory/duda_2026-07-01_particle_field_configs.png)) spells out the composite field configurations, turning the sub-phase headlines above into concrete, falsifiable seeds. His item-12 argument: topological vortices form **knots** whose interaction enforces inward/outward field rotations = (fractional) charges.
+
+| 15a sub-phase | Duda's field-configuration prescription | Falsifiable target |
+| --- | --- | --- |
+| **15a.1 nucleon assembly** | **Baryon = a vortex loop around a vortex**, the strands interacting as internal **twists (half-rotations)**. **Proton = the charge enclosed into a hedgehog** (elementary charge, the cheap config). **Neutron = must compensate** the charge (a costlier config), which is **why the neutron is heavier** | reproduce `m_n > m_p` from the compensating-vs-hedgehog energy gap (sign + rough scale), not by hand |
+| **15a.2 color confinement** | **Quarks = fractional-charge excitations** set by an **inward/outward field rotation** of the knotted vortex (a fraction-of-π rotation; full π = elementary charge). Confinement = the gluon flux tube / quark string; violating charge quantization costs asymptotically linear energy (`σ ≈ 1 GeV/fm`) | the `±π/3` fractional charges + linear confinement from the string, consistent with the M5.9 Cornell result (#200) |
+| **15a.3 nuclear binding (deuteron)** | **Deuteron = two baryons** satisfying the charge preference better than a single charge, producing the experimentally known **'+ − +' electric quadrupole moment** (Garçon charge densities on the slide) | reproduce the **sign structure** of the deuteron electric quadrupole ('+ − +'), a sharp, measured nuclear falsifier |
+| **15a.3 (α particle)** | a larger multi-vortex hub/knot | bound 4-nucleon config; binding-energy scale |
+| **mesons (adjacent)** | **Vortex reconnection**: kaon / hyperon Ξ, pion / hyperon Λ; **strangeness** as an extra internal twist | pion/kaon as reconnection intermediates; the β-decay `n → W⁻ → p + e + ν̄` is the same reconnection family |
+
+The **deuteron '+ − +' quadrupole** is the standout near-term target here: it is a specific, measured number that the two-baryon charge-compensation picture predicts *structurally*, so it is a clean go/no-go for the composite program independent of absolute-mass calibration.
