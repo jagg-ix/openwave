@@ -23,14 +23,14 @@
 
 | Attribute | M7 |
 | --- | --- |
-| Substrate | A-primary ontology; leading candidate = the Ouroboros doublet `(A_μ, J_μ)` read via Riemann-Silberstein (diagnostic); target manifold S² / S³ open (Q1) |
-| Particle | electron = self-linked toroidal Beltrami vortex |
-| Charge | variable-λ Beltrami divergence `∇·F`, unified with Chern-Simons linking / helicity `∫A·B` |
-| Derrick escape | Faddeev-Niemi 4th-order stabilizer (outward pressure balancing collapse) |
-| Energy functional | Maxwell / fluid kinetic (Fleury) + 4th-order (Faddeev-Niemi) + Ouroboros confinement `m_J²A·J − f(J·J)` (Werbos) |
-| Solve method | Taichi reverse-mode AD gradient (vs numpy FD to ~1e-13) + FIRE / L-BFGS relaxation + constrained Minkowski leapfrog; inherits the M5.11 method |
-| Free parameters | `m_J`, `g` (from M6, canonical g = 1); `κ` (4th-order, Q2); `λ(x)` profile (Q7) |
-| Reproduction targets | Fleury `U ≈ 0.795 m_e c²`, `ω = 2c/R₀`; M6 `H/Q = 1.6969` (in full 3D); Faber & Golubich α⁻¹ ≈ 137 |
+| Substrate | A-primary ontology; leading candidate = the Ouroboros doublet `(A_μ, J_μ)` read via Riemann-Silberstein (diagnostic); target manifold S² / S³ open (Q1); worked in the **time-harmonic (fixed-ω) frame**, both parents are time-periodic |
+| Particle | electron = self-linked toroidal Beltrami vortex (approximately Beltrami: the relaxed minimizer of the full functional) |
+| Charge | the **measured** divergence `∇·F` the Ouroboros coupling drives, unified with Chern-Simons linking / helicity `∫A·B` (the Q3 experiment) |
+| Stabilization | **helicity anti-collapse** (Arnold bound) + **Ouroboros confinement anti-expansion**; Nadirashvili's theorem forces the blend (no finite-energy pure-Beltrami field exists); a 4th-order term is optional (Q2, off by default) |
+| Energy functional | period-averaged Maxwell kinetic (both fields) + Ouroboros coupling `m_J²A·J − f(J·J)` (Werbos), minimized at fixed ω + helicity |
+| Solve method | fixed-ω minimization (FIRE / L-BFGS) + fixed-helicity relaxation + Taichi reverse-mode AD gradient (vs numpy FD to ~1e-12) + constrained Minkowski leapfrog; the M5.11 machinery in the time-harmonic frame |
+| Free parameters | `m_J`, `g` (M6 canonical g = 1.0; Werbos-v5 point g = 1.0625, dictionary = Q9); ω swept for the spectrum |
+| Reproduction targets | Fleury `U ≈ 0.795 m_e c²`, `ω = 2c/R₀`; M6 `H/Q = 1.6890` at the same `(g=1.0, ω=1)` calibration, in full 3D; Faber & Golubich α⁻¹ ≈ 137 (M7.6 stretch) |
 
 ## Field Configuration of Particles
 
@@ -65,9 +65,11 @@ Five phases, M7.1 → M7.16 (full detail in [`research/m7_roadmap.md`](research/
 | D , MODELS.md column | M7.15 | complete + govern the 21-cell HydroBoros column |
 | E , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
 
-Open questions Q1-Q7: substrate + target manifold (Q1), the 4th-order form + κ (Q2), whether
-divergence-charge and linking-charge are forced equal (Q3), whether variable-λ fields still
-hold clean knots (Q5), and the `λ(x)` charge-carrying ansatz (Q7, the core of M7.4).
+Open questions Q1-Q9: substrate + target manifold (Q1), whether a 4th-order stabilizer is needed
+at all (Q2, direction set: helicity + confinement carry the load), whether divergence-charge and
+linking-charge are forced equal (Q3, a first-class M7.4 measurement), whether divergence-ful fields
+hold clean knots (Q5), the charge-carrying construction (Q7, reframed to relax-and-measure), gauge /
+constraint handling (Q8), and the Werbos-v5 calibration dictionary (Q9).
 
 ## Help Wanted
 

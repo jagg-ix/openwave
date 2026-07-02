@@ -141,9 +141,9 @@ def main():
                        "delta_CP (+-90) is the discrete prediction, theta13 is the one free coupling "
                        "(cholesteric-pitch analogue). The mu-tau-even global framing did not quantize it."),
     }
-    with open(os.path.join(HERE, "m5_11_n4_linking_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4_linking_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4_linking_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4_linking_summary.json')}")
     return True
 
 

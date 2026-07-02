@@ -346,7 +346,7 @@ def main():
     ax[1].set_title("N1: delta-graded energy orders (each computed separately)")
     ax[1].grid(True, which="both", axis="y", alpha=0.3)
     fig.tight_layout()
-    plot_path = os.path.join(HERE, "m5_11_n1_precision_method.png")
+    plot_path = os.path.join(HERE, '..', 'plots', "m5_11_n1_precision_method.png")
     fig.savefig(plot_path, dpi=110)
     print(f"\nplot -> {plot_path}")
 
@@ -375,7 +375,7 @@ def main():
         },
         "cancellation_test_pass": passed,
     }
-    json_path = os.path.join(HERE, "m5_11_n1_precision_method_summary.json")
+    json_path = os.path.join(HERE, '..', 'data', "m5_11_n1_precision_method_summary.json")
     with open(json_path, "w") as f:
         json.dump(summary, f, indent=2)
     print(f"summary -> {json_path}")

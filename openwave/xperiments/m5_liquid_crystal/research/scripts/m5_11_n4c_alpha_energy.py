@@ -234,7 +234,7 @@ def main():
     ax[2].set_title("theta12 hits 35.26 where magic residual = 0\n(the crossing exists by IVT; it is a geometric locus)")
     ax[2].legend(fontsize=7, loc="lower left"); ax[2].grid(True, alpha=0.3)
     fig.tight_layout()
-    fig_path = os.path.join(HERE, "m5_11_n4c_alpha_energy.png")
+    fig_path = os.path.join(HERE, '..', 'plots', "m5_11_n4c_alpha_energy.png")
     fig.savefig(fig_path, dpi=110)
     print(f"\nfigure -> {fig_path}")
 
@@ -262,9 +262,9 @@ def main():
                                               and rows_report["trace_M"]["kind"] == "max"),
         "verdict": verdict,
     }
-    with open(os.path.join(HERE, "m5_11_n4c_alpha_energy_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4c_alpha_energy_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4c_alpha_energy_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4c_alpha_energy_summary.json')}")
     return True
 
 

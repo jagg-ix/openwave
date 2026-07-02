@@ -180,9 +180,9 @@ def main():
         "chiral_gives_cp": chiral_gives_cp, "chiral_gives_theta13": chiral_gives_th13,
         "nufit_target": {"theta13": NUFIT["theta13"], "delta_CP": NUFIT["delta_CP"]},
     }
-    with open(os.path.join(HERE, "m5_11_n4_chiral_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4_chiral_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4_chiral_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4_chiral_summary.json')}")
     return True
 
 

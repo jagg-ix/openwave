@@ -91,7 +91,7 @@ def main():
     ax[1].grid(True, axis="x", alpha=0.2)
 
     fig.tight_layout()
-    fig_path = os.path.join(HERE, "m5_11_n4c_scorecard.png")
+    fig_path = os.path.join(HERE, '..', 'plots', "m5_11_n4c_scorecard.png")
     fig.savefig(fig_path, dpi=120)
     print(f"figure -> {fig_path}")
 
@@ -103,9 +103,9 @@ def main():
                  "theta_12 geometrically pinned (magic) but not energy-selected; theta_13 a free coupling; "
                  "delta_CP sign undetermined. theta_12 is ~2.3 sigma from data; delta_CP is consistent."),
     }
-    with open(os.path.join(HERE, "m5_11_n4c_scorecard.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4c_scorecard.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4c_scorecard.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4c_scorecard.json')}")
     return True
 
 

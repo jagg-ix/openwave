@@ -30,7 +30,7 @@ import taichi as ti
 ti.init(arch=ti.cpu, default_fp=ti.f64, offline_cache=True)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CKPT = os.path.join(HERE, "_checkpoints")
+CKPT = os.path.join(HERE, '..', 'data')
 os.makedirs(CKPT, exist_ok=True)
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 36

@@ -27,7 +27,7 @@ import taichi as ti
 ti.init(arch=ti.cpu, default_fp=ti.f64, offline_cache=True)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CKPT = os.path.join(HERE, "_checkpoints")
+CKPT = os.path.join(HERE, '..', 'data')
 os.makedirs(CKPT, exist_ok=True)
 PI = np.pi
 
@@ -261,7 +261,7 @@ def run_sweep():
         ax[1].set_title("running coupling (cf. Faber Fig. 2/3)"); ax[1].legend()
         fig.suptitle("M5.11 P1b' - two-soliton running alpha(d)", fontweight="bold")
         fig.tight_layout()
-        p = os.path.join(HERE, "m5_11_p1b_running.png"); fig.savefig(p, dpi=110); plt.close(fig)
+        p = os.path.join(HERE, '..', 'plots', "m5_11_p1b_running.png"); fig.savefig(p, dpi=110); plt.close(fig)
         print(f"plot -> {p}")
     except Exception as e:
         print(f"(plot skipped: {e})")

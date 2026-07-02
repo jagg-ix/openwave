@@ -120,9 +120,9 @@ def main():
                        "deg) natural IF the substrate is chiral at its natural scale. Open substrate question "
                        "for Duda: does the M5 LdG carry a Lifshitz/cholesteric invariant?"),
     }
-    with open(os.path.join(HERE, "m5_11_n4b_chiral_origin_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4b_chiral_origin_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4b_chiral_origin_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4b_chiral_origin_summary.json')}")
     return True
 
 

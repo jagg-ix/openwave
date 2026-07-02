@@ -118,7 +118,7 @@ def main():
     ax[2].grid(True, axis="y", alpha=0.3)
 
     fig.tight_layout()
-    plot_path = os.path.join(HERE, "m5_11_n3_summary.png")
+    plot_path = os.path.join(HERE, '..', 'plots', "m5_11_n3_summary.png")
     fig.savefig(plot_path, dpi=120)
     print(f"\nfigure -> {plot_path}")
 
@@ -136,9 +136,9 @@ def main():
             for r in rows],
         "mass_spectrum_ratios": (w / w[0]).tolist(),
     }
-    with open(os.path.join(HERE, "m5_11_n3_scorecard.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n3_scorecard.json"), "w") as f:
         json.dump(scorecard, f, indent=2)
-    print(f"scorecard -> {os.path.join(HERE, 'm5_11_n3_scorecard.json')}")
+    print(f"scorecard -> {os.path.join(HERE, '..', 'data', 'm5_11_n3_scorecard.json')}")
     return True
 
 

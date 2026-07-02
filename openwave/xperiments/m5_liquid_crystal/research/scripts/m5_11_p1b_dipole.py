@@ -28,7 +28,7 @@ import time
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CKPT = os.path.join(HERE, "_checkpoints")
+CKPT = os.path.join(HERE, '..', 'data')
 os.makedirs(CKPT, exist_ok=True)
 PI = np.pi
 
@@ -197,7 +197,7 @@ def gate_charge():
         ax[1].set_title("approach to 137 from below (cf. Faber Fig.2)"); ax[1].legend()
         fig.suptitle("M5.11 P1b - charge quantization -> alpha^-1 ~ 137", fontweight="bold")
         fig.tight_layout()
-        p = os.path.join(HERE, "m5_11_p1b_charge_137.png")
+        p = os.path.join(HERE, '..', 'plots', "m5_11_p1b_charge_137.png")
         fig.savefig(p, dpi=110); plt.close(fig)
         print(f"plot -> {p}")
     except Exception as e:

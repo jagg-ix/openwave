@@ -32,8 +32,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "data")
-PLOTS = os.path.join(HERE, "plots")
+DATA = os.path.join(HERE, '..', 'data')
+PLOTS = os.path.join(HERE, '..', 'plots')
 os.makedirs(DATA, exist_ok=True)
 os.makedirs(PLOTS, exist_ok=True)
 

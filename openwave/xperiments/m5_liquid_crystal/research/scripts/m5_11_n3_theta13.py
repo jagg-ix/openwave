@@ -239,9 +239,9 @@ def main():
                        "phase delta~1e-10; plausibly tied to the chiral/CP sector (symmetric biaxiality "
                        "is CP-even). Sharpens the foundation tension into a structural statement."),
     }
-    with open(os.path.join(HERE, "m5_11_n3_theta13_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n3_theta13_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n3_theta13_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n3_theta13_summary.json')}")
     return True
 
 

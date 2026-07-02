@@ -137,9 +137,9 @@ def main():
                        "prediction (matching 43.3 needs a mu-tau breaking that moves delta_CP off +-90). "
                        "Clean predictive option: exact TBM + maximal CP, ~2 deg from data; DUNE/HK decide."),
     }
-    with open(os.path.join(HERE, "m5_11_n4b_residual_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4b_residual_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4b_residual_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4b_residual_summary.json')}")
     return True
 
 

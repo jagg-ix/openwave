@@ -128,7 +128,7 @@ def main():
     ax[2].legend(fontsize=8); ax[2].grid(True, axis="y", alpha=0.3)
 
     fig.tight_layout()
-    plot_path = os.path.join(HERE, "m5_11_n4_final_scorecard.png")
+    plot_path = os.path.join(HERE, '..', 'plots', "m5_11_n4_final_scorecard.png")
     fig.savefig(plot_path, dpi=120)
     print(f"\nfigure -> {plot_path}")
 
@@ -148,9 +148,9 @@ def main():
         },
         "gate_status": "FULLY CLOSED , 3 of 4 PMNS parameters PREDICTED, theta13 = 1 free coupling",
     }
-    with open(os.path.join(HERE, "m5_11_n4_final_scorecard.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4_final_scorecard.json"), "w") as f:
         json.dump(scorecard, f, indent=2)
-    print(f"scorecard -> {os.path.join(HERE, 'm5_11_n4_final_scorecard.json')}")
+    print(f"scorecard -> {os.path.join(HERE, '..', 'data', 'm5_11_n4_final_scorecard.json')}")
     print("\nGATE STATUS: FULLY CLOSED , 3/4 PMNS parameters predicted, theta13 = the one free coupling.")
     return True
 

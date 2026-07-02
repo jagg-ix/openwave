@@ -256,9 +256,9 @@ def main():
         "D3_magic_mutau_TBM": d3,
         "D4_breaking_to_theta13": d4,
     }
-    with open(os.path.join(HERE, "m5_11_n3_derisk_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n3_derisk_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n3_derisk_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n3_derisk_summary.json')}")
     return scaffold_ok
 
 

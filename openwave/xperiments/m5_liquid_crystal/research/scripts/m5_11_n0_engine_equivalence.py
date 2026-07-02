@@ -195,9 +195,9 @@ def main():
         },
         "equivalence_pass": passed,
     }
-    with open(os.path.join(HERE, "m5_11_n0_engine_equivalence_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n0_engine_equivalence_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n0_engine_equivalence_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n0_engine_equivalence_summary.json')}")
     return passed
 
 

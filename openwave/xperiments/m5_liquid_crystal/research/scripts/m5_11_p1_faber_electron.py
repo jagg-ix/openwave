@@ -40,7 +40,7 @@ import time
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CKPT = os.path.join(HERE, "_checkpoints")
+CKPT = os.path.join(HERE, '..', 'data')
 os.makedirs(CKPT, exist_ok=True)
 
 # ---- physical constants (CODATA 2018, as Faber cites) ----------------------
@@ -265,7 +265,7 @@ def make_plot(minres):
     fig.suptitle(f"M5.11 P1 - Faber electron reproduced: E0 = {minres['E0_at_r0_faber_MeV']*1000:.1f} keV "
                  f"at r0 = {R0_FABER:.4f} fm", fontweight="bold")
     fig.tight_layout()
-    path = os.path.join(HERE, "m5_11_p1_faber_electron.png")
+    path = os.path.join(HERE, '..', 'plots', "m5_11_p1_faber_electron.png")
     fig.savefig(path, dpi=110)
     plt.close(fig)
     return path

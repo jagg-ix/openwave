@@ -192,9 +192,9 @@ def main():
         "mutau_form_by_construction": bool(mutau_ok),
         "sample_alpha_0p6": r0,
     }
-    with open(os.path.join(HERE, "m5_11_n3_mass_matrix_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n3_mass_matrix_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n3_mass_matrix_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n3_mass_matrix_summary.json')}")
     return mutau_ok
 
 

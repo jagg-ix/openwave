@@ -9,7 +9,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CKPT = os.path.join(HERE, "_checkpoints")
+CKPT = os.path.join(HERE, '..', 'data')
 
 sweep = json.load(open(os.path.join(CKPT, "m5_11_p2_heliknoton.json")))
 calib = json.load(open(os.path.join(CKPT, "m5_11_p2_helix_calib.json")))
@@ -47,6 +47,6 @@ a1.legend(loc="upper right", fontsize=8)
 fig.suptitle("M5.11 P2 build: chiral Lifshitz + Frank validated; biaxial M5 tensor "
              "drives blue-phase texture, not a localized heliknoton", fontsize=10)
 fig.tight_layout(rect=[0, 0, 1, 0.94])
-out = os.path.join(HERE, "m5_11_p2_heliknoton.png")
+out = os.path.join(HERE, '..', 'plots', "m5_11_p2_heliknoton.png")
 fig.savefig(out, dpi=110)
 print(f"saved {out}")

@@ -147,9 +147,9 @@ def main():
         "records": records,
         "verdict": verdict,
     }
-    with open(os.path.join(HERE, "m5_11_n3_search_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n3_search_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n3_search_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n3_search_summary.json')}")
     return len(passes) > 0
 
 

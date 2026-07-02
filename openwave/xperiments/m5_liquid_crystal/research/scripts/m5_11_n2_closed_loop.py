@@ -206,7 +206,7 @@ def main():
     ax[1].set_title("N2(B): delta -> theta13 channel exposed (linear onset)\nVALUE = N3 search + N4")
     ax[1].legend(fontsize=7); ax[1].grid(True, which="both", alpha=0.3)
     fig.tight_layout()
-    plot_path = os.path.join(HERE, "m5_11_n2_closed_loop.png")
+    plot_path = os.path.join(HERE, '..', 'plots', "m5_11_n2_closed_loop.png")
     fig.savefig(plot_path, dpi=110)
     print(f"\nplot -> {plot_path}")
 
@@ -241,7 +241,7 @@ def main():
         ),
         "foundation_pass": passed,
     }
-    json_path = os.path.join(HERE, "m5_11_n2_closed_loop_summary.json")
+    json_path = os.path.join(HERE, '..', 'data', "m5_11_n2_closed_loop_summary.json")
     with open(json_path, "w") as f:
         json.dump(summary, f, indent=2)
     print(f"summary -> {json_path}")

@@ -191,9 +191,9 @@ def main():
                        "reached by tilt alone for 24/27 and is RECOVERABLE by a 2nd geometric knob (R_loop) "
                        "for the rest. So the result is not tuned to a specific potential. Answers Duda."),
     }
-    with open(os.path.join(HERE, "m5_11_n4b_potential_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4b_potential_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4b_potential_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4b_potential_summary.json')}")
     return True
 
 

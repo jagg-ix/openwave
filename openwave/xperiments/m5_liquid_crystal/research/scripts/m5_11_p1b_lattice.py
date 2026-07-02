@@ -29,7 +29,7 @@ import time
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CKPT = os.path.join(HERE, "_checkpoints")
+CKPT = os.path.join(HERE, '..', 'data')
 os.makedirs(CKPT, exist_ok=True)
 
 PI = np.pi

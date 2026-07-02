@@ -115,7 +115,7 @@ def main():
         ax[1].text(i, v * 1.1, f"{v:.1f}", ha="center", fontsize=9)
     ax[1].grid(True, axis="y", which="both", alpha=0.3)
     fig.tight_layout()
-    fig_path = os.path.join(HERE, "m5_11_n4c_mass_ratio.png")
+    fig_path = os.path.join(HERE, '..', 'plots', "m5_11_n4c_mass_ratio.png")
     fig.savefig(fig_path, dpi=110)
     print(f"\nfigure -> {fig_path}")
 
@@ -132,9 +132,9 @@ def main():
                    "Dm31^2/Dm21^2 ~ 33.6. Near-term tension FLAG, not a falsification."),
         "nufit": {"Dm21_sq_eV2": NUFIT_DM21, "Dm31_sq_eV2": NUFIT_DM31, "ordering": "NO"},
     }
-    with open(os.path.join(HERE, "m5_11_n4c_mass_ratio_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4c_mass_ratio_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4c_mass_ratio_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4c_mass_ratio_summary.json')}")
     return True
 
 

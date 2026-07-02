@@ -146,9 +146,9 @@ def main():
                     "definition of the loop self-linking is the open task. The solid N4 result stays the "
                     "delta_CP=maximal prediction (n4_chiral, N=0)."),
     }
-    with open(os.path.join(HERE, "m5_11_n4_topo_summary.json"), "w") as f:
+    with open(os.path.join(HERE, '..', 'data', "m5_11_n4_topo_summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"summary -> {os.path.join(HERE, 'm5_11_n4_topo_summary.json')}")
+    print(f"summary -> {os.path.join(HERE, '..', 'data', 'm5_11_n4_topo_summary.json')}")
     return True
 
 
