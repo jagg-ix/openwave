@@ -145,7 +145,7 @@ This is important:
 
 ### Why This Matters for M5
 
-The direct-line implication for M5 design ([2a_path_to_m5.md](2a_path_to_m5.md)):
+The direct-line implication for M5 design ([m5.2a_path_to_m5.md](tasks/m5.2a_path_to_m5.md)):
 
 1. **No new vector infrastructure needed.** M4's (ψ_x, ψ_y, ψ_z) displacement and 6-phasor trackers already supply everything the director needs
 2. **The winding-number tracker is a new kernel, not a new data structure.** It reads from existing ellipse data
@@ -273,10 +273,10 @@ A conceptual walk-through of the Lagrangian / topological framework from Rodrigo
 
 Related reading:
 
-- [1a_lagrangian_framework.md](1a_lagrangian_framework.md) — full Lagrangian framework evaluation, email thread, Duda/Close context
-- [1c_lagrangian_experiments.md](1c_lagrangian_experiments.md) — numerical experiment results
-- [1b_topological_defect.md](1b_topological_defect.md) — topology / time-crystal / Zitterbewegung deep dive (mechanism by which defects oscillate)
-- [2a_path_to_m5.md](2a_path_to_m5.md) — M5 / Liquid-Crystal Model implementation plan
+- [m5.1a_lagrangian_framework.md](tasks/m5.1a_lagrangian_framework.md) — full Lagrangian framework evaluation, email thread, Duda/Close context
+- [m5.1c_lagrangian_experiments.md](tasks/m5.1c_lagrangian_experiments.md) — numerical experiment results
+- [m5.1b_topological_defect.md](tasks/m5.1b_topological_defect.md) — topology / time-crystal / Zitterbewegung deep dive (mechanism by which defects oscillate)
+- [m5.2a_path_to_m5.md](tasks/m5.2a_path_to_m5.md) — M5 / Liquid-Crystal Model implementation plan
 - [0_WAVE_EQUATION.md](../../m3_wolff_lafreniere/research/0_WAVE_EQUATION.md) — M2/M3/M4 vs. Lagrangian comparisons
 
 ---
@@ -350,7 +350,7 @@ Four levels of "what a thing is", from physical microphysics up to mathematical 
 | **Granule** | M1 engine (`m1_granule_motion/`), `constants.py` (Planck mass, granule density), scientific source papers |
 | **Aether / Medium** | EWT papers (aether density ρ = 3.86×10²² kg/m³), README.md ("aether-like medium") |
 | **Spacetime** | README.md ("spacetime subatomic simulator"), docstrings ("@spacetime module"). Often used synonymously with aether |
-| **Vacuum** | M5 / Lagrangian framework (`1a_lagrangian_framework.md`, this doc) — the Duda / Close language |
+| **Vacuum** | M5 / Lagrangian framework (`m5.1a_lagrangian_framework.md`, this doc) — the Duda / Close language |
 | **Field** | M2 engine (scalar ψ), M4 engine (vector ψ), sandbox experiments (director n, kink φ) |
 
 #### Common confusions to watch out for
@@ -619,13 +619,13 @@ FIELD LEVEL:      "at rest" = all granule ellipses aligned the same way
 
 #### Why this matters for M5 design
 
-When M5 is built ([2a_path_to_m5.md](2a_path_to_m5.md)), we must pick: *what does ψ physically represent in our production engine?*
+When M5 is built ([m5.2a_path_to_m5.md](tasks/m5.2a_path_to_m5.md)), we must pick: *what does ψ physically represent in our production engine?*
 
 - **Option A (closest to M4)**: ψ = granule displacement (3D vector). The director is derived as the major axis of each voxel's elliptical trajectory (computed from phase/amplitude trackers).
 - **Option B (pure LdG / Duda)**: ψ = director n(x) directly (3D unit vector). Model only the orientation, not the underlying ellipse.
 - **Option C (Close / elastic solid)**: ψ = spin density (local rotation axis). Evolves under Close's nonlinear vector wave equation.
 
-Experiments 2 and 3 used **Option B** (director only) — which is why they worked cleanly for topology. Exps 4–8 have now run: Exp 4 confirmed Klein-Gordon dispersion on a scalar ψ (Option A/B-neutral); Exp 7 v2 confirmed Close's vector-Q approach works as transverse elastic-solid dynamics (Option C). **The resolved M5 recipe** (per [3a § Winning Approach for M5](1c_lagrangian_experiments.md#winning-approach-for-m5) and [3c](2a_path_to_m5.md)) uses **Option B (director) for topology** (from Exps 2, 3) combined with **Option C (Close's Eq. 19) for wave dynamics** on top — both layers validated in the sandbox.
+Experiments 2 and 3 used **Option B** (director only) — which is why they worked cleanly for topology. Exps 4–8 have now run: Exp 4 confirmed Klein-Gordon dispersion on a scalar ψ (Option A/B-neutral); Exp 7 v2 confirmed Close's vector-Q approach works as transverse elastic-solid dynamics (Option C). **The resolved M5 recipe** (per [3a § Winning Approach for M5](tasks/m5.1c_lagrangian_experiments.md#winning-approach-for-m5) and [3c](tasks/m5.2a_path_to_m5.md)) uses **Option B (director) for topology** (from Exps 2, 3) combined with **Option C (Close's Eq. 19) for wave dynamics** on top — both layers validated in the sandbox.
 
 #### The fundamental reframe
 
@@ -639,7 +639,7 @@ Displacement is one valid choice. Orientation is another. Angle is another. What
 
 ### EMPIRICAL VALIDATION — WHAT THE SANDBOX EXPERIMENTS CONFIRMED
 
-With all 8 M5 sandbox experiments complete (see [1c_lagrangian_experiments.md](1c_lagrangian_experiments.md) for full write-ups), we can now mark each conceptual claim in this document with its experimental status.
+With all 8 M5 sandbox experiments complete (see [m5.1c_lagrangian_experiments.md](tasks/m5.1c_lagrangian_experiments.md) for full write-ups), we can now mark each conceptual claim in this document with its experimental status.
 
 #### Claim-by-claim scorecard
 
@@ -677,7 +677,7 @@ The corrected layering in [CORRECTED CONCEPTUAL LAYERING](#corrected-conceptual-
 
 The one conceptual shift that came from the experiments (vs. just validating what we expected):
 
-- **"Combined W-L is an exact free-wave solution"** — what the M3/M4 docs claimed — was wrong. The product form `2A·sin(kr/2)·cos(kr/2−(ωt+φ))/r` contains a quadrature piece `(1−cos(kr))/r·sin(ωt+φ)` that is NOT a free-wave solution. The M4 code's equivalent sum form IS a solution; they're not algebraically identical. For M5, we keep the sum form and discard the claim that the product form is Lagrangian-derived. See [§ The Quest for the Wave Equation vs. Lagrangian Mechanics, above](#the-quest-for-the-wave-equation-vs-lagrangian-mechanics) and [3a § Experiment 5](1c_lagrangian_experiments.md#experiment-5-lagrangian-derivation-combined-w-l-from-a-lagrangian) for the full reasoning
+- **"Combined W-L is an exact free-wave solution"** — what the M3/M4 docs claimed — was wrong. The product form `2A·sin(kr/2)·cos(kr/2−(ωt+φ))/r` contains a quadrature piece `(1−cos(kr))/r·sin(ωt+φ)` that is NOT a free-wave solution. The M4 code's equivalent sum form IS a solution; they're not algebraically identical. For M5, we keep the sum form and discard the claim that the product form is Lagrangian-derived. See [§ The Quest for the Wave Equation vs. Lagrangian Mechanics, above](#the-quest-for-the-wave-equation-vs-lagrangian-mechanics) and [3a § Experiment 5](tasks/m5.1c_lagrangian_experiments.md#experiment-5-lagrangian-derivation-combined-w-l-from-a-lagrangian) for the full reasoning
 
 This is exactly the kind of finding the Lagrangian framework was designed to surface: when you formalize the equation's origin, latent inconsistencies in empirical modeling choices show up.
 
@@ -759,7 +759,7 @@ This is exactly what EWT's `E = ρV(fA)²` captures phenomenologically; M5 deriv
 
 #### What is the time-crystal concept?
 
-> **Note**: this Q&A entry is a short summary. For the full deep-dive — including the rotational-vs-linear oscillation distinction, the connection to M4's elliptical granule motion, the de Broglie wavelength as helix pitch, and the explicit derivation of `ω = 2mc²/ℏ` — see [1b_topological_defect.md](1b_topological_defect.md).
+> **Note**: this Q&A entry is a short summary. For the full deep-dive — including the rotational-vs-linear oscillation distinction, the connection to M4's elliptical granule motion, the de Broglie wavelength as helix pitch, and the explicit derivation of `ω = 2mc²/ℏ` — see [m5.1b_topological_defect.md](tasks/m5.1b_topological_defect.md).
 
 **Frank Wilczek's 2012 proposal**: a system whose **ground state spontaneously breaks time-translation symmetry** — meaning it oscillates periodically even at minimum energy, without being driven. Just as a crystal breaks *spatial* translation symmetry (atoms at periodic positions rather than uniformly distributed), a time-crystal breaks *temporal* translation symmetry (periodic in time without external driving).
 
@@ -941,7 +941,7 @@ This equation does **two things at once**, not in sequence:
 
 **So the Lagrangian models more than waves alone — it generates the topology too**, through the structure of the potential `V(ψ)`. Landau–de Gennes + Skyrme-stabilized variants give the vacuum manifold the right geometry for hedgehogs and vortex lines to exist as stable minima (or local minima of the defect sector).
 
-**Concrete ingredient list for M5.2's Lagrangian** (per [2a_path_to_m5.md § M5.2](2a_path_to_m5.md)):
+**Concrete ingredient list for M5.2's Lagrangian** (per [m5.2a_path_to_m5.md § M5.2](tasks/m5.2a_path_to_m5.md)):
 
 | Term | Physics role | What it produces |
 | --- | --- | --- |
@@ -959,7 +959,7 @@ Contrast with M3:
 - **M3**: solves a linear wave equation *analytically* (sum of `sin(kr − ωt)/r` per source). No potential, no topology — just linear superposition. Only the wave channel
 - **M5**: solves a *nonlinear PDE* with `V(ψ)` via leapfrog time-stepping. The potential gives the topology channel for free
 
-**Naming implication**: because the Lagrangian is the core object M5 solves, and because "wave equation" is now only part of what the engine does, `wave_engine.py` probably becomes `lagrangian_engine.py` in M5's directory (`xperiments/m5_liquid_crystal/`). The name reflects what the module actually is: a Lagrangian-based field engine that generates wave dynamics + topology together. *[Added to M5.0 scaffold decision in `2a_path_to_m5.md`.]*
+**Naming implication**: because the Lagrangian is the core object M5 solves, and because "wave equation" is now only part of what the engine does, `wave_engine.py` probably becomes `lagrangian_engine.py` in M5's directory (`xperiments/m5_liquid_crystal/`). The name reflects what the module actually is: a Lagrangian-based field engine that generates wave dynamics + topology together. *[Added to M5.0 scaffold decision in `m5.2a_path_to_m5.md`.]*
 
 **Why the rename is accurate — what the M5 engine module actually does**, line by line:
 
@@ -1224,7 +1224,7 @@ OpenWave's distinguishing feature, after this evolution, is being an **integrate
 
 This is different from QCD-only simulators (which jump straight to quark/gluon dynamics without lepton context), liquid-crystal simulators (which model defects but not the full particle hierarchy), or QED simulators (which model atoms without nucleons-from-quarks). OpenWave's integration spans the whole hierarchy, with cross-layer validation that catches inconsistencies between scales.
 
-The full roadmap including post-M5.8 composite layers is captured in [2a_path_to_m5.md § Layered Validation Roadmap](2a_path_to_m5.md#layered-validation-roadmap--vacuum-to-atoms).
+The full roadmap including post-M5.8 composite layers is captured in [m5.2a_path_to_m5.md § Layered Validation Roadmap](tasks/m5.2a_path_to_m5.md#layered-validation-roadmap--vacuum-to-atoms).
 
 #### What about forces, EM waves, and heat? (matter is the foundation, not the goal)
 
@@ -1247,7 +1247,7 @@ OpenWave is not "an alternative QFT simulator" or "a liquid-crystal modeling too
 
 That positioning is what makes OpenWave scientifically interesting (a deeper-than-QFT first-principles framework). The matter layers we've been validating in M5.0–M5.8 are the necessary prerequisite for the force / EM / heat outputs that come in Phase 4–6+.
 
-Full roadmap with output-domain dependency chains in [2a_path_to_m5.md § Beyond matter — forces, EM waves, heat](2a_path_to_m5.md#beyond-matter--forces-em-waves-heat).
+Full roadmap with output-domain dependency chains in [m5.2a_path_to_m5.md § Beyond matter — forces, EM waves, heat](tasks/m5.2a_path_to_m5.md#beyond-matter--forces-em-waves-heat).
 
 #### How does OpenWave handle quantum phase, and what about entanglement?
 
@@ -1257,7 +1257,7 @@ OpenWave's answer falls out of the Liquid-Crystal framework cleanly, with no new
 
 ##### The director field has three degrees of freedom — phase is the third
 
-A topological defect in M5 has three independent observables (see [1b_topological_defect.md § The twist degree of freedom](1b_topological_defect.md#the-twist-degree-of-freedom--quantum-phase-as-a-derived-field-state)):
+A topological defect in M5 has three independent observables (see [m5.1b_topological_defect.md § The twist degree of freedom](tasks/m5.1b_topological_defect.md#the-twist-degree-of-freedom--quantum-phase-as-a-derived-field-state)):
 
 | DoF | Channel | What it gives |
 | --- | --- | --- |
@@ -1285,7 +1285,7 @@ Marc's separate framing in the same thread — Compton-scale standing waves arou
 
 ##### Validation experiments
 
-Concrete experiments OpenWave can run to engage with the Orion–Akkermans + hydrodynamic-Berry-phase literature are listed in [2a_path_to_m5.md § Beyond M5.8 — phase, Berry, and entanglement experiments](2a_path_to_m5.md). They include single-defect Berry-phase measurement, two-defect concurrence-analog tests, an Aharonov-Bohm hydrodynamic-analog reproduction (vortex string + plane wave), and the topological sum rule analog (same "gate" implemented via two different M5 paths, measure phase redistribution).
+Concrete experiments OpenWave can run to engage with the Orion–Akkermans + hydrodynamic-Berry-phase literature are listed in [m5.2a_path_to_m5.md § Beyond M5.8 — phase, Berry, and entanglement experiments](tasks/m5.2a_path_to_m5.md). They include single-defect Berry-phase measurement, two-defect concurrence-analog tests, an Aharonov-Bohm hydrodynamic-analog reproduction (vortex string + plane wave), and the topological sum rule analog (same "gate" implemented via two different M5 paths, measure phase redistribution).
 
 #### What is CPT symmetry, and does M5 have it?
 
@@ -1298,11 +1298,11 @@ A follow-up question prompted by Dr. Duda's 2026-04 presentation on negative rad
 This has several useful consequences:
 
 - **Pair creation ↔ pair annihilation are CPT mirrors.** A hedgehog + anti-hedgehog forming from incoming traveling waves (creation) is the time-reverse of two counter-winding defects relaxing into outgoing traveling waves (annihilation). Same equation, opposite time direction
-- **Same-winding pairs are CPT-forbidden from annihilating.** This was already a planned M5.4 test (see [3d § M5.4 mechanism-distinguishing tests](2a_path_to_m5.md#phase-m54--electron-stability--dynamic-coulomb-recovery-the-headline-goal)) — under CPT, it's revealed as a topological-symmetry consequence rather than just a topological-counting argument
+- **Same-winding pairs are CPT-forbidden from annihilating.** This was already a planned M5.4 test (see [3d § M5.4 mechanism-distinguishing tests](tasks/m5.2a_path_to_m5.md#phase-m54--electron-stability--dynamic-coulomb-recovery-the-headline-goal)) — under CPT, it's revealed as a topological-symmetry consequence rather than just a topological-counting argument
 - **Absorption ↔ stimulated emission are CPT mirrors.** Per Duda's deck and standard QED, the rate equations `∂N₂/∂t = B₁₂ ρ(ν) N₁` (absorption) and `∂N₂/∂t = −B₂₁ ρ(ν) N₂` (stimulated emission) are CPT-related. Future phases will reproduce this structure if the framework is consistent
 - **Negative radiation pressure is CPT-allowed.** Whenever stimulated emission dominates over absorption (e.g., gain media, reverse-biased semiconductors, certain metamaterial regimes), the CPT-mirror operation produces a momentum transfer in the opposite direction from standard photon push — i.e., the radiation pulls the surface outward instead of pushing it inward. M5 should reproduce this regime when the appropriate population inversion is seeded
 
-These give M5 a natural validation surface beyond just charge / mass / pair-dynamics: any test of CPT-mirror behavior is simultaneously a test of M5's framework consistency. Specific experiment in [2a_path_to_m5.md § Beyond M5.8 — phase, Berry, and entanglement experiments — CPT symmetry validation](2a_path_to_m5.md).
+These give M5 a natural validation surface beyond just charge / mass / pair-dynamics: any test of CPT-mirror behavior is simultaneously a test of M5's framework consistency. Specific experiment in [m5.2a_path_to_m5.md § Beyond M5.8 — phase, Berry, and entanglement experiments — CPT symmetry validation](tasks/m5.2a_path_to_m5.md).
 
 #### What about M3's wave phase offset? How does annihilation work in M5?
 

@@ -67,7 +67,7 @@ Reference: `../sandbox_phase1_vector/` and `../sandbox_phase1_scalar/` for the e
 
 For each experiment:
 
-1. Fill in `Setup` section in `1c_lagrangian_experiments.md` with parameters/grid before running
+1. Fill in `Setup` section in `m5.1c_lagrangian_experiments.md` with parameters/grid before running
 2. Run script, capture output
 3. Fill in `Results` and `Numerical Evidence` sections
 4. Update `Comparison to Expected` table

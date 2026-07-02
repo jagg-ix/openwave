@@ -3,7 +3,7 @@
 > **LOCAL / HELD.** N4b (the N4 closeout) of the neutrino N-program, OpenWave issue
 > [#236](https://github.com/openwave-labs/openwave/issues/236). All GitHub #236 posting HELD until the whole
 > N-program finishes. Local record. Builds on N4: [`n4_findings.md`](n4_findings.md). Master plan:
-> [`../10a_neutrino_oscillations.md`](../10a_neutrino_oscillations.md) § "N1 + N2 foundation scope". Convention
+> [`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) § "N1 + N2 foundation scope". Convention
 > index-0 ([`../_convention_refactor/CONVENTION.md`](../_convention_refactor/CONVENTION.md)).
 
 N4b nails the four items that were still open after N4, so the Duda exchange has zero pending tasks. N5
@@ -107,5 +107,5 @@ predicted); the deferred masses (N6).
 ## Cross-refs
 
 [`n4_findings.md`](n4_findings.md) (the closed gate this completes) · [`n3_findings.md`](n3_findings.md) ·
-[`../10a_neutrino_oscillations.md`](../10a_neutrino_oscillations.md) (N* plan) ·
+[`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) (N* plan) ·
 [#199](https://github.com/openwave-labs/openwave/issues/199) · [#236](https://github.com/openwave-labs/openwave/issues/236) (HELD).

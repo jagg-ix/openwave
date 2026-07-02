@@ -230,7 +230,7 @@ def rebuild_M_from_director(tensor_field: ti.template(), delta: ti.f32):  # type
 
 @ti.kernel
 def eigen_decompose(tensor_field: ti.template()):  # type: ignore
-    """THE LYNCHPIN (4b_rendering_features.md): refresh director_nhat + eigenvalues from M_am.
+    """THE LYNCHPIN (m5.4b_rendering_features.md): refresh director_nhat + eigenvalues from M_am.
 
     Per voxel: eigen-decompose M_am, store the sorted spectrum (λ₁≥λ₂≥λ₃) in
     `eigenvalues` and the principal eigenvector in `director_nhat`. The whole

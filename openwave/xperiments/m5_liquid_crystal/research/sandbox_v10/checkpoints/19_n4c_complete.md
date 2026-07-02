@@ -19,9 +19,9 @@ spectrum ~6x too compressed vs data. Materially weaker than the prior "3 predict
 
 ## Docs
 
-- `10c_AI_reviewers.md` (verbatim reviews), `10d_bullet_proof_run.md` (triage + plan), `10e_findings_N4c.md`
+- `m5.10c_AI_reviewers.md` (verbatim reviews), `m5.10d_bullet_proof_run.md` (triage + plan), `m5.10e_findings_N4c.md`
   (executed response, canonical framing).
-- `10b_findings.md` -> renamed `10b_findings_N4b.md` (forward-pointer to 10e added; N0-N4b detail retained).
+- `10b_findings.md` -> renamed `m5.10b_findings_N4b.md` (forward-pointer to 10e added; N0-N4b detail retained).
 - `10a` related-work table updated (10e canonical, 10b_N4b detail, 10c/10d added).
 
 ## Pending (unchanged, deferred by design)

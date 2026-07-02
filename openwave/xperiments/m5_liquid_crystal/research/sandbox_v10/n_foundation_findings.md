@@ -2,12 +2,12 @@
 
 > **LOCAL / HELD.** This is the foundation phase (N1 + N2) of the neutrino N-program, OpenWave
 > issue [#236](https://github.com/openwave-labs/openwave/issues/236). Per
-> [`../10a_neutrino_oscillations.md`](../10a_neutrino_oscillations.md) § "N1 + N2 foundation scope" WORKFLOW NOTE, all GitHub #236
+> [`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) § "N1 + N2 foundation scope" WORKFLOW NOTE, all GitHub #236
 > posting is HELD until the WHOLE N-program (N1-N5) finishes; #236 stays `In progress`, nothing
 > is posted at the end of N1+N2. This doc is the local foundation record.
 
 Scope + master plan:
-[`../10a_neutrino_oscillations.md`](../10a_neutrino_oscillations.md) · the SO(3)/TBM target:
+[`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) · the SO(3)/TBM target:
 [#199](https://github.com/openwave-labs/openwave/issues/199) · engine reused:
 [`../../medium.py`](../../medium.py), [`../../engine2_pde.py`](../../engine2_pde.py),
 [`../../engine1_seeds.py`](../../engine1_seeds.py), [`../../engine3_observables.py`](../../engine3_observables.py).
@@ -71,7 +71,7 @@ Why naive dies (full grid n=20): the delta-graded orders are `E_0:E_1:E_2 = 3.16
 3.78e20` (each ~g apart). The breaking's energy signal `delta_phys*|E_1| = 2.99e19` sits below
 the ULP of E_0 (`6.04e23`) , so any single-accumulator f64/f128 derivative underflows to 0.
 
-**Payoff**: E_1 IS the theta_13 channel ([`../10a`](../10a_neutrino_oscillations.md) § "the
+**Payoff**: E_1 IS the theta_13 channel ([`../10a`](../tasks/m5.10a_neutrino_oscillations.md) § "the
 connecting hypothesis"). N1 proves it is numerically reachable; N4 (theta_13) is on solid ground.
 
 ## N2 , the closed-loop sim + mixing observables
@@ -135,7 +135,7 @@ the observable that reads it. Together = the machine N3 drives.
 | `n2_closed_loop.py` + `_summary.json` + `.png` | `python3 n2_closed_loop.py` |
 | `checkpoints/00_design.md`, `01_n1.md`, `02_n2.md` | progress log (this run) |
 
-## Definition of Done (from [`../10a`](../10a_neutrino_oscillations.md) § "N1 + N2 foundation scope") , check
+## Definition of Done (from [`../10a`](../tasks/m5.10a_neutrino_oscillations.md) § "N1 + N2 foundation scope") , check
 
 | DoD item | Status |
 | --- | --- |
@@ -151,7 +151,7 @@ gate, theta_13 = N4, masses = N6.
 
 Drive this machine: search `g, delta`, the LdG potential, the loop geometry + dressing, to (a) resolve
 the central tension and (b) reproduce the three TBM angles from loop dynamics = the ★ TBM gate
-([`../10a`](../10a_neutrino_oscillations.md) § "Sub-tasks: phase-wired").
+([`../10a`](../tasks/m5.10a_neutrino_oscillations.md) § "Sub-tasks: phase-wired").
 
 **N3 record: [`n3_findings.md`](n3_findings.md).** ★ TBM GATE PASS , the 3 TBM angles emerge from the
 closed-loop field dynamics at the magic crossing alpha* (theta12=35.26 trimaximal, theta23=45, theta13=0),

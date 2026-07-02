@@ -33,7 +33,7 @@ M5.8 is a 4D tensor field (time = the 4th axis, via boosts). You cannot render t
 | **Gravity** | boost-tilt of the 4×4 time axis (GEM ∝ (b·g)²) | a **shadow of the time axis** |
 | **The clock / ZBW / breathing** | the time-evolution of the defect's oscillation | **animate it** — the most direct view of the time-dynamics |
 
-Electric/charge is the one field that is pure static 3D space geometry (the easiest, already built). Magnetism and gravity are 3D shadows of the time-axis coupling. The clock is best animated. Full plan: review [`4b_rendering_features.md`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/4b_rendering_features.md) (its new "the time axis is not renderable, only its shadows" section + Parts 3-5).
+Electric/charge is the one field that is pure static 3D space geometry (the easiest, already built). Magnetism and gravity are 3D shadows of the time-axis coupling. The clock is best animated. Full plan: review [`m5.4b_rendering_features.md`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/4b_rendering_features.md) (its new "the time axis is not renderable, only its shadows" section + Parts 3-5).
 
 ## Demo checklist (maps to the roadmap NG backlog + `4b`)
 

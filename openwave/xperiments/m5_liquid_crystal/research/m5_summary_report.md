@@ -181,7 +181,7 @@ Every script above lives under `research/sandbox_v8/` (the M5.8.0–2g arc) or `
 
 ## DUDA 2026-06-08 FOLLOW-UP — the δ / g calibration
 
-**Full correspondence record:** [`4c_convo_2026.06.08.md`](4c_convo_2026.06.08.md) (the email thread + both rounds of runs). This section is the findings summary.
+**Full correspondence record:** [`m5.4c_convo_2026.06.08.md`](tasks/m5.4c_convo_2026.06.08.md) (the email thread + both rounds of runs). This section is the findings summary.
 
 After the report, Duda read `m5_summary_report.md` (now seeing the 3+1D **4×4** tensor sim correctly — `D = diag(1, δ, 0, g)`) and added Manfried Faber. His directions, with the QED Lagrangian he attached as the decoder ring:
 
@@ -229,7 +229,7 @@ Duda disagreed with "rest energy dominated by gravity," and he is right. Verifie
 
 ## ELECTRON-ID PROJECT
 
-The active program. Source: Duda's round-3 suggestion (`4c_convo_2026.06.08.md §8-9`): "try getting such electron with 3x3 field and fixed clock, to get proper magnetic dipole moment and angular momentum of electron." The model has two of the four electron identifiers (mass = rest energy, charge = effective Coulomb from the hedgehog); this project targets the remaining two, **μ** (magnetic dipole moment, target one Bohr magneton, g ≈ 2) and **J** (spin, target ℏ/2).
+The active program. Source: Duda's round-3 suggestion (`m5.4c_convo_2026.06.08.md §8-9`): "try getting such electron with 3x3 field and fixed clock, to get proper magnetic dipole moment and angular momentum of electron." The model has two of the four electron identifiers (mass = rest energy, charge = effective Coulomb from the hedgehog); this project targets the remaining two, **μ** (magnetic dipole moment, target one Bohr magneton, g ≈ 2) and **J** (spin, target ℏ/2).
 
 Why the fixed-clock route: the `2p` readout on the dynamical 4D clock came out J-neutral (`J < 1e-4`, swamped by 24³ box torque), so μ/J wash out dynamically. A static 3×3 hedgehog with the clock pinned at definite phase/winding carries a definite circulating current (integrate μ) and a definite field angular momentum (integrate J), with the divergent boost sector dropped.
 

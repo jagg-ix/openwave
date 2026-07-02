@@ -10,4 +10,4 @@ This doc is the task's full record: planning + findings + future planning + docu
 
 Duda's 2026-05-13 PRA cite; compact-manifold = a third Derrick escape
 
-- [ ] **⤺ Literature anchor — BEC vortex kinetics.** Skim the long-lived-oscillation-mode literature, esp. Duda's 2026-05-13 cite: PRA "*Index theorem and vortex kinetics in Bose-Einstein condensates on a Haldane sphere with a magnetic monopole*" (`10.1103/2msv-lk1m`). The experimental analog of a metastable-defect clock; compact-manifold geometry is a third Derrick escape (could inform a domain-shape choice). See [`1b § Alternative stabilization — compact manifold`](1b_topological_defect.md).
+- [ ] **⤺ Literature anchor — BEC vortex kinetics.** Skim the long-lived-oscillation-mode literature, esp. Duda's 2026-05-13 cite: PRA "*Index theorem and vortex kinetics in Bose-Einstein condensates on a Haldane sphere with a magnetic monopole*" (`10.1103/2msv-lk1m`). The experimental analog of a metastable-defect clock; compact-manifold geometry is a third Derrick escape (could inform a domain-shape choice). See [`1b § Alternative stabilization — compact manifold`](m5.1b_topological_defect.md).

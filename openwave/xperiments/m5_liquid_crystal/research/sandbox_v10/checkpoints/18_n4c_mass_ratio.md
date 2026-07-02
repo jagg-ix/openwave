@@ -23,4 +23,4 @@ mass-as-loop-length-density picture). A successful mass model (N6) must either s
 nonlinear map. Worth stating plainly before building further (the reviewer's point stands).
 
 Artifacts: `n4c_mass_ratio.py`, `n4c_mass_ratio_summary.json`, `n4c_mass_ratio.png`. Next: honest scorecard
-figure (`n4c_scorecard.py`) + write `10e_findings_N4c.md`.
+figure (`n4c_scorecard.py`) + write `m5.10e_findings_N4c.md`.

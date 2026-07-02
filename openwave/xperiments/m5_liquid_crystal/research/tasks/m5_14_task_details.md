@@ -53,7 +53,7 @@ Physics-only, headless. Builds directly on `m5_8_2v` and `sine_gordon_annihilati
 
 ## RENDERING DELIVERABLE (the annihilation demo, 2026-06-17)
 
-The **annihilation dynamic demo** lives here (not in the M5-demos umbrella): render the **capture → breather → vacuum** evolution of a ± pair on screen, with the charge ledger (Q: ±1 → 0) and the energy ledger (pair rest energy released as outgoing waves) shown live. Demo-only / headless-first (the physics is validated headless; the render is for *seeing* it). Use the existing rendering stack (`WAVE_MENU` charge + energy channels, the E/B glyphs); see [`4b_rendering_features.md`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/4b_rendering_features.md). A short `4b` as-built note when it lands.
+The **annihilation dynamic demo** lives here (not in the M5-demos umbrella): render the **capture → breather → vacuum** evolution of a ± pair on screen, with the charge ledger (Q: ±1 → 0) and the energy ledger (pair rest energy released as outgoing waves) shown live. Demo-only / headless-first (the physics is validated headless; the render is for *seeing* it). Use the existing rendering stack (`WAVE_MENU` charge + energy channels, the E/B glyphs); see [`m5.4b_rendering_features.md`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/4b_rendering_features.md). A short `4b` as-built note when it lands.
 
 
 ---

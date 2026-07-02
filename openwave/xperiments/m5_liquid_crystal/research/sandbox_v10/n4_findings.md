@@ -2,8 +2,8 @@
 
 > **LOCAL / HELD.** N4 (the theta13 crux + CP sector) of the neutrino N-program, OpenWave issue
 > [#236](https://github.com/openwave-labs/openwave/issues/236). All GitHub #236 posting HELD until the whole
-> N-program finishes (per [`../10a_neutrino_oscillations.md`](../10a_neutrino_oscillations.md) § "N1 + N2 foundation scope"). Local record. Builds
-> on N3: [`n3_findings.md`](n3_findings.md). Master plan: [`../10a_neutrino_oscillations.md`](../10a_neutrino_oscillations.md).
+> N-program finishes (per [`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) § "N1 + N2 foundation scope"). Local record. Builds
+> on N3: [`n3_findings.md`](n3_findings.md). Master plan: [`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md).
 > Convention index-0 ([`../_convention_refactor/CONVENTION.md`](../_convention_refactor/CONVENTION.md)).
 
 ## Headline , the PMNS gate is FULLY CLOSED (3 of 4 parameters PREDICTED)
@@ -115,6 +115,6 @@ support it; a CP-conserving value (180) would disfavour it.
 ## Cross-refs
 
 [`n3_findings.md`](n3_findings.md) (the TBM gate + the theta13 fit this reframes) ·
-[`../10a_neutrino_oscillations.md`](../10a_neutrino_oscillations.md) (N* plan) ·
+[`../10a_neutrino_oscillations.md`](../tasks/m5.10a_neutrino_oscillations.md) (N* plan) ·
 [#199](https://github.com/openwave-labs/openwave/issues/199) (the delta_CP=180 group prediction this revisits) ·
 [#236](https://github.com/openwave-labs/openwave/issues/236) (HELD).
