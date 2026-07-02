@@ -78,3 +78,7 @@ Flow: open an issue or discussion → fork → branch → PR with a DCO sign-off
 (`git commit -s`), under Apache 2.0. See [`../../../CONTRIBUTING.md`](../../../CONTRIBUTING.md)
 and [`../../../MODELS.md`](../../../MODELS.md). Model discussion runs in the
 Models-of-Particles group.
+
+## Rich Context for Deep Reader
+
+This is a top level documentation and orientation content. For additional context on this model, a detailed read in the /theory and /research folders is recommended, as well as the production files in this model root folder, that may contain the canonical full PDE implementation of the theory.

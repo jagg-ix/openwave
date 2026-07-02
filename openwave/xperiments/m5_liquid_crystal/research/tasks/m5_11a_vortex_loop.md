@@ -92,7 +92,7 @@ show collapse.
 | Skyrme-like curvature `‖[∂M,∂M]‖²` + Higgs `V` | the STATIC stabilizer (Derrick-evading) + core regularization. Gives the regularized hedgehog/loop and its rest mass. |
 | the de Broglie CLOCK (Zitterbewegung) | an ADDITIONAL dynamical energy-LOWERING (Duda: "oscillation reduces energy; the minima are the preferred frequencies"). Our M5.8 result (the `(0,α)` negative-energy boost fuel). It does NOT prevent collapse; it lowers the mass and gives the resting oscillation = neutrino flavour oscillation (loop-length change). |
 
-The earlier `dE/dL = +6.74 > 0` ([`n2_closed_loop.py`](../scripts/n2_closed_loop.py)) was a SEEDED, V-off,
+The earlier `dE/dL = +6.74 > 0` ([`m5_11_n2_closed_loop.py`](../scripts/m5_11_n2_closed_loop.py)) was a SEEDED, V-off,
 unrelaxed loop , exactly the regime where Derrick bites. With the full Skyrme + Higgs functional and energy
 minimization, a stationary loop should exist. M5.11 demonstrates it.
 
@@ -164,7 +164,7 @@ rebuilds trust; asking up front would not.
 | --- | --- |
 | This plan | `m5_11a_vortex_loop.md` |
 | Findings (filled per phase, mirrors `10e`) | [`m5_11b_findings.md`](m5_11b_findings.md) |
-| Code (one script per phase) + checkpoints | `sandbox_v11/` (`v11_p0_minimizer`, `v11_p1_faber_electron`, `v11_p2_loop`, `v11_p3_stability_clock`, `v11_p4_mass`, `v11_p5_params`, `v11_p6_mixing`) |
+| Code (one script per phase) + checkpoints | `sandbox_v11/` (`m5_11_p0_minimizer`, `m5_11_p1_faber_electron`, `m5_11_p2_loop`, `m5_11_p3_stability_clock`, `m5_11_p4_mass`, `m5_11_p5_params`, `m5_11_p6_mixing`) |
 | Figures | the regularized core, the Faber 511 keV field-energy curve, the stationary loop, the stability evolution, the mass family, the re-derived mixing |
 
 ## 8. Theory sources reviewed (2026-06-22)

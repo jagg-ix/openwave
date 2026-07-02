@@ -1,6 +1,6 @@
 # N4b checkpoint 16 , item 6 (chiral origin) + item 4 (two delta scales) , N4b COMPLETE
 
-## item 6 , origin + natural scale of g_chiral (`n4b_chiral_origin.py`)
+## item 6 , origin + natural scale of g_chiral (`m5_11_n4b_chiral_origin.py`)
 
 | g_chiral | delta_CP | theta13 | |C| (geometric) | E(+chi)-E(-chi) |
 | --- | --- | --- | --- | --- |

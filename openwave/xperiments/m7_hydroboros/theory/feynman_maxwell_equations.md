@@ -70,15 +70,15 @@ gravitation:    F = −G m m' / r²  ê_r
 
 | M7 piece | What Feynman Ch 18 anchors | Plan ref |
 | --- | --- | --- |
-| **EM waves (Maxwell) cell** | the four equations are exactly what M7.2 must reproduce on the lattice (the MODELS.md "EM waves (Maxwell)" criterion) | [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md) § 6 M7.2, § 7 |
-| **Fleury's charge `= ∇·E`** | Gauss's law I: charge is literally the divergence of `E`. Fleury's "geometric charge" and the variable-λ Beltrami divergence are this same `∇·E` | § 0 (Trkalian/variable-λ), § 1 |
-| **The self-sustaining toroidal circulation** | the II ↔ IV interlock (`E` feeds `B` feeds `E`) is the engine of the rotating/Beltrami vortex , the "snake eating its tail" at the field level | § 0 thesis |
-| **`c` is not put in by hand** | M7's substrate is fundamentally Maxwell, so `c` and the wave structure must emerge, not be imposed; the Faraday constraint `ω = 2c/R₀` (Fleury) is the toroidal eigenvalue of exactly this system | § 1 (Faraday row), § 5 |
-| **A-primary check** | Feynman's `E, B` are the fields; under M7's A-primary ontology these are `F = dA`, and I-IV are the consistency the potential `A` must satisfy | § 4 (A-primary) |
+| **EM waves (Maxwell) cell** | the four equations are exactly what M7.2 must reproduce on the lattice (the MODELS.md "EM waves (Maxwell)" criterion) | [roadmap](../research/m7_roadmap.md) M7.2 (+ Phase D cell map) |
+| **Fleury's charge `= ∇·E`** | Gauss's law I: charge is literally the divergence of `E`. Fleury's "geometric charge" and the variable-λ Beltrami divergence are this same `∇·E` | [`m7_background.md § 2`](../research/m7_background.md) (Trkalian/variable-λ) · § 3 (Fleury) |
+| **The self-sustaining toroidal circulation** | the II ↔ IV interlock (`E` feeds `B` feeds `E`) is the engine of the rotating/Beltrami vortex , the "snake eating its tail" at the field level | [`m7_background.md § 2`](../research/m7_background.md) (thesis) |
+| **`c` is not put in by hand** | M7's substrate is fundamentally Maxwell, so `c` and the wave structure must emerge, not be imposed; the Faraday constraint `ω = 2c/R₀` (Fleury) is the toroidal eigenvalue of exactly this system | [`m7_background.md § 3`](../research/m7_background.md) (Faraday row) · § 5 (dynamics) |
+| **A-primary check** | Feynman's `E, B` are the fields; under M7's A-primary ontology these are `F = dA`, and I-IV are the consistency the potential `A` must satisfy | [`m7_1_infra.md`](../research/tasks/m7_1_infra.md) (A-primary) · [tracker](../research/m7_question_tracker.md) Q1 |
 
 ## Cross-references
 
-- Implementation plan: [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md)
+- Roadmap + background: [`../research/m7_roadmap.md`](../research/m7_roadmap.md), [`../research/m7_background.md`](../research/m7_background.md)
 - Companion theory: [arXiv:2510.22384](https://arxiv.org/abs/2510.22384) (Fleury's toroidal Maxwell solution),
   [`ceperley_rotating_waves.md`](ceperley_rotating_waves.md) (rotating-wave EM),
   [`sato_yamada_beltrami.md`](sato_yamada_beltrami.md) (Beltrami / force-free fields)

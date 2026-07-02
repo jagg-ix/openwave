@@ -33,4 +33,4 @@ If the chiral term gives delta_CP but theta13 still needs the separate mu-tau as
 reportable result (theta13 and delta_CP have related-but-distinct chiral origins). Either way N4 adds the
 CP sector the scorecard was missing. NuFIT 6.0 NO target: theta13=8.56, delta_CP=212.
 
-## File: n4_chiral.py (sandbox_v10). Convention index-0. Headless f64, 16-core. LOCAL (#236 HELD).
+## File: m5_11_n4_chiral.py (sandbox_v10). Convention index-0. Headless f64, 16-core. LOCAL (#236 HELD).

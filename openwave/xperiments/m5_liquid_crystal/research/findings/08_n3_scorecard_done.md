@@ -1,6 +1,6 @@
 # N3 checkpoint 08 , S4 scorecard + N3 COMPLETE
 
-`n3_scorecard.py` (summary `n3_scorecard.json`, figure `n3_summary.png`). N3 is complete.
+`m5_11_n3_scorecard.py` (summary `m5_11_n3_scorecard.json`, figure `m5_11_n3_summary.png`). N3 is complete.
 
 ## Scorecard vs NuFIT 6.0 (NO)
 
@@ -31,5 +31,5 @@ mass spectrum ratios at the gate: 1.00 : 1.15 : 1.68.
 - resume ping: never armed (Rodrigo: 11pm reset = cap release, not deadline; one completion ping) ✅
 
 ## The 7 N3 scripts (sandbox_v10)
-n3_derisk.py (scaffold) -> n3_mass_matrix.py (loop->matrix) -> n3_search.py (TBM gate) ->
-n3_theta13.py (crux) -> n3_scorecard.py (NuFIT + figure). All headless numpy f64, 16-core where parallel.
+m5_11_n3_derisk.py (scaffold) -> m5_11_n3_mass_matrix.py (loop->matrix) -> m5_11_n3_search.py (TBM gate) ->
+m5_11_n3_theta13.py (crux) -> m5_11_n3_scorecard.py (NuFIT + figure). All headless numpy f64, 16-core where parallel.

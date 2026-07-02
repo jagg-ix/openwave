@@ -27,7 +27,7 @@
 | Source | Substrate | How it is solved today | Charge origin | Role in M7 |
 | --- | --- | --- | --- | --- |
 | **Fleury** (hydrodynamics school), [arXiv:2510.22384](https://arxiv.org/abs/2510.22384) | EM field `E, B` confined to a torus | closed-form **analytic** ansatz + Heaviside mask | `ρ = ∇·E` (geometric / divergence charge) | physics parent; limit: mask unphysical at boundary, energy `0.795 m_e c²`, **no dynamics/PDE** |
-| **Werbos Ouroboros** (M6), [`0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) | **double vector field** `(A_μ, J_μ)` | **reduced 1D ODE / BVP** (cylindrical `(α,β)`; spherical `l=1`) | `Q_CS` = Chern-Simons **linking** number | physics parent; limit: never a full **3D** field, electron only a radial profile (`H/Q = 1.6969`) |
+| **Werbos Ouroboros** (M6), [`0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) | **double vector field** `(A_μ, J_μ)`, **time-periodic** (`cos ωt / sin ωt` pair) | **reduced 1D ODE / BVP** (cylindrical `(α,β)`; spherical `l=1`) | `Q_CS` = Chern-Simons **linking** number | physics parent; limit: never a full **3D** field, electron only a radial profile (`H/Q` ledger in § 4) |
 
 The honest gap the two physics parents share: **neither has ever been evolved as a full 3D nonlinear
 PDE on a lattice.** Fleury is analytic; M6 is a 1D radial reduction. That is exactly the gap M5.11
@@ -94,6 +94,24 @@ hard part ("the math gets very hairy"), so the Trkalian start is the foothold. T
 onto the tasks: M7.1-M7.3 stay in the charge-free Trkalian/neutral regime, and **M7.4 takes off the
 training wheels , the constant-λ → variable-λ transition where the charge `∇·F` first appears** (the [roadmap](m7_roadmap.md), task M7.4).
 Marc may bring in the **Spanish Beltrami school** (Enciso & Peralta-Salas, [M7.0 corpus](tasks/m7_0_bootstrap.md) #6) as collaborators.
+
+### What the Beltrami mathematics allows (corpus review, 2026-07-02)
+
+The corpus pins four hard boundaries on the variable-λ program; M7.4 is designed around them
+(see the reframe in [`tasks/m7_4_charged_soliton.md`](tasks/m7_4_charged_soliton.md)):
+
+| Fact | Statement | Consequence for M7 |
+| --- | --- | --- |
+| **Divergence identity** | `∇·w = −(w·∇λ)/λ` (take `∇·` of `∇×w = λw`) | charge lives exactly where λ varies **along** field lines; solenoidal fields force `w·∇λ = 0` (λ constant on field lines) |
+| **Rigidity** (Clelland & Klotz 2020, ARMA; Enciso-Peralta-Salas; cited in the Enciso 2023 survey, corpus) | nonconstant-λ Beltrami fields face many obstructions, **even locally**; arbitrary `λ(x)` profiles admit no solution | do NOT hunt an exact charged variable-λ Beltrami ansatz; relax the full functional and **measure** the deviation |
+| **Perturbative existence** (Kaiser-Neudert-von Wahl 2000, corpus) | variable-α force-free fields exist for **small** α, near vacuum fields, in exterior domains | small-charge regime is mathematically safe ground; large-charge knots are terra incognita, exactly M7.4's honest experiment |
+| **No finite-energy Beltrami** (Nadirashvili; Enciso 2023 survey Rmk 3.2, corpus) | no Beltrami field in ℝ³ has finite `L²` norm, even variable-λ | the pure-Maxwell Beltrami electron is **impossible**; the Ouroboros confinement term is **forced** (§ 5b), the sharp form of the HydroBoros thesis |
+
+The flexible sector is **constant-λ**: Enciso & Peralta-Salas (Ann. Math. 2012, corpus #6) realize
+**arbitrary knots and links** as vortex tubes of Trkalian fields. So the Trkalian sector is rich
+enough to seed every topology M7 needs, and the charge enters as the **measured** `∇·F` deviation
+the Ouroboros coupling drives, not as an imposed exact ansatz. The diagnostic field
+`λ_eff(x) = F·(∇×F)/\|F\|²` (local alignment eigenvalue) replaces the "find λ(x)" hunt.
 
 **Pisello's precedent (via Álvaro García López, Models-of-Particles thread, 2026-06-30).** Daniel
 Pisello's 1979 book *Gravitation, Electromagnetism and Quantised Charge* ([M7.0 corpus](tasks/m7_0_bootstrap.md) #16) builds a **toroidal
@@ -173,36 +191,99 @@ L = −¼ F_μν F^μν − ¼ G_μν G^μν + m_J² A_μ J^μ − f(J_μ J^μ)
 ```
 
 In the linear limit (`J→0`) the A-field reproduces Maxwell exactly; the nonlinear `m_J² A·J −
-f(J·J)` coupling produces localized time-periodic solitons ("chaoitons"). The electron benchmark is
-`H/Q = 1.6969` (within 0.56% of `1.6875`), spin lock-in `2L/Q = 2ω`, charge from the Chern-Simons
-linking number `Q_CS = 1`. **All of this exists today only as a 1D radial reduction** (the `(α,β)`
-cylindrical ODE for the charged sector; an `l=1` spherical BVP for the neutral sector). M7 carries
-the same Lagrangian, `m_J`, `g`, and the `H/Q` benchmark into a full 3D lattice.
+f(J·J)` coupling produces localized time-periodic solitons ("chaoitons"), spin lock-in `2L/Q = 2ω`,
+charge from the Chern-Simons linking number `Q_CS = 1`. **All of this exists today only as a 1D
+radial reduction** (the `(α,β)` cylindrical ODE for the charged sector; an `l=1` spherical BVP for
+the neutral sector). M7 carries the same Lagrangian, `m_J`, `g`, and the `H/Q` benchmark into a full
+3D lattice.
+
+**The `H/Q` calibration ledger (pinned 2026-07-02, drives the M7.3 gate).** Three numbers circulate
+and must not be conflated:
+
+| Calibration | `g` | `H/Q` | Source |
+| --- | --- | --- | --- |
+| **M6 canonical (M7.3 primary target)** | 1.0 | **1.6890** | [`0d_canonical.md § 2.5`](../../m6_ouroboros/research/0d_canonical.md) (repo-validated 1D BVP) |
+| Werbos v5 canonical point | 1.0625 | 1.6969 | *Evaluating Universe Model Alternatives v5* (corpus #10, June 2026) |
+| physical target | , | 1.6875 | v5 (`≈ 27/16`) |
+
+M7.3 compares **like with like**: the 3D lattice vs the M6 1D BVP at the **same** `(g, ω, f)`; the
+Werbos-v5 calibration is tracked secondary until the dictionary question (Q9) resolves. Werbos v5
+also adds new structure M7 adopts as targets: the **`(Ω, G)` bifurcation islands** (electron
+`Ω = 1.050` stable `k > 0`; muon `Ω = 0.914` **resonant/metastable** `k < 0`, a falsifiable
+stable-vs-resonant distinction for M7.12), the **`β*` vacuum-stability threshold** (an M7.5 probe),
+and the 319-family parameter scan (Zenodo 20866581). The `(Ω, G) ↔ (ω, g, m_J)` map is **Q9**.
+
+**Structural note (an explicit M7.4 design item).** The two parents' electrons are *different field
+configurations*: Fleury's torus lives in the `A`-sector with `B = ∇×A ≠ 0`; M6's chaoiton has
+`A⃗ = 0` (so `B = 0`), the oscillation living in `A₀` and the azimuthal `J`. On M6's own ansatz the
+coupling `m_J² A_μJ^μ` even vanishes pointwise (it acts through the EOM/derivative structure). The
+blended HydroBoros electron presumably activates both sectors; which components carry the torus and
+which the confinement is a design decision M7.4 must make explicitly, protected by the M7.3
+verbatim-ODE gate (§ 5a).
 
 ---
 
 ## 5. The dynamics (what makes it rigorous, not analytic)
 
-The energy functional blends three pieces, mirroring M5.11's `Skyrme curvature + LdG Higgs`:
+> **Reworked 2026-07-02** after the full theory review (Fleury FLDB, Werbos v5, M6 `0d_canonical.md`,
+> Woltjer 1958, Enciso 2023, Kaiser 2000, Sutcliffe, M5.11). Two corrections vs the earlier draft:
+> the frame is **time-harmonic** (there is no static electron in this model), and the stabilizer is
+> **helicity + confinement**, not the drafted Faddeev-Niemi term (which is inert on Beltrami fields).
 
-```text
-E[A,J] =  ∫ ½ (|E|² + c²|B|²)              Maxwell / fluid kinetic       (Fleury)
-        + κ ∫ |F × (∇×F)|² / |F|²          Faddeev-Niemi 4th-order       (Derrick-evading stabilizer)
-        + ∫ [ m_J² A·J − f(J·J) ]          Ouroboros self-confinement    (Werbos)
-```
+### 5a. The frame is time-harmonic (no static electron exists in this model)
 
-**Derrick scaling** under `x → λx` (the M5.11 argument, reused): kinetic `~ λ`, 4th-order `~ λ⁻¹`,
-potential `~ λ³`. So `E(λ)` has an interior minimum: the 4th-order term provides the outward
-pressure that balances collapse. **Static, finite-size, stable toroidal solitons are therefore
-allowed**, the same Derrick-evasion that makes Faber's electron exist in M5.11.
+Both parents are time-periodic: Fleury's torus is a rotating wave `e^{i(φ−ωt)}` (phase velocity `2c`)
+and M6's chaoiton oscillates as the pair `A₀ = α(r)cos(ωt)`, `J = β(r)sin(ωt) φ̂`. A static relaxation
+(the M5.11 frame, correct for Faber's static hedgehog) targets an object that does not exist here. M7
+therefore builds the **time-harmonic reduced energy functional** from the start: every field component
+carries one global frequency ω through a `(cos ωt, sin ωt)` component pair; the reduced functional
+`E_ω[fields]` is the period-averaged energy; the soliton is the **minimizer of `E_ω` at fixed ω**
+(then sweep ω for the spectrum, M6's lepton scan generalized to 3D). The de Broglie clock is thereby
+IN the soliton from M7.1; M7.5 validates the reduction in real time rather than adding a clock later.
 
-Solve it two ways, exactly as M5.11 does:
+The exact reduction (component bookkeeping, constraint structure) is an M7.1 deliverable, gated at
+M7.3 by the **verbatim-ODE check**: restricted to M6's ansatz, the 3D functional must reproduce the
+M6 `(α,β)` ODE exactly, term by term (including the `2ωα` chiral cross-term). M6's
+[`0d_canonical.md § 6`](../../m6_ouroboros/research/0d_canonical.md) (ten sandbox versions of subtle
+reduction failures: signs, regularity classes, Laplacians, measures) is the cautionary record. The
+Lagrangian itself is M6's, unchanged (§ 4).
+
+### 5b. Stabilization: helicity + confinement (the Faddeev-Niemi term is out)
+
+The earlier draft added `κ ∫ \|F×(∇×F)\|²/\|F\|²` as the Derrick-evading stabilizer. The theory review
+kills it: the term **vanishes identically on every Beltrami configuration** (`∇×F ∥ F` makes the cross
+product zero, for constant AND variable λ, and rescaled Beltrami fields remain Beltrami), so along
+exactly the family M7 targets it provides zero outward pressure; it is also singular wherever
+`\|F\| → 0` (knot cores, far field). The stabilization structure that survives the corpus:
+
+| Direction | Guard | Source |
+| --- | --- | --- |
+| collapse (`μ → 0`) | **helicity**: at fixed `H = ∫A·B`, magnetic energy obeys `E_B ~ H/μ` (Arnold's bound `E ≥ λ₁\|H\|`, `λ₁ ~ 1/size`), diverging under shrinkage | Arnold / Moffatt; Woltjer frame |
+| expansion (`μ → ∞`) | **Ouroboros confinement** `m_J² A·J − f(J·J)`, scaling `~ μ³`; free Maxwell knots expand (Rañada's ball-lightning problem; M5.11's P2 measured smooth knots expanding) | Werbos (M6); M5.11 P2 |
+| existence | **Nadirashvili's theorem**: no finite-`L²` Beltrami field exists in ℝ³, even variable-λ (Enciso 2023 survey, Remark 3.2, corpus) , a finite-energy pure-Maxwell Beltrami electron is **impossible**, so the confinement term is mathematically **forced**, not decorative | Enciso 2023 (corpus) |
+
+The last row is the HydroBoros thesis with a theorem behind it: the Fleury-Werbos blend is not a
+design choice, it is what existence requires. Caveat kept honest: the confinement term's net sign on
+the soliton (it is not positive-definite) is established empirically by M6's stable 1D solutions;
+the 3D balance is exactly what M7.3/M7.4 test. A 4th-order term remains available as an optional
+M7.4 experiment (Q2), **off by default**.
+
+### 5c. Solve methods
 
 | Method | Use |
 | --- | --- |
-| **Reverse-mode Taichi AD** for `δE/δ(A,J)`, validated against a numpy finite-difference gradient to `~1e-13` **before trusting any run** | the gradient for relaxation |
-| **FIRE / L-BFGS** relaxation to `‖∇E‖ → 0` | the static soliton (M7.2-M7.4, M7.6, and the Phase B-C coverage tasks) |
-| **Minkowski leapfrog** (constrained integrator, `∇·B = 0`) | the clock + real-time dynamics (M7.5 stability, M7.11 annihilation) |
+| **Fixed-ω minimization** of the harmonic functional (FIRE / L-BFGS) with **fixed-helicity relaxation** (project or penalize `dH` during descent) | the soliton (M7.2-M7.4, M7.6, Phase B-C) |
+| **Reverse-mode Taichi AD** for `δE_ω/δ(fields)`, validated against a numpy finite-difference gradient to `~1e-12` **before trusting any run** | the gradient for relaxation |
+| **Woltjer-Taylor known-answer**: fixed-helicity relaxation of `∫\|B\|²` on the periodic box must converge to the constant-λ curl eigenfield (ABC flow), `λ → 2π/L` and `E → λH` to grid accuracy | the M7.1 machinery gate (theorem-anchored) |
+| **Minkowski leapfrog** (constrained integrator) | M7.5 real-time validation of the harmonic reduction + stability; M7.11 annihilation |
+
+### 5d. Boundary conditions, gauge, units (M7.1 design decisions)
+
+| Decision | Resolution |
+| --- | --- |
+| **BCs for charged sectors** | a net charge on a periodic lattice is Gauss-inconsistent (total boundary flux 0 ≠ `Q/ε₀`): charged configs use **vacuum-fixed boundaries** (Faber & Golubich's and Sutcliffe's practice); periodic boxes remain for neutral / net-zero configs (the M7.6 two-charge dipole is net-neutral) |
+| **Gauge handling** | gauge orbits of `A` are flat directions of the minimizer, and `m_J² A·J` is gauge-sensitive off-shell; the concrete scheme (Coulomb gauge on `a⃗` + kept `a₀`, vs projection, vs penalty) is **Q8**, decided at M7.1 |
+| **Units contract** | M6's natural units adopted wholesale (`c = 1`, electron `ω = 1`, `m_e` anchor; conversion table in [`0d_canonical.md § 5`](../../m6_ouroboros/research/0d_canonical.md)); Fleury's targets are all dimensionless ratios (`E₀/E_S`, `R₀/r_c`, `U/m_ec²`, `ω/ω_D`), so M7.2 works in `r_c = 1` units and compares ratios directly |
 
 ---
 
@@ -214,7 +295,7 @@ Solve it two ways, exactly as M5.11 does:
   [`../theory/sato_yamada_beltrami.md`](../theory/sato_yamada_beltrami.md) ([arXiv:1809.03136](https://arxiv.org/abs/1809.03136)) ·
   [`../theory/ceperley_rotating_waves.md`](../theory/ceperley_rotating_waves.md) (Ceperley rotating-wave equations; [AJP DOI 10.1119/1.17020](https://doi.org/10.1119/1.17020) / [IEEE DOI 10.1109/22.216476](https://doi.org/10.1109/22.216476)) ·
   [`../theory/feynman_maxwell_equations.md`](../theory/feynman_maxwell_equations.md) (Feynman Lectures II Ch 18, the Maxwell baseline for M7.2)
-- Source corpus (the consolidated library, 52 PDFs + 1 docx): [`../theory/electron_beltrami/`](../theory/electron_beltrami/) , manifest [`../theory/SOURCES.md`](../theory/SOURCES.md) (Beltrami / force-free / knotted-EM / ball-lightning / LENR / Pisello-Faber canon, the M7.0 corpus)
+- Source corpus (the evolving M7 library, 64 docs): [`../theory/electron_beltrami/`](../theory/electron_beltrami/) , manifest [`../theory/SOURCES.md`](../theory/SOURCES.md) (Beltrami / force-free / knotted-EM / ball-lightning / LENR / Pisello-Faber canon, the M7.0 corpus)
 - Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/tasks/m5_11a_vortex_loop.md) (M5.11 vortex-loop)
 - Wave-physics library to mine (§ 0, not parents): [`m1_granule_motion`](../../m1_granule_motion/) · [`m2_free_wave`](../../m2_free_wave/) · [`m3_wolff_lafreniere`](../../m3_wolff_lafreniere/) · [`m4_ewt`](../../m4_ewt/)
 - Ouroboros canonical spec: [`../../m6_ouroboros/research/0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) ·

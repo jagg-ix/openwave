@@ -39,7 +39,7 @@ free coupling (the chiral strength).**
 The exact-TBM predictions match data at the ~1-2 deg level (the standard TBM-vs-data gap); `delta_CP = 270` is
 the maximal-CP-violation benchmark the next-generation experiments (DUNE, Hyper-K) are converging toward.
 
-![PMNS scorecard: theta13 rising to 8.56 deg with delta_CP pinned at 270 (maximal); the delta_CP sign = loop handedness map; and the four-angle comparison vs NuFIT 6.0 (NO)](../plots/n4_final_scorecard.png)
+![PMNS scorecard: theta13 rising to 8.56 deg with delta_CP pinned at 270 (maximal); the delta_CP sign = loop handedness map; and the four-angle comparison vs NuFIT 6.0 (NO)](../plots/m5_11_n4_final_scorecard.png)
 
 > **All artifacts in one place , browse the complete [`sandbox_v10/` research folder](../scripts)**: every
 > script, summary JSON, figure, and the [`checkpoints/`](../findings) progress log (00-16). The
@@ -65,13 +65,13 @@ the physics requires.
 
 ### N0: the engine <-> port equivalence (the LC connection is verified, not transcribed)
 
-`n0_engine_equivalence.py`: seeds a biaxial hedgehog at the engine's toy scales (g=8, delta=0.30) and compares
+`m5_11_n0_engine_equivalence.py`: seeds a biaxial hedgehog at the engine's toy scales (g=8, delta=0.30) and compares
 the live engine kernel `compute_energyH_density_M` to the standalone numpy port. **Test A (fidelity):**
 engine `5.41607e-6` vs port `5.41626e-6`, rel diff **3.4e-5** (f32 rounding) -> the port reproduces the engine.
 **Test B (convention):** index-3 (engine) vs index-0 (Duda) signed curvature + LdG potential agree
 **bit-identical** (rel 0.0) -> the two orderings are the same physics (a relabel). Artifact:
-[`sandbox_v10/n0_engine_equivalence.py`](../scripts/n0_engine_equivalence.py),
-[`_summary`](../data/n0_engine_equivalence_summary.json).
+[`sandbox_v10/m5_11_n0_engine_equivalence.py`](../scripts/m5_11_n0_engine_equivalence.py),
+[`_summary`](../data/m5_11_n0_engine_equivalence_summary.json).
 
 ### N1: the precision-safe numerical method
 
@@ -91,10 +91,10 @@ breaking coefficient `E_1` computed naive-f64 vs graded-perturbative vs a 50-dig
 
 The `delta`-graded orders `E_0 : E_1 : E_2 = 3.16e39 : 2.99e29 : 3.78e20` (each ~g apart); the breaking's energy
 signal `delta_phys*|E_1| = 2.99e19` sits below the ULP of `E_0` (`6.04e23`), so naive derivatives underflow to
-0. Artifact: [`sandbox_v10/n1_precision_method.py`](../scripts/n1_precision_method.py),
-[`_summary`](../data/n1_precision_method_summary.json).
+0. Artifact: [`sandbox_v10/m5_11_n1_precision_method.py`](../scripts/m5_11_n1_precision_method.py),
+[`_summary`](../data/m5_11_n1_precision_method_summary.json).
 
-![N1: the naive finite-difference theta13 (SO(3)-breaking) coefficient collapses toward 0 as delta approaches the physical scale, while the graded perturbative method holds machine precision; right: the delta-graded energy orders E0:E1:E2, each a factor ~g apart](../plots/n1_precision_method.png)
+![N1: the naive finite-difference theta13 (SO(3)-breaking) coefficient collapses toward 0 as delta approaches the physical scale, while the graded perturbative method holds machine precision; right: the delta-graded energy orders E0:E1:E2, each a factor ~g apart](../plots/m5_11_n1_precision_method.png)
 
 ### N2: the closed-loop seeder + the observable pipeline
 
@@ -103,19 +103,19 @@ blending to the background far out. The signed energy over R gives a clean **lin
 (the bare loop has a collapse force; stabilization = a twist/dressing/balancing, the honest open engineering).
 The PDG angle extraction on the tribimaximal matrix reproduces the [#199](https://github.com/openwave-labs/openwave/issues/199)
 symmetric limit exactly (`theta_12 = 35.264`, `theta_23 = 45.000`, `theta_13 = 0.000`) and exposes the
-`delta -> theta_13` channel. Artifact: [`sandbox_v10/n2_closed_loop.py`](../scripts/n2_closed_loop.py),
-[`_summary`](../data/n2_closed_loop_summary.json).
+`delta -> theta_13` channel. Artifact: [`sandbox_v10/m5_11_n2_closed_loop.py`](../scripts/m5_11_n2_closed_loop.py),
+[`_summary`](../data/m5_11_n2_closed_loop_summary.json).
 
-![N2: the closed disclination-loop signed energy vs loop length (positive line tension dE/dL = +6.74, the bare loop shrinks); right: the delta -> theta13 channel exposed by the observable pipeline](../plots/n2_closed_loop.png)
+![N2: the closed disclination-loop signed energy vs loop length (positive line tension dE/dL = +6.74, the bare loop shrinks); right: the delta -> theta13 channel exposed by the observable pipeline](../plots/m5_11_n2_closed_loop.png)
 
 ### N3: the parameter search + the TBM gate + the `theta_13` crux
 
-**De-risk scaffold** (`n3_derisk.py`, verified on known matrices before any loop physics): the bridge
+**De-risk scaffold** (`m5_11_n3_derisk.py`, verified on known matrices before any loop physics): the bridge
 round-trips TBM (err 2.84e-14); a Z3 "democratic" matrix gives `sin^2 theta_12 = 1/3` exactly but a degenerate
 doublet; **every magic (equal row sums) + mu-tau (2<->3) matrix diagonalizes to EXACT TBM** (worst 8.7e-13) ,
 TBM is the SYMMETRY, not a tuning; breaking either turns on `theta_13` linearly.
 
-**The TBM gate** (`n3_search.py`): the e-loop on the axis with `mu`/`tau` a mirror pair makes the mass matrix
+**The TBM gate** (`m5_11_n3_search.py`): the e-loop on the axis with `mu`/`tau` a mirror pair makes the mass matrix
 mu-tau-symmetric by construction (so `theta_23 = 45`, `theta_13 = 0`); the MAGIC condition `(x+y) = (z+w)` is a
 single scalar crossed as the tilt `alpha` varies, and `theta_12 -> 35.26` (trimaximal) AT the crossing.
 
@@ -126,15 +126,15 @@ single scalar crossed as the tilt `alpha` varies, and `theta_12 -> 35.26` (trima
 | robustness | magic crossing + gate PASS in **81/81** geometries (n, R, core, kappa scanned); err median 0.0000, max 0.0081 deg |
 | mass spectrum | eigenvalues [1691, 1941, 2845] = **1 : 1.15 : 1.68** |
 
-**The `theta_13` crux** (`n3_theta13.py`): a mu-tau-SYMMETRIC `delta`-biaxiality gives `theta_13 = 0` EXACTLY
+**The `theta_13` crux** (`m5_11_n3_theta13.py`): a mu-tau-SYMMETRIC `delta`-biaxiality gives `theta_13 = 0` EXACTLY
 for any `delta` (max 8.4e-14 deg). `theta_13` turns on only with an explicit mu-tau ASYMMETRY, bilinear
 `theta_13 ~ G delta eps` (G ~ 126 deg); resonance is ruled out (reaching 8.5 deg from `delta=1e-10` needs
 gap/spectrum ~ 1e-9). So the "small `delta` sources `theta_13`" hypothesis is too simple as stated. Artifacts:
-[`n3_derisk.py`](../scripts/n3_derisk.py), [`n3_mass_matrix.py`](../scripts/n3_mass_matrix.py),
-[`n3_search.py`](../scripts/n3_search.py), [`n3_theta13.py`](../scripts/n3_theta13.py),
-[`n3_scorecard.py`](../scripts/n3_scorecard.py) (+ summaries).
+[`m5_11_n3_derisk.py`](../scripts/m5_11_n3_derisk.py), [`m5_11_n3_mass_matrix.py`](../scripts/m5_11_n3_mass_matrix.py),
+[`m5_11_n3_search.py`](../scripts/m5_11_n3_search.py), [`m5_11_n3_theta13.py`](../scripts/m5_11_n3_theta13.py),
+[`m5_11_n3_scorecard.py`](../scripts/m5_11_n3_scorecard.py) (+ summaries).
 
-![N3: theta12 reaching the trimaximal 35.26 deg exactly at the magic crossing alpha* (the TBM gate); center: the theta13(delta, eps) map (theta13 needs both the biaxiality delta and a mu-tau asymmetry eps); right: the mass spectrum 1 : 1.15 : 1.68 at the gate](../plots/n3_summary.png)
+![N3: theta12 reaching the trimaximal 35.26 deg exactly at the magic crossing alpha* (the TBM gate); center: the theta13(delta, eps) map (theta13 needs both the biaxiality delta and a mu-tau asymmetry eps); right: the mass spectrum 1 : 1.15 : 1.68 at the gate](../plots/m5_11_n3_summary.png)
 
 ### N4: the CP sector (the chiral coupling) , `delta_CP` PREDICTED maximal
 
@@ -152,19 +152,19 @@ The loop field theory then **PREDICTS `delta_CP = +-90 deg` (MAXIMAL CP violatio
 symmetry** result (Harrison-Scott 2002: mu-tau reflection => `theta_23 = 45` AND `delta_CP = +-90`) realized
 from the loop geometry. `theta_13` and `delta_CP` share ONE origin (the loop handedness): `g_chiral -> 0`
 recovers N3 exactly. A topological origin for `theta_13` (a quantized self-linking integer) was tested in TWO
-forms (`n4_topo.py` local azimuth, `n4_linking.py` global azimuth) and FAILED (both break mu-tau) ->
-`theta_13` is continuous. Artifacts: [`n4_chiral.py`](../scripts/n4_chiral.py),
-[`n4_topo.py`](../scripts/n4_topo.py), [`n4_linking.py`](../scripts/n4_linking.py),
-[`n4_final_scorecard.py`](../scripts/n4_final_scorecard.py) (+ summaries; figure
-[`n4_final_scorecard.png`](../plots/n4_final_scorecard.png)).
+forms (`m5_11_n4_topo.py` local azimuth, `m5_11_n4_linking.py` global azimuth) and FAILED (both break mu-tau) ->
+`theta_13` is continuous. Artifacts: [`m5_11_n4_chiral.py`](../scripts/m5_11_n4_chiral.py),
+[`m5_11_n4_topo.py`](../scripts/m5_11_n4_topo.py), [`m5_11_n4_linking.py`](../scripts/m5_11_n4_linking.py),
+[`m5_11_n4_final_scorecard.py`](../scripts/m5_11_n4_final_scorecard.py) (+ summaries; figure
+[`m5_11_n4_final_scorecard.png`](../plots/m5_11_n4_final_scorecard.png)).
 
 ### N4b: the closeout (no loose ends for review)
 
 | item | finding | artifact |
 | --- | --- | --- |
-| LdG potential robustness | the mu-tau predictions (`theta_23`=45, `theta_13`=0, `delta_CP`=+-90) are ROBUST to ALL 27 LdG potentials `(a,b,c)`; the magic/`theta_12` point shifts but is recoverable by a 2nd geometric knob (`R_loop`=11 for a miss). The result is not tuned to a potential. | [`n4b_potential.py`](../scripts/n4b_potential.py) |
-| `theta_12`/`theta_23` residuals | `theta_12` is FREE (tune by tilt `alpha` to 33.68; `theta_23`+`delta_CP` stay exact); `theta_23 -> 43.3` costs ~14 deg of `delta_CP` (mu-tau breaking). Dichotomy: {exact TBM + maximal CP} vs {fit, non-maximal CP}, decided by DUNE/HK. | [`n4b_residual.py`](../scripts/n4b_residual.py) |
-| `g_chiral` origin + scale | CP REQUIRES `g_chiral != 0` (a chiral substrate term); `g_chiral=0` -> no CP (recovers #199); the overlap `\|C\| = 0.945` is GEOMETRIC; the achiral LdG is handedness-degenerate (`E(+chi)=E(-chi)`) so only the SIGN of `g_chiral` picks `delta_CP`'s sign; `theta_13 = 8.56` at `g_chiral* ~ 0.94 = O(1)` -> `theta_13 ~ O(10 deg)` NATURAL. | [`n4b_chiral_origin.py`](../scripts/n4b_chiral_origin.py) |
+| LdG potential robustness | the mu-tau predictions (`theta_23`=45, `theta_13`=0, `delta_CP`=+-90) are ROBUST to ALL 27 LdG potentials `(a,b,c)`; the magic/`theta_12` point shifts but is recoverable by a 2nd geometric knob (`R_loop`=11 for a miss). The result is not tuned to a potential. | [`m5_11_n4b_potential.py`](../scripts/m5_11_n4b_potential.py) |
+| `theta_12`/`theta_23` residuals | `theta_12` is FREE (tune by tilt `alpha` to 33.68; `theta_23`+`delta_CP` stay exact); `theta_23 -> 43.3` costs ~14 deg of `delta_CP` (mu-tau breaking). Dichotomy: {exact TBM + maximal CP} vs {fit, non-maximal CP}, decided by DUNE/HK. | [`m5_11_n4b_residual.py`](../scripts/m5_11_n4b_residual.py) |
+| `g_chiral` origin + scale | CP REQUIRES `g_chiral != 0` (a chiral substrate term); `g_chiral=0` -> no CP (recovers #199); the overlap `\|C\| = 0.945` is GEOMETRIC; the achiral LdG is handedness-degenerate (`E(+chi)=E(-chi)`) so only the SIGN of `g_chiral` picks `delta_CP`'s sign; `theta_13 = 8.56` at `g_chiral* ~ 0.94 = O(1)` -> `theta_13 ~ O(10 deg)` NATURAL. | [`m5_11_n4b_chiral_origin.py`](../scripts/m5_11_n4b_chiral_origin.py) |
 | the two `delta` scales | the TBM mixing is `delta`-INDEPENDENT (identical for `delta` = 1e-10 .. 0.3); Duda's quantum-phase `delta ~ 1e-10` plays NO role in the mixing; `theta_13`/`delta_CP` are chirality-driven. | inline (n4b_findings) |
 
 ## 3. Summary tables
@@ -213,12 +213,12 @@ forms (`n4_topo.py` local azimuth, `n4_linking.py` global azimuth) and FAILED (b
 
 | Round | Script(s) | Summary / figure | Findings doc |
 | --- | --- | --- | --- |
-| N0 | [`n0_engine_equivalence.py`](../scripts/n0_engine_equivalence.py) | [json](../data/n0_engine_equivalence_summary.json) | [n_foundation_findings.md](../findings/n_foundation_findings.md) |
-| N1 | [`n1_precision_method.py`](../scripts/n1_precision_method.py) | [json](../data/n1_precision_method_summary.json) · [png](../plots/n1_precision_method.png) | n_foundation_findings.md |
-| N2 | [`n2_closed_loop.py`](../scripts/n2_closed_loop.py) | [json](../data/n2_closed_loop_summary.json) · [png](../plots/n2_closed_loop.png) | n_foundation_findings.md |
-| N3 | [`n3_derisk`](../scripts/n3_derisk.py) · [`n3_mass_matrix`](../scripts/n3_mass_matrix.py) · [`n3_search`](../scripts/n3_search.py) · [`n3_theta13`](../scripts/n3_theta13.py) · [`n3_scorecard`](../scripts/n3_scorecard.py) | summaries + [n3_summary.png](../plots/n3_summary.png) | [n3_findings.md](../findings/n3_findings.md) |
-| N4 | [`n4_chiral`](../scripts/n4_chiral.py) · [`n4_topo`](../scripts/n4_topo.py) · [`n4_linking`](../scripts/n4_linking.py) · [`n4_final_scorecard`](../scripts/n4_final_scorecard.py) | summaries + [n4_final_scorecard.png](../plots/n4_final_scorecard.png) | [n4_findings.md](../findings/n4_findings.md) |
-| N4b | [`n4b_potential`](../scripts/n4b_potential.py) · [`n4b_residual`](../scripts/n4b_residual.py) · [`n4b_chiral_origin`](../scripts/n4b_chiral_origin.py) | summaries | [n4b_findings.md](../findings/n4b_findings.md) |
+| N0 | [`m5_11_n0_engine_equivalence.py`](../scripts/m5_11_n0_engine_equivalence.py) | [json](../data/m5_11_n0_engine_equivalence_summary.json) | [n_foundation_findings.md](../findings/n_foundation_findings.md) |
+| N1 | [`m5_11_n1_precision_method.py`](../scripts/m5_11_n1_precision_method.py) | [json](../data/m5_11_n1_precision_method_summary.json) · [png](../plots/m5_11_n1_precision_method.png) | n_foundation_findings.md |
+| N2 | [`m5_11_n2_closed_loop.py`](../scripts/m5_11_n2_closed_loop.py) | [json](../data/m5_11_n2_closed_loop_summary.json) · [png](../plots/m5_11_n2_closed_loop.png) | n_foundation_findings.md |
+| N3 | [`n3_derisk`](../scripts/m5_11_n3_derisk.py) · [`n3_mass_matrix`](../scripts/m5_11_n3_mass_matrix.py) · [`n3_search`](../scripts/m5_11_n3_search.py) · [`n3_theta13`](../scripts/m5_11_n3_theta13.py) · [`n3_scorecard`](../scripts/m5_11_n3_scorecard.py) | summaries + [m5_11_n3_summary.png](../plots/m5_11_n3_summary.png) | [n3_findings.md](../findings/n3_findings.md) |
+| N4 | [`n4_chiral`](../scripts/m5_11_n4_chiral.py) · [`n4_topo`](../scripts/m5_11_n4_topo.py) · [`n4_linking`](../scripts/m5_11_n4_linking.py) · [`n4_final_scorecard`](../scripts/m5_11_n4_final_scorecard.py) | summaries + [m5_11_n4_final_scorecard.png](../plots/m5_11_n4_final_scorecard.png) | [n4_findings.md](../findings/n4_findings.md) |
+| N4b | [`n4b_potential`](../scripts/m5_11_n4b_potential.py) · [`n4b_residual`](../scripts/m5_11_n4b_residual.py) · [`n4b_chiral_origin`](../scripts/m5_11_n4b_chiral_origin.py) | summaries | [n4b_findings.md](../findings/n4b_findings.md) |
 
 Progress log: [`sandbox_v10/checkpoints/`](../findings) (00-16). Master plan + Duda's verbatim
 replies + the N* sub-task wiring: [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md). Precursor

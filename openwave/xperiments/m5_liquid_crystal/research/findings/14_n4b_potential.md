@@ -1,6 +1,6 @@
 # N4b checkpoint 14 , item 2: LdG potential robustness (answers Duda's #1)
 
-`n4b_potential.py` (`n4b_potential_summary.json`). Put the REAL LdG tensor potential Hessian
+`m5_11_n4b_potential.py` (`m5_11_n4b_potential_summary.json`). Put the REAL LdG tensor potential Hessian
 `H^V = 2a Tr(dA dB) - 6b Tr(Mvac dA dB) + c(8 Tr(Mvac dA)Tr(Mvac dB) + 4 Tr(Mvac^2)Tr(dA dB))` into the
 on-site term (replacing the crude kappa). M_mass = K(kinetic) + H^V. Scanned 27 potentials.
 

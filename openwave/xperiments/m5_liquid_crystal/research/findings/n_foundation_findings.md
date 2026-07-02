@@ -27,7 +27,7 @@ one honest tension is surfaced for the next phase:
 
 The N1/N2 scripts are standalone numpy , they re-implement the M5 LdG energy functional in f64
 (the engine is f32 and cannot carry the g~1e10 / delta~1e-10 range; it also uses the index-3
-time axis vs Duda's index-0; and the closed loop is new geometry). `n0_engine_equivalence.py`
+time axis vs Duda's index-0; and the closed loop is new geometry). `m5_11_n0_engine_equivalence.py`
 proves that re-implementation is faithful, at the engine's toy scales (g=8, delta=0.30):
 
 | Test | Result | Verdict |
@@ -130,9 +130,9 @@ the observable that reads it. Together = the machine N3 drives.
 
 | Artifact | Regenerate |
 | --- | --- |
-| `n0_engine_equivalence.py` + `_summary.json` | `python3 n0_engine_equivalence.py` (imports the live engine, CPU) |
-| `n1_precision_method.py` + `_summary.json` + `.png` | `python3 n1_precision_method.py` |
-| `n2_closed_loop.py` + `_summary.json` + `.png` | `python3 n2_closed_loop.py` |
+| `m5_11_n0_engine_equivalence.py` + `_summary.json` | `python3 m5_11_n0_engine_equivalence.py` (imports the live engine, CPU) |
+| `m5_11_n1_precision_method.py` + `_summary.json` + `.png` | `python3 m5_11_n1_precision_method.py` |
+| `m5_11_n2_closed_loop.py` + `_summary.json` + `.png` | `python3 m5_11_n2_closed_loop.py` |
 | `checkpoints/00_design.md`, `01_n1.md`, `02_n2.md` | progress log (this run) |
 
 ## Definition of Done (from [`../10a`](../tasks/m5_10a_neutrino_oscillations.md) § "N1 + N2 foundation scope") , check

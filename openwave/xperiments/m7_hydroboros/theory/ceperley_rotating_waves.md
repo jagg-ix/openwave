@@ -142,13 +142,13 @@ resonance or a confined-but-leaky one).
 
 | M7 piece | What Ceperley gives | Plan ref |
 | --- | --- | --- |
-| **Fleury's `e^{i(φ−ωt)}` phase IS Ceperley's Eq 15** | the circularly-polarized-EM rotating wave `E_r = E₀ e^{i(κz+φ−ωt)}` at `m = 1` is literally Fleury's torus ansatz (§ 4b-ii); Fleury cites this paper as [13] | [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md) § 1 |
-| **The Bessel envelope = Fleury's own fix** | Fleury's § 5.2 flags the Heaviside mask as unphysical and suggests **Bessel functions**; Ceperley gives the rotating mode with a `J_m(κr)` radial envelope, the smooth replacement | § 1 (Fleury limit), § 6 M7.2 |
-| **Spin from rotation: `L_z = mU/ω`** + the QM bridge | a clean angular-momentum law (§ 4b-i); `U/ω = ℏ` quantizes it, the structural origin of Fleury's spin `= ℏ/2` constraint; Jackson derives the same for EM | § 1 (spin constraint), § 6 M7.6 |
-| **Seeder profiles (M7.1)** | the cylindrical `E,H` set (§ 4) + the spherical (§ 4b-iii) + the radiating Hankel (§ 4b-iv) forms = concrete analytic seeds, closed **and** open | § 6 M7.1 |
+| **Fleury's `e^{i(φ−ωt)}` phase IS Ceperley's Eq 15** | the circularly-polarized-EM rotating wave `E_r = E₀ e^{i(κz+φ−ωt)}` at `m = 1` is literally Fleury's torus ansatz (§ 4b-ii); Fleury cites this paper as [13] | [`m7_background.md § 3`](../research/m7_background.md) (Fleury) |
+| **The Bessel envelope = Fleury's own fix** | Fleury's § 5.2 flags the Heaviside mask as unphysical and suggests **Bessel functions**; Ceperley gives the rotating mode with a `J_m(κr)` radial envelope, the smooth replacement | [`m7_background.md § 3`](../research/m7_background.md) · [roadmap](../research/m7_roadmap.md) M7.2 |
+| **Spin from rotation: `L_z = mU/ω`** + the QM bridge | a clean angular-momentum law (§ 4b-i); `U/ω = ℏ` quantizes it, the structural origin of Fleury's spin `= ℏ/2` constraint; Jackson derives the same for EM | [`m7_background.md § 3`](../research/m7_background.md) · [roadmap](../research/m7_roadmap.md) M7.6 |
+| **Seeder profiles (M7.1)** | the cylindrical `E,H` set (§ 4) + the spherical (§ 4b-iii) + the radiating Hankel (§ 4b-iv) forms = concrete analytic seeds, closed **and** open | [roadmap](../research/m7_roadmap.md) M7.1 |
 
 ## Cross-references
 
-- Implementation plan: [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md) (Task 0 source table § 3 #14/#15)
+- Corpus source table: [`../research/tasks/m7_0_bootstrap.md`](../research/tasks/m7_0_bootstrap.md) (Task-0 table #14/#15); background [`../research/m7_background.md`](../research/m7_background.md)
 - Companion theory: [arXiv:2510.22384](https://arxiv.org/abs/2510.22384) (Fleury torus, cites this as [13]),
   [`sato_yamada_beltrami.md`](sato_yamada_beltrami.md) (Beltrami construction)

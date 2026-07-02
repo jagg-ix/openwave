@@ -57,7 +57,7 @@ projected onto the three loop displacements (standard "mass = second variation o
   U = eigenvectors of M_ab   ->   PMNS angles via the standard PDG extraction (sin^2 th13 = |U_e3|^2, ...)
 ```
 
-The de-risk ([`n3_derisk.py`](../scripts/n3_derisk.py), summary [`n3_derisk_summary.json`](../data/n3_derisk_summary.json))
+The de-risk ([`m5_11_n3_derisk.py`](../scripts/m5_11_n3_derisk.py), summary [`m5_11_n3_derisk_summary.json`](../data/m5_11_n3_derisk_summary.json))
 verified the scaffold on KNOWN matrices to machine precision before any loop physics: the bridge round-trips
 TBM (err 2.8e-14); a Z3 "democratic" matrix gives sin^2 th12 = 1/3 exactly but a DEGENERATE doublet (th23,
 th13 undetermined); every **magic** (equal row sums) **+ mu-tau** (2<->3) matrix diagonalizes to EXACT TBM
@@ -80,7 +80,7 @@ it is crossed as the tilt alpha varies, and theta12 -> 35.26 (trimaximal) AT the
 | max err vs exact TBM | **0.0000 deg** (PASS, tol 0.05) |
 | mass spectrum (eigenvalues) | [1691, 1941, 2845], ratios **1.00 : 1.15 : 1.68** |
 
-**Robustness** ([`n3_search.py`](../scripts/n3_search.py), [`n3_search_summary.json`](../data/n3_search_summary.json)): a magic
+**Robustness** ([`m5_11_n3_search.py`](../scripts/m5_11_n3_search.py), [`m5_11_n3_search_summary.json`](../data/m5_11_n3_search_summary.json)): a magic
 crossing exists and the gate PASSES in **81/81** geometries (n in {40,48,56} x R_loop {7,9,11} x core_vox
 {1.5,2,2.5} x kappa {0,0.25,1}); TBM err median 0.0000, max 0.0081 deg. alpha* ranges 32-64 deg (median 50.3,
 near but not exactly the tetrahedral angle arccos(1/sqrt3) = 54.7). So the TBM gate is a ROBUST locus, not a
@@ -88,7 +88,7 @@ fine-tuned coincidence.
 
 ## S3 , the theta13 crux + the central-tension resolution
 
-([`n3_theta13.py`](../scripts/n3_theta13.py), [`n3_theta13_summary.json`](../data/n3_theta13_summary.json).) theta13 = 0 holds by
+([`m5_11_n3_theta13.py`](../scripts/m5_11_n3_theta13.py), [`m5_11_n3_theta13_summary.json`](../data/m5_11_n3_theta13_summary.json).) theta13 = 0 holds by
 the EXACT mu-tau mirror. Sourcing theta13 was tested with BIAXIAL loops (eigenvalues `(1, delta, 0)`: principal
 director + a secondary delta-twist director + null axis, Duda's `diag(g,1,delta,0)`).
 
@@ -106,8 +106,8 @@ is CP-even -> theta13 and delta_CP plausibly share a chiral source. A lead for N
 
 ## S4 , the NuFIT 6.0 scorecard
 
-([`n3_scorecard.py`](../scripts/n3_scorecard.py), [`n3_scorecard.json`](../data/n3_scorecard.json), figure
-[`n3_summary.png`](../plots/n3_summary.png).) "TBM gate" = predictions from the dynamics; "theta13 fit" = the same
+([`m5_11_n3_scorecard.py`](../scripts/m5_11_n3_scorecard.py), [`m5_11_n3_scorecard.json`](../data/m5_11_n3_scorecard.json), figure
+[`m5_11_n3_summary.png`](../plots/m5_11_n3_summary.png).) "TBM gate" = predictions from the dynamics; "theta13 fit" = the same
 geometry with one O(0.1) mu-tau asymmetry (delta=0.1, eps*=0.639) tuned to theta13 = 8.56.
 
 | Parameter | TBM gate (predicted) | theta13 fit | NuFIT 6.0 (NO) | note |
@@ -144,11 +144,11 @@ maximal (45 -> 40.59, overshooting 43.30) , the physically expected one-paramete
 
 | Artifact | Regenerate |
 | --- | --- |
-| [`n3_derisk.py`](../scripts/n3_derisk.py) + `_summary.json` | `python3 n3_derisk.py` (the flavour-space scaffold) |
-| [`n3_mass_matrix.py`](../scripts/n3_mass_matrix.py) + `_summary.json` | `python3 n3_mass_matrix.py` (the loop -> mass-matrix machine) |
-| [`n3_search.py`](../scripts/n3_search.py) + `_summary.json` | `python3 n3_search.py` (the TBM gate + robustness, 16-core) |
-| [`n3_theta13.py`](../scripts/n3_theta13.py) + `_summary.json` | `python3 n3_theta13.py` (the theta13 crux, 16-core) |
-| [`n3_scorecard.py`](../scripts/n3_scorecard.py) + `n3_scorecard.json` + `n3_summary.png` | `python3 n3_scorecard.py` |
+| [`m5_11_n3_derisk.py`](../scripts/m5_11_n3_derisk.py) + `_summary.json` | `python3 m5_11_n3_derisk.py` (the flavour-space scaffold) |
+| [`m5_11_n3_mass_matrix.py`](../scripts/m5_11_n3_mass_matrix.py) + `_summary.json` | `python3 m5_11_n3_mass_matrix.py` (the loop -> mass-matrix machine) |
+| [`m5_11_n3_search.py`](../scripts/m5_11_n3_search.py) + `_summary.json` | `python3 m5_11_n3_search.py` (the TBM gate + robustness, 16-core) |
+| [`m5_11_n3_theta13.py`](../scripts/m5_11_n3_theta13.py) + `_summary.json` | `python3 m5_11_n3_theta13.py` (the theta13 crux, 16-core) |
+| [`m5_11_n3_scorecard.py`](../scripts/m5_11_n3_scorecard.py) + `m5_11_n3_scorecard.json` + `m5_11_n3_summary.png` | `python3 m5_11_n3_scorecard.py` |
 | `checkpoints/04..07_*.md` | progress log (this run) |
 
 ## Definition of Done (from [`../10a`](../tasks/m5_10a_neutrino_oscillations.md) § "Sub-tasks") , check

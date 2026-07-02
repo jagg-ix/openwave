@@ -114,7 +114,7 @@ Duda replied to `MODELS.md` (now cc'ing Nielsen, Watford, Werbos, Faber, Hal, Vi
 | His comment | Action taken |
 | --- | --- |
 | Spin-½: no belt trick needed, the apolar ellipsoid returns at π | **RUN + flipped to ✅**: `m5_8_2s_spin_half_apolar.py` verifies M(φ+π) = M(φ) machine-exact (1e-16, both clock planes) while the frame needs 2π = the double cover; same factor 2 as G7 |
-| Annihilation natural "starting with sine-Gordon" | **RUN**: `sine_gordon_annihilation.py`, the principle trail: integrable pass-through vs damped capture → breather → vacuum (E 16.3 → 0.00, Q = 0 throughout) |
+| Annihilation natural "starting with sine-Gordon" | **RUN**: `m5_14_sine_gordon_annihilation.py`, the principle trail: integrable pass-through vs damped capture → breather → vacuum (E 16.3 → 0.00, Q = 0 throughout) |
 | DM as thermal noise of non-EM field sectors (with Faber) | cell updated (CMBR analog for weak/strong/grav DOF) |
 | Leptons = 3 energy minima for elementary charge; hard parts = Higgs-like regularization + oscillation (gravity propulsion) | cell updated |
 | Neutrinos: huge stable quark-string loops (Nature s41586-024-08479-6); oscillation = SO(3) rotation (PLB S0370269326000730); "derivable from LdGS" | cell updated + refs; a parameter-finding target he hands us |

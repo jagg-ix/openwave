@@ -28,10 +28,10 @@ spectrum is in ~6x tension with the observed splitting hierarchy under the natur
 the map itself is the deferred N6 question). This is materially weaker than "3 predicted", and it is the framing
 that survives a hostile read.
 
-![Honest scorecard: provenance of the four PMNS parameters (one imposed mu-tau symmetry generating three entries, one geometrically-pinned angle, one free coupling, one undetermined sign) and the pull plot vs NuFIT 6.0 NO with error bars (theta12 ~2.3 sigma off, theta13 set, delta_CP consistent)](../plots/n4c_scorecard.png)
+![Honest scorecard: provenance of the four PMNS parameters (one imposed mu-tau symmetry generating three entries, one geometrically-pinned angle, one free coupling, one undetermined sign) and the pull plot vs NuFIT 6.0 NO with error bars (theta12 ~2.3 sigma off, theta13 set, delta_CP consistent)](../plots/m5_11_n4c_scorecard.png)
 
 > **All artifacts in one place , browse the complete [`sandbox_v10/` research folder](../scripts)**: the N4c
-> scripts (`n4c_alpha_energy.py`, `n4c_mass_ratio.py`, `n4c_scorecard.py`), summary JSONs, figures, and the
+> scripts (`m5_11_n4c_alpha_energy.py`, `m5_11_n4c_mass_ratio.py`, `m5_11_n4c_scorecard.py`), summary JSONs, figures, and the
 > [`checkpoints/`](../findings) progress log (17-18 are N4c). Per-round artifact index in
 > [§ 7](#7-artifact-index).
 
@@ -40,9 +40,9 @@ that survives a hostile read.
 | Review point (both cold readers) | N4c response | outcome |
 | --- | --- | --- |
 | `theta_23`, `theta_13=0`, `delta_CP` are mu-tau consequences, not 3 predictions | reframed the scorecard (above + § 3) | IMPLEMENTED |
-| Is `alpha*` energetically SELECTED (is `theta_12` a prediction)? | ran `n4c_alpha_energy.py` (the decisive test) | RESULT: NOT selected (§ 2) |
+| Is `alpha*` energetically SELECTED (is `theta_12` a prediction)? | ran `m5_11_n4c_alpha_energy.py` (the decisive test) | RESULT: NOT selected (§ 2) |
 | `delta_CP` SIGN not predicted (handedness-degenerate) | downgraded to \|`delta_CP`\|=90; sign open | IMPLEMENTED |
-| Mass ratios 1:1.15:1.68 checkable vs data NOW | ran `n4c_mass_ratio.py` | RESULT: ~6x tension (§ 2) |
+| Mass ratios 1:1.15:1.68 checkable vs data NOW | ran `m5_11_n4c_mass_ratio.py` | RESULT: ~6x tension (§ 2) |
 | "Hessian" is a large-displacement Gram matrix; `U=eigvecs` asserted | terminology fixed; bridge labelled a postulate (§ 4) | IMPLEMENTED |
 | Loop instability is foundational, not a footnote | elevated (§ 4) | IMPLEMENTED |
 | `delta` + potential independence = "substrate dropped out" | confirmed at the self-energy level (§ 2, N4c-1); reframed robustness honestly | IMPLEMENTED |
@@ -67,7 +67,7 @@ Within that scope, the honest result is § 0.
 `(x+y) = (z+w)`, which the geometry hits at `alpha* = 46.945 deg` as the mu/tau tilt `alpha` is swept. The
 reviewers' sharp point: a single scalar crossing as you sweep a free parameter is GUARANTEED by the intermediate
 value theorem, so the crossing's existence is trivial; what decides prediction-vs-fit is whether the loop ENERGY
-selects `alpha*` (`dE/dalpha = 0` there). `n4c_alpha_energy.py` computes, over the tilt:
+selects `alpha*` (`dE/dalpha = 0` there). `m5_11_n4c_alpha_energy.py` computes, over the tilt:
 
 | measure | what it is | behaviour near `alpha*` |
 | --- | --- | --- |
@@ -87,12 +87,12 @@ derived geometric locus, NOT a free continuous fit), coinciding with a shallow t
 variationally-selected ground state. **Honest status: `theta_12` sits between "fit" and "prediction" ,
 geometrically determined, conditional on the mu-tau arrangement.**
 
-![N4c-1: E_self(alpha) is flat to 0.09% with its global minimum at the degenerate small-tilt edge (the substrate is indifferent to the tilt); the tight-binding spectrum is smooth with no level repulsion at alpha*; theta12 reaches trimaximal 35.26 exactly where the magic residual crosses zero (a geometric locus, by the intermediate value theorem)](../plots/n4c_alpha_energy.png)
+![N4c-1: E_self(alpha) is flat to 0.09% with its global minimum at the degenerate small-tilt edge (the substrate is indifferent to the tilt); the tight-binding spectrum is smooth with no level repulsion at alpha*; theta12 reaches trimaximal 35.26 exactly where the magic residual crosses zero (a geometric locus, by the intermediate value theorem)](../plots/m5_11_n4c_alpha_energy.png)
 
 ### N4c-2: the mass-spectrum ratios vs data (the near-term falsifier)
 
 The reviewer noted the spectrum `1 : 1.15 : 1.68` is checkable against data NOW. The data fixes the ratio of the
-two mass-squared splittings: `Dm31^2 / Dm21^2 ~ 2.513e-3 / 7.49e-5 ~ 33.6` (NuFIT 6.0 NO). `n4c_mass_ratio.py`
+two mass-squared splittings: `Dm31^2 / Dm21^2 ~ 2.513e-3 / 7.49e-5 ~ 33.6` (NuFIT 6.0 NO). `m5_11_n4c_mass_ratio.py`
 tests the gate eigenvalues (`[1690.97, 1940.99, 2844.86] = 1 : 1.148 : 1.682`) under the two natural
 identifications:
 
@@ -107,7 +107,7 @@ data needs a much more spread spectrum (splitting ratio ~34). Under both natural
 deferred N6 question (Duda's mass-as-loop-length-density picture). A successful mass model must spread the
 spectrum or use a nonlinear map. Worth stating plainly before building further.
 
-![N4c-2: the loop gate spectrum 1 : 1.15 : 1.68 (compressed / quasi-degenerate) and the predicted-vs-observed mass-squared splitting ratio under both natural eigenvalue-to-mass maps, ~5-7x below the observed 33.6](../plots/n4c_mass_ratio.png)
+![N4c-2: the loop gate spectrum 1 : 1.15 : 1.68 (compressed / quasi-degenerate) and the predicted-vs-observed mass-squared splitting ratio under both natural eigenvalue-to-mass maps, ~5-7x below the observed 33.6](../plots/m5_11_n4c_mass_ratio.png)
 
 ## 3. Summary tables (honest)
 
@@ -172,9 +172,9 @@ bridge, and the loop-stability concern are all valid and are implemented here.
 
 | Run | Script | Summary / figure | Checkpoint |
 | --- | --- | --- | --- |
-| N4c-1 (alpha-energy decisive test) | [`n4c_alpha_energy.py`](../scripts/n4c_alpha_energy.py) | [json](../data/n4c_alpha_energy_summary.json) · [png](../plots/n4c_alpha_energy.png) | [17](../findings/17_n4c_alpha_energy.md) |
-| N4c-2 (mass-ratio falsifier) | [`n4c_mass_ratio.py`](../scripts/n4c_mass_ratio.py) | [json](../data/n4c_mass_ratio_summary.json) · [png](../plots/n4c_mass_ratio.png) | [18](../findings/18_n4c_mass_ratio.md) |
-| N4c-3 (honest scorecard) | [`n4c_scorecard.py`](../scripts/n4c_scorecard.py) | [json](../data/n4c_scorecard.json) · [png](../plots/n4c_scorecard.png) | , |
+| N4c-1 (alpha-energy decisive test) | [`m5_11_n4c_alpha_energy.py`](../scripts/m5_11_n4c_alpha_energy.py) | [json](../data/m5_11_n4c_alpha_energy_summary.json) · [png](../plots/m5_11_n4c_alpha_energy.png) | [17](../findings/17_n4c_alpha_energy.md) |
+| N4c-2 (mass-ratio falsifier) | [`m5_11_n4c_mass_ratio.py`](../scripts/m5_11_n4c_mass_ratio.py) | [json](../data/m5_11_n4c_mass_ratio_summary.json) · [png](../plots/m5_11_n4c_mass_ratio.png) | [18](../findings/18_n4c_mass_ratio.md) |
+| N4c-3 (honest scorecard) | [`m5_11_n4c_scorecard.py`](../scripts/m5_11_n4c_scorecard.py) | [json](../data/m5_11_n4c_scorecard.json) · [png](../plots/m5_11_n4c_scorecard.png) | , |
 
 Reviewed N0-N4b record (implementation detail): [`m5_10b_findings_N4b.md`](m5_10b_findings_N4b.md). Verbatim reviews:
 [`m5_10c_AI_reviewers.md`](m5_10c_AI_reviewers.md). Triage + plan: [`m5_10d_bullet_proof_run.md`](m5_10d_bullet_proof_run.md).

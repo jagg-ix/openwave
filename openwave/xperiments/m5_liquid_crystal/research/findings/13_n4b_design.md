@@ -5,9 +5,9 @@ complete round. DEFER N5 (article) + N6 (masses) behind it.
 
 | N4b sub-task | Source item | Question | Script |
 | --- | --- | --- | --- |
-| **N4b-1** | item 2 | does the TBM gate + delta_CP survive a real LdG TENSOR potential scan `(a,b,c)`? (Duda's #1 concern: "the potential is crucial") | `n4b_potential.py` |
-| **N4b-2** | item 3 | the theta12 (35.26 vs 33.68) + theta23 residuals: can a minimal natural breaking absorb them, and at what cost to the predictions? | `n4b_residual.py` |
-| **N4b-3** | item 6 | where does `g_chiral` come from + its natural scale? (the achiral substrate gives NO CP; the chiral Lifshitz term is required; g_chiral~O(1) -> theta13~O(10deg)) | `n4b_chiral_origin.py` |
+| **N4b-1** | item 2 | does the TBM gate + delta_CP survive a real LdG TENSOR potential scan `(a,b,c)`? (Duda's #1 concern: "the potential is crucial") | `m5_11_n4b_potential.py` |
+| **N4b-2** | item 3 | the theta12 (35.26 vs 33.68) + theta23 residuals: can a minimal natural breaking absorb them, and at what cost to the predictions? | `m5_11_n4b_residual.py` |
+| **N4b-3** | item 6 | where does `g_chiral` come from + its natural scale? (the achiral substrate gives NO CP; the chiral Lifshitz term is required; g_chiral~O(1) -> theta13~O(10deg)) | `m5_11_n4b_chiral_origin.py` |
 | **N4b-4** | item 4 (refine) | crisp write-up of the TWO delta scales (mixing-delta ~0.1 vs quantum-phase delta ~1e-10) | findings doc + small numeric illustration |
 
 ## Method notes

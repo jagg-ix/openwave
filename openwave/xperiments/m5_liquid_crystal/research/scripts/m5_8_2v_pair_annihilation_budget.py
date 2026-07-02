@@ -1,7 +1,7 @@
 """
 M5.8.2v — TWO-DEFECT ± ANNIHILATION ACCOUNTING on the production matrix.
 
-Upgrade of the 1D sine_gordon_annihilation.py demo toward the 4×4 matrix
+Upgrade of the 1D m5_14_sine_gordon_annihilation.py demo toward the 4×4 matrix
 substrate. Annihilation of a charge pair conserves two ledgers:
 
   CHARGE:  Q = (+1) + (-1) -> 0   (Gauss-Bonnet additivity)
@@ -22,7 +22,7 @@ matrix engine, which is the tractable + verifiable part:
 NOT done here (the named remaining build): the full 3D DYNAMICAL capture ->
 breather -> vacuum evolution of the pair on the 4×4 field. The current engine
 has no two-defect evolution path (the M5.1 ψ-engine pair-evolver was retired in
-the M5.8 ψ-retire; m5_1_winding.py is archived). The 1D sine_gordon_annihilation.py
+the M5.8 ψ-retire; m5_1_winding.py is archived). The 1D m5_14_sine_gordon_annihilation.py
 demonstrates the mechanism (kink + antikink -> breather -> vacuum, Q = 0); the
 3D constrained two-defect evolver is a dedicated follow-up.
 
@@ -78,7 +78,7 @@ def main():
     print("    energy: 2 x H_static rest energy -> released as outgoing waves, Q = 0 throughout")
     print("    Both ledgers balance on the production matrix at the accounting level.")
     print("  REMAINING (named build): the 3D DYNAMICAL capture -> breather -> vacuum")
-    print("  evolution of the pair; mechanism shown in 1D by sine_gordon_annihilation.py.")
+    print("  evolution of the pair; mechanism shown in 1D by m5_14_sine_gordon_annihilation.py.")
     print("=" * 78)
     return 0
 

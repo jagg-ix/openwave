@@ -5,7 +5,7 @@
 > manifest is the tracked record; obtain the papers from their original venues / authors.
 > Our own research notes (`.md`) and code remain tracked.
 
-Total: 50 local-only documents (as of 2026-06-30).
+Total: 53 local-only documents (as of 2026-07-02; #51-53 = the Golubich/Faber SU(2)-soliton `.tex` sources shared by Dr. R. Golubich 2026-07-02, see [`../research/tasks/m5_4g_convo_2026.07.02.md`](../research/tasks/m5_4g_convo_2026.07.02.md); `.tex`/`.bib` now also gitignored).
 
 | # | Document (path relative to `m5_liquid_crystal/theory/`) | Size |
 | --- | --- | --- |
@@ -59,3 +59,6 @@ Total: 50 local-only documents (as of 2026-06-30).
 | 48 | time_crystal_continuous.pdf | 3.9M |
 | 49 | time_crystal_toy_model.pdf | 2.6M |
 | 50 | topological_phase.pdf | 1.1M |
+| 51 | golubich_faber_su2/MTF.tex , the Model of Topological Fermions source (Faber, the SU(2)/S³ soliton model M5.6 ports) | 124K |
+| 52 | golubich_faber_su2/dipole.tex , Faber & Golubich arXiv:2604.12021 source (high-precision lattice SU(2) solitonic dipole; compact model + lattice-implementation intro) | 32K |
+| 53 | golubich_faber_su2/derivatives.tex , Faber's German note on the difference quotients for the derivative calculation in the lattice minimizer (guides the M5.16 gradient) | 24K |

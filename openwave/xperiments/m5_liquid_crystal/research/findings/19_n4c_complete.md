@@ -7,9 +7,9 @@ The cold-read peer review ([`../10c_AI_reviewers.md`](../tasks/m5_10c_AI_reviewe
 
 | run | result |
 | --- | --- |
-| N4c-1 `n4c_alpha_energy.py` | `theta_12` is NOT energy-selected: `E_self` flat to 0.09% (substrate indifferent to tilt), global min at degenerate edge; only a shallow `tr(M_ab)` max within ~1 deg of `alpha*`. `theta_12` is geometrically PINNED (magic), not a dynamical prediction. Confirms "substrate dropped out of the angles". |
-| N4c-2 `n4c_mass_ratio.py` | gate spectrum 1:1.148:1.682 -> splitting ratio 5.76 (lam=m) / 4.62 (lam=m^2) vs observed 33.6 -> ~5-7x too compressed. Tension FLAG (the eigenvalue->mass map is the deferred N6 question). |
-| N4c-3 `n4c_scorecard.py` | honest provenance + pull plot: `theta_12` +2.3 sigma, `theta_23` +1.7 sigma, `theta_13` set (0), `delta_CP` consistent (huge range). |
+| N4c-1 `m5_11_n4c_alpha_energy.py` | `theta_12` is NOT energy-selected: `E_self` flat to 0.09% (substrate indifferent to tilt), global min at degenerate edge; only a shallow `tr(M_ab)` max within ~1 deg of `alpha*`. `theta_12` is geometrically PINNED (magic), not a dynamical prediction. Confirms "substrate dropped out of the angles". |
+| N4c-2 `m5_11_n4c_mass_ratio.py` | gate spectrum 1:1.148:1.682 -> splitting ratio 5.76 (lam=m) / 4.62 (lam=m^2) vs observed 33.6 -> ~5-7x too compressed. Tension FLAG (the eigenvalue->mass map is the deferred N6 question). |
+| N4c-3 `m5_11_n4c_scorecard.py` | honest provenance + pull plot: `theta_12` +2.3 sigma, `theta_23` +1.7 sigma, `theta_13` set (0), `delta_CP` consistent (huge range). |
 
 ## Honest scorecard (now canonical, in 10e)
 

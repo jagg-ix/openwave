@@ -67,15 +67,16 @@ standard geometries (cylindrical, spherical) even when `h` is **inhomogeneous** 
 
 | M7 piece | How Sato-Yamada feeds it | Plan ref |
 | --- | --- | --- |
-| **The toroidal-Beltrami seeder** (M7.1) | a concrete construction recipe (eikonal + equal-scale-factor rule) for analytic Beltrami initial data on cylindrical / toroidal geometry, the seed for the self-linked vortex | [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md) § 6 M7.1, § 5 |
-| **The substrate question (Q1)** | the local Clebsch parametrization is exactly candidate **D** (the `(α,β)` / `ψ` seed-generator) made rigorous; informs whether Clebsch enters as a seeder vs an evolved DOF | § 9 Q1 |
-| **Inhomogeneous `h` = non-monochromatic** | Fleury's torus fixes `ω = 2c/R₀` (constant `h = ω/c`); Sato-Yamada's **space-varying `h`** is the route past Fleury's single-frequency Heaviside ansatz toward a relaxed lattice field | § 1 (Fleury limit), § 6 M7.2 |
-| **Non-solenoidal Beltrami (`∇·w ≠ 0`)** | their method covers **non-solenoidal** fields, the regime Fleury needs (charge `= ∇·E ≠ 0`); directly bears on Q5 (does a divergence-ful field still hold a clean knot?) | § 9 Q5 |
-| **Force-free = the Ouroboros steady state** | `∇×w = hw` is the self-sustaining circulation the HydroBoros thesis identifies as the "snake eating its tail" | § 0 thesis |
+| **The toroidal-Beltrami seeder** (M7.1) | a concrete construction recipe (eikonal + equal-scale-factor rule) for analytic Beltrami initial data on cylindrical / toroidal geometry, the seed for the self-linked vortex | [roadmap](../research/m7_roadmap.md) M7.1 · [`m7_background.md § 5`](../research/m7_background.md) |
+| **The substrate question (Q1)** | the local Clebsch parametrization is exactly candidate **D** (the `(α,β)` / `ψ` seed-generator) made rigorous; informs whether Clebsch enters as a seeder vs an evolved DOF | [question tracker](../research/m7_question_tracker.md) Q1 |
+| **Inhomogeneous `h` = non-monochromatic** | Fleury's torus fixes `ω = 2c/R₀` (constant `h = ω/c`); Sato-Yamada's **space-varying `h`** is the route past Fleury's single-frequency Heaviside ansatz toward a relaxed lattice field | [`m7_background.md § 3`](../research/m7_background.md) (Fleury) · [roadmap](../research/m7_roadmap.md) M7.2 |
+| **Non-solenoidal Beltrami (`∇·w ≠ 0`)** | their method covers **non-solenoidal** fields, the regime Fleury needs (charge `= ∇·E ≠ 0`); directly bears on Q5 (does a divergence-ful field still hold a clean knot?) | [question tracker](../research/m7_question_tracker.md) Q5 |
+| **Force-free = the Ouroboros steady state** | `∇×w = hw` is the self-sustaining circulation the HydroBoros thesis identifies as the "snake eating its tail" | [`m7_background.md § 2`](../research/m7_background.md) (thesis) |
 
 ## Cross-references
 
-- Implementation plan: [`../research/0a_implementation_plan.md`](../research/0a_implementation_plan.md)
-  (Task 0 source table § 3, Q1 / Q4 / Q5)
+- Roadmap + tracker: [`../research/m7_roadmap.md`](../research/m7_roadmap.md),
+  [`../research/m7_question_tracker.md`](../research/m7_question_tracker.md) (Q1 / Q4 / Q5); corpus
+  source table in [`../research/tasks/m7_0_bootstrap.md`](../research/tasks/m7_0_bootstrap.md)
 - Companion theory: [arXiv:2510.22384](https://arxiv.org/abs/2510.22384) (Fleury torus),
   Werbos *Evaluating Universe Model Alternatives v5* (shared doc, local only)

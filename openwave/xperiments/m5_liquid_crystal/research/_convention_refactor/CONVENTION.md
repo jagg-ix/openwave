@@ -23,7 +23,7 @@ Before 2026-06-21 the engine STORED `D = diag(1, δ, 0, g)` with the time axis a
 (`eta = diag(1,1,1,-1)`), while the physics was always described in Duda's `diag(g,1,δ,0)`
 notation. That split (storage index-3 vs notation index-0) is what Dr. Duda repeatedly flagged
 (the eta-placement comments, 2026-06-20/21). The two are IDENTICAL physics under the cyclic
-relabel `index k -> (k+1) mod 4` (time 3 -> 0); see `sandbox_v10/n0_engine_equivalence.py` Test B.
+relabel `index k -> (k+1) mod 4` (time 3 -> 0); see `sandbox_v10/m5_11_n0_engine_equivalence.py` Test B.
 To end the confusion permanently, the storage was flipped to index-0 so storage and notation match.
 
 ## What was flipped, and the proof it is physics-neutral
@@ -38,7 +38,7 @@ To end the confusion permanently, the storage was flipped to index-0 so storage 
 integrator, AND the render path: eigen_decompose director + spatial eigenvalues + the amplitude
 tracker) PRE-flip, then re-checked POST-flip: **PASS, worst rel diff 3.84e-07; the render
 invariants bit-identical**. The #200 ledger re-runs unchanged (boost_GEM dressed = 1.549e-6,
-undressed = 0 exactly). `n0_engine_equivalence.py` re-confirms engine == numpy port at index-0.
+undressed = 0 exactly). `m5_11_n0_engine_equivalence.py` re-confirms engine == numpy port at index-0.
 
 ## For anyone editing the engine (e.g. Dr. Duda)
 
@@ -48,4 +48,4 @@ physics-neutral, run `python3 research/_convention_refactor/golden_master.py --c
 
 Cross-refs: the flip plan + site checklist = [`00_plan.md`](00_plan.md); the frozen-sandbox list =
 [`FROZEN_SANDBOXES.md`](FROZEN_SANDBOXES.md); the engine<->port equivalence =
-[`../scripts/n0_engine_equivalence.py`](../scripts/n0_engine_equivalence.py).
+[`../scripts/m5_11_n0_engine_equivalence.py`](../scripts/m5_11_n0_engine_equivalence.py).
