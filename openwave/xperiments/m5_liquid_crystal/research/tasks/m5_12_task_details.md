@@ -1,6 +1,6 @@
 # M5.12: Neutrino vortex-loop at the physical regime (the fresh re-entry)
 
-> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: **M5.16** (the `(g, δ, V)` parameter lock) + **the pre-flight ask round** (Duda's answers to Q13 + loop-vs-knot) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: ~~M5.16~~ ✅ (delivered 2026-07-02) + **the pre-flight ask round** (Duda's answers to Q13/Q16/Q14/Q15/Q17, § below) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation.
 
@@ -29,8 +29,36 @@ All five M5.11 P2 loop experiments ran at the placeholder `δ = 0.3`, where the 
 
 | Gate | Delivers |
 | --- | --- |
-| **M5.16** (the parameter-lock task) | locked `(g, δ, a, b, c, r₀)` + the calibrated axisymmetric minimizer + the P-G δ-continuation read (does the blue-phase obstruction relax toward quasi-uniaxial?) |
-| **The pre-flight ask round** (one email to Duda, backed by the M5.16 deliverable) | his answers to the ask round **Q13** (chiral Lifshitz invariant), **Q16** (loop-vs-knot seed topology: Hopf-linked `+1/2` pair vs `+1/2` trefoil vs the sketch's "two vortex types"), **Q14** (hedgehog core point-vs-ring), **Q15** (δ-pinning), **Q17** (β/g anchors) ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) |
+| **M5.16** (the parameter-lock task) | ✅ DELIVERED 2026-07-02: locked `c₂ = αħc/64π` + `(a,b,c)` per β + the calibrated axisymmetric minimizer ([`m5_16_task_details.md § FINDINGS`](m5_16_task_details.md)); P-G read: all four obstruction indicators relax monotonically toward uniaxial (supportive, not sufficient alone) |
+| **The pre-flight ask round** (one email to Duda, backed by the M5.16 deliverable) | his answers to Q13/Q16/Q14/Q15/Q17: the full ask table is § The pre-flight ask round below (this task consumes the answers, so the queue lives HERE); question registry + details: [`../m5_question_tracker.md`](../m5_question_tracker.md) § OPEN QUESTIONS |
+
+## The pre-flight ask round (entry gate 2: the ONE email)
+
+Strategy (Rodrigo, 2026-07-02, recorded in [`m5_16_task_details.md § Comms plan`](m5_16_task_details.md)): deliver first, ask second. The M5.16 deliverable report ([`../findings/m5_16_report.md`](../findings/m5_16_report.md)) leads the email; the five asks follow. ONE email, never a drip; do not ask what we can measure ourselves (Q7/Q8 were delivered, not asked; these five are theory-intent or design-choice questions the minimizer cannot decide). Question registry + full per-question detail: [`../m5_question_tracker.md`](../m5_question_tracker.md).
+
+The ask table (row order = priority; answers feed the phase named in the last column):
+
+| ID | Ask | Why it is critical | Feeds |
+| --- | --- | --- | --- |
+| **Q13** | Does the M5 LdG substrate carry a chiral (Lifshitz) invariant `2q₀L ε_ikl M_ij ∂_k M_lj` + Frank partner, or is uniform-vacuum achirality intended? Framing: the δ_CP fork (180° pure-SO(3) vs 270° chiral; NuFIT ~212° between) is what this answer decides in-model | Three sectors converge on the ONE term: the CP phase (achiral LdG gives none), θ₁₃ (`g_chiral ≈ 0.94` free until microscopic), loop stabilization (the heliknoton route = Frank + chiral). A "no" reshapes phases A-C and kills the chiral CP story before we build | phases A, C, F |
+| **Q16** | The neutrino seed topology: Hopf-linked `+1/2` disclination pair, `+1/2` trefoil, or the `4f` sketch's "two vortex types" composite? | The seed choice is the first line of phase A/C code; the wrong topology class wastes the heaviest compute of the program | phases A, C |
+| **Q14** | Hedgehog core, point vs ring: M5.16 measured the spherical hedgehog to be a saddle of the unconstrained functional (perturbed relax −35%, melt moves off-origin). Symmetric hedgehog intended (held by what: Frank term? sixth-order LdG? clock dressing?), or is the ring-core texture acceptable? | Decides whether the calibration's spherically-constrained class is the model's intent; couples to Q13 (the same Frank+chiral pair is the natural point-stabilizer) | phase D + the electron ground state |
+| **Q15** | δ-pinning: the quartic trace-LdG cannot be stationary at `(1, δ, 0)` (residual force `3bδ`). Sixth-order invariant intended, or is δ dynamical (his 2026-06-09 remark)? | Decides the vacuum structure the program minimizes toward; `κ_δ = (3/2)b` is the handle either way | the potential every phase minimizes |
+| **Q17** | β and g anchor preference: β = b/c un-pinned by the electron sector (`κ_δ = (3/2)b` is its meaning); statics measured g-blind, so g comes from clock/boost or baryon mass. Which anchors first? | Closes the two open slots of the M5.16 lock table | phase E + `#220` |
+
+Not in the email: the δ_CP fork is one framing paragraph under Q13 (not a standalone ask); Q4/Q9/Q10/Q12 are background (later rounds); Q11 is Close's thread.
+
+## Rigor compliance (inherited bar + M5.12-specific)
+
+The full Duda-requirement table, item by item with verbatim sources, is [`m5_16_task_details.md § Rigor compliance`](m5_16_task_details.md): it applies to this task verbatim (energy minimization, cylindrical symmetry where applicable, center regularization, physical-regime parameters, independent benchmarks, article-standard documentation). M5.12-specific additions:
+
+| M5.12 rule | Content |
+| --- | --- |
+| Physical-regime headlines only | every REPORTED number at the locked `(g, δ, a, b, c)` from M5.16; placeholder-parameter runs are labelled scaffolding, never headlines (the M5.11 lesson: only physical-regime negatives are verdicts) |
+| Pre-registered gates per phase | each phase A-F carries its gate in the phased-plan table BEFORE the run (the M5.16 G1-G8/R1-R5 pattern); no post-hoc success criteria |
+| Calibrated instrument only | the minimizer + potential come from M5.16 unmodified; any change to the functional re-runs the M5.16 gate suite first |
+| Ask-round answers logged | Duda's Q13/Q16/Q14/Q15/Q17 answers land in [`../m5_question_tracker.md`](../m5_question_tracker.md) § QUESTION DETAILS (per ID) AND in this file's phase-A/C design notes before any build |
+| Honest scorecard discipline | phase F reports the 4 PMNS parameters provenance-labelled (derived / consequence / fit), the N4c pattern; negatives and the mass-compression tension reported as falsifiers, not buried |
 
 ## The phased plan
 
@@ -74,12 +102,12 @@ Copies, never moves: the `m5_11_*` originals stay frozen as the closed task's ev
 
 ## Definition of done
 
-A **stable, regularized neutrino loop at the physical `(g, δ, V)` regime** (or the honest physical-regime negative, which, unlike the M5.11 placeholders, IS a verdict on the model), then the clock, masses, and mixing computed **on that solution**, documented to article standard. The stake is Duda's own framing (round 3, [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md)): a rigorous derivation of the 4 PMNS parameters "able to pass peer review ... would already be huge". Rigor bar: [`m5_16_task_details.md`](m5_16_task_details.md) § Rigor compliance applies verbatim.
+A **stable, regularized neutrino loop at the physical `(g, δ, V)` regime** (or the honest physical-regime negative, which, unlike the M5.11 placeholders, IS a verdict on the model), then the clock, masses, and mixing computed **on that solution**, documented to article standard. The stake is Duda's own framing (round 3, [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md)): a rigorous derivation of the 4 PMNS parameters "able to pass peer review ... would already be huge". Rigor bar: § Rigor compliance above (the inherited M5.16 table + the M5.12-specific rows).
 
 ## Cross-links
 
 - Predecessor (closed): [`m5_11_task_details.md`](m5_11_task_details.md) · frozen findings [`m5_11b_findings.md`](m5_11b_findings.md) · resume-state archive [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md)
 - Gate task: [`m5_16_task_details.md`](m5_16_task_details.md) (parameter lock + P-G + rigor bar + comms plan)
-- Ask round: [`../m5_question_tracker.md`](../m5_question_tracker.md) § QUESTIONS TO DUDA (Q13/Q16/Q14/Q15/Q17) · § δ_CP fork
+- Ask round: § The pre-flight ask round (above, the queue lives here) · question registry [`../m5_question_tracker.md`](../m5_question_tracker.md) § OPEN QUESTIONS + § QUESTION DETAILS · § δ_CP fork (tracker)
 - Theory inputs: [`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) (serious-sims bar, SO(2)/SO(3) slide) · [`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) (uniaxial-neutrino sketch) · [`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md) (Golubich lattice recipe)
 - Honest-scorecard baseline the F phase must beat: [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md)

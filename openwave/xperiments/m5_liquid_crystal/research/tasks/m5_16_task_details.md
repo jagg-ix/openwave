@@ -96,7 +96,7 @@ Strategy (Rodrigo): fix the infrastructure first, show Duda something **concrete
 | --- | --- | --- |
 | 1 | Run M5.16 with NO outbound questions (the parameter/potential search is ours; he handed it over: "you should start here") | now |
 | 2 | **Report the deliverable**: the locked `(g, δ, a, b, c, r₀)` + the rigor-compliant run recipe (the table above, satisfied item by item) | at M5.16 FINISH |
-| 3 | **The M5.12 pre-flight ask round**: ALL pending neutrino-re-entry questions batched in ONE email, backed by the deliverable: Q13 (chiral invariant), the loop-vs-knot choice (Hopf-linked pair vs trefoil vs the sketch's "two vortex types"), the δ_CP fork framing ([`../m5_question_tracker.md`](../m5_question_tracker.md) § Ask queue) | right before starting M5.12 |
+| 3 | **The M5.12 pre-flight ask round**: ALL pending neutrino-re-entry questions batched in ONE email, backed by the deliverable: Q13, Q16, Q14, Q15, Q17 + the δ_CP fork framing (the ask table lives with its consumer: [`m5_12_task_details.md`](m5_12_task_details.md) § The pre-flight ask round) | right before starting M5.12 |
 | 4 | His answers feed the phase A/C design; go M5.12 ([`m5_12_task_details.md`](m5_12_task_details.md)) | after replies |
 
 The prize is his own framing (round 3, `10a`): deriving the 4 PMNS parameters rigorously, "if writing convincing article able to pass peer review, this already would be huge."
@@ -256,7 +256,7 @@ The unconstrained 2D axisym relax ESCAPES the spherical hedgehog: the melt core 
 
 **Issues:** Taichi AD JIT never completed on this kernel shape (28 min CPU, twice): routed around via the analytic numpy engine (FD-gated), Taichi demoted to opt-in cross-check. The quartic trace-LdG carries the irreducible O(δ) residual `3bδ` (Q7 refinement). β un-pinnable by the electron sector (by physics).
 
-**Action (from the approved review):** M5.16-FINISH report to Duda (the summary doc + the locked table); the pre-flight ask round gains the point-vs-ring (Q8) and sixth-order-LdG (Q7) questions alongside Q13 + loop-vs-knot; roadmap row moved to DONE.
+**Action (from the approved review):** M5.16-FINISH report to Duda (the summary doc + the locked table); the pre-flight ask round gains Q14 (point-vs-ring) and Q15 (sixth-order LdG) alongside Q13, Q16 (loop-vs-knot), Q17 (β/g anchors); the ask table baked into the M5.12 plan; roadmap row moved to DONE.
 
 **Findings:** The parameter lock is delivered and the method fork is vindicated: the static energy-minimization route produces, with zero free parameters after the Coulomb + m_e anchors, an electron whose size agrees with Faber's independently-built SU(2) soliton to 4.8% (converged, gate-checked), locking `c₂ = αħc/64π` and the LdG coefficients modulo one shape ratio whose physical meaning (`κ_δ = 3b/2`) hands the neutrino sector its calibration equation. Two honest discoveries ride along: the spherical hedgehog is a saddle of the unconstrained M5 functional (the concrete form of Duda's regularization question), and the δ-continuation probe shows every M5.11 loop obstruction relaxing monotonically toward the uniaxial regime.
 

@@ -12,7 +12,7 @@
 | [`m5_1a_lagrangian_framework.md`](tasks/m5_1a_lagrangian_framework.md) | Framework + the full email thread history |
 | [`m5_5a_lagrangian_evolution.md § 10e`](tasks/m5_5a_lagrangian_evolution.md) | Canonical build-spec: substrate + action + construction recipe + verification gates |
 
-**Last updated:** 2026-07-02 evening (**M5.16 DELIVERED + review approved**: the parameter lock is in (`c₂ = αħc/64π`, `(a,b,c)` per shape ratio β, the parameter-free `r_half = 2.926 fm` vs Faber 3.075, −4.8%); **Q14 + Q15 opened** from its two discoveries (hedgehog-saddle point-vs-ring; sixth-order-LdG δ-pinning); Q7/Q8 flipped to DELIVERED-with-residuals; **the M5.12 pre-flight ask round is NOW OPEN** and the ask queue below is re-sorted by criticality; Duda-facing summary: [`findings/m5_16_report.md`](findings/m5_16_report.md)). Earlier same day (roadmap review: **Q13 opened** (chiral invariant, queued for the post-M5.16 **M5.12 pre-flight ask round**, per the deliver-first-ask-second strategy), the **δ_CP fork** (180° vs 270°) flagged as an in-model discriminator, and the **QUESTIONS TO DUDA ask queue** added with per-item priority vs the M5.16-first sequencing; Q7/Q8 re-labelled deliver-not-ask, routed through M5.16; the rigor-compliance bar recorded in `m5_16_task_details.md`). Prior milestone entry, 2026-06-08 (**THE FULL ZBW PROGRAM LANDED 2026-06-07, N-1…N-6e**, M5.8 sandbox arc complete). Headlines, all machine-checked: the quadratic action has no 3+1D clock saturation (dt-invariant runaway); the signed quartic `u+βu²` saturates it; the saturated state is a self-starting, frequency-RIGID, quasi-periodic breather whose ω₁ is an ATTRACTOR (start- AND dressing-energy-independent, it belongs to the core); it HOLDS resolution-robustly (N-2: the M5.7 dispersal REVERSES under the quartic, defect structure decays slower at 48³ than 24³); it classifies as a MOLTEN CLOCK (low-dim chaos on a persistent comb) that REGULARIZES toward a near-regular cold ground state; the invariant matrix is COMPLETE (signed-u winner / Skyrme damps / A4 pinned / covariant deferred); matter+light share a maximal radial cone ceiling; the first ABSOLUTE ω = 5.5×10¹⁹ rad/s sits ~28× below 2m_ec²/ℏ (a STRUCTURAL gap given rigidity); no intrinsic spin J above the box-torque floor (the clock is J-neutral). The retired claim of record: the earlier "strictly periodic ω₀=0.262 comb" was an FFT-window artifact, caught + retired. M5 now PAUSES for the Duda RESULTS report. Earlier: 2026-06-05 (2c-1 + Option B spike, the full self-consistent 4D evolution is stable under the constrained spectral-projection integrator).
+**Last updated:** 2026-07-02 evening (**M5.16 DELIVERED + review approved**: the parameter lock is in (`c₂ = αħc/64π`, `(a,b,c)` per shape ratio β, the parameter-free `r_half = 2.926 fm` vs Faber 3.075, −4.8%); **Q14 + Q15 opened** from its two discoveries (hedgehog-saddle point-vs-ring; sixth-order-LdG δ-pinning); Q7/Q8 flipped to DELIVERED-with-residuals; **the M5.12 pre-flight ask round is NOW OPEN**: the ask queue is baked into `tasks/m5_12_task_details.md § The pre-flight ask round` (this file keeps the registry: lean OPEN QUESTIONS table + per-ID details); Duda-facing summary: [`findings/m5_16_report.md`](findings/m5_16_report.md)). Earlier same day (roadmap review: **Q13 opened** (chiral invariant, queued for the post-M5.16 **M5.12 pre-flight ask round**, per the deliver-first-ask-second strategy), the **δ_CP fork** (180° vs 270°) flagged as an in-model discriminator, and the **QUESTIONS TO DUDA ask queue** added with per-item priority vs the M5.16-first sequencing; Q7/Q8 re-labelled deliver-not-ask, routed through M5.16; the rigor-compliance bar recorded in `m5_16_task_details.md`). Prior milestone entry, 2026-06-08 (**THE FULL ZBW PROGRAM LANDED 2026-06-07, N-1…N-6e**, M5.8 sandbox arc complete). Headlines, all machine-checked: the quadratic action has no 3+1D clock saturation (dt-invariant runaway); the signed quartic `u+βu²` saturates it; the saturated state is a self-starting, frequency-RIGID, quasi-periodic breather whose ω₁ is an ATTRACTOR (start- AND dressing-energy-independent, it belongs to the core); it HOLDS resolution-robustly (N-2: the M5.7 dispersal REVERSES under the quartic, defect structure decays slower at 48³ than 24³); it classifies as a MOLTEN CLOCK (low-dim chaos on a persistent comb) that REGULARIZES toward a near-regular cold ground state; the invariant matrix is COMPLETE (signed-u winner / Skyrme damps / A4 pinned / covariant deferred); matter+light share a maximal radial cone ceiling; the first ABSOLUTE ω = 5.5×10¹⁹ rad/s sits ~28× below 2m_ec²/ℏ (a STRUCTURAL gap given rigidity); no intrinsic spin J above the box-torque floor (the clock is J-neutral). The retired claim of record: the earlier "strictly periodic ω₀=0.262 comb" was an FFT-window artifact, caught + retired. M5 now PAUSES for the Duda RESULTS report. Earlier: 2026-06-05 (2c-1 + Option B spike, the full self-consistent 4D evolution is stable under the constrained spectral-projection integrator).
 
 ---
 
@@ -55,10 +55,10 @@ DETERMINE         paper + numerical discriminator); not a Duda item
               Q6  eigenvalue -> physics mapping (1=EM, delta=QM, g=gravity)
 
 Total: 17 questions (5 in the ask round, 2 delivered, 1 self-determine,
-4 background, 5 resolved). Sequence: M5.16 DONE -> ONE email = the
-deliverable report + the ask round (Q13, Q16, Q14, Q15, Q17) -> answers
-feed phases A/C/D -> go M5.12. The delta_CP fork (180 vs 270) is framing
-under Q13, not a standalone ask.
+4 background, 5 resolved). The ask queue itself is baked into
+tasks/m5_12_task_details.md (the consumer); this file = the registry.
+Sequence: M5.16 DONE -> ONE email = report + asks -> answers feed
+phases A/C/D -> go M5.12. The delta_CP fork is framing under Q13.
 ```
 
 ---
@@ -95,38 +95,9 @@ NuFIT 6.0 (~212° ± 30) sits **between** them and excludes neither. Deciders: *
 
 ---
 
-## QUESTIONS TO DUDA: ask queue + priority (2026-07-02, strategy revised same day)
+## The ask round lives with its consumer
 
-**The strategy (Rodrigo, 2026-07-02): deliver first, ask second.** Fix the infrastructure (M5.16), show Duda something **concrete, rigorous, and aligned with his theory design** (the rigor-compliance bar in [`tasks/m5_16_task_details.md`](tasks/m5_16_task_details.md) § Rigor compliance), and only then ask, so the questions land as "doing our job right". No outbound question before the M5.16 deliverable. Rule: **do not ask what M5.16 is designed to find** (Duda handed us the parameter/potential search: "you should start here, finding these parameters/details for agreements", `10a` round 3).
-
-The outbound sequence:
-
-| Step | What goes out | When |
-| --- | --- | --- |
-| 1 | ✅ Nothing while M5.16 ran (done: 2026-07-02, 1h12m, review approved) | done |
-| 2 | ✅ **The deliverable report is READY**: [`findings/m5_16_report.md`](findings/m5_16_report.md) (the locked parameters + the rigor-compliant recipe + the headline, lean inspection surface) | send now |
-| 3 | **The M5.12 pre-flight ask round**: ONE email = the report link + the 5 asks below (Q13, Q16, Q14, Q15, Q17; table order = priority) | same email as step 2 (merged: the report IS the backing) |
-| 4 | (his answers feed the M5.12 phase A/C/D design; then M5.12 runs; nailing it = his own "convincing article able to pass peer review ... would be huge") | after replies |
-
-The ask list (row order = priority; these five go in the ONE pre-flight email):
-
-| ID | Ask | Why it is critical | What it unblocks |
-| --- | --- | --- | --- |
-| **Q13** | Does the M5 LdG substrate carry a chiral (Lifshitz) invariant `2q₀L ε_ikl M_ij ∂_k M_lj` + Frank partner, or is uniform-vacuum achirality intended? | Three sectors converge on this ONE term: the CP phase (achiral LdG gives none; the chiral μ-τ route gives \|δ_CP\| = 90°), θ₁₃ (rides `g_chiral ≈ 0.94`, free until the coefficient is microscopic), and loop stabilization (the Smalyukh heliknoton mechanism = Frank + chiral, the M5.12 phase-A route). A "no" reshapes phases A-C AND kills the chiral CP story before we build on it. Framing paragraph: the δ_CP fork (180° pure-SO(3) vs 270° chiral; NuFIT ~212° between) is what this answer decides in-model | M5.12 phases A, C, F; the CP sector |
-| **Q16** | The neutrino seed topology: his `4f` sketch says "two vortex types" (uniaxial); the M5.11 elimination left the forced-singular KNOTTED/linked cell as the one un-built object. Which target: a Hopf-linked `+1/2` disclination pair, a `+1/2` trefoil, or the sketch's two-vortex composite? | The seed choice is the first line of phase A/C code; building the wrong topology class wastes the heaviest compute of the program | M5.12 phases A/C seeds |
-| **Q14** | Hedgehog core, point vs ring: we MEASURED the spherical hedgehog to be a saddle of the unconstrained functional (perturbed relax −35%, melt moves off-origin). Is the electron the symmetric hedgehog, and if so what holds it (Frank term? sixth-order LdG? the clock dressing?), or is the ring-core texture acceptable? | Decides whether the calibration's spherically-constrained class is the model's intent or a scaffold; couples to Q13 (the same Frank+chiral pair is the natural point-stabilizer); feeds M5.12 phase D stability | the electron ground state; Q8 residual; M5.12 phase D |
-| **Q15** | δ-pinning: the quartic trace-LdG cannot be stationary at `(1, δ, 0)` (residual force `3bδ`). Sixth-order invariant intended, or is δ dynamical (his 2026-06-09 "δ is dynamical")? | Decides the vacuum structure the whole program minimizes toward; `κ_δ = (3/2)b` is the quantitative handle either way | Q7 residual; M5.9 lepton calibration |
-| **Q17** | β and g anchor preference (report + short ask): β = b/c is un-pinned by the electron sector (r_half is β-flat; `κ_δ = (3/2)b` is its meaning) and statics are measured g-blind (E identical at g = 8 vs 1e10), so g must come from clock/boost or baryon mass. Which anchors does he want first? | Closes the two honest open slots of the lock table | the full `(g, δ, a, b, c)` lock; `#220` |
-
-Not in this round:
-
-| Item | Disposition |
-| --- | --- |
-| The δ_CP fork (180° vs 270°) | not a standalone ask: one framing paragraph under Q13 (it is what the Q13 answer decides in-model); the in-model decider is M5.12 phase F |
-| Q4 (Liu lab anchor), Q9 (deeper substrate), Q10 (weak SU(2)), Q12 (Bell/KS) | background / long-tail; none gates M5.12; later rounds |
-| Q11 (Close Eq.23) | not a Duda item: self-determination plan stands; Close's thread |
-
-Rules that still stand: ONE email (never a drip); the report link leads, the asks follow; do not ask what we can measure ourselves (Q7/Q8 were delivered, not asked; Q13-Q17 are asked because they are THEORY-INTENT or design-choice questions the minimizer cannot decide).
+The pre-flight ask queue (Q13, Q16, Q14, Q15, Q17: table order = priority, why-critical, what each answer feeds) is baked into **[`tasks/m5_12_task_details.md § The pre-flight ask round`](tasks/m5_12_task_details.md)**, the task gated on the answers. This file stays the question REGISTRY: the [`§ OPEN QUESTIONS`](#open-questions) table (already priority-sorted) + [`§ QUESTION DETAILS`](#question-details-open-questions) per ID. The deliver-first-ask-second strategy and the outbound sequence are recorded in [`tasks/m5_16_task_details.md § Comms plan`](tasks/m5_16_task_details.md).
 
 ---
 
@@ -388,7 +359,7 @@ Imported from `m6_ouroboros/research/0b_model_gates.md` § "What M6 offers regar
 ## Notes on scope
 
 - This tracker covers **M5 physics/framework questions for the group** (Duda / Close / Yee) plus the hardest-pieces board. M5.4 implementation decisions (Taichi storage layout, eigen-kernel design, granule/glyph UX calls) are tracked as **roadmap tasks** in [`m5_roadmap.md`](m5_roadmap.md) and [`m5_4b_rendering_features.md`](tasks/m5_4b_rendering_features.md), not here — same split as M6 (questions here, sandbox tasks in the work log).
-- **Email cadence (updated 2026-07-02).** The Duda thread is ACTIVE: rounds `4c` (2026-06-08 δ/g calibration + Faber added), `4d` (06-11), the #236 rounds 2-3 (06-20/21, "do less but more rigorously" + the parameter search handed to us), the "too simple" critique + M5.11 response (06-22), and the same-day pair `4e` (07-01 serious sims + g/δ lock, direct) + `4f` (07-01 field-config sketch, group list). Golubich joined 07-02 (`4g`, the SU(2) lattice recipe). **The outbound queue is governed by § QUESTIONS TO DUDA (ask queue) above.** M5.16 DELIVERED 2026-07-02 (review approved): the deliverable report [`findings/m5_16_report.md`](findings/m5_16_report.md) + the pre-flight ask round go out as ONE email (P1 Q13 chiral · P2 loop-vs-knot · P3 Q14 point-vs-ring · P4 Q15 δ-pinning · P5 β/g residuals); Q7/Q8 were delivered, not asked (M5.16 P-C/P-D). After his answers: go M5.12. The earlier note here (last reply 2026-05-15, Q7/Q8 outreach seeds) is superseded.
+- **Email cadence (updated 2026-07-02).** The Duda thread is ACTIVE: rounds `4c` (2026-06-08 δ/g calibration + Faber added), `4d` (06-11), the #236 rounds 2-3 (06-20/21, "do less but more rigorously" + the parameter search handed to us), the "too simple" critique + M5.11 response (06-22), and the same-day pair `4e` (07-01 serious sims + g/δ lock, direct) + `4f` (07-01 field-config sketch, group list). Golubich joined 07-02 (`4g`, the SU(2) lattice recipe). **The outbound queue is governed by [`tasks/m5_12_task_details.md § The pre-flight ask round`](tasks/m5_12_task_details.md).** M5.16 DELIVERED 2026-07-02 (review approved): the deliverable report [`findings/m5_16_report.md`](findings/m5_16_report.md) + the ask round (Q13, Q16, Q14, Q15, Q17) go out as ONE email; Q7/Q8 were delivered, not asked (M5.16 P-C/P-D). After his answers: go M5.12. The earlier note here (last reply 2026-05-15, Q7/Q8 outreach seeds) is superseded.
 
 ---
 
@@ -443,4 +414,3 @@ Imported from `m6_ouroboros/research/0b_model_gates.md` § "What M6 offers regar
 ### Q12 detail
 
 **Bell / Kochen-Specker.** How does M5's definite-orientation defect (real spin axis + clock phase, deterministic local PDE) reconcile with Bell / Kochen-Specker contextuality? Surfaced: Duda↔Hadley thread 2026-05-11; Close/Adenier thread 2026-05. Defense template: field evolution is local-realistic (cannot violate Bell); QM statistics enter at the measurement/collapse layer (Duda's Malus analogy + Feynman-ensemble), bridged by MERW `ρ = |ψ|²` (`4a §11b.4`). Close is building the parallel Adenier / Eq.10-factoring defense. Full note: [`m5_1b_topological_defect.md § Foundational stance`](tasks/m5_1b_topological_defect.md#foundational-stance--m5-as-a-local-realistic-field-bell--kochen-specker).
-
