@@ -1,6 +1,6 @@
 # M5.12: Neutrino vortex-loop at the physical regime (the fresh re-entry)
 
-> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: ~~M5.16~~ ✅ (delivered 2026-07-02) + **the pre-flight ask round** (Duda's answers to Q13/Q16/Q14/Q15/Q17, § below) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: ~~M5.16~~ ✅ (delivered 2026-07-02) + **[M5.17](m5_17_task_details.md)** (the methods surface + re-ask; the ask round went out 2026-07-02 but the 2026-07-03 reply was a methods audit, not answers: § Ask-round outcome below) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation.
 
@@ -30,7 +30,7 @@ All five M5.11 P2 loop experiments ran at the placeholder `δ = 0.3`, where the 
 | Gate | Delivers |
 | --- | --- |
 | **M5.16** (the parameter-lock task) | ✅ DELIVERED 2026-07-02: locked `c₂ = αħc/64π` + `(a,b,c)` per β + the calibrated axisymmetric minimizer ([`m5_16_task_details.md § FINDINGS`](m5_16_task_details.md)); P-G read: all four obstruction indicators relax monotonically toward uniaxial (supportive, not sufficient alone) |
-| **The pre-flight ask round** (one email to Duda, backed by the M5.16 deliverable) | his answers to Q13/Q16/Q14/Q15/Q17: the full ask table is § The pre-flight ask round below (this task consumes the answers, so the queue lives HERE); question registry + details: [`../m5_question_tracker.md`](../m5_question_tracker.md) § OPEN QUESTIONS |
+| **The pre-flight ask round** (one email to Duda, backed by the M5.16 deliverable) | SENT 2026-07-02; the 2026-07-03 reply audited the methods instead of answering (only Q16 partial: § Ask-round outcome below). The gate is now **[M5.17](m5_17_task_details.md)**: methods note + two-charge Coulomb + the re-ask email; question registry + details: [`../m5_question_tracker.md`](../m5_question_tracker.md) § OPEN QUESTIONS |
 
 ## The pre-flight ask round (entry gate 2: the ONE email)
 
@@ -47,6 +47,27 @@ The ask table (row order = priority; answers feed the phase named in the last co
 | **Q17** | β and g anchor preference: β = b/c un-pinned by the electron sector (`κ_δ = (3/2)b` is its meaning); statics measured g-blind, so g comes from clock/boost or baryon mass. Which anchors first? | Closes the two open slots of the M5.16 lock table | phase E + `#220` |
 
 Not in the email: the δ_CP fork is one framing paragraph under Q13 (not a standalone ask); Q4/Q9/Q10/Q12 are background (later rounds); Q11 is Close's thread.
+
+### Ask-round outcome (2026-07-03) + the spec updates his reply carried
+
+The email went out 2026-07-02; Duda's 2026-07-03 reply audited the report's methods instead of answering (he could not find the potential / Hamiltonian in the code; full exchange + decoding: [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md)). The re-ask rides the [M5.17](m5_17_task_details.md) methods note. Per-question state:
+
+| ID | State after 2026-07-03 |
+| --- | --- |
+| Q13 | unanswered, re-ask with the methods note |
+| Q16 | 🔶 PARTIAL ANSWER, banked: "topological vortex rotated cylindrically to make it loop" = build the **single rotated vortex loop first** (phase A/C seed order settled); linked-pair vs trefoil discrimination stays open |
+| Q14 | unanswered; his Fig. 9 (arXiv:2108.07896) ansatz reference sharpens what "the symmetric hedgehog" means (the M5.17 conformance check feeds this) |
+| Q15 | unanswered; his "search for parameters" framing keeps it live |
+| Q17 | weak signal: clock frequency is explicitly on his electron checklist (points at the clock/boost g-anchor path); no direct answer |
+
+Design-note spec updates from the same reply (logged here per the rigor rule, before any build):
+
+| Spec (Duda 2026-07-03, verbatim source in [`m5_4h`](m5_4h_convo_2026.07.03.md)) | Lands in |
+| --- | --- |
+| Neutrino starting point = "topological vortex rotated cylindrically to make it loop" | phase A/C seed (first object to build) |
+| "minimization should give preferred time derivatives defining PMNS matrix to compare with" | phase F observable: PMNS from the TIME DERIVATIVES of the minimized loop, not from static overlaps alone |
+| Electron bar = mass + "clock frequency, angular momentum and magnetic dipole" | phase D (clock + stability) picks up the 3 dynamical observables; EID-B/EID-C heritage = the starting points |
+| Coulomb anchor = two charges at varying distance (large d anchor, fm-scale running coupling) | consumed by M5.17 phase C; this task inherits whatever the cross-check does to the `c₂` lock |
 
 ## Rigor compliance (inherited bar + M5.12-specific)
 
