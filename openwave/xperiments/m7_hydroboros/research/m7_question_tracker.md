@@ -13,44 +13,56 @@
 | [`../../m5_liquid_crystal/research/m5_question_tracker.md`](../../m5_liquid_crystal/research/m5_question_tracker.md) | the M5 tracker this one mirrors (structure + procedure) |
 | [`../../m6_ouroboros/research/0b_question_tracker.md`](../../m6_ouroboros/research/0b_question_tracker.md) | the M6 tracker (the other parent's registry) |
 
-**Last updated:** 2026-07-03 (**M7.3 delivered**, [`tasks/m7_3_ouroboros_3d.md`](tasks/m7_3_ouroboros_3d.md) § FINDINGS: the verbatim-ODE pre-gate PASSED with convention pins (same-phase azimuthal doublet; coupling `−A·J`; FOCUSING `f`), the 3D lattice reproduces the M6 ledger to 4.7e-5, and three honest discoveries landed: **Q11 opened** (the charged `H/Q = 1.6890` is a WINDOWED quantity, no decaying channel exists at the canonical point), **Q12 opened** (`0d_canonical § 2.2`'s `2ωα` form is not an EL reduction; LoE 9b § 5.1's cos/sin phases decouple), **Q13 opened** (the M6 electron is a 3D constrained SADDLE ending in focusing collapse; helicity guard inert on it); **Q8 RESOLVED** (no gauge fixing needed; the real correction was objective-level: fixed-`Q_can` extremization of `E_ω`, multiplier ω). Q6 gained decisive evidence (the operative `f` is focusing with a λ-term, not the written `(g/4)s²`). Earlier (2026-07-02 night): **M7.2 quadrature delivered**: all reproduction gates pass at O(h²·⁵)/1.4e-4; printed solution reconstructed digit-for-digit; **Q10 evidence in** (Eq 122/124/127 slips, corrected `U ≈ 0.958 m_ec²`, [`tasks/m7_2_fleury_torus.md § 3`](tasks/m7_2_fleury_torus.md)); the Bessel stretch exposed the mask's hidden surface charge. Earlier: restructured to the M5 tracker pattern (ONE priority-sorted OPEN QUESTIONS table = the ask list, Q10 opened); plan refactor (Q2 direction set, Q3/Q5/Q7 sharpened, Q8 + Q9 opened); **M7.1 gate suite ALL PASS** ([`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings).
-
 ---
 
 ## Active Questions Count
 
 ```text
-6 ASK MARC     (next contact; list order = priority = the table order)
-                 Q7   variable-lambda construction: relax-and-measure reframe
-                      + the S&Y eikonal variable-h toroidal recipe
-                 Q5   divergence-ful knots: stable, or does div F kill them?
-                 Q3   divergence charge vs linking charge: forced equal?
+5 ASK MARC     (next contact; list order = priority = the table order)
+                 Q7   charge-carrying construction: reframe VALIDATED at
+                      M7.4 (approx-Beltrami cores, align 0.96); remaining
+                      asks = the S&Y variable-h toroidal recipe + the
+                      scalar/longitudinal charge prescription (NEW)
+                 Q3   divergence charge vs linking charge: M7.4 measured
+                      them INDEPENDENT (linking gates existence; RMS charge
+                      coexists, not slaved) - his read?
                  Q10  FLDB energy convention: M7.2 delivered the evidence
-                      (Eq 122/124/127 slips identified; corrected
-                      U = 0.958 m_ec^2); ask = Marc's confirmation
+                      (Eq 122/124/127 slips; corrected U = 0.958 m_ec^2);
+                      ask = Marc's confirmation
                  Q1   substrate reading + target manifold (S2 vs S3)
                  Q4   the promised Beltrami material + the Spanish school
 
-5 ASK WERBOS   Q11  the charged H/Q = 1.6890 is a WINDOWED quantity (M7.3:
-                    no decaying channel at the canonical point; Q grows
-                    with r_max) - is the calibration window-defined?
-               Q13  the M6 electron is a 3D constrained SADDLE (focusing
-                    collapse); is the conjugate-point stability claim
-                    1D-radial-manifold only?
+5 ASK WERBOS   Q11  the charged H/Q = 1.6890 is a WINDOWED quantity (M7.3);
+                    coupled to Q9: the v5 electron island claims k > 0
+                    (decaying) - where does the localized branch live?
+               Q13  the M6 electron is a 3D constrained SADDLE (M7.3
+                    focusing collapse); M7.4: adding helicity (poloidal
+                    twist) to the SAME torus stabilizes it - is the
+                    conjugate-point claim 1D-manifold only?
                Q12  ODE provenance: 0d_canonical 2.2's "2 omega alpha" form
                     is not an EL reduction; LoE 9b 5.1's cos/sin phases
                     decouple - which ansatz/ODE is intended?
-               Q9   (Omega, G) <-> (omega, g, m_J) calibration dictionary
-               Q6   f(J.J) potential form (M7.3 evidence: the operative f is
-                    FOCUSING with a lambda-term, not the written (g/4)s^2)
+               Q9   (Omega, G) definitions: table + k self-read from corpus
+                    #10 at M7.4 (electron Omega=1.050, G in [1.15,3.25],
+                    k>0); G-island does NOT bracket g=1.0625, so
+                    (Omega,G) != (omega,g) - the definitions remain the ask
+               Q6   f(J.J) form: M7.4 evidence: the REPULSIVE/written
+                    branch (LoE v5's own f = gs^2) holds stable solitons +
+                    keeps charge; the focusing benchmark-verbatim branch
+                    expels charge or collapses - which does he intend?
 
-1 SELF-        Q2   4th-order stabilizer (direction set; optional M7.4
-DETERMINE           experiment, off by default)
+0 SELF-DETERMINE
 
-1 RESOLVED     Q8   gauge/constraint scheme (M7.3: no gauge fixing; the real
-                    fix was the objective: fixed-Q_can extremization)
+3 RESOLVED     Q8   gauge/constraint scheme (M7.3: no gauge fixing; the fix
+                    was the objective: fixed-Q_can extremization)
+               Q2   4th-order stabilizer NOT needed (M7.4: helicity +
+                    confinement stabilizes; Derrick interior min measured)
+               Q5   div F does NOT destabilize (M7.4: the divergence-ful
+                    Hopf seed relaxes to a stable soliton); residuals:
+                    knot-SECTOR persistence (reconnects under global-H
+                    fixing) + the net-Gauss/scalar-sector version
 
-Total: 13 questions (6 ask-Marc, 5 ask-Werbos, 1 self-determine, 1 resolved).
+Total: 13 questions (5 ask-Marc, 5 ask-Werbos, 0 self-determine, 3 resolved).
 ```
 
 Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · ✅ resolved · ❌ closed negative.
@@ -63,18 +75,16 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 
 | ID | Title | Question (one line) | Gates |
 | --- | --- | --- | --- |
-| [Q7](#q7-detail) 🔶 | Charge-carrying construction | Does the relax-and-measure implementation (charge = the measured `∇·F` deviation, `λ_eff` diagnostic) match Marc's "Trkalian first, then take off the training wheels", and is there a concrete S&Y eikonal recipe for a **variable-h toroidal** seed? | M7.4 (the research core) |
-| [Q5](#q5-detail) 🔶 | Divergence-ful knots | Does a divergence-ful field still admit clean, stable knots, or does nonzero `∇·F` destabilize the Hopfion? | M7.4 pass/fail |
-| [Q3](#q3-detail) 🔶 | The two charges | Are Fleury's divergence charge and Ouroboros's helicity/linking charge **forced equal**, or independent observables to reconcile? | M7.4 (the `(Q_div, H, linking)` deliverable) |
+| [Q7](#q7-detail) 🔶 | Charge-carrying construction | Reframe VALIDATED at M7.4 (approximately-Beltrami cores, `\|align\| = 0.96`, charge measured not imposed); remaining asks: the S&Y **variable-h toroidal** recipe, and (NEW) the **scalar/longitudinal charge prescription** (the naive averaged Hamiltonian is unstable exactly in the Gauss-charge sector) | M7.5/M7.6 refinement; the scalar-sector follow-up |
+| [Q3](#q3-detail) 🔶 | The two charges | M7.4 measured them **independent at this level**: helicity/linking gates existence, the RMS divergence charge coexists but is not slaved to it: does Marc read Pisello/Gauss-Bonnet as requiring a deeper slaving we should test for? | interpretation; the scalar-sector follow-up |
 | [Q10](#q10-detail) 🔶 | FLDB energy convention | Confirm the Eq 122/124/127 algebra (M7.2 identified the dropped square + the dropped ½): is the corrected **`U ≈ 0.958 m_ec²`** the intended prediction? | evidence delivered by M7.2 § 3; Marc's confirmation pending |
 | [Q1](#q1-detail) 🔶 | Substrate + target manifold | The `(A_μ, J_μ)` doublet (candidate B, built at M7.1) vs single RS field (A); Clebsch as seeder only (D); and the target manifold: Pisello S² vs Faber S³? | M7.3/M7.4 closure |
 | [Q4](#q4-detail) 🔶 | Marc's source material | The further Beltrami papers he mentioned (corpus #13) + the status of bringing in Enciso & Peralta-Salas as collaborators? | corpus (M7.0, ongoing) |
 | [Q11](#q11-detail) 🔶 | Windowed charged calibration | M7.3 showed `H/Q = 1.6890` is a windowed quadrature (no decaying channel at `ω=1, λ=1`; `Q` grows with `r_max`): is the calibration window-defined, or does a genuinely localized charged branch exist elsewhere in parameter space? | M7.3 delivered the evidence; blocks any physical-mass reading of the M6 charged ledger |
 | [Q13](#q13-detail) 🔶 | 3D stability of the chaoiton | M7.3: the M6 electron is a 3D constrained SADDLE of its verbatim functional, ending in focusing collapse (helicity guard inert on it): is the conjugate-point stability claim (LoE 9b § 5) restricted to the 1D radial manifold? | feeds M7.4 blend design; the M7.5 real-time probe |
 | [Q12](#q12-detail) 🔶 | M6 ODE / ansatz provenance | The `0d_canonical § 2.2` `2ωα` form is not an EL reduction of the Lagrangian under any scanned harmonic ansatz, and LoE 9b § 5.1's cos/sin phases decouple: which ansatz + ODE does Werbos intend as canonical? | M7.3 delivered the reduction table; documentation fix for `0d_canonical.md` |
-| [Q9](#q9-detail) 🚧 | Werbos-v5 calibration dictionary | The `(Ω, G) ↔ (ω, g, m_J)` map between v5's canonical point (`g = 1.0625`, `H/Q = 1.6969`) and M6's repo-validated canonical (`g = 1.0`, `H/Q = 1.6890`)? | M7.3 secondary gate · M7.12 islands |
-| [Q6](#q6-detail) 🔶 | Potential form | Keep M6's `f(s) = (g/4) s²` for the toroidal sector, or a better-suited form? (M7.3 evidence: the operative `f` matching the benchmark is FOCUSING, `−(λ/2)s − 2g s²` RWA, and drives the 3D collapse) | M7.4 design |
-| [Q2](#q2-detail) 🔶 | 4th-order stabilizer | Is any 4th-order term needed at all, and in which non-inert form? (helicity + confinement is the working stabilization) | M7.4 optional experiment (off by default) |
+| [Q9](#q9-detail) 🔶 | Werbos-v5 calibration dictionary | Partially self-read at M7.4 (corpus #10 table: electron `Ω = 1.050, G ∈ [1.15, 3.25], k > 0`; `k` = far-field decay): the `(Ω, G)` **definitions** remain the ask: the electron G-island does not bracket `g = 1.0625`, so `(Ω,G) ≠ (ω,g)`; needed to locate the claimed localized branch (Q11) | M7.12 islands · Q11 |
+| [Q6](#q6-detail) 🔶 | Potential form | M7.4 answered empirically: the **repulsive/written branch** (`f = gs²` per LoE v5 itself) holds stable solitons and keeps the charge; the focusing benchmark-verbatim pin (M7.3) expels charge or collapses: which `f` does Werbos intend, and are the benchmark ODE's effective signs a slip? | M6-doc correction · Q12 |
 
 ---
 
@@ -83,6 +93,8 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 | ID | Question | Resolution |
 | --- | --- | --- |
 | [Q8](#q8-detail) ✅ | Gauge / constraint scheme for the coupled minimizer | RESOLVED at M7.3 (2026-07-03), as scheduled: **no explicit gauge fixing**. The coupled fixed-`Q_can` relaxation ran gauge-unfixed with no stall or drift pathology; the correction the pre-gate actually forced was **objective-level**, not gauge-level: minimize/extremize `E_ω` at fixed `Q_can` (multiplier ω), never `E_ω` unconstrained (its EL has the ω²-sign flipped). M7.1's G5 evidence (curl sector self-fixes; only `A·J` gauge-sensitive off-shell) stands. Residual: if a future M7.4+ run shows gauge stall, reopen with the Coulomb-projection candidate. [`tasks/m7_3_ouroboros_3d.md § 1, § 4`](tasks/m7_3_ouroboros_3d.md) |
+| [Q2](#q2-detail) ✅ | 4th-order stabilizer needed? | RESOLVED at M7.4 (2026-07-03): **not needed**. Helicity anti-collapse + Ouroboros confinement stabilizes with no 4th-order term: every surviving M7.4 state has a constrained-Derrick **interior minimum** (dilation probe, measured), and both zero-helicity seeds evaporate (the guard is real and load-bearing). The drafted `\|F×(∇×F)\|²/\|F\|²` term stays retired (inert on Beltrami configs + singular at zeros). [`tasks/m7_4_charged_soliton.md § 2`](tasks/m7_4_charged_soliton.md) |
+| [Q5](#q5-detail) ✅ | Divergence-ful knots | RESOLVED-delivered at M7.4 (2026-07-03): **`∇·F ≠ 0` does NOT destabilize**: the divergence-ful Bateman/Hopf seed relaxes to a stable, dilation-stable, approximately-Beltrami soliton with persistent RMS charge (`Q_ρ = 5.4e-3`). Residuals routed: (a) **knot-SECTOR persistence**: the final state reconnects into the same Taylor family as the unknot seeds (only global `H_A` was fixed): topology-preserving constraints are a designed follow-up; (b) the **net-Gauss-charged** version (scalar sector) pends the Q7(b) prescription. [`tasks/m7_4_charged_soliton.md § 2-2b, § 4`](tasks/m7_4_charged_soliton.md) |
 
 ---
 
@@ -95,9 +107,9 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 | The time-harmonic reduction goes subtly wrong (M6 needed ten sandbox versions to pin its 1D reduction: signs, regularity classes, Laplacians, measures) | ✅ CLOSED at M7.3: the verbatim-ODE pre-gate passed with every sign/normalization pinned by sympy (and it caught three real convention faults: the coupling sign, the focusing `f`, the wrong objective `E_ω`-unconstrained), [`tasks/m7_3_ouroboros_3d.md § 1`](tasks/m7_3_ouroboros_3d.md) |
 | The 1D chaoiton may be **unstable to 3D symmetry breaking** (1D radial solutions often are) | ✅ ANSWERED at M7.3, honestly: it is a 3D constrained SADDLE with a focusing-collapse escape (Q13); feeds the M7.4 blend design (the helicity guard is inert on M6's ansatz; the blend activates it) |
 | Gauge flat directions stall or misdirect the minimizer (Q8) | ✅ RESOLVED at M7.3: no gauge fixing needed; the coupled fixed-`Q_can` relaxation ran gauge-unfixed cleanly (see Q8 resolution row) |
-| Confinement-term sign: `m_J² A·J` is not positive-definite, the anti-expansion balance is only empirically established (M6 1D) | the M7.4 **dilation probe** (`E(μ)` along rescalings) verifies the interior minimum directly; honest pass / fail |
-| Variable-λ Beltrami math "gets very hairy" (Marc), now sharpened: **rigidity obstructs exact nonconstant-λ solutions even locally** | M7.4 reframed to relax-and-measure (Q7): Trkalian seeds + full-functional relaxation, charge measured as the deviation, never imposed |
-| Does the divergence-ful field admit clean knots (Q5) | the open research question; honest pass / fail at M7.4; M5.11's P2 (smooth knots expand) is the cautionary datum, the confinement term is the mitigation |
+| Confinement-term sign: `m_J² A·J` is not positive-definite, the anti-expansion balance is only empirically established (M6 1D) | ✅ ANSWERED at M7.4: the dilation probe measured a constrained-Derrick **interior minimum** on every surviving state (repulsive `f`); the balance holds. NEW residual: the **scalar (timelike) sector** is where the functional is genuinely unstable (null-J bilinear runaway, [`tasks/m7_4_charged_soliton.md § 1`](tasks/m7_4_charged_soliton.md)); frozen this task, prescription = the Q7(b) ask |
+| Variable-λ Beltrami math "gets very hairy" (Marc), now sharpened: **rigidity obstructs exact nonconstant-λ solutions even locally** | ✅ reframe VALIDATED at M7.4: relax-and-measure produced approximately-Beltrami solitons (`\|align\| = 0.96`) with the charge measured, never imposed |
+| Does the divergence-ful field admit clean knots (Q5) | ✅ ANSWERED at M7.4: yes (see Q5 resolution); M5.11's P2 expansion mode did not appear: the confinement + helicity pair held |
 | Whole-program cost: 3D harmonic relaxations are multi-hour GPU runs | accepted; same regime as M5.11's vortex-loop relaxation |
 | **Marc's AI-exchange material hallucinates** (his own warning: 2 months / 3 AIs, output not great) | treat it as **seeds only**, never as validated input; every claim re-derived in-platform (the MODELS.md reproducibility bar). A marathon-session review for extractable signal is optional, low priority |
 | Masses (M7.6) may stay in tension with data | report honestly, including partial, as M5.11 did |
@@ -112,21 +124,25 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 ---
 
+**Last updated:** 2026-07-03 night (**M7.4 delivered**, [`tasks/m7_4_charged_soliton.md`](tasks/m7_4_charged_soliton.md) § FINDINGS: the seed × f-convention matrix produced **three stable, finite-size, approximately-Beltrami solitons** (ck unknot, Hopf knot, and the **blend** = M6 torus + poloidal A-twist, the HydroBoros electron candidate), all `\|align\| = 0.96`, dilation-stable, with a coupling-driven J-condensate and persistent RMS divergence charge; both zero-helicity parent seeds evaporate (helicity measurably load-bearing). **Q2 RESOLVED** (no 4th-order term needed), **Q5 RESOLVED-delivered** (divergence-ful knots hold; residual = the net-Gauss/scalar-sector version), **Q3 evidence** (the two charges are independent at this level; linking side gates existence), **Q6 evidence** (the repulsive/WRITTEN `f` is the stable branch; the focusing benchmark-verbatim branch expels charge or collapses; LoE v5 itself writes `f = gs²`), **Q9 partially self-read** (the (Ω,G) table + `k` = far-field decay extracted from corpus #10; the definitions remain the ask, now coupled to Q11), **NEW scalar-sector finding** (the naive averaged Hamiltonian is unstable in the timelike components, which is exactly where Gauss puts the divergence charge → sharpens Q7). Earlier same day (**M7.3 delivered**, [`tasks/m7_3_ouroboros_3d.md`](tasks/m7_3_ouroboros_3d.md) § FINDINGS: the verbatim-ODE pre-gate PASSED with convention pins (same-phase azimuthal doublet; coupling `−A·J`; FOCUSING `f`), the 3D lattice reproduces the M6 ledger to 4.7e-5, and three honest discoveries landed: **Q11 opened** (the charged `H/Q = 1.6890` is a WINDOWED quantity, no decaying channel exists at the canonical point), **Q12 opened** (`0d_canonical § 2.2`'s `2ωα` form is not an EL reduction; LoE 9b § 5.1's cos/sin phases decouple), **Q13 opened** (the M6 electron is a 3D constrained SADDLE ending in focusing collapse; helicity guard inert on it); **Q8 RESOLVED** (no gauge fixing needed; the real correction was objective-level: fixed-`Q_can` extremization of `E_ω`, multiplier ω). Q6 gained decisive evidence (the operative `f` is focusing with a λ-term, not the written `(g/4)s²`). Earlier (2026-07-02 night): **M7.2 quadrature delivered**: all reproduction gates pass at O(h²·⁵)/1.4e-4; printed solution reconstructed digit-for-digit; **Q10 evidence in** (Eq 122/124/127 slips, corrected `U ≈ 0.958 m_ec²`, [`tasks/m7_2_fleury_torus.md § 3`](tasks/m7_2_fleury_torus.md)); the Bessel stretch exposed the mask's hidden surface charge. Earlier: restructured to the M5 tracker pattern (ONE priority-sorted OPEN QUESTIONS table = the ask list, Q10 opened); plan refactor (Q2 direction set, Q3/Q5/Q7 sharpened, Q8 + Q9 opened); **M7.1 gate suite ALL PASS** ([`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings).
+
+---
+
 ## QUESTION DETAILS (open questions)
 
 > The lean [`§ OPEN QUESTIONS`](#open-questions) table links here (one anchor per ID). This section carries each question's full statement, provenance, history, and evidence, plus the concrete ask where the question is outbound.
 
 ### Q7 detail
 
-**Charge-carrying construction (ask Marc, priority 1).** What carries `∇·F ≠ 0` when the Trkalian training wheels come off, and how does it evolve? **Reframed 2026-07-02**: the divergence identity `∇·w = −(w·∇λ)/λ` says charge needs λ varying **along** field lines, exactly the regime rigidity obstructs (Clelland-Klotz 2020, even locally), so M7.4 does **not** hunt an exact `λ(x)` ansatz; it relaxes the full functional from Trkalian seeds (+ a λ-perturbation) and **measures** the deviation via `λ_eff = F·(∇×F)/\|F\|²` ([`tasks/m7_4_charged_soliton.md`](tasks/m7_4_charged_soliton.md)). Marc's endorsement (2026-06-30, "start Trkalian, take off the training wheels") survives intact, implemented as relax-and-measure rather than construct-exactly. **The asks:** (a) confirm the reframe matches his intent, and whether he knows results beyond Kaiser 2000 on variable-α existence; (b) the concrete construction steps for a **toroidal variable-h** Beltrami seed from Sato-Yamada's eikonal + equal-scale-factor method (M7.1 filled the seeder slot with the constant-λ CK spheromak, [`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings G4; the variable-h construction is exactly what M7.4's charge sector wants).
+**Charge-carrying construction (ask Marc, priority 1).** What carries `∇·F ≠ 0` when the Trkalian training wheels come off, and how does it evolve? **Reframed 2026-07-02**: the divergence identity `∇·w = −(w·∇λ)/λ` says charge needs λ varying **along** field lines, exactly the regime rigidity obstructs (Clelland-Klotz 2020, even locally), so M7.4 does **not** hunt an exact `λ(x)` ansatz; it relaxes the full functional from Trkalian seeds (+ a λ-perturbation) and **measures** the deviation via `λ_eff = F·(∇×F)/\|F\|²` ([`tasks/m7_4_charged_soliton.md`](tasks/m7_4_charged_soliton.md)). Marc's endorsement (2026-06-30, "start Trkalian, take off the training wheels") survives intact, implemented as relax-and-measure rather than construct-exactly. **VALIDATED at M7.4 (2026-07-03):** all three surviving basins are approximately-Beltrami (`\|align\| = 0.96`) with the deviation carrying the structure and the RMS divergence charge persisting; the exact-ansatz hunt was indeed the wrong frame. **The asks, updated:** (a) the concrete construction steps for a **toroidal variable-h** Beltrami seed from Sato-Yamada's eikonal + equal-scale-factor method; (b) **NEW, the sharpest one**: in an A-primary doublet the net Gauss charge lives in the scalar/longitudinal sector (`∇·E_A = −m_J²J₀`), and M7.4 measured the naive averaged Hamiltonian to be **unstable in exactly that sector** (null-J quartic-flat directions with unbounded bilinear `a₀j₀` energy): what is his prescription for the longitudinal/scalar charge-carrying construction (Gauss-eliminated `a₀`? constrained `j₀`?); (c) results beyond Kaiser 2000 on variable-α existence.
 
 ### Q5 detail
 
-**Divergence-ful knots (ask Marc, priority 2).** Does a divergence-ful field still admit clean, stable knots, or does nonzero `∇·F` destabilize the Hopfion? Sharpened by the corpus math ([`m7_background.md § 2`](m7_background.md)): **exact** variable-λ Beltrami knots are heavily obstructed (rigidity) and finite-energy exact Beltrami fields don't exist at all (Nadirashvili), so the question is properly about the **relaxed minimizer of the full functional** (approximately Beltrami, charge = the coupling-driven deviation). **Pisello** answers YES in principle (a charged toroidal Hopf-knot exists, corpus #16); Kaiser 2000 gives perturbative small-charge existence; M5.11's P2 warns that smooth knots **expand** without confinement (M7 has the confinement term M5's functional lacked). M7.4 answers on the lattice, honest pass / fail. **The ask:** his position on whether `∇·F ≠ 0` destabilizes the knot, given the Pisello precedent and the M5.11 P2 datum.
+**Divergence-ful knots (✅ RESOLVED-delivered at M7.4, 2026-07-03; kept for history).** Does a divergence-ful field still admit clean, stable knots, or does nonzero `∇·F` destabilize the Hopfion? Sharpened by the corpus math ([`m7_background.md § 2`](m7_background.md)): **exact** variable-λ Beltrami knots are heavily obstructed (rigidity) and finite-energy exact Beltrami fields don't exist at all (Nadirashvili), so the question is properly about the **relaxed minimizer of the full functional**. **Pisello** answered YES in principle (corpus #16); Kaiser 2000 gave perturbative small-charge existence; M5.11's P2 warned that smooth knots expand without confinement. **The lattice answer (M7.4,** [`tasks/m7_4_charged_soliton.md § 2, § 4`](tasks/m7_4_charged_soliton.md)**): `∇·F ≠ 0` does NOT destabilize.** The divergence-ful Bateman/Hopf seed relaxes to a stable, dilation-stable, approximately-Beltrami soliton (`E = 1.7988`, `\|g\| = 1e-7`, align 0.960) with persistent RMS divergence charge; the confinement + helicity pair supplies exactly what M5.11's functional lacked. Honest caveat: the final state **reconnects into the same Taylor-dressed family** as the unknot seeds (`E = 0.802\|H_A\|` universal), so knot-SECTOR persistence was not demonstrated: fixing only global `H_A` permits reconnection; topology-preserving constraints (linking/cross-helicity pinning) are the designed follow-up. Second residual: the **net-Gauss-charged** knot (scalar sector) pends the Q7(b) prescription. The former ask to Marc becomes a share + a sharper discussion item (the reconnection observation bears directly on his knot program).
 
 ### Q3 detail
 
-**The two charges (ask Marc, priority 3).** Are Fleury's divergence charge and Ouroboros's helicity/linking charge **forced equal**, or independent observables that must be reconciled? **Pisello's toroidal knot** ([`m7_background.md § 2`](m7_background.md), corpus #16) is a published precedent that **unifies** them (charge quantized ∝ homotopy class AND non-homogeneous / divergence); the conceptual core of the blend. **2nd unification route** ([M7.0 corpus](tasks/m7_0_bootstrap.md) #22, Duda deck pp. 467-491): charge = topological **mapping degree** → **Gauss-Bonnet** `∮ K dS = 2π χ(S)` → **Faber's quantized-EM**; arrives from mapping-degree where Pisello arrives from the electrovacuum Lagrangian, the two **converging** on divergence-charge = topological-charge. **The Q3 experiment is a first-class M7.4 deliverable**: measure `(Q_div, helicity H, linking)` on every relaxed state and report the ratio analysis ([`tasks/m7_4_charged_soliton.md`](tasks/m7_4_charged_soliton.md)).
+**The two charges (ask Marc, priority 2).** Are Fleury's divergence charge and Ouroboros's helicity/linking charge **forced equal**, or independent observables that must be reconciled? **Pisello's toroidal knot** ([`m7_background.md § 2`](m7_background.md), corpus #16) is a published precedent that **unifies** them; the Duda deck's Gauss-Bonnet route (corpus #22) converges on the same divergence-charge = topological-charge reading. **The M7.4 measurement is in** ([`tasks/m7_4_charged_soliton.md § 2-2b`](tasks/m7_4_charged_soliton.md)): across the seed matrix the two are **independent at this level**: helicity/linking gates EXISTENCE (zero-helicity seeds evaporate; helicity-carrying seeds survive), while the RMS divergence charge coexists without being slaved to it (the pure-M6 seed carried the largest seeded charge and died; the ck seed a small one and lives). Caveat: measured in the pure-vector sector (net Gauss charge frozen out); the Pisello-style slaving may live exactly in the untested scalar sector (Q7(b)). **The ask, updated:** given this measured independence, does he read Pisello/Gauss-Bonnet as predicting slaving only for the net-Gauss (scalar-sector) charge, and what discriminating measurement would he want on the relaxed states?
 
 ### Q10 detail
 
@@ -142,11 +158,11 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 ### Q9 detail
 
-**Werbos-v5 calibration dictionary (ask Werbos).** v5's canonical point is `g = 1.0625` (`H/Q = 1.6969`) vs M6's repo-validated canonical `g = 1.0` (`H/Q = 1.6890`), vs physical `1.6875`; and v5's new `(Ω, G)` bifurcation islands (electron `Ω = 1.050` stable `k > 0`; muon `Ω = 0.914` resonant `k < 0`) need the `(Ω, G) ↔ (ω, g, m_J)` map (Zenodo 20866581, the 319-family scan). Route: ask Werbos and/or read the Zenodo record. Until resolved, **M7.3 uses the M6 calibration as primary** (ledger in [`m7_background.md § 4`](m7_background.md)); the islands become an M7.12 falsifiable structure (stable electron vs resonant/metastable muon). Opened 2026-07-02 (plan refactor).
+**Werbos-v5 calibration dictionary (ask Werbos).** v5's canonical point is `g = 1.0625` (`H/Q = 1.6969`) vs M6's repo-validated canonical `g = 1.0` (`H/Q = 1.6890`), vs physical `1.6875`; and the `(Ω, G)` bifurcation islands need the `(Ω, G) ↔ (ω, g, m_J, λ)` map. **Self-read attempted at M7.4 (2026-07-03,** [`tasks/m7_4_charged_soliton.md § 3`](tasks/m7_4_charged_soliton.md)**):** the cited Zenodo record 20866581 now hosts a Lean-theorem v2, not the scan; the corpus doc (#10) carries the definitive island table (electron `Ω = 1.050, G ∈ [1.150, 3.250]`, stable, `k > 0`; muon `Ω = 0.914, G ∈ [0.100, 3.600]`, resonant, `k < 0`) and pins `k` = the **far-field decay constant**, but never defines `(Ω, G)`; the electron G-island does **not** bracket the canonical `g = 1.0625`, so `(Ω, G) ≠ (ω, g)` naively. **Coupling to Q11:** `k > 0` on the electron island is an implicit claim that a LOCALIZED charged branch exists somewhere, exactly what Q11(b) asks; the dictionary is required to go check it on the lattice. **The ask, now surgical:** define Ω and G in terms of `(ω, g, λ, m_J)`, and give one concrete electron-island parameter point we can run. Until resolved, the M6 calibration stays primary; the islands are the M7.12 falsifiable structure. Opened 2026-07-02; self-read 2026-07-03.
 
 ### Q6 detail
 
-**Potential form (ask Werbos).** The `f(J·J)` potential form for M7: keep M6's canonical `f(s) = (g/4) s²` ([`0d_canonical.md § 1`](../../m6_ouroboros/research/0d_canonical.md)), or a form better suited to the toroidal sector? **M7.3 evidence in (2026-07-03,** [`tasks/m7_3_ouroboros_3d.md § 1`](tasks/m7_3_ouroboros_3d.md)**):** the potential that actually reproduces the benchmark ODE verbatim is `f(s) = −(λ/2)s − 2g s²` (RWA; `−4g/3` under exact averaging), FOCUSING in both terms and carrying a λ-term the written `(g/4)s²` lacks entirely; this focusing sign is what drives the 3D collapse (Q13). **The ask:** which `f` (sign, normalization, λ-term) Werbos intends as canonical; M7.4's blend design needs the answer to choose its confinement sector honestly.
+**Potential form (ask Werbos).** The `f(J·J)` potential form for M7: keep M6's canonical `f(s) = (g/4) s²` ([`0d_canonical.md § 1`](../../m6_ouroboros/research/0d_canonical.md)), or a form better suited to the toroidal sector? **M7.3 evidence (2026-07-03,** [`tasks/m7_3_ouroboros_3d.md § 1`](tasks/m7_3_ouroboros_3d.md)**):** the potential that reproduces the benchmark ODE verbatim is FOCUSING (`c1 = −λ/2, c2 = −2g` RWA), sign-flipped vs the written form, and drives the 3D collapse (Q13). **M7.4 evidence (same day,** [`tasks/m7_4_charged_soliton.md § 2-2b`](tasks/m7_4_charged_soliton.md)**): the repulsive/WRITTEN branch is the physical one**: it holds three stable soliton basins and keeps the RMS charge, while the focusing branch expels charge or collapses; and LoE v5 itself writes **`f(s) = g s²`** with λ separate (the `(g/4)` in our M6 doc is a transcription slip to fix). **The ask, now sharp:** the benchmark ODE's effective signs (which produced `H/Q = 1.6890`) are inconsistent with his own written Lagrangian, and the written Lagrangian is the one that yields stable 3D solitons: does he confirm the benchmark sign slip, and `f = gs²` + separate λ as canonical?
 
 ### Q11 detail
 
@@ -166,7 +182,7 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 ### Q2 detail
 
-**4th-order stabilizer (self-determine; optional M7.4 experiment).** Is a 4th-order term needed at all, and in which form? **Direction set** (2026-07-02 theory review): the drafted `\|F×(∇×F)\|²/\|F\|²` term **vanishes identically on every Beltrami configuration** (`∇×F ∥ F` makes the cross product zero, constant AND variable λ; rescaled Beltrami stays Beltrami) and is **singular** where `\|F\| → 0`, so it provides zero Derrick pressure on exactly the target family. Working stabilization = **helicity anti-collapse** (Arnold `E ≥ λ₁\|H\|`) + **Ouroboros confinement anti-expansion** (`~μ³`), with **Nadirashvili's theorem** forcing the confinement term to exist ([`m7_background.md § 5b`](m7_background.md)). The 4th-order term is demoted to an optional M7.4 experiment, **off by default** (any run uses a regularized variant, labeled an experiment). Empirical confirmation so far: the M7.1 Woltjer gate ✅ (2026-07-02: fixed-helicity relaxation from random seeds lands on the constant-λ eigenfield, `λ → 2π/L` at 5.5e-6, [`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings); next: the M7.4 dilation probe.
+**4th-order stabilizer (✅ RESOLVED at M7.4, 2026-07-03; kept for history).** Is a 4th-order term needed at all, and in which form? **Direction set** (2026-07-02 theory review): the drafted `\|F×(∇×F)\|²/\|F\|²` term **vanishes identically on every Beltrami configuration** and is **singular** where `\|F\| → 0`, so it provides zero Derrick pressure on exactly the target family; demoted to an optional experiment. Working stabilization = **helicity anti-collapse** (Arnold `E ≥ λ₁\|H\|`) + **Ouroboros confinement anti-expansion**, with **Nadirashvili's theorem** forcing the confinement term to exist ([`m7_background.md § 5b`](m7_background.md)). **Resolution (M7.4,** [`tasks/m7_4_charged_soliton.md § 2`](tasks/m7_4_charged_soliton.md)**): NOT needed.** The helicity + confinement pair stabilizes with no 4th-order term: every surviving state's constrained Derrick curve has an interior minimum (dilation probe, measured), and the guard is demonstrably load-bearing (both zero-helicity seeds evaporate; all three helicity-carrying seeds hold). The optional experiment was never required. Evidence trail: M7.1 Woltjer gate (2026-07-02) → M7.4 dilation probes (2026-07-03).
 
 ---
 
