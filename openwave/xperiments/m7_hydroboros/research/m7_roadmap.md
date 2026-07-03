@@ -8,7 +8,7 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| , | (none) | , | , |
+| [M7.5](tasks/m7_5_clock_stability.md) | validate the clock (real-time) + stability | Minkowski leapfrog evolution of the relaxed harmonic states: the clock is IN the soliton from M7.1 (§ 5a), this task **validates the reduction in real time**; probe the Werbos-v5 **`β*` vacuum-stability threshold** | persists many periods, no collapse mode; emergent `ω` matches the input harmonic `ω`; `ω` vs Dirac `ω_D` reported; energy conserved to integrator tolerance |
 
 ## BACKLOG
 
@@ -16,7 +16,6 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| [M7.5](tasks/m7_5_clock_stability.md) | validate the clock (real-time) + stability | Minkowski leapfrog evolution of the relaxed harmonic states: the clock is IN the soliton from M7.1 (§ 5a), this task **validates the reduction in real time**; probe the Werbos-v5 **`β*` vacuum-stability threshold** | persists many periods, no collapse mode; emergent `ω` matches the input harmonic `ω`; `ω` vs Dirac `ω_D` reported; energy conserved to integrator tolerance |
 | [M7.6](tasks/m7_6_observables.md) | electron observables | mass = field energy; spin `ℏ/2` (cross-checked vs Ceperley's rotating-wave law `L_z = mU/ω`); `μ_B(1 + α/2π)`; the Klein-Gordon twist sector; **two-charge Coulomb `E(d) ~ 1/d`** | the 4-observable electron (mass, charge, μ, spin) + KG + the two-body force law, from the relaxed field; **stretch: extract `α_sol` from `E(d)` vs Faber & Golubich `α⁻¹ ≈ 137.1`** |
 | M7.7 | consolidate the M7 column (MILESTONE) | fold the winning recipe into a `canonical.md`-style spec; **add HydroBoros (M7) to MODELS.md** | one runnable canonical script, reproducible first-try; the electron cells land as the new column |
 
