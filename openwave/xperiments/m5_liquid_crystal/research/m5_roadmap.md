@@ -12,12 +12,6 @@
 
 | TaskID | Title | Description | Gated By |
 | --- | --- | --- | --- |
-| [M5.8.3](tasks/m5_8_3_task_details.md) | Production engine port (4D seeder + faithful-kinetic variant) | The residual of M5.8.3: 4D extension of the M5.6.5a production seeder + the faithful-kinetic engine variant if production-scale clock runs need it. | - |
-| [M5.13](tasks/m5_13_task_details.md) | Dynamic on-screen demo suite (charge/ZBW/spin/2-charge/gravity/EM) | On-screen rendered demos (charge-stable, ZBW clock, spin/magnetism, two-charge, gravity, EM waves); demo-tier, gates nothing under headless-first (#213). | headless gates (demo-tier, non-gating) |
-| [M5.14](tasks/m5_14_task_details.md) | 3D dynamical pair-annihilation (capture to breather to vacuum) | Run the full 3D dynamical ± hedgehog pair-annihilation (capture → breather → vacuum), confirming topology cancellation releases energy as outgoing waves (#198). | - |
-| [M5.6.5e](tasks/m5_6_5e_task_details.md) | Two biaxial hedgehogs interaction demo | Two interacting biaxial hedgehogs under the live Eq.18 leapfrog (dynamic Coulomb analog); needs a multi-center seeder + the `π₁=Q₈` charge-class decision. | multi-center biaxial seeder, V-on (M5.6.5c) |
-| [M5.6.5f](tasks/m5_6_5f_task_details.md) | Magnetic-dipole viz Stage 2 (real circulating B + placeholder cleanup) | Point the dipole render at the live `∇×n̂`, compute μ from the field, delete the VIZ.4 placeholder scaffolding (incl. the hardcoded `+ẑ` moment). | M5.6.5e |
-| [M5.8.7](tasks/m5_8_7_task_details.md) | Gravity / time-dilation viz + electron gravitational mass | Gravity/time-dilation render suite (g(x) well, ∇g pull, per-voxel clock-rate) + deriving the electron gravitational mass from the boost/GEM coupling (#209). | M5.8 4D g-axis live |
 | [M5.12](tasks/m5_12_task_details.md) | Neutrino vortex-loop at the physical regime (the fresh M5.11 re-entry) | **⭐ Next after M5.16 + the pre-flight ask round.** Successor of the closed M5.11, started FRESH (clean `m5_12_*` Duda-facing docs/scripts; the `m5_11_*` corpus stays frozen as the closed task's record, reused via the fork-on-use manifest). Phases A-F: A uniaxial heliknoton at the physical `(g, δ, V)` (theory-motivated primary: Duda's `4f` uniaxial-neutrino sketch + the δ→0 quasi-uniaxial limit); B map back to the biaxial tensor; C biaxial-native backup ansatz (Machon & Alexander); D stability + clock; E masses (mass/length density + knot-family spread vs the ~6× compression); F mixing on real loops (N4c gap closure + the δ_CP fork). Article-grade target (Duda round 3: the 4 PMNS parameters "would already be huge"). | **the pre-flight ask round** (Q13/Q16/Q14/Q15/Q17 answers; M5.16 ✅ delivered 2026-07-02) |
 | [M5.9](tasks/m5_9_task_details.md) | Leptons (e/mu/tau) + Cornell quark strings + neutrino-flavor beat | Three axis-choices of the biaxial Λ give e/μ/τ (calibrate mass ratios); Cornell `V(r)=−α/r+σr` quark strings; the neutrino as the δ-0 axis-swing. | M5.8, M5.9.0 calibration (M5.16 parameter-lock) |
 
@@ -38,6 +32,17 @@
 | [M5.8.8](tasks/m5_8_8_task_details.md) | Disclination rod-localization energy check | After the 4D clock stabilizes the defect, recompute energyH and test whether the disclination rod localizes into a ring/shell (falsifiable, uncomputed). | 4D clock stabilized |
 | [M5.8.9](tasks/m5_8_9_task_details.md) | G-2c-2 hardening (stiff stepper + engine quartic port) | Stiffness-aware stepper for the deep-floor cascade, horizons ≫45 periods, and the engine-side quartic `(1+2β·u)` flux port for production-scale runs. | - |
 | [M5.8.10](tasks/m5_8_10_task_details.md) | BEC vortex-kinetics literature anchor | Skim the long-lived-oscillation-mode / BEC-vortex-kinetics literature (Duda 2026-05-13 PRA cite); compact-manifold geometry as a third Derrick escape. | - |
+
+## RENDERING TASKS
+
+| TaskID | Title | Description | Gated By |
+| --- | --- | --- | --- |
+| [M5.8.3](tasks/m5_8_3_task_details.md) | Production engine port (4D seeder + faithful-kinetic variant) | The residual of M5.8.3: 4D extension of the M5.6.5a production seeder + the faithful-kinetic engine variant if production-scale clock runs need it. | - |
+| [M5.13](tasks/m5_13_task_details.md) | Dynamic on-screen demo suite (charge/ZBW/spin/2-charge/gravity/EM) | On-screen rendered demos (charge-stable, ZBW clock, spin/magnetism, two-charge, gravity, EM waves); demo-tier, gates nothing under headless-first (#213). | headless gates (demo-tier, non-gating) |
+| [M5.14](tasks/m5_14_task_details.md) | 3D dynamical pair-annihilation (capture to breather to vacuum) | Run the full 3D dynamical ± hedgehog pair-annihilation (capture → breather → vacuum), confirming topology cancellation releases energy as outgoing waves (#198). | - |
+| [M5.6.5e](tasks/m5_6_5e_task_details.md) | Two biaxial hedgehogs interaction demo | Two interacting biaxial hedgehogs under the live Eq.18 leapfrog (dynamic Coulomb analog); needs a multi-center seeder + the `π₁=Q₈` charge-class decision. | multi-center biaxial seeder, V-on (M5.6.5c) |
+| [M5.6.5f](tasks/m5_6_5f_task_details.md) | Magnetic-dipole viz Stage 2 (real circulating B + placeholder cleanup) | Point the dipole render at the live `∇×n̂`, compute μ from the field, delete the VIZ.4 placeholder scaffolding (incl. the hardcoded `+ẑ` moment). | M5.6.5e |
+| [M5.8.7](tasks/m5_8_7_task_details.md) | Gravity / time-dilation viz + electron gravitational mass | Gravity/time-dilation render suite (g(x) well, ∇g pull, per-voxel clock-rate) + deriving the electron gravitational mass from the boost/GEM coupling (#209). | M5.8 4D g-axis live |
 
 ---
 
