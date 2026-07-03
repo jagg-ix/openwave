@@ -47,12 +47,13 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | n/a | 2020 | Annihilation dynamics of reverse tilt domains in nematic liquid crystals | n/a |
 | n/a | 2020 | Topological solitons in chiral condensed matter (PhD thesis) | PhD thesis; n/a |
 | n/a | 2021 | Observation of second-order meron polarization textures in optical microcavities | Optica; [arXiv:2010.01691](https://arxiv.org/abs/2010.01691) |
+| Duda | 2021 | Framework for liquid crystal based particle models | [arXiv:2108.07896](https://arxiv.org/abs/2108.07896) (v7, 2025) |
+| Duda | 2025 | Time crystal phi^4 kinks by curvature coupling as toy model for mechanism of oscillations propelled by mass, like observed for electron and neutrinos | [arXiv:2501.04036](https://arxiv.org/abs/2501.04036) (v2, 2025) |
+| Duda | 2025 | Time crystal phi^4 kink as toy model for mechanism of electron clock and neutrino oscillations | Wolfram Community; [community.wolfram.com/groups/-/m/t/3398814](https://community.wolfram.com/groups/-/m/t/3398814) |
 | Faber | 2025 | Faber universe note (author draft) | author copy; n/a |
 | Faber | 2025 | On the realization of spin in SO(3) resp. SU(2) field configurations instead of in the su(2) algebra (presentation) | author copy (Atominstitut, TU Wien, presentation slides, Sept 2025); n/a |
 | Faber & Golubich | 2026 | High-precision lattice determination of the interaction potential of an SU(2) solitonic dipole and comparison with perturbative QED | author copy ([arXiv:2604.12021](https://arxiv.org/abs/2604.12021) preprint PDF + LaTeX source); shared by R. Golubich, see [convo](../research/tasks/m5_4g_convo_2026.07.02.md) |
 | n/a | n/a | Equation of Everything | author copy; n/a |
-| Online Technical Discussion Groups (Wolfram Community) | n/a | Time crystal phi^4 kink as toy model for the electron clock and neutrino oscillations | Wolfram Community (online discussion); n/a |
-| n/a | n/a | Liquid crystal model (source unresolved from filename) | n/a |
 | n/a | n/a | Liquid crystal particles (source unresolved from filename) | n/a |
 | n/a | n/a | Negative radiation pressure (source unresolved from filename) | n/a |
 | Faber | n/a | Faber pilot-wave / soliton paper (author copy) | author copy; n/a |
@@ -64,7 +65,6 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Zambrini (?) | n/a | Zambrini stochastic-mechanics paper (source unresolved from filename) | n/a |
 | n/a | n/a | Two-dimensional discrete time crystal (source unresolved from filename) | n/a |
 | n/a | n/a | Continuous time crystal (source unresolved from filename) | Science (?); n/a |
-| n/a | n/a | phi^4 kink time-crystal toy model (author copy) | author copy; n/a |
 | n/a | n/a | Topological phase (source unresolved from filename) | n/a |
 | Faber | n/a | Model of Topological Fermions (MTF), LaTeX source | author copy; shared by R. Golubich, see [convo](../research/tasks/m5_4g_convo_2026.07.02.md) |
 | Faber | n/a | Difference quotients for the derivative calculation in the lattice minimizer (author note, in German) | author copy; shared by R. Golubich, see [convo](../research/tasks/m5_4g_convo_2026.07.02.md) |
@@ -107,13 +107,14 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | n/a (2020) | `liquid_crystal_defects/2020 Annihilation dynamics of reverse tilt domains in nematic liquid crystals.pdf` | 2.2 MB |
 | n/a (2020) | `liquid_crystal_defects/2020 Topological Solitons in Chiral Condensed Matters PhD.pdf` | 29.4 MB |
 | n/a (2021) | `liquid_crystal_defects/2021 Observation of second-order meron polarization.pdf` | 11.6 MB |
+| Duda (2021) | `liquid_crystal_model.pdf` | 13.6 MB |
+| Duda (2025) | `time_crystal_toy_model.pdf` | 2.6 MB |
+| Duda (2025) | `Time_crystal_toy_model_Wolfram_Community.pdf` | 22.3 MB |
 | Faber (2025) | `faber_universe_2025.pdf` | 343 KB |
 | Faber (2025) | `FaberManfried.pdf` | 5.3 MB |
 | Faber & Golubich (2026) | `golubich_faber_su2/dipole.tex` | 30 KB |
 | Faber & Golubich (2026) | `DR14235.pdf` | 123 KB |
 | n/a (n/a) | `Equation-of-Everything.pdf` | 1.8 MB |
-| Online Technical Discussion Groups (Wolfram Community) (n/a) | `Time crystal phi^4 kink as toy model for mechanism of electron clock and neutrino oscillations - Online Technical Discussion Groups - Wolfram Community.pdf` | 22.3 MB |
-| n/a (n/a) | `liquid_crystal_model.pdf` | 13.6 MB |
 | n/a (n/a) | `liquid_crystal_particles.pdf` | 16.8 MB |
 | n/a (n/a) | `negative_readiation_pressure.pdf` | 11.9 MB |
 | Faber (n/a) | `pilot_wave/Faber.pdf` | 411 KB |
@@ -125,7 +126,6 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Zambrini (?) (n/a) | `pilot_wave/zambrini.pdf` | 843 KB |
 | n/a (n/a) | `time_crystal_2d_dtc.pdf` | 4.3 MB |
 | n/a (n/a) | `time_crystal_continuous.pdf` | 3.9 MB |
-| n/a (n/a) | `time_crystal_toy_model.pdf` | 2.6 MB |
 | n/a (n/a) | `topological_phase.pdf` | 1.1 MB |
 | Faber (n/a) | `golubich_faber_su2/MTF.tex` | 124 KB |
 | Faber (n/a) | `golubich_faber_su2/derivatives.tex` | 22 KB |

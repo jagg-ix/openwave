@@ -1,12 +1,16 @@
 # m7_hydroboros , theory citations
 
-> **These files are NOT in git.** The corpus lives in [`electron_beltrami/`](electron_beltrami/) ,
-> third-party copyrighted papers + author docs kept **local only** (gitignored for size + copyright;
-> OpenWave is a public repo). This manifest is the tracked record; obtain the files from the original
-> venues (DOIs/arXiv) or Marc Fleury's shared library. The theory root holds only our own `.md` notes.
+> **These files are NOT in git.** Third-party copyrighted papers + author docs kept **local only**
+> (gitignored for size + copyright; OpenWave is a public repo). This manifest is the tracked record;
+> obtain the files from the original venues (DOIs/arXiv) or Marc Fleury's shared library.
+>
+> **The folder layout carries the provenance.** [`electron_beltrami/`](electron_beltrami/) holds
+> **Marc Fleury's original consolidated library** exactly as shared (53 papers, the source-of-record);
+> papers **we added separately** as M7 needed them live in the **theory root** directly. So the folder
+> itself shows, at a glance, what came in Marc's original sharing versus what was added later.
 > Curated reading-by-theme + M7-relevant roles: [`../research/tasks/m7_0_bootstrap.md`](../research/tasks/m7_0_bootstrap.md) (Task-0 source table + § 3b).
 
-Total: **64 documents** in `electron_beltrami/` (as of 2026-07-03). Filenames follow `YEAR - Author - Title`. This is an **evolving M7 corpus**: it **started from Marc Fleury's consolidated library** (entries 1-53, the source-of-record) and is **extended with separately-sourced papers** as M7 needs them (entries 54-64, provenance noted below).
+Total: **64 documents** as of 2026-07-03: **53 in `electron_beltrami/`** (Marc's original library) plus **11 separately-sourced additions in the theory root**. Filenames follow `YEAR - Author - Title`. In the Local corpus below, the Path column shows which folder each file lives in.
 
 Citation keys are stable `AuthorYear` handles; DOI/arXiv are verified against the publisher, arXiv, or Crossref record where available; author-shared items that carry no indexed identifier are marked `author copy`, and anything unverifiable is `n/a`.
 
@@ -87,40 +91,40 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | --- | --- | --- |
 | Woltjer (1958) | electron_beltrami/1958 - Woltjer - Theorem on Force-Free Magnetic Fields.pdf | 267 KB |
 | Pisello (1977) | electron_beltrami/1977 - Pisello - Nonlinear Classical Theory of Electromagnetism.pdf | 299 KB |
-| Pisello (1979) | electron_beltrami/1979 - Pisello - Gravitation Electromagnetism and Quantised Charge.pdf | 3.3 MB |
+| Pisello (1979) | 1979 - Pisello - Gravitation Electromagnetism and Quantised Charge.pdf | 3.3 MB |
 | Dombre, Frisch, Greene, Henon, Mehr, Soward (1986) | electron_beltrami/1986 - Dombre - Chaotic Streamlines in the ABC Flows.pdf | 3.4 MB |
 | Cheng (1989) | electron_beltrami/1989 - Cheng - Field and Wave Electromagnetics.pdf | 42.6 MB |
 | Puthoff (1989) | electron_beltrami/1989 - Puthoff - Source of Vacuum Electromagnetic Zero-Point Energy.pdf | 236 KB |
-| Ranada (1989) | electron_beltrami/1989 - Ranada - A Topological Theory of the Electromagnetic Field.pdf | 474 KB |
+| Ranada (1989) | 1989 - Ranada - A Topological Theory of the Electromagnetic Field.pdf | 474 KB |
 | Ranada (1990) | electron_beltrami/1990 - Ranada - Knotted Solutions of Maxwell Equations in Vacuum.pdf | 333 KB |
 | Ceperley (1992) | electron_beltrami/1992 - Ceperley - Rotating Waves.pdf | 784 KB |
 | Velazco, Ceperley (1993) | electron_beltrami/1993 - Velazco Ceperley - Rotating Wave Fields for Microwave Applications.pdf | 629 KB |
 | Barrett, Grimes (eds.) (1995) | electron_beltrami/1995 - Barrett - Advanced Electromagnetism Foundations Theory and Applications.pdf | 480.5 MB |
 | Reed (1995) | electron_beltrami/1995 - Reed - Beltrami-Trkalian Vector Fields in Electrodynamics.pdf | 912 KB |
 | Marsh (1996) | electron_beltrami/1996 - Marsh - Force-Free Magnetic Fields.pdf | 10.1 MB |
-| Faddeev, Niemi (1997) | electron_beltrami/1997 - Faddeev Niemi - Knots and Particles.pdf | 641 KB |
-| Faber (1999) | electron_beltrami/1999 - Faber - A Model for Topological Fermions.pdf | 396 KB |
+| Faddeev, Niemi (1997) | 1997 - Faddeev Niemi - Knots and Particles.pdf | 641 KB |
+| Faber (1999) | 1999 - Faber - A Model for Topological Fermions.pdf | 396 KB |
 | Kaiser, Neudert, von Wahl (2000) | electron_beltrami/2000 - Kaiser - Existence of Force-Free Magnetic Fields with Nonconstant Alpha.pdf | 207 KB |
 | Ranada, Soler, Trueba (2000) | electron_beltrami/2000 - Ranada - Ball Lightning as a Force-Free Magnetic Knot.pdf | 260 KB |
 | Kravchenko (2003) | electron_beltrami/2003 - Kravchenko - On Beltrami Fields with Nonconstant Proportionality Factor.pdf | 135 KB |
 | Rapoport (2005) | electron_beltrami/2005 - Rapoport - Cartan-Weyl Dirac and Laplacian Operators.pdf | 419 KB |
 | Donoso, Trueba, Ranada (2006) | electron_beltrami/2006 - Donoso - Riddle of Ball Lightning A Review.pdf | 469 KB |
-| Sutcliffe (2007) | electron_beltrami/2007 - Sutcliffe - Knots in the Skyrme-Faddeev Model.pdf | 394 KB |
+| Sutcliffe (2007) | 2007 - Sutcliffe - Knots in the Skyrme-Faddeev Model.pdf | 394 KB |
 | Catillon et al. (2008) | electron_beltrami/2008 - Catillon - Search for de Broglie Particle Internal Clock.pdf | 242 KB |
 | Irvine, Bouwmeester (2008) | electron_beltrami/2008 - Irvine - Linked and Knotted Beams of Light.pdf | 803 KB |
 | Kravchenko, Oviedo (2008) | electron_beltrami/2008 - Kravchenko - Beltrami Fields with Nonconstant Factor on the Plane.pdf | 445 KB |
 | Barbarosie (2011) | electron_beltrami/2011 - Barbarosie - Representation of Divergence-Free Vector Fields.pdf | 141 KB |
 | Hillion (2011) | electron_beltrami/2011 - Hillion - Spinor and Hertzian Differential Forms in Electromagnetism.pdf | 162 KB |
 | Arrayas, Trueba, Ranada (2012) | electron_beltrami/2012 - Trueba - Topological Electromagnetism Knots and Quantization.pdf | 213 KB |
-| Enciso, Peralta-Salas (2012) | electron_beltrami/2012 - Enciso - Knots and Links in Steady Solutions of the Euler Equation.pdf | 404 KB |
+| Enciso, Peralta-Salas (2012) | 2012 - Enciso - Knots and Links in Steady Solutions of the Euler Equation.pdf | 404 KB |
 | Lewis (2012) | electron_beltrami/2012 - Lewis - More Evidence of Microscopic Ball Lightning in CF.pdf | 83 KB |
-| Kedia et al. (2013) | electron_beltrami/2013 - Kedia - Tying Knots in Light Fields.pdf | 538 KB |
+| Kedia et al. (2013) | 2013 - Kedia - Tying Knots in Light Fields.pdf | 538 KB |
 | Brady (2014) | electron_beltrami/2014 - Brady - Emergent Quantum Mechanics.pdf | 6.7 MB |
 | Arrayas, Trueba (2017) | electron_beltrami/2017 - Arrayas - Fibration Defined by Field Lines.pdf | 713 KB |
 | Celani, Di Tommaso, Vassallo (2017) | electron_beltrami/2017 - Celani - Maxwells Equations and Occams Razor.pdf | 396 KB |
 | Sato, Yamada (2018) | electron_beltrami/2018 - Sato - Local Representation and Construction of Beltrami Fields.pdf | 3.6 MB |
 | Hestenes (2019) | electron_beltrami/2019 - Hestenes - Zitterbewegung Structure in Electrons and Photons.pdf | 1.4 MB |
-| Duda (2021) | electron_beltrami/2021 - Duda - Framework for Liquid Crystal Based Particle Models.pdf | 13.6 MB |
+| Duda (2021) | 2021 - Duda - Framework for Liquid Crystal Based Particle Models.pdf | 13.6 MB |
 | Kent et al. (2021) | electron_beltrami/2021 - Kent - Creation and Observation of Hopfions in Magnetic Multilayers.pdf | 1.7 MB |
 | Yadav, Sen, Ghosh (2021) | electron_beltrami/2021 - Yadav - Bubbles in Superfluid Helium with Six and Eight Electrons.pdf | 3.1 MB |
 | Faber (2022) | electron_beltrami/2022 - Faber - Geometric Model in 3+1D for Electrodynamic Phenomena.pdf | 4.9 MB |
@@ -141,11 +145,11 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | dos Santos (2025) | electron_beltrami/2025 - dos Santos - Electromagnetic Model of the Electron (FLDB Main).pdf | 735 KB |
 | dos Santos (2025) | electron_beltrami/2025 - dos Santos - Poloidal Toroidal System (v8e).pdf | 270 KB |
 | Fleury (2025) | electron_beltrami/2025 - Fleury - SuperColdFusion Reactor LENR Experiment.pdf | 101 KB |
-| Fleury, Rousselle (2025) | electron_beltrami/2025 - Fleury Rousselle - Critical Review of Zitterbewegung Electron Models.pdf | 3.6 MB |
-| Garcia Lopez (2025) | electron_beltrami/2025 - Garcia Lopez - Massive Wave Solutions to the Einstein-Maxwell Equations.pdf | 854 KB |
+| Fleury, Rousselle (2025) | 2025 - Fleury Rousselle - Critical Review of Zitterbewegung Electron Models.pdf | 3.6 MB |
+| Garcia Lopez (2025) | 2025 - Garcia Lopez - Massive Wave Solutions to the Einstein-Maxwell Equations.pdf | 854 KB |
 | Hall, Tai, Kauffman, Smalyukh (2025) | electron_beltrami/2025 - Hall - Fusion and Fission of Particle-Like Chiral Structures.pdf | 7.2 MB |
 | Kovacs, Vassallo, O'Hara, Scott (2025) | electron_beltrami/2025 - Kovacs - Bose-Einstein Condensation of Electrons.pdf | 3.9 MB |
 | Kovacs et al. (2025) | electron_beltrami/2025 - Kovacs - What is Inside an Electron.pdf | 4.4 MB |
-| Duda (2026) | electron_beltrami/2026 - Duda - Hydrodynamical Analogues of Quantum Phenomena (Couder walkers).pdf | 13.5 MB |
+| Duda (2026) | 2026 - Duda - Hydrodynamical Analogues of Quantum Phenomena (Couder walkers).pdf | 13.5 MB |
 | Faber, Golubich (2026) | electron_beltrami/2026 - Faber Golubich - High-Precision Lattice SU(2) Solitonic Dipole.pdf | 343 KB |
 | Werbos (2026) | electron_beltrami/2026 - Werbos - Evaluating Universe Model Alternatives v5.docx | 22 KB |
