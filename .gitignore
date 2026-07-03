@@ -232,7 +232,7 @@ openwave/xperiments/m5_liquid_crystal/research/data/_m5_8_2o_settled.npz
 # All model theory/ folders hold third-party copyrighted papers (PDF/docx/etc.), kept LOCAL only
 # (publisher PDFs, author docs , not redistributable on a public repo; the m7 corpus alone is ~700 MB).
 # Decision 2026-06-30: untrack going forward (files remain in pre-existing history; no rewrite).
-# Our own research notes (*.md) and the per-folder SOURCES.md manifests stay tracked.
+# Our own research notes (*.md) and the per-folder _CITATIONS.md manifests stay tracked.
 # (`**/` matches zero or more dirs, so these cover both theory/ root and any subfolders.)
 openwave/xperiments/*/theory/**/*.pdf
 openwave/xperiments/*/theory/**/*.docx
@@ -244,7 +244,7 @@ openwave/xperiments/*/theory/**/*.djvu
 openwave/xperiments/*/theory/**/*.tex
 openwave/xperiments/*/theory/**/*.bib
 # m7 electron_beltrami/ is a pure local corpus , ignore the whole folder (incl. any non-doc strays).
-# Its manifest lives one level up at theory/SOURCES.md (a *.md, tracked by default).
+# Its manifest lives one level up at theory/_CITATIONS.md (a *.md, tracked by default).
 openwave/xperiments/m7_hydroboros/theory/electron_beltrami/*
 
 # Agent resume checkpoints (session-local in-flight state for any Mx model task; not research

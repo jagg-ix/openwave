@@ -51,9 +51,11 @@ Refer to `README.md` and `SYS_ARCH.md` for the full Modules Structure and Object
 
 ### Scientific Source Material
 
-Each model directory under `openwave/xperiments/` contains a `/research` subfolder with active research notes, plus a `theory/` folder (at the model root) holding the foundational theorist papers for that model (e.g. `m5_liquid_crystal/theory/liquid_crystal_model.pdf`, `Equation-of-Everything.pdf`, `faber_universe_2025.pdf`).
+Each model directory under `openwave/xperiments/` contains a `/research` subfolder with active research notes, plus a `theory/` folder (at the model root) holding the foundational theorist papers for that model.
 
-Note: the legacy top-level `scientific_source/` folder was retired 2026-05-18 — papers now live per-model.
+Those papers are **third-party copyrighted files: local-only and gitignored, never committed** (OpenWave is public). The tracked record of each `theory/` folder is its `_CITATIONS.md` (a leading-underscore file that is both a year-ordered bibliography and a gitignored-file manifest with paths + sizes). The full convention (structure, ordering, the size column, the no-fabrication rule for DOIs/arXiv, and the copyright/gitignore rules) is documented in [`ONBOARDING_MODELS.md` § 3.2](ONBOARDING_MODELS.md), the guide for scaffolding new models. **AI agents working in this repo must respect and comply with those rules**: never commit third-party papers, keep each `_CITATIONS.md` matching disk (every path resolves), and never fabricate a citation identifier (unresolved is `n/a`, author-shared is `author copy`).
+
+Note: the legacy top-level `scientific_source/` folder was retired 2026-05-18; papers now live per-model.
 
 ## Installation & Usage
 
