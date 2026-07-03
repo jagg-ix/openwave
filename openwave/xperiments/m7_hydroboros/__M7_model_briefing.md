@@ -65,11 +65,14 @@ Five phases, M7.1 → M7.16 (full detail in [`research/m7_roadmap.md`](research/
 | D , MODELS.md column | M7.15 | complete + govern the 21-cell HydroBoros column |
 | E , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
 
-Open questions Q1-Q9: substrate + target manifold (Q1), whether a 4th-order stabilizer is needed
-at all (Q2, direction set: helicity + confinement carry the load), whether divergence-charge and
-linking-charge are forced equal (Q3, a first-class M7.4 measurement), whether divergence-ful fields
-hold clean knots (Q5), the charge-carrying construction (Q7, reframed to relax-and-measure), gauge /
-constraint handling (Q8), and the Werbos-v5 calibration dictionary (Q9).
+Open questions Q1-Q10 (priority-sorted in the tracker; the table doubles as the ask list for Marc
+Fleury at the next contact): the charge-carrying construction (Q7, reframed to relax-and-measure),
+whether divergence-ful fields hold clean knots (Q5), whether divergence-charge and linking-charge
+are forced equal (Q3, a first-class M7.4 measurement), the FLDB energy convention (Q10, gates M7.2),
+substrate + target manifold (Q1), Marc's further source material (Q4), the Werbos-v5 calibration
+dictionary (Q9), the potential form (Q6), gauge / constraint handling (Q8, evidence measured at
+M7.1), and whether a 4th-order stabilizer is needed at all (Q2, direction set: helicity +
+confinement carry the load).
 
 ## Help Wanted
 

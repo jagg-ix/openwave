@@ -12,7 +12,7 @@
 | [`m5_1a_lagrangian_framework.md`](tasks/m5_1a_lagrangian_framework.md) | Framework + the full email thread history |
 | [`m5_5a_lagrangian_evolution.md § 10e`](tasks/m5_5a_lagrangian_evolution.md) | Canonical build-spec: substrate + action + construction recipe + verification gates |
 
-**Last updated:** 2026-07-02 evening (**M5.16 DELIVERED + review approved**: the parameter lock is in (`c₂ = αħc/64π`, `(a,b,c)` per shape ratio β, the parameter-free `r_half = 2.926 fm` vs Faber 3.075, −4.8%); **Q14 + Q15 opened** from its two discoveries (hedgehog-saddle point-vs-ring; sixth-order-LdG δ-pinning); Q7/Q8 flipped to DELIVERED-with-residuals; **the M5.12 pre-flight ask round is NOW OPEN**: the ask queue is baked into `tasks/m5_12_task_details.md § The pre-flight ask round` (this file keeps the registry: lean OPEN QUESTIONS table + per-ID details); Duda-facing summary: [`findings/m5_16_report.md`](findings/m5_16_report.md)). Earlier same day (roadmap review: **Q13 opened** (chiral invariant, queued for the post-M5.16 **M5.12 pre-flight ask round**, per the deliver-first-ask-second strategy), the **δ_CP fork** (180° vs 270°) flagged as an in-model discriminator, and the **QUESTIONS TO DUDA ask queue** added with per-item priority vs the M5.16-first sequencing; Q7/Q8 re-labelled deliver-not-ask, routed through M5.16; the rigor-compliance bar recorded in `m5_16_task_details.md`). Prior milestone entry, 2026-06-08 (**THE FULL ZBW PROGRAM LANDED 2026-06-07, N-1…N-6e**, M5.8 sandbox arc complete). Headlines, all machine-checked: the quadratic action has no 3+1D clock saturation (dt-invariant runaway); the signed quartic `u+βu²` saturates it; the saturated state is a self-starting, frequency-RIGID, quasi-periodic breather whose ω₁ is an ATTRACTOR (start- AND dressing-energy-independent, it belongs to the core); it HOLDS resolution-robustly (N-2: the M5.7 dispersal REVERSES under the quartic, defect structure decays slower at 48³ than 24³); it classifies as a MOLTEN CLOCK (low-dim chaos on a persistent comb) that REGULARIZES toward a near-regular cold ground state; the invariant matrix is COMPLETE (signed-u winner / Skyrme damps / A4 pinned / covariant deferred); matter+light share a maximal radial cone ceiling; the first ABSOLUTE ω = 5.5×10¹⁹ rad/s sits ~28× below 2m_ec²/ℏ (a STRUCTURAL gap given rigidity); no intrinsic spin J above the box-torque floor (the clock is J-neutral). The retired claim of record: the earlier "strictly periodic ω₀=0.262 comb" was an FFT-window artifact, caught + retired. M5 now PAUSES for the Duda RESULTS report. Earlier: 2026-06-05 (2c-1 + Option B spike, the full self-consistent 4D evolution is stable under the constrained spectral-projection integrator).
+**Last updated:** 2026-07-02 late evening (tracker-procedure updates, adopted repo-wide: icon legend + per-ID status icons in the [`§ OPEN QUESTIONS`](#open-questions) table, and the answered-question rule applied: **Q7 + Q8 moved OPEN → RESOLVED** (delivered by M5.16; residuals live on as Q15 / Q14; their detail sections stay for history)). Earlier, 2026-07-02 evening (**M5.16 DELIVERED + review approved**: the parameter lock is in (`c₂ = αħc/64π`, `(a,b,c)` per shape ratio β, the parameter-free `r_half = 2.926 fm` vs Faber 3.075, −4.8%); **Q14 + Q15 opened** from its two discoveries (hedgehog-saddle point-vs-ring; sixth-order-LdG δ-pinning); Q7/Q8 flipped to DELIVERED-with-residuals; **the M5.12 pre-flight ask round is NOW OPEN**: the ask queue is baked into `tasks/m5_12_task_details.md § The pre-flight ask round` (this file keeps the registry: lean OPEN QUESTIONS table + per-ID details); Duda-facing summary: [`findings/m5_16_report.md`](findings/m5_16_report.md)). Earlier same day (roadmap review: **Q13 opened** (chiral invariant, queued for the post-M5.16 **M5.12 pre-flight ask round**, per the deliver-first-ask-second strategy), the **δ_CP fork** (180° vs 270°) flagged as an in-model discriminator, and the **QUESTIONS TO DUDA ask queue** added with per-item priority vs the M5.16-first sequencing; Q7/Q8 re-labelled deliver-not-ask, routed through M5.16; the rigor-compliance bar recorded in `m5_16_task_details.md`). Prior milestone entry, 2026-06-08 (**THE FULL ZBW PROGRAM LANDED 2026-06-07, N-1…N-6e**, M5.8 sandbox arc complete). Headlines, all machine-checked: the quadratic action has no 3+1D clock saturation (dt-invariant runaway); the signed quartic `u+βu²` saturates it; the saturated state is a self-starting, frequency-RIGID, quasi-periodic breather whose ω₁ is an ATTRACTOR (start- AND dressing-energy-independent, it belongs to the core); it HOLDS resolution-robustly (N-2: the M5.7 dispersal REVERSES under the quartic, defect structure decays slower at 48³ than 24³); it classifies as a MOLTEN CLOCK (low-dim chaos on a persistent comb) that REGULARIZES toward a near-regular cold ground state; the invariant matrix is COMPLETE (signed-u winner / Skyrme damps / A4 pinned / covariant deferred); matter+light share a maximal radial cone ceiling; the first ABSOLUTE ω = 5.5×10¹⁹ rad/s sits ~28× below 2m_ec²/ℏ (a STRUCTURAL gap given rigidity); no intrinsic spin J above the box-torque floor (the clock is J-neutral). The retired claim of record: the earlier "strictly periodic ω₀=0.262 comb" was an FFT-window artifact, caught + retired. M5 now PAUSES for the Duda RESULTS report. Earlier: 2026-06-05 (2c-1 + Option B spike, the full self-consistent 4D evolution is stable under the constrained spectral-projection integrator).
 
 ---
 
@@ -32,11 +32,6 @@ round)          Q13  chiral (Lifshitz) invariant in the M5 LdG: yes/no
                 Q17  beta and g anchor preference (beta via
                      kappa_delta = 3b/2; g: clock/boost vs baryon mass)
 
-2 DELIVERED   Q7  V(M) coeffs: LOCKED modulo beta (M5.16 P-C); residual
-(M5.16)           refinement lives in Q15
-              Q8  regularization: melt profile s(r) under calibrated V,
-                  virial 1.006 (M5.16 P-D); residual lives in Q14
-
 1 SELF-       Q11 Close's Eq.23 exact form: self-determination (published
 DETERMINE         paper + numerical discriminator); not a Duda item
 
@@ -47,15 +42,19 @@ DETERMINE         paper + numerical discriminator); not a Duda item
               Q12 Bell / Kochen-Specker vs M5's definite-orientation
                   defect (foundational; defense template + MERW bridge)
 
-5 RESOLVED    Q1  initial-condition construction (no static soliton,
+7 RESOLVED    Q1  initial-condition construction (no static soliton,
               triple-confirmed: Duda Fig.10 + Close + Werbos + M5.2)
               Q2  V(psi) shape (wrong substrate, matrix M required)
               Q3  connection/curvature A-layer (load-bearing; paper II)
               Q5  substrate: full M = ODO^T vs Q-tensor (full M)
               Q6  eigenvalue -> physics mapping (1=EM, delta=QM, g=gravity)
+              Q7  V(M) coeffs: DELIVERED by M5.16, locked modulo beta
+                  (residual -> Q15)
+              Q8  regularization: DELIVERED by M5.16, melt profile s(r),
+                  virial 1.006 (residual -> Q14)
 
-Total: 17 questions (5 in the ask round, 2 delivered, 1 self-determine,
-4 background, 5 resolved). The ask queue itself is baked into
+Total: 17 questions (5 in the ask round, 1 self-determine, 4 background,
+7 resolved). The ask queue itself is baked into
 tasks/m5_12_task_details.md (the consumer); this file = the registry.
 Sequence: M5.16 DONE -> ONE email = report + asks -> answers feed
 phases A/C/D -> go M5.12. The delta_CP fork is framing under Q13.
@@ -66,21 +65,21 @@ phases A/C/D -> go M5.12. The delta_CP fork is framing under Q13.
 ## OPEN QUESTIONS
 
 > Sorted by priority: the ask-round questions first (row order = the order we need Duda's answers), then delivered, self-determined, and background. Full history + evidence per question: [`§ QUESTION DETAILS`](#question-details-open-questions) at the end of this file (anchor per ID).
+>
+> Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · ✅ delivered / resolved (residuals routed) · ❌ closed negative.
 
 | ID | Title | Question (one line) | Gates |
 | --- | --- | --- | --- |
-| [Q13](#q13-detail) | Chiral invariant | Does the M5 LdG substrate carry a chiral (Lifshitz) invariant `2q₀L ε_ikl M_ij ∂_k M_lj` + Frank partner, or is achirality intended? | M5.12 phases A-C, F; the CP sector |
-| [Q16](#q16-detail) | Neutrino seed topology | Which object is the neutrino: a Hopf-linked `+1/2` disclination pair, a `+1/2` trefoil knot, or the `4f` sketch's "two vortex types" composite? | M5.12 phases A/C seeds |
-| [Q14](#q14-detail) | Hedgehog core: point vs ring | The spherical hedgehog is measured to be a saddle of the unconstrained functional: is the electron the symmetric hedgehog (and what holds it), or is the ring-core texture acceptable? | electron ground state; Q8 residual; M5.12 phase D |
-| [Q15](#q15-detail) | δ-pinning | The quartic trace-LdG cannot be stationary at `(1, δ, 0)` (residual force `3bδ`): sixth-order invariant intended, or is δ dynamical? | Q7 residual; vacuum structure; M5.9 |
-| [Q17](#q17-detail) | β and g anchors | Preferred anchors for the two open lock slots: β = b/c (via `κ_δ = (3/2)b`) and g (statics measured g-blind: clock/boost vs baryon mass)? | full `(g, δ, a, b, c)` lock; `#220`; M5.9 |
-| [Q7](#q7-detail) | V(M) coefficients | ~~Exact LdG coefficients~~ **DELIVERED by M5.16** (locked modulo β); the residual intent question lives in Q15 | ~~M5.16~~ done |
-| [Q8](#q8-detail) | Faber regularization | ~~Exact core-regularization form~~ **DELIVERED by M5.16** (melt profile under the calibrated V, virial 1.006); the residual lives in Q14 | ~~M5.16~~ done |
-| [Q11](#q11-detail) | Close's Eq.23 form | Direct form vs `s = ∇×A` vs divergence-cleaning: SELF-DETERMINE (published paper + numerical discriminator), not a Duda item | M5.7.3 |
-| [Q4](#q4-detail) | Liu lab anchor | Does the 2026 lab creation of isolated hopfions/skyrmions change what to simulate first? | background |
-| [Q10](#q10-detail) | Weak-force mechanism | Is there a clean SU(2)-chiral matrix mechanism for the weak force? | background |
-| [Q9](#q9-detail) | Deeper substrate | Is the matrix M effective, with an "anisotropic fluid" beneath? | background / parked |
-| [Q12](#q12-detail) | Bell / Kochen-Specker | How does the definite-orientation defect reconcile with contextuality? | background / foundational |
+| [Q13](#q13-detail) 🔶 | Chiral invariant | Does the M5 LdG substrate carry a chiral (Lifshitz) invariant `2q₀L ε_ikl M_ij ∂_k M_lj` + Frank partner, or is achirality intended? | M5.12 phases A-C, F; the CP sector |
+| [Q16](#q16-detail) 🚧 | Neutrino seed topology | Which object is the neutrino: a Hopf-linked `+1/2` disclination pair, a `+1/2` trefoil knot, or the `4f` sketch's "two vortex types" composite? | M5.12 phases A/C seeds |
+| [Q14](#q14-detail) 🔶 | Hedgehog core: point vs ring | The spherical hedgehog is measured to be a saddle of the unconstrained functional: is the electron the symmetric hedgehog (and what holds it), or is the ring-core texture acceptable? | electron ground state; Q8 residual; M5.12 phase D |
+| [Q15](#q15-detail) 🔶 | δ-pinning | The quartic trace-LdG cannot be stationary at `(1, δ, 0)` (residual force `3bδ`): sixth-order invariant intended, or is δ dynamical? | Q7 residual; vacuum structure; M5.9 |
+| [Q17](#q17-detail) 🔶 | β and g anchors | Preferred anchors for the two open lock slots: β = b/c (via `κ_δ = (3/2)b`) and g (statics measured g-blind: clock/boost vs baryon mass)? | full `(g, δ, a, b, c)` lock; `#220`; M5.9 |
+| [Q11](#q11-detail) 🚧 | Close's Eq.23 form | Direct form vs `s = ∇×A` vs divergence-cleaning: SELF-DETERMINE (published paper + numerical discriminator), not a Duda item | M5.7.3 |
+| [Q4](#q4-detail) 🚧 | Liu lab anchor | Does the 2026 lab creation of isolated hopfions/skyrmions change what to simulate first? | background |
+| [Q10](#q10-detail) 🔶 | Weak-force mechanism | Is there a clean SU(2)-chiral matrix mechanism for the weak force? (beta decay as topology reconnection = the partial answer) | background |
+| [Q9](#q9-detail) 🚧 | Deeper substrate | Is the matrix M effective, with an "anisotropic fluid" beneath? | background / parked |
+| [Q12](#q12-detail) 🔶 | Bell / Kochen-Specker | How does the definite-orientation defect reconcile with contextuality? (defense template + MERW bridge in hand) | background / foundational |
 
 ### In-model discriminator: the δ_CP fork (180° vs 270°), flagged 2026-07-02
 
@@ -110,6 +109,8 @@ The pre-flight ask queue (Q13, Q16, Q14, Q15, Q17: table order = priority, why-c
 | Q3 | Is an explicit connection/curvature `A`-as-primary-field layer load-bearing for hedgehog stability, or the same physics in different clothing? | RESOLVED — load-bearing (paper §II). `A_μ = [M, ∂_μ M]` (Eq.19), `F_μν = ∂_μ A_ν − ∂_ν A_μ` (Eq.20). The Brouwer-degree winding integral we use is the right diagnostic, but the underlying field is the matrix M. |
 | Q5 | Substrate: full real-symmetric matrix `M = ODO^T` (6 DoF) vs traceless Q-tensor (5 DoF)? | RESOLVED 2026-05-15 — **full M, no Q-tensor pivot**. Confirmed three ways: Duda's image 2 writes `M = ODO^T` with `D = diag(g,1,δ,0)`; the slides reaffirm it everywhere; Duda's follow-up used the same notation. Refactor green-lit (`4a §2`). |
 | Q6 | Eigenvalue → physics mapping — what does each eigenvalue of D tag? | RESOLVED 2026-05-15 (Duda direct quotes, `4a §8`) — `1` = EM tilts (highest Lagrangian contribution); `δ ~ ℏ` = QM twists (quantum phase); `g ≫ 1` = gravity boosts (hedgehog = black hole); `0` (4D only) = null/time axis (clock propulsion). The 3 leptons come from 3D spatial axis-choice, NOT from the g eigenvalue. |
+| Q7 | Exact V(M) LdG coefficients (Duda 2026-05-15: Eq.13 form or "slightly different")? | ✅ DELIVERED by M5.16 (2026-07-02): `(a, b, c)` locked modulo β: `c₂ = αħc/64π` (Coulomb, analytic), `a = (3b − 4c)/2` (uniaxial vacuum, zero forcing), scale from `m_e`; `b > 0` required for shape selection. The residual intent question (δ-pinning, residual force `3bδ`) moved to **Q15**. Full history: [`§ Q7 detail`](#q7-detail) · [`tasks/m5_16_task_details.md`](tasks/m5_16_task_details.md) |
+| Q8 | Exact Faber core-regularization form to activate V(M) (Duda 2026-04-19 / 05-15)? | ✅ DELIVERED by M5.16 (2026-07-02): core regularization = the melt profile `s(r)` under the calibrated V; the spherically-constrained hedgehog converges cleanly (virial 1.006) and predicts `r_half = 2.926 fm` vs Faber's 3.075 (parameter-free, −4.8%, h-converged). The point-vs-ring residual moved to **Q14**. Full history: [`§ Q8 detail`](#q8-detail) · [`tasks/m5_16_task_details.md`](tasks/m5_16_task_details.md) |
 
 ---
 
