@@ -1,6 +1,6 @@
 # M7.3, reproduce M6's electron in full 3D (the verbatim-ODE gate + the 3D chaoiton)
 
-> Task **M7.3** (M7 / HydroBoros). taskID = M7.N iteration. Status: **In Progress** (2026-07-03) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
+> Task **M7.3** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-03, review approved; gate outcomes in [`§ FINDINGS 5`](#5-gate-outcomes-vs-the-plan--5)) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation. **M7.3 carries the M6 Ouroboros electron from its 1D radial reduction into the full 3D lattice**, the second parent-reproduction gate. M6's canonical spec is [`0d_canonical.md`](../../../m6_ouroboros/research/0d_canonical.md); its § 6 ("things that DON'T work": ten sandbox versions of sign, regularity-class, Laplacian, and measure failures) is the reason this task leads with a derivation gate, not a run.
 
@@ -154,4 +154,35 @@ The M6 ansatz carries **zero A-sector helicity** (`αφ̂ · ∇×(αφ̂) ≡ 0
 
 ---
 
-Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.3) · M6 canonical spec [`0d_canonical.md`](../../../m6_ouroboros/research/0d_canonical.md) (§ 2 recipe, § 5 units, § 6 graveyard) · background [`../m7_background.md`](../m7_background.md) (§ 4 ledger + structural note, § 5a harmonic frame) · Q6/Q9 in [`../m7_question_tracker.md`](../m7_question_tracker.md) · upstream [`m7_1_infra.md`](m7_1_infra.md) (the functional this task gates) · downstream [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md) (the M6-embedded seed).
+Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.3) · M6 canonical spec [`0d_canonical.md`](../../../m6_ouroboros/research/0d_canonical.md) (§ 2 recipe, § 5 units, § 6 graveyard) · background [`../m7_background.md`](../m7_background.md) (§ 4 ledger + structural note, § 5a harmonic frame) · tracker [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q8 resolved here; Q6 evidence; Q11/Q12/Q13 opened here) · upstream [`m7_1_infra.md`](m7_1_infra.md) (the functional this task gates) · downstream [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md) (the M6-embedded seed + the helicity-guard motivation, § FINDINGS 4).
+
+---
+
+## TASK REVIEW (2026-07-03)
+
+**Task Duration:** 01:38 (from 11:48 to 13:26 EDT)
+**Usage Cap Triggered:** NO (finished before the 3:10pm reset; resume ping disarmed without firing)
+
+**Results** (full detail: [`§ FINDINGS`](#findings-2026-07-03-execution)):
+
+| Gate | Outcome |
+| --- | --- |
+| Pre-gate A: verbatim ODE (symbolic) | ✅ PASS: the benchmark ODE is the verbatim EL reduction on the same-phase azimuthal doublet, with the convention pins solved (`κ = −1`; FOCUSING `f`; fixed-`Q_can` objective, multiplier ω) |
+| Pre-gate B: delocalization probe | ⚠️ discovery: `H/Q = 1.6890` is a windowed quadrature at the benchmark's `r_max = 12`; no decaying far-field channel exists at the canonical point (both `k² = (3±√5)/2 > 0`) |
+| Pre-gate C: numeric embed | ✅ PASS: windowed 3D `H/Q` → 1.68889 vs ledger 1.68897 (dev 4.7e-5, 200× inside the ≤1% gate); EL residual falls as h²; identity + Taichi twin at machine precision |
+| Stage 2/3 relaxation | ⚠️ honest result: the embedded M6 electron is a genuine 3D critical point but a constrained SADDLE; symmetric descent departs then axis-concentrates; free 3D collapses (supercritical focusing); `Q_can` conserved to 8 digits |
+| Secondary gates | ⚠️ degenerate here: `2L/Q = 2ω` definitional (sandbox_v8 Q38); `Q_CS` linking is zero on the straight cylinder, lives on the torus, deferred to M7.4 |
+
+**Issues / blockers**: `0d_canonical.md § 2.2` not an EL reduction (Q12 opened); the charged calibration window-defined (Q11 opened); 3D saddle vs the conjugate-point claim (Q13 opened); M7.1's unconstrained-`E_ω` frame corrected to fixed-`Q_can` (Q8 RESOLVED); no >1MB data created.
+
+**Action needed**: M7.4 next (nothing blocks it; it directly probes the missing helicity guard); the consolidated M7.1-M7.3(-M7.4) report + ask packages per the tracker comms plan; `0d_canonical.md` correction note after Werbos answers Q12.
+
+**Findings**: The M6 electron survives the trip to 3D as arithmetic but not as physics: the 3D lattice reproduces the 1D ledger to 0.005% (pre-gate airtight, every sign pinned), but the ledger itself is a windowed quadrature of a non-decaying radiating profile, and the configuration is a 3D constrained saddle that collapses under its own focusing potential, with the helicity guard exactly inert on it. All three discoveries point the same way: the M6 sector alone cannot localize or stabilize the electron, which is precisely the confinement + helicity role the M7.4 Fleury blend was designed to supply.
+
+**Research docs created / updated**:
+
+- [this task doc](m7_3_ouroboros_3d.md) (§ FINDINGS 1-5, plots inline)
+- [`../scripts/m7_3_ouroboros_3d.py`](../scripts/m7_3_ouroboros_3d.py) (modes `pregate` / `embed` / `relax`)
+- [`../data/m7_3_pregate_sympy.json`](../data/m7_3_pregate_sympy.json) · [`../data/m7_3_embed.json`](../data/m7_3_embed.json) · [`../data/m7_3_relax.json`](../data/m7_3_relax.json)
+- [`../plots/m7_3_embed_convergence.png`](../plots/m7_3_embed_convergence.png) (key plot: the windowed-H/Q panel) · [`../plots/m7_3_relax_traces.png`](../plots/m7_3_relax_traces.png) (key plot: collapse traces + final sections)
+- [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q8 → RESOLVED; Q6 evidence; Q11/Q12/Q13 opened; hardest-pieces board: 3 rows closed)
