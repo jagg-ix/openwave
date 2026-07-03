@@ -1,0 +1,216 @@
+{
+  "units": "m_e = c = hbar = eps0 = 1; e = sqrt(4 pi alpha)",
+  "constraint_solution": {
+    "E0": 0.9507681961444062,
+    "R0": 1.565331767935258,
+    "r0": 0.15105986904331145,
+    "residual": 2.6826318944017657e-12,
+    "thin_torus": {
+      "E0": 0.9463627799065139,
+      "R0": 1.5707963267948966,
+      "r0": 0.15141106043587632,
+      "E0_over_ES": 0.2865795841253782,
+      "U_paper_over_mec2": 0.7957747154594768
+    },
+    "paper_printed_reconstruction": {
+      "E0_over_ES": 0.2859150693736858,
+      "R0": 1.5726206649372174,
+      "r0": 0.1515869107151331,
+      "U_paper_over_mec2": 0.7948515671132319,
+      "note": "matches every printed digit of Eq 37-40"
+    },
+    "E0_over_ES": 0.2879136416138596,
+    "R0_over_rc": 1.565331767935258,
+    "r0_over_rc": 0.15105986904331145,
+    "omega": 1.2776844123198807,
+    "omega_over_omegaD": 0.6388422061599404,
+    "hbar_omega_over_mec2": 1.2776844123198807,
+    "U_paper_over_mec2": 0.797068842583597,
+    "U_phys_over_mec2": 0.9578923304567581,
+    "paper_printed": {
+      "E0_over_ES": 0.2859,
+      "R0_over_rc": 1.5726,
+      "r0_over_rc": 0.1516,
+      "U_over_mec2": 0.7949,
+      "omega_over_omegaD": 0.636
+    }
+  },
+  "closed_form_quadrature_check": {
+    "Q": {
+      "quad": 0.3028221208737092,
+      "closed": 0.30282212087370924,
+      "rel": 1.8331273511689236e-16
+    },
+    "mu": {
+      "quad": 0.1515869107153315,
+      "closed": 0.1515869107153315,
+      "rel": 0.0
+    },
+    "L": {
+      "quad": 0.4999999999973174,
+      "closed": 0.49999999999731737,
+      "rel": 1.1102230246311132e-16
+    },
+    "U_paper": {
+      "quad": 0.7970688425835969,
+      "closed": 0.797068842583597,
+      "rel": 1.3928822271191912e-16
+    },
+    "U_phys": {
+      "quad": 0.9578923304567584,
+      "closed": 0.9578923304567581,
+      "rel": 2.318053896716683e-16
+    }
+  },
+  "sweep": [
+    {
+      "n": 4,
+      "h": 0.03776496726082786,
+      "A": {
+        "V_w": 0.7090631259791493,
+        "V_exact": 0.7050734283140124,
+        "Q": 0.30453565688298795,
+        "mu": 0.15247445990339442,
+        "L_signed": -0.5028850165531432,
+        "L_abs": 0.5028850165531432,
+        "U_paper_density": 0.8015969055051615,
+        "U_phys": 0.9633933326893475
+      },
+      "B": {
+        "rho_bulk_rel_err": 0.00019548655369269115,
+        "Q_shell_abs": 3.144294830100022,
+        "continuity_rel": 5.202486408644608e-15,
+        "faraday_rel": 0.00011568376174091596,
+        "mu_displacement": 0.1458164650908745,
+        "mu_shell_current": 0.07260824965282851,
+        "L_signed": -0.48103870110920094,
+        "U_phys": 0.9217253330791115,
+        "U_inst_t0": 0.9217253330791115,
+        "U_inst_t8": 0.9217253330791115
+      },
+      "wall_s": 0.1
+    },
+    {
+      "n": 8,
+      "h": 0.01888248363041393,
+      "A": {
+        "V_w": 0.7058781071467121,
+        "V_exact": 0.7050734283140124,
+        "Q": 0.3031677225386635,
+        "mu": 0.15176363633232617,
+        "L_signed": -0.5005763794684428,
+        "L_abs": 0.5005763794684428,
+        "U_paper_density": 0.7979803479586652,
+        "U_phys": 0.9589952443459581
+      },
+      "B": {
+        "rho_bulk_rel_err": 4.973647081984674e-05,
+        "Q_shell_abs": 3.478587270634618,
+        "continuity_rel": 1.028596906439839e-14,
+        "faraday_rel": 2.9399369310429546e-05,
+        "mu_displacement": 0.15222699640620938,
+        "mu_shell_current": 0.07575875547688744,
+        "L_signed": -0.5021115201460562,
+        "U_phys": 0.9619334572929198,
+        "U_inst_t0": 0.96193345729292,
+        "U_inst_t8": 0.96193345729292
+      },
+      "wall_s": 0.5
+    },
+    {
+      "n": 16,
+      "h": 0.009441241815206966,
+      "A": {
+        "V_w": 0.7053009776686817,
+        "V_exact": 0.7050734283140124,
+        "Q": 0.30291985108933966,
+        "mu": 0.15163668739794084,
+        "L_signed": -0.500162632984563,
+        "L_abs": 0.500162632984563,
+        "U_paper_density": 0.797326486543472,
+        "U_phys": 0.9582036826603516
+      },
+      "B": {
+        "rho_bulk_rel_err": 1.2492395900437074e-05,
+        "Q_shell_abs": 3.3228183235391437,
+        "continuity_rel": 2.0256354923937356e-14,
+        "faraday_rel": 7.38789561511859e-06,
+        "mu_displacement": 0.1507585629479981,
+        "mu_shell_current": 0.07502897601717408,
+        "L_signed": -0.49726386495273045,
+        "U_phys": 0.9526529423303037,
+        "U_inst_t0": 0.9526529423303037,
+        "U_inst_t8": 0.9526529423303037
+      },
+      "wall_s": 4.1
+    }
+  ],
+  "convergence": {
+    "Q": {
+      "extrapolated": 0.30286433926176437,
+      "order": 2.46,
+      "rel_err_vs_closed": 0.00013941646630765024,
+      "closed_form": 0.30282212087175264
+    },
+    "mu": {
+      "extrapolated": 0.15160945024660363,
+      "order": 2.49,
+      "rel_err_vs_closed": 0.00014869048629719318,
+      "closed_form": 0.1515869107151331
+    },
+    "L": {
+      "extrapolated": 0.5000722362296682,
+      "order": 2.48,
+      "rel_err_vs_closed": 0.00014447245933646435,
+      "closed_form": 0.5
+    },
+    "U_paper": {
+      "extrapolated": 0.7971831521487086,
+      "order": 2.4699999999999998,
+      "rel_err_vs_closed": 0.00014341241183268863,
+      "closed_form": 0.797068842583597
+    },
+    "U_phys": {
+      "extrapolated": 0.9580279712622309,
+      "order": 2.4699999999999998,
+      "rel_err_vs_closed": 0.0001416033944108452,
+      "closed_form": 0.9578923304567581
+    }
+  },
+  "gates": {
+    "targets_converged_0p5pct": true,
+    "rho_accuracy_improves": true,
+    "continuity_machine": true,
+    "faraday_bulk_O(h2)": true,
+    "U_inst_equals_U_avg": true,
+    "L_sign_negative_left_handed": true
+  },
+  "stretch_bessel": {
+    "diagnostic": {
+      "at_paper_params": {
+        "Q": 2.7804932466996397,
+        "Q_core_term": 0.1572862573287142,
+        "Q_gradient_term": 2.7715894771230882,
+        "Q_inflation_vs_heaviside": 9.18193571419848,
+        "Q_shell_heaviside_columnB": 3.3228183235391437,
+        "mu": 0.06522079614314777,
+        "L_abs": 0.1345586468725999,
+        "U_phys": 0.25784165109427715,
+        "faraday_rel_bulk": 19.83859848536806
+      }
+    },
+    "fixed_point_status": "RUNAWAY at iter 0: R0 -> 33.41 (no nearby smooth solution)",
+    "iterations": [
+      {
+        "iter": 0,
+        "fQ": 128.1589648784108,
+        "fmu": 1.920466974187237,
+        "fL": 2.662265188173381,
+        "R0_next": 33.40536746326462,
+        "E0_next": 0.07122747982584321
+      }
+    ],
+    "reading": "the smooth envelope exposes the mask's hidden surface charge; the naive scalar-envelope ansatz has no nearby constraint solution; the real fix = Ceperley per-component mode structure or the M7.4 relaxation"
+  },
+  "wall_s_total": 5.8
+}

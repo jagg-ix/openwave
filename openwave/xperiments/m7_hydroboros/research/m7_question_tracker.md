@@ -13,7 +13,7 @@
 | [`../../m5_liquid_crystal/research/m5_question_tracker.md`](../../m5_liquid_crystal/research/m5_question_tracker.md) | the M5 tracker this one mirrors (structure + procedure) |
 | [`../../m6_ouroboros/research/0b_question_tracker.md`](../../m6_ouroboros/research/0b_question_tracker.md) | the M6 tracker (the other parent's registry) |
 
-**Last updated:** 2026-07-02 late evening (**restructured to the M5 tracker pattern** at Rodrigo's direction: ONE priority-sorted OPEN QUESTIONS table = the ask list for Marc (the separate "Ask Marc" section is folded in), per-ID details moved to [`§ QUESTION DETAILS`](#question-details-open-questions), **Q10 opened** (the FLDB energy convention, previously an ID-less ask; it gates the now-IN-PROGRESS M7.2)). Earlier same day: plan refactor after the full theory review (Q2 direction set, Q3/Q5/Q7 sharpened, Q8 + Q9 opened); evening: **M7.1 gate suite ALL PASS** ([`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings: Q1 substrate built as B, Q2's Woltjer gate passed, Q8 gauge evidence measured).
+**Last updated:** 2026-07-02 night (**M7.2 quadrature delivered**: all reproduction gates pass at O(h²·⁵)/1.4e-4; the paper's printed solution reconstructed digit-for-digit as thin-torus + Schwinger; **Q10 evidence in**: the Eq 122/124/127 energy-algebra slips identified and the corrected `U ≈ 0.958 m_ec²` computed, [`tasks/m7_2_fleury_torus.md § 3`](tasks/m7_2_fleury_torus.md); the Bessel stretch exposed the mask's hidden surface charge, ~18× the bulk RMS charge). Earlier: **restructured to the M5 tracker pattern** at Rodrigo's direction: ONE priority-sorted OPEN QUESTIONS table = the ask list for Marc (the separate "Ask Marc" section is folded in), per-ID details moved to [`§ QUESTION DETAILS`](#question-details-open-questions), **Q10 opened** (the FLDB energy convention, previously an ID-less ask; it gates the now-IN-PROGRESS M7.2)). Earlier same day: plan refactor after the full theory review (Q2 direction set, Q3/Q5/Q7 sharpened, Q8 + Q9 opened); evening: **M7.1 gate suite ALL PASS** ([`tasks/m7_1_infra.md`](tasks/m7_1_infra.md) § Findings: Q1 substrate built as B, Q2's Woltjer gate passed, Q8 gauge evidence measured).
 
 ---
 
@@ -25,10 +25,9 @@
                       + the S&Y eikonal variable-h toroidal recipe
                  Q5   divergence-ful knots: stable, or does div F kill them?
                  Q3   divergence charge vs linking charge: forced equal?
-                 Q10  FLDB complex-field energy convention (Eq 31/32)
-                      [NON-blocking for the in-progress M7.2: the plan
-                      computes both conventions; the answer picks the
-                      canonical column]
+                 Q10  FLDB energy convention: M7.2 delivered the evidence
+                      (Eq 122/124/127 slips identified; corrected
+                      U = 0.958 m_ec^2); ask = Marc's confirmation
                  Q1   substrate reading + target manifold (S2 vs S3)
                  Q4   the promised Beltrami material + the Spanish school
 
@@ -58,7 +57,7 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 | [Q7](#q7-detail) 🔶 | Charge-carrying construction | Does the relax-and-measure implementation (charge = the measured `∇·F` deviation, `λ_eff` diagnostic) match Marc's "Trkalian first, then take off the training wheels", and is there a concrete S&Y eikonal recipe for a **variable-h toroidal** seed? | M7.4 (the research core) |
 | [Q5](#q5-detail) 🔶 | Divergence-ful knots | Does a divergence-ful field still admit clean, stable knots, or does nonzero `∇·F` destabilize the Hopfion? | M7.4 pass/fail |
 | [Q3](#q3-detail) 🔶 | The two charges | Are Fleury's divergence charge and Ouroboros's helicity/linking charge **forced equal**, or independent observables to reconcile? | M7.4 (the `(Q_div, H, linking)` deliverable) |
-| [Q10](#q10-detail) 🚧 | FLDB energy convention | Which complex-field energy convention do FLDB Eqs 31/32 use (the appendix form), needed to pick the canonical `U/m_ec² ≈ 0.795` comparison column? | M7.2 § 3 `U` target only, **non-blocking** (dual-convention fallback baked into the plan) |
+| [Q10](#q10-detail) 🔶 | FLDB energy convention | Confirm the Eq 122/124/127 algebra (M7.2 identified the dropped square + the dropped ½): is the corrected **`U ≈ 0.958 m_ec²`** the intended prediction? | evidence delivered by M7.2 § 3; Marc's confirmation pending |
 | [Q1](#q1-detail) 🔶 | Substrate + target manifold | The `(A_μ, J_μ)` doublet (candidate B, built at M7.1) vs single RS field (A); Clebsch as seeder only (D); and the target manifold: Pisello S² vs Faber S³? | M7.3/M7.4 closure |
 | [Q4](#q4-detail) 🔶 | Marc's source material | The further Beltrami papers he mentioned (corpus #13) + the status of bringing in Enciso & Peralta-Salas as collaborators? | corpus (M7.0, ongoing) |
 | [Q9](#q9-detail) 🚧 | Werbos-v5 calibration dictionary | The `(Ω, G) ↔ (ω, g, m_J)` map between v5's canonical point (`g = 1.0625`, `H/Q = 1.6969`) and M6's repo-validated canonical (`g = 1.0`, `H/Q = 1.6890`)? | M7.3 secondary gate · M7.12 islands |
@@ -98,6 +97,7 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 - This tracker covers **M7 physics/framework questions for the collaborators** (Marc Fleury primary; Paul Werbos for the M6-calibration items) plus the hardest-pieces board. Implementation decisions (lattice layout, kernel design, minimizer settings) are tracked as roadmap tasks in [`m7_roadmap.md`](m7_roadmap.md) and the per-task docs, not here: the same split as M5/M6.
 - **Outbound comms:** the [`§ OPEN QUESTIONS`](#open-questions) table order = the ask order at the next Marc contact; the [`§ QUESTION DETAILS`](#question-details-open-questions) entries carry the content bullets for each ask. The agent supplies facts; **Rodrigo phrases every outbound message** (his voice is the credential).
+- **Comms plan (2026-07-02, deliver-first-ask-second, the M5.16 pattern):** after **M7.3** runs, prepare the consolidated M7.1-M7.3 report and the collected ask round (Q7, Q5, Q3, Q10, Q1, Q4) as ONE package for Marc; the M7.2 deliverables (the reproduction + the Q10 evidence + the surface-charge result) back the asks.
 
 ---
 
@@ -119,7 +119,7 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 ### Q10 detail
 
-**FLDB complex-field energy convention (ask Marc, priority 4; time-sensitive).** Which convention does the paper's energy density `u(t) = ε₀E₀²(1 + R/4R₀)` (Eq 31) and the rest-energy integral (Eq 32) use for complex fields: real-part-instantaneous, or complex-modulus average? The appendix (FLDB Appendix, corpus #1) is the source; the M7.2 conventions contract carries it as trap #3 ([`tasks/m7_2_fleury_torus.md § 2`](tasks/m7_2_fleury_torus.md)), and the `U/m_ec² ≈ 0.795` target comparison is not trusted until it is pinned. Opened 2026-07-02 (previously an ID-less ask at the M7.1 review; assigned an ID at the tracker restructure). **NON-blocking for M7.2** (decision 2026-07-02: M7.2 runs without waiting for Marc): the plan computes BOTH conventions (real-part-instantaneous and complex-modulus average) and reports which matches Eq 32; only the `U/m_ec²` target is convention-sensitive, the other seven targets (charge, radii, ω, μ, spin, `∇·J` consistency) are not. Marc's answer later picks the canonical column; he is the author, so it is the cheapest possible ask.
+**FLDB energy convention (ask Marc, priority 4).** Originally: which complex-field convention do Eqs 31/32 use? **M7.2 delivered the evidence (2026-07-02, [`tasks/m7_2_fleury_torus.md § 3`](tasks/m7_2_fleury_torus.md)) and the question sharpened**: the appendix declares the standard phasor average `E² = ½E·E*` (its Eq 113-115), but **Eq 122/124 drop the square on `(1+R/R₀)` in `E_φE_φ*` and Eq 127 drops the ½ on the B term**; the two slips produce Eq 31. With the appendix's own convention applied exactly, `U_phys = (6/5)×Eq 32` (thin torus): **`U/m_ec² = 0.795 → 0.958`**, closing most of the paper's acknowledged energy gap. The constraints (Q, μ, L) are slip-free, so the solved parameters stand. Verified three ways (closed form, independent 2D quadrature to 2e-16, 3D lattice to 1.4e-4 at O(h².5)). **The ask is now**: confirm Eq 122/124/127 and whether `U ≈ 0.958 m_ec²` is the intended prediction. Marc is the author; the cheapest, highest-value ask on the list. Opened 2026-07-02; evidence delivered same day by M7.2 (which ran non-blocked, computing both conventions as planned).
 
 ### Q1 detail
 
