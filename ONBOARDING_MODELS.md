@@ -127,6 +127,7 @@ You do not need to fork or write code to *start*. The lowest-friction on-ramp is
 | --- | --- | --- |
 | Model directory | A new home for your framework. | `openwave/xperiments/<your-model>/` with a `research/` subfolder |
 | Model briefing | A one-page front door: identity, profile, per-particle field configs, status, roadmap, invite (Section 3.1). | `openwave/xperiments/<your-model>/__<MID>_model_briefing.md` |
+| Theory corpus + citations | The foundational papers your model builds on (gitignored, copyright) plus the tracked `_CITATIONS.md` that records them (Section 3.2). | `openwave/xperiments/<your-model>/theory/` |
 | Column in the table | Your framework as a new column scored against the shared rows. | [`MODELS.md`](MODELS.md) coverage matrix |
 | Per-cell status | One of the legend icons per criterion. | each table cell |
 | Backing per claim | A runnable script **or** a short research note documenting pass/fail. | under your model directory |
@@ -161,6 +162,37 @@ Use [`m5_liquid_crystal/__M5_model_briefing.md`](openwave/xperiments/m5_liquid_c
 | Help Wanted | how others can contribute a validation, a falsifier, or a rival config | the column stays open |
 
 A new column's briefing may be mostly 🚧 at first, that is expected. The point is that it exists, is honest, and reads as a scannable one-pager. It does not replace the deeper docs (roadmap, question tracker, summary report); it is the index to them.
+
+### 3.2 The theory corpus and `_CITATIONS.md`
+
+Every model directory has a `theory/` folder holding the foundational papers and author documents your framework builds on. Two rules govern it: a copyright/git rule for the files, and a format rule for the record.
+
+**Copyright and git (non-negotiable).** OpenWave is a public repo. Third-party papers are copyrighted and MUST NOT be committed. Keep the PDFs and author docs **local-only and gitignored**; only your own `.md` notes and code are tracked. The repo's `.gitignore` already ignores the common document types under any `theory/` folder:
+
+```gitignore
+openwave/xperiments/*/theory/**/*.pdf     # also .docx .doc .epub .ppt .pptx .djvu .tex .bib
+```
+
+The one tracked artifact in `theory/` is `_CITATIONS.md`. It is the durable record that a source existed and where it came from, even though the file itself is never committed. Anyone who needs a paper obtains it from its original venue (DOI/arXiv) or the author.
+
+**`_CITATIONS.md` format.** Name it with a leading underscore so it sorts to the top of the folder. It is dual-purpose: a readable bibliography *and* a file-inventory manifest. Copy [`m7_hydroboros/theory/_CITATIONS.md`](openwave/xperiments/m7_hydroboros/theory/_CITATIONS.md) as the worked template. Structure:
+
+| Part | What it holds |
+| --- | --- |
+| Provenance blockquote | the "NOT in git ... obtain from the original venue" note (the copyright reminder) |
+| Total line | document count + an as-of date |
+| `## Bibliography` | the readable citation list, ordered by **year ascending** (undated entries last); columns `Author(s) \| Year \| Title \| Venue / ID` |
+| `## Local corpus` | the gitignored-file inventory; columns `Author (Year) \| Path \| Size`, size formatted `X.X MB` / `XXX KB` |
+
+**Rules that keep it honest and usable:**
+
+| Rule | Why |
+| --- | --- |
+| Never fabricate an identifier | Verify DOIs / arXiv IDs; unresolved becomes `n/a`, an author-shared draft becomes `author copy`, a guessed venue gets a trailing `(?)`. A wrong DOI is worse than an honest `n/a`. |
+| Keep the manifest matching disk | Add, remove, or rename a source file and you update `_CITATIONS.md` in the same commit. Every `Path` in the Local corpus must resolve to a real file. |
+| ASCII, clean filenames | Prefer `YEAR - Author - Title.pdf`. No em/en dashes or unicode ligatures in filenames or cells, they break byte-exact paths and violate the house style. |
+| One work, one Bibliography entry | If a work has more than one local file (e.g. a published PDF plus its LaTeX source), it is a single citation but multiple Local-corpus rows. |
+| Cite as Author (Year) | Other docs reference sources this way, so no separate citation-key column is needed. |
 
 ---
 
@@ -239,6 +271,7 @@ A practical pattern: run the reproducer and the independent recomputer first (do
 | --- | --- |
 | [`MODELS.md`](MODELS.md) | The comparison table, the shared criteria, the validation legend |
 | [`m5_liquid_crystal/__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | The model-briefing template (Section 3.1), a worked one-pager to copy |
+| [`m7_hydroboros/theory/_CITATIONS.md`](openwave/xperiments/m7_hydroboros/theory/_CITATIONS.md) | The theory-corpus citations template (Section 3.2), bibliography + gitignored-file manifest |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Canonical setup, fork/branch/PR flow, DCO sign-off |
 | [`SYS_ARCH.md`](SYS_ARCH.md) | Repository structure and tech stack |
 | [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | Community expectations |

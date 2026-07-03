@@ -5,17 +5,19 @@
 > manifest is the tracked record; obtain the papers from their original venues / authors.
 > Our own research notes (`.md`) and code remain tracked.
 
-Total: 53 local-only documents (as of 2026-07-03; #51-53 = the Golubich/Faber SU(2)-soliton `.tex` sources shared by Dr. R. Golubich 2026-07-02, see [`../research/tasks/m5_4g_convo_2026.07.02.md`](../research/tasks/m5_4g_convo_2026.07.02.md); `.tex`/`.bib` now also gitignored).
+Total: 56 local-only documents (as of 2026-07-03). The Golubich/Faber SU(2)-soliton sources shared by Dr. R. Golubich 2026-07-02 (see [`../research/tasks/m5_4g_convo_2026.07.02.md`](../research/tasks/m5_4g_convo_2026.07.02.md)) are the `golubich_faber_su2/*.tex` files; the same dipole paper is also present as a PDF (`DR14235.pdf`), so the Faber & Golubich 2026 work maps to two local files (one Bibliography entry, two Local corpus rows).
 
-Entries are ordered by year (ascending; undated last); the Bibliography is the readable list, and the "Local corpus" appendix preserves the gitignored-file inventory (path + size).
+Entries are ordered by year (ascending; undated last); the Bibliography is the readable list, and the "Local corpus" appendix preserves the gitignored-file inventory (path + size). The Bibliography has 55 works; the Local corpus has 56 files.
 
 ## Bibliography
 
 | Author(s) | Year | Title | Venue / ID |
 | --- | --- | --- | --- |
 | Nelson | 1966 | Derivation of the Schrödinger equation from Newtonian mechanics | Phys. Rev.; [DOI 10.1103/PhysRev.150.1079](https://doi.org/10.1103/PhysRev.150.1079) |
+| Rañada | 1989 | A Topological Theory of the Electromagnetic Field | Lett. Math. Phys. 18, 97-106; [DOI 10.1007/BF00401864](https://doi.org/10.1007/BF00401864) |
 | Lubensky et al. | 1998 | Topological defects and interactions in nematic emulsions | Phys. Rev. E; [DOI 10.1103/PhysRevE.57.610](https://doi.org/10.1103/PhysRevE.57.610) |
 | Lev & Tomchuk | 1999 | Interaction of foreign macrodroplets in a nematic liquid crystal and induced supermolecular structures | Phys. Rev. E; [DOI 10.1103/PhysRevE.59.591](https://doi.org/10.1103/PhysRevE.59.591) |
+| Faber | 2000 | A Model for Topological Fermions | [arXiv:hep-th/9910221](https://arxiv.org/abs/hep-th/9910221) (v4, 2000) |
 | Lev et al. (?) | 2002 | Symmetry breaking and interaction of colloidal particles in nematic liquid crystals | Phys. Rev. E (?); n/a |
 | Yada et al. | 2004 | Direct observation of anisotropic interparticle forces in nematic colloids with optical tweezers | Phys. Rev. Lett.; [DOI 10.1103/PhysRevLett.92.185501](https://doi.org/10.1103/PhysRevLett.92.185501) |
 | Couder et al. | 2005 (?) | Walking and orbiting droplets (?) | Nature (?); n/a |
@@ -46,9 +48,9 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | n/a | 2020 | Topological solitons in chiral condensed matter (PhD thesis) | PhD thesis; n/a |
 | n/a | 2021 | Observation of second-order meron polarization textures in optical microcavities | Optica; [arXiv:2010.01691](https://arxiv.org/abs/2010.01691) |
 | Faber | 2025 | Faber universe note (author draft) | author copy; n/a |
-| Faber & Golubich | 2026 | High-precision lattice determination of the interaction potential of an SU(2) solitonic dipole and comparison with perturbative QED, LaTeX source | author copy (source of [arXiv:2604.12021](https://arxiv.org/abs/2604.12021)); shared by R. Golubich, see [convo](../research/tasks/m5_4g_convo_2026.07.02.md) |
+| Faber | 2025 | On the realization of spin in SO(3) resp. SU(2) field configurations instead of in the su(2) algebra (presentation) | author copy (Atominstitut, TU Wien, presentation slides, Sept 2025); n/a |
+| Faber & Golubich | 2026 | High-precision lattice determination of the interaction potential of an SU(2) solitonic dipole and comparison with perturbative QED | author copy ([arXiv:2604.12021](https://arxiv.org/abs/2604.12021) preprint PDF + LaTeX source); shared by R. Golubich, see [convo](../research/tasks/m5_4g_convo_2026.07.02.md) |
 | n/a | n/a | Equation of Everything | author copy; n/a |
-| n/a | n/a | Spin (source unresolved from filename) | n/a |
 | Online Technical Discussion Groups (Wolfram Community) | n/a | Time crystal phi^4 kink as toy model for the electron clock and neutrino oscillations | Wolfram Community (online discussion); n/a |
 | n/a | n/a | Liquid crystal model (source unresolved from filename) | n/a |
 | n/a | n/a | Liquid crystal particles (source unresolved from filename) | n/a |
@@ -57,7 +59,7 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Faber | n/a | Faber soliton paper (author copy) | author copy; n/a |
 | Faber | n/a | Faber soliton paper, revised (author copy) | author copy; n/a |
 | n/a | n/a | Photographs of orbital patterns (figure set) | figure set; n/a |
-| n/a | n/a | Orbit quantization in walking droplets (unresolved; matches #29 size) | n/a |
+| n/a | n/a | Orbit quantization in walking droplets (unresolved; matches path-memory size) | n/a |
 | n/a | n/a | Walking-droplet slit detection (source unresolved from filename) | n/a |
 | Zambrini (?) | n/a | Zambrini stochastic-mechanics paper (source unresolved from filename) | n/a |
 | n/a | n/a | Two-dimensional discrete time crystal (source unresolved from filename) | n/a |
@@ -71,56 +73,59 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 
 | Author (Year) | Path | Size |
 | --- | --- | --- |
-| Nelson (1966) | `pilot_wave/Nelson-revised.pdf` | 192 KB |
-| Lubensky et al. (1998) | `liquid_crystal_defects/1998 Topological defects and interactions in nematic emulsions.pdf` | 560 KB |
-| Lev & Tomchuk (1999) | `liquid_crystal_defects/1998 Interaction of foreign macrodroplets in a nematic liquid crystal and induced supermolecular structures.pdf` | 248 KB |
-| Lev et al. (?) (2002) | `liquid_crystal_defects/2002 Symmetry breaking and interaction of colloidal particles in nematic liquid crystals.pdf` | 480 KB |
-| Yada et al. (2004) | `liquid_crystal_defects/2004 Direct Observation of Anisotropic Interparticle Forces in Nematic Colloids with Optical Tweezers.pdf` | 324 KB |
-| Couder et al. (2005 (?)) | `Couder.pdf` | 14 MB |
-| n/a (2005) | `liquid_crystal_defects/2005 Annihilation dynamics of umbilical defects in nematic liquid crystals under applied electric fields.pdf` | 240 KB |
+| Nelson (1966) | `pilot_wave/Nelson-revised.pdf` | 191 KB |
+| Rañada (1989) | `Ranada.pdf` | 474 KB |
+| Lubensky et al. (1998) | `liquid_crystal_defects/1998 Topological defects and interactions in nematic emulsions.pdf` | 557 KB |
+| Lev & Tomchuk (1999) | `liquid_crystal_defects/1998 Interaction of foreign macrodroplets in a nematic liquid crystal and induced supermolecular structures.pdf` | 244 KB |
+| Faber (2000) | `9910221v4.pdf` | 396 KB |
+| Lev et al. (?) (2002) | `liquid_crystal_defects/2002 Symmetry breaking and interaction of colloidal particles in nematic liquid crystals.pdf` | 477 KB |
+| Yada et al. (2004) | `liquid_crystal_defects/2004 Direct Observation of Anisotropic Interparticle Forces in Nematic Colloids with Optical Tweezers.pdf` | 322 KB |
+| Couder et al. (2005 (?)) | `Couder.pdf` | 13.5 MB |
+| n/a (2005) | `liquid_crystal_defects/2005 Annihilation dynamics of umbilical defects in nematic liquid crystals under applied electric fields.pdf` | 239 KB |
 | Smalyukh et al. (?) (2005) | `liquid_crystal_defects/2005 Elasticity-Mediated Self-Organization and Colloidal Interactions of Solid Spheres with Tangential Anchoring in a Nematic Liquid Crystal.pdf` | 1.2 MB |
-| Couder & Fort (2006) | `pilot_wave/interference.pdf` | 368 KB |
+| Couder & Fort (2006) | `pilot_wave/interference.pdf` | 366 KB |
 | Kotar et al. (?) (2006) | `liquid_crystal_defects/2006 Interparticle Potential and Drag Coefficient in Nematic Colloids.pdf` | 1.2 MB |
-| Catillon et al. (2008) | `pilot_wave/Gouanere.pdf` | 244 KB |
-| Protière et al. (2008) | `pilot_wave/PhysRevE.78.036204.pdf` | 980 KB |
+| Catillon et al. (2008) | `pilot_wave/Gouanere.pdf` | 242 KB |
+| Protière et al. (2008) | `pilot_wave/PhysRevE.78.036204.pdf` | 977 KB |
 | Eddi et al. (2009) | `pilot_wave/tunneling.pdf` | 1.0 MB |
-| Bush (2010) | `pilot_wave/PNAS-2010-Bush.pdf` | 572 KB |
+| Bush (2010) | `pilot_wave/PNAS-2010-Bush.pdf` | 570 KB |
 | Couder et al. (2010) | `pilot_wave/epn20101p14.pdf` | 1.8 MB |
 | Fort et al. (2010) | `path-memory-induced-quantization-of-classical-orbits.pdf` | 3.2 MB |
-| Pucci et al. (2011) | `pilot_wave/PhysRevLett.106.024503.pdf` | 556 KB |
+| Pucci et al. (2011) | `pilot_wave/PhysRevLett.106.024503.pdf` | 553 KB |
 | n/a (2012) | `liquid_crystal_defects/2012 Anisotropy in the annihilation dynamics of umbilic defects in nematic liquid crystals.pdf` | 1.1 MB |
 | n/a (2013) | `liquid_crystal_defects/2013 Imaging liquid crystal defects.pdf` | 2.3 MB |
-| n/a (2013) | `liquid_crystal_defects/2013 Interparticle force between different types of nematic colloids.pdf` | 760 KB |
-| n/a (2014) | `liquid_crystal_defects/2014 Measurement of interparticle force between nematic colloids.pdf` | 416 KB |
-| Perrard et al. (2014) | `pilot_wave/perrard2014.pdf` | 928 KB |
+| n/a (2013) | `liquid_crystal_defects/2013 Interparticle force between different types of nematic colloids.pdf` | 759 KB |
+| n/a (2014) | `liquid_crystal_defects/2014 Measurement of interparticle force between nematic colloids.pdf` | 415 KB |
+| Perrard et al. (2014) | `pilot_wave/perrard2014.pdf` | 927 KB |
 | Bush (2015) | `Pilot-Wave-Hydrodynamics.pdf` | 1.5 MB |
-| Fowler & Dierking (2017) | `liquid_crystal_defects/2017 Kibble-Zurek Scaling during Defect Formation in a Nematic Liquid Crystal.pdf` | 792 KB |
+| Fowler & Dierking (2017) | `liquid_crystal_defects/2017 Kibble-Zurek Scaling during Defect Formation in a Nematic Liquid Crystal.pdf` | 790 KB |
 | n/a (2017) | `liquid_crystal_defects/2017 Coulomb-like elastic interaction induced by symmetry breaking in nematic liquid crystal colloids.pdf` | 1.8 MB |
 | n/a (2017) | `liquid_crystal_defects/2017 Motion of a colloidal particle in a nonuniform director field of a nematic liquid crystal.pdf` | 1.1 MB |
 | n/a (2017) | `liquid_crystal_defects/2017 On the Defect Structure of Biaxial .pdf` | 1.4 MB |
 | Hestenes (2019) | `pilot_wave/Hestenes.pdf` | 1.3 MB |
 | Shen et al. (2019) | `liquid_crystal_defects/2019 Annihilation dynamics of topological defects induced by microparticles in nematic liquid crystals.pdf` | 3.9 MB |
 | n/a (2020) | `liquid_crystal_defects/2020 Annihilation dynamics of reverse tilt domains in nematic liquid crystals.pdf` | 2.2 MB |
-| n/a (2020) | `liquid_crystal_defects/2020 Topological Solitons in Chiral Condensed Matters PhD.pdf` | 29 MB |
-| n/a (2021) | `liquid_crystal_defects/2021 Observation of second-order meron polarization.pdf` | 12 MB |
-| Faber (2025) | `faber_universe_2025.pdf` | 344 KB |
-| Faber & Golubich (2026) | `golubich_faber_su2/dipole.tex` | 32 KB |
+| n/a (2020) | `liquid_crystal_defects/2020 Topological Solitons in Chiral Condensed Matters PhD.pdf` | 29.4 MB |
+| n/a (2021) | `liquid_crystal_defects/2021 Observation of second-order meron polarization.pdf` | 11.6 MB |
+| Faber (2025) | `faber_universe_2025.pdf` | 343 KB |
+| Faber (2025) | `FaberManfried.pdf` | 5.3 MB |
+| Faber & Golubich (2026) | `golubich_faber_su2/dipole.tex` | 30 KB |
+| Faber & Golubich (2026) | `DR14235.pdf` | 123 KB |
 | n/a (n/a) | `Equation-of-Everything.pdf` | 1.8 MB |
-| n/a (n/a) | `Spin.pdf` | 500 KB |
-| Online Technical Discussion Groups (Wolfram Community) (n/a) | `Time crystal phi^4 kink as toy model for mechanism of electron clock and neutrino oscillations - Online Technical Discussion Groups - Wolfram Community.pdf` | 22 MB |
-| n/a (n/a) | `liquid_crystal_model.pdf` | 14 MB |
-| n/a (n/a) | `liquid_crystal_particles.pdf` | 17 MB |
-| n/a (n/a) | `negative_readiation_pressure.pdf` | 12 MB |
-| Faber (n/a) | `pilot_wave/Faber.pdf` | 412 KB |
-| Faber (n/a) | `pilot_wave/faber1.pdf` | 972 KB |
+| Online Technical Discussion Groups (Wolfram Community) (n/a) | `Time crystal phi^4 kink as toy model for mechanism of electron clock and neutrino oscillations - Online Technical Discussion Groups - Wolfram Community.pdf` | 22.3 MB |
+| n/a (n/a) | `liquid_crystal_model.pdf` | 13.6 MB |
+| n/a (n/a) | `liquid_crystal_particles.pdf` | 16.8 MB |
+| n/a (n/a) | `negative_readiation_pressure.pdf` | 11.9 MB |
+| Faber (n/a) | `pilot_wave/Faber.pdf` | 411 KB |
+| Faber (n/a) | `pilot_wave/faber1.pdf` | 969 KB |
 | Faber (n/a) | `pilot_wave/new Faber.pdf` | 1.5 MB |
-| n/a (n/a) | `pilot_wave/photos of orbitals.pdf` | 480 KB |
+| n/a (n/a) | `pilot_wave/photos of orbitals.pdf` | 477 KB |
 | n/a (n/a) | `pilot_wave/quantization.pdf` | 3.2 MB |
-| n/a (n/a) | `pilot_wave/slit detection.pdf` | 536 KB |
-| Zambrini (?) (n/a) | `pilot_wave/zambrini.pdf` | 844 KB |
+| n/a (n/a) | `pilot_wave/slit detection.pdf` | 535 KB |
+| Zambrini (?) (n/a) | `pilot_wave/zambrini.pdf` | 843 KB |
 | n/a (n/a) | `time_crystal_2d_dtc.pdf` | 4.3 MB |
 | n/a (n/a) | `time_crystal_continuous.pdf` | 3.9 MB |
 | n/a (n/a) | `time_crystal_toy_model.pdf` | 2.6 MB |
 | n/a (n/a) | `topological_phase.pdf` | 1.1 MB |
 | Faber (n/a) | `golubich_faber_su2/MTF.tex` | 124 KB |
-| Faber (n/a) | `golubich_faber_su2/derivatives.tex` | 24 KB |
+| Faber (n/a) | `golubich_faber_su2/derivatives.tex` | 22 KB |
