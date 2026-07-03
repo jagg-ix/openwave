@@ -1,6 +1,6 @@
 # M7.4, the charged soliton (approximately-Beltrami) + its Coulomb field (the NEW physics)
 
-> Task **M7.4** (M7 / HydroBoros). taskID = M7.N iteration. Status: **In Progress** (2026-07-03) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
+> Task **M7.4** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-03, review approved; gate outcomes in [`§ FINDINGS 5`](#5-gates-vs-the-plan--4-of-the-planning-half)) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation. **M7.4 is the research core**: the charged, knotted, finite-size soliton neither parent produced. Reframed 2026-07-02 after the corpus math review ([`../m7_background.md § 2`](../m7_background.md) "What the Beltrami mathematics allows"): the task does **not** hunt an exact variable-λ Beltrami ansatz; it relaxes the full functional and **measures** what charge the coupling drives.
 
@@ -149,3 +149,35 @@ What the self-read settles and what it cannot:
 ---
 
 Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.4) · background [`../m7_background.md`](../m7_background.md) (§ 2 the math boundaries, § 4 structural note, § 5b stabilization) · Q2/Q3/Q5/Q7 + Q6/Q9/Q11 evidence in [`../m7_question_tracker.md`](../m7_question_tracker.md) · upstream [`m7_1_infra.md`](m7_1_infra.md) (seeders, helicity, BCs) + [`m7_2_fleury_torus.md`](m7_2_fleury_torus.md) + [`m7_3_ouroboros_3d.md`](m7_3_ouroboros_3d.md) (the parent seeds + the pinned frame) · downstream [`m7_5_clock_stability.md`](m7_5_clock_stability.md) (real-time validation) + [`m7_6_observables.md`](m7_6_observables.md) (observables + two-charge Coulomb).
+
+---
+
+## TASK REVIEW (2026-07-03)
+
+**Task Duration:** 03:22 (from 16:23 to 19:45 EDT)
+**Usage Cap Triggered:** NO (finished before the 9:10pm reset; resume ping disarmed without firing)
+
+**Results** (full detail: [`§ FINDINGS`](#findings-2026-07-03-execution)):
+
+| Gate | Outcome |
+| --- | --- |
+| primary: stable finite-size soliton | ✅ the program's first: three helicity-carrying seeds relax to stable, dilation-stable, approximately-Beltrami solitons (`\|g\| ~ 1e-7`, `\|align\| = 0.96`, Derrick interior min, grid-convergent 0.15% N=64→96) with a saturating J-condensate |
+| the one-family discovery | ✅ universal ratios `E = 0.802\|H_A\|`, `H_cross = −0.390 H_A`: a Taylor-dressed spheromak family; helicity measurably load-bearing (both zero-helicity parent seeds evaporate) |
+| Q6 fork | ✅ decisive: the repulsive/WRITTEN `f` branch is physical (holds solitons, keeps charge); the focusing benchmark-verbatim branch expels charge or collapses; LoE v5 itself writes `f = gs²` |
+| charged | ⚠️ split: RMS/Fleury charge nonzero + interior + persistent; net Gauss monopole zero by sector design (scalar-sector instability finding, § 1) |
+| Coulomb `1/r` | ❌ absent (slope −3.7), consistent with zero net monopole; moves with the scalar-sector follow-up |
+| Q3 deliverable | ✅ published: the two charges independent at this level; linking gates existence |
+
+**Issues / blockers**: the scalar-sector instability (new finding, = the Q7(b) ask); topology reconnects under global-`H_A` fixing (knot sectors need topology-preserving constraints); the ball, not the torus, is the ground state at these parameters (shape question → M7.5/M7.6); no >1MB data created.
+
+**Action needed**: M7.5 next (real-time clock validation of the blend winner); the comms packages per the tracker comms plan (Marc package ready; Werbos package after M7.5); `0d_canonical.md` correction notes after Werbos answers Q6/Q12.
+
+**Findings**: M7.4 delivered the program's first stable, finite-size 3D soliton: a Taylor-dressed spheromak family (`E = 0.802\|H_A\|`, `H_cross = −0.390 H_A`, universal across seeds) whose existence requires exactly the two ingredients the HydroBoros thesis named: helicity (both bare parent seeds evaporate without it) and the Ouroboros confinement dressing (the J-condensate saturates on every survivor). The f-convention experiment was decisive: the written Lagrangian is the stable theory and the M6 benchmark's signs are the anomaly; the honest gaps (net Gauss charge in the unstable scalar sector, knot reconnection, ball-vs-torus shape) are each a designed follow-up.
+
+**Research docs created / updated**:
+
+- [this task doc](m7_4_charged_soliton.md) (§ FINDINGS 1-5, plots inline)
+- [`../scripts/m7_4_linked_vortex.py`](../scripts/m7_4_linked_vortex.py) (modes `smoke` / `run` / `winner` / `analyze`)
+- [`../data/m7_4_states.json`](../data/m7_4_states.json) · [`../data/m7_4_winner.json`](../data/m7_4_winner.json) · [`../data/m7_4_smoke.json`](../data/m7_4_smoke.json)
+- [`../plots/m7_4_traces.png`](../plots/m7_4_traces.png) · [`../plots/m7_4_dilation_charge.png`](../plots/m7_4_dilation_charge.png) · [`../plots/m7_4_winner_sections.png`](../plots/m7_4_winner_sections.png) (key plot: the winner sections)
+- [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q2 + Q5 → RESOLVED; Q3/Q6/Q7/Q9 evidence; count 5/5/0/3)

@@ -8,7 +8,7 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| [M7.4](tasks/m7_4_charged_soliton.md) | the charged soliton (approximately-Beltrami) + its Coulomb field (NEW physics) | relax the full functional from **multiple seeds** (Trkalian eigenfield torus, Bateman/Hopf knots, the M6-embedded torus) at fixed ω + helicity; **charge = the measured `∇·F` the coupling drives**, NOT an imposed exact variable-λ ansatz (rigidity + Nadirashvili, [`m7_background.md § 2`](m7_background.md)); diagnostic `λ_eff = F·(∇×F)/\|F\|²` | stable finite-size soliton (`‖∇E‖ → 0` + a **dilation probe**: `E(μ)` has an interior minimum); **the Q3 deliverable**: `(Q_div, helicity H, linking)` measured on every relaxed state; **Coulomb `1/r`** far field sourced by `Q_div` (Gauss); charge quantization assessed honestly |
+| , | (none) | , | , |
 
 ## BACKLOG
 
@@ -91,7 +91,7 @@ Each task fills specific cells, so the table is the running scoreboard of the pr
 
 All 21 MODELS.md criteria are covered: Phase A (M7.1-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and consolidates the column at the M7.7 milestone; Phase B (M7.8-M7.13) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter; Phase C (M7.14) groups the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
 
-### Phase E, production rendering (post-canonical)
+### Phase E, production rendering upgrade (post-canonical)
 
 After the electron is canonical (the M7.7 milestone), graduate the winning recipe from the research scripts to the production engine, exactly the path M5 followed.
 
@@ -117,6 +117,7 @@ Reference layout: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`mediu
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
+| [M7.4](tasks/m7_4_charged_soliton.md) | the charged soliton (approximately-Beltrami) + its Coulomb field (NEW physics) | relax the full functional from multiple seeds at fixed ω + helicity; charge = the measured `∇·F`, never an imposed exact variable-λ ansatz; diagnostic `λ_eff` | ✅ PRIMARY GATE PASS (2026-07-03, [findings](tasks/m7_4_charged_soliton.md)): **first stable finite-size 3D soliton**: a Taylor-dressed spheromak family, `E = 0.802\|H_A\|`, `H_cross = −0.390 H_A` universal across 3 seeds; helicity load-bearing (zero-helicity seeds evaporate); **written `f` wins** (focusing benchmark signs expel charge / collapse); RMS charge interior + persistent; ⚠️ net-Gauss charge + Coulomb deferred (scalar-sector instability finding); topology reconnects under global-H (knot sectors = follow-up); Q2 + Q5 resolved |
 | [M7.3](tasks/m7_3_ouroboros_3d.md) | reproduce M6's electron in full 3D | **pre-gate first**: the 3D harmonic functional, restricted to M6's ansatz, reproduces the M6 ODE **verbatim**; then embed the M6 1D profile as a 3D seed, relax at fixed ω, watch for 3D symmetry breaking | ✅ ALL GATES (2026-07-03, [findings](tasks/m7_3_ouroboros_3d.md)): verbatim reduction pinned (same-phase doublet; `κ = −1`; FOCUSING `f`; fixed-`Q_can` frame); 3D windowed `H/Q = 1.68889` vs ledger `1.68897` (dev **4.7e-5**); 3 discoveries: the charged ledger is **WINDOWED** (Q11), `0d_canonical § 2.2` is not an EL reduction (Q12), the M6 electron is a **3D saddle with focusing collapse**, helicity guard inert on it (Q13); Q8 resolved (no gauge fixing needed) |
 | [M7.2](tasks/m7_2_fleury_torus.md) | reproduce Fleury on the lattice | lattice quadrature of the FLDB toroidal ansatz under the pinned conventions contract; grid-convergence study; Bessel-envelope stretch | ✅ ALL GATES PASS (2026-07-02, [findings](tasks/m7_2_fleury_torus.md)): `Q/μ/L/U` to closed forms at `1.4e-4`, order ~2.5; printed solution reconstructed digit-for-digit; **Q10 finding: corrected-convention `U = 0.958 m_ec²`** (was 0.795); the Bessel stretch exposed the mask's hidden surface charge (~18× bulk) |
 | [M7.1](tasks/m7_1_infra.md) | infra | A-primary doublet on a 3D lattice in the **time-harmonic (fixed-ω) frame**; helicity observable + fixed-helicity relaxation; Taichi-AD energy gradient; FIRE minimizer; six seeders (ABC/Trkalian, CK spheromak, Bateman/Hopf, Fleury torus, M6 embedding, Ceperley mode); design decisions documented (BCs, gauge = Q8 evidence, M6 natural units) | ✅ ALL GATES PASS (2026-07-02, [findings](tasks/m7_1_infra.md)): AD vs complex-step `2.3e-15`; **Woltjer-Taylor**: random seed → constant-λ eigenfield, `λ → 2π/L` at `5.5e-6`, `E = λH`; M6 ledger `H/Q = 1.68897` reproduced by the seeder pipeline |
