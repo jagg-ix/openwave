@@ -50,7 +50,7 @@ The energy minimization gives the mass; **charge and spin fall out of the analyt
 
 ## 5. Shared files (local-only) + presentation
 
-Three `.tex` files were shared, now kept **local-only** in [`../../theory/golubich_faber_su2/`](../../theory) and **gitignored** (private author sources, not redistributable on a public repo; manifest in [`../../theory/SOURCES.md`](../../theory/SOURCES.md) #51-53):
+Three `.tex` files were shared, now kept **local-only** in [`../../theory/golubich_faber_su2/`](../../theory) and **gitignored** (private author sources, not redistributable on a public repo; manifest in [`../../theory/_CITATIONS.md`](../../theory/_CITATIONS.md) #51-53):
 
 | File | What |
 | --- | --- |

@@ -295,7 +295,7 @@ M7.4 experiment (Q2), **off by default**.
   [`../theory/sato_yamada_beltrami.md`](../theory/sato_yamada_beltrami.md) ([arXiv:1809.03136](https://arxiv.org/abs/1809.03136)) ·
   [`../theory/ceperley_rotating_waves.md`](../theory/ceperley_rotating_waves.md) (Ceperley rotating-wave equations; [AJP DOI 10.1119/1.17020](https://doi.org/10.1119/1.17020) / [IEEE DOI 10.1109/22.216476](https://doi.org/10.1109/22.216476)) ·
   [`../theory/feynman_maxwell_equations.md`](../theory/feynman_maxwell_equations.md) (Feynman Lectures II Ch 18, the Maxwell baseline for M7.2)
-- Source corpus (the evolving M7 library, 64 docs): [`../theory/electron_beltrami/`](../theory/electron_beltrami/) , manifest [`../theory/SOURCES.md`](../theory/SOURCES.md) (Beltrami / force-free / knotted-EM / ball-lightning / LENR / Pisello-Faber canon, the M7.0 corpus)
+- Source corpus (the evolving M7 library, 64 docs): [`../theory/electron_beltrami/`](../theory/electron_beltrami/) , manifest [`../theory/_CITATIONS.md`](../theory/_CITATIONS.md) (Beltrami / force-free / knotted-EM / ball-lightning / LENR / Pisello-Faber canon, the M7.0 corpus)
 - Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/tasks/m5_11a_vortex_loop.md) (M5.11 vortex-loop)
 - Wave-physics library to mine (§ 0, not parents): [`m1_granule_motion`](../../m1_granule_motion/) · [`m2_free_wave`](../../m2_free_wave/) · [`m3_wolff_lafreniere`](../../m3_wolff_lafreniere/) · [`m4_ewt`](../../m4_ewt/)
 - Ouroboros canonical spec: [`../../m6_ouroboros/research/0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) ·
