@@ -44,16 +44,20 @@ Why these two, measured: the fixed-`Q_can` extremal is the real-time orbit (`ω`
 
 ## 2. Equation-to-code map
 
-| Term / observable | Function | Where |
-| --- | --- | --- |
-| `E_ω` density (quad, coupling, `f_avg`) | `energy_density` | [`m7_functional.py`](scripts/m7_functional.py) (reference) ↔ `TaichiBlend.e_kernel` in [`m7_4_linked_vortex.py`](scripts/m7_4_linked_vortex.py) (engine) |
-| `Q_can` + `H_A` | `q_can`, `helicity_A` | [`m7_functional.py`](scripts/m7_functional.py) |
-| the two-constraint relaxation | `relax_qcan` | [`m7_6_observables.py`](scripts/m7_6_observables.py) |
-| momentum / spin / `j_z` per quantum | `momentum_avg`, `spin_Lz`, `jz_per_quantum` | [`m7_functional.py`](scripts/m7_functional.py) |
-| RMS charge / Gauss | `charge_rms` | [`m7_functional.py`](scripts/m7_functional.py) |
-| the canonical run + gate table | `main` | [`m7_7_canonical.py`](scripts/m7_7_canonical.py) |
+Every term findable in one click; permalinks are pinned to the Phase 1 merge commit [`bc51a09`](https://github.com/openwave-labs/openwave/commit/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7) so line anchors never drift (repo-relative links alongside, for in-repo reading).
 
-(Commit-pinned GitHub permalinks are added when the milestone commit lands; the map above is repo-relative and stable.)
+| Term / observable | Function | Permalink (commit-pinned) | In-repo |
+| --- | --- | --- | --- |
+| `E_ω` density (quad, coupling, `f_avg`), term by term | `energy_density` | [m7_functional.py#L98-L127](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L98-L127) | [`m7_functional.py`](scripts/m7_functional.py) |
+| `E_ω` integral | `energy` | [m7_functional.py#L130-L131](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L130-L131) | same |
+| the Taichi engine's identical kernel (cross-validated to 1.4e-14) | `TaichiBlend._build.e_kernel` | [m7_4_linked_vortex.py#L127-L152](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_4_linked_vortex.py#L127-L152) | [`m7_4_linked_vortex.py`](scripts/m7_4_linked_vortex.py) |
+| `Q_can` (the clock's conjugate) | `q_can` | [m7_functional.py#L137-L139](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L137-L139) | [`m7_functional.py`](scripts/m7_functional.py) |
+| `H_A` (helicity, the localization guard) | `helicity_A` | [m7_functional.py#L142-L144](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L142-L144) | same |
+| the two-constraint relaxation (tangent projection + exact restores) | `relax_qcan` | [m7_6_observables.py#L90-L173](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_6_observables.py#L90-L173) | [`m7_6_observables.py`](scripts/m7_6_observables.py) |
+| momentum `⟨E×B⟩` + spin `L_z` | `momentum_avg`, `spin_Lz` | [m7_functional.py#L150-L161](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L150-L161) | [`m7_functional.py`](scripts/m7_functional.py) |
+| `j_z` per quantum (orbital + spin, circular components) | `jz_per_quantum` | [m7_functional.py#L164-L179](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L164-L179) | same |
+| RMS charge / Gauss reading | `charge_rms` | [m7_functional.py#L182-L192](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L182-L192) | same |
+| the canonical run + gate table (the driver; no physics of its own) | `main` | [m7_7_canonical.py#L55-L121](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_7_canonical.py#L55-L121) | [`m7_7_canonical.py`](scripts/m7_7_canonical.py) |
 
 ## 3. The canonical electron (results of record, N = 64, L = 16)
 
