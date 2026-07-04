@@ -14,8 +14,6 @@ answered, or gets demoted.
 | `0b_M6_roadmap.md` | Sandbox sequence + current state + next steps |
 | `0c_sandbox_v*.md` | Per-iteration work log (the questions tracker here lives outside any single sandbox) |
 
-**Last updated:** 2026-06-05 (M6 REOPENED by Paul's "an urgent problem after all" email — DeepSeek requests a (g, λ) neutral-sector scan to resolve the DM paper v5a "BVP inconsistency" + deliver β(r) for α_JN). Answered same-day via **sandbox_v11**: exact scaling symmetry found — the entire (g, λ<0) plane is one rescaling family of a universal profile u(x); m_J = 0.6184 MeV parameter-free invariant; m_χ = 0.460 MeV fixes λ\* = −0.264697 (any g); canonical (g=1.0, λ*) = v9/v10 point (g=1.0, B0=0.5). "Griesi-1 near-trivial" failure reproduced as cold-seed Newton-basin collapse (peak ~10⁻¹¹, their exact number). **Q47 ANALYTICALLY RESOLVED** (1.21024 = 1/η_u, scaling identity). Q48 (H = 8 m_J² Q exact?) + Q49 (M_JA(0) definition for α_JN) NEW — for email v17. Previous state (2026-05-22): DM paper v2 published Zenodo 20350105 with our numbers verbatim; v5a now at Zenodo 20549492.
-
 ---
 
 ## Active count
@@ -241,6 +239,10 @@ identity interpretation; Q45+Q46 RESOLVED via DeepSeek 7:05 PM reply).
 | 4-fn vs 2-fn ansatz mismatch | ✅ RESOLVED 2026-05-21 PM via Q34 — canonical electron production form is the 2-function (α, β) reduction with vector cylindrical Laplacian. The 4-function (V, A, Q, J) BVP system used in v4-v7 is a generalized formulation that admits excited modes. |
 | Charge quantization rigorous proof | RESOLVED v5 — Hopf invariant proof complete (Zenodo 20296060). Reaffirmed in v9 §4. |
 | Three-system geometric mapping | ✅ RESOLVED via v8 step 3 paper-math — Sonnet α,β cylindrical (r dr) ≠ v1 α,γ spherical (r² dr) ≠ v9 §5.1 toroidal gradient ansatz. Three different field theories in numerical neighborhood ~1.69. |
+
+---
+
+**Last updated:** 2026-06-05 (M6 REOPENED by Paul's "an urgent problem after all" email — DeepSeek requests a (g, λ) neutral-sector scan to resolve the DM paper v5a "BVP inconsistency" + deliver β(r) for α_JN). Answered same-day via **sandbox_v11**: exact scaling symmetry found — the entire (g, λ<0) plane is one rescaling family of a universal profile u(x); m_J = 0.6184 MeV parameter-free invariant; m_χ = 0.460 MeV fixes λ\* = −0.264697 (any g); canonical (g=1.0, λ*) = v9/v10 point (g=1.0, B0=0.5). "Griesi-1 near-trivial" failure reproduced as cold-seed Newton-basin collapse (peak ~10⁻¹¹, their exact number). **Q47 ANALYTICALLY RESOLVED** (1.21024 = 1/η_u, scaling identity). Q48 (H = 8 m_J² Q exact?) + Q49 (M_JA(0) definition for α_JN) NEW — for email v17. Previous state (2026-05-22): DM paper v2 published Zenodo 20350105 with our numbers verbatim; v5a now at Zenodo 20549492.
 
 ---
 

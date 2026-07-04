@@ -261,3 +261,18 @@ The unconstrained 2D axisym relax ESCAPES the spherical hedgehog: the melt core 
 **Findings:** The parameter lock is delivered and the method fork is vindicated: the static energy-minimization route produces, with zero free parameters after the Coulomb + m_e anchors, an electron whose size agrees with Faber's independently-built SU(2) soliton to 4.8% (converged, gate-checked), locking `c₂ = αħc/64π` and the LdG coefficients modulo one shape ratio whose physical meaning (`κ_δ = 3b/2`) hands the neutrino sector its calibration equation. Two honest discoveries ride along: the spherical hedgehog is a saddle of the unconstrained M5 functional (the concrete form of Duda's regularization question), and the δ-continuation probe shows every M5.11 loop obstruction relaxing monotonically toward the uniaxial regime.
 
 **Research docs created / updated:** this file § FINDINGS · [`../scripts/m5_16_axisym.py`](../scripts/m5_16_axisym.py) · [`../scripts/m5_16_calibrate.py`](../scripts/m5_16_calibrate.py) · [`../scripts/m5_16_delta_continuation.py`](../scripts/m5_16_delta_continuation.py) · `../data/m5_16_parameter_lock.json` (the deliverable) + the run JSONs · [`../plots/m5_16_calibration.png`](../plots/m5_16_calibration.png) · [`../plots/m5_16_delta_continuation.png`](../plots/m5_16_delta_continuation.png) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q7/Q8 delivered-notes + the re-sorted ask queue) · [`../findings/m5_16_checkpoints.md`](../findings/m5_16_checkpoints.md) (run log) · [`../findings/m5_16_report.md`](../findings/m5_16_report.md) (the Duda-facing summary)
+
+---
+
+## POST-DELIVERY AUDIT (2026-07-03, Duda's reply)
+
+The report + ask-round email (comms-plan step 3) went out 2026-07-02; Duda replied 2026-07-03. Full exchange + decoding: [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md). The verdict on this task's deliverable, recorded honestly:
+
+| Aspect | Outcome |
+| --- | --- |
+| The audit | ❌ FAILED his read-audit: he inspected the Python, could not find `V(M)` or the Hamiltonian ("still I have no idea what does it calculate"). Root cause: the functional lived in the ~1000-line `m5_16_axisym.py` docstring, and the report's inspection set led with a physics-free driver; results before methods. A legibility failure of the verification surface, NOT a correctness finding. |
+| The physics content | STANDS unaudited (not refuted): his restated prescription largely matches what this task implemented. The gates, the lock chain, the r_half headline, the δ-grading, and the saddle finding are reused as-is; the M5.16 gate suite becomes the acceptance test for the M5.17 refactor. |
+| The Coulomb leg | ⚠️ SUPERSEDED as the anchor method: he prescribes **two charges at varying distance** (large d → the Coulomb anchor; fm-scale d → the running coupling). M5.17 phase C runs it and cross-checks the analytic `c₂ = αħc/64π` against it. |
+| The ask round | none of Q13/Q14/Q15/Q17 answered; **Q16 partially answered** (single rotated vortex loop first). Re-ask rides the M5.17 methods note. |
+| New specs banked | the 4-observable electron bar (mass + clock frequency + angular momentum + magnetic dipole); PMNS from "preferred time derivatives" of the minimized loop; the Fig. 9 (arXiv:2108.07896) starting ansatz. Routed via [`m5_17_task_details.md`](m5_17_task_details.md) + [`m5_12_task_details.md § Ask-round outcome`](m5_12_task_details.md). |
+| The standard this produced | [`dev_docs/METHOD_REPORT.md`](../../../../../dev_docs/METHOD_REPORT.md) (equations first, equation-to-code map, small auditable module): mandatory for every model-owner-facing report from now on. |

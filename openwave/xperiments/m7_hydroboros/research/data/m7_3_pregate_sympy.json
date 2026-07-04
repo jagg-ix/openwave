@@ -1,0 +1,316 @@
+{
+ "C1_text_A0cos_Jphi_sin[rwa]": {
+  "L_avg": "(-r**2*(2*c1 + c2*b(r)**2)*b(r)**2 + r**2*(omega**2*b(r)**2 + Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*b(r)*Derivative(b(r), r) - b(r)**2)/(4*r**2)",
+  "H_avg": "(r**2*(2*c1 + c2*b(r)**2)*b(r)**2 + r**2*(omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*b(r)*Derivative(b(r), r) + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*b(r)**2/2",
+  "quartic": "rwa",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "Derivative(a(r), r)**2/2",
+  "EL_of_L_avg": [
+   "-r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2",
+   "-c1*r*b(r) - c2*r*b(r)**3 + omega**2*r*b(r)/2 + r*Derivative(b(r), (r, 2))/2 + Derivative(b(r), r)/2 - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "-r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2",
+   "c1*r*b(r) + c2*r*b(r)**3 + omega**2*r*b(r)/2 - r*Derivative(b(r), (r, 2))/2 - Derivative(b(r), r)/2 + b(r)/(2*r)"
+  ]
+ },
+ "C1_text_A0cos_Jphi_sin[exact]": {
+  "L_avg": "-c1*b(r)**2/2 - 3*c2*b(r)**4/8 + omega**2*b(r)**2/4 + Derivative(a(r), r)**2/4 - Derivative(b(r), r)**2/4 - b(r)*Derivative(b(r), r)/(2*r) - b(r)**2/(4*r**2)",
+  "H_avg": "c1*b(r)**2/2 + 3*c2*b(r)**4/8 + omega**2*b(r)**2/4 + Derivative(a(r), r)**2/4 + Derivative(b(r), r)**2/4 + b(r)*Derivative(b(r), r)/(2*r) + b(r)**2/(4*r**2)",
+  "Q_can": "omega*b(r)**2/2",
+  "quartic": "exact",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "Derivative(a(r), r)**2/2",
+  "EL_of_L_avg": [
+   "-r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2",
+   "-c1*r*b(r) - 3*c2*r*b(r)**3/2 + omega**2*r*b(r)/2 + r*Derivative(b(r), (r, 2))/2 + Derivative(b(r), r)/2 - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "-r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2",
+   "c1*r*b(r) + 3*c2*r*b(r)**3/2 + omega**2*r*b(r)/2 - r*Derivative(b(r), (r, 2))/2 - Derivative(b(r), r)/2 + b(r)/(2*r)"
+  ]
+ },
+ "C2_Aphi_cos_Jphi_cos[rwa]": {
+  "L_avg": "(r**2*(-2*c1*b(r) - c2*b(r)**3 + 2*kappa*a(r))*b(r) + r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(r**2*(2*c1*b(r) + c2*b(r)**3 - 2*kappa*a(r))*b(r) + r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)/2",
+  "quartic": "rwa",
+  "benchmark_match": true,
+  "conventions": {
+   "kappa": "-1",
+   "c1": "-lambda/2",
+   "c2": "-2*g"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "kappa*r*b(r)/2 + omega**2*r*a(r)/2 + r*Derivative(a(r), (r, 2))/2 + Derivative(a(r), r)/2 - a(r)/(2*r)",
+   "-c1*r*b(r) - c2*r*b(r)**3 + kappa*r*a(r)/2 + omega**2*r*b(r)/2 + r*Derivative(b(r), (r, 2))/2 + Derivative(b(r), r)/2 - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "-kappa*r*b(r)/2 + omega**2*r*a(r)/2 - r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2 + a(r)/(2*r)",
+   "c1*r*b(r) + c2*r*b(r)**3 - kappa*r*a(r)/2 + omega**2*r*b(r)/2 - r*Derivative(b(r), (r, 2))/2 - Derivative(b(r), r)/2 + b(r)/(2*r)"
+  ]
+ },
+ "C2_Aphi_cos_Jphi_cos[exact]": {
+  "L_avg": "(r**2*(4*kappa*a(r) - (4*c1 + 3*c2*b(r)**2)*b(r))*b(r) + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 4*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - 2*a(r)**2 - 2*b(r)**2)/(8*r**2)",
+  "H_avg": "(r**2*(-4*kappa*a(r) + (4*c1 + 3*c2*b(r)**2)*b(r))*b(r) + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 4*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + 2*a(r)**2 + 2*b(r)**2)/(8*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)/2",
+  "quartic": "exact",
+  "benchmark_match": true,
+  "conventions": {
+   "kappa": "-1",
+   "c1": "-lambda/2",
+   "c2": "-4*g/3"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "kappa*r*b(r)/2 + omega**2*r*a(r)/2 + r*Derivative(a(r), (r, 2))/2 + Derivative(a(r), r)/2 - a(r)/(2*r)",
+   "-c1*r*b(r) - 3*c2*r*b(r)**3/2 + kappa*r*a(r)/2 + omega**2*r*b(r)/2 + r*Derivative(b(r), (r, 2))/2 + Derivative(b(r), r)/2 - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "-kappa*r*b(r)/2 + omega**2*r*a(r)/2 - r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2 + a(r)/(2*r)",
+   "c1*r*b(r) + 3*c2*r*b(r)**3/2 - kappa*r*a(r)/2 + omega**2*r*b(r)/2 - r*Derivative(b(r), (r, 2))/2 - Derivative(b(r), r)/2 + b(r)/(2*r)"
+  ]
+ },
+ "C3_Aphi_cos_Jphi_sin[rwa]": {
+  "L_avg": "(-r**2*(2*c1 + c2*b(r)**2)*b(r)**2 + r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(r**2*(2*c1 + c2*b(r)**2)*b(r)**2 + r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)/2",
+  "quartic": "rwa",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "omega**2*r*a(r)/2 + r*Derivative(a(r), (r, 2))/2 + Derivative(a(r), r)/2 - a(r)/(2*r)",
+   "-c1*r*b(r) - c2*r*b(r)**3 + omega**2*r*b(r)/2 + r*Derivative(b(r), (r, 2))/2 + Derivative(b(r), r)/2 - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "omega**2*r*a(r)/2 - r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2 + a(r)/(2*r)",
+   "c1*r*b(r) + c2*r*b(r)**3 + omega**2*r*b(r)/2 - r*Derivative(b(r), (r, 2))/2 - Derivative(b(r), r)/2 + b(r)/(2*r)"
+  ]
+ },
+ "C3_Aphi_cos_Jphi_sin[exact]": {
+  "L_avg": "(-r**2*(4*c1 + 3*c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 4*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - 2*a(r)**2 - 2*b(r)**2)/(8*r**2)",
+  "H_avg": "(r**2*(4*c1 + 3*c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 4*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + 2*a(r)**2 + 2*b(r)**2)/(8*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)/2",
+  "quartic": "exact",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "omega**2*r*a(r)/2 + r*Derivative(a(r), (r, 2))/2 + Derivative(a(r), r)/2 - a(r)/(2*r)",
+   "-c1*r*b(r) - 3*c2*r*b(r)**3/2 + omega**2*r*b(r)/2 + r*Derivative(b(r), (r, 2))/2 + Derivative(b(r), r)/2 - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "omega**2*r*a(r)/2 - r*Derivative(a(r), (r, 2))/2 - Derivative(a(r), r)/2 + a(r)/(2*r)",
+   "c1*r*b(r) + 3*c2*r*b(r)**3/2 + omega**2*r*b(r)/2 - r*Derivative(b(r), (r, 2))/2 - Derivative(b(r), r)/2 + b(r)/(2*r)"
+  ]
+ },
+ "C4_rot_inphase[rwa]": {
+  "L_avg": "(4*r**2*(-c1*b(r) - c2*b(r)**3 + kappa*a(r))*b(r) + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(4*r**2*(c1*b(r) + c2*b(r)**3 - kappa*a(r))*b(r) + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)",
+  "quartic": "rwa",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "kappa*r*b(r) + omega**2*r*a(r) + r*Derivative(a(r), (r, 2)) + Derivative(a(r), r) - a(r)/(2*r)",
+   "-2*c1*r*b(r) - 4*c2*r*b(r)**3 + kappa*r*a(r) + omega**2*r*b(r) + r*Derivative(b(r), (r, 2)) + Derivative(b(r), r) - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "-kappa*r*b(r) + omega**2*r*a(r) - r*Derivative(a(r), (r, 2)) - Derivative(a(r), r) + a(r)/(2*r)",
+   "2*c1*r*b(r) + 4*c2*r*b(r)**3 - kappa*r*a(r) + omega**2*r*b(r) - r*Derivative(b(r), (r, 2)) - Derivative(b(r), r) + b(r)/(2*r)"
+  ]
+ },
+ "C4_rot_inphase[exact]": {
+  "L_avg": "(4*r**2*(kappa*a(r) - (c1 + c2*b(r)**2)*b(r))*b(r) + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(4*r**2*(-kappa*a(r) + (c1 + c2*b(r)**2)*b(r))*b(r) + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)",
+  "quartic": "exact",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "kappa*r*b(r) + omega**2*r*a(r) + r*Derivative(a(r), (r, 2)) + Derivative(a(r), r) - a(r)/(2*r)",
+   "-2*c1*r*b(r) - 4*c2*r*b(r)**3 + kappa*r*a(r) + omega**2*r*b(r) + r*Derivative(b(r), (r, 2)) + Derivative(b(r), r) - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "-kappa*r*b(r) + omega**2*r*a(r) - r*Derivative(a(r), (r, 2)) - Derivative(a(r), r) + a(r)/(2*r)",
+   "2*c1*r*b(r) + 4*c2*r*b(r)**3 - kappa*r*a(r) + omega**2*r*b(r) - r*Derivative(b(r), (r, 2)) - Derivative(b(r), r) + b(r)/(2*r)"
+  ]
+ },
+ "C5_rot_quarter[rwa]": {
+  "L_avg": "(-4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)",
+  "quartic": "rwa",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "omega**2*r*a(r) + r*Derivative(a(r), (r, 2)) + Derivative(a(r), r) - a(r)/(2*r)",
+   "-2*c1*r*b(r) - 4*c2*r*b(r)**3 + omega**2*r*b(r) + r*Derivative(b(r), (r, 2)) + Derivative(b(r), r) - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "omega**2*r*a(r) - r*Derivative(a(r), (r, 2)) - Derivative(a(r), r) + a(r)/(2*r)",
+   "2*c1*r*b(r) + 4*c2*r*b(r)**3 + omega**2*r*b(r) - r*Derivative(b(r), (r, 2)) - Derivative(b(r), r) + b(r)/(2*r)"
+  ]
+ },
+ "C5_rot_quarter[exact]": {
+  "L_avg": "(-4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)",
+  "quartic": "exact",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "omega**2*r*a(r) + r*Derivative(a(r), (r, 2)) + Derivative(a(r), r) - a(r)/(2*r)",
+   "-2*c1*r*b(r) - 4*c2*r*b(r)**3 + omega**2*r*b(r) + r*Derivative(b(r), (r, 2)) + Derivative(b(r), r) - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "omega**2*r*a(r) - r*Derivative(a(r), (r, 2)) - Derivative(a(r), r) + a(r)/(2*r)",
+   "2*c1*r*b(r) + 4*c2*r*b(r)**3 + omega**2*r*b(r) - r*Derivative(b(r), (r, 2)) - Derivative(b(r), r) + b(r)/(2*r)"
+  ]
+ },
+ "C6_rot_counter[rwa]": {
+  "L_avg": "(-4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)",
+  "quartic": "rwa",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "omega**2*r*a(r) + r*Derivative(a(r), (r, 2)) + Derivative(a(r), r) - a(r)/(2*r)",
+   "-2*c1*r*b(r) - 4*c2*r*b(r)**3 + omega**2*r*b(r) + r*Derivative(b(r), (r, 2)) + Derivative(b(r), r) - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "omega**2*r*a(r) - r*Derivative(a(r), (r, 2)) - Derivative(a(r), r) + a(r)/(2*r)",
+   "2*c1*r*b(r) + 4*c2*r*b(r)**3 + omega**2*r*b(r) - r*Derivative(b(r), (r, 2)) - Derivative(b(r), r) + b(r)/(2*r)"
+  ]
+ },
+ "C6_rot_counter[exact]": {
+  "L_avg": "(-4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 - Derivative(a(r), r)**2 - Derivative(b(r), r)**2) - 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) - a(r)**2 - b(r)**2)/(4*r**2)",
+  "H_avg": "(4*r**2*(c1 + c2*b(r)**2)*b(r)**2 + 2*r**2*(omega**2*a(r)**2 + omega**2*b(r)**2 + Derivative(a(r), r)**2 + Derivative(b(r), r)**2) + 2*r*(a(r)*Derivative(a(r), r) + b(r)*Derivative(b(r), r)) + a(r)**2 + b(r)**2)/(4*r**2)",
+  "Q_can": "omega*(a(r)**2 + b(r)**2)",
+  "quartic": "exact",
+  "benchmark_match": false,
+  "benchmark_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "canonical22_match": false,
+  "H_avg_EL_matches_benchmark": false,
+  "H_avg_EL_residuals": {
+   "a_eq": "{'residual': 'no second-derivative term'}",
+   "b_eq": "{'residual': 'no second-derivative term'}"
+  },
+  "L_eq_wQ_minus_H": "0",
+  "EL_of_L_avg": [
+   "omega**2*r*a(r) + r*Derivative(a(r), (r, 2)) + Derivative(a(r), r) - a(r)/(2*r)",
+   "-2*c1*r*b(r) - 4*c2*r*b(r)**3 + omega**2*r*b(r) + r*Derivative(b(r), (r, 2)) + Derivative(b(r), r) - b(r)/(2*r)"
+  ],
+  "EL_of_H_avg": [
+   "omega**2*r*a(r) - r*Derivative(a(r), (r, 2)) - Derivative(a(r), r) + a(r)/(2*r)",
+   "2*c1*r*b(r) + 4*c2*r*b(r)**3 + omega**2*r*b(r) - r*Derivative(b(r), (r, 2)) - Derivative(b(r), r) + b(r)/(2*r)"
+  ]
+ }
+}

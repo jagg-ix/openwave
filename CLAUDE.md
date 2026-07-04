@@ -85,6 +85,11 @@ OpenWave implements classical-field-theory-with-topology-and-nonlinearity approa
 | [Scaling Factor](/dev_docs/SCALING_FACTOR.md) | Physics unit scaling |
 | [Version Management](/dev_docs/VERSION_MANAGEMENT.md) | Release versioning |
 | [Wave Diagnostics](/dev_docs/WAVE_DIAGNOSTICS.md) | Validation diagnostics |
+| [Method Note](/dev_docs/METHOD_NOTE.md) | **MANDATORY** standard for any report/email to a model's theory owner or external physicist |
+
+### Method note (model-owner-facing output): MANDATORY
+
+Any report, summary doc, or email addressed to a model's theory owner (M5: Duda; M7: Fleury; any advisor) follows [`dev_docs/METHOD_NOTE.md`](/dev_docs/METHOD_NOTE.md): **equations first** (Hamiltonian / potential / observable definitions in math notation), an **equation-to-code map** with commit-pinned GitHub permalinks (`#L` anchors), the functional in a **small auditable module**, results after methods, a minimal physics-first inspection set. Adopted 2026-07-03 after the M5.16 audit failure ("still I have no idea what does it calculate"): results a physicist cannot audit by reading carry no weight, regardless of correctness.
 
 ### Important: Markdown Linting Requirements
 

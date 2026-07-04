@@ -4,6 +4,8 @@
 
 Convention throughout: `M = O·D·Oᵀ`, `D = diag(g, 1, δ, 0)` index-0, `η = diag(−1, 1, 1, 1)`.
 
+> **Status update (2026-07-03).** This report as sent did not pass the author read-audit: the functional and the Hamiltonian density are not findable from the inspection set below (they live inside [`../scripts/m5_16_axisym.py`](../scripts/m5_16_axisym.py) rather than on an equations-first methods page). A **methods note** with the full equation-to-code map is in preparation (task [M5.17](../tasks/m5_17_task_details.md)), together with the **two-charge Coulomb anchor** (interaction energy of two hedgehogs vs distance), which supersedes the single-defect far-field match used here as the Coulomb leg. The numbers below are unchanged; their verification surface is being rebuilt. Exchange record: [`../tasks/m5_4h_convo_2026.07.03.md`](../tasks/m5_4h_convo_2026.07.03.md).
+
 ## Method (the prescription, item by item)
 
 | Prescribed | Implemented |
