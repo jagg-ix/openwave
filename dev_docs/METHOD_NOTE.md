@@ -1,6 +1,8 @@
-# METHOD REPORT: the standard for model-owner-facing reports
+# METHOD NOTE: the audit page standard
 
-> **Standing rule (2026-07-03, mandatory).** Every report, summary doc, or email addressed to a model's theory owner (M5: Dr. Jarek Duda; M7: Marc Fleury; any external physicist or advisor) follows this standard. The bar: the reader must be able to **audit the result by reading**, without trusting us and without reverse-engineering Python. A result whose method cannot be found is not a result to that audience.
+> **Standing rule (2026-07-03, mandatory; renamed from "method report" 2026-07-04).** Every report, summary doc, or email addressed to a model's theory owner (M5: Dr. Jarek Duda; M7: Marc Fleury; any external physicist or advisor) carries a method note built to this standard. The bar: the reader must be able to **audit the result by reading**, without trusting us and without reverse-engineering Python. A result whose method cannot be found is not a result to that audience.
+>
+> Why a NOTE, not a report: the method note is a **component, not the report itself**. Sometimes it ships attached to a results report alongside findings; sometimes it stands alone as the internal audit page (the maintainer re-verifying what an instrument computes, months later, is the same reader as the theory owner). Either way it is the page where the equations and their code locations live.
 
 ## The motivating incident (2026-07-03, M5.16)
 

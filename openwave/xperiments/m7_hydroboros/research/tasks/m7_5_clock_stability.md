@@ -86,7 +86,7 @@ Three measurements on the regenerated winner (blend/repulsive, N = 64, `E_ω = 6
 | β\* threshold probe | ✅ answered decisively: **no amplitude threshold exists in this truncation**: the linearized vacuum is tachyonic (0.785 measured vs 0.786 analytic); v5 Test 1 fails for the pure-vector sector: prime Werbos question (new **Q14**) |
 | `E_ω(ω)` scan, soliton at the energy minimum | ✅ run; `E*(ω)` monotone at fixed `H_A` (correct frame for the minimum statement = fixed `Q_can`); bonus: the ω\* threshold confirmed |
 
-Follow-ups seeded: (a) M7.6 relaxes at **fixed `Q_can` (+ `H_A`)** and seeds **rotating** (`a_s ≠ 0`) pairs: both the frame and the standing/rotating question are now design inputs, and the ball-vs-torus question gets its fair test; (b) the M6 1D benchmark's real-time stability claim deserves the same 1D check (the band is dimension-independent); (c) Q14 to Werbos: what cures the vacuum tachyon in the full model (A-mass from a condensate vacuum? the scalar/Gauss sector? a finite-universe IR cutoff? his `k > 0` stable islands suggest he knows a cured region); (d) outward reports follow the new [`METHOD_REPORT.md`](../../../../../dev_docs/METHOD_REPORT.md) standard (equations first, equation-to-code map, small physics module: the M7.7 consolidation extracts it).
+Follow-ups seeded: (a) M7.6 relaxes at **fixed `Q_can` (+ `H_A`)** and seeds **rotating** (`a_s ≠ 0`) pairs: both the frame and the standing/rotating question are now design inputs, and the ball-vs-torus question gets its fair test; (b) the M6 1D benchmark's real-time stability claim deserves the same 1D check (the band is dimension-independent); (c) Q14 to Werbos: what cures the vacuum tachyon in the full model (A-mass from a condensate vacuum? the scalar/Gauss sector? a finite-universe IR cutoff? his `k > 0` stable islands suggest he knows a cured region); (d) outward reports follow the new [`METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md) standard (equations first, equation-to-code map, small physics module: the M7.7 consolidation extracts it).
 
 ---
 
@@ -113,7 +113,7 @@ Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.5) · background 
 
 **Issues / blockers:** Q14 blocks any real-time program (M7.11) until answered or cured in-model; the ball-vs-torus question was never fairly tested (standing states only); `m7_5_state.npz` (25.2 MB) deleted per the >1MB rule (regen: `python m7_5_clock_stability.py main`, ~4 min).
 
-**Action needed:** M7.6 with the two design changes (fixed-`Q_can` + `H_A` relaxation; rotating `a_s ≠ 0` seeds); M7.7 milestone stop with both METHOD_REPORT-compliant packages, Q14 leading the Werbos one.
+**Action needed:** M7.6 with the two design changes (fixed-`Q_can` + `H_A` relaxation; rotating `a_s ≠ 0` seeds); M7.7 milestone stop with both METHOD_NOTE-compliant packages, Q14 leading the Werbos one.
 
 **Question audit (per the standing rule):** Q14 opened; **Q6 RESOLVED-empirical** (the written `f = gs²` is the program's branch, decided by our own runs; residual confirm folded into Q12); Q13/Q11/Q9 gained evidence, remain asks. Count: 5 ask-Marc, 5 ask-Werbos, 0 self-determine, 4 resolved.
 

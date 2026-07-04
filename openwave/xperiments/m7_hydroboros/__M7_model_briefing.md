@@ -3,9 +3,12 @@
 > **What M7 brings.** The rigorous full-3D-PDE toroidal Beltrami electron that neither parent
 > built: it fuses Fleury's toroidal-EM electron (analytic) with Werbos's Ouroboros
 > self-confinement (1D radial) on OpenWave's M5-proven Taichi lattice, so the electron's
-> field configuration is both *specified* and *earned* as the energy-minimizer. It is
-> pre-implementation (planning stage); its [`MODELS.md`](../../../MODELS.md) column is the
-> M7.7 milestone.
+> field configuration is both *specified* and *earned* as the energy-minimizer. **Phase A
+> is complete (M7.1-M7.7, 2026-07-04)**: the canonical spec is
+> [`research/m7_theory_canonical.md`](research/m7_theory_canonical.md) and the 21-cell
+> column is STAGED as a preview in
+> [`research/preview_models.md`](research/preview_models.md); it enters the
+> [`MODELS.md`](../../../MODELS.md) benchmark via governance when the research matures (M7.14).
 
 ## Identity
 
@@ -43,15 +46,21 @@ topological vortex).
 | Clock | the de Broglie frequency = the energy-minimizing one | M7.5 (= the M5.8 mechanism) |
 
 Other particles ride the same substrate later: the neutral knot = dark matter (M7.13), the
-lepton / neutrino family (M7.12), quarks / baryons / mesons (M7.14).
+lepton / neutrino family (M7.12), quarks / baryons / mesons (M7.15).
 
 ## Implementation Status
 
-**Pre-implementation / planning stage.** No runs yet (`research/scripts/`, `data/`, `plots/`
-are empty), and there is no MODELS.md column yet (adding it is the M7.7 milestone). The
-plan is complete and the 64-doc Beltrami theory corpus is assembled. The decisive
-credibility gates are M7.1-M7.3: reproduce *both* parents (Fleury's torus and M6's `H/Q`)
-from one lattice code, then earn the new physics (the charged variable-λ soliton) at M7.4.
+**Phase A complete (M7.1-M7.7, 2026-07-04); the 21-cell column is STAGED as a preview in [`research/preview_models.md`](research/preview_models.md)** (0 ✅ / 8 ⚠️ / 13 🚧, honest icons; MODELS.md entry deferred to the M7.14 governance step, the research is still maturing). Both parents
+reproduced from one lattice code (Fleury's torus at 1.4e-4, M7.2; M6's charged `H/Q` in
+full 3D at 4.7e-5, M7.3), then the new physics earned: the first stable finite-size 3D
+soliton family (Taylor-dressed, `E = 0.802\|H_A\|`, M7.4), the vacuum-tachyon discovery +
+the `ω* = 0.786` existence threshold (the clock IS the stabilizer, M7.5), and the rotating
+`j_z = 1` electron with the Coulomb sector (Gauss 99.1%, two-charge `1/d` reference-matched,
+1.17 dressing measured, M7.6). Canonical spec + one-script reproduction:
+[`research/m7_theory_canonical.md`](research/m7_theory_canonical.md) + `research/scripts/m7_7_canonical.py`
+(physics module: `research/scripts/m7_functional.py`). Honest open items: the vacuum
+tachyon (Q14, the top theory question), the self-consistent charge, absolute μ, the
+units contract (ℏ/2 vs ℏ).
 
 ## Roadmap
 
@@ -61,8 +70,8 @@ Five phases, M7.1 → M7.16 (full detail in [`research/m7_roadmap.md`](research/
 | --- | --- | --- |
 | A , electron + the column | M7.1-M7.7 | infra → reproduce Fleury → reproduce M6 in 3D → charged soliton (constant-λ → variable-λ, the new physics) + Coulomb → clock + stability → observables → consolidate the M7 column (milestone) |
 | B , forces + sectors | M7.8-M7.13 | magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
-| C , composites | M7.14 | quarks, baryons, mesons, orbital quantization |
-| D , MODELS.md column | M7.15 | complete + govern the 21-cell HydroBoros column |
+| C , composites | M7.15 | quarks, baryons, mesons, orbital quantization |
+| D , MODELS.md column | M7.14 | complete + govern the 21-cell HydroBoros column |
 | E , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
 
 Open questions Q1-Q10 (priority-sorted in the tracker; the table doubles as the ask list for Marc

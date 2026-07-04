@@ -110,7 +110,7 @@ Follow-ups seeded: through-zero-safe helicity restore (tooling); bigger-box `1/d
 
 **Question audit:** no full resolutions; Q7(b) partially self-resolved (fixed-reservoir works); Q11 RKKY addendum; count 5/5/0/4.
 
-**Action needed:** M7.7 milestone (canonical spec + METHOD_REPORT physics module + MODELS.md column + units-contract decision + both comms packages).
+**Action needed:** M7.7 milestone (canonical spec + METHOD_NOTE physics module + MODELS.md column + units-contract decision + both comms packages).
 
 **Findings**: M7.6 turned the M7.4 ball into the electron candidate: a rotating `j_z = 1` soliton (clean to 0.6%) that landed the Coulomb sector by self-resolving the stable fixed-reservoir prescription: Gauss closes at 99.1%, the far field is 1/r², the two-charge interaction is quantitatively Coulomb once box images are reference-matched, and the constant 1.17 dressing is the first fine-structure-flavored measurement; what remains blocked (absolute μ, self-consistent charge) is blocked on the one named thing Q14 owns.
 
