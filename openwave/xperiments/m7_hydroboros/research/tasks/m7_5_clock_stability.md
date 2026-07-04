@@ -1,6 +1,6 @@
 # M7.5, validate the clock in real time + stability
 
-> Task **M7.5** (M7 / HydroBoros). taskID = M7.N iteration. Status: **In Progress** (2026-07-03) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
+> Task **M7.5** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-03, review approved; gate outcomes in [`§ FINDINGS 5`](#5-gates-vs-the-plan--what-moves-where)) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation. **Repositioned 2026-07-02**: in the time-harmonic frame the de Broglie clock is IN the soliton from M7.1 (the fixed-ω minimization, [`../m7_background.md § 5a`](../m7_background.md)); this task does not "add" a clock, it **validates the harmonic reduction against real-time dynamics** and establishes stability.
 
@@ -91,3 +91,38 @@ Follow-ups seeded: (a) M7.6 relaxes at **fixed `Q_can` (+ `H_A`)** and seeds **r
 ---
 
 Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.5) · background [`../m7_background.md`](../m7_background.md) (§ 5a frame, § 5c leapfrog) · Q9/Q11/Q13/**Q14** (the tachyon + the v5 `β*` context) in [`../m7_question_tracker.md`](../m7_question_tracker.md) · upstream [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md) · downstream [`m7_6_observables.md`](m7_6_observables.md).
+
+---
+
+## TASK REVIEW (2026-07-03)
+
+**Task Duration:** 01:28 (from 18:57 to 20:25 EDT)
+**Usage Cap Triggered:** NO (finished before the 9:10pm reset; resume ping parked without firing)
+
+**Results** (full detail: [`§ FINDINGS`](#findings-2026-07-03-execution)):
+
+| Gate | Outcome |
+| --- | --- |
+| translation exactness | ✅ `⟨E_real(t)⟩ = E_ω` on the doublet to 1.85e-14; leapfrog drift O(dt²) (0.59 → 0.148 at half dt) |
+| THE HEADLINE (Q14 opener) | the linearized vacuum is **unconditionally tachyonic at long wavelength** (`det M(0) = −1` for any `f`); measured vacuum growth rate **0.7850 vs analytic 0.7862 (0.15%)**, amplitude-independent |
+| β\* probe (Werbos v5 Test 1) | ✅ answered: **no amplitude threshold exists** in the vector truncation (linear instability) |
+| the ω\* threshold discovery | ✅ `E_ω` PSD iff `ω ≥ ω* = k* = 0.786`; scan confirmed: 0.70/0.75 runaway, 0.79+ solitons, `Q_J` → ∞ toward ω\* (the clock IS the stabilizer) |
+| Legendre gate | ✅ `dE*/dω = Q_can` to ~1-2% at every interior scan point: ω-`Q_can` conjugacy verified in 3D |
+| persistence / emergent ω | ❌ honest: destroyed in ~2 T by the vacuum tachyon (state-independent); no ω = 1 tick measurable |
+| reduction verdict | ✅ residual `α = −1.978 ≈ −2ω²` (frame term), 3ω leakage 0.2% (ansatz fine); the M7.4 winner is a **standing-wave doublet** (`a_s = j_s = 0`) |
+
+**Issues / blockers:** Q14 blocks any real-time program (M7.11) until answered or cured in-model; the ball-vs-torus question was never fairly tested (standing states only); `m7_5_state.npz` (25.2 MB) deleted per the >1MB rule (regen: `python m7_5_clock_stability.py main`, ~4 min).
+
+**Action needed:** M7.6 with the two design changes (fixed-`Q_can` + `H_A` relaxation; rotating `a_s ≠ 0` seeds); M7.7 milestone stop with both METHOD_REPORT-compliant packages, Q14 leading the Werbos one.
+
+**Question audit (per the standing rule):** Q14 opened; **Q6 RESOLVED-empirical** (the written `f = gs²` is the program's branch, decided by our own runs; residual confirm folded into Q12); Q13/Q11/Q9 gained evidence, remain asks. Count: 5 ask-Marc, 5 ask-Werbos, 0 self-determine, 4 resolved.
+
+**Findings**: M7.5 set out to validate the clock in real time and instead found why it cannot tick there: the written theory's vacuum is unconditionally tachyonic at long wavelength (a one-line determinant fact, confirmed on the lattice to 0.15%), and the harmonic soliton exists precisely because its frequency sits above the tachyonic band, a measured existence threshold at ω\* = 0.786 that makes the de Broglie clock load-bearing rather than decorative. The reduction itself is vindicated: the harmonic functional is exactly the period-averaged energy, the RWA error is 0.2%, and the ω-`Q_can` Legendre structure passes at the percent level; what fails is the truncated theory's vacuum, now Q14, the sharpest question the program has for Werbos.
+
+**Research docs created / updated**:
+
+- [this task doc](m7_5_clock_stability.md) (§ FINDINGS 1-5, plots inline)
+- [`../scripts/m7_5_clock_stability.py`](../scripts/m7_5_clock_stability.py) (modes `smoke`/`disp`/`vacuum`/`main`/`scan`/`residual`/`analyze`)
+- [`../data/m7_5_disp.json`](../data/m7_5_disp.json) · [`m7_5_vacuum.json`](../data/m7_5_vacuum.json) · [`m7_5_evolve.json`](../data/m7_5_evolve.json) · [`m7_5_scan.json`](../data/m7_5_scan.json) · [`m7_5_residual.json`](../data/m7_5_residual.json) · [`m7_5_smoke.json`](../data/m7_5_smoke.json)
+- [`../plots/m7_5_clock_traces.png`](../plots/m7_5_clock_traces.png) · [`../plots/m7_5_tachyon_scan.png`](../plots/m7_5_tachyon_scan.png) (key plot: the tachyon + scan triptych)
+- [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q14 opened; Q6 → RESOLVED-empirical; Q13/Q11/Q9 addenda; comms plan updated; count 5/5/0/4)

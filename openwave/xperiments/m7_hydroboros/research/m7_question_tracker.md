@@ -32,7 +32,7 @@
                  Q1   substrate reading + target manifold (S2 vs S3)
                  Q4   the promised Beltrami material + the Spanish school
 
-6 ASK WERBOS   Q14  THE VACUUM TACHYON (M7.5, NEW, top of the package): the
+5 ASK WERBOS   Q14  THE VACUUM TACHYON (M7.5, NEW, top of the package): the
                     linearized vacuum of the written theory has det M(0) =
                     -1 for ANY f: unconditional long-wavelength instability
                     (measured rate 0.785 vs analytic 0.786); v5 Test 1 has
@@ -57,16 +57,9 @@
                     (Omega,G) != (omega,g) - the definitions remain the ask;
                     M7.5 offers a candidate anchor: his stability islands
                     may be the omega > omega* region
-               Q6   f(J.J) form: M7.4 evidence: the REPULSIVE/written
-                    branch (LoE v5's own f = gs^2) holds stable solitons +
-                    keeps charge; the focusing benchmark-verbatim branch
-                    expels charge or collapses - which does he intend?
-                    M7.5: BOTH conventions are vacuum-tachyonic in real
-                    time (band 0.618 vs 1.618), so f-choice cannot cure Q14
-
 0 SELF-DETERMINE
 
-3 RESOLVED     Q8   gauge/constraint scheme (M7.3: no gauge fixing; the fix
+4 RESOLVED     Q8   gauge/constraint scheme (M7.3: no gauge fixing; the fix
                     was the objective: fixed-Q_can extremization)
                Q2   4th-order stabilizer NOT needed (M7.4: helicity +
                     confinement stabilizes; Derrick interior min measured)
@@ -74,8 +67,15 @@
                     Hopf seed relaxes to a stable soliton); residuals:
                     knot-SECTOR persistence (reconnects under global-H
                     fixing) + the net-Gauss/scalar-sector version
+               Q6   f(J.J) form: RESOLVED-empirical at M7.4/M7.5: the
+                    program runs the REPULSIVE/written f = gs^2 (only
+                    branch with stable solitons; LoE v5's own text; and
+                    M7.5 showed both conventions vacuum-tachyonic, so no
+                    physics is pending on the choice); residual = Werbos's
+                    intent confirmation + the 0d_canonical (g/4) doc fix,
+                    folded into Q12 (provenance)
 
-Total: 14 questions (5 ask-Marc, 6 ask-Werbos, 0 self-determine, 3 resolved).
+Total: 14 questions (5 ask-Marc, 5 ask-Werbos, 0 self-determine, 4 resolved).
 ```
 
 Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · ✅ resolved · ❌ closed negative.
@@ -96,9 +96,8 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 | [Q14](#q14-detail) 🔶 | The vacuum tachyon (NEW at M7.5) | The linearized transverse vacuum of the written theory has `det M(0) = −1` for ANY `f`: an **unconditional long-wavelength tachyonic band** (`k² < 0.618` repulsive / `1.618` focusing; measured growth rate 0.785 vs analytic 0.786, amplitude-independent: **no `β*` threshold exists** in the vector truncation, v5 Test 1 fails there). The harmonic frame survives because ω supplies the stiffness (PSD iff `ω ≥ ω* = 0.786`; soliton existence threshold **measured**, bracketed 0.75-0.79). What cures the vacuum in the full model: an A-mass from a condensate vacuum, the scalar/Gauss sector, a finite-universe IR cutoff, or parameter islands? | M7.5 delivered the evidence; blocks ANY real-time program (M7.11 annihilation) until answered or cured |
 | [Q11](#q11-detail) 🔶 | Windowed charged calibration | M7.3 showed `H/Q = 1.6890` is a windowed quadrature (no decaying channel at `ω=1, λ=1`; `Q` grows with `r_max`): is the calibration window-defined, or does a genuinely localized charged branch exist elsewhere in parameter space? | M7.3 delivered the evidence; blocks any physical-mass reading of the M6 charged ledger |
 | [Q13](#q13-detail) 🔶 | 3D stability of the chaoiton | M7.3: the M6 electron is a 3D constrained SADDLE of its verbatim functional, ending in focusing collapse (helicity guard inert on it): is the conjugate-point stability claim (LoE 9b § 5) restricted to the 1D radial manifold? M7.5 sharpened: solitons exist only above `ω* = 0.786` (the clock IS the stabilizer); the real-time part subsumed by Q14 | M7.5 delivered the threshold; the 1D-vs-3D ask stands |
-| [Q12](#q12-detail) 🔶 | M6 ODE / ansatz provenance | The `0d_canonical § 2.2` `2ωα` form is not an EL reduction of the Lagrangian under any scanned harmonic ansatz, and LoE 9b § 5.1's cos/sin phases decouple: which ansatz + ODE does Werbos intend as canonical? | M7.3 delivered the reduction table; documentation fix for `0d_canonical.md` |
+| [Q12](#q12-detail) 🔶 | M6 ODE / ansatz provenance | The `0d_canonical § 2.2` `2ωα` form is not an EL reduction of the Lagrangian under any scanned harmonic ansatz, and LoE 9b § 5.1's cos/sin phases decouple: which ansatz + ODE does Werbos intend as canonical? Now also carries the Q6 residual: confirm the benchmark sign slip + `f = gs²` (separate λ) as canonical, and the `0d_canonical` `(g/4)` doc fix | M7.3 delivered the reduction table; documentation fix for `0d_canonical.md`; absorbs the Q6 residual (2026-07-03) |
 | [Q9](#q9-detail) 🔶 | Werbos-v5 calibration dictionary | Partially self-read at M7.4 (corpus #10 table: electron `Ω = 1.050, G ∈ [1.15, 3.25], k > 0`; `k` = far-field decay): the `(Ω, G)` **definitions** remain the ask: the electron G-island does not bracket `g = 1.0625`, so `(Ω,G) ≠ (ω,g)`; needed to locate the claimed localized branch (Q11) | M7.12 islands · Q11 |
-| [Q6](#q6-detail) 🔶 | Potential form | M7.4 answered empirically: the **repulsive/written branch** (`f = gs²` per LoE v5 itself) holds stable solitons and keeps the charge; the focusing benchmark-verbatim pin (M7.3) expels charge or collapses: which `f` does Werbos intend, and are the benchmark ODE's effective signs a slip? | M6-doc correction · Q12 |
 
 ---
 
@@ -109,6 +108,7 @@ Legend: 🔶 open, direction known / partial · 🚧 open, not yet started · �
 | [Q8](#q8-detail) ✅ | Gauge / constraint scheme for the coupled minimizer | RESOLVED at M7.3 (2026-07-03), as scheduled: **no explicit gauge fixing**. The coupled fixed-`Q_can` relaxation ran gauge-unfixed with no stall or drift pathology; the correction the pre-gate actually forced was **objective-level**, not gauge-level: minimize/extremize `E_ω` at fixed `Q_can` (multiplier ω), never `E_ω` unconstrained (its EL has the ω²-sign flipped). M7.1's G5 evidence (curl sector self-fixes; only `A·J` gauge-sensitive off-shell) stands. Residual: if a future M7.4+ run shows gauge stall, reopen with the Coulomb-projection candidate. [`tasks/m7_3_ouroboros_3d.md § 1, § 4`](tasks/m7_3_ouroboros_3d.md) |
 | [Q2](#q2-detail) ✅ | 4th-order stabilizer needed? | RESOLVED at M7.4 (2026-07-03): **not needed**. Helicity anti-collapse + Ouroboros confinement stabilizes with no 4th-order term: every surviving M7.4 state has a constrained-Derrick **interior minimum** (dilation probe, measured), and both zero-helicity seeds evaporate (the guard is real and load-bearing). The drafted `\|F×(∇×F)\|²/\|F\|²` term stays retired (inert on Beltrami configs + singular at zeros). [`tasks/m7_4_charged_soliton.md § 2`](tasks/m7_4_charged_soliton.md) |
 | [Q5](#q5-detail) ✅ | Divergence-ful knots | RESOLVED-delivered at M7.4 (2026-07-03): **`∇·F ≠ 0` does NOT destabilize**: the divergence-ful Bateman/Hopf seed relaxes to a stable, dilation-stable, approximately-Beltrami soliton with persistent RMS charge (`Q_ρ = 5.4e-3`). Residuals routed: (a) **knot-SECTOR persistence**: the final state reconnects into the same Taylor family as the unknot seeds (only global `H_A` was fixed): topology-preserving constraints are a designed follow-up; (b) the **net-Gauss-charged** version (scalar sector) pends the Q7(b) prescription. [`tasks/m7_4_charged_soliton.md § 2-2b, § 4`](tasks/m7_4_charged_soliton.md) |
+| [Q6](#q6-detail) ✅ | Potential form | RESOLVED-empirical at M7.4/M7.5 (2026-07-03): **the program runs the repulsive/WRITTEN `f = gs²`** (λ separate): the only branch with stable 3D solitons that keep charge (M7.4 matrix), LoE v5's own written form, and M7.5 removed the last physics stake (BOTH conventions are vacuum-tachyonic, bands 0.618 vs 1.618, so the choice cannot cure Q14 either way). No physics is pending on Werbos's answer. Residual routed to **Q12** (provenance): confirm the benchmark sign slip + the `0d_canonical.md` `(g/4)` transcription fix. [`tasks/m7_4_charged_soliton.md § 2b`](tasks/m7_4_charged_soliton.md) · [`tasks/m7_5_clock_stability.md § 2`](tasks/m7_5_clock_stability.md) |
 
 ---
 
@@ -134,7 +134,7 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 - This tracker covers **M7 physics/framework questions for the collaborators** (Marc Fleury primary; Paul Werbos for the M6-calibration items) plus the hardest-pieces board. Implementation decisions (lattice layout, kernel design, minimizer settings) are tracked as roadmap tasks in [`m7_roadmap.md`](m7_roadmap.md) and the per-task docs, not here: the same split as M5/M6.
 - **Outbound comms:** the [`§ OPEN QUESTIONS`](#open-questions) table order = the ask order at the next Marc contact; the [`§ QUESTION DETAILS`](#question-details-open-questions) entries carry the content bullets for each ask. The agent supplies facts; **Rodrigo phrases every outbound message** (his voice is the credential).
-- **Comms plan (2026-07-02, deliver-first-ask-second, the M5.16 pattern; updated 2026-07-03 night):** run through the **M7.7 milestone** without waiting on answers (per-task dependency check: nothing external blocks M7.5-M7.7), then the big stop: both packages go out with the MODELS.md column behind them. **Marc package** (Q7, Q3, Q10, Q1, Q4) backed by M7.2-M7.4; **Werbos package** (**Q14 first**, Q11, Q13, Q12, Q9, Q6) backed by M7.3-M7.5 (the reduction table, the window plot, the tachyon dispersion + measured rates, the ω\* threshold scan). Pre-agreed tripwire: if a task hits a question we cannot self-resolve (e.g. the scalar/Gauss prescription blocking Coulomb at M7.6), stop and ask THEN. Both packages follow the mandatory [`METHOD_REPORT.md`](../../../../dev_docs/METHOD_REPORT.md) standard (2026-07-03): equations first, commit-pinned equation-to-code map, small auditable physics module (the M7.7 consolidation extracts it), results after methods, explicit not-computed list.
+- **Comms plan (2026-07-02, deliver-first-ask-second, the M5.16 pattern; updated 2026-07-03 night):** run through the **M7.7 milestone** without waiting on answers (per-task dependency check: nothing external blocks M7.5-M7.7), then the big stop: both packages go out with the MODELS.md column behind them. **Marc package** (Q7, Q3, Q10, Q1, Q4) backed by M7.2-M7.4; **Werbos package** (**Q14 first**, Q11, Q13, Q12 incl. the Q6 residual, Q9) backed by M7.3-M7.5 (the reduction table, the window plot, the tachyon dispersion + measured rates, the ω\* threshold scan). Pre-agreed tripwire: if a task hits a question we cannot self-resolve (e.g. the scalar/Gauss prescription blocking Coulomb at M7.6), stop and ask THEN. Both packages follow the mandatory [`METHOD_REPORT.md`](../../../../dev_docs/METHOD_REPORT.md) standard (2026-07-03): equations first, commit-pinned equation-to-code map, small auditable physics module (the M7.7 consolidation extracts it), results after methods, explicit not-computed list.
 
 ---
 
@@ -176,7 +176,7 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 ### Q6 detail
 
-**Potential form (ask Werbos).** The `f(J·J)` potential form for M7: keep M6's canonical `f(s) = (g/4) s²` ([`0d_canonical.md § 1`](../../m6_ouroboros/research/0d_canonical.md)), or a form better suited to the toroidal sector? **M7.3 evidence (2026-07-03,** [`tasks/m7_3_ouroboros_3d.md § 1`](tasks/m7_3_ouroboros_3d.md)**):** the potential that reproduces the benchmark ODE verbatim is FOCUSING (`c1 = −λ/2, c2 = −2g` RWA), sign-flipped vs the written form, and drives the 3D collapse (Q13). **M7.4 evidence (same day,** [`tasks/m7_4_charged_soliton.md § 2-2b`](tasks/m7_4_charged_soliton.md)**): the repulsive/WRITTEN branch is the physical one**: it holds three stable soliton basins and keeps the RMS charge, while the focusing branch expels charge or collapses; and LoE v5 itself writes **`f(s) = g s²`** with λ separate (the `(g/4)` in our M6 doc is a transcription slip to fix). **The ask, now sharp:** the benchmark ODE's effective signs (which produced `H/Q = 1.6890`) are inconsistent with his own written Lagrangian, and the written Lagrangian is the one that yields stable 3D solitons: does he confirm the benchmark sign slip, and `f = gs²` + separate λ as canonical? **M7.5 addendum:** the f-choice does NOT decide the real-time vacuum question: both conventions are unconditionally tachyonic at long wavelength (bands 0.618 vs 1.618, Q14); the repulsive branch remains preferred (smaller band + all the M7.4 evidence), but the vacuum cure must come from elsewhere.
+**Potential form (✅ RESOLVED-empirical at M7.4/M7.5, 2026-07-03; kept for history; residual routed to Q12).** The `f(J·J)` potential form for M7: keep M6's canonical `f(s) = (g/4) s²` ([`0d_canonical.md § 1`](../../m6_ouroboros/research/0d_canonical.md)), or a form better suited to the toroidal sector? **M7.3 evidence (2026-07-03,** [`tasks/m7_3_ouroboros_3d.md § 1`](tasks/m7_3_ouroboros_3d.md)**):** the potential that reproduces the benchmark ODE verbatim is FOCUSING (`c1 = −λ/2, c2 = −2g` RWA), sign-flipped vs the written form, and drives the 3D collapse (Q13). **M7.4 evidence (same day,** [`tasks/m7_4_charged_soliton.md § 2-2b`](tasks/m7_4_charged_soliton.md)**): the repulsive/WRITTEN branch is the physical one**: it holds three stable soliton basins and keeps the RMS charge, while the focusing branch expels charge or collapses; and LoE v5 itself writes **`f(s) = g s²`** with λ separate (the `(g/4)` in our M6 doc is a transcription slip to fix). **The ask, now sharp:** the benchmark ODE's effective signs (which produced `H/Q = 1.6890`) are inconsistent with his own written Lagrangian, and the written Lagrangian is the one that yields stable 3D solitons: does he confirm the benchmark sign slip, and `f = gs²` + separate λ as canonical? **M7.5 addendum:** the f-choice does NOT decide the real-time vacuum question: both conventions are unconditionally tachyonic at long wavelength (bands 0.618 vs 1.618, Q14); the repulsive branch remains preferred (smaller band + all the M7.4 evidence), but the vacuum cure must come from elsewhere. **Resolution (2026-07-03, M7.5 closeout):** with the physics answered in-model (the written branch is the stable theory) and the vacuum question decoupled, nothing the program does next waits on this: RESOLVED-empirical; the intent-confirmation + `(g/4)` doc fix ride with Q12 in the Werbos package as a share/confirm item, not a blocking ask.
 
 ### Q11 detail
 
