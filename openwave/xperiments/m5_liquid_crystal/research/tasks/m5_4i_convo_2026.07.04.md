@@ -1,0 +1,31 @@
+# M5 convo 2026-07-04: the neutrino energy-conservation group threads (Duda ↔ Faber)
+
+> Two Models-of-Particles threads (2026-07-03/04, Duda ↔ Faber, Adrian Sulich cc'd; plus a linked r/AskPhysics post at 12k views): "If neutrino oscillates between emission and absorption, where does energy of mass difference come from?" and its follow-up. Mined here for M5.12 spec content. Lineage: follows [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md).
+
+## 1. The exchange in brief
+
+Duda poses the energy-conservation puzzle (emit ν_e, absorb the oscillated ν_μ: where does the mass-difference energy come from?) and answers it with HIS model: the neutrino is a topological vortex loop; the 3 axis-orientations in 3D carry different **energy density per length**; oscillation among the 3 types conserves total energy by **simultaneously varying the loop length** ("throwing a rubber ball which oscillates into a lead ball, but of lower volume to conserve total mass"). He cites, publicly: "In OpenWave it also lead to reasonable neutrino mixing parameters - preferred SO(3) field time derivatives by energy minimization" (attaching the SO(3)/TBM table: θ₁₂ 35.26° vs 33.7°, θ₂₃ 45°, θ₁₃ 0° vs 8.5° flagged as the SO(3)-breaking gap, δ_CP 180°) and later "My explanation, **confirmed by AI-written simulations**, is that this 'mass' propelling neutrino oscillation is instead density per length of topological vortex loop - maintaining total energy by simultaneously changing length of this vortex loop."
+
+Faber answers with the Standard-Model resolution (the emitted flavor state is a linear combination of three mass eigenstates, each propagating independently at constant energy; the mixture's composition changes, energy is conserved), then sets the bar for any solitonic alternative and bows out of neutrinos ("my understanding of neutrinos doesn't go beyond what the Standard Model says ... I have to limit myself to electrons and electromagnetism").
+
+## 2. The extractable content (each item actionable)
+
+| # | Item (verbatim source) | Consequence + routing |
+| --- | --- | --- |
+| 1 | **The mechanism is now Duda's PUBLIC flagship claim**: mass "is instead density per length"; total energy conserved by the loop changing length while rotating among the 3 axes | M5.12 phase E's mass/length-density map is no longer one candidate among two: it is THE mechanism the model owner defends publicly. NEW pre-registerable test: the energy-conserving trajectory constraint `E = λ_axis · L = const` fixes the length ratios `L_i ∝ 1/λ_i`; the oscillation must trace that trajectory. Routed: [`m5_12_task_details.md`](m5_12_task_details.md) § 2026-07-04 spec updates. |
+| 2 | **A LAB SIZE ANCHOR**: "could achieve this measured 6.2pm neutrino size" (Nature s41586-024-08479-6, the neutrino wavepacket spatial-extent measurement; treat as a LOWER LIMIT ≥ 6.2 pm, not a point value) | The first absolute length scale for the neutrino sector: an M5.12 phase-E target AND a candidate closer of the **β = b/c lock slot** (the neutrino sector anchors `κ_δ = (3/2)b`; a loop-size scale is exactly the kind of number that pins it). Routed: M5.12 phase E + Q17 detail ([`../m5_question_tracker.md`](../m5_question_tracker.md)). |
+| 3 | **Faber's acceptance spec** for any solitonic neutrino: "You must generate a type of neutrino (electron neutrinos). These must NOT be stable solitons, but must oscillate between three stable states" + "replicate the mechanism of the standard model" (3 mass eigenstates propagating independently) | A concrete external acceptance criterion for M5.12 phases D/F: the 3 axis-aligned loops = the stable eigen-configurations; the produced flavor state = a rotating superposition that oscillates while each eigen-configuration is itself stationary. Add the explicit E(t)-conservation gate along the oscillation. Routed: M5.12 § 2026-07-04 spec updates. |
+| 4 | "we need also 1D structures like quark strings, topological vortices - some of energy from beta decay could be released as loop of such 1D quark string/vortex" | The 1D-structure family unifies the M5.9 Cornell quark strings and the M5.12 vortex loops (same energy-per-length primitive); beta decay as the loop-production event connects to the topology-reconnection picture (Q10 partial answer). Cross-note only. |
+| 5 | **Public-citation provenance risk**: "confirmed by AI-written simulations" cites the SO(3)/TBM table (honest: the θ₁₃ ⚠️ flag survived his repost) BUT the length-varying energy-conserving loop trajectory has NOT been simulated (M5.11 loops were not stationary: the N4c foundational gap; spectrum 1 : 1.15 : 1.68 with the ~6× compression tension), and the PMNS numbers are placeholder-δ era | The M5.12 physical-regime run is now reputationally urgent: the model owner is defending, in public, a mechanism whose validated record is one step behind his claim. Provenance-labelled scorecards (the rigor row) protect both sides. Routed: M5.12 § 2026-07-04 spec updates (urgency note). |
+| 6 | Faber bows out of the neutrino sector; Adrian Sulich (IF PAN) now on the thread | The neutrino program's engaged external reviewers: Duda (owner) + possibly Sulich; Faber remains the electron/EM reference point (the M5.16/17 Coulomb + soliton work stays in his lane and keeps its reviewer). |
+
+## 3. Does it change the staged M5.17 re-ask email?
+
+Marginally, one addition recommended: a two-sentence note in the M5.12 paragraph telling him the group-thread mechanism is being wired in as a falsifiable test (the `E = λ·L` conserved-trajectory gate + the 6.2 pm scale as the phase-E target). It converts his public defense into a planned experiment, in his own program's language, and shows the thread was read. The Q13/Q14/Q15 set is unchanged (this exchange touches none of them).
+
+## Cross-links
+
+- Consumer of items 1-3, 5: [`m5_12_task_details.md`](m5_12_task_details.md) § 2026-07-04 spec updates (phases D/E/F)
+- Item 2 also: [`../m5_question_tracker.md`](../m5_question_tracker.md) Q17 detail (the candidate β anchor)
+- Predecessor exchange: [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md) (the audit reply + the re-ask round)
+- The public artifact he cited: the SO(3)/TBM PMNS table (the m5_9/m5_11 SO(3) route; honest-scorecard baseline [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md))
