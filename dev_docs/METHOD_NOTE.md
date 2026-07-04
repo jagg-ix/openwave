@@ -31,6 +31,7 @@ The lesson generalizes: physicists verify by reading the Lagrangian / Hamiltonia
 | Is the functional in a small module whose docstring matches the report's equations? | yes |
 | Is each headline number next to its gate + convergence evidence? | yes |
 | Is the not-computed list explicit? | yes |
+| RECOMMENDED: has an independent second agent audited the note (re-walked the equation-to-code map, checked each equation against its function)? | yes where feasible; adopted from the model owner's own advice ("careful small steps, maybe multiple agents verifying each other", Duda 2026-07-03) |
 
 ## Scope
 

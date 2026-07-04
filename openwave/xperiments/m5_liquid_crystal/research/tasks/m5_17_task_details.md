@@ -1,6 +1,6 @@
 # M5.17: The Duda-legible methods surface + the two-charge Coulomb anchor
 
-> Task **M5.17** (M5 / Liquid-Crystal model). Status: **Backlog, ⭐ next run** · Gated by: nothing (consumes the closed M5.16; unblocks the M5.12 comms path) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.17** (M5 / Liquid-Crystal model). Status: **✅ Done (2026-07-03 run, review approved 2026-07-04)** · Delivered: the method-note audit surface + the two-charge Coulomb run + the melt-channel finding · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md) § DONE (new workflow)
 
 This doc is the task's full record: planning + findings + documentation.
 
@@ -122,4 +122,29 @@ The [`m5_4h_convo_2026.07.03.md § 3`](m5_4h_convo_2026.07.03.md) routing-audit 
 - Origin event: [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md) · the standard: [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)
 - Consumes: [`m5_16_task_details.md`](m5_16_task_details.md) (instrument, gates, lock, § POST-DELIVERY AUDIT) · report to be superseded-in-part: [`../findings/m5_16_report.md`](../findings/m5_16_report.md)
 - Feeds: [`m5_12_task_details.md`](m5_12_task_details.md) (comms gate + phase-D spec) · [`m5_9_task_details.md`](m5_9_task_details.md) (observables routing) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q13/Q14/Q15 re-ask, Q16 partial)
-- Roadmap row: [`m5_roadmap.md § BACKLOG`](../m5_roadmap.md)
+- Roadmap row: [`m5_roadmap.md § DONE (new workflow)`](../m5_roadmap.md)
+
+---
+
+## TASK REVIEW (2026-07-03 run, approved 2026-07-04)
+
+**Task Duration:** 01:03 (from 20:16 to 21:19 EDT, 2026-07-03)
+**Usage Cap Triggered:** NO (work never paused; the armed ping fired at its scheduled 21:15 anyway since the task was still in flight, then was parked)
+
+| # | Result | Label |
+| --- | --- | --- |
+| 1 | Phase A: THE physics extracted verbatim into [`../scripts/m5_17_energy.py`](../scripts/m5_17_energy.py) (~240 lines, equations in the docstring); `m5_16_axisym.py` is now a pure driver. Bit-identity 9/9 checksums EXACT; the M5.16 gate suite re-ran 7/7 green with every number IDENTICAL to the frozen run | ✅ measured |
+| 2 | Phase B: the method note [`../findings/m5_17_methods_note.md`](../findings/m5_17_methods_note.md): equations § 1-6, the 15-row equation-to-code map § 7 (anchors verified line by line), two-charge § 8, Fig. 9 conformance § 9, not-computed § 10. `V(M)` and the Hamiltonian are one click from the page. First application of the repo-wide METHOD NOTE standard ([`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)) | ✅ the deliverable |
+| 3 | Phase C, the anchor: the like-charge pair (topologically protected) follows Coulomb `1/d` at large d with `A/64π = 1.07-1.17` (fixed-ansatz level, his "uniaxial should suffice" regime); sign correct in both channels; running-coupling curve reported over 1-10 fm | ✅ measured, 🔶 ansatz-level |
+| 4 | Phase C, THE STRUCTURAL FINDING: at the locked coefficients the melt cost `c − b/2 = 1.9e-3`/cell leaves the melt-line channel open by ~2 orders (a line of length 32 costs 0.19 vs 16-32 released). Measured three ways: the antipair ANNIHILATES through a melt bridge, the likepair restructures without converging, and it retro-explains the M5.16 hedgehog saddle. The Q13/Q14/Q15 terms are precisely what would close the channel | ✅ measured, NEW |
+| 5 | Phase D: Fig. 9 conformance checked against the paper: our seed = his ansatz at the static level + the melt regularization; ψ-dynamics routed to M5.12 phase D. Bonus: the paper's own anchor hints `δ² ~ ħc`, `g⁴ ~ 1e38` re-surfaced for Q17 | ✅ |
+| 6 | Phase E: all five m5_4h § 3 items verified landed in their consumers (routing-audit table); M5.9 got the 4-observable spec, M5.9.0 the two-charge note | ✅ |
+| 7 | Renamed (user instruction at review): METHOD REPORT → **METHOD NOTE** across OpenWave, SABER, and memory; dual-use rationale (attached to reports alongside results & findings, or standalone internal audit) baked into the standard | ✅ |
+
+**Issues:** no relaxed-anchor equilibrium exists at the locked parameters (that IS the melt-channel finding); a melt-preserving constrained relax is the routed follow-up. Method-note links `blob/main` until the merge commit exists (then pin, one `sed`). The resume ping fires at reset+5 even when no cap hit (recipe refinement candidate). Live M7 checkpoint files keep the old standard name until that session refreshes.
+
+**Action (from the approved review):** re-ask email = Q13/Q14/Q15 sharpened by the melt channel (draft in the comms record; Q16 banked, Q17 held for the next round); permalink pinning after merge; the melt-preserving constrained relax queued as follow-up work.
+
+**Findings:** The audit surface Duda asked for now exists (one module + an equations-first method note with a click-through map), his two-charge prescription confirms the `c₂ = αħc/64π` lock at the 10% ansatz level with the correct sign in both channels, and the run's discovery is structural: at the locked quartic-LdG coefficients thin melt lines are nearly free, which unifies the hedgehog saddle, pair annihilation, and pair restructuring into one open channel that exactly the pending ask-round terms (chiral/Frank, sixth-order) would close.
+
+**Research docs created / updated:** this file § FINDINGS · [`../scripts/m5_17_energy.py`](../scripts/m5_17_energy.py) · [`../scripts/m5_17_two_charge.py`](../scripts/m5_17_two_charge.py) · [`../scripts/m5_17_plot.py`](../scripts/m5_17_plot.py) · `../scripts/m5_16_axisym.py` (driver refactor) · [`../findings/m5_17_methods_note.md`](../findings/m5_17_methods_note.md) · [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md) · `../data/m5_17_two_charge_{fixed,relax_anti,relax_like}.json` · [`../plots/m5_17_two_charge.png`](../plots/m5_17_two_charge.png) · [`../m5_question_tracker.md`](../m5_question_tracker.md) · [`m5_9_task_details.md`](m5_9_task_details.md) + [`m5_9_0_task_details.md`](m5_9_0_task_details.md) · [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md) · [`../checkpoints/m5_17_progress.md`](../checkpoints/m5_17_progress.md) · SABER `CLAUDE.md` + `_AI_research_flow.md` + `1_science/0_question_tracker.md` (rename sync)

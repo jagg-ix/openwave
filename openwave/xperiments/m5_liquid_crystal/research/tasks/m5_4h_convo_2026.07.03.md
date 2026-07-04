@@ -60,6 +60,19 @@ Routing audit (M5.17 phase E, 2026-07-03): each item's landing doc, verified:
 | Standard adopted repo-wide | [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md): every model-owner-facing report is equations-first with an equation-to-code map. Pointer added in the repo `CLAUDE.md`. |
 | Next email | Leads with the methods note link (equations page first), reports the two-charge Coulomb result, and re-references Q13/Q14/Q15 (+ the Q16 partial answer banked). |
 
+## 6. The second reply (2026-07-03, 11:57): the help offer + the multi-agent hint
+
+Replying to the interim acknowledgment, before the M5.17 delivery. Key lines verbatim:
+
+> "these are not so simple simulations, otherwise I would do them myself long time ago ... but for a team of physicists experienced in numerics should be in reach, so maybe also novel LLM models - but indeed rather requiring careful small steps, maybe multiple agents verifying each other. The most difficult is regularization, especially that the details of potential are still to be found. Anyway, please write if I can help"
+
+| Insight | Consequence + routing |
+| --- | --- |
+| "otherwise I would do them myself long time ago": NO reference implementation of this model's numerics exists anywhere, including his own | Our instrument is the FIRST; there are no external numbers to check against, so the gates + analytic closed forms (8c₂/r⁴, shell integral, Derrick virial, 2D≡3D) are the only ground truth, and every claim must carry them. Raises both the value and the audit burden of the M5.16/M5.17 stack. Routed: noted here + the method-note standard already enforces gates-adjacent-to-results. |
+| Explicit endorsement of the LLM route with two conditions: "careful small steps" + "multiple agents verifying each other" | The existing practice already matches condition 1 (pre-registered gates, phase-gated runs, bit-identical refactor acceptance) and partially 2 (two independent minimizers, analytic-vs-FD gradient, Taichi cross-check). UPGRADE adopted: an independent second-agent audit of every method note before it is sent (added to [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md) pre-send checklist) and a multi-agent-verification row in [`m5_12_task_details.md § Rigor compliance`](m5_12_task_details.md). |
+| "The most difficult is regularization, especially that the details of potential are still to be found" | His own emphasis lands exactly on Q14 (regularization / what holds the core) + Q15 (potential details): the M5.17 melt-channel finding goes straight at "details of potential still to be found". VALIDATES the re-ask set Q13/Q14/Q15: no better question set exists for this round. |
+| "please write if I can help" | The ask round IS the help: the re-ask email can hook the three questions directly to his offer. |
+
 ## Cross-links
 
 - Task record this reply audits: [`m5_16_task_details.md`](m5_16_task_details.md) (§ POST-DELIVERY AUDIT) · report [`../findings/m5_16_report.md`](../findings/m5_16_report.md) (status note added)
