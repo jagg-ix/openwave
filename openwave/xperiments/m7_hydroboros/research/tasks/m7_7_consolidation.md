@@ -2,7 +2,7 @@
 
 > Task **M7.7** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-04, review approved with the preview-staging decision) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
-This doc is the task's full record: planning + findings + documentation. **M7.7 is the Phase A milestone**: fold the winning recipe (M7.1-M7.6) into a canonical spec + a small auditable physics module (the [`METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md) standard), land the **HydroBoros (M7) column in MODELS.md** with honest icons, decide the units contract, and prepare the milestone stop's two comms packages (content bullets; Rodrigo phrases everything).
+This doc is the task's full record: planning + findings + documentation. **M7.7 is the Phase 1 milestone**: fold the winning recipe (M7.1-M7.6) into a canonical spec + a small auditable physics module (the [`METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md) standard), land the **HydroBoros (M7) column in MODELS.md** with honest icons, decide the units contract, and prepare the milestone stop's two comms packages (content bullets; Rodrigo phrases everything).
 
 ---
 
@@ -16,7 +16,7 @@ This doc is the task's full record: planning + findings + documentation. **M7.7 
 | 4 | **MODELS.md column**: all 21 cells with honest icons + backing scripts; summary count; per-model results-of-record row; the briefing updated from pre-implementation | cells match the task-doc findings; no icon inflation |
 | 5 | **Comms packages**: Marc (Q7, Q3, Q10, Q1, Q4) + Werbos (Q14 first, Q11, Q13, Q12+Q6 residual, Q9) as content bullets, METHOD_NOTE-compliant skeletons (permalinks pinned after Rodrigo commits) | packages ready for Rodrigo's voice; the new-model governance issue text drafted (creation = Rodrigo's call) |
 
-Honest-icon pre-commitment (drafted at PLAN, finalized against the docs): ⚠️ for charge / mass / clock / stability / μ+spin / Coulomb / EM waves / KG (each with its named caveat: windowed ledger Q11, real-time tachyon Q14, fixed-reservoir monopole, charge-unit-blocked μ, ℏ/2-vs-ℏ contract); 🚧 for the 13 Phase B-C cells. **No ✅ claimed at this stage**: the column enters honestly at 8 partials, and upgrades land cell by cell as the caveats close.
+Honest-icon pre-commitment (drafted at PLAN, finalized against the docs): ⚠️ for charge / mass / clock / stability / μ+spin / Coulomb / EM waves / KG (each with its named caveat: windowed ledger Q11, real-time tachyon Q14, fixed-reservoir monopole, charge-unit-blocked μ, ℏ/2-vs-ℏ contract); 🚧 for the 13 Phase 2 + 4 cells. **No ✅ claimed at this stage**: the column enters honestly at 8 partials, and upgrades land cell by cell as the caveats close.
 
 Artifacts: `scripts/m7_functional.py` + `scripts/m7_7_canonical.py` + `m7_theory_canonical.md` (research root) + the MODELS.md edits + `data/m7_7_canonical.json`.
 
@@ -98,7 +98,7 @@ Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.7, Phase D) · up
 
 **Action needed (the milestone stop, Rodrigo's items):** audit the diff, decide the units-contract row (spec § 4), commit + push (message proposed in the terminal review), then say the word for permalink pinning; the packages go out in his voice from § 3.
 
-**Findings**: Phase A closed with the consolidation the METHOD_NOTE standard demands (a spec auditable by reading, a 200-line term-by-term module, a one-script reproduction that passed every gate first-try at two resolutions with machine-level engine-vs-reference agreement), and with the benchmark discipline the program demanded of itself: the 21-cell column was drafted honestly and then deliberately held back from MODELS.md as a staged preview, because a research program still carrying its own open theory question (Q14) does not benchmark against mature columns until it is ready.
+**Findings**: Phase 1 closed with the consolidation the METHOD_NOTE standard demands (a spec auditable by reading, a 200-line term-by-term module, a one-script reproduction that passed every gate first-try at two resolutions with machine-level engine-vs-reference agreement), and with the benchmark discipline the program demanded of itself: the 21-cell column was drafted honestly and then deliberately held back from MODELS.md as a staged preview, because a research program still carrying its own open theory question (Q14) does not benchmark against mature columns until it is ready.
 
 **Research docs created / updated**:
 

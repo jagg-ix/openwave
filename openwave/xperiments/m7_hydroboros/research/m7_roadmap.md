@@ -1,8 +1,8 @@
 # M7 / HydroBoros, roadmap
 
-> Local task roadmap for the **M7 (HydroBoros)** model, replicating the SABER science-roadmap structure (2026-07-01). M7 has **no GitHub issues**; tasks are tracked here. **taskID = M7.N**. Full planning + findings live in each [`tasks/m7_N_*.md`](tasks/) detail doc; scripts / data / plots live in [`scripts/`](scripts/) · [`data/`](data/) · [`plots/`](plots/), all named `m7_N_*.{py,npz,png}`. Ordering is the build sequence (M7.0 → M7.15, then Phases D-E); the **top of Backlog is the next task**.
+> Local task roadmap for the **M7 (HydroBoros)** model, replicating the SABER science-roadmap structure (2026-07-01). M7 has **no GitHub issues**; tasks are tracked here. **taskID = M7.N**. Full planning + findings live in each [`tasks/m7_N_*.md`](tasks/) detail doc; scripts / data / plots live in [`scripts/`](scripts/) · [`data/`](data/) · [`plots/`](plots/), all named `m7_N_*.{py,npz,png}`. Ordering is the build sequence (M7.0 → M7.16, Phases 1 → 5); the **top of Backlog is the next task**.
 >
-> The program runs in five **phases** (formerly "arcs"): **A** builds the electron and earns the MODELS.md column (M7.1-M7.7), **B** expands across the forces and the remaining particle sectors (M7.8-M7.13), **C** groups the composites still untested in M5 (M7.15), **D** completes + governs the MODELS.md column, and **E** graduates to production rendering. Each task M7.N is an iteration gated against a KNOWN result; every MODELS.md cell (see **Phase D** below) is assigned to a task. Columns: **taskID · task title · description (the build) · validation gate** (the credibility anchor). Migrated from the implementation plan (now [`m7_background.md`](m7_background.md)) on 2026-07-01.
+> The program runs in five **phases** (renumbered 2026-07-04; formerly lettered arcs): **Phase 1** builds the electron and drafts the coverage column (M7.0-M7.7, ✅ DONE); **Phase 2** expands across the forces and the remaining particle sectors (M7.8-M7.13); **Phase 3** publishes the M7 column to MODELS.md for cross-model benchmarking (M7.14, advanced to right after Phase 2: a good publication milestone); **Phase 4** groups the composites still untested in M5 (M7.15); **Phase 5** graduates to production rendering (M7.16). Each task M7.N is an iteration gated against a KNOWN result; every MODELS.md cell (see **Phase 3** below) is assigned to a task. Columns: **taskID · task title · description (the build) · validation gate** (the credibility anchor). Migrated from the implementation plan (now [`m7_background.md`](m7_background.md)) on 2026-07-01.
 
 ## IN PROGRESS
 
@@ -25,7 +25,7 @@
 
 ### PHASE 3, the MODELS.md column (the coverage scoreboard)
 
-A primary deliverable is the **HydroBoros (M7)** column in the repo-root [`MODELS.md`](../../../../MODELS.md) coverage matrix, evaluated against the same shared criteria as M5 / M6 / M4. This phase is the running **scoreboard**: most cells are earned by the Phase A-C tasks and the column is stood up at the M7.7 milestone; the task here (M7.14) is completing + governing the full 21-cell column.
+A primary deliverable is the **HydroBoros (M7)** column in the repo-root [`MODELS.md`](../../../../MODELS.md) coverage matrix, evaluated against the same shared criteria as M5 / M6 / M4. The column was **drafted at the M7.7 milestone and STAGED in [`preview_models.md`](preview_models.md)** (0✅/8⚠️/13🚧, honest icons; not yet benchmark-ready); the electron cells come from Phase 1, the forces + sector cells from Phase 2, and the task here (M7.14) **publishes**: enters the column via governance (issue + script-backed PR), with the composites cells honestly still 🚧 until Phase 4.
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
@@ -51,20 +51,20 @@ Each task fills specific cells, so the table is the running scoreboard of the pr
 | **M7.4** | Particle stability (Derrick escape) · Charge quantization (helicity / linking + divergence) · Electric force (Coulomb 1/r, single-charge field) | `scripts/m7_4_linked_vortex.py` |
 | **M7.5** | de Broglie clock (Zitterbewegung) · Particle stability | `scripts/m7_5_clock_stability.py` |
 | **M7.6** | Magnetic moment μ + spin J · Spin-½ statistics · Quantum wave equation (Klein-Gordon) · Electric force (Coulomb, two-charge `E(d)~1/d`) | `scripts/m7_6_observables.py` |
-| **M7.7 (milestone)** | consolidate the column + the M7 deep-dive (a `0d_canonical.md`, the "Per-model results of record" row) | `scripts/m7_7_*.py` |
+| **M7.7 (milestone)** | consolidate the column + the M7 deep-dive ([`m7_theory_canonical.md`](m7_theory_canonical.md), the future "Per-model results of record" row) | `scripts/m7_7_canonical.py` + `scripts/m7_functional.py` |
 | **M7.8** | Magnetic force | `scripts/m7_8_magnetic_force.py` |
 | **M7.9** | Gravity | `scripts/m7_9_gravity.py` |
 | **M7.10** | Strong force / confinement · Weak force | `scripts/m7_10_nuclear_forces.py` |
 | **M7.11** | Antimatter + annihilation | `scripts/m7_11_annihilation.py` |
 | **M7.12** | Neutrinos · Lepton mass spectrum (μ, τ) | `scripts/m7_12_lepton_neutrino.py` |
 | **M7.13** | Dark matter candidate | `scripts/m7_13_dark_matter.py` |
-| **M7.15** | Quarks · Baryons (p, n) · Mesons (π, K) · Orbital quantization | `scripts/m7_14_composites.py` |
+| **M7.15** | Quarks · Baryons (p, n) · Mesons (π, K) · Orbital quantization | `scripts/m7_15_composites.py` |
 
-All 21 MODELS.md criteria are covered: Phase A (M7.1-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and consolidates the column at the M7.7 milestone; Phase B (M7.8-M7.13) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter; Phase C (M7.15) groups the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
+All 21 MODELS.md criteria are covered: Phase 1 (M7.0-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and drafts + stages the column at the M7.7 milestone ([`preview_models.md`](preview_models.md)); Phase 2 (M7.8-M7.13) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter; Phase 3 (M7.14) publishes the column; Phase 4 (M7.15) fills the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
 
 ### PHASE 4, the composites still untested in M5, grouped (M7.15)
 
-Per the M5 prescription, the cells that remain 🚧 [not yet tested] in M5 itself are grouped into one later task, after the column is consolidated. They depend on the electron + force primitives of phases A-B already being in place.
+Per the M5 prescription, the cells that remain 🚧 [not yet tested] in M5 itself are grouped into one later task, after the column is published. They depend on the electron + force primitives of Phases 1-2 already being in place.
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
@@ -76,7 +76,7 @@ After the electron is canonical (the M7.7 milestone), graduate the winning recip
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| M7.16 | graduate to the production engine + rendering | fold the canonical recipe (M7.7) into `medium.py` + `engine1_seeds` / `engine2_pde` / `engine3_observables` / `engine4_render` + `_launcher.py`; the Phase B-C observables feed the renderer as they land | HydroBoros runs via `openwave -x` with toroidal field-line / vorticity rendering; first-try reproducible |
+| M7.16 | graduate to the production engine + rendering | fold the canonical recipe (M7.7) into `medium.py` + `engine1_seeds` / `engine2_pde` / `engine3_observables` / `engine4_render` + `_launcher.py`; the Phase 2 + 4 observables feed the renderer as they land | HydroBoros runs via `openwave -x` with toroidal field-line / vorticity rendering; first-try reproducible |
 
 ```text
 research/scripts/ data/ plots/   headless Taichi scripts + data + PNG diagnostics   (tasks M7.1-M7.15)
@@ -90,15 +90,15 @@ engine4_render.py          toroidal field-line / vorticity rendering
 _launcher.py               registers HydroBoros for `openwave -x`
 ```
 
-Reference layout: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`medium.py`, `engine1_seeds.py` … `_launcher.py`). Headless first (matplotlib PNG diagnostics in `research/plots/`); rendering graduates once the electron is canonical (the M7.7 milestone), and the Phase B-C coverage tasks feed their observables into the renderer as they land, identical to how M5 reached `_launcher.py`. No GUI / viz work before the physics is canonical.
+Reference layout: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`medium.py`, `engine1_seeds.py` … `_launcher.py`). Headless first (matplotlib PNG diagnostics in `research/plots/`); rendering graduates once the electron is canonical (the M7.7 milestone), and the Phase 2 + 4 coverage tasks feed their observables into the renderer as they land, identical to how M5 reached `_launcher.py`. No GUI / viz work before the physics is canonical.
 
 ## DONE
 
-### PHASE 1, the electron and the M7 column (M7.1-M7.7)
+### PHASE 1, the electron and the M7 column (M7.0-M7.7) ✅ DONE 2026-07-04
 
-M7.1-M7.3 are the decisive credibility gates (reproduce **both** parents from the same lattice code). M7.4 is the research core (the thing neither parent did). **M7.7 is the milestone: the M7 column exists in MODELS.md.** Note: **Coulomb rides with the electron**, not as a later forces task: once the divergence charge `∇·F` exists (M7.4), its `1/r` field is immediate (Gauss's law), and the two-body `E(d) ~ 1/d` is confirmed at M7.6, exactly as M5 got Coulomb in its first `m5_1` milestone.
+M7.1-M7.3 are the decisive credibility gates (reproduce **both** parents from the same lattice code). M7.4 is the research core (the thing neither parent did). **M7.7 is the milestone: the column drafted + STAGED in [`preview_models.md`](preview_models.md); publication = M7.14 (Phase 3).** Note: **Coulomb rides with the electron**, not as a later forces task: once the divergence charge `∇·F` exists (M7.4), its `1/r` field is immediate (Gauss's law), and the two-body `E(d) ~ 1/d` is confirmed at M7.6, exactly as M5 got Coulomb in its first `m5_1` milestone.
 
-**Method frame (2026-07-02 plan refactor, [`m7_background.md § 5`](m7_background.md)).** Both parents are time-periodic, so the whole Phase A runs in the **time-harmonic (fixed-ω) frame**: the minimizer works on the period-averaged functional `E_ω` at fixed ω, and the de Broglie clock is in the soliton from M7.1 (M7.5 validates it in real time). Stabilization = **helicity anti-collapse + Ouroboros confinement anti-expansion** (the drafted Faddeev-Niemi term is inert on Beltrami fields and demoted to an optional Q2 experiment). **Sequencing note:** M7.2 is pure quadrature (no minimizer), so it can run in parallel with the M7.1 minimizer build and land the first trust-builder early; M7.3's verbatim-ODE pre-gate must pass before any 3D relaxation run is trusted.
+**Method frame (2026-07-02 plan refactor, [`m7_background.md § 5`](m7_background.md)).** Both parents are time-periodic, so the whole Phase 1 runs in the **time-harmonic (fixed-ω) frame**: the minimizer works on the period-averaged functional `E_ω` at fixed ω, and the de Broglie clock is in the soliton from M7.1 (M7.5 validates it in real time). Stabilization = **helicity anti-collapse + Ouroboros confinement anti-expansion** (the drafted Faddeev-Niemi term is inert on Beltrami fields and demoted to an optional Q2 experiment). **Sequencing note:** M7.2 is pure quadrature (no minimizer), so it can run in parallel with the M7.1 minimizer build and land the first trust-builder early; M7.3's verbatim-ODE pre-gate must pass before any 3D relaxation run is trusted.
 
 **Prescription (Jarek Duda, 2026-06-29 models-of-particles thread; Ouroboros [#247](https://github.com/openwave-labs/openwave/issues/247)).** Standing demand of any particle-model framework: *specify the field configuration of each particle* (electron, neutrino, photon, mesons, baryons), and *does it use topological vortices?* HydroBoros answers head-on, the electron's field configuration **is** the self-linked toroidal Beltrami vortex ([`m7_background.md § 0`](m7_background.md)), a topological vortex. His two concrete tests map onto the plan exactly:
 
@@ -122,4 +122,4 @@ His deeper point, that pinning the field configurations is the **precondition to
 
 ---
 
-Artifacts follow the `research/` structure: scripts in [`scripts/`](scripts/), data in [`data/`](data/), plots in [`plots/`](plots/), per-task detail docs in [`tasks/`](tasks/), all named `m7_N_*.{py,npz,png,md}` (e.g. `scripts/m7_1_minimizer.py`, `scripts/m7_2_fleury_torus.py`, … `scripts/m7_14_composites.py`). Cross-refs: [`m7_background.md`](m7_background.md) (full background: § 5 dynamics; the MODELS.md cell map + production path are **Phases D-E** above), the open questions + risks in [`m7_question_tracker.md`](m7_question_tracker.md), the MODELS.md column goal at repo-root [`MODELS.md`](../../../../MODELS.md).
+Artifacts follow the `research/` structure: scripts in [`scripts/`](scripts/), data in [`data/`](data/), plots in [`plots/`](plots/), per-task detail docs in [`tasks/`](tasks/), all named `m7_N_*.{py,npz,png,md}` (e.g. `scripts/m7_1_harmonic_lattice.py`, `scripts/m7_2_fleury_torus.py`, … `scripts/m7_15_composites.py`). Cross-refs: [`m7_background.md`](m7_background.md) (full background: § 5 dynamics; the MODELS.md cell map + production path are **Phases 3 + 5** above), the open questions + risks in [`m7_question_tracker.md`](m7_question_tracker.md), the Phase 1 report [`tasks/m7_phase1_report.md`](tasks/m7_phase1_report.md), the column preview [`preview_models.md`](preview_models.md), the MODELS.md publication goal at repo-root [`MODELS.md`](../../../../MODELS.md).

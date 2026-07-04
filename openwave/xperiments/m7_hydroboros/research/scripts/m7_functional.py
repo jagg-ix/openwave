@@ -1,6 +1,6 @@
 """The HydroBoros (M7) physics functional, reference implementation.
 
-This is the SMALL AUDITABLE MODULE required by dev_docs/METHOD_REPORT.md:
+This is the SMALL AUDITABLE MODULE required by dev_docs/METHOD_NOTE.md:
 every term of the energy functional and every observable, in plain numpy,
 with this docstring carrying the same equations as the canonical spec
 (research/m7_theory_canonical.md). Drivers and engines import from here (or are

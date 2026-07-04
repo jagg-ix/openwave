@@ -3,8 +3,8 @@
 > **What M7 brings.** The rigorous full-3D-PDE toroidal Beltrami electron that neither parent
 > built: it fuses Fleury's toroidal-EM electron (analytic) with Werbos's Ouroboros
 > self-confinement (1D radial) on OpenWave's M5-proven Taichi lattice, so the electron's
-> field configuration is both *specified* and *earned* as the energy-minimizer. **Phase A
-> is complete (M7.1-M7.7, 2026-07-04)**: the canonical spec is
+> field configuration is both *specified* and *earned* as the energy-minimizer. **Phase 1
+> is complete (M7.0-M7.7, 2026-07-04)**: the canonical spec is
 > [`research/m7_theory_canonical.md`](research/m7_theory_canonical.md) and the 21-cell
 > column is STAGED as a preview in
 > [`research/preview_models.md`](research/preview_models.md); it enters the
@@ -50,7 +50,7 @@ lepton / neutrino family (M7.12), quarks / baryons / mesons (M7.15).
 
 ## Implementation Status
 
-**Phase A complete (M7.1-M7.7, 2026-07-04); the 21-cell column is STAGED as a preview in [`research/preview_models.md`](research/preview_models.md)** (0 ✅ / 8 ⚠️ / 13 🚧, honest icons; MODELS.md entry deferred to the M7.14 governance step, the research is still maturing). Both parents
+**Phase 1 complete (M7.0-M7.7, 2026-07-04); the 21-cell column is STAGED as a preview in [`research/preview_models.md`](research/preview_models.md)** (0 ✅ / 8 ⚠️ / 13 🚧, honest icons; MODELS.md entry deferred to the M7.14 governance step, the research is still maturing). Both parents
 reproduced from one lattice code (Fleury's torus at 1.4e-4, M7.2; M6's charged `H/Q` in
 full 3D at 4.7e-5, M7.3), then the new physics earned: the first stable finite-size 3D
 soliton family (Taylor-dressed, `E = 0.802\|H_A\|`, M7.4), the vacuum-tachyon discovery +
@@ -64,15 +64,15 @@ units contract (ℏ/2 vs ℏ).
 
 ## Roadmap
 
-Five phases, M7.1 → M7.16 (full detail in [`research/m7_roadmap.md`](research/m7_roadmap.md)):
+Five phases, M7.0 → M7.16 (full detail in [`research/m7_roadmap.md`](research/m7_roadmap.md)):
 
 | Phase | Tasks | What lands |
 | --- | --- | --- |
-| A , electron + the column | M7.1-M7.7 | infra → reproduce Fleury → reproduce M6 in 3D → charged soliton (constant-λ → variable-λ, the new physics) + Coulomb → clock + stability → observables → consolidate the M7 column (milestone) |
-| B , forces + sectors | M7.8-M7.13 | magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
-| C , composites | M7.15 | quarks, baryons, mesons, orbital quantization |
-| D , MODELS.md column | M7.14 | complete + govern the 21-cell HydroBoros column |
-| E , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
+| 1 , electron + the column ✅ DONE | M7.0-M7.7 | bootstrap → infra → reproduce Fleury → reproduce M6 in 3D → charged soliton (the new physics) + Coulomb → clock + stability → observables → consolidate (milestone; column staged in [`research/preview_models.md`](research/preview_models.md)) |
+| 2 , forces + sectors | M7.8-M7.13 | magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
+| 3 , MODELS.md publication | M7.14 | publish + govern the 21-cell HydroBoros column (benchmark entry) |
+| 4 , composites | M7.15 | quarks, baryons, mesons, orbital quantization |
+| 5 , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
 
 Open questions Q1-Q10 (priority-sorted in the tracker; the table doubles as the ask list for Marc
 Fleury at the next contact): the charge-carrying construction (Q7, reframed to relax-and-measure),
@@ -97,7 +97,7 @@ hydrodynamics / Beltrami and toroidal-electron communities.
 
 Flow: open an issue or discussion → fork → branch → PR with a DCO sign-off
 (`git commit -s`), under Apache 2.0. New-model governance: open an issue first so a
-maintainer adds the column at the M7.7 milestone. See
+maintainer adds the column at the M7.14 publication milestone (Phase 3). See
 [`../../../MODELS.md`](../../../MODELS.md) § Contributing,
 [`../../../ONBOARDING_MODELS.md`](../../../ONBOARDING_MODELS.md),
 [`../../../CONTRIBUTING.md`](../../../CONTRIBUTING.md). Model discussion runs in the

@@ -88,7 +88,7 @@ Recommendation on record: the Dirac/Zitter mapping (bilinears oscillate at 2ω, 
 | the self-consistent charge (dynamic `j₀`) | not computed; the fixed-reservoir prescription is the validated stand-in (M7.6); Q7(b)/Q14 |
 | absolute `μ` / `μ_B(1+α/2π)` | charge-unit-blocked (needs the monopole unit); de-phased `μ_J = 36.5 p.u.` on record |
 | the M6 charged ledger `H/Q = 1.6890` | reproduced in 3D to 4.7e-5 but **window-defined** (no decaying channel at the canonical point; Q11): not used as a mass anchor |
-| spin-½ statistics (720°), knot-sector persistence, masses beyond the electron | 🚧 Phase B-C tasks (topology-preserving constraints needed for knot sectors, M7.4 § 4) |
+| spin-½ statistics (720°), knot-sector persistence, masses beyond the electron | 🚧 Phase 2 + 4 tasks (topology-preserving constraints needed for knot sectors, M7.4 § 4) |
 
 ---
 

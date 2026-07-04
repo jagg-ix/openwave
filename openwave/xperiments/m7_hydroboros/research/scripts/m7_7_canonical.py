@@ -11,7 +11,7 @@ Recipe (everything pinned; provenance in the spec):
   2. relax E_omega (written/repulsive f) at fixed Q_can = 13.2017 + fixed
      H_A (seed value), two-constraint FIRE (the M7.5 real-time-orbit frame)
   3. gates: energy, gradient, constraints, the j_z = 1 spin quantum, the
-     localized RMS charge; PLUS the METHOD_REPORT cross-validation gate:
+     localized RMS charge; PLUS the METHOD_NOTE cross-validation gate:
      the Taichi engine's energy must agree with the m7_functional.py
      reference implementation on the final state.
 
