@@ -1,6 +1,6 @@
 # M7.6, electron observables (mass, charge, μ, spin, KG, two-charge Coulomb)
 
-> Task **M7.6** (M7 / HydroBoros). taskID = M7.N iteration. Status: **In Progress** (2026-07-03) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
+> Task **M7.6** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-03, review approved; gate outcomes in [`§ FINDINGS 5`](#5-gates-vs-the-plan)) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation. **M7.6 reads the QED electron's observables off the relaxed field** (the M7.4 state, validated by M7.5) and lands the two-charge Coulomb law.
 
@@ -25,7 +25,7 @@ Artifacts: `scripts/m7_6_observables.py` + `data/m7_6_*.npz` + `plots/m7_6_*.png
 
 ---
 
-## FINDINGS (2026-07-03, execution; in progress)
+## FINDINGS (2026-07-03, execution)
 
 Artifacts: [`../scripts/m7_6_observables.py`](../scripts/m7_6_observables.py) (modes `run` / `pair` / `moments` / `gauss` / `gauss2` / `analyze`) · data [`m7_6_states.json`](../data/m7_6_states.json) · [`m7_6_moments.json`](../data/m7_6_moments.json) · [`m7_6_pair.json`](../data/m7_6_pair.json) · [`m7_6_gauss.json`](../data/m7_6_gauss.json) · [`m7_6_gauss2.json`](../data/m7_6_gauss2.json). Deleted raw data (>1 MB rule): `data/m7_6_state_{blend_standing, blend_m1, fleury_m1}.npz` (25.2 MB each, the relaxed doublets; regen: `python m7_6_observables.py run`, ~20 min for all three; `moments`/`gauss`/`gauss2` need `blend_m1` regenerated first).
 
@@ -86,6 +86,41 @@ The reference itself decays `d^−2.15` in this box (image charges), matching th
 | stretch: `α_sol` vs 137.1 | 🔶 the 1.17 coupling dressing is the first number of this type; the calibrated `α_sol` extraction needs the charge unit (scalar sector) + bigger box: M7.7-adjacent follow-up |
 
 Follow-ups seeded: through-zero-safe helicity restore (tooling); bigger-box `1/d` tail; the self-consistent charged soliton (Q7(b)/Q14); the units-contract decision table (ℏ/2 vs ℏ, `ω_C` vs `ω_D`) at M7.7.
+
+---
+
+## TASK REVIEW (2026-07-03)
+
+**Task Duration:** 01:05 (from 20:32 to 21:37 EDT)
+**Usage Cap Triggered:** YES, technically (the armed ping fired at 21:15 = reset + 5); the session was never interrupted, no resume needed, work ran straight through.
+
+**Results** (full detail: [`§ FINDINGS`](#findings-2026-07-03-execution)):
+
+| Gate | Outcome |
+| --- | --- |
+| rotating electron candidate | ✅ blend_m1 stable localized soliton in the M7.5 frame (E = 6.3246, `\|g\| = 1.6e-7`, Q_ρ = 0.026); zero-helicity seeds delocalize to the band-edge condensate (new frame-specific failure mode) |
+| spin | ✅ clean **`j_z = 1` per quantum** (0.9939/0.9934 A/J); `L_z = 13.10`, energy budget closes exactly; ℏ/2-vs-ℏ = units contract → M7.7 |
+| charge + Coulomb far field | ✅ tripwire NOT fired: fixed-reservoir prescription self-resolved; Gauss 99.1%, slope −2.14 |
+| two-charge `E(d) ~ 1/d` | ✅ reference-matched: measured/Poisson-in-box = **1.17 ± 0.02 constant** (raw d^−2.12 = box images) |
+| neutral pair | ✅ discovery: oscillatory RKKY exchange (period π/k = 2.47), the Q11 tail mediates forces |
+| KG | ✅ both branches exact KG; `m_eff² = φ` |
+| μ | 🔶 de-phased 36.5 p.u.; μ_B comparison charge-unit-blocked (scalar sector), reported |
+
+**Issues / blockers:** through-zero-safe helicity restore (tooling); self-consistent charge = Q7(b)/Q14; 3× 25.2 MB npz deleted (regen documented).
+
+**Question audit:** no full resolutions; Q7(b) partially self-resolved (fixed-reservoir works); Q11 RKKY addendum; count 5/5/0/4.
+
+**Action needed:** M7.7 milestone (canonical spec + METHOD_REPORT physics module + MODELS.md column + units-contract decision + both comms packages).
+
+**Findings**: M7.6 turned the M7.4 ball into the electron candidate: a rotating `j_z = 1` soliton (clean to 0.6%) that landed the Coulomb sector by self-resolving the stable fixed-reservoir prescription: Gauss closes at 99.1%, the far field is 1/r², the two-charge interaction is quantitatively Coulomb once box images are reference-matched, and the constant 1.17 dressing is the first fine-structure-flavored measurement; what remains blocked (absolute μ, self-consistent charge) is blocked on the one named thing Q14 owns.
+
+**Research docs created / updated**:
+
+- [this task doc](m7_6_observables.md) (§ FINDINGS 1-5, plots inline)
+- [`../scripts/m7_6_observables.py`](../scripts/m7_6_observables.py) (modes `run`/`pair`/`moments`/`gauss`/`gauss2`/`analyze`)
+- [`../data/m7_6_states.json`](../data/m7_6_states.json) · [`m7_6_moments.json`](../data/m7_6_moments.json) · [`m7_6_pair.json`](../data/m7_6_pair.json) · [`m7_6_gauss.json`](../data/m7_6_gauss.json) · [`m7_6_gauss2.json`](../data/m7_6_gauss2.json)
+- [`../plots/m7_6_observables.png`](../plots/m7_6_observables.png) · [`../plots/m7_6_coulomb.png`](../plots/m7_6_coulomb.png)
+- [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q7(b) partial; Q11 RKKY; chronology; count 5/5/0/4)
 
 No new run needed: the M7.5 vacuum dispersion IS the KG statement. The linearized transverse (A, J) doublet has `ω²±(k) = k² + c1 ± √(c1² + 1)`: both branches are **exact Klein-Gordon dispersions** `ω² = k² + m_eff²` (constant mass shift, no anomalous k-dependence). At canonical parameters (repulsive, `c1 = λ/2 = ½`):
 

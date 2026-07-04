@@ -20,9 +20,11 @@
 ```text
 5 ASK MARC     (next contact; list order = priority = the table order)
                  Q7   charge-carrying construction: reframe VALIDATED at
-                      M7.4 (approx-Beltrami cores, align 0.96); remaining
-                      asks = the S&Y variable-h toroidal recipe + the
-                      scalar/longitudinal charge prescription (NEW)
+                      M7.4; M7.6 self-resolved the prescription at the
+                      fixed-reservoir level (Coulomb landed: Gauss 99.1%,
+                      1/d reference-matched, 1.17 dressing); remaining =
+                      the S&Y variable-h recipe + does his picture single
+                      out a j0 profile (self-consistent charge = Q14)
                  Q3   divergence charge vs linking charge: M7.4 measured
                       them INDEPENDENT (linking gates existence; RMS charge
                       coexists, not slaved) - his read?
@@ -121,12 +123,13 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 | The time-harmonic reduction goes subtly wrong (M6 needed ten sandbox versions to pin its 1D reduction: signs, regularity classes, Laplacians, measures) | ✅ CLOSED at M7.3: the verbatim-ODE pre-gate passed with every sign/normalization pinned by sympy (and it caught three real convention faults: the coupling sign, the focusing `f`, the wrong objective `E_ω`-unconstrained), [`tasks/m7_3_ouroboros_3d.md § 1`](tasks/m7_3_ouroboros_3d.md) |
 | The 1D chaoiton may be **unstable to 3D symmetry breaking** (1D radial solutions often are) | ✅ ANSWERED at M7.3, honestly: it is a 3D constrained SADDLE with a focusing-collapse escape (Q13); feeds the M7.4 blend design (the helicity guard is inert on M6's ansatz; the blend activates it) |
 | Gauge flat directions stall or misdirect the minimizer (Q8) | ✅ RESOLVED at M7.3: no gauge fixing needed; the coupled fixed-`Q_can` relaxation ran gauge-unfixed cleanly (see Q8 resolution row) |
-| Confinement-term sign: `m_J² A·J` is not positive-definite, the anti-expansion balance is only empirically established (M6 1D) | ✅ ANSWERED at M7.4: the dilation probe measured a constrained-Derrick **interior minimum** on every surviving state (repulsive `f`); the balance holds. NEW residual: the **scalar (timelike) sector** is where the functional is genuinely unstable (null-J bilinear runaway, [`tasks/m7_4_charged_soliton.md § 1`](tasks/m7_4_charged_soliton.md)); frozen this task, prescription = the Q7(b) ask |
+| Confinement-term sign: `m_J² A·J` is not positive-definite, the anti-expansion balance is only empirically established (M6 1D) | ✅ ANSWERED at M7.4: the dilation probe measured a constrained-Derrick **interior minimum** on every surviving state (repulsive `f`); the balance holds. Residual trail: M7.5 identified the scalar runaway as one face of the **unconditional vacuum tachyon** (promoted to **Q14**); M7.6 **self-resolved the working prescription** at the fixed-reservoir level (`j₀` fixed + `a₀` free: Coulomb landed); the self-consistent charge remains with Q14 |
+| **The vacuum tachyon (Q14, opened at M7.5): the load-bearing theory unknown** | the linearized vacuum is unconditionally unstable at long wavelength (`det M(0) = −1`, any `f`; measured 0.785 vs 0.786); the harmonic frame is immune above `ω* = 0.786` (the clock IS the stabilizer, threshold measured), so **Phase A is unaffected**, but any real-time program (M7.11 annihilation) is blocked until the full model's cure is known: the top Werbos ask |
 | Variable-λ Beltrami math "gets very hairy" (Marc), now sharpened: **rigidity obstructs exact nonconstant-λ solutions even locally** | ✅ reframe VALIDATED at M7.4: relax-and-measure produced approximately-Beltrami solitons (`\|align\| = 0.96`) with the charge measured, never imposed |
 | Does the divergence-ful field admit clean knots (Q5) | ✅ ANSWERED at M7.4: yes (see Q5 resolution); M5.11's P2 expansion mode did not appear: the confinement + helicity pair held |
 | Whole-program cost: 3D harmonic relaxations are multi-hour GPU runs | accepted; same regime as M5.11's vortex-loop relaxation |
 | **Marc's AI-exchange material hallucinates** (his own warning: 2 months / 3 AIs, output not great) | treat it as **seeds only**, never as validated input; every claim re-derived in-platform (the MODELS.md reproducibility bar). A marathon-session review for extractable signal is optional, low priority |
-| Masses (M7.6) may stay in tension with data | report honestly, including partial, as M5.11 did |
+| Masses (M7.6) may stay in tension with data | first numbers in (M7.6): the spin quantum is CLEAN (`j_z = 1` to 0.6%); mass = 6.3246 program units pending the units-contract decision (M7.7); μ charge-unit-blocked (scalar sector); reported honestly per the M5.11 pattern |
 
 ---
 
@@ -134,7 +137,7 @@ The long-running load-bearing unknowns, distinct from the discrete Q-numbered qu
 
 - This tracker covers **M7 physics/framework questions for the collaborators** (Marc Fleury primary; Paul Werbos for the M6-calibration items) plus the hardest-pieces board. Implementation decisions (lattice layout, kernel design, minimizer settings) are tracked as roadmap tasks in [`m7_roadmap.md`](m7_roadmap.md) and the per-task docs, not here: the same split as M5/M6.
 - **Outbound comms:** the [`§ OPEN QUESTIONS`](#open-questions) table order = the ask order at the next Marc contact; the [`§ QUESTION DETAILS`](#question-details-open-questions) entries carry the content bullets for each ask. The agent supplies facts; **Rodrigo phrases every outbound message** (his voice is the credential).
-- **Comms plan (2026-07-02, deliver-first-ask-second, the M5.16 pattern; updated 2026-07-03 night):** run through the **M7.7 milestone** without waiting on answers (per-task dependency check: nothing external blocks M7.5-M7.7), then the big stop: both packages go out with the MODELS.md column behind them. **Marc package** (Q7, Q3, Q10, Q1, Q4) backed by M7.2-M7.4; **Werbos package** (**Q14 first**, Q11, Q13, Q12 incl. the Q6 residual, Q9) backed by M7.3-M7.5 (the reduction table, the window plot, the tachyon dispersion + measured rates, the ω\* threshold scan). Pre-agreed tripwire: if a task hits a question we cannot self-resolve (e.g. the scalar/Gauss prescription blocking Coulomb at M7.6), stop and ask THEN. Both packages follow the mandatory [`METHOD_REPORT.md`](../../../../dev_docs/METHOD_REPORT.md) standard (2026-07-03): equations first, commit-pinned equation-to-code map, small auditable physics module (the M7.7 consolidation extracts it), results after methods, explicit not-computed list.
+- **Comms plan (2026-07-02, deliver-first-ask-second, the M5.16 pattern; updated 2026-07-03 night):** run through the **M7.7 milestone** without waiting on answers (per-task dependency check: nothing external blocks M7.5-M7.7), then the big stop: both packages go out with the MODELS.md column behind them. **Marc package** (Q7, Q3, Q10, Q1, Q4) backed by M7.2-M7.4 + M7.6 (the rotating `j_z = 1` electron, the Coulomb sector, the 1.17 dressing); **Werbos package** (**Q14 first**, Q11, Q13, Q12 incl. the Q6 residual, Q9) backed by M7.3-M7.6 (the reduction table, the window plot, the tachyon dispersion + measured rates, the ω\* threshold scan, the RKKY consequence of the delocalized channel). Pre-agreed tripwire: if a task hits a question we cannot self-resolve (e.g. the scalar/Gauss prescription blocking Coulomb at M7.6), stop and ask THEN. Both packages follow the mandatory [`METHOD_REPORT.md`](../../../../dev_docs/METHOD_REPORT.md) standard (2026-07-03): equations first, commit-pinned equation-to-code map, small auditable physics module (the M7.7 consolidation extracts it), results after methods, explicit not-computed list.
 
 ---
 
