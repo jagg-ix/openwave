@@ -8,7 +8,7 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| , | (none) | , | , |
+| [M7.6](tasks/m7_6_observables.md) | electron observables | mass = field energy; spin `ℏ/2` (cross-checked vs Ceperley's rotating-wave law `L_z = mU/ω`); `μ_B(1 + α/2π)`; the Klein-Gordon twist sector; **two-charge Coulomb `E(d) ~ 1/d`**; M7.5 design inputs: fixed-`Q_can` + `H_A` frame, rotating (`a_s ≠ 0`) seeds | the 4-observable electron (mass, charge, μ, spin) + KG + the two-body force law, from the relaxed field; **stretch: extract `α_sol` from `E(d)` vs Faber & Golubich `α⁻¹ ≈ 137.1`** |
 
 ## BACKLOG
 
@@ -16,7 +16,6 @@
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| [M7.6](tasks/m7_6_observables.md) | electron observables | mass = field energy; spin `ℏ/2` (cross-checked vs Ceperley's rotating-wave law `L_z = mU/ω`); `μ_B(1 + α/2π)`; the Klein-Gordon twist sector; **two-charge Coulomb `E(d) ~ 1/d`** | the 4-observable electron (mass, charge, μ, spin) + KG + the two-body force law, from the relaxed field; **stretch: extract `α_sol` from `E(d)` vs Faber & Golubich `α⁻¹ ≈ 137.1`** |
 | M7.7 | consolidate the M7 column (MILESTONE) | fold the winning recipe into a `canonical.md`-style spec; **add HydroBoros (M7) to MODELS.md** | one runnable canonical script, reproducible first-try; the electron cells land as the new column |
 
 M7.1-M7.3 are the decisive credibility gates (reproduce **both** parents from the same lattice code). M7.4 is the research core (the thing neither parent did). **M7.7 is the milestone: the M7 column exists in MODELS.md.** Note: **Coulomb rides with the electron**, not as a later forces task: once the divergence charge `∇·F` exists (M7.4), its `1/r` field is immediate (Gauss's law), and the two-body `E(d) ~ 1/d` is confirmed at M7.6, exactly as M5 got Coulomb in its first `m5_1` milestone.
