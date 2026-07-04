@@ -50,6 +50,13 @@ RELAX-STAGE (pre-registered): R1 monotone descent, R2 gnorm drop > 3 decades,
   R3 sphericity < 2%, R4 virial E_curv = 3 E_pot within 10% (finite-box
   limited, reported), R5 FIRE vs CG energy agreement < 1e-6 relative.
 
+PHYSICS SINGLE-SOURCE (M5.17 phase A, 2026-07-03): the energy functional,
+potential, analytic gradient, anchors, and seeds were extracted VERBATIM into
+m5_17_energy.py (equations in its docstring; the methods note maps them to
+line numbers). This file is the DRIVER: CLI, Taichi cross-check engine,
+minimizers, observables, gates, run modes. The gate suite re-ran green on the
+refactored stack with bit-identical energies.
+
 Run:
   python m5_16_axisym.py gates  [NR NZ]
   python m5_16_axisym.py relax  [NR NZ] --beta 1.0 --cscale 2e-3 \
@@ -68,11 +75,17 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 os.makedirs(DATA, exist_ok=True)
+sys.path.insert(0, HERE)
 
-PI = np.pi
-G_TIME = 8.0                      # frozen background; G8 proves decoupling at 1e10
-MIR = np.outer([1.0, -1.0, -1.0, 1.0], [1.0, -1.0, -1.0, 1.0])  # axis mirror signs
-MIR_T = tuple(tuple(float(x) for x in row) for row in MIR)
+# THE PHYSICS lives in m5_17_energy.py (the auditable single-source module,
+# extracted verbatim M5.17 phase A; equations in its docstring + the methods
+# note). This driver adds CLI, minimizers, observables, gates, run modes.
+from m5_17_energy import (  # noqa: E402
+    PI, G_TIME, MIR, MIR_T, J4, ldg_coeffs, _comm_np, _norm2_np,
+    curvature_density_np, potential_density_np, cell_weights,
+    energy_gradient_np, total_energy_np, ext_tail,
+    grid_coords, hedgehog_field, hedgehog_3d,
+)
 
 # ---------------- CLI ----------------
 MODE = sys.argv[1] if len(sys.argv) > 1 else "gates"
@@ -95,16 +108,6 @@ ITERS = _flag("iters", 30000, int)
 AUTOCHI = _flag("autochi", 1, int)
 TAG = _flag("tag", "run", str)
 H = 1.0                            # grid unit; physical scale enters analytically
-
-
-def ldg_coeffs(beta, cscale):
-    """(a, b, c, vvac) from the zero-forcing vacuum conditions:
-    stationary at s=1 => a = (3b-4c)/2; melt cost = c - b/2 > 0 needs beta < 2."""
-    c = cscale
-    b = beta * cscale
-    a = 0.5 * (3.0 * b - 4.0 * c)
-    vvac = a - b + c              # V at the s=1 uniaxial vacuum (negative)
-    return a, b, c, vvac
 
 
 # ---------------- taichi energy + AD gradient (OPTIONAL cross-check engine) ----
@@ -198,151 +201,6 @@ def energy_only_ti(M_np, a, b, c, c2, h, vvac):
     T["loss"][None] = 0.0
     T["kernel"]()
     return float(T["loss"][None])
-
-
-# ---------------- numpy density mirror (for gates + observables) ----------------
-def _comm_np(A, B):
-    return np.einsum("...ab,...bc->...ac", A, B) - np.einsum("...ab,...bc->...ac", B, A)
-
-
-def _norm2_np(A):
-    return np.sum(A * A, axis=(-2, -1))
-
-
-J4 = np.zeros((4, 4))
-J4[1, 2] = -1.0
-J4[2, 1] = 1.0
-
-
-def curvature_density_np(Mnp, h, c2=1.0):
-    """density on included cells (i in [0,NR-2], j in [1,NZ-2]); mirrors the kernel."""
-    nr, nz = Mnp.shape[:2]
-    Mminus = np.empty_like(Mnp[: nr - 1])
-    Mminus[1:] = Mnp[: nr - 2]
-    Mminus[0] = MIR * Mnp[0]
-    Mrho = (Mnp[1:] - Mminus) / (2.0 * h)            # i = 0..nr-2, all j
-    Mz = (Mnp[: nr - 1, 2:] - Mnp[: nr - 1, :-2]) / (2.0 * h)   # j = 1..nz-2
-    Mc = Mnp[: nr - 1, 1:-1]
-    rho = ((np.arange(nr - 1) + 0.5) * h)[:, None, None, None]
-    Mphi = _comm_np(np.broadcast_to(J4, Mc.shape), Mc) / rho
-    Mrho = Mrho[:, 1:-1]
-    cxy = _comm_np(Mrho, Mphi)
-    cxz = _comm_np(Mrho, Mz)
-    cyz = _comm_np(Mphi, Mz)
-    return c2 * 4.0 * (_norm2_np(cxy) + _norm2_np(cxz) + _norm2_np(cyz))
-
-
-def potential_density_np(Mnp, a, b, c, vvac):
-    msp = Mnp[: Mnp.shape[0] - 1, 1:-1, 1:4, 1:4]
-    m2 = np.einsum("...ab,...bc->...ac", msp, msp)
-    tr2 = np.einsum("...aa->...", m2)
-    tr3 = np.einsum("...aa->...", np.einsum("...ab,...bc->...ac", m2, msp))
-    return a * tr2 - b * tr3 + c * tr2 * tr2 - vvac
-
-
-def cell_weights(nr, nz, h):
-    """2 pi rho h^2 on included cells."""
-    rho = ((np.arange(nr - 1) + 0.5) * h)[:, None]
-    return np.broadcast_to(2.0 * PI * rho * h * h, (nr - 1, nz - 2)).copy()
-
-
-def energy_gradient_np(Mnp, a, b, c, c2, h, vvac):
-    """ANALYTIC gradient of total_energy_np, independent of Taichi AD (gate G2
-    validates vs finite differences, G2b vs the AD gradient when available).
-    Derivation (checkpoint notes): for C = [A, B] (A, B symmetric),
-        d||C||^2/dA = 2 [C, B],   d||C||^2/dB = -2 [C, A],
-    the azimuthal channel A_phi = [J, M]/rho has adjoint -[J, G]/rho (J
-    antisymmetric), and the i=0 ghost A_rho(0) = (M[1] - MIR*M[0])/2h folds
-    its gradient back through the mirror signs."""
-    nr, nz = Mnp.shape[:2]
-    inv2h = 1.0 / (2.0 * h)
-    Mminus = np.empty_like(Mnp[: nr - 1])
-    Mminus[1:] = Mnp[: nr - 2]
-    Mminus[0] = MIR * Mnp[0]
-    Arho = (Mnp[1:] - Mminus)[:, 1:-1] * inv2h          # (nr-1, nz-2, 4, 4)
-    Az = (Mnp[: nr - 1, 2:] - Mnp[: nr - 1, :-2]) * inv2h
-    Mc = Mnp[: nr - 1, 1:-1]
-    rho = ((np.arange(nr - 1) + 0.5) * h)[:, None, None, None]
-    Jb = np.broadcast_to(J4, Mc.shape)
-    Aphi = _comm_np(Jb, Mc) / rho
-    C1 = _comm_np(Arho, Aphi)
-    C2 = _comm_np(Arho, Az)
-    C3 = _comm_np(Aphi, Az)
-    w = cell_weights(nr, nz, h)[..., None, None]
-    k = 4.0 * c2 * w
-    Grho = 2.0 * k * (_comm_np(C1, Aphi) + _comm_np(C2, Az))
-    Gphi = 2.0 * k * (-_comm_np(C1, Arho) + _comm_np(C3, Az))
-    Gz = 2.0 * k * (-_comm_np(C2, Arho) - _comm_np(C3, Aphi))
-    G = np.zeros_like(Mnp)
-    # scatter A_rho = (M[i+1] - M[i-1 or ghost])/2h
-    G[1:, 1:-1] += Grho * inv2h
-    G[: nr - 3 + 1, 1:-1] -= Grho[1:] * inv2h
-    G[0, 1:-1] -= (MIR * Grho[0]) * inv2h               # ghost fold-back
-    # scatter A_z = (M[., j+1] - M[., j-1])/2h
-    G[: nr - 1, 2:] += Gz * inv2h
-    G[: nr - 1, :-2] -= Gz * inv2h
-    # local A_phi adjoint
-    Gphi_r = Gphi / rho
-    G[: nr - 1, 1:-1] += -_comm_np(np.broadcast_to(J4, Gphi_r.shape), Gphi_r)
-    # potential dV/dM on the spatial block, weighted
-    msp = Mc[..., 1:4, 1:4]
-    m2 = np.einsum("...ab,...bc->...ac", msp, msp)
-    tr2 = np.einsum("...aa->...", m2)[..., None, None]
-    dsp = 2.0 * a * msp - 3.0 * b * m2 + 4.0 * c * tr2 * msp
-    G[: nr - 1, 1:-1, 1:4, 1:4] += dsp * w
-    return G
-
-
-def total_energy_np(Mnp, a, b, c, c2, h, vvac):
-    w = cell_weights(Mnp.shape[0], Mnp.shape[1], h)
-    return float(np.sum((curvature_density_np(Mnp, h, c2)
-                         + potential_density_np(Mnp, a, b, c, vvac)) * w))
-
-
-def ext_tail(Rc, Hh):
-    """integral of the vacuum-hedgehog curvature density 8/r^4 OUTSIDE the
-    cylinder (radius Rc, half-height Hh), exact 1D quadrature in theta:
-    E_out = int dtheta 2 pi sin(theta) . 8 / r_b(theta),
-    r_b = min(Rc/sin, Hh/|cos|)."""
-    th = np.linspace(1e-9, PI - 1e-9, 40001)
-    rb = np.minimum(Rc / np.sin(th), Hh / np.abs(np.cos(th)))
-    return float(np.trapezoid(2.0 * PI * np.sin(th) * 8.0 / rb, th))
-
-
-# ---------------- seeds ----------------
-def grid_coords(nr, nz, h):
-    rho = (np.arange(nr) + 0.5) * h
-    z = (np.arange(nz) - nz / 2 + 0.5) * h
-    return np.meshgrid(rho, z, indexing="ij")
-
-
-def hedgehog_field(R, Z, r_c, g_time=G_TIME):
-    """melted hedgehog at phi=0: M_sp = s(r) n n^T, n = (rho, 0, z)/r,
-    s = 1 - exp(-(r/r_c)^2) (s ~ r^2 near 0 keeps M smooth at the origin);
-    r_c <= 0 means s = 1 (pure director, for the analytic gates)."""
-    r = np.sqrt(R ** 2 + Z ** 2)
-    r = np.where(r < 1e-12, 1e-12, r)
-    n1 = R / r
-    n3 = Z / r
-    s = np.ones_like(r) if r_c <= 0 else 1.0 - np.exp(-((r / r_c) ** 2))
-    Mnp = np.zeros(R.shape + (4, 4))
-    Mnp[..., 1, 1] = s * n1 * n1
-    Mnp[..., 1, 3] = s * n1 * n3
-    Mnp[..., 3, 1] = s * n1 * n3
-    Mnp[..., 3, 3] = s * n3 * n3
-    Mnp[..., 0, 0] = g_time
-    return Mnp
-
-
-def hedgehog_3d(X, Y, Z, r_c, g_time=G_TIME):
-    r = np.sqrt(X ** 2 + Y ** 2 + Z ** 2)
-    r = np.where(r < 1e-12, 1e-12, r)
-    n = np.stack([X / r, Y / r, Z / r], axis=-1)
-    s = np.ones_like(r) if r_c <= 0 else 1.0 - np.exp(-((r / r_c) ** 2))
-    Mnp = np.zeros(X.shape + (4, 4))
-    Mnp[..., 1:4, 1:4] = s[..., None, None] * n[..., :, None] * n[..., None, :]
-    Mnp[..., 0, 0] = g_time
-    return Mnp
 
 
 def pin_mask(nr, nz):

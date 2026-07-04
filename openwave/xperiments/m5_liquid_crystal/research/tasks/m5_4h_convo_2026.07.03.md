@@ -1,6 +1,6 @@
 # M5 convo 2026-07-03: the M5.16 audit reply (the legibility bar)
 
-> Duda's reply (2026-07-03, 02:32) to the M5.16 report + pre-flight ask-round email (sent 2026-07-02, [`m5_16_task_details.md § Comms plan`](m5_16_task_details.md)). This exchange is the motivating incident for the repo-wide **method report** standard ([`dev_docs/METHOD_REPORT.md`](../../../../../dev_docs/METHOD_REPORT.md)) and the origin of task **[M5.17](m5_17_task_details.md)**. Convo-doc lineage: follows [`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md).
+> Duda's reply (2026-07-03, 02:32) to the M5.16 report + pre-flight ask-round email (sent 2026-07-02, [`m5_16_task_details.md § Comms plan`](m5_16_task_details.md)). This exchange is the motivating incident for the repo-wide **method note** standard ([`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)) and the origin of task **[M5.17](m5_17_task_details.md)**. Convo-doc lineage: follows [`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md).
 
 ## 1. The exchange (summary; key lines verbatim)
 
@@ -31,6 +31,16 @@ He then restated the electron program: start from the biaxial-nematic hedgehog a
 | 4 | Neutrino = a topological **vortex rotated cylindrically into a loop**; minimization gives **preferred time derivatives defining the PMNS matrix** | Partially answers **Q16** (build the single rotated vortex loop first, before linked pairs / trefoils) and sets the phase-F observable (PMNS from time derivatives of the minimized loop) → M5.12 spec update. |
 | 5 | "potential ... need to choose some parametrization and search for parameters" | He treats the potential as an open search; the M5.16 anchor-lock claim must be presented AS the search result, equations first, or it reads as absent. |
 
+Routing audit (M5.17 phase E, 2026-07-03): each item's landing doc, verified:
+
+| # | Routed to (the consuming doc carries the content, not just a link) |
+| --- | --- |
+| 1 | [`m5_12_task_details.md § Ask-round outcome`](m5_12_task_details.md) (phase D spec) + [`m5_9_task_details.md § SPEC UPDATE`](m5_9_task_details.md) (per-lepton 4-observable bar + EID starting points) |
+| 2 | [`m5_17_task_details.md`](m5_17_task_details.md) phase C (run) + [`../findings/m5_17_methods_note.md § 8`](../findings/m5_17_methods_note.md) (configuration + prediction) + [`m5_9_0_task_details.md`](m5_9_0_task_details.md) (the Coulomb-unit axis note) |
+| 3 | [`m5_17_task_details.md`](m5_17_task_details.md) phase D + [`../findings/m5_17_methods_note.md § 9`](../findings/m5_17_methods_note.md) (conformance table) + Q14 detail ([`../m5_question_tracker.md`](../m5_question_tracker.md)) |
+| 4 | [`m5_12_task_details.md § Ask-round outcome`](m5_12_task_details.md) (phase A/C seed order + the phase-F PMNS-from-time-derivatives observable) + Q16 detail |
+| 5 | Q15 detail ([`../m5_question_tracker.md`](../m5_question_tracker.md)) + [`../findings/m5_17_methods_note.md § 10`](../findings/m5_17_methods_note.md) (not-computed list) |
+
 ## 4. What it did to the ask round
 
 | ID | Status after 2026-07-03 |
@@ -47,7 +57,7 @@ He then restated the electron program: start from the biaxial-nematic hedgehog a
 | --- | --- |
 | Fix the verification surface, not the solver | The response is a **methods note** (equations first, equation-to-code map with commit-pinned GitHub permalinks) + extracting the functional into a small auditable module + running his **two-charge Coulomb** prescription: task **[M5.17](m5_17_task_details.md)**. The M5.16 physics content (equivariant reduction, gates, analytic gradient, lock chain) stands and is reused; only the single-defect Coulomb leg is superseded by item 2 above. |
 | 3D rendering route PARKED | A rendered simulation is an author-side control loop, not an audit surface for a physicist who verifies by reading equations; it would not have changed this reply. Revisit only if the methods-note route also fails to land. |
-| Standard adopted repo-wide | [`dev_docs/METHOD_REPORT.md`](../../../../../dev_docs/METHOD_REPORT.md): every model-owner-facing report is equations-first with an equation-to-code map. Pointer added in the repo `CLAUDE.md`. |
+| Standard adopted repo-wide | [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md): every model-owner-facing report is equations-first with an equation-to-code map. Pointer added in the repo `CLAUDE.md`. |
 | Next email | Leads with the methods note link (equations page first), reports the two-charge Coulomb result, and re-references Q13/Q14/Q15 (+ the Q16 partial answer banked). |
 
 ## Cross-links
@@ -55,4 +65,4 @@ He then restated the electron program: start from the biaxial-nematic hedgehog a
 - Task record this reply audits: [`m5_16_task_details.md`](m5_16_task_details.md) (§ POST-DELIVERY AUDIT) · report [`../findings/m5_16_report.md`](../findings/m5_16_report.md) (status note added)
 - Successor task: [`m5_17_task_details.md`](m5_17_task_details.md) · consumer of the answers: [`m5_12_task_details.md`](m5_12_task_details.md) (§ Ask-round outcome)
 - Question registry: [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q13/Q16/Q14/Q15/Q17 details updated with this reply)
-- The standard this incident produced: [`dev_docs/METHOD_REPORT.md`](../../../../../dev_docs/METHOD_REPORT.md)
+- The standard this incident produced: [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)
