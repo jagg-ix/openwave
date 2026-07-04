@@ -6,7 +6,7 @@
     "NR": 48,
     "NZ": 96
   },
-  "wall_s": 5.0,
+  "wall_s": 4.9,
   "gates": [
     {
       "gate": "G2_gradcheck",

@@ -69,6 +69,15 @@ Design-note spec updates from the same reply (logged here per the rigor rule, be
 | Electron bar = mass + "clock frequency, angular momentum and magnetic dipole" | phase D (clock + stability) picks up the 3 dynamical observables; EID-B/EID-C heritage = the starting points |
 | Coulomb anchor = two charges at varying distance (large d anchor, fm-scale running coupling) | consumed by M5.17 phase C; this task inherits whatever the cross-check does to the `c₂` lock |
 
+### 2026-07-04 spec updates (the group energy-conservation threads, [`m5_4i_convo_2026.07.04.md`](m5_4i_convo_2026.07.04.md))
+
+| Spec | Lands in |
+| --- | --- |
+| **The energy-conserving oscillation gate** (Duda's now-PUBLIC mechanism: mass = energy density per length; the loop conserves total energy by changing length while rotating among the 3 axes): pre-register the constraint `E = λ_axis(i) · L_i = const` → length ratios `L_i ∝ 1/λ_i`; the relaxed oscillation must trace that trajectory with `E(t)` conserved | phase E (the mass/length-density map is now THE primary candidate, not one of two) + phase F (the `E(t)` gate along the SO(3) rotation) |
+| **The 6.2 pm lab anchor** (Nature s41586-024-08479-6, neutrino wavepacket spatial extent; treat as a lower limit ≥ 6.2 pm) | phase E absolute-scale target; candidate closer of the β lock slot via `κ_δ = (3/2)b` (Q17) |
+| **Faber's acceptance spec** ("must NOT be stable solitons, but must oscillate between three stable states"; replicate the SM mechanism: 3 eigen-configurations propagating independently, the flavor state = their oscillating mixture) | phases D/F acceptance criteria: the 3 axis-aligned loops = stable eigen-configurations; the produced flavor object = a rotating superposition; each eigenstate stationary, the mixture oscillating |
+| **Urgency note**: Duda publicly cites "AI-written simulations" as confirming the mechanism, but the validated record is one step behind (M5.11 loops not stationary; PMNS numbers placeholder-δ era; the length-varying trajectory never simulated) | the physical-regime run + provenance-labelled scorecard protect the claim he has already made in public; schedule weight accordingly |
+
 ## Rigor compliance (inherited bar + M5.12-specific)
 
 The full Duda-requirement table, item by item with verbatim sources, is [`m5_16_task_details.md § Rigor compliance`](m5_16_task_details.md): it applies to this task verbatim (energy minimization, cylindrical symmetry where applicable, center regularization, physical-regime parameters, independent benchmarks, article-standard documentation). M5.12-specific additions:
@@ -80,6 +89,7 @@ The full Duda-requirement table, item by item with verbatim sources, is [`m5_16_
 | Calibrated instrument only | the minimizer + potential come from M5.16 unmodified; any change to the functional re-runs the M5.16 gate suite first |
 | Ask-round answers logged | Duda's Q13/Q16/Q14/Q15/Q17 answers land in [`../m5_question_tracker.md`](../m5_question_tracker.md) § QUESTION DETAILS (per ID) AND in this file's phase-A/C design notes before any build |
 | Honest scorecard discipline | phase F reports the 4 PMNS parameters provenance-labelled (derived / consequence / fit), the N4c pattern; negatives and the mass-compression tension reported as falsifiers, not buried |
+| Multi-agent verification (Duda 2026-07-03b: "careful small steps, maybe multiple agents verifying each other") | every headline number cross-checked by an independent path (two minimizers, analytic-vs-FD, the M5.16/17 pattern) AND the phase-F scorecard + any outbound method note audited by an independent second agent before sending ([`m5_4h_convo_2026.07.03.md § 6`](m5_4h_convo_2026.07.03.md)) |
 
 ## The phased plan
 
@@ -130,5 +140,5 @@ A **stable, regularized neutrino loop at the physical `(g, δ, V)` regime** (or 
 - Predecessor (closed): [`m5_11_task_details.md`](m5_11_task_details.md) · frozen findings [`m5_11b_findings.md`](m5_11b_findings.md) · resume-state archive [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md)
 - Gate task: [`m5_16_task_details.md`](m5_16_task_details.md) (parameter lock + P-G + rigor bar + comms plan)
 - Ask round: § The pre-flight ask round (above, the queue lives here) · question registry [`../m5_question_tracker.md`](../m5_question_tracker.md) § OPEN QUESTIONS + § QUESTION DETAILS · § δ_CP fork (tracker)
-- Theory inputs: [`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) (serious-sims bar, SO(2)/SO(3) slide) · [`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) (uniaxial-neutrino sketch) · [`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md) (Golubich lattice recipe)
+- Theory inputs: [`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) (serious-sims bar, SO(2)/SO(3) slide) · [`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) (uniaxial-neutrino sketch) · [`m5_4g_convo_2026.07.02.md`](m5_4g_convo_2026.07.02.md) (Golubich lattice recipe) · [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md) (audit reply: vortex-loop-first, PMNS from time derivatives, 4-observable bar) · [`m5_4i_convo_2026.07.04.md`](m5_4i_convo_2026.07.04.md) (energy-conservation mechanism, 6.2 pm anchor, Faber acceptance spec)
 - Honest-scorecard baseline the F phase must beat: [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md)

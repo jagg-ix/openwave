@@ -6,6 +6,10 @@ This doc is the task's full record: planning + findings + future planning + docu
 
 ---
 
+## SPEC UPDATE (2026-07-03, from Duda's reply): the 4-observable electron bar
+
+Duda's electron deliverable list ([`m5_4h_convo_2026.07.03.md § 3`](m5_4h_convo_2026.07.03.md)): mass + **clock frequency + angular momentum + magnetic dipole**, 3 of the 4 DYNAMICAL. The lepton program here must therefore compute, per family member, not just the calibrated mass (the M5.16 static lock) but the clock ω, J, and μ **on the calibrated solution**. Starting points already banked: EID-B/EID-C ([`../m5_roadmap.md § ELECTRON-ID PROJECT`](../m5_roadmap.md)): μ lives in the tilt/precession channel (the twist clock is EM-silent), spin = the Noether clock charge, orbital J = 0 structurally. Shares the phase-D machinery of [`m5_12_task_details.md § Ask-round outcome`](m5_12_task_details.md). Also relevant to the g anchor: the paper's own hints `delta^2 ~ hbar c`, `g^4 ~ k e^2 / G m^2 ~ 1e38` (arXiv:2108.07896 p. 11, re-surfaced during the M5.17 Fig. 9 read).
+
 ## Current detail (from the roadmap, 2026-07-02 migration)
 
 3 axis-choices → e/μ/τ mass calibration; Cornell `V(r) = −α/r + σr`; the `e_scale` physical-units hook lands here
