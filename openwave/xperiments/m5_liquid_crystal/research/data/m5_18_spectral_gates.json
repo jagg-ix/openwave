@@ -1,0 +1,8 @@
+{
+ "S1_gradcheck_max_rel": 1.0597184060352283e-09,
+ "S2_V_at_1": 0.0,
+ "S2_dVds_at_1": 2.2137847103095674e-13,
+ "S2_V_at_0_minus_3": 0.0,
+ "S3_V_biaxial_pinned": 0.0,
+ "all_pass": true
+}

@@ -1,0 +1,38 @@
+{
+  "task": "M5.18",
+  "mode": "pair_relax",
+  "sign": -1,
+  "potential": "spectral (delta=0)",
+  "wscale": 0.0007240238793069094,
+  "grid": {
+    "NR": 96,
+    "NZ": 192,
+    "h": 1.0
+  },
+  "params": {
+    "rc_core": 8.0,
+    "r_pin": 2.5,
+    "iters": 3000
+  },
+  "rows": [
+    {
+      "d": 16.0,
+      "E_seed": 18.82553083987037,
+      "E_relaxed": 0.3446635364264532,
+      "drop": 18.48086730344392,
+      "gnorm_decades": 2.343090989733526,
+      "melt_min_axis_strip": 0.007600469435618417,
+      "wall_s": 301.2
+    },
+    {
+      "d": 24.0,
+      "E_seed": 27.857106108326793,
+      "E_relaxed": 0.4089134640960165,
+      "drop": 27.448192644230776,
+      "gnorm_decades": 2.0844630656274106,
+      "melt_min_axis_strip": 0.0077806752654049705,
+      "wall_s": 296.4
+    }
+  ],
+  "note": "M5.17 LdG reference: antipair ANNIHILATED at all d (E_relaxed 0.30-0.59 vacuum residual, melt_min ~ 0.008 bridge along the axis strip). melt_min staying O(1) here = the spectral potential closes the annihilation melt bridge; melt_min -> 0 = channel survives"
+}

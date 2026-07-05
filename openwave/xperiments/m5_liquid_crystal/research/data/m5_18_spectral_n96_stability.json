@@ -1,0 +1,22 @@
+{
+  "task": "M5.18",
+  "mode": "stability",
+  "potential": "spectral (delta=0)",
+  "wscale": 0.0007240238793069094,
+  "melt_cost_per_cell": 0.002172071637920728,
+  "E_radial": 16.85220537995424,
+  "E_after_perturbed_2d_relax": 7.609815376499654,
+  "drop_rel": 0.5484380112319568,
+  "escaped_hedgehog": true,
+  "melt_min_s": 0.5079609593324796,
+  "melt_min_location_rho_z": [
+    0.5,
+    -3.5
+  ],
+  "gnorm_first_last": [
+    1.7201153183340872,
+    12.298373472289924
+  ],
+  "iters": 8000,
+  "note": "escaped=False would mean the spectral potential CLOSES the point-vs-ring melt channel (the Q14 empirical test); escaped=True means the channel survives the swap"
+}

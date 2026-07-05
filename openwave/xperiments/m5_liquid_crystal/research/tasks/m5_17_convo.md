@@ -60,7 +60,9 @@ H = SUM_{0 <= mu < nu <= 3}  F_{mu nu alpha beta} F_{mu nu}^{alpha beta}  +  V(M
     + V(M)
 ```
 
-All index raising through `eta = diag(-1,1,1,1)`, including inside the Frobenius norm; the commutator is `[A,B] = A.eta.B - B.eta.A`. He BOXES the negative internal-time contributions himself: H is INDEFINITE as written (the boundedness question is part of the verification). Slide file: intended for `../../theory/` alongside his 2026-07-01 slide, but the attachment file vanished before archiving; re-save from the Gmail thread when convenient (transcription above is complete).
+All index raising through `eta = diag(-1,1,1,1)`, including inside the Frobenius norm; the commutator is `[A,B] = A.eta.B - B.eta.A`. He BOXES the negative internal-time contributions himself: H is INDEFINITE as written (the boundedness question is part of the verification). The slide (saved 2026-07-05, local-only `theory/` convention):
+
+![Duda's 4D Lagrangian + Hamiltonian slide](../../theory/duda_2026-07-05_4d_lagrangian_hamiltonian.png)
 
 ### 3. What it settles / opens
 
