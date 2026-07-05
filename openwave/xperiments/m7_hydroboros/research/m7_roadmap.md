@@ -1,8 +1,8 @@
 # M7 / HydroBoros, roadmap
 
-> Local task roadmap for the **M7 (HydroBoros)** model, replicating the SABER science-roadmap structure (2026-07-01). M7 has **no GitHub issues**; tasks are tracked here. **taskID = M7.N**. Full planning + findings live in each [`tasks/m7_N_*.md`](tasks/) detail doc; scripts / data / plots live in [`scripts/`](scripts/) · [`data/`](data/) · [`plots/`](plots/), all named `m7_N_*.{py,npz,png}`. Ordering is the build sequence (M7.0 → M7.16, Phases 1 → 5); the **top of Backlog is the next task**.
+> Local task roadmap for the **M7 (HydroBoros)** model, replicating the SABER science-roadmap structure (2026-07-01). M7 has **no GitHub issues**; tasks are tracked here. **taskID = M7.N**. Full planning + findings live in each [`tasks/m7_N_*.md`](tasks/) detail doc; scripts / data / plots live in [`scripts/`](scripts/) · [`data/`](data/) · [`plots/`](plots/), all named `m7_N_*.{py,npz,png}`. Ordering is the build sequence (M7.0 → M7.17, Phases 1 → 5; task IDs are stable, table order = build order); the **top of Backlog is the next task**.
 >
-> The program runs in five **phases** (renumbered 2026-07-04; formerly lettered arcs): **Phase 1** builds the electron and drafts the coverage column (M7.0-M7.7, ✅ DONE); **Phase 2** expands across the forces and the remaining particle sectors (M7.8-M7.13); **Phase 3** publishes the M7 column to MODELS.md for cross-model benchmarking (M7.14, advanced to right after Phase 2: a good publication milestone); **Phase 4** groups the composites still untested in M5 (M7.15); **Phase 5** graduates to production rendering (M7.16). Each task M7.N is an iteration gated against a KNOWN result; every MODELS.md cell (see **Phase 3** below) is assigned to a task. Columns: **taskID · task title · description (the build) · validation gate** (the credibility anchor). Migrated from the implementation plan (now [`m7_background.md`](m7_background.md)) on 2026-07-01.
+> The program runs in five **phases** (renumbered 2026-07-04; formerly lettered arcs): **Phase 1** builds the electron and drafts the coverage column (M7.0-M7.7, ✅ DONE); **Phase 2** expands across the forces and the remaining particle sectors (M7.17 + M7.8-M7.13); **Phase 3** publishes the M7 column to MODELS.md for cross-model benchmarking (M7.14, advanced to right after Phase 2: a good publication milestone); **Phase 4** groups the composites still untested in M5 (M7.15); **Phase 5** graduates to production rendering (M7.16). Each task M7.N is an iteration gated against a KNOWN result; every MODELS.md cell (see **Phase 3** below) is assigned to a task. Columns: **taskID · task title · description (the build) · validation gate** (the credibility anchor). Migrated from the implementation plan (now [`m7_background.md`](m7_background.md)) on 2026-07-01.
 
 ## IN PROGRESS
 
@@ -12,10 +12,11 @@
 
 ## BACKLOG
 
-## PHASE 2, forces and the remaining particle sectors (M7.8-M7.13)
+## PHASE 2, forces and the remaining particle sectors (M7.17 + M7.8-M7.13)
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
+| M7.17 | helicity-pair 3:1 test (Fleury closure) | build the repaired helicity-pair state from Fleury's 2026-07 closure notes (CK modes `(m,n,s) = (1,±1,±1)` with `A_r ≠ 0`, LG profile under the closures `λ₀σ = 2`, `w = λ₀σ²`), relax at fixed `Q_can`, and measure the per-helicity energy split `U₊/U₋` (added 2026-07-05, first row of Phase 2 pending the Fleury call: run/no-run + scope) | the closure prediction `U₊/U₋ = 3 + α/2 + 4f_bb` (from `U₊ + U₋ = ℏω`, `(U₊ − U₋)/ω = ℏ/2`); an independent in-model check of the pre-call working notes; feeds the Q15 units contract + the spin-½ cell |
 | M7.8 | magnetic force | the per-defect magnetic structure carried by the electron's clock (Coulomb already landed in M7.4/M7.6) | magnetic force from the clock's `Γ₀` (pure twist is EM-silent; the M5 mechanism) |
 | M7.9 | gravity | the time-axis boost of the field (the M5 4×4 route) | a GEM coupling that vanishes at zero boost; honest pass / fail (Ouroboros stops before gravity, so this is genuinely hard for M7) |
 | M7.10 | nuclear forces | strong = the 4th-order short-range roll-off + linking tension; weak = a topology-reconnection (defect-class transition) | running-coupling onset at the core; a reconnection channel; partial, mirroring M5 |
@@ -52,6 +53,7 @@ Each task fills specific cells, so the table is the running scoreboard of the pr
 | **M7.5** | de Broglie clock (Zitterbewegung) · Particle stability | `scripts/m7_5_clock_stability.py` |
 | **M7.6** | Magnetic moment μ + spin J · Spin-½ statistics · Quantum wave equation (Klein-Gordon) · Electric force (Coulomb, two-charge `E(d)~1/d`) | `scripts/m7_6_observables.py` |
 | **M7.7 (milestone)** | consolidate the column + the M7 deep-dive ([`m7_theory_canonical.md`](m7_theory_canonical.md), the future "Per-model results of record" row) | `scripts/m7_7_canonical.py` + `scripts/m7_functional.py` |
+| **M7.17** | Spin-½ statistics · Magnetic moment μ + spin J (the `U₊/U₋` reading) | `scripts/m7_17_helicity_pair.py` |
 | **M7.8** | Magnetic force | `scripts/m7_8_magnetic_force.py` |
 | **M7.9** | Gravity | `scripts/m7_9_gravity.py` |
 | **M7.10** | Strong force / confinement · Weak force | `scripts/m7_10_nuclear_forces.py` |
@@ -60,7 +62,7 @@ Each task fills specific cells, so the table is the running scoreboard of the pr
 | **M7.13** | Dark matter candidate | `scripts/m7_13_dark_matter.py` |
 | **M7.15** | Quarks · Baryons (p, n) · Mesons (π, K) · Orbital quantization | `scripts/m7_15_composites.py` |
 
-All 21 MODELS.md criteria are covered: Phase 1 (M7.0-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and drafts + stages the column at the M7.7 milestone ([`preview_models.md`](preview_models.md)); Phase 2 (M7.8-M7.13) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter; Phase 3 (M7.14) publishes the column; Phase 4 (M7.15) fills the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
+All 21 MODELS.md criteria are covered: Phase 1 (M7.0-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and drafts + stages the column at the M7.7 milestone ([`preview_models.md`](preview_models.md)); Phase 2 (M7.17 + M7.8-M7.13) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter, opening with the M7.17 helicity-pair check of the Fleury closure notes; Phase 3 (M7.14) publishes the column; Phase 4 (M7.15) fills the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
 
 ## PHASE 4, the composites still untested in M5, grouped (M7.15)
 
@@ -111,7 +113,7 @@ His deeper point, that pinning the field configurations is the **precondition to
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| [M7.0](tasks/m7_0_bootstrap.md) | bootstrap | Collect the theory-source corpus (Fleury torus, Ouroboros/M6, Beltrami/Trkalian, Marc's evolving `electron_beltrami/` library, now 64 docs) and stand up the planning scaffolding (background, question-tracker, roadmap, the `research/` folder structure). | ✅ corpus consolidated (64 docs) in [`../theory/`](../theory/) + [manifest](../theory/_CITATIONS.md); plan + roadmap + tracker in place (2026-07-02) |
+| [M7.0](tasks/m7_0_bootstrap.md) | bootstrap | Collect the theory-source corpus (Fleury torus, Ouroboros/M6, Beltrami/Trkalian, Marc's evolving `electron_beltrami/` library, 66 docs as of 2026-07-05) and stand up the planning scaffolding (background, question-tracker, roadmap, the `research/` folder structure). | ✅ corpus consolidated (64 docs) in [`../theory/`](../theory/) + [manifest](../theory/_CITATIONS.md); plan + roadmap + tracker in place (2026-07-02) |
 | [M7.1](tasks/m7_1_infra.md) | infra | A-primary doublet on a 3D lattice in the **time-harmonic (fixed-ω) frame**; helicity observable + fixed-helicity relaxation; Taichi-AD energy gradient; FIRE minimizer; six seeders (ABC/Trkalian, CK spheromak, Bateman/Hopf, Fleury torus, M6 embedding, Ceperley mode); design decisions documented (BCs, gauge = Q8 evidence, M6 natural units) | ✅ ALL GATES PASS (2026-07-02, [findings](tasks/m7_1_infra.md)): AD vs complex-step `2.3e-15`; **Woltjer-Taylor**: random seed → constant-λ eigenfield, `λ → 2π/L` at `5.5e-6`, `E = λH`; M6 ledger `H/Q = 1.68897` reproduced by the seeder pipeline |
 | [M7.2](tasks/m7_2_fleury_torus.md) | reproduce Fleury on the lattice | lattice quadrature of the FLDB toroidal ansatz under the pinned conventions contract; grid-convergence study; Bessel-envelope stretch | ✅ ALL GATES PASS (2026-07-02, [findings](tasks/m7_2_fleury_torus.md)): `Q/μ/L/U` to closed forms at `1.4e-4`, order ~2.5; printed solution reconstructed digit-for-digit; **Q10 finding: corrected-convention `U = 0.958 m_ec²`** (was 0.795); the Bessel stretch exposed the mask's hidden surface charge (~18× bulk) |
 | [M7.3](tasks/m7_3_ouroboros_3d.md) | reproduce M6's electron in full 3D | **pre-gate first**: the 3D harmonic functional, restricted to M6's ansatz, reproduces the M6 ODE **verbatim**; then embed the M6 1D profile as a 3D seed, relax at fixed ω, watch for 3D symmetry breaking | ✅ ALL GATES (2026-07-03, [findings](tasks/m7_3_ouroboros_3d.md)): verbatim reduction pinned (same-phase doublet; `κ = −1`; FOCUSING `f`; fixed-`Q_can` frame); 3D windowed `H/Q = 1.68889` vs ledger `1.68897` (dev **4.7e-5**); 3 discoveries: the charged ledger is **WINDOWED** (Q11), `0d_canonical § 2.2` is not an EL reduction (Q12), the M6 electron is a **3D saddle with focusing collapse**, helicity guard inert on it (Q13); Q8 resolved (no gauge fixing needed) |

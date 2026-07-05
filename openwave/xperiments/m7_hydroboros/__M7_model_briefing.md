@@ -20,7 +20,7 @@
 | Blend | Fleury's toroidal EM electron (arXiv:2510.22384) fused with Werbos's Ouroboros self-confinement (M6) |
 | Lineage | force-free / Beltrami (Trkalian → variable-λ) + knotted-EM / Clebsch + Faber geometric soliton |
 | Primary sources | Fleury / dos Santos arXiv:2510.22384; Werbos M6; Faber arXiv:2201.13262 + Faber & Golubich arXiv:2604.12021; Sato-Yamada arXiv:1809.03136; Ceperley; Pisello 1977 |
-| In-repo | [`research/m7_roadmap.md`](research/m7_roadmap.md) (roadmap) + [`m7_background.md`](research/m7_background.md) (background) + [`m7_question_tracker.md`](research/m7_question_tracker.md) (Q1-Q7); `theory/` (64-doc electron-Beltrami corpus + notes); `images/` icon |
+| In-repo | [`research/m7_roadmap.md`](research/m7_roadmap.md) (roadmap) + [`m7_background.md`](research/m7_background.md) (background) + [`m7_question_tracker.md`](research/m7_question_tracker.md) (Q1-Q7); `theory/` (66-doc electron-Beltrami corpus + notes); `images/` icon |
 
 ## Model Profile (what it brings, short form)
 
@@ -64,24 +64,24 @@ units contract (ℏ/2 vs ℏ).
 
 ## Roadmap
 
-Five phases, M7.0 → M7.16 (full detail in [`research/m7_roadmap.md`](research/m7_roadmap.md)):
+Five phases, M7.0 → M7.17 (full detail in [`research/m7_roadmap.md`](research/m7_roadmap.md)):
 
 | Phase | Tasks | What lands |
 | --- | --- | --- |
 | 1 , electron + the column ✅ DONE | M7.0-M7.7 | bootstrap → infra → reproduce Fleury → reproduce M6 in 3D → charged soliton (the new physics) + Coulomb → clock + stability → observables → consolidate (milestone; column staged in [`research/preview_models.md`](research/preview_models.md)) |
-| 2 , forces + sectors | M7.8-M7.13 | magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
+| 2 , forces + sectors | M7.17 + M7.8-M7.13 | the helicity-pair 3:1 test (Fleury closure notes, 2026-07-05), magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
 | 3 , MODELS.md publication | M7.14 | publish + govern the 21-cell HydroBoros column (benchmark entry) |
 | 4 , composites | M7.15 | quarks, baryons, mesons, orbital quantization |
 | 5 , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
 
-Open questions Q1-Q10 (priority-sorted in the tracker; the table doubles as the ask list for Marc
-Fleury at the next contact): the charge-carrying construction (Q7, reframed to relax-and-measure),
-whether divergence-ful fields hold clean knots (Q5), whether divergence-charge and linking-charge
-are forced equal (Q3, a first-class M7.4 measurement), the FLDB energy convention (Q10, gates M7.2),
-substrate + target manifold (Q1), Marc's further source material (Q4), the Werbos-v5 calibration
-dictionary (Q9), the potential form (Q6), gauge / constraint handling (Q8, evidence measured at
-M7.1), and whether a 4th-order stabilizer is needed at all (Q2, direction set: helicity +
-confinement carry the load).
+Open questions Q1-Q15 (priority-sorted in the tracker; the table doubles as the ask list for the
+collaborator calls): the charge-carrying construction (Q7, now a tail-matching + tail-quantization
+program per the 2026-07-05 Fleury notes), the two charges (Q3, measured independent at M7.4; the
+tail-quantization conjecture is the slaving candidate), the units contract (Q15, Case-B vs Zitter
+pinning: the M7.17 lattice test), substrate + target manifold (Q1), source-material logistics (Q4),
+the vacuum tachyon (Q14, the top Werbos ask), the windowed charged calibration (Q11), chaoiton 3D
+stability (Q13), ODE provenance (Q12), and the v5 calibration dictionary (Q9). Resolved so far:
+Q8, Q2, Q5, Q6, and Q10 (the FLDB energy convention, author-confirmed 2026-07-04).
 
 ## Help Wanted
 
