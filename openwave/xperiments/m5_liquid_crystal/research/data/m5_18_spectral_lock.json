@@ -1,0 +1,51 @@
+{
+  "task": "M5.18",
+  "date": "2026-07-05",
+  "potential": "V = w sum_{p=1..3} (Tr(Msp^p) - 1)^2 (Duda universal spectral form, delta = 0 electron sector, equal weights)",
+  "anchors": {
+    "coulomb_c2_MeV_fm": 0.007161796112423039,
+    "mass_m_e_MeV": 0.51099895,
+    "faber_r_half_fm": 3.0754,
+    "ldg_beta1_r_half_fm": 2.926
+  },
+  "rows": [
+    {
+      "NR": 64,
+      "NZ": 128,
+      "E_sim": 26.540501088181163,
+      "r_half_sim": 7.780747323918074,
+      "J_half": 206.50493281731033,
+      "wscale": 0.0036268500323843513,
+      "ell_fm": 0.3719726968423229,
+      "r_half_phys_fm": 2.8942255655264932,
+      "virial": 1.0158406813093954
+    },
+    {
+      "NR": 96,
+      "NZ": 192,
+      "E_sim": 17.796878011095732,
+      "r_half_sim": 11.767822202665295,
+      "J_half": 209.43049619709814,
+      "wscale": 0.0007240238793069094,
+      "ell_fm": 0.24942832417391955,
+      "r_half_phys_fm": 2.9352281711874473,
+      "virial": 1.0063386176717444
+    },
+    {
+      "NR": 128,
+      "NZ": 256,
+      "E_sim": 13.374111136436369,
+      "r_half_sim": 15.648144367355474,
+      "J_half": 209.2800218480129,
+      "wscale": 0.00022994889609895402,
+      "ell_fm": 0.18744198426247974,
+      "r_half_phys_fm": 2.933119230242856,
+      "virial": 1.0033492623344287
+    }
+  ],
+  "headline_r_half_phys_fm": 2.9352281711874473,
+  "vs_faber_rel": -0.0455784056748888,
+  "vs_ldg_rel": 0.0031538520804672565,
+  "melt_cost_per_cell_3w": 0.002172071637920728,
+  "note": "no beta slot: the equal-weight spectral potential makes r_half parameter-free (remaining freedom: per-p weights)"
+}

@@ -27,11 +27,11 @@ The lesson generalizes: physicists verify by reading the Lagrangian / Hamiltonia
 | --- | --- |
 | Can the owner find `V(...)` and the Hamiltonian density from the report in one click? | yes, via the equation-to-code map |
 | Does the report open with equations, not results? | yes |
-| Is every permalink commit-pinned and clickable (absolute https)? | yes |
+| Is every code link clickable (absolute https) with a file:line anchor? | yes. `blob/main` links are the DEFAULT for task-scoped files (frozen after task close, anchors stable; Rodrigo 2026-07-05); commit-pin ONLY when linking into live/evolving files whose lines will drift |
 | Is the functional in a small module whose docstring matches the report's equations? | yes |
 | Is each headline number next to its gate + convergence evidence? | yes |
 | Is the not-computed list explicit? | yes |
-| RECOMMENDED: has an independent second agent audited the note (re-walked the equation-to-code map, checked each equation against its function)? | yes where feasible; adopted from the model owner's own advice ("careful small steps, maybe multiple agents verifying each other", Duda 2026-07-03) |
+| REQUIRED (upgraded from RECOMMENDED 2026-07-05): has an independent second agent ADVERSARIALLY audited the note (own script, different method/seed, tried to REFUTE each claim, re-walked the equation-to-code map)? | yes, before sending; adopted from the model owner's own advice ("careful small steps, maybe multiple agents verifying each other", Duda 2026-07-03). Upgraded after the audit's first real catch (M5.18: a witness overclaim refuted + a missed vacuum-branch structure found, `m5_18_verification_note.md § 10`). Record the audit outcome IN the note (the § 10 pattern): the audit record is part of the rigor surface |
 
 ## Scope
 

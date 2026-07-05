@@ -27,7 +27,7 @@
 
 ## 4. Results and findings (the staged column)
 
-The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_models.md)**: **0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**, every partial carrying its named caveat. It is deliberately **staged, not yet published to [`MODELS.md`](../../../../../MODELS.md)**: the program still carries its own open theory question (Q14, the vacuum tachyon) and convention questions (Q15, Q10, Q12) that move icons either way; **promotion comes after Phase 2, gated by the question tables below** (the M7.14 publication milestone, Phase 3). What the eight partials say, in three plots:
+The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_models.md)**: **0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**, every partial carrying its named caveat. It is deliberately **staged, not yet published to [`MODELS.md`](../../../../../MODELS.md)**: the program still carries its own open theory question (Q14, the vacuum tachyon) and convention questions (Q15, Q10, Q12) that move icons either way; **promotion comes after Phase 2, gated by the question tables below** (the M7.15 publication milestone, Phase 3). What the eight partials say, in three plots:
 
 **The soliton exists and is grid-convergent.** Three helicity-carrying seeds relax to one Taylor-dressed family; the winner is localized (r50 = 3.4), approximately Beltrami in the core (`λ_eff ≈ −1` near-constant), dilation-stable (a measured constrained-Derrick interior minimum), with the J-condensate co-located; both zero-helicity parent seeds die, so helicity is measurably the guard:
 
@@ -58,7 +58,7 @@ Tracked with stable IDs in [`m7_question_tracker.md`](../m7_question_tracker.md)
 
 | ID | Question | Why we ask |
 | --- | --- | --- |
-| [Q14](../m7_question_tracker.md#q14-detail) | **The vacuum tachyon**: the linearized vacuum of the written theory has `det M(0) = −1` for ANY `f` (unconditional long-wavelength instability; measured growth rate 0.785 vs analytic 0.786, amplitude-independent, so **no `β*` threshold exists** in the vector truncation): what cures it in the full model (an A-mass / a condensate vacuum / the scalar-Gauss sector / parameter islands)? | the load-bearing theory question: it blocks every real-time run (annihilation, M7.11); it is also a gift: the harmonic frame survives exactly because `ω > ω* = 0.786`, i.e. **the de Broglie clock is the vacuum-stability mechanism**, a strong Ouroboros-thesis statement if the full theory confirms it |
+| [Q14](../m7_question_tracker.md#q14-detail) | **The vacuum tachyon**: the linearized vacuum of the written theory has `det M(0) = −1` for ANY `f` (unconditional long-wavelength instability; measured growth rate 0.785 vs analytic 0.786, amplitude-independent, so **no `β*` threshold exists** in the vector truncation): what cures it in the full model (an A-mass / a condensate vacuum / the scalar-Gauss sector / parameter islands)? | the load-bearing theory question: it blocks every real-time run (annihilation, M7.12); it is also a gift: the harmonic frame survives exactly because `ω > ω* = 0.786`, i.e. **the de Broglie clock is the vacuum-stability mechanism**, a strong Ouroboros-thesis statement if the full theory confirms it |
 | [Q11](../m7_question_tracker.md#q11-detail) | The charged `H/Q = 1.6890` is window-defined (both far-field roots propagate at the canonical point; `Q` grows with the window): understood? and does a genuinely localized charged branch exist elsewhere in `(ω, λ, g)`? | it blocks any physical-mass reading of the charged ledger; the same dispersion also has a measured consequence (neutral solitons exchange RKKY-style with period `π/k`) |
 | [Q13](../m7_question_tracker.md#q13-detail) | The M6 electron is a 3D constrained **saddle** (focusing collapse; the helicity guard is inert on the zero-helicity ansatz): is the conjugate-point stability claim established only on the 1D radial manifold? | adding helicity to the same torus stabilizes it (our M7.4 fix), and the `ω*` threshold now bounds where ANY harmonic soliton exists: the 1D-vs-3D scope of the original claim is the remaining piece |
 | [Q12](../m7_question_tracker.md#q12-detail) | ODE provenance (+ the Q6 residual): the benchmark ODE is the verbatim EL of the same-phase doublet with FOCUSING signs, while the written `f = gs²` (the stable branch, which we run) differs; and `0d_canonical § 2.2`'s `2ωα` form matches no EL reduction we scanned: which ansatz + ODE is canonical, and do you confirm the benchmark sign slip + the `(g/4)` transcription fix? | your confirmation closes the convention file and fixes our M6 doc; nothing is blocked on it (we proceed on the empirically stable branch) |
@@ -66,18 +66,18 @@ Tracked with stable IDs in [`m7_question_tracker.md`](../m7_question_tracker.md)
 
 ## 7. What comes next (Phase 2)
 
-Full roadmap: [`m7_roadmap.md`](../m7_roadmap.md). Phase 2 (M7.8-M7.13) expands across the forces and the remaining particle sectors, none of it blocked on the questions above (pre-agreed tripwire: if a task hits a question we cannot self-resolve, we stop and ask then):
+Full roadmap: [`m7_roadmap.md`](../m7_roadmap.md). Phase 2 (M7.8-M7.14) expands across the forces and the remaining particle sectors, none of it blocked on the questions above (pre-agreed tripwire: if a task hits a question we cannot self-resolve, we stop and ask then):
 
 | Next | Task | One line |
 | --- | --- | --- |
-| 1 | M7.8 magnetic force | the per-defect magnetic structure carried by the electron's clock |
-| 2 | M7.9 gravity | the time-axis boost route (honestly hard: Ouroboros stops before gravity) |
-| 3 | M7.10 nuclear forces | strong = short-range roll-off + linking tension; weak = topology reconnection |
-| 4 | M7.11 antimatter + annihilation | real-time evolution blocked on Q14; harmonic-frame preparations proceed |
-| 5 | M7.12 leptons + neutrinos | knot sectors (needs the topology-preserving constraints M7.4 identified) |
-| 6 | M7.13 dark matter | the neutral helicity-only knot, inheriting M6's chaoiton |
+| 1 | M7.9 magnetic force | the per-defect magnetic structure carried by the electron's clock |
+| 2 | M7.10 gravity | the time-axis boost route (honestly hard: Ouroboros stops before gravity) |
+| 3 | M7.11 nuclear forces | strong = short-range roll-off + linking tension; weak = topology reconnection |
+| 4 | M7.12 antimatter + annihilation | real-time evolution blocked on Q14; harmonic-frame preparations proceed |
+| 5 | M7.13 leptons + neutrinos | knot sectors (needs the topology-preserving constraints M7.4 identified) |
+| 6 | M7.14 dark matter | the neutral helicity-only knot, inheriting M6's chaoiton |
 
-After Phase 2: **M7.14 publishes the column to MODELS.md** for cross-model benchmarking (Phase 3), gated by the question tables above; then composites (Phase 4) and production rendering (Phase 5).
+After Phase 2: **M7.15 publishes the column to MODELS.md** for cross-model benchmarking (Phase 3), gated by the question tables above; then composites (Phase 4) and production rendering (Phase 5).
 
 ---
 

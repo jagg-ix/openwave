@@ -10,7 +10,7 @@
 > itself shows, at a glance, what came in Marc's original sharing versus what was added later.
 > Curated reading-by-theme + M7-relevant roles: [`../research/tasks/m7_0_bootstrap.md`](../research/tasks/m7_0_bootstrap.md) (Task-0 source table + § 3b).
 
-Total: **64 documents** as of 2026-07-03: **53 in `electron_beltrami/`** (Marc's original library) plus **11 separately-sourced additions in the theory root**. Filenames follow `YEAR - Author - Title`. In the Local corpus below, the Path column shows which folder each file lives in.
+Total: **66 documents** as of 2026-07-05: **55 in `electron_beltrami/`** (Marc's original 53-paper library plus his 2026-07-05 working-note additions) plus **11 separately-sourced additions in the theory root**. Filenames follow `YEAR - Author - Title`. In the Local corpus below, the Path column shows which folder each file lives in.
 
 Citation keys are stable `AuthorYear` handles; DOI/arXiv are verified against the publisher, arXiv, or Crossref record where available; author-shared items that carry no indexed identifier are marked `author copy`, and anything unverifiable is `n/a`.
 
@@ -83,6 +83,8 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Kovacs et al. | 2025 | What is Inside an Electron | self-published (book); DOI n/a |
 | Duda | 2026 | Hydrodynamical Analogues of Quantum Phenomena (Couder walkers) | Duda slide-notes (walking-droplet / Couder-Fort pilot-wave) |
 | Faber, Golubich | 2026 | High-Precision Lattice SU(2) Solitonic Dipole vs Perturbative QED | arXiv [2604.12021](https://arxiv.org/abs/2604.12021) |
+| Fleury | 2026 | The Beltrami Electron: Ansatz Recommendation and Closure (working notes) | author copy (private communication 2026-07-05, unpublished, not distributed) |
+| Fleury | 2026 | Beltrami Electron Closure: Corrections, Charge/Tail Program, Pinning, Verification (working notes) | author copy (private communication 2026-07-05, unpublished, not distributed) |
 | Werbos | 2026 | Evaluating Universe Model Alternatives v5 | author copy (unpublished) |
 
 ## Local corpus (gitignored file manifest)
@@ -152,4 +154,6 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Kovacs et al. (2025) | electron_beltrami/2025 - Kovacs - What is Inside an Electron.pdf | 4.4 MB |
 | Duda (2026) | 2026 - Duda - Hydrodynamical Analogues of Quantum Phenomena (Couder walkers).pdf | 13.5 MB |
 | Faber, Golubich (2026) | electron_beltrami/2026 - Faber Golubich - High-Precision Lattice SU(2) Solitonic Dipole.pdf | 343 KB |
+| Fleury (2026) | electron_beltrami/2026 - Fleury - Beltrami Electron Ansatz and Closure.md | 18 KB |
+| Fleury (2026) | electron_beltrami/2026 - Fleury - Beltrami Electron Closure.md | 9 KB |
 | Werbos (2026) | electron_beltrami/2026 - Werbos - Evaluating Universe Model Alternatives v5.docx | 22 KB |

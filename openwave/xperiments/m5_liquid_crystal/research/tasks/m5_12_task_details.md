@@ -1,6 +1,6 @@
 # M5.12: Neutrino vortex-loop at the physical regime (the fresh re-entry)
 
-> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: ~~M5.16~~ ✅ (delivered 2026-07-02) + **[M5.17](m5_17_task_details.md)** (the methods surface + re-ask; the ask round went out 2026-07-02 but the 2026-07-03 reply was a methods audit, not answers: § Ask-round outcome below) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: ~~M5.16~~ ✅ (delivered 2026-07-02) + ~~M5.17~~ ✅ (delivered 2026-07-04) + **[M5.18](m5_18_task_details.md)** (opened 2026-07-05: Duda's second reply superseded the potential instrument and delivered the 4D Lagrangian to verify; this task runs on that new instrument: § 2026-07-05 spec updates below) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation.
 
@@ -77,6 +77,24 @@ Design-note spec updates from the same reply (logged here per the rigor rule, be
 | **The 6.2 pm lab anchor** (Nature s41586-024-08479-6, neutrino wavepacket spatial extent; treat as a lower limit ≥ 6.2 pm) | phase E absolute-scale target; candidate closer of the β lock slot via `κ_δ = (3/2)b` (Q17) |
 | **Faber's acceptance spec** ("must NOT be stable solitons, but must oscillate between three stable states"; replicate the SM mechanism: 3 eigen-configurations propagating independently, the flavor state = their oscillating mixture) | phases D/F acceptance criteria: the 3 axis-aligned loops = stable eigen-configurations; the produced flavor object = a rotating superposition; each eigenstate stationary, the mixture oscillating |
 | **Urgency note**: Duda publicly cites "AI-written simulations" as confirming the mechanism, but the validated record is one step behind (M5.11 loops not stationary; PMNS numbers placeholder-δ era; the length-varying trajectory never simulated) | the physical-regime run + provenance-labelled scorecard protect the claim he has already made in public; schedule weight accordingly |
+
+### 2026-07-05 spec updates (Duda's reply to the M5.17 method note, [`m5_17_convo.md`](m5_17_convo.md))
+
+He confirmed the static 3D functional verbatim (audit PASS; the M5.16 lock now sits on an owner-signed-off energy, no retroactive change to any static number) and issued two 4D specs that are PRE-CONDITIONS for phase D (clock dynamics) and any later gravity-sector work:
+
+| Spec (Duda 2026-07-05, verbatim source in [`m5_17_convo`](m5_17_convo.md)) | Lands in |
+| --- | --- |
+| **4D potential minimum `(g, 1, δ, 0)`**: "For 4D, required to add clock and gravity, potential needs to have minimum (g,1,delta,0)" | phase D pre-condition: extend V from `M_sp` to the full 4×4 M with enough independent invariants to pin 4 distinct eigenvalues (generically Tr M through Tr M⁴); the p.11 anchor hints (`g⁴ ~ 1e38`, `δ² ~ ħc`) become coefficient constraints (Q17). Any functional change re-runs the M5.16 gate suite first (the calibrated-instrument rule above) |
+| **Signature commutator in 4D**: "[A,B] = A xi B - B xi A for xi = diag(-1,1,1,1)" | phase D kernel: mandatory the moment time derivatives or time-mixing textures enter (the ψ clock). Static fields are ξ-blind (zero time block in every ∂M, verified in [`../scripts/m5_17_energy.py`](../scripts/m5_17_energy.py)), so this changes dynamics only |
+
+His SECOND 2026-07-05 reply ([`m5_17_convo.md`](m5_17_convo.md) entry 2) then went further and created the gating task **[M5.18](m5_18_task_details.md)**; what this task inherits from it:
+
+| Spec (Duda 2026-07-05b) | Lands in |
+| --- | --- |
+| **The universal spectral potential** `V(M) = Σ_p (Tr(M^p) − c_p)²`, `c_p = Σ_i Λ_i^p`, targets `(1,δ,0)` 3D / `(g,1,δ,0)` 4D: supersedes the quartic LdG; β = b/c dissolves | EVERY phase minimizes this potential once M5.18 phase B validates it (gate suite + recalibration); the phase-E `κ_δ = (3/2)b` anchor equation is retired with the LdG form |
+| **The explicit 4D Lagrangian** `L = −Σ F_{μναβ}F^{μναβ} − V(M)`, η-raising everywhere, + his Hamiltonian via Legendre: verification delegated to the agent ("nobody else has checked it. Should be used if it is right") | phase D runs the clock on the VERIFIED Lagrangian/Hamiltonian only. ✅ M5.18 DELIVERED 2026-07-05: both claims verified; phase D MUST handle the three qualifications ([`../findings/m5_18_verification_note.md`](../findings/m5_18_verification_note.md)): degenerate Legendre map (constrained evolution), covariant vacuum `diag(−g,1,δ,0)`, and the INDEFINITE boost-texture sector (negative-energy channel on the vacuum manifold: evolution can fall into it; owner-intent question out in the reply email). `r_half` potential-shape robustness (0.3%) means the calibrated instrument behaves identically under the swap |
+| "can use delta=0 for uniaxial approximation without QM" | phase A/B seeds: the uniaxial construction is the honest δ=0 approximation; the δ≠0 (QM) sector needs the exact `(1,δ,0)` pin the new potential provides |
+| **Faber running-coupling benchmark** (2026-07-05 public group post, [`m5_17_convo.md`](m5_17_convo.md) entry 3: he cited Universe 11/4/113 + arXiv 2604.12021 as the reference bar and reposted our `m5_17_two_charge.png`) | any running-coupling or fm-scale interaction claim this task makes (phase E scale work, phase F observables) is benchmarked against Faber's curves EXPLICITLY, overlay not asymptote-only; the group-public standing of the M5.17 readout raises the provenance-label bar |
 
 ## Rigor compliance (inherited bar + M5.12-specific)
 

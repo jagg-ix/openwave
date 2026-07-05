@@ -1,0 +1,23 @@
+{
+ "1_curv_invariance_rel": 1.2549637202135785e-11,
+ "1_pot_invariance_rel": 1.9587058023662663e-14,
+ "1b_naive_drift_rel": 30742.56835301251,
+ "2_legendre_rel": 3.6127175701090637e-16,
+ "3_eta_commutant_maxabs": 0.0,
+ "3_kinetic_eta_shift": 0.0,
+ "4_vacuum_V_at_mixed_form": 0.0,
+ "4_vacuum_V_at_naive_diag": 1048832.0,
+ "4_witness_H_density": -2.605639861213238,
+ "4_boostboost_H_density": 2.0,
+ "4b_orbit_H_density": -97.80409799375768,
+ "4b_orbit_density_min": -127.71219396966566,
+ "4b_orbit_V_offpoint_max": 2.2250673801536277e-23,
+ "4b_x1_invariance": 4.691862898198451e-08,
+ "4b_sum_texture_origin": -97.80409799999995,
+ "4b_sum_texture_offorigin": 4406.956553888787,
+ "4b_commuting_planes_density": 0.0,
+ "4c_branch_V_max": 0.0,
+ "5_slide_expansion_maxabs": 1.7763568394002505e-15,
+ "6_static_blind_maxabs": 1.4210854715202004e-14,
+ "all_pass": true
+}

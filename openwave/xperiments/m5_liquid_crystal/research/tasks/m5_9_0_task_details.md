@@ -14,6 +14,8 @@ DONE: seed-level δ/g energy scaling + the EM/GEM boost split (06-09 addendum, `
 
 Duda's reply ([`m5_4h_convo_2026.07.03.md § 3`](m5_4h_convo_2026.07.03.md)) supersedes the single-defect far-field match as the Coulomb anchor method: "two such charges in various distances", large separation = the Coulomb anchor, femtometer separation = the running coupling. First run + cross-check vs the analytic `c₂ = αħc/64π`: [`m5_17_task_details.md`](m5_17_task_details.md) phase C. Any unit-scale work here consumes that result.
 
+**Benchmark spec (2026-07-05, from Duda's public group post, [`m5_17_convo.md`](m5_17_convo.md) entry 3):** he cited Faber's running-coupling papers as the reference bar for this calculation class (Universe 2218-1997/11/4/113 + arXiv 2604.12021). Any running-coupling claim from this task's Coulomb-unit axis benchmarks against Faber's curves EXPLICITLY (curve overlay, not just the `64π` asymptote); the M5.17 fm-scale `α_eff(d)/α` readout is the starting dataset.
+
 ## Duda 2026-07-01 — the real-calibration axis routes through M5.16
 
 Duda ([`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md)) restated the calibration order: **the first step is establishing `g`, `δ`** ("seems we still don't know"), with δ from the QED Lagrangian, Coulomb as a second anchor, `g` from the electron clock / neutrino oscillations / else baryon gravitational mass ("certain of only for baryons"). His method for it is a **static energy-minimization** run at the physical regime with a regularizing potential, under cylindrical symmetry.
