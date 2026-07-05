@@ -78,3 +78,16 @@ All index raising through `eta = diag(-1,1,1,1)`, including inside the Frobenius
 ### 4. What stays pending
 
 Q13 (chiral term): still untouched ("will study further" remains the standing state). The next outbound reply rides the M5.18 deliverable (verification result + the fixed-ansatz answer), so it carries a deliverable rather than just an answer.
+
+## 2026-07-05: Duda's PUBLIC group post citing the M5.17 methods note
+
+13:16, to Models-of-Particles (cc: jenny, ericweinsteinpodcast): subject "OpenWave Fable 5 seems to handle difficult simulation of the running coupling effect". Body: "While most previous simulations were made with Opus 4.8 and were far from perfect, recently it switched to Fable 5 and yesterday I got from Rodrigo looking reasonable calculation of running coupling effect - quite difficult like done in Manfried's [mdpi 2218-1997/11/4/113, arXiv 2604.12021]. Seems very promising - please add your models, and soon we might solve physics ..." + the public GitHub link to [`../findings/m5_17_methods_note.md`](../findings/m5_17_methods_note.md) + the § 8 two_charge section and topology note quoted VERBATIM + our `m5_17_two_charge.png` figure reposted as the attachment.
+
+| # | Item | Consequence + routing |
+| --- | --- | --- |
+| 1 | **The methods note is now a PUBLIC group reference** (link posted; audience includes the Eric Weinstein podcast address) | The method-note standard + commit-pinned permalinks are group-facing infrastructure, not private courtesy: every owner-facing note must assume public reposting. Applied to M5.18 same day (figures embedded, anchors verified) |
+| 2 | He quoted the § 8 topology note VERBATIM, including the melt-channel quantification and the Q13/Q14/Q15 closing sentence | The melt-channel finding + the three open questions now have PUBLIC standing in the group; his eventual answers are semi-public commitments. No routing change; raises the stakes on the tracker's honesty discipline |
+| 3 | "most previous simulations ... Opus 4.8 ... far from perfect; switched to Fable 5" + the title credits the model | The actually-load-bearing changes were the METHOD NOTE standard + the multi-agent adversarial audit (adopted from HIS 2026-07-03 advice) + the analytic-anchor gates; the model upgrade compounds them. Keep all three mandatory regardless of model (routed: memory + `dev_docs/METHOD_NOTE.md` culture) |
+| 4 | "please add your models, and soon we might solve physics" + podcast cc | Expectation escalation on top of the m5_4i item-5 provenance risk: honest scorecards + provenance labels are now REPUTATIONALLY load-bearing for the whole group surface. M5.12's rigor rows unchanged but now public-facing |
+| 5 | Faber's running-coupling papers cited as the reference bar (Universe 11/4/113 + arXiv 2604.12021) | Any future running-coupling claim (M5.9.0 Coulomb-unit axis, M5.12 phase E) benchmarks against Faber's curves explicitly, not just the 64π asymptote |
+| 6 | Our plot reposted as his attachment | Figures in owner-facing notes ARE the public face of the work: keep the embed-plots-in-notes practice (M5.18 note now carries both figures) + the eyeball-before-send rule |

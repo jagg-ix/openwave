@@ -1,6 +1,6 @@
 # M5.18: 4D Lagrangian verification + the universal spectral potential
 
-> Task **M5.18** (M5 / Liquid-Crystal model). Status: **Backlog** (opened 2026-07-05, ready to go) · Gates: **[M5.12](m5_12_task_details.md)** (runs on the new potential) · Roadmap: [`../m5_roadmap.md`](../m5_roadmap.md) · Origin: Duda's 2026-07-05 second reply ([`m5_17_convo.md`](m5_17_convo.md) entry 2)
+> Task **M5.18** (M5 / Liquid-Crystal model). Status: ✅ **Done** (delivered + review approved 2026-07-05) · Gates: **[M5.12](m5_12_task_details.md)** (runs on the new potential) · Roadmap: [`../m5_roadmap.md`](../m5_roadmap.md) · Origin: Duda's 2026-07-05 second reply ([`m5_17_convo.md`](m5_17_convo.md) entry 2)
 
 This doc is the task's full record: planning + findings + documentation.
 
@@ -125,3 +125,26 @@ Driver [`../scripts/m5_18_spectral.py`](../scripts/m5_18_spectral.py) (spectral 
 - Consumer: [`m5_12_task_details.md`](m5_12_task_details.md) (gated on this task; its § 2026-07-05 spec updates carry the same 4D specs)
 - Question registry: [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q15 answered-with-residual; Q14 empirical test = phase B; Q17 restructured)
 - The audited module phase B extends: [`../scripts/m5_17_energy.py`](../scripts/m5_17_energy.py) + [`../findings/m5_17_methods_note.md`](../findings/m5_17_methods_note.md)
+
+---
+
+## TASK REVIEW (2026-07-05)
+
+Task Duration: 00:52 (from 13:13 to 14:05 EDT)
+Usage Cap Triggered: NO (ping armed for 17:25, parked unfired at FINISH)
+
+| # | Result | Status |
+| --- | --- | --- |
+| 1 | His Lagrangian IS Lorentz-invariant (1.3e-11 / 2.0e-14 over 20 random boosts; the no-η control drifts 3e4×) | ✅ measured |
+| 2 | His Hamiltonian IS the exact Legendre transform (3.6e-16; also the Noether energy; slide ± expansion exact) | ✅ measured |
+| 3 | Three qualifications for the owner: degenerate Legendre map (primary constraints); covariant vacuum `diag(−g,1,δ,0)`; **H INDEFINITE: boost×rotation vacuum-manifold textures at V = 0 with density −97.8 to −127.7 → unbounded below** + the 4-branch vacuum split | ✅ measured |
+| 4 | The audit rule earned its keep: independent adversarial agent confirmed 5/6 claims, refuted the original unboundedness witness, supplied the corrected product texture, found the branch structure; 15/15 checks green after fix | ✅ |
+| 5 | Spectral potential implemented + validated: exact biaxial pinning; `r_half = 2.935 fm` h-converged, within 0.3% of LdG (potential-shape ROBUST, −4.6% vs Faber), parameter-free with β dissolved | ✅ measured |
+| 6 | The melt channel SURVIVES the swap both routes (hedgehog escapes 55% shallow-melt; antipair annihilates, bridge identical): Q14 sharpened to the Q13 pair or clock dressing | ✅ measured |
+| 7 | Static sector η-blind: all M5.16/M5.17 published numbers carry over exactly | ✅ measured |
+
+Issues: the 2D relaxes end with gnorm still descending at cap (energy-gap verdicts robust, labeled in JSONs); the Dirac constraint analysis is flagged out of scope (candidate follow-up before 4D dynamics).
+
+**Findings**: Duda's 4D Lagrangian and Hamiltonian are both RIGHT and now verified, but the energy is unbounded below through boost-rotation textures on the vacuum manifold at zero potential cost, and the vacuum manifold splits into 4 disjoint branches: two new owner-intent questions with measured witnesses. His universal spectral potential works exactly as intended (exact biaxial pinning), leaves the calibrated electron sector essentially unchanged (`r_half` robust to 0.3%), and measurably does NOT close the melt channel, so defect stability now points uniquely at the Q13 terms or the clock dressing.
+
+**Research docs created/updated**: this file (FINDINGS + PHASE-B VERDICT + phase-C bullets); [`../findings/m5_18_verification_note.md`](../findings/m5_18_verification_note.md) (the deliverable); [`../scripts/m5_18_lorentz_check.py`](../scripts/m5_18_lorentz_check.py) · [`../scripts/m5_18_spectral.py`](../scripts/m5_18_spectral.py) · [`../scripts/m5_18_plot.py`](../scripts/m5_18_plot.py) + 9 data JSONs + [`../plots/m5_18_spectral.png`](../plots/m5_18_spectral.png); [`../m5_question_tracker.md`](../m5_question_tracker.md); [`../m5_roadmap.md`](../m5_roadmap.md); [`m5_12_task_details.md`](m5_12_task_details.md); [`../checkpoints/m5_18_progress.md`](../checkpoints/m5_18_progress.md) (closed).

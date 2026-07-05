@@ -1,6 +1,6 @@
 # M5.18 VERIFICATION NOTE: the 4D Lagrangian, its Hamiltonian, and what they imply
 
-> Verification requested by Jarek Duda (2026-07-05: "maybe Fable5 could verify that this Lagrangian is Lorentz-invariant, and derived from it Hamiltonian is right (by Legendre transform)? I think it is, but nobody else has checked it. Should be used if it is right."). Equations first; every claim then mapped to a machine check in [`m5_18_lorentz_check.py`](../scripts/m5_18_lorentz_check.py) (all 15 checks PASS, residuals in [`m5_18_lorentz_check.json`](../data/m5_18_lorentz_check.json)). Exchange record: [`m5_17_convo.md`](../tasks/m5_17_convo.md) entry 2. Code links become commit-pinned at send time (method-note standard, [`dev_docs/METHOD_NOTE.md`](../../../../dev_docs/METHOD_NOTE.md)).
+> Verification requested by Jarek Duda (2026-07-05: "maybe Fable5 could verify that this Lagrangian is Lorentz-invariant, and derived from it Hamiltonian is right (by Legendre transform)? I think it is, but nobody else has checked it. Should be used if it is right."). Equations first; every claim then mapped to a machine check in [`m5_18_lorentz_check.py`](../scripts/m5_18_lorentz_check.py) (all 15 checks PASS, residuals in [`m5_18_lorentz_check.json`](../data/m5_18_lorentz_check.json)). Exchange record: [`m5_17_convo.md`](../tasks/m5_17_convo.md) entry 2. Code links point at `main` with file:line anchors (task-scoped scripts are FROZEN after delivery, so the anchors are stable; method-note standard, [`dev_docs/METHOD_NOTE.md`](../../../../dev_docs/METHOD_NOTE.md)).
 
 ## VERDICT (one paragraph)
 
@@ -120,33 +120,43 @@ unless the boost-texture sector is (i) removed by a constraint (the § 4 Dirac a
 
 Two sharpenings from the adversarial audit (§ 10): the construction is generator-specific: COMMUTING planes (boost01 × rot23) give exactly zero density, and the naive `expm(x1 W_b + x2 W_r)` sum-texture is negative only near the origin (+4407 at (1.5, −0.8)): the product texture above is the correct witness. And the vacuum manifold is NOT one orbit: V = 0 fixes only the SPECTRUM of `eta.M`, so the manifold is a UNION of 4 disjoint Lorentz orbits labeled by which preferred eigenvalue (g, 1, delta, or 0) rides the timelike eigenvector (all four branch representatives measured V = 0 exactly). Whether the g-branch is the physical one everywhere, and whether domain walls between branches are meaningful objects, are further owner-intent questions.
 
-## 7. What is NOT affected: the entire 3D static sector
+![M5.18 phase A witnesses: the vacuum-manifold negative-energy texture (full period) and the 4-branch vacuum structure](../plots/m5_18_witness.png)
+
+Figure: (a) static energy density along the three textures (symlog): the shared-axis product texture (blue) is negative over its FULL rotation period at V ≤ 1e-24; the audit's sum-texture contrast (orange, dashed) flips sign; commuting planes (gray, dotted) sit exactly at zero. (b) the 4 vacuum branches all at V = 0 (fp floor on the log axis) vs the naive `diag(+g, 1, delta, 0)`, which is not a vacuum at all. Rendered by [`m5_18_plot.py`](../scripts/m5_18_plot.py) from the same construction as checks 4b/4c.
+
+## 7. What is NOT affected: the entire 3D static sector (and the potential, implemented)
 
 For every field in the M5.16/M5.17 class (time row uniform, zero time block in every `d_mu M`), the eta-commutator equals the plain commutator and the eta-contraction equals the plain Frobenius norm, term by term (machine check: 1.4e-14). The Coulomb lock `c2 = alpha hbar c / (64 pi)`, `r_half = 2.926 fm`, the two-charge curve, and the melt-channel measurement all carry over EXACTLY. The signature enters only when time derivatives or time-mixing textures do.
+
+The universal spectral potential itself was implemented and run on the calibrated static instrument the same day ([`m5_18_spectral.py`](../scripts/m5_18_spectral.py); full record [`m5_18_task_details.md`](../tasks/m5_18_task_details.md)):
+
+![M5.18 phase B: the spectral potential vs the quartic LdG on the calibrated instrument](../plots/m5_18_spectral.png)
+
+Figure: (a) at the calibrated scales the two potentials nearly coincide along the uniaxial melt path (spectral melt cost 2.17e-3 vs LdG 1.89e-3 per cell); (b) the relaxed hedgehog melt profiles coincide; (c) the electron-size prediction is potential-shape ROBUST: `r_half = 2.935 fm` h-converged (NR 64/96/128) vs the quartic-LdG 2.926 and Faber's 3.075. Consequences measured, not assumed: the biaxial `(1, delta, 0)` spectrum is pinned EXACTLY (the quartic could not), and the melt channel (hedgehog escape, antipair annihilation) SURVIVES the potential swap in both routes, so what holds point defects must be a gradient-order term (the chiral + Frank pair) or the clock dressing, not the potential shape.
 
 ## 8. THE EQUATION-TO-CODE MAP
 
 All in [`m5_18_lorentz_check.py`](../scripts/m5_18_lorentz_check.py) (checks run headless; JSON = [`m5_18_lorentz_check.json`](../data/m5_18_lorentz_check.json)):
 
-| Equation / claim (§ above) | Function / check | Line |
+| Equation / claim (§ above) | Function / check | Code |
 | --- | --- | --- |
-| `[A,B]_eta = A.eta.B − B.eta.A` (§ 1) | `comm_eta` | L79 |
-| internal raising `F_{ab}F^{ab}` (§ 1) | `inner_eta` | L87 |
-| `Tr_eta(M^p) = trace((eta.M)^p)` (§ 1) | `tr_eta_p` | L96 |
-| `V(M) = Σ_p (Tr_eta(M^p) − c_p)²` (§ 1) | `v_spec` | L100 |
-| `L = −Σ_{mu<nu} F F^{...}` with spacetime signs (§ 3) | `l_curv` | L109 |
-| `S_{mu nu}` per ordered pair (§ 3) | `s_munu` | L126 |
-| `H` claimed formula (§ 3) | `h_claim` | L137 |
-| random Lorentz `Lam = expm(eta.W)`, W antisym (§ 2) | `random_lorentz` | L141 |
-| tensor transformation law (§ 2) | `transform_derivs` | L148 |
-| invariance checks + negative control (§ 2) | main, checks 1/1b | L166 |
-| Legendre identity `H = L(Mdot) − 2L(0)` (§ 3) | main, check 2 | L187 |
-| primary constraint (§ 4) | main, check 3 | L211 |
-| covariant vacuum + witnesses A/contrast (§ 5, § 6) | main, check 4 | L221 |
-| vacuum-manifold product-texture negative density + audit contrasts (§ 6) | main, check 4b | L241 |
-| vacuum manifold = 4 disjoint orbit branches (§ 6) | main, check 4c | L295 |
-| slide ± expansion (§ 3) | main, check 5 | L305 |
-| static-sector blindness (§ 7) | main, check 6 | L316 |
+| `[A,B]_eta = A.eta.B − B.eta.A` (§ 1) | `comm_eta` | [`m5_18_lorentz_check.py:79`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L79) |
+| internal raising `F_{ab}F^{ab}` (§ 1) | `inner_eta` | [`m5_18_lorentz_check.py:87`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L87) |
+| `Tr_eta(M^p) = trace((eta.M)^p)` (§ 1) | `tr_eta_p` | [`m5_18_lorentz_check.py:96`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L96) |
+| `V(M) = Σ_p (Tr_eta(M^p) − c_p)²` (§ 1) | `v_spec` | [`m5_18_lorentz_check.py:100`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L100) |
+| `L = −Σ_{mu<nu} F F^{...}` with spacetime signs (§ 3) | `l_curv` | [`m5_18_lorentz_check.py:109`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L109) |
+| `S_{mu nu}` per ordered pair (§ 3) | `s_munu` | [`m5_18_lorentz_check.py:126`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L126) |
+| `H` claimed formula (§ 3) | `h_claim` | [`m5_18_lorentz_check.py:137`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L137) |
+| random Lorentz `Lam = expm(eta.W)`, W antisym (§ 2) | `random_lorentz` | [`m5_18_lorentz_check.py:141`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L141) |
+| tensor transformation law (§ 2) | `transform_derivs` | [`m5_18_lorentz_check.py:148`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L148) |
+| invariance checks + negative control (§ 2) | main, checks 1/1b | [`m5_18_lorentz_check.py:166`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L166) |
+| Legendre identity `H = L(Mdot) − 2L(0)` (§ 3) | main, check 2 | [`m5_18_lorentz_check.py:187`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L187) |
+| primary constraint (§ 4) | main, check 3 | [`m5_18_lorentz_check.py:211`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L211) |
+| covariant vacuum + witnesses A/contrast (§ 5, § 6) | main, check 4 | [`m5_18_lorentz_check.py:221`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L221) |
+| vacuum-manifold product-texture negative density + audit contrasts (§ 6) | main, check 4b | [`m5_18_lorentz_check.py:241`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L241) |
+| vacuum manifold = 4 disjoint orbit branches (§ 6) | main, check 4c | [`m5_18_lorentz_check.py:295`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L295) |
+| slide ± expansion (§ 3) | main, check 5 | [`m5_18_lorentz_check.py:305`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L305) |
+| static-sector blindness (§ 7) | main, check 6 | [`m5_18_lorentz_check.py:316`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py#L316) |
 
 ## 9. Not verified here (scope honesty)
 

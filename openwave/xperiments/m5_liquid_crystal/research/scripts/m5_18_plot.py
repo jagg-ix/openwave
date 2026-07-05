@@ -98,3 +98,87 @@ fig.tight_layout()
 path = os.path.join(PLOTS, "m5_18_spectral.png")
 fig.savefig(path, dpi=110)
 print(f"plot -> {path}")
+
+# ---------------------------------------------------------------------------
+# Figure 2: the phase-A indefiniteness witness + the vacuum-branch structure
+# (visualizes m5_18_lorentz_check.py checks 4b/4c; same construction inline)
+# ---------------------------------------------------------------------------
+from scipy.linalg import expm                                   # noqa: E402
+from m5_18_lorentz_check import ETA, h_claim, v_spec            # noqa: E402
+
+targets = (8.0, 1.0, 1e-3, 0.0)
+Mvac = ETA @ np.diag(targets)
+Wb = np.outer([1.0, 0, 0, 0], [0, 1.0, 0, 0])
+Wb = Wb - Wb.T
+Wr = np.outer([0, 1.0, 0, 0], [0, 0, 1.0, 0])
+Wr = Wr - Wr.T
+Wr23 = np.outer([0, 0, 1.0, 0], [0, 0, 0, 1.0])
+Wr23 = Wr23 - Wr23.T
+
+
+def texture_density(orbit, x1, x2, eps=1e-5):
+    d1 = (orbit(x1 + eps, x2) - orbit(x1 - eps, x2)) / (2 * eps)
+    d2 = (orbit(x1, x2 + eps) - orbit(x1, x2 - eps)) / (2 * eps)
+    D = [np.zeros((4, 4)), d1, d2, np.zeros((4, 4))]
+    M = orbit(x1, x2)
+    return h_claim(D, M, targets) - v_spec(M, targets), v_spec(M, targets)
+
+
+def mk_orbit(product, W2):
+    def orbit(x1, x2):
+        if product:
+            Lam = expm(x1 * ETA @ Wb) @ expm(x2 * ETA @ W2)
+        else:
+            Lam = expm(ETA @ (x1 * Wb + x2 * W2))
+        Li = np.linalg.inv(Lam)
+        return Li.T @ Mvac @ Li
+    return orbit
+
+
+x2s = np.linspace(0.0, 2 * np.pi, 61)
+prod = mk_orbit(True, Wr)
+summ = mk_orbit(False, Wr)
+comm = mk_orbit(True, Wr23)
+d_prod = [texture_density(prod, 0.0, x)[0] for x in x2s]
+v_prod = [texture_density(prod, 0.0, x)[1] for x in x2s]
+d_sum = [texture_density(summ, x * 0.25, x)[0] for x in x2s]   # diagonal path
+d_comm = [texture_density(comm, 0.0, x)[0] for x in x2s]
+
+fig2, bx = plt.subplots(1, 2, figsize=(11, 4.2))
+bx[0].plot(x2s, d_prod, color=BLUE, lw=2,
+           label="product texture (shared axis): NEGATIVE, full period")
+bx[0].plot(x2s, d_sum, color=ORANGE, lw=1.6, ls="--",
+           label="sum texture along a diagonal path: sign flips (audit)")
+bx[0].plot(x2s, d_comm, color=GRAY, lw=1.4, ls=":",
+           label="commuting planes (boost01 x rot23): exactly zero")
+bx[0].axhline(0.0, c="k", lw=0.8)
+bx[0].set_yscale("symlog", linthresh=10)
+bx[0].set_xlabel("rotation parameter x2 (radians)")
+bx[0].set_ylabel("static energy density  H (symlog)")
+bx[0].set_title("(a) vacuum-manifold textures: V = 0, H density < 0")
+bx[0].legend(fontsize=7.5)
+bx[0].text(0.03, 0.05, f"V along the product texture: max {max(v_prod):.1e}",
+           transform=bx[0].transAxes, fontsize=8, color=GRAY)
+
+labels = ["g timelike\n(the physical\nbranch)", "1 timelike", "delta timelike",
+          "0 timelike", "naive\ndiag(+g,1,d,0)"]
+tl = list(targets)
+vals = []
+for it_ in range(4):
+    rest = [tl[j] for j in range(4) if j != it_]
+    vals.append(v_spec(np.diag([-tl[it_]] + rest), targets))
+vals.append(v_spec(np.diag(targets), targets))
+cols = [BLUE] * 4 + [ORANGE]
+bx[1].bar(range(5), [max(v, 1e-30) for v in vals], color=cols)
+bx[1].set_yscale("log")
+bx[1].set_ylim(1e-32, 1e8)
+bx[1].set_xticks(range(5), labels, fontsize=7.5)
+bx[1].set_ylabel("V (log)")
+bx[1].set_title("(b) the vacuum manifold: 4 disjoint branches (V = 0 each);\n"
+                "the naive +g sign is NOT a vacuum")
+fig2.suptitle("M5.18 phase A: the Hamiltonian is indefinite on the vacuum "
+              "manifold itself (machine-checked witnesses)", fontweight="bold")
+fig2.tight_layout()
+path2 = os.path.join(PLOTS, "m5_18_witness.png")
+fig2.savefig(path2, dpi=110)
+print(f"plot -> {path2}")
