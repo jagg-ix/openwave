@@ -20,7 +20,7 @@
 | M7.9 | magnetic force | the per-defect magnetic structure carried by the electron's clock (Coulomb already landed in M7.4/M7.6) | magnetic force from the clock's `Γ₀` (pure twist is EM-silent; the M5 mechanism) |
 | M7.10 | gravity | the time-axis boost of the field (the M5 4×4 route) | a GEM coupling that vanishes at zero boost; honest pass / fail (Ouroboros stops before gravity, so this is genuinely hard for M7) |
 | M7.11 | nuclear forces | strong = the 4th-order short-range roll-off + linking tension; weak = a topology-reconnection (defect-class transition) | running-coupling onset at the core; a reconnection channel; partial, mirroring M5 |
-| M7.12 | antimatter + annihilation | seed a soliton + anti-soliton (`Q → −Q`); evolve | charge ledger `±1 → 0`; rest energy released as outgoing waves; pair → vacuum |
+| M7.12 | antimatter + annihilation | **pre-step = the Q14 vacuum-cure check (self-determine, 2026-07-05)**: linearize the vacuum WITH the scalar/Gauss sector (does it lift `det M(0) = −1`?) + test the variable-λ mass profile; then seed a soliton + anti-soliton (`Q → −Q`); evolve | Q14 answered or cured in-model (real-time runs blocked until then); charge ledger `±1 → 0`; rest energy released as outgoing waves; pair → vacuum |
 | M7.13 | the lepton + neutrino family | vary knot size / linking: charged = self-linked torus, neutrino = the lighter loop | the lepton mass family (μ, τ); light neutral neutrino loops; flavour-rotation mixing |
 | M7.14 | dark matter | the **neutral** knot (helicity-only, zero net `∇·F`), inheriting M6's neutral chaoiton | a stable neutral soliton; sub-MeV mass à la M6's `m_χ = 0.460 MeV` |
 

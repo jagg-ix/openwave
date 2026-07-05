@@ -14,15 +14,17 @@ Whether you're fixing a typo, adding a feature, or reporting a bug, your help ma
 
 - Be respectful and constructive.
 - Follow the [OpenWave Code of Conduct](./CODE_OF_CONDUCT.md).
-- Ask questions — we’re here to help each other.
+- Ask questions, we’re here to help each other.
 - Read this Contribution Guide
+- Contributing with AI assistance (most of us do)? Read [`AI_HYGIENE.md`](AI_HYGIENE.md) first: the dos, don'ts, and verification habits that keep every claim script-backed and human-owned
 
 See `/dev_docs` for coding standards and development guidelines
 
 - [Coding Standards](dev_docs/CODING_STANDARDS.md)
 - [Performance Guidelines](dev_docs/PERFORMANCE_GUIDELINES.md)
 - [Loop Optimization Patterns](dev_docs/LOOP_OPTIMIZATION.md)
-- [Markdown Style Guide](dev_docs/MARKDOWN_STYLE_GUIDE.md)  
+- [Markdown Style Guide](dev_docs/MARKDOWN_STYLE_GUIDE.md)
+- [AI Hygiene](AI_HYGIENE.md): working with automated intelligence, the dos, don'ts, and verification habits that keep the science human-owned  
 
 *This is the Way!*
 

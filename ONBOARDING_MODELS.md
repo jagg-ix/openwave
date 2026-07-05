@@ -251,6 +251,8 @@ A model that survives a genuine hostile pass is ready. One that has only been re
 
 These tasks (independent reproduction, parameter counting, adversarial review) are well suited to an AI coding agent, with one firm rule: **the agent must show its work, the script and the numbers, never a verdict alone.** Language models will happily assert agreement that does not exist, so every claim it makes must be backed by a runnable artifact you can re-run.
 
+Before doing any AI-assisted model work here, read the repo-wide contract: [`AI_HYGIENE.md`](AI_HYGIENE.md) (the dos, don'ts, failure modes, and verification habits that keep the science human-owned). This section is the model-onboarding application of that page.
+
 Useful agent roles (run them as separate, non-colluding passes):
 
 | Agent role | Prompt it to | Guardrail |
