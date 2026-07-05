@@ -41,7 +41,7 @@ Runtime 566 s; the physics now lives in ONE ~200-line module whose docstring car
 
 ### 2. The 21-cell column: STAGED as a preview (the milestone, revised at review)
 
-The **HydroBoros (M7)** column was drafted in full (**0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**; no icon inflation: every ⚠️ carries its named caveat: windowed ledger Q11, real-time tachyon Q14, fixed-reservoir monopole, charge-unit-blocked μ, the open units contract) and, **per the review decision (2026-07-04), staged in [`../preview_models.md`](../preview_models.md) instead of entering MODELS.md now**: the research program is still in flight and not yet ready for the cross-model benchmark. MODELS.md stays untouched; the column enters via the governance flow (issue + script-backed PR) at the M7.14 readiness call, where it would currently rank fourth (8, tied with M4). The briefing graduated from pre-implementation to Phase-A-complete-with-staged-preview. The units-contract decision table (ℏ/2 vs ℏ ↔ ω_C vs ω_D) is in [`../m7_theory_canonical.md § 4`](../m7_theory_canonical.md) with the Zitter-mapping recommendation on record, decision = user's call.
+The **HydroBoros (M7)** column was drafted in full (**0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**; no icon inflation: every ⚠️ carries its named caveat: windowed ledger Q11, real-time tachyon Q14, fixed-reservoir monopole, charge-unit-blocked μ, the open units contract) and, **per the review decision (2026-07-04), staged in [`../preview_models.md`](../preview_models.md) instead of entering MODELS.md now**: the research program is still in flight and not yet ready for the cross-model benchmark. MODELS.md stays untouched; the column enters via the governance flow (issue + script-backed PR) at the M7.15 readiness call, where it would currently rank fourth (8, tied with M4). The briefing graduated from pre-implementation to Phase-A-complete-with-staged-preview. The units-contract decision table (ℏ/2 vs ℏ ↔ ω_C vs ω_D) is in [`../m7_theory_canonical.md § 4`](../m7_theory_canonical.md) with the Zitter-mapping recommendation on record, decision = user's call.
 
 ### 3. The comms packages (content bullets; Rodrigo phrases everything)
 
@@ -67,9 +67,9 @@ The **HydroBoros (M7)** column was drafted in full (**0 ✅ / 8 ⚠️ / 0 ❌ /
 
 Both packages follow [`METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md) (equations first; the equation-to-code map gets commit-pinned permalinks once the milestone commit lands; ≤4 artifacts each: the spec, the module, the canonical script, the relevant plot).
 
-### 4. Governance (deferred with the column; issue text drafted for the M7.14 entry)
+### 4. Governance (deferred with the column; issue text drafted for the M7.15 entry)
 
-Draft title: `New model column: HydroBoros (M7), toroidal-Beltrami electron on the Ouroboros doublet`. Draft body bullets: what M7 is (two named parents, credited per cell); Phase A complete with the one-script reproduction (`m7_7_canonical.py`, all gates first-try, engine-vs-reference 1.4e-14); the column enters at its then-current icons with named caveats (honest-icons rule); deep links (canonical spec, preview, roadmap, tracker). Per [`MODELS.md § Contributing`](../../../../../MODELS.md): issue first, then the script-backed PR with DCO. **Per the review decision the whole entry is deferred to M7.14**; until then the column lives in [`../preview_models.md`](../preview_models.md) and MODELS.md is untouched.
+Draft title: `New model column: HydroBoros (M7), toroidal-Beltrami electron on the Ouroboros doublet`. Draft body bullets: what M7 is (two named parents, credited per cell); Phase A complete with the one-script reproduction (`m7_7_canonical.py`, all gates first-try, engine-vs-reference 1.4e-14); the column enters at its then-current icons with named caveats (honest-icons rule); deep links (canonical spec, preview, roadmap, tracker). Per [`MODELS.md § Contributing`](../../../../../MODELS.md): issue first, then the script-backed PR with DCO. **Per the review decision the whole entry is deferred to M7.15**; until then the column lives in [`../preview_models.md`](../preview_models.md) and MODELS.md is untouched.
 
 ---
 
@@ -89,8 +89,8 @@ Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.7, Phase D) · up
 | one runnable canonical script, first-try | ✅ ALL GATES PASS at BOTH N = 64 (E = 6.32462, 566 s) and N = 48 (201 s) |
 | METHOD_NOTE enforced structurally | ✅ physics in ONE ~200-line module; driver physics-free; **engine-vs-reference cross-validation 1.4e-14 / 4.9e-15** as a first-class gate |
 | canonical spec | ✅ [`m7_theory_canonical.md`](../m7_theory_canonical.md): equations first, provenance-pinned conventions, equation-to-code map, units-contract decision table, not-computed list |
-| the 21-cell column | ✅ drafted at 0 ✅ / 8 ⚠️ / 13 🚧 (named caveats) and **STAGED in [`preview_models.md`](../preview_models.md)** per the review decision: MODELS.md untouched, benchmark entry deferred to M7.14 |
-| comms packages | ✅ content bullets ready (W: Q14-led · M: Q7-led, § 3); governance issue text drafted for the M7.14 entry |
+| the 21-cell column | ✅ drafted at 0 ✅ / 8 ⚠️ / 13 🚧 (named caveats) and **STAGED in [`preview_models.md`](../preview_models.md)** per the review decision: MODELS.md untouched, benchmark entry deferred to M7.15 |
+| comms packages | ✅ content bullets ready (W: Q14-led · M: Q7-led, § 3); governance issue text drafted for the M7.15 entry |
 
 **Issues / blockers:** none; permalink pinning follows Rodrigo's commit; no >1MB data created.
 

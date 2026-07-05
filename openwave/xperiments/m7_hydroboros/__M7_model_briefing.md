@@ -8,7 +8,7 @@
 > [`research/m7_theory_canonical.md`](research/m7_theory_canonical.md) and the 21-cell
 > column is STAGED as a preview in
 > [`research/preview_models.md`](research/preview_models.md); it enters the
-> [`MODELS.md`](../../../MODELS.md) benchmark via governance when the research matures (M7.14).
+> [`MODELS.md`](../../../MODELS.md) benchmark via governance when the research matures (M7.15).
 
 ## Identity
 
@@ -45,12 +45,12 @@ topological vortex).
 | Coulomb | two charge configs → read the `1/r` interaction energy `E(d)` | M7.4 (single-charge `1/r`) + M7.6 (two-charge `E(d) ~ 1/d`) |
 | Clock | the de Broglie frequency = the energy-minimizing one | M7.5 (= the M5.8 mechanism) |
 
-Other particles ride the same substrate later: the neutral knot = dark matter (M7.13), the
-lepton / neutrino family (M7.12), quarks / baryons / mesons (M7.15).
+Other particles ride the same substrate later: the neutral knot = dark matter (M7.14), the
+lepton / neutrino family (M7.13), quarks / baryons / mesons (M7.16).
 
 ## Implementation Status
 
-**Phase 1 complete (M7.0-M7.7, 2026-07-04); the 21-cell column is STAGED as a preview in [`research/preview_models.md`](research/preview_models.md)** (0 ✅ / 8 ⚠️ / 13 🚧, honest icons; MODELS.md entry deferred to the M7.14 governance step, the research is still maturing). Both parents
+**Phase 1 complete (M7.0-M7.7, 2026-07-04); the 21-cell column is STAGED as a preview in [`research/preview_models.md`](research/preview_models.md)** (0 ✅ / 8 ⚠️ / 13 🚧, honest icons; MODELS.md entry deferred to the M7.15 governance step, the research is still maturing). Both parents
 reproduced from one lattice code (Fleury's torus at 1.4e-4, M7.2; M6's charged `H/Q` in
 full 3D at 4.7e-5, M7.3), then the new physics earned: the first stable finite-size 3D
 soliton family (Taylor-dressed, `E = 0.802\|H_A\|`, M7.4), the vacuum-tachyon discovery +
@@ -69,16 +69,16 @@ Five phases, M7.0 → M7.17 (full detail in [`research/m7_roadmap.md`](research/
 | Phase | Tasks | What lands |
 | --- | --- | --- |
 | 1 , electron + the column ✅ DONE | M7.0-M7.7 | bootstrap → infra → reproduce Fleury → reproduce M6 in 3D → charged soliton (the new physics) + Coulomb → clock + stability → observables → consolidate (milestone; column staged in [`research/preview_models.md`](research/preview_models.md)) |
-| 2 , forces + sectors | M7.17 + M7.8-M7.13 | the helicity-pair 3:1 test (Fleury closure notes, 2026-07-05), magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
-| 3 , MODELS.md publication | M7.14 | publish + govern the 21-cell HydroBoros column (benchmark entry) |
-| 4 , composites | M7.15 | quarks, baryons, mesons, orbital quantization |
-| 5 , production | M7.16 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
+| 2 , forces + sectors | M7.8-M7.14 | the helicity-pair 3:1 test (Fleury closure notes, 2026-07-05), magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
+| 3 , MODELS.md publication | M7.15 | publish + govern the 21-cell HydroBoros column (benchmark entry) |
+| 4 , composites | M7.16 | quarks, baryons, mesons, orbital quantization |
+| 5 , production | M7.17 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
 
 Open questions Q1-Q15 (priority-sorted in the tracker; the table doubles as the ask list for the
 collaborator calls): the charge-carrying construction (Q7, now a tail-matching + tail-quantization
 program per the 2026-07-05 Fleury notes), the two charges (Q3, measured independent at M7.4; the
 tail-quantization conjecture is the slaving candidate), the units contract (Q15, Case-B vs Zitter
-pinning: the M7.17 lattice test), substrate + target manifold (Q1), source-material logistics (Q4),
+pinning: the M7.8 lattice test), substrate + target manifold (Q1), source-material logistics (Q4),
 the vacuum tachyon (Q14, the top Werbos ask), the windowed charged calibration (Q11), chaoiton 3D
 stability (Q13), ODE provenance (Q12), and the v5 calibration dictionary (Q9). Resolved so far:
 Q8, Q2, Q5, Q6, and Q10 (the FLDB energy convention, author-confirmed 2026-07-04).
@@ -97,7 +97,7 @@ hydrodynamics / Beltrami and toroidal-electron communities.
 
 Flow: open an issue or discussion → fork → branch → PR with a DCO sign-off
 (`git commit -s`), under Apache 2.0. New-model governance: open an issue first so a
-maintainer adds the column at the M7.14 publication milestone (Phase 3). See
+maintainer adds the column at the M7.15 publication milestone (Phase 3). See
 [`../../../MODELS.md`](../../../MODELS.md) § Contributing,
 [`../../../ONBOARDING_MODELS.md`](../../../ONBOARDING_MODELS.md),
 [`../../../CONTRIBUTING.md`](../../../CONTRIBUTING.md). Model discussion runs in the

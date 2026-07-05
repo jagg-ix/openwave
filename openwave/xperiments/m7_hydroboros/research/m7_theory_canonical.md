@@ -88,7 +88,7 @@ Recommendation on record: the Dirac/Zitter mapping (bilinears oscillate at 2ω, 
 
 | Limit | Status |
 | --- | --- |
-| the real-time vacuum is tachyonic (`det M(0) = −1`, band `k² < 0.618`; NO `β*` threshold) | measured + analytic (M7.5); **Q14**, the top theory question to Werbos; harmonic states above ω\* are immune; blocks M7.11-style real-time runs |
+| the real-time vacuum is tachyonic (`det M(0) = −1`, band `k² < 0.618`; NO `β*` threshold) | measured + analytic (M7.5); **Q14**, the top theory question to Werbos; harmonic states above ω\* are immune; blocks M7.12-style real-time runs |
 | the self-consistent charge (dynamic `j₀`) | not computed; the fixed-reservoir prescription is the validated stand-in (M7.6); Q7(b)/Q14 |
 | absolute `μ` / `μ_B(1+α/2π)` | charge-unit-blocked (needs the monopole unit); de-phased `μ_J = 36.5 p.u.` on record |
 | the M6 charged ledger `H/Q = 1.6890` | reproduced in 3D to 4.7e-5 but **window-defined** (no decaying channel at the canonical point; Q11): not used as a mass anchor |
