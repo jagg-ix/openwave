@@ -1,0 +1,137 @@
+# AI Hygiene: Working with Automated Intelligence in OpenWave
+
+> OpenWave is an AI-accelerated research platform: language-model assistants write lattice code, scan literature, check derivations, run parameter sweeps, and draft internal documentation. That leverage is real, and so are the failure modes. This page is the working contract that keeps the science **human-owned** and the record **trustworthy**: what AI is for here, what it must never be trusted with alone, and the concrete habits that keep model-generated errors out of the physics record.
+>
+> It is tool-agnostic (it applies to any assistant, chatbot, coding agent, or pipeline) and person-agnostic (it describes practices, not people). If you contribute to OpenWave with AI assistance, and most contributors do, this is the etiquette.
+
+## Contents
+
+| Section | What it covers |
+| --- | --- |
+| [1. The stance](#1-the-stance) | one paragraph: instruments vs authors |
+| [2. Do / Don't quick reference](#2-do--dont-quick-reference) | the rules at a glance |
+| [3. Division of labor](#3-division-of-labor) | what models do well vs what only humans can supply |
+| [4. Failure modes](#4-failure-modes) | the six ways AI quietly corrupts a research record |
+| [5. Safeguards already in force](#5-safeguards-already-in-force) | repo standards that operationalize this page |
+| [Details](#failure-mode-details) | anchored deep dives, one per failure mode, at the doc tail |
+
+## 1. The stance
+
+AI is an **instrument**, like the lattice itself: it multiplies throughput and it measures nothing on its own authority. Humans are the **authors**: every physics claim published from this repo is owned by a person who can defend it without the assistant in the room. The practical consequence is a single rule that generates most of the others:
+
+> **A model's output is a draft or a hypothesis, never a result. It becomes a result only when it is verified by something that is not a language model: a derivation checked by hand, a script anyone can run, a measurement on the lattice, or the explicit confirmation of the human who holds the relevant authority.**
+
+## 2. Do / Don't quick reference
+
+| ✅ Do | ❌ Don't |
+| --- | --- |
+| Ground the assistant in the **full repo** (code, docs, source papers) before asking it research questions | Ask a context-free chatbot to answer research questions from a summary or an email thread ([why](#context-asymmetry-detail)) |
+| Treat AI-derived derivations as **evidence to verify**: re-derive by hand, or test on the lattice | Treat fluent, confident output as settled ([why](#hallucination-detail)) |
+| Answer **intent and provenance** questions from your own memory, notes, or records | Let a model answer "what did the author mean" on anyone's behalf, including your own past self ([why](#authority-laundering-detail)) |
+| Prefer questions a model can fail at: "derive X and show the steps", "find the sign error" | Ask questions that only mirror your own framing back ("is my idea good?") ([why](#mirror-trap-detail)) |
+| When relaying a collaborator's question to an assistant, send the **underlying artifacts** (papers, scripts, data) | Chain model outputs into other models as if information were being added ([why](#relay-drift-detail)) |
+| Publish only **human-owned, script-backed** claims; disclose AI assistance where venues ask | Post model-generated physics text to research venues, preprint servers, or mailing lists as if human-authored ([why](#publication-slop-detail)) |
+| Write outbound scientific communication in your **own voice**; use AI for checking and organizing | Send collaborators raw model output as your reply |
+| Record AI-assisted findings with their verification status attached ("re-derived by hand", "confirmed by script X") | Let unverified model text age into the record until it reads like an established result |
+
+## 3. Division of labor
+
+The split is by **kind of knowledge**, not by difficulty. Models are strong wherever the ground truth is already written down somewhere or can be computed; humans are irreplaceable wherever the ground truth lives in a person.
+
+| Models do this well (let them do the heavy lifting) | Only a human can do this |
+| --- | --- |
+| Symbolic derivation checking, algebra verification, dimensional analysis | **State intent**: which equation, convention, or ansatz an author actually meant |
+| Writing and refactoring lattice / analysis code; building test suites | **Hold provenance**: where a number came from, what a past document was based on |
+| Exhaustive reduction scans ("try all six ansaetze × both conventions") | **Exercise physical intuition**: which direction smells right before any computation exists |
+| Literature triage, citation gathering, cross-referencing a large corpus | **Own a theory**: extend, retract, or re-postulate its assumptions with authority |
+| Drafting internal docs, reports, and reproducible method notes | **Endorse**: put a name behind a claim to the community |
+| Bookkeeping: trackers, cross-links, changelogs, consistency sweeps | **Decide priorities**: what is worth measuring next and what the program is for |
+| Finding sign errors, dropped factors, and convention mismatches in published algebra | **Confirm a bug in one's own work** (a model can flag it; only the author can confirm it) |
+
+Two consequences worth making explicit:
+
+1. **Author-gated questions stay author-gated.** If a question is of the form "which form did you intend", "is this the number you meant to publish", "how do your variables map to ours", no model output can close it. Route such questions to the person, keep them as small as possible (one item per ask), and mark them unresolved until the person answers.
+2. **Measurable questions should be measured, not asked.** If a question can be settled by a computation or a lattice run you can do yourself, do that and share the result. It is faster, it is verifiable by anyone, and it converts a request for someone's time into a gift of information.
+
+## 4. Failure modes
+
+Six patterns account for most AI damage to research records. Lean table here; mechanics, symptoms, and countermeasures in the [anchored details](#failure-mode-details).
+
+| # | Failure mode | One line | Detail |
+| --- | --- | --- | --- |
+| 1 | Hallucination | fluent, confident, wrong; worst on exactly the questions you cannot check by eye | [§ detail](#hallucination-detail) |
+| 2 | Context asymmetry | a model with a 500-word prompt fabricates the missing 500 pages | [§ detail](#context-asymmetry-detail) |
+| 3 | The mirror trap | the "answer" is your own question paraphrased back with authority | [§ detail](#mirror-trap-detail) |
+| 4 | Authority laundering | model text acquires the standing of the human who forwards it | [§ detail](#authority-laundering-detail) |
+| 5 | Relay drift | AI-to-AI chains lose information at every hop while gaining confidence | [§ detail](#relay-drift-detail) |
+| 6 | Publication slop | unverified model text leaking into venues, polluting the commons and the author's credibility | [§ detail](#publication-slop-detail) |
+
+## 5. Safeguards already in force
+
+These repo standards exist precisely to make AI-assisted research auditable. Use them; they are the difference between "an AI said so" and "anyone can check".
+
+| Safeguard | Where | What it does |
+| --- | --- | --- |
+| Method notes: equations first, commit-pinned equation-to-code map, small auditable physics module, explicit not-computed list | [`dev_docs/METHOD_NOTE.md`](dev_docs/METHOD_NOTE.md) | makes every reported result legible and checkable by a human in minutes, without trusting the pipeline that produced it |
+| Script-backed claims with honest status icons (✅ ⚠️ ❌ 🔶 🚧); negatives are results | [`MODELS.md`](MODELS.md) | no cell in the coverage matrix rests on prose; every claim links to something runnable |
+| One-script reproduction | per-model `research/scripts/` | a single command re-earns the headline numbers on any machine |
+| Question trackers with stable IDs, provenance, and resolution history | per-model `research/*question_tracker.md` | separates measured facts, author-gated asks, and self-determinable questions; records who resolved what, how, and when |
+| Staged previews before benchmark entry | per-model research folders → [`MODELS.md`](MODELS.md) governance | results marinate in a preview until mature; nothing lands in the shared benchmark on model output alone |
+| Independent re-derivation on receipt | working practice | externally received derivations (however produced) get re-derived by hand or by an independent method before anything downstream depends on them |
+| Cross-formalism replication | working practice | the strongest check available here: an analytic prediction tested by a full-lattice measurement that never saw it, or vice versa |
+
+## Failure-mode details
+
+> The lean table in [§ 4](#4-failure-modes) links here. Each entry: mechanism, the symptom to watch for, and the countermeasure.
+
+### Hallucination detail
+
+**Mechanism.** A language model always produces the most plausible continuation, whether or not it knows the answer; uncertainty does not reliably surface as hedging. The output is most dangerous exactly where your own checking is weakest, because plausibility is calibrated to *you*.
+
+**Symptom.** Confident specifics you did not provide and cannot trace: a "known" theorem with no citation that survives scrutiny, a sign convention asserted rather than derived, a number with no script behind it.
+
+**Countermeasure.** Never accept a physics statement on fluency. Demand one of: the derivation with steps you re-check by hand, a runnable script, a lattice measurement, or a primary-source citation you open. Note the useful asymmetry: verification is much cheaper than generation, so AI-drafted math plus human verification is a genuinely fast loop. The failure is skipping the second half. A practical classifier: if the claim could not have been *computed* from what the model was given, it was *composed*; treat it accordingly.
+
+### Context-asymmetry detail
+
+**Mechanism.** Model quality is roughly proportional to grounding. An assistant working over the full repo (every script, every task doc, every source paper) is interpolating dense, checkable material. A chat window holding a two-paragraph summary of the same program has almost nothing to interpolate, so it fills the gaps from its training prior, which knows nothing about this codebase's conventions, pinned signs, or measured numbers.
+
+**Symptom.** Advice that is generically reasonable but locally wrong: it renames your quantities, invents parameter meanings, blends your model with famous cousins from the literature, or "corrects" a convention that was pinned deliberately.
+
+**Countermeasure.** Ground before asking. Inside this repo, that means running assistants over the working tree, not over a paste. When a question involves someone else's theory, get the underlying artifacts (the paper, the notebook, the scan data) into context before asking anything; if you cannot, downgrade every answer to "unverified guess" regardless of how it reads. And when *sending* questions out, remember the recipient's assistant faces the same physics: an email summary is a starvation diet, so link the full material.
+
+### Mirror-trap detail
+
+**Mechanism.** Models are agreement machines with strong instruction-following. Ask "could X cure Y?" and you will get an articulate essay on how X cures Y. If your question enumerates candidate answers, the reply will usually pick one of *your* candidates and argue for it. No new information entered; your own framing came back wearing a lab coat.
+
+**Symptom.** The tell is information provenance: strip the reply of everything you already knew and see what is left. If the residue is style, you were talking to a mirror. A second tell: the reply endorses your framing without once pushing back on a premise, tightening a definition, or asking for a missing quantity.
+
+**Countermeasure.** Ask questions that can *fail*: "derive the dispersion relation and show the steps", "find the error in this algebra", "compute the number and compare to the measured value". Falsifiable tasks break the mirror because the model must produce something checkable rather than something agreeable. For open design questions, ask for the strongest case *against* your favored option, and require every claim to cite a file, an equation, or a run you can open.
+
+### Authority-laundering detail
+
+**Mechanism.** When a person forwards model text, or answers through a model, the text silently inherits that person's authority. The failure is sharpest on **intent and provenance questions**: "which convention did you intend", "is this figure the one you meant to publish". A model answering these is not uncertain; it is *structurally incapable*, because the ground truth is a fact about a person's mind and records, not about the world. Whatever it outputs is fabricated authority, and it can point in exactly the wrong direction while sounding like a confirmation.
+
+**Symptom.** An "author confirmation" that arrives without the author's reasoning, contradicts the author's own written text, or resolves in a direction the surrounding evidence does not support. Also: replies whose voice does not match the person, or that discuss the person in the third person.
+
+**Countermeasure.** Two-sided discipline. Receiving: weigh a message by who actually produced its content, not who clicked send; record author-gated questions as open until the *human* answers, however many fluent replies arrive. Sending: never let a model speak for you on intent, endorsement, or anything a collaborator will rely on as *your* position; use assistants to check and organize your reply, then write it yourself. In trackers, tag externally received AI-derived material as *evidence, not resolution* until confirmed by the author or by measurement.
+
+### Relay-drift detail
+
+**Mechanism.** Human A asks a question; human B pastes it into a chatbot; the chatbot's answer is pasted back to A, whose own assistant then processes it. Each hop is a lossy paraphrase performed by a system optimizing for coherence, not fidelity. Errors introduced at any hop are laundered into fluent text and become invisible; meanwhile no hop added grounding, so the chain's information content can only decrease while its confidence increases.
+
+**Symptom.** Replies that drift off your terminology into a neighboring literature; enthusiasm disproportionate to content; injected pet topics from an unrelated conversation; strategy language ("this is a strong position") where physics was requested; answers to questions nobody asked.
+
+**Countermeasure.** Keep exactly **one** model-inference step between grounded humans, and ground that step in artifacts, not summaries. The pattern that works: a human writes from their own mind, and an assistant with full repo context organizes, checks, and cross-links it. The pattern that fails: two assistants exchanging each other's outputs with humans as couriers. If a collaborator's reply is visibly machine-relayed, do not argue with the relay; extract any checkable claims, verify them independently, and route the human-only questions back to the human, smaller.
+
+### Publication-slop detail
+
+**Mechanism.** Generating plausible scientific text is now nearly free, so unverified AI prose accumulates wherever posting is cheap: preprint commons, mailing lists, comment threads. Each individual piece looks harmless; in aggregate it buries signal, erodes trust in honest AI-assisted work, and permanently marks authors who are caught passing composition off as research.
+
+**Symptom (in your own work).** A paragraph you cannot defend line by line without the assistant; a derivation in your name you never re-derived; a claim whose only provenance is "the model was confident".
+
+**Countermeasure.** OpenWave's bar for anything public, in rising order of strictness: internal docs may be AI-drafted freely (they are verified by use and by review); repository claims must be script-backed with honest icons; benchmark entries go through staged preview plus governance; anything aimed at the research community (papers, preprints, mailing lists, collaborator reports) must be **human-owned prose over verified results**, with AI assistance disclosed where the venue expects it, and formatted for auditability per [`dev_docs/METHOD_NOTE.md`](dev_docs/METHOD_NOTE.md). The test is simple: if the assistant vanished tomorrow, you could still defend every published sentence, because you verified each one while writing it.
+
+---
+
+Cross-refs: [`CONTRIBUTING.md`](CONTRIBUTING.md) (contribution flow + DCO) · [`dev_docs/METHOD_NOTE.md`](dev_docs/METHOD_NOTE.md) (the reporting standard this page leans on) · [`MODELS.md`](MODELS.md) (script-backed coverage matrix + governance) · [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).

@@ -79,8 +79,9 @@ collaborator calls): the charge-carrying construction (Q7, now a tail-matching +
 program per the 2026-07-05 Fleury notes), the two charges (Q3, measured independent at M7.4; the
 tail-quantization conjecture is the slaving candidate), the units contract (Q15, Case-B vs Zitter
 pinning: the M7.8 lattice test), substrate + target manifold (Q1), source-material logistics (Q4),
-the vacuum tachyon (Q14, the top Werbos ask), the windowed charged calibration (Q11), chaoiton 3D
-stability (Q13), ODE provenance (Q12), and the v5 calibration dictionary (Q9). Resolved so far:
+the vacuum tachyon (Q14, the top theory question, self-determined in Phase 2), the windowed charged
+calibration (Q11, self-determine), chaoiton 3D stability (Q13, self-determine), ODE provenance
+(Q12), and the v5 calibration dictionary (Q9). Resolved so far:
 Q8, Q2, Q5, Q6, and Q10 (the FLDB energy convention, author-confirmed 2026-07-04).
 
 ## Help Wanted
