@@ -31,3 +31,48 @@ Q13 (chiral Lifshitz + Frank), Q14 (what holds the hedgehog / the pairs), Q15 (s
 - Consumer of items 4-5: [`m5_12_task_details.md`](m5_12_task_details.md) § 2026-07-05 spec update (phase D)
 - Consumer of items 4, 6: [`../m5_question_tracker.md`](../m5_question_tracker.md) Q15 + Q17 details
 - Predecessor exchanges: [`m5_4h_convo_2026.07.03.md`](m5_4h_convo_2026.07.03.md), [`m5_4i_convo_2026.07.04.md`](m5_4i_convo_2026.07.04.md)
+
+## 2026-07-05: Duda's second reply (the universal potential + the 4D Lagrangian + the Fable5 verification ask)
+
+Duda's 2026-07-05 12:24 reply, the biggest content drop of the ask round: a practical ANSWER to Q15, the explicit 4D Lorentz-invariant Lagrangian (attached as an equation slide), a derivation request addressed to the agent BY NAME, and two questions back at us about the M5.17 two-charge run. Response task: **[M5.18](m5_18_task_details.md)** (opened same day; gates M5.12).
+
+### 1. The reply verbatim (the load-bearing lines)
+
+| Topic | Verbatim |
+| --- | --- |
+| 4D signature | "While in 3D it is standard Landau-de Gennes, in 4D for Lorentz invariance we need to include eta = diag(-1,1,1,1) signature everywhere e.g. shifting indexes up/down, also in Frobenius norm ... Where commutator also hides change of indexes, so I use [A,B] = A.eta.B - B.eta.A" |
+| The delegation | "But maybe Fable5 could verify that this Lagrangian is Lorentz-invariant, and derived from it Hamiltonian is right (by Legendre transform)? **I think it is, but nobody else has checked it. Should be used if it is right.**" |
+| The potential | "Regarding potential, there is assumed original LdG, but its generalization to 4D is far nontrivial. While there is freedom to choose this potential, one practical universal way is: V(M) = sum_p (Tr(M^p)-c_p)^2 for c_p = sum_i (Lambda_i)^p and Lambda are the preferred eigenvalues: (1,delta,0) in 3D, (g,1,delta,0) in 4D for full model, can use delta=0 for uniaxial approximation without QM." |
+| Back-questions | "I see the code uses uniaxial hedgehog ansatz, which works only for delta=0. The diagram writes 'fixed ansatz' - does it mean without energy optimization? For continuos case it would mean infinite energy, but for lattice it can finite - if singularity is not in a lattice point." |
+
+### 2. The attached equation slide (transcribed)
+
+```text
+L = - SUM_{alpha beta mu nu}  F_{mu nu alpha beta} F^{mu nu alpha beta}  -  V(M)
+        (EM-like)                                      (Higgs-like)         vacuum: V(M) = 0
+
+for  F_{mu nu alpha beta} = [ d_mu M , d_nu M ]_{alpha beta}     (G, hbar weighted curvature)
+
+H = SUM_{0 <= mu < nu <= 3}  F_{mu nu alpha beta} F_{mu nu}^{alpha beta}  +  V(M)
+
+  = 2 SUM_{0 <= mu < nu <= 3} (  SUM_{1 <= alpha < beta <= 3} (F_{mu nu alpha beta})^2   [+, red box]
+                               -  SUM_{alpha = 1..3} (F_{mu nu alpha 0})^2  )             [-, blue box]
+    + V(M)
+```
+
+All index raising through `eta = diag(-1,1,1,1)`, including inside the Frobenius norm; the commutator is `[A,B] = A.eta.B - B.eta.A`. He BOXES the negative internal-time contributions himself: H is INDEFINITE as written (the boundedness question is part of the verification). Slide file: intended for `../../theory/` alongside his 2026-07-01 slide, but the attachment file vanished before archiving; re-save from the Gmail thread when convenient (transcription above is complete).
+
+### 3. What it settles / opens
+
+| # | Item | Consequence + routing |
+| --- | --- | --- |
+| 1 | **Q15 ANSWERED (practically)**: the universal spectral potential `V(M) = Σ_p (Tr(M^p) − c_p)²`, `c_p = Σ_i Λ_i^p`, targets `(1, δ, 0)` in 3D and `(g, 1, δ, 0)` in 4D | Sum-of-squares, exactly zero at the target spectrum: pins the biaxial vacuum EXACTLY (what the quartic LdG provably could not). IS the higher-invariants answer (degree 6 in 3D, degree 8 in 4D). SUPERSEDES the quartic `(a,b,c)` instrument; β = b/c dissolves (only an overall scale remains → better predictivity). Routed: Q15 detail (answered-with-residual), M5.18 phase B |
+| 2 | **δ ↔ QM tie, first explicit**: "can use delta=0 for uniaxial approximation **without QM**" | The δ eigenvalue carries the quantum sector in his mapping (consistent with tracker Q6's `delta = QM` row); log for the dynamical-δ question inside Q15's residual |
+| 3 | **The 4D Lagrangian delivered + verification DELEGATED to Fable5** ("nobody else has checked it. Should be used if it is right") | New owner-requested task = **M5.18 phase A**: prove/refute Lorentz invariance of L, re-derive H by Legendre transform (mind the field-dependent, possibly degenerate kinetic form: constraint structure), and address boundedness (his own blue-boxed negative terms). First-pass check (this session): the naive Legendre of `L = Σ_{0i}‖F_{0i}‖² − Σ_{ij}‖F_{ij}‖²` does give his `H = Σ_{all μ<ν} + V`, so the formula looks right formally; the careful derivation is the deliverable |
+| 4 | **Q14 becomes computable**: melt (M → 0) under the new potential costs `V(0) = Σ_p c_p²` per cell (vs the quartic's tiny `c − b/2`) | Whether the melt channel CLOSES is now a measurement, not an ask: **M5.18 phase B** re-runs the melt-cost + two-charge relax analysis on the new potential |
+| 5 | **Q17 restructured**: the β slot dissolves with the potential swap; g now enters through the `c_p` spectrum targets | The remaining anchors: the g VALUE and the overall energy scale (m_e anchor as before). Routed: Q17 detail |
+| 6 | **His back-questions on the two-charge diagram** (fixed ansatz = no optimization? finite only on the lattice?) | Answer in the NEXT EMAIL, folded with the M5.18 deliverable: yes, "fixed" = seed evaluated without relaxation (the relaxed curves are the other panel: annihilation / melt-line restructuring); energy is finite even in the continuum because the melt core `s(r) = 1 − exp(−(r/r_c)²)` regularizes the center (methods note § 6 seeds; his own regularization slot), and separately the cell-centered grid never samples the singular point. His "uniaxial hedgehog works only for delta=0" matches our quasi-uniaxial `δ ~ 1e-10` regime (note § 1: spectrum `s·(1, δ, 0)`) |
+
+### 4. What stays pending
+
+Q13 (chiral term): still untouched ("will study further" remains the standing state). The next outbound reply rides the M5.18 deliverable (verification result + the fixed-ansatz answer), so it carries a deliverable rather than just an answer.

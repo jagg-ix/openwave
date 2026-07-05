@@ -1,6 +1,6 @@
 # M5.12: Neutrino vortex-loop at the physical regime (the fresh re-entry)
 
-> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: ~~M5.16~~ ✅ (delivered 2026-07-02) + **[M5.17](m5_17_task_details.md)** (the methods surface + re-ask; the ask round went out 2026-07-02 but the 2026-07-03 reply was a methods audit, not answers: § Ask-round outcome below) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
+> Task **M5.12** (M5 / Liquid-Crystal model). Status: **Backlog** · Gated by: ~~M5.16~~ ✅ (delivered 2026-07-02) + ~~M5.17~~ ✅ (delivered 2026-07-04) + **[M5.18](m5_18_task_details.md)** (opened 2026-07-05: Duda's second reply superseded the potential instrument and delivered the 4D Lagrangian to verify; this task runs on that new instrument: § 2026-07-05 spec updates below) · Roadmap: [`m5_roadmap.md`](../m5_roadmap.md)
 
 This doc is the task's full record: planning + findings + future planning + documentation.
 
@@ -86,6 +86,14 @@ He confirmed the static 3D functional verbatim (audit PASS; the M5.16 lock now s
 | --- | --- |
 | **4D potential minimum `(g, 1, δ, 0)`**: "For 4D, required to add clock and gravity, potential needs to have minimum (g,1,delta,0)" | phase D pre-condition: extend V from `M_sp` to the full 4×4 M with enough independent invariants to pin 4 distinct eigenvalues (generically Tr M through Tr M⁴); the p.11 anchor hints (`g⁴ ~ 1e38`, `δ² ~ ħc`) become coefficient constraints (Q17). Any functional change re-runs the M5.16 gate suite first (the calibrated-instrument rule above) |
 | **Signature commutator in 4D**: "[A,B] = A xi B - B xi A for xi = diag(-1,1,1,1)" | phase D kernel: mandatory the moment time derivatives or time-mixing textures enter (the ψ clock). Static fields are ξ-blind (zero time block in every ∂M, verified in [`../scripts/m5_17_energy.py`](../scripts/m5_17_energy.py)), so this changes dynamics only |
+
+His SECOND 2026-07-05 reply ([`m5_17_convo.md`](m5_17_convo.md) entry 2) then went further and created the gating task **[M5.18](m5_18_task_details.md)**; what this task inherits from it:
+
+| Spec (Duda 2026-07-05b) | Lands in |
+| --- | --- |
+| **The universal spectral potential** `V(M) = Σ_p (Tr(M^p) − c_p)²`, `c_p = Σ_i Λ_i^p`, targets `(1,δ,0)` 3D / `(g,1,δ,0)` 4D: supersedes the quartic LdG; β = b/c dissolves | EVERY phase minimizes this potential once M5.18 phase B validates it (gate suite + recalibration); the phase-E `κ_δ = (3/2)b` anchor equation is retired with the LdG form |
+| **The explicit 4D Lagrangian** `L = −Σ F_{μναβ}F^{μναβ} − V(M)`, η-raising everywhere, + his Hamiltonian via Legendre: verification delegated to the agent ("nobody else has checked it. Should be used if it is right") | phase D runs the clock on the VERIFIED Lagrangian/Hamiltonian only (M5.18 phase A is the verification; the indefinite-energy question is part of it) |
+| "can use delta=0 for uniaxial approximation without QM" | phase A/B seeds: the uniaxial construction is the honest δ=0 approximation; the δ≠0 (QM) sector needs the exact `(1,δ,0)` pin the new potential provides |
 
 ## Rigor compliance (inherited bar + M5.12-specific)
 
