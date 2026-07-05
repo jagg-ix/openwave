@@ -12,7 +12,7 @@
 
 ## BACKLOG
 
-### PHASE 2, forces and the remaining particle sectors (M7.8-M7.13)
+## PHASE 2, forces and the remaining particle sectors (M7.8-M7.13)
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@
 | M7.12 | the lepton + neutrino family | vary knot size / linking: charged = self-linked torus, neutrino = the lighter loop | the lepton mass family (μ, τ); light neutral neutrino loops; flavour-rotation mixing |
 | M7.13 | dark matter | the **neutral** knot (helicity-only, zero net `∇·F`), inheriting M6's neutral chaoiton | a stable neutral soliton; sub-MeV mass à la M6's `m_χ = 0.460 MeV` |
 
-### PHASE 3, the MODELS.md column (the coverage scoreboard)
+## PHASE 3, the MODELS.md column (the coverage scoreboard)
 
 A primary deliverable is the **HydroBoros (M7)** column in the repo-root [`MODELS.md`](../../../../MODELS.md) coverage matrix, evaluated against the same shared criteria as M5 / M6 / M4. The column was **drafted at the M7.7 milestone and STAGED in [`preview_models.md`](preview_models.md)** (0✅/8⚠️/13🚧, honest icons; not yet benchmark-ready); the electron cells come from Phase 1, the forces + sector cells from Phase 2, and the task here (M7.14) **publishes**: enters the column via governance (issue + script-backed PR), with the composites cells honestly still 🚧 until Phase 4.
 
@@ -62,7 +62,7 @@ Each task fills specific cells, so the table is the running scoreboard of the pr
 
 All 21 MODELS.md criteria are covered: Phase 1 (M7.0-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and drafts + stages the column at the M7.7 milestone ([`preview_models.md`](preview_models.md)); Phase 2 (M7.8-M7.13) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter; Phase 3 (M7.14) publishes the column; Phase 4 (M7.15) fills the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
 
-### PHASE 4, the composites still untested in M5, grouped (M7.15)
+## PHASE 4, the composites still untested in M5, grouped (M7.15)
 
 Per the M5 prescription, the cells that remain 🚧 [not yet tested] in M5 itself are grouped into one later task, after the column is published. They depend on the electron + force primitives of Phases 1-2 already being in place.
 
@@ -70,7 +70,7 @@ Per the M5 prescription, the cells that remain 🚧 [not yet tested] in M5 itsel
 | --- | --- | --- | --- |
 | M7.15 | composites + atomic structure | quark = fractional-charge string segment; baryon / meson = linked / twisted knots; atom = pilot-wave orbital quantization | Quarks · Baryons (p, n) · Mesons (π, K) · Orbital quantization |
 
-### PHASE 5, production rendering upgrade (post-canonical)
+## PHASE 5, production rendering upgrade (post-canonical)
 
 After the electron is canonical (the M7.7 milestone), graduate the winning recipe from the research scripts to the production engine, exactly the path M5 followed.
 
@@ -94,7 +94,7 @@ Reference layout: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`mediu
 
 ## DONE
 
-### PHASE 1, the electron and the M7 column (M7.0-M7.7) ✅ DONE 2026-07-04
+## PHASE 1, the electron and the M7 column (M7.0-M7.7) ✅ DONE 2026-07-04
 
 M7.1-M7.3 are the decisive credibility gates (reproduce **both** parents from the same lattice code). M7.4 is the research core (the thing neither parent did). **M7.7 is the milestone: the column drafted + STAGED in [`preview_models.md`](preview_models.md); publication = M7.14 (Phase 3).** Note: **Coulomb rides with the electron**, not as a later forces task: once the divergence charge `∇·F` exists (M7.4), its `1/r` field is immediate (Gauss's law), and the two-body `E(d) ~ 1/d` is confirmed at M7.6, exactly as M5 got Coulomb in its first `m5_1` milestone.
 
