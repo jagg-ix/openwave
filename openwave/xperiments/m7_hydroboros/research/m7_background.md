@@ -210,7 +210,7 @@ M7.3 compares **like with like**: the 3D lattice vs the M6 1D BVP at the **same*
 Werbos-v5 calibration is tracked secondary until the dictionary question (Q9) resolves. Werbos v5
 also adds new structure M7 adopts as targets: the **`(Ω, G)` bifurcation islands** (electron
 `Ω = 1.050` stable `k > 0`; muon `Ω = 0.914` **resonant/metastable** `k < 0`, a falsifiable
-stable-vs-resonant distinction for M7.13), the **`β*` vacuum-stability threshold** (an M7.5 probe),
+stable-vs-resonant distinction for M7.19), the **`β*` vacuum-stability threshold** (an M7.5 probe),
 and the 319-family parameter scan (Zenodo 20866581). The `(Ω, G) ↔ (ω, g, m_J)` map is **Q9**.
 
 **Structural note (an explicit M7.4 design item).** The two parents' electrons are *different field
@@ -275,7 +275,7 @@ M7.4 experiment (Q2), **off by default**.
 | **Fixed-ω minimization** of the harmonic functional (FIRE / L-BFGS) with **fixed-helicity relaxation** (project or penalize `dH` during descent) | the soliton (M7.2-M7.4, M7.6, Phase B-C) |
 | **Reverse-mode Taichi AD** for `δE_ω/δ(fields)`, validated against a numpy finite-difference gradient to `~1e-12` **before trusting any run** | the gradient for relaxation |
 | **Woltjer-Taylor known-answer**: fixed-helicity relaxation of `∫\|B\|²` on the periodic box must converge to the constant-λ curl eigenfield (ABC flow), `λ → 2π/L` and `E → λH` to grid accuracy | the M7.1 machinery gate (theorem-anchored) |
-| **Minkowski leapfrog** (constrained integrator) | M7.5 real-time validation of the harmonic reduction + stability; M7.12 annihilation |
+| **Minkowski leapfrog** (constrained integrator) | M7.5 real-time validation of the harmonic reduction + stability; M7.18 annihilation |
 
 ### 5d. Boundary conditions, gauge, units (M7.1 design decisions)
 

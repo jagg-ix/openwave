@@ -1,6 +1,8 @@
 # HydroBoros (M7): the canonical numerical specification
 
 > The results-of-record spec for the M7 electron, consolidated at the **M7.7 milestone** (2026-07-03) from tasks M7.1-M7.6. Shaped per [`dev_docs/METHOD_NOTE.md`](../../../../dev_docs/METHOD_NOTE.md): **equations first**, an equation-to-code map, results after methods, and an explicit not-computed list. The runnable reproduction is ONE script: [`scripts/m7_7_canonical.py`](scripts/m7_7_canonical.py); the physics lives in ONE small module: [`scripts/m7_functional.py`](scripts/m7_functional.py) (~200 lines, docstring = these equations).
+>
+> ⚠️ **Scheduled refreshes (2026-07-06):** this spec has two planned revisions: **#1 at the [M7.8](tasks/m7_8_helicity_pair.md) close** (bring the equation-to-code map to the current METHOD_NOTE `file:line` audit granularity; make the doc self-sufficient on the under-the-hood questions an author audit asks: the ansatz, the integrator, the lattice, how charge and energy are computed; fold in the M7.8 results) and **#2 at M7.21** (publication-grade, alongside the MODELS.md column entry). Until #1 lands, the [Phase 1 walkthrough](tasks/m7_phase1_walkthrough.md) is the companion for under-the-hood reading.
 
 ## 1. The theory (all conventions pinned, with provenance)
 
@@ -73,7 +75,7 @@ The state: the **rotating blend** (m = 1 azimuthal pair of the M6-torus + poloid
 | KG sector | both fluctuation branches exact KG; `m_eff² = (1+√5)/2` | dispersion anchored by the measured tachyon rate (0.785 vs 0.786, M7.5) |
 | existence threshold | solitons only for **`ω > ω* = 0.786`** | measured (bracketed 0.75-0.79); the clock IS the stabilizer |
 
-## 4. The units contract (decision table, open)
+## 4. The units contract (resolved as a directive 2026-07-06; both readings versioned pending the M7.8 measurement)
 
 Measured dimensionless inputs: `⟨j_z⟩ = 1` per quantum; `ωL_z/E_ω = 2.07`; `E_ω = 6.3246 p.u.` The physical mapping needs ONE choice:
 
@@ -82,13 +84,13 @@ Measured dimensionless inputs: `⟨j_z⟩ = 1` per quantum; `ωL_z/E_ω = 2.07`;
 | `ω = ω_Compton = m_ec²/ℏ` | `E_ω = m_ec²` sets the unit | `L_z ≈ 2.07 ℏ` (total field angular momentum ~ 2ℏ; the per-quantum `j_z = 1` reads as ℏ) |
 | `ω = ω_Dirac = 2m_ec²/ℏ` (Zitter) | same energy anchor | `L_z ≈ 1.03 ℏ`; the per-quantum `j_z = 1` reads as **ℏ/2-per-2ω-cycle** (the Zitter reading: bilinears at 2ω) |
 
-Recommendation on record: the Dirac/Zitter mapping (bilinears oscillate at 2ω, matching the M5.8 clock structure and Fleury's `ω/ω_D` targets), which lands the total `L_z` at ℏ within 3%; the spin-½ STATISTICS question (double cover) is untouched either way (🚧 in the column). Decision = the model owner's/lead's call, recorded here when made.
+Recommendation on record was the Dirac/Zitter mapping (bilinears oscillate at 2ω, matching the M5.8 clock structure and Fleury's `ω/ω_D` targets), which lands the total `L_z` at ℏ within 3%; the spin-½ STATISTICS question (double cover) is untouched either way (🚧 in the column). **Decision (2026-07-06, author directive at the Phase-1-review call, [tracker Q15](m7_question_tracker.md#q15-detail)):** no mapping is pinned; the frequency is treated as **emergent** and the target is the **observable `S_z = ℏ/2`**, read from the helicity-pair asymmetry `(U₊ − U₋)/ω`, which [M7.8](tasks/m7_8_helicity_pair.md) measures. Both rows above stay versioned until that measurement selects the reading.
 
 ## 5. Known limits (the not-computed list, explicit)
 
 | Limit | Status |
 | --- | --- |
-| the real-time vacuum is tachyonic (`det M(0) = −1`, band `k² < 0.618`; NO `β*` threshold) | measured + analytic (M7.5); **Q14**, the top theory question to Werbos; harmonic states above ω\* are immune; blocks M7.12-style real-time runs |
+| the real-time vacuum is tachyonic (`det M(0) = −1`, band `k² < 0.618`; NO `β*` threshold) | measured + analytic (M7.5); **Q14**, the top theory question to Werbos; harmonic states above ω\* are immune; blocks M7.18-style real-time runs |
 | the self-consistent charge (dynamic `j₀`) | not computed; the fixed-reservoir prescription is the validated stand-in (M7.6); Q7(b)/Q14 |
 | absolute `μ` / `μ_B(1+α/2π)` | charge-unit-blocked (needs the monopole unit); de-phased `μ_J = 36.5 p.u.` on record |
 | the M6 charged ledger `H/Q = 1.6890` | reproduced in 3D to 4.7e-5 but **window-defined** (no decaying channel at the canonical point; Q11): not used as a mass anchor |

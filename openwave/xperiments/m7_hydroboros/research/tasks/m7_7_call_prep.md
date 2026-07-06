@@ -1,5 +1,7 @@
 # M7.7 call prep, 2026-07-06: Phase 1 review + next steps
 
+> **ARCHIVED (2026-07-06, post-call).** The call happened; every open item here was folded forward, so nothing needs to be read from this document anymore: outcomes in the [tracker chronology](../m7_question_tracker.md) (Q15 resolved-directive; Q7/Q3 riding the author's post-August window), the M7.8 GO + scope in [`m7_8_helicity_pair.md`](m7_8_helicity_pair.md) (§ 6 there maps every section of this sheet to its new home), the ChaosBook program in [`m7_9_chaosbook.md`](m7_9_chaosbook.md), and the restructured [roadmap](../m7_roadmap.md). Kept as the pre-call record.
+>
 > Agenda + reference sheet for the 2026-07-06 call. Nothing to prepare or answer in advance; everything below gets walked through live. Companion reading (optional): the one-page [Phase 1 report](m7_phase1_report.md).
 
 ## 1. Call goals
@@ -93,4 +95,4 @@ The notes also moved three of our open questions in useful ways, folded into § 
 
 ## 8. After the call
 
-Phase 2 ([roadmap](../m7_roadmap.md), M7.9-M7.14): the helicity-pair test (pending § 3), then magnetic force, gravity, nuclear, annihilation (with the in-model vacuum-cure check as its pre-step: linearizing WITH the scalar/Gauss sector, plus the variable-λ mass profile from the working notes), lepton / neutrino family (carrying the localized-branch scan over `(λ, m_c)`), dark matter; the coverage column stays staged in [`preview_models.md`](../preview_models.md) until the research matures (M7.15).
+Phase 2 ([roadmap](../m7_roadmap.md), M7.15-M7.20): the helicity-pair test (pending § 3), then magnetic force, gravity, nuclear, annihilation (with the in-model vacuum-cure check as its pre-step: linearizing WITH the scalar/Gauss sector, plus the variable-λ mass profile from the working notes), lepton / neutrino family (carrying the localized-branch scan over `(λ, m_c)`), dark matter; the coverage column stays staged in [`preview_models.md`](../preview_models.md) until the research matures (M7.21).

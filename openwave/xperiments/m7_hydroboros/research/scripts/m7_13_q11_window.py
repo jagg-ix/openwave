@@ -20,7 +20,7 @@ Method (all definitions ours, pinned to the repo-validated benchmark):
   - Verdict per (w, g): CONVERGED if |Q(W_max)/Q(W_max/2) - 1| < 1%, else DIVERGENT.
 
 Outputs: data/m7_13_q11_window.json + plots/m7_13_q11_window.png + stdout table.
-Runtime: seconds. Rides task M7.13 (the Q11 localized-branch scan).
+Runtime: seconds. Rides task M7.19 (the Q11 localized-branch scan).
 """
 
 import json
