@@ -2,21 +2,20 @@
 
 > Local task roadmap for the **M7 (HydroBoros)** model, replicating the SABER science-roadmap structure (2026-07-01). M7 has **no GitHub issues**; tasks are tracked here. **taskID = M7.N**. Full planning + findings live in each [`tasks/m7_N_*.md`](tasks/) detail doc; scripts / data / plots live in [`scripts/`](scripts/) · [`data/`](data/) · [`plots/`](plots/), all named `m7_N_*.{py,npz,png}`. Ordering is the build sequence (M7.0 → M7.17, Phases 1 → 5; task IDs are stable, table order = build order); the **top of Backlog is the next task**.
 >
-> The program runs in five **phases** (renumbered 2026-07-04; formerly lettered arcs): **Phase 1** builds the electron and drafts the coverage column (M7.0-M7.7, ✅ DONE); **Phase 2** expands across the forces and the remaining particle sectors (M7.8-M7.14); **Phase 3** publishes the M7 column to MODELS.md for cross-model benchmarking (M7.15, advanced to right after Phase 2: a good publication milestone); **Phase 4** groups the composites still untested in M5 (M7.16); **Phase 5** graduates to production rendering (M7.17). Each task M7.N is an iteration gated against a KNOWN result; every MODELS.md cell (see **Phase 3** below) is assigned to a task. Columns: **taskID · task title · description (the build) · validation gate** (the credibility anchor). Migrated from the implementation plan (now [`m7_background.md`](m7_background.md)) on 2026-07-01.
+> The program runs in five **phases** (renumbered 2026-07-04; formerly lettered arcs): **Phase 1** builds the electron and drafts the coverage column (M7.0-M7.7, ✅ DONE); **Phase 2** expands across the forces and the remaining particle sectors (M7.9-M7.14); **Phase 3** publishes the M7 column to MODELS.md for cross-model benchmarking (M7.15, advanced to right after Phase 2: a good publication milestone); **Phase 4** groups the composites still untested in M5 (M7.16); **Phase 5** graduates to production rendering (M7.17). Each task M7.N is an iteration gated against a KNOWN result; every MODELS.md cell (see **Phase 3** below) is assigned to a task. Columns: **taskID · task title · description (the build) · validation gate** (the credibility anchor). Migrated from the implementation plan (now [`m7_background.md`](m7_background.md)) on 2026-07-01.
 
 ## IN PROGRESS
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| , | (none) | , | , |
+| M7.8 | helicity-pair 3:1 test (Fleury closure) | independently build the repaired helicity-pair state from Fleury's 2026-07 closure notes (CK modes `(m,n,s) = (1,±1,±1)` with `A_r ≠ 0`, LG profile under the closures `λ₀σ = 2`, `w = λ₀σ²`), relax at fixed `Q_can`, and measure the per-helicity energy split `U₊/U₋` (added 2026-07-05, first row of Phase 2 pending the Fleury call: run/no-run + scope) | the closure prediction `U₊/U₋ = 3 + α/2 + 4f_bb` (from `U₊ + U₋ = ℏω`, `(U₊ − U₋)/ω = ℏ/2`); an independent in-model check of the pre-call working notes; feeds the Q15 units contract + the spin-½ cell |
 
 ## BACKLOG
 
-## PHASE 2, forces and the remaining particle sectors (M7.8-M7.14)
+## PHASE 2, forces and the remaining particle sectors (M7.9-M7.14)
 
 | TaskID | Task title | Description | Validation gate |
 | --- | --- | --- | --- |
-| M7.8 | helicity-pair 3:1 test (Fleury closure) | independently build the repaired helicity-pair state from Fleury's 2026-07 closure notes (CK modes `(m,n,s) = (1,±1,±1)` with `A_r ≠ 0`, LG profile under the closures `λ₀σ = 2`, `w = λ₀σ²`), relax at fixed `Q_can`, and measure the per-helicity energy split `U₊/U₋` (added 2026-07-05, first row of Phase 2 pending the Fleury call: run/no-run + scope) | the closure prediction `U₊/U₋ = 3 + α/2 + 4f_bb` (from `U₊ + U₋ = ℏω`, `(U₊ − U₋)/ω = ℏ/2`); an independent in-model check of the pre-call working notes; feeds the Q15 units contract + the spin-½ cell |
 | M7.9 | magnetic force | the per-defect magnetic structure carried by the electron's clock (Coulomb already landed in M7.4/M7.6) | magnetic force from the clock's `Γ₀` (pure twist is EM-silent; the M5 mechanism) |
 | M7.10 | gravity | the time-axis boost of the field (the M5 4×4 route) | a GEM coupling that vanishes at zero boost; honest pass / fail (Ouroboros stops before gravity, so this is genuinely hard for M7) |
 | M7.11 | nuclear forces | strong = the 4th-order short-range roll-off + linking tension; weak = a topology-reconnection (defect-class transition) | running-coupling onset at the core; a reconnection channel; partial, mirroring M5 |
@@ -62,7 +61,7 @@ Each task fills specific cells, so the table is the running scoreboard of the pr
 | **M7.14** | Dark matter candidate | `scripts/m7_14_dark_matter.py` |
 | **M7.16** | Quarks · Baryons (p, n) · Mesons (π, K) · Orbital quantization | `scripts/m7_16_composites.py` |
 
-All 21 MODELS.md criteria are covered: Phase 1 (M7.0-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and drafts + stages the column at the M7.7 milestone ([`preview_models.md`](preview_models.md)); Phase 2 (M7.8-M7.14) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter, opening with the M7.8 helicity-pair check of the Fleury closure notes; Phase 3 (M7.15) publishes the column; Phase 4 (M7.16) fills the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
+All 21 MODELS.md criteria are covered: Phase 1 (M7.0-M7.7) earns the electron cells, **including Coulomb** (tied to the electron's charge, M5-style), and drafts + stages the column at the M7.7 milestone ([`preview_models.md`](preview_models.md)); Phase 2 (M7.9-M7.14) fills the remaining forces (magnetic, gravity, nuclear) + annihilation / neutrinos / dark matter, opening with the M7.8 helicity-pair check of the Fleury closure notes; Phase 3 (M7.15) publishes the column; Phase 4 (M7.16) fills the cells still 🚧 in M5 (quarks, baryons, mesons, orbital quantization). Each task upgrades its cells from 🚧 to a verified icon, as M5's column grew.
 
 ## PHASE 4, the composites still untested in M5, grouped (M7.16)
 

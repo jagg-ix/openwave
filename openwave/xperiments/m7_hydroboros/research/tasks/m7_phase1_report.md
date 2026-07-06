@@ -76,7 +76,7 @@ Self-determined during Phase 2 (results will be shared as they land):
 
 ## 7. What comes next (Phase 2)
 
-Full roadmap: [`m7_roadmap.md`](../m7_roadmap.md). Phase 2 (M7.8-M7.14) expands across the forces and the remaining particle sectors, none of it blocked on the questions above (pre-agreed tripwire: if a task hits a question we cannot self-resolve, we stop and ask then):
+Full roadmap: [`m7_roadmap.md`](../m7_roadmap.md). Phase 2 (M7.9-M7.14) expands across the forces and the remaining particle sectors, none of it blocked on the questions above (pre-agreed tripwire: if a task hits a question we cannot self-resolve, we stop and ask then):
 
 | Next | Task | One line |
 | --- | --- | --- |

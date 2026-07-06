@@ -69,7 +69,7 @@ Five phases, M7.0 → M7.17 (full detail in [`research/m7_roadmap.md`](research/
 | Phase | Tasks | What lands |
 | --- | --- | --- |
 | 1 , electron + the column ✅ DONE | M7.0-M7.7 | bootstrap → infra → reproduce Fleury → reproduce M6 in 3D → charged soliton (the new physics) + Coulomb → clock + stability → observables → consolidate (milestone; column staged in [`research/preview_models.md`](research/preview_models.md)) |
-| 2 , forces + sectors | M7.8-M7.14 | the helicity-pair 3:1 test (Fleury closure notes, 2026-07-05), magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
+| 2 , forces + sectors | M7.9-M7.14 | the helicity-pair 3:1 test (Fleury closure notes, 2026-07-05), magnetic, gravity (hard), nuclear (strong / weak), antimatter / annihilation, lepton + neutrino family, dark matter |
 | 3 , MODELS.md publication | M7.15 | publish + govern the 21-cell HydroBoros column (benchmark entry) |
 | 4 , composites | M7.16 | quarks, baryons, mesons, orbital quantization |
 | 5 , production | M7.17 | graduate the canonical recipe to `medium.py` + engines + `_launcher.py` rendering |
