@@ -301,6 +301,8 @@ Check **[SYSTEM ARCHITECTURE](SYS_ARCH.md)** for more details on OpenWave's Pack
 
 You do not need to write code to contribute. Open a discussion or an issue to propose a reframe, challenge a result, flag an error, or replicate or refute any cell in [MODELS.md](MODELS.md). Some of the sharpest contributions here began as a single issue comment. Newcomers and AI agents are equally welcome.
 
+Working with AI assistance, or pointing an AI assistant at this repo? Read [AI_HYGIENE.md](AI_HYGIENE.md) first: the working contract that keeps every claim script-backed and human-owned.
+
 ### WITH DEVELOPMENT
 
 - Please read the [Contribution Guide](CONTRIBUTING.md)

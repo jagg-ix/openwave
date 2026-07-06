@@ -86,6 +86,11 @@ OpenWave implements classical-field-theory-with-topology-and-nonlinearity approa
 | [Version Management](/dev_docs/VERSION_MANAGEMENT.md) | Release versioning |
 | [Wave Diagnostics](/dev_docs/WAVE_DIAGNOSTICS.md) | Validation diagnostics |
 | [Method Note](/dev_docs/METHOD_NOTE.md) | **MANDATORY** standard for any report/email to a model's theory owner or external physicist |
+| [AI Hygiene](/AI_HYGIENE.md) | **MANDATORY** working contract for AI-assisted research: division of labor, failure modes, verification habits |
+
+### AI hygiene (all AI-assisted work): MANDATORY
+
+Every AI agent working in this repo (including you) operates under [`AI_HYGIENE.md`](/AI_HYGIENE.md): model output is a draft or hypothesis, never a result, until verified by something that is not a language model (a hand-checked derivation, a runnable script, a lattice measurement, or the confirmation of the human holding the relevant authority). Author-gated questions (intent, provenance, definitions) can only be answered by the author; externally received AI-derived material is tagged evidence-not-resolution until confirmed; anything community-facing is human-owned prose over script-backed results. Read it before doing research work here.
 
 ### Method note (model-owner-facing output): MANDATORY
 
