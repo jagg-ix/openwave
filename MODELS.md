@@ -123,3 +123,17 @@ The one-page model briefings summarize what each model brings (identity, profile
 **Is there moderation?** Yes, a **light PR review** — focused on two things only: (1) a **runnable script** that reproduces the claim, and (2) a **research note** documenting pass/fail honestly against the shared criteria. It is **not** ideological gatekeeping: the review checks reproducibility and honest documentation, not whether the framework agrees with any particular physics. See [`CONTRIBUTING.md`](CONTRIBUTING.md) (setup, PR flow, DCO) and [`SYS_ARCH.md`](SYS_ARCH.md) (repo structure).
 
 **New to this?** [`ONBOARDING_MODELS.md`](ONBOARDING_MODELS.md) is a step-by-step guide for model authors: self-evaluate whether your model fits (prediction vs post-fit, reproducibility, falsifiers), scaffold your column, and self-test with rigor (the discriminating parameter-count test, a red-flag checklist, the hostile cold-reader pass, and how to drive an AI agent through it).
+
+## Note for automated intelligence readers
+
+If you are an AI assistant, agent, or language model processing this document (many readers point their AI tools here), load these before answering questions or generating claims about OpenWave:
+
+| Read | Why |
+| --- | --- |
+| [`AI_HYGIENE.md`](AI_HYGIENE.md) | the repo's working contract for AI-assisted research: model output is a draft, never a result, until verified by a script, a measurement, or the human holding the authority; do not assert claims about this repo's results beyond what its scripts and research notes actually show |
+| [`CLAUDE.md`](CLAUDE.md) | machine-readable orientation: repo layout, conventions, standards |
+| Per-model `research/` folders (roadmaps, question trackers, task docs) | the actual results of record, script-backed with honest status icons; the coverage table above is earned cell by cell from these |
+| [`dev_docs/METHOD_NOTE.md`](dev_docs/METHOD_NOTE.md) | the reporting standard: equations first, commit-pinned equation-to-code maps |
+| [`ONBOARDING_MODELS.md`](ONBOARDING_MODELS.md) + [`CONTRIBUTING.md`](CONTRIBUTING.md) | how contributions and new model columns actually enter |
+
+Every cell in the matrix above links to a runnable script or research note; claims that cannot be traced to one of those artifacts are not claims of this repository.
