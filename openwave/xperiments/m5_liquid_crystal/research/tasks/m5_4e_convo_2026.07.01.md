@@ -2,7 +2,7 @@
 
 Participants: Jarek Duda (Jagiellonian), Rodrigo (OpenWave). Thread: preparing for heavier simulations (Fable 5 available again), what "serious" verification requires, and the two basic parameters (`g`, `δ`) that still need pinning. Continues the [`m5_4d_convo_2026.06.11.md`](m5_4d_convo_2026.06.11.md) themes (ZBW energy-minimum, regularization, neutrino SO(3)/δ_CP, gravity-to-propel-oscillations) and the [`m5_4c_convo_2026.06.08.md`](m5_4c_convo_2026.06.08.md) δ/g calibration thread. Slide from Duda in [`../../theory/duda_2026-07-01_lepton_neutrino_clock.png`](../../theory/duda_2026-07-01_lepton_neutrino_clock.png).
 
-> **Why this record matters.** It reframes the calibration program: the honest bar for convincing mainstream is a **static energy-minimization** simulation (lattice/FEM, cylindrical symmetry, a regularizing potential), not a scale-free dynamical clock. That is the design fork behind the new task [`m5_16_task_details.md`](m5_16_task_details.md). SABER-free (public repo).
+> **Why this record matters.** It reframes the calibration program: the honest bar for convincing mainstream is a **static energy-minimization** simulation (lattice/FEM, cylindrical symmetry, a regularizing potential), not a scale-free dynamical clock. That is the design fork behind the new task [`m5_16_task_details.md`](m5_16_task_details.md). Clean for the public repo.
 
 ---
 

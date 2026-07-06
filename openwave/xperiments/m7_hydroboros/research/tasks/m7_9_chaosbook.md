@@ -31,7 +31,7 @@ The author's program is to find the electron as a **stable periodic orbit** in t
 
 ## 5. Effort estimate + independence from Rodrigo's reading
 
-**The benchmark (E1-E4) does not wait for anyone's reading.** The exercises are small ODE / map systems (three variables, not `N³` fields): compute time is seconds, and the real effort is fidelity to the book's definitions plus the honest compare. Estimate: **E1-E4 in one to two focused sessions** (a normal task run each, the first ending at the E2 selection checkpoint if the cap intervenes), E5 half a session more. Rodrigo's 2-3 weeks of light reading (the author's own suggested dose: "TOC + dabbling your feet in the first chapter... you don't need to go super deep to be mega efficient") runs in parallel and gates nothing here; it only gates how interactive the E6 sessions can be, which is exactly where his time is best spent given M5, M7, and the DHC build phase all compete for it.
+**The benchmark (E1-E4) does not wait for anyone's reading.** The exercises are small ODE / map systems (three variables, not `N³` fields): compute time is seconds, and the real effort is fidelity to the book's definitions plus the honest compare. Estimate: **E1-E4 in one to two focused sessions** (a normal task run each, the first ending at the E2 selection checkpoint if the cap intervenes), E5 half a session more. Rodrigo's 2-3 weeks of light reading (the author's own suggested dose: "TOC + dabbling your feet in the first chapter... you don't need to go super deep to be mega efficient") runs in parallel and gates nothing here; it only gates how interactive the E6 sessions can be, which is exactly where his time is best spent given M5, M7, and his personal projects all compete for it.
 
 ## 6. Cross-refs
 
