@@ -21,6 +21,10 @@ AI is an **instrument**, like the lattice itself: it multiplies throughput and i
 
 > **A model's output is a draft or a hypothesis, never a result. It becomes a result only when it is verified by something that is not a language model: a derivation checked by hand, a script anyone can run, a measurement on the lattice, or the explicit confirmation of the human who holds the relevant authority.**
 
+And its enforcement mechanism, a **CARDINAL RULE for anyone (human or agent) working in this repo** (2026-07-05):
+
+> **THE ADVERSARIAL AUDIT: every substantive derivation, verification, or headline claim gets an INDEPENDENT adversarial audit before it is trusted, recorded as a result, or sent outside.** The auditor (a second agent or a second person) is instructed to REFUTE, not confirm: its own implementation (different method, different seed, different construction: e.g. finite differences where the original used an exact identity), its own hand re-derivations, an explicit hunt for overclaims and missing caveats, and a verdict per claim (CONFIRMED / REFUTED / QUALIFIED) backed by its own numbers. Every catch is folded back into the artifact, and the audit outcome is recorded IN the deliverable: the audit record is part of the rigor surface. Origin: the model owner's own advice ("careful small steps, maybe multiple agents verifying each other", Duda 2026-07-03). Proof it works: the first real catch, M5.18 (2026-07-05), where the audit confirmed 5 of 6 claims, refuted an overclaimed witness whose conclusion survived only through the auditor's corrected construction, and found a vacuum-manifold branch structure the original missed entirely ([`m5_18_verification_note.md § 10`](openwave/xperiments/m5_liquid_crystal/research/findings/m5_18_verification_note.md), the canonical record-the-audit pattern).
+
 ## 2. Do / Don't quick reference
 
 | ✅ Do | ❌ Don't |
@@ -33,6 +37,7 @@ AI is an **instrument**, like the lattice itself: it multiplies throughput and i
 | Publish only **human-owned, script-backed** claims; disclose AI assistance where venues ask | Post model-generated physics text to research venues, preprint servers, or mailing lists as if human-authored ([why](#publication-slop-detail)) |
 | Write outbound scientific communication in your **own voice**; use AI for checking and organizing | Send collaborators raw model output as your reply |
 | Record AI-assisted findings with their verification status attached ("re-derived by hand", "confirmed by script X") | Let unverified model text age into the record until it reads like an established result |
+| Run the **adversarial audit** (cardinal rule, § 1) on every substantive claim before trusting or sending it: independent refuter agent, own script, verdict per claim, outcome recorded in the deliverable | Ship a derivation or verification on the strength of the agent that produced it, however green its own checks look |
 
 ## 3. Division of labor
 
@@ -72,7 +77,8 @@ These repo standards exist precisely to make AI-assisted research auditable. Use
 
 | Safeguard | Where | What it does |
 | --- | --- | --- |
-| Method notes: equations first, commit-pinned equation-to-code map, small auditable physics module, explicit not-computed list | [`dev_docs/METHOD_NOTE.md`](dev_docs/METHOD_NOTE.md) | makes every reported result legible and checkable by a human in minutes, without trusting the pipeline that produced it |
+| **The adversarial audit (CARDINAL, § 1)**: independent second agent tries to refute every substantive claim before it is trusted or sent; outcome recorded in the deliverable | [`dev_docs/METHOD_NOTE.md`](dev_docs/METHOD_NOTE.md) checklist (REQUIRED row) + the [`m5_18_verification_note.md § 10`](openwave/xperiments/m5_liquid_crystal/research/findings/m5_18_verification_note.md) pattern | catches plausible-but-wrong witnesses, overclaims, and missed structure that the producing agent's own green checks cannot see (first real catch: M5.18) |
+| Method notes: equations first, hyperlinked equation-to-code map (blob/main for frozen task files; commit-pin for live files), small auditable physics module, explicit not-computed list | [`dev_docs/METHOD_NOTE.md`](dev_docs/METHOD_NOTE.md) | makes every reported result legible and checkable by a human in minutes, without trusting the pipeline that produced it |
 | Script-backed claims with honest status icons (✅ ⚠️ ❌ 🔶 🚧); negatives are results | [`MODELS.md`](MODELS.md) | no cell in the coverage matrix rests on prose; every claim links to something runnable |
 | One-script reproduction | per-model `research/scripts/` | a single command re-earns the headline numbers on any machine |
 | Question trackers with stable IDs, provenance, and resolution history | per-model `research/*question_tracker.md` | separates measured facts, author-gated asks, and self-determinable questions; records who resolved what, how, and when |
