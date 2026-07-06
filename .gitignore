@@ -247,6 +247,11 @@ openwave/xperiments/*/theory/**/*.bib
 # Its manifest lives one level up at theory/_CITATIONS.md (a *.md, tracked by default).
 openwave/xperiments/m7_hydroboros/theory/electron_beltrami/*
 
+# Author-conversation records (call transcripts, message threads) are LOCAL-ONLY for author
+# privacy, whatever the format: ignore the whole folder in every model's theory/.
+# Naming convention: <taskID or phaseID>_convo.<ext> (e.g. m7_phase1_convo.pdf).
+openwave/xperiments/*/theory/author_convos/
+
 # Agent resume checkpoints (session-local in-flight state for any Mx model task; not research
 # artifacts, never tracked). Findings live in the tracked tasks/ + data/ + plots/ instead.
 openwave/xperiments/*/research/checkpoints/

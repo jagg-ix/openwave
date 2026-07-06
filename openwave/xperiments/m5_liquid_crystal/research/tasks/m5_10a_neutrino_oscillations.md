@@ -236,7 +236,7 @@ The blocker is now an active search (Duda lacks the exact values), so these are 
 
 ## GitHub issue (#236, filed 2026-06-20)
 
-Filed as [#236](https://github.com/openwave-labs/openwave/issues/236) on `openwave-labs/openwave` (labels `theory` + `help wanted`), board status **In progress**; #200 moved to **Next**. The issue carries the distilled TASK PLANNING (Goal + Approach + DoD + Sub-tasks); links to #199 (precursor), #200 (sibling), #197 (Dirac); the blocker (parameters + potential) stated in the body. No SABER references (total invisibility). The detailed plan stays here in `10a`; the issue's distilled writeup is updated as the work converges.
+Filed as [#236](https://github.com/openwave-labs/openwave/issues/236) on `openwave-labs/openwave` (labels `theory` + `help wanted`), board status **In progress**; #200 moved to **Next**. The issue carries the distilled TASK PLANNING (Goal + Approach + DoD + Sub-tasks); links to #199 (precursor), #200 (sibling), #197 (Dirac); the blocker (parameters + potential) stated in the body. Written clean for the public issue tracker. The detailed plan stays here in `10a`; the issue's distilled writeup is updated as the work converges.
 
 ---
 _Local plan (research/10a_neutrino_oscillations.md; research body in research/, scripts to a new sandbox when the parameters are locked). Iterate here; publish the distilled version to the new issue only after it is solid and committed. Cross-refs: [`m5_9a_lepton_mass_planning.md`](m5_9a_lepton_mass_planning.md), #199, #200, #197, [`../../../../MODELS.md`](../../../../../MODELS.md)._

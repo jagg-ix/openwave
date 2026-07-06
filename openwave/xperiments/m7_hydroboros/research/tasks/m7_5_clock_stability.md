@@ -111,7 +111,7 @@ Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.5) · background 
 | persistence / emergent ω | ❌ honest: destroyed in ~2 T by the vacuum tachyon (state-independent); no ω = 1 tick measurable |
 | reduction verdict | ✅ residual `α = −1.978 ≈ −2ω²` (frame term), 3ω leakage 0.2% (ansatz fine); the M7.4 winner is a **standing-wave doublet** (`a_s = j_s = 0`) |
 
-**Issues / blockers:** Q14 blocks any real-time program (M7.12) until answered or cured in-model; the ball-vs-torus question was never fairly tested (standing states only); `m7_5_state.npz` (25.2 MB) deleted per the >1MB rule (regen: `python m7_5_clock_stability.py main`, ~4 min).
+**Issues / blockers:** Q14 blocks any real-time program (M7.18) until answered or cured in-model; the ball-vs-torus question was never fairly tested (standing states only); `m7_5_state.npz` (25.2 MB) deleted per the >1MB rule (regen: `python m7_5_clock_stability.py main`, ~4 min).
 
 **Action needed:** M7.6 with the two design changes (fixed-`Q_can` + `H_A` relaxation; rotating `a_s ≠ 0` seeds); M7.7 milestone stop with both METHOD_NOTE-compliant packages, Q14 leading the Werbos one.
 
