@@ -27,7 +27,7 @@
 
 ## 4. Results and findings (the staged column)
 
-The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_models.md)**: **0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**, every partial carrying its named caveat. It is deliberately **staged, not yet published to [`MODELS.md`](../../../../../MODELS.md)**: the program still carries its own open theory question (Q14, the vacuum tachyon) and convention questions (Q15, Q10, Q12) that move icons either way; **promotion comes after Phase 2, gated by the question tables below** (the M7.15 publication milestone, Phase 3). What the eight partials say, in three plots:
+The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_models.md)**: **0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**, every partial carrying its named caveat. It is deliberately **staged, not yet published to [`MODELS.md`](../../../../../MODELS.md)**: the program still carries its own open theory question (Q14, the vacuum tachyon) and convention questions (Q15, Q12; Q10 resolved 2026-07-04 by the author, corrected figure 0.95 vs our 0.958) that move icons either way; **promotion comes after Phase 2, gated by the question tables below** (the M7.15 publication milestone, Phase 3). What the eight partials say, in three plots:
 
 **The soliton exists and is grid-convergent.** Three helicity-carrying seeds relax to one Taylor-dressed family; the winner is localized (r50 = 3.4), approximately Beltrami in the core (`λ_eff ≈ −1` near-constant), dilation-stable (a measured constrained-Derrick interior minimum), with the J-condensate co-located; both zero-helicity parent seeds die, so helicity is measurably the guard:
 
@@ -45,24 +45,34 @@ The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_mod
 
 Tracked with stable IDs in [`m7_question_tracker.md`](../m7_question_tracker.md) (full statement + history at each anchor).
 
+> **Updated 2026-07-05** after the author's reply (**Q10 ✅ RESOLVED**: the Eq 122/124/127 bug confirmed, caught internally and never pushed; corrected figure 0.95 vs our 0.958) and the pre-call working notes (audited on receipt: the core math checks out). Priority order matches the tracker and the [call-prep sheet](m7_7_call_prep.md); **Q15 promoted to the top** (the 2026-07-06 call's primary decision, together with the M7.8 run/no-run).
+
 | ID | Question | Why we ask |
 | --- | --- | --- |
-| [Q7](../m7_question_tracker.md#q7-detail) | The charge-carrying construction: the Sato-Yamada variable-h toroidal recipe, and does the FLDB picture single out a `j₀` profile? | your "start Trkalian, take off the training wheels" is validated (approximately-Beltrami cores, `\|align\| = 0.96`; charge measured, never imposed) and the fixed-reservoir prescription landed Coulomb; the **self-consistent** charge profile is the one piece we cannot pick ourselves |
-| [Q3](../m7_question_tracker.md#q3-detail) | Divergence charge vs linking charge: we measured them **independent** (linking gates existence; the RMS charge coexists, unslaved): does the Pisello/Gauss-Bonnet reading require a deeper slaving we should test for? | decides whether charge quantization should be sought in topology (then we design that test) or in the source sector |
-| [Q10](../m7_question_tracker.md#q10-detail) | The FLDB energy algebra: Eqs 122/124/127 carry a dropped square + a dropped ½; the corrected value is `U ≈ 0.958 m_ec²` (was 0.795): intended? | it moves the paper's headline energy 20% in the right direction; we reproduced the printed solution digit-for-digit first, so the correction is isolated to those steps |
-| [Q15](../m7_question_tracker.md#q15-detail) | The units contract: `ω = ω_Compton` or `ω = ω_Dirac` (Zitter)? We measured `j_z = 1` per quantum (0.6%) and `ωL_z/E = 2.07`; the Zitter mapping lands the total at ℏ within 3% (our on-record recommendation) | one convention choice decides the ℏ/2-vs-ℏ spin reading and the absolute mass anchor; the FLDB targets are stated as `ω/ω_D` ratios, so the intent is yours to pin |
-| [Q1](../m7_question_tracker.md#q1-detail) | Substrate reading: the `(A_μ, J_μ)` doublet vs a single Riemann-Silberstein field; target manifold S² (Pisello) vs S³ (Faber)? | fixes which topological invariants Phase 2 should constrain (the knot-sector work needs the right manifold) |
-| [Q4](../m7_question_tracker.md#q4-detail) | The further Beltrami material you mentioned + the Enciso / Peralta-Salas contact status? | the rigidity/existence theorems shaped the whole relax-and-measure design; more of that literature de-risks Phase 2 |
+| [Q15](../m7_question_tracker.md#q15-detail) | The units contract: `ω = ω_Compton` or `ω = ω_Dirac` (Zitter)? We measured `j_z = 1` per quantum (0.6%) and `ωL_z/E = 2.07`; the 2026-07-05 working notes **pin Case B (`ω = ω_C`)**, with spin ℏ/2 read from the helicity-pair asymmetry `(U₊ − U₋)/ω` and the Zitter pinning excluded on the tail budget | one convention choice decides the ℏ/2-vs-ℏ spin reading and the absolute mass anchor; the notes are pre-call and unvetted, so the intent needs live confirmation; **M7.8** (the helicity-pair `U₊/U₋` test, first task of Phase 2) is the in-model check |
+| [Q7](../m7_question_tracker.md#q7-detail) | The charge-carrying construction, reframed by the notes' **no-go theorem**: a localized oscillating interior carries no net charge; the Coulomb tail lives exactly where `λ → 0`, and closure = the turning-point matching at `r = w` plus a **tail-strength quantization** (what fixes `e`?) | your "start Trkalian, take off the training wheels" is validated (approximately-Beltrami cores, `\|align\| = 0.96`; charge measured, never imposed) and the fixed-reservoir prescription landed Coulomb, which reads as an imposed tail; the matching prescription and the quantization condition are the pieces we cannot pick ourselves |
+| [Q3](../m7_question_tracker.md#q3-detail) | Divergence charge vs linking charge: we measured them **independent** (linking gates existence; the RMS charge coexists, unslaved); the notes agree structurally (charge rides the λ-gradient, helicity rides the winding) and propose the **tail-quantization conjecture** as the deeper slaving | decides whether charge quantization should be sought in topology (then we design that test) or in the source sector |
+| [Q1](../m7_question_tracker.md#q1-detail) | Substrate reading: the `(A_μ, J_μ)` doublet vs a single Riemann-Silberstein field; target manifold S² (Pisello) vs S³ (Faber)? (the notes reconfirm A-primary + `φ = 0`, silent on the manifold) | fixes which topological invariants Phase 2 should constrain (the knot-sector work needs the right manifold) |
+| [Q4](../m7_question_tracker.md#q4-detail) | Mostly delivered: the 2026-07-05 working notes ARE the promised Beltrami material; the residual ask is the Enciso / Peralta-Salas contact status | the rigidity/existence theorems shaped the whole relax-and-measure design; more of that literature de-risks Phase 2 |
 
 ## 6. Open questions for Paul Werbos, most critical first
 
+> **Updated 2026-07-05:** the first round-trip brought no question resolutions, so the list was re-scoped. **Q14 / Q11 / Q13 moved to SELF-DETERMINE**: they are physics/measurement questions the lattice answers in-model during Phase 2, and the results get shared rather than asked. The remaining asks are **Q12 + Q9**, both author-gated by nature (intent + definitions) and micro-scoped (one smallest unit of authorial input per contact).
+
+The two asks:
+
 | ID | Question | Why we ask |
 | --- | --- | --- |
-| [Q14](../m7_question_tracker.md#q14-detail) | **The vacuum tachyon**: the linearized vacuum of the written theory has `det M(0) = −1` for ANY `f` (unconditional long-wavelength instability; measured growth rate 0.785 vs analytic 0.786, amplitude-independent, so **no `β*` threshold exists** in the vector truncation): what cures it in the full model (an A-mass / a condensate vacuum / the scalar-Gauss sector / parameter islands)? | the load-bearing theory question: it blocks every real-time run (annihilation, M7.12); it is also a gift: the harmonic frame survives exactly because `ω > ω* = 0.786`, i.e. **the de Broglie clock is the vacuum-stability mechanism**, a strong Ouroboros-thesis statement if the full theory confirms it |
-| [Q11](../m7_question_tracker.md#q11-detail) | The charged `H/Q = 1.6890` is window-defined (both far-field roots propagate at the canonical point; `Q` grows with the window): understood? and does a genuinely localized charged branch exist elsewhere in `(ω, λ, g)`? | it blocks any physical-mass reading of the charged ledger; the same dispersion also has a measured consequence (neutral solitons exchange RKKY-style with period `π/k`) |
-| [Q13](../m7_question_tracker.md#q13-detail) | The M6 electron is a 3D constrained **saddle** (focusing collapse; the helicity guard is inert on the zero-helicity ansatz): is the conjugate-point stability claim established only on the 1D radial manifold? | adding helicity to the same torus stabilizes it (our M7.4 fix), and the `ω*` threshold now bounds where ANY harmonic soliton exists: the 1D-vs-3D scope of the original claim is the remaining piece |
-| [Q12](../m7_question_tracker.md#q12-detail) | ODE provenance (+ the Q6 residual): the benchmark ODE is the verbatim EL of the same-phase doublet with FOCUSING signs, while the written `f = gs²` (the stable branch, which we run) differs; and `0d_canonical § 2.2`'s `2ωα` form matches no EL reduction we scanned: which ansatz + ODE is canonical, and do you confirm the benchmark sign slip + the `(g/4)` transcription fix? | your confirmation closes the convention file and fixes our M6 doc; nothing is blocked on it (we proceed on the empirically stable branch) |
-| [Q9](../m7_question_tracker.md#q9-detail) | The `(Ω, G)` dictionary of the v5 scan: definitions in terms of `(ω, g, λ, m_J)` + one concrete electron-island parameter point we can run? | your `k > 0` stable-island label suggests a cured region; our measured threshold `ω* = 0.786` is a candidate anchor (the islands may be the `ω > ω*(g, λ)` region): with the dictionary we can check on the lattice |
+| [Q12](../m7_question_tracker.md#q12-detail) | ODE provenance (+ the Q6 residual): the benchmark ODE is the verbatim EL of the same-phase doublet with FOCUSING signs, while the written `f = gs²` (the stable branch, which we run) differs; and `0d_canonical § 2.2`'s `2ωα` form matches no EL reduction we scanned: which ansatz + ODE is canonical, and do you confirm the benchmark sign slip + the `(g/4)` transcription fix? | author-gated (intent); your confirmation closes the convention file and fixes our M6 doc; nothing is blocked on it (we proceed on the empirically stable branch) |
+| [Q9](../m7_question_tracker.md#q9-detail) | The `(Ω, G)` dictionary of the v5 scan: the micro-ask is **one verified electron-island point** in `(ω, g, λ, m_J)` | author-gated (definitions); our measured threshold `ω* = 0.786` is a candidate anchor, and the Q11 micro-slice added a constraint: a decaying (`k > 0`) island is impossible at the canonical `(λ, m_c)`, so a consistent dictionary must move `λ` and/or `m_J` |
+
+Self-determined during Phase 2 (results will be shared as they land):
+
+| ID | Question | Self-route |
+| --- | --- | --- |
+| [Q14](../m7_question_tracker.md#q14-detail) | **The vacuum tachyon**: `det M(0) = −1` for ANY `f` (measured 0.785 vs analytic 0.786; no `β*` threshold in the vector truncation); the gift: the harmonic frame survives exactly because `ω > ω* = 0.786`, **the de Broglie clock is the vacuum-stability mechanism** | linearize WITH the scalar/Gauss sector on our lattice (does it lift `det M(0)`?) + test the variable-λ mass profile; the M7.12 pre-step (real-time runs stay blocked until cured) |
+| [Q11](../m7_question_tracker.md#q11-detail) | The charged `H/Q = 1.6890` is window-defined; does a genuinely localized charged branch exist? **2026-07-05 micro-slice** ([script](../scripts/m7_13_q11_window.py)): window-divergent for every `(ω, g)` tested, and the localization boundary at canonical `(λ, m_c)` is exactly `ω < ω*`, so localization and existence are mutually exclusive there | the branch hunt scans `(λ, m_c)`, not `(ω, g)`; rides M7.13 |
+| [Q13](../m7_question_tracker.md#q13-detail) | The M6 electron is a 3D constrained **saddle**; helicity stabilizes the same torus (our M7.4 fix); solitons exist only above `ω*` | the physics is measured in-model; the residual 1D-conjugate-point provenance question rides with Q12 as a share/confirm item |
 
 ## 7. What comes next (Phase 2)
 
@@ -70,12 +80,13 @@ Full roadmap: [`m7_roadmap.md`](../m7_roadmap.md). Phase 2 (M7.8-M7.14) expands 
 
 | Next | Task | One line |
 | --- | --- | --- |
-| 1 | M7.9 magnetic force | the per-defect magnetic structure carried by the electron's clock |
-| 2 | M7.10 gravity | the time-axis boost route (honestly hard: Ouroboros stops before gravity) |
-| 3 | M7.11 nuclear forces | strong = short-range roll-off + linking tension; weak = topology reconnection |
-| 4 | M7.12 antimatter + annihilation | real-time evolution blocked on Q14; harmonic-frame preparations proceed |
-| 5 | M7.13 leptons + neutrinos | knot sectors (needs the topology-preserving constraints M7.4 identified) |
-| 6 | M7.14 dark matter | the neutral helicity-only knot, inheriting M6's chaoiton |
+| 1 | M7.8 helicity-pair 3:1 test | the independent lattice check of the 2026-07-05 closure notes (`U₊/U₋` vs `3 + α/2 + 4f_bb`); run/no-run at the 2026-07-06 call |
+| 2 | M7.9 magnetic force | the per-defect magnetic structure carried by the electron's clock |
+| 3 | M7.10 gravity | the time-axis boost route (honestly hard: Ouroboros stops before gravity) |
+| 4 | M7.11 nuclear forces | strong = short-range roll-off + linking tension; weak = topology reconnection |
+| 5 | M7.12 antimatter + annihilation | real-time evolution blocked on Q14 (pre-step: the in-model vacuum-cure check); harmonic-frame preparations proceed |
+| 6 | M7.13 leptons + neutrinos | knot sectors + the Q11 localized-branch scan over `(λ, m_c)` |
+| 7 | M7.14 dark matter | the neutral helicity-only knot, inheriting M6's chaoiton |
 
 After Phase 2: **M7.15 publishes the column to MODELS.md** for cross-model benchmarking (Phase 3), gated by the question tables above; then composites (Phase 4) and production rendering (Phase 5).
 
