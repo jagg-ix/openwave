@@ -105,7 +105,7 @@ The stated blocker ("how could a single-person team on a laptop run extensive co
 | Leverage | What it does |
 | --- | --- |
 | Taichi lattice engine (f64, CPU/GPU) | a 64³ × 16-component relaxation runs in minutes on a MacBook; the M5-proven engine was inherited, not rebuilt |
-| Reverse-mode AD | exact gradients of the full functional with no hand-derived adjoints to get wrong; validated against finite differences before first use |
+| Reverse-mode AutoDiff | exact gradients of the full functional with no hand-derived adjoints to get wrong; validated against finite differences before first use |
 | AI agent throughput | the human directs; agents write scripts, run sweeps, and draft docs at high parallelism. **What the agent output is NOT**: a result. Model output is a draft or hypothesis until something that is not a language model verifies it (a runnable script, a hand-checked derivation, a measurement): the standing contract in [`AI_HYGIENE.md`](../../../../../AI_HYGIENE.md) |
 | Known-answer gates | every task is anchored to something already known (a theorem, a closed form, a parent model's number) before its new claims count; § 4 is the inventory |
 | Adversarial audits | substantive claims get an independent refutation pass (own script, own method) before they are trusted or sent; the audit is recorded in the deliverable |
@@ -120,7 +120,7 @@ Three subsections, one per task, filled as each lands (run order M7.8 → M7.9 �
 | § | Task | What lands here |
 | --- | --- | --- |
 | 7.1 | [M7.8](m7_8_helicity_pair.md) helicity pair ✅ | below |
-| 7.2 | [M7.9](m7_9_chaosbook.md) ChaosBook benchmark 🚧 | the canonical-exercise scorecard (each implemented exercise vs its published solution: Poincaré sections, periodic-orbit finding, cycle stability); the orbit-hunting toolkit the Maxwell track uses |
+| 7.2 | [M7.9](m7_9_chaosbook.md) ChaosBook benchmark ✅ | below |
 | 7.3 | [M7.10](m7_10_pure_maxwell.md) pure-Maxwell no-Lagrangian test 🚧 | Theorem 2 verified as a known-answer gate (Trkalian cavity mode persists); the honest boundary as a measurement (free-space evaporation, electron destruction time with the coupling off); the coupling ladder and the tachyon-attribution result |
 
 ### 7.1 The M7.8 helicity-pair results (run of record: 2026-07-07, N = 64)
@@ -137,6 +137,20 @@ The repaired two-mode ansatz from the closure notes (CK/LG modes `(1, ±1, ±1)`
 | What stands vs what broke | the closure ARITHMETIC stands (re-derived at receipt); the LG profile relaxes cleanly; what breaks is the **two-mode stationarity postulate** in this frame. Not excluded (the open question the data poses back): an ensemble with the two helicities constrained separately, the charge/scalar sector active, or a resonant rather than minimal pair |
 | Full record | [`m7_8_helicity_pair.md § FINDINGS`](m7_8_helicity_pair.md) (gates, the five-rung table, the low-`H_A` longitudinal-reservoir caveat, the audit) |
 
+### 7.2 The M7.9 ChaosBook benchmark (run of record: 2026-07-07)
+
+The self-test asked for at the Phase-1-review call ("your AI should kill it in 10 minutes, but I want to see that"): canonical ChaosBook exercises implemented headless and compared against the published solutions, with the hygiene rule that every published value is transcribed from the chapter PDFs with a page citation, never from an AI model's memory. Full scorecard + equations + audit: [`m7_9_benchmark_report.md`](m7_9_benchmark_report.md).
+
+| Measured | Result |
+| --- | --- |
+| Pre-book analytic gates | 4/4 green before any book content was consulted (Lorenz eigenvalues vs a sympy-derived characteristic cubic to 1.2e-14; Hénon fixed points at machine precision; Poincaré return time exact to 5e-13) |
+| Rössler equilibria + exponents ((2.29), (4.36)) | reproduced to the printed precision (the book truncates its decimals; agreement at 1 ULP of print) |
+| The analytic Floquet cycle (exercise 5.1) | `find_cycle` + `floquet` recover `T = 2π` and multipliers `{1, e^{−4π}}` to 1.3e-15 |
+| **The full exercise 16.9 cycle table** | **14/14 Rössler periodic orbits to topological length 7 found and reproduced** (close-return seeding → multiple shooting → Floquet): worst section-point deviation 2.0e-6, worst `Λ_e` relative deviation 1.3e-6 against the published values |
+| Counting (tables 18.2/18.3) | exact integer match, `N = 2, 3, 4` alphabets to `n = 10` |
+| Adversarial audit | CONFIRMED by a machinery-independent route (LSODA + finite-difference Jacobians + brute-force necklace enumeration; no shared code with the pipeline) |
+| The toolkit the Maxwell track inherits | [`m7_9_orbits.py`](../scripts/m7_9_orbits.py): `integrate` / `poincare_section` / `close_returns` / `find_cycle` (multiple shooting, period free) / `floquet`; M7.10 E1 applies it verbatim to the Trkalian cavity mode (`find_cycle` fixed point at period `2π/λ`, multipliers on the unit circle = the orbit-language statement of pure-Maxwell marginal stability) |
+
 ## 8. Reproduce everything
 
 | Step | Command | Expected |
@@ -145,6 +159,7 @@ The repaired two-mode ansatz from the closure notes (CK/LG modes `(1, ±1, ±1)`
 | The whole Phase 1 chain, one command | `python openwave/xperiments/m7_hydroboros/research/scripts/m7_7_canonical.py` | quick mode (N = 48), ~10 min laptop CPU, prints the gate table + ALL GATES PASS |
 | Full resolution | `... m7_7_canonical.py --full` | N = 64, the results-of-record numbers (§ 4) |
 | The M7.8 helicity ladder | `python ... m7_8_helicity_pair.py seed` then `smoke` then `run` | seed gates seconds; smoke ~1.5 min (N = 48); the 5-rung ladder ~1 h (N = 64) |
+| The M7.9 ChaosBook benchmark | `python ... m7_9_gates.py` then `m7_9_benchmark.py` then `m7_9_audit.py` | 4/4 gates (seconds); 5/5 benchmarks (~3 min); audit CONFIRMED (~4 min) |
 | Raw data | small distilled JSONs live in [`data/`](../data/); large `.npz` intermediates are deleted by policy, and every deletion is documented in the task doc with the exact regen command | e.g. the M7.5 winner state regens in ~4 min (`python m7_5_clock_stability.py main`) |
 | Where to read next | the canonical spec [`m7_theory_canonical.md`](../m7_theory_canonical.md) (equations + equation-to-code map) → the task docs in [`tasks/`](.) (each carries plan + findings + gates) | |
 

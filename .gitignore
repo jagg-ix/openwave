@@ -255,3 +255,6 @@ openwave/xperiments/*/theory/author_convos/
 # Agent resume checkpoints (session-local in-flight state for any Mx model task; not research
 # artifacts, never tracked). Findings live in the tracked tasks/ + data/ + plots/ instead.
 openwave/xperiments/*/research/checkpoints/
+
+# ChaosBook chapter PDFs (M7.9 benchmark source; freely served at chaosbook.org, not redistributed here)
+openwave/xperiments/*/theory/chaosbook/

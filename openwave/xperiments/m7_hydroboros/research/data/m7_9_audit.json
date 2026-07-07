@@ -1,0 +1,168 @@
+{
+ "A1_rows": [
+  {
+   "itinerary": "1",
+   "closure": 2.079733115248734e-13,
+   "moved_from_published": 3.2513914897684836e-07,
+   "Lambda_fd": -2.403953322056802,
+   "Lambda_published": -2.403953,
+   "rel_dev": 1.3396967499598002e-07,
+   "T": 5.881088455555459,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "01",
+   "closure": 7.852789453552534e-13,
+   "moved_from_published": 3.8929164960511696e-07,
+   "Lambda_fd": -3.512025733640135,
+   "Lambda_published": -3.512007,
+   "rel_dev": 5.334169360914147e-06,
+   "T": 11.758626071676945,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "001",
+   "closure": 6.892544948324412e-13,
+   "moved_from_published": 1.963395305085771e-06,
+   "Lambda_fd": -2.3418615857675817,
+   "Lambda_published": -2.341923,
+   "rel_dev": 2.6223847845652134e-05,
+   "T": 17.515791070373137,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "011",
+   "closure": 5.041259745247298e-11,
+   "moved_from_published": 5.599964806693528e-07,
+   "Lambda_fd": 5.343848973960833,
+   "Lambda_published": 5.344908,
+   "rel_dev": 0.00019813737470634964,
+   "T": 17.59586581525977,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "0111",
+   "closure": 3.5802330002503135e-11,
+   "moved_from_published": 5.642946572323341e-07,
+   "Lambda_fd": -16.697155916659646,
+   "Lambda_published": -16.69674,
+   "rel_dev": 2.4910051881266587e-05,
+   "T": 23.50855758318139,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "01011",
+   "closure": 2.2790717996120074e-09,
+   "moved_from_published": 3.7476477811269823e-07,
+   "Lambda_fd": -23.207465917708767,
+   "Lambda_published": -23.19958,
+   "rel_dev": 0.00033991639972645143,
+   "T": 29.37105474448789,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "01111",
+   "closure": 1.2648671083867799e-13,
+   "moved_from_published": 9.83378594404874e-07,
+   "Lambda_fd": 36.88659495938091,
+   "Lambda_published": 36.88633,
+   "rel_dev": 7.183132095460828e-06,
+   "T": 29.38107000380273,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "001011",
+   "closure": 6.81678321088036e-10,
+   "moved_from_published": 1.1945671664279693e-07,
+   "Lambda_fd": -6.856507083319462,
+   "Lambda_published": -6.857665,
+   "rel_dev": 0.0001688499920217412,
+   "T": 35.06122602314187,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "010111",
+   "closure": 1.1259336669116392e-09,
+   "moved_from_published": 8.99624441969186e-07,
+   "Lambda_fd": 61.64369719121501,
+   "Lambda_published": 61.64909,
+   "rel_dev": 8.74758862619012e-05,
+   "T": 35.267870579768015,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "011111",
+   "closure": 1.3429570116714894e-10,
+   "moved_from_published": 6.948919003045345e-07,
+   "Lambda_fd": -92.09110226749476,
+   "Lambda_published": -92.08255,
+   "rel_dev": 9.28760931877322e-05,
+   "T": 35.26622548823973,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "0101011",
+   "closure": 1.0862268731234797e-09,
+   "moved_from_published": 5.795683724606351e-07,
+   "Lambda_fd": 77.76060478146962,
+   "Lambda_published": 77.7611,
+   "rel_dev": 6.368460970524351e-06,
+   "T": 41.125668756890995,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "0110111",
+   "closure": 2.523867267228597e-10,
+   "moved_from_published": 5.678209962660254e-07,
+   "Lambda_fd": -95.1892624581362,
+   "Lambda_published": -95.18388,
+   "rel_dev": 5.654800094508159e-05,
+   "T": 41.11276976935171,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "0101111",
+   "closure": 8.60008153613539e-10,
+   "moved_from_published": 8.571489812124826e-07,
+   "Lambda_fd": -142.23605871648965,
+   "Lambda_published": -142.238,
+   "rel_dev": 1.3648135592092532e-05,
+   "T": 41.14319489372177,
+   "verdict": "CONFIRMED"
+  },
+  {
+   "itinerary": "0111111",
+   "closure": 6.456263179058203e-09,
+   "moved_from_published": 2.724794443114945e-07,
+   "Lambda_fd": 218.01964834661743,
+   "Lambda_published": 218.0284,
+   "rel_dev": 4.013996975887034e-05,
+   "T": 41.145722266272244,
+   "verdict": "CONFIRMED"
+  }
+ ],
+ "A1_pass": true,
+ "A2": {
+  "rows": [
+   {
+    "eps": 0.001,
+    "contraction": 3.4821141525753774e-06
+   },
+   {
+    "eps": 0.0001,
+    "contraction": 3.486573252331482e-06
+   },
+   {
+    "eps": 1e-05,
+    "contraction": 3.4847902341539334e-06
+   }
+  ],
+  "analytic": 3.4873423562089973e-06,
+  "dev_at_smallest_eps": 2.552122055063866e-09,
+  "pass": true
+ },
+ "A3": {
+  "pass": true
+ },
+ "verdict": "CONFIRMED"
+}
