@@ -113,15 +113,15 @@ The stated blocker ("how could a single-person team on a laptop run extensive co
 
 The honest summary: the system's credibility rests on runnable code plus known answers plus audits, not on team size. Every claim in this document traces to a script you can run and a number you can check.
 
-## 7. The extension results: M7.8 + M7.9 + M7.10, one report 🚧
+## 7. The extension results: M7.8 + M7.9 + M7.10, one report ✅
 
-Three subsections, one per task, filled as each lands (run order M7.8 → M7.9 → M7.10):
+Three subsections, one per task (run order M7.8 → M7.9 → M7.10; all landed 2026-07-07):
 
 | § | Task | What lands here |
 | --- | --- | --- |
 | 7.1 | [M7.8](m7_8_helicity_pair.md) helicity pair ✅ | below |
 | 7.2 | [M7.9](m7_9_chaosbook.md) ChaosBook benchmark ✅ | below |
-| 7.3 | [M7.10](m7_10_pure_maxwell.md) pure-Maxwell no-Lagrangian test 🚧 | Theorem 2 verified as a known-answer gate (Trkalian cavity mode persists); the honest boundary as a measurement (free-space evaporation, electron destruction time with the coupling off); the coupling ladder and the tachyon-attribution result |
+| 7.3 | [M7.10](m7_10_pure_maxwell.md) pure-Maxwell no-Lagrangian test ✅ | below |
 
 ### 7.1 The M7.8 helicity-pair results (run of record: 2026-07-07, N = 64)
 
@@ -151,6 +151,20 @@ The self-test asked for at the Phase-1-review call ("your AI should kill it in 1
 | Adversarial audit | CONFIRMED by a machinery-independent route (LSODA + finite-difference Jacobians + brute-force necklace enumeration; no shared code with the pipeline) |
 | The toolkit the Maxwell track inherits | [`m7_9_orbits.py`](../scripts/m7_9_orbits.py): `integrate` / `poincare_section` / `close_returns` / `find_cycle` (multiple shooting, period free) / `floquet`; M7.10 E1 applies it verbatim to the Trkalian cavity mode (`find_cycle` fixed point at period `2π/λ`, multipliers on the unit circle = the orbit-language statement of pure-Maxwell marginal stability) |
 
+### 7.3 The M7.10 pure-Maxwell no-Lagrangian test (run of record: 2026-07-07)
+
+The coupling terms switched off (`ε_x` the bilinear, `ε_q` the quartic; both zero = plain Maxwell evolution `∂E/∂t = ∇×B`, `∂B/∂t = −∇×E`), establishing by measurement what the pure sector can and cannot do. Full record + plots + audit: [`m7_10_pure_maxwell.md § FINDINGS`](m7_10_pure_maxwell.md).
+
+| Measured | Result |
+| --- | --- |
+| **Theorem 2 as a known-answer gate** | on the COMPATIBLE boundary (periodic torus, exact discrete ABC/Trkalian eigenfield): standing oscillation with the measured clock equal to the analytic integrator frequency to **5.8e-14**, and the period error equal to the closed-form Verlet dispersion `(λ_h dt)²/24` to 4 digits. In the cubic Dirichlet cavity: the CK ball rings at its own lattice eigenvalue while coherent (−1.6%), then dephases into the BOX's spectrum: incompatible walls hold the energy, not the mode |
+| The M7.9 toolkit on a field flow | `find_cycle`/`floquet` run verbatim on the d = 384 lattice Maxwell flow: cavity orbit accepted at `T = 2π/λ_h` (residual 7e-11), multipliers on the unit circle to 6e-8 (**marginal: no attractor**); and the period equation is degenerate BY PHYSICS (linear flows have non-isolated orbits; the perturbed-period Newton lands on a static curl-curl-kernel point). Isolated-orbit hunting starts when the flow is nonlinear (M7.11+) |
+| **The honest boundary as a measurement** | same seed, walls vs sponge: core retention **0.371 vs 0.042**; same electron state, coupling ON vs OFF in free space: ON dies by the tachyon at t = 2.6 (the M7.5 anchor, probe FFT on the band edge 0.6376), OFF shows **zero growth** (A2 ratio 1.000) and evaporates to core fraction **7e-5**. Free-space pure Maxwell holds nothing; walls or the coupling localize |
+| Helicity bookkeeping | the conserved quantity is the EM helicity `H_em = ½(∫A·B + ∫C·E)`: flat to **0.069%** during free flight while magnetic helicity alone swings 84% (standing-launch cos² + dephasing); semi-discrete conservation proved and dt²-verified |
+| **The coupling ladder + Q14 attribution** | vacuum growth rate on the pre-registered curve `0.786√ε` at **0.1-0.3% on every rung** (7 diagonal points); the single-switch points seal `det M(0) = −ε_x²`: (ε_x=1, ε_q=0) destabilizes at full rate 0.997 AND binds the most compact state of the ladder (r50 3.28); (0, 1) is healthy and does not bind. **The tachyon and the confinement have one source: the bilinear term** |
+| What nature corrected | localized minimizers at ω = 1 degrade already below ε ≈ 0.5 (r50 3.4 → 5.0-5.6, box scale; PSD-ness does not buy localization); the predicted small-ε dispersion crossover never appears (small-ε minimizers are box-scale standing eigenmodes, exactly stationary at ε = 0); destruction time scales `≈ 1.5/rate ∝ 1/√ε` |
+| Adversarial audit | **CONFIRMED** by a pure-numpy machinery-independent route; its dt-convergence test caught a real bug (continuum vs DISCRETE curl symbol in the FFT inverse curl), fixed and re-verified (dt² ratio 0.250 exact) |
+
 ## 8. Reproduce everything
 
 | Step | Command | Expected |
@@ -160,6 +174,7 @@ The self-test asked for at the Phase-1-review call ("your AI should kill it in 1
 | Full resolution | `... m7_7_canonical.py --full` | N = 64, the results-of-record numbers (§ 4) |
 | The M7.8 helicity ladder | `python ... m7_8_helicity_pair.py seed` then `smoke` then `run` | seed gates seconds; smoke ~1.5 min (N = 48); the 5-rung ladder ~1 h (N = 64) |
 | The M7.9 ChaosBook benchmark | `python ... m7_9_gates.py` then `m7_9_benchmark.py` then `m7_9_audit.py` | 4/4 gates (seconds); 5/5 benchmarks (~3 min); audit CONFIRMED (~4 min) |
+| The M7.10 pure-Maxwell test | `python ... m7_10_pure_maxwell.py gates` then `cavity`, `evap`, `electron`, `ladder`, `analyze`; audit: `m7_10_audit.py` | gates ALL PASS (~45 min, the E1a floor runs dominate); each experiment prints its gate line; audit CONFIRMED (~2 min) |
 | Raw data | small distilled JSONs live in [`data/`](../data/); large `.npz` intermediates are deleted by policy, and every deletion is documented in the task doc with the exact regen command | e.g. the M7.5 winner state regens in ~4 min (`python m7_5_clock_stability.py main`) |
 | Where to read next | the canonical spec [`m7_theory_canonical.md`](../m7_theory_canonical.md) (equations + equation-to-code map) → the task docs in [`tasks/`](.) (each carries plan + findings + gates) | |
 
