@@ -22,12 +22,26 @@ The author's program is to find the electron as a **stable periodic orbit** in t
 
 | Step | Content |
 | --- | --- |
-| E1 acquire + index | persist the book copy (local, gitignored, citation entry); build `m7_9_chaosbook_index.md` (chapter map + candidate exercises) |
-| E2 select | 3-5 canonical exercises **with published solutions**, spanning the toolkit: e.g. Rössler / Lorenz equilibria + their stability eigenvalues, a Poincaré-section construction, the shortest periodic orbits of a canonical flow (Rössler cycle or Hénon map cycles) found by Newton / multiple shooting, cycle counting on a symbolic-dynamics example (3-disk pinball class) |
-| E3 implement | headless Python (`scripts/m7_9_chaosbook_*.py`), unit tests asserting the published values; implement-first-check-after per E-loading rule; the integrator layer reuses our own machinery where that is the point (drift behavior on chaotic flows is itself evidence for walkthrough § 3) |
-| E4 benchmark report | a short method-note-lite report (equations, code links, our numbers vs the book's, pass/fail table) suitable for the author and the Burak review |
+| E1 acquire + index | persist the book copy (local, gitignored, citation entry); build `m7_9_chaosbook_index.md` (chapter map + candidate exercises). **Hygiene rule, hard:** every "published value" asserted in this task is extracted from the book/solutions text at E1 with a chapter/exercise citation, NEVER supplied from model memory (a memorized benchmark value that leaks into the implementation or the comparison silently destroys exactly the self-test property the author asked for) |
+| E1b pre-book analytic gates | before any book content loads, the toolkit passes closed-form gates that need no source: Lorenz equilibria `C± = (±√(β(ρ−1)), ±√(β(ρ−1)), ρ−1)` + their Jacobian eigenvalues from the characteristic cubic; Hénon fixed points (quadratic formula) + their multipliers; a linear-flow Poincaré return map with analytic return time. These prove the machinery independent of the benchmark values |
+| E2 select | 3-5 canonical exercises **with published solutions**, spanning the toolkit: Rössler / Lorenz equilibria + stability eigenvalues, a Poincaré-section construction, the shortest periodic orbits of a canonical flow (Rössler cycle or Hénon map cycles) found by Newton / multiple shooting, cycle counting on a symbolic-dynamics example (3-disk pinball class) |
+| E3 implement | headless Python; **the reusable toolkit is a MODULE, `scripts/m7_9_orbits.py`**, with per-exercise drivers `m7_9_chaosbook_*.py` importing it; unit tests asserting the published values (cited per E1); implement-first-check-after per the E-loading rule; the integrator layer reuses our own machinery where that is the point (drift behavior on chaotic flows is itself evidence for walkthrough § 3) |
+| E4 benchmark report | a short method-note-lite report (equations, code links, our numbers vs the book's with citations, pass/fail table) suitable for the author and the Burak review |
 | E5 reading support | a 2-page "what you need for the calls" digest for Rodrigo (TOC orientation + ch. 1 + the vocabulary: Poincaré section, return map, Floquet multiplier, cycle expansion), explicitly bounded: fluency, not mastery |
 | E6 sessions | schedule the 4-7 book walkthrough sessions + the Burak test-design hour AFTER E4 exists (the report is the shared artifact to walk through) |
+
+## 4b. The toolkit API (what M7.10-M7.14 actually imports)
+
+`m7_9_orbits.py` exposes, dimension-agnostic (small ODE systems here, field flows later via a state-vector adapter):
+
+| Function | Contract |
+| --- | --- |
+| `integrate(f, x0, T, ...)` | trajectory of `ẋ = f(x)`; RK45 for the small systems, pluggable so the lattice leapfrog satisfies the same interface |
+| `poincare_section(f, x0, plane, n_cross)` | ordered section crossings + the return map |
+| `find_cycle(f, x0, T0)` | Newton / multiple shooting on `(x, T)`; returns the closed orbit + convergence trace |
+| `floquet(f, cycle)` | monodromy matrix along the cycle → Floquet multipliers (cycle stability) |
+
+The M7.10 handoff is concrete: E1 of M7.10 verifies the Trkalian cavity mode as a `find_cycle` fixed point of the Maxwell flow (period `2π/λ`), and its `floquet` multipliers on the unit circle are the orbit-language statement of marginal stability that pure Maxwell provides (no attractor without the coupling).
 
 ## 5. Effort estimate + independence from Rodrigo's reading
 
