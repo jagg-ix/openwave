@@ -4,7 +4,7 @@
 
 ## 1. Objective
 
-Two outputs, one task: (a) a **benchmark suite** the author can trust: canonical exercises from Cvitanović et al., *Chaos: Classical and Quantum* ("ChaosBook", <https://chaosbook.org/>), implemented headless and checked against their published solutions ("your AI should kill it in 10 minutes, **but I want to see that**"); (b) the **orbit-hunting toolkit** (Poincaré sections, return maps, periodic-orbit finding, cycle stability) that the reserved M7.10-M7.14 pure-Maxwell/Beltrami track will need. A side output: light reading support so Rodrigo gains call fluency without becoming the bottleneck.
+Two outputs, one task: (a) a **benchmark suite** the author can trust: canonical exercises from Cvitanović et al., *Chaos: Classical and Quantum* ("ChaosBook", <https://chaosbook.org/>), implemented headless and checked against their published solutions ("your AI should kill it in 10 minutes, **but I want to see that**"); (b) the **orbit-hunting toolkit** (Poincaré sections, return maps, periodic-orbit finding, cycle stability) that the M7.10-M7.14 pure-Maxwell/Beltrami track will need (first consumer: [M7.10](m7_10_pure_maxwell.md), the no-Lagrangian test, defined 2026-07-07). A side output: light reading support so Rodrigo gains call fluency without becoming the bottleneck.
 
 ## 2. Why (from the call)
 
@@ -35,4 +35,4 @@ The author's program is to find the electron as a **stable periodic orbit** in t
 
 ## 6. Cross-refs
 
-[Roadmap](../m7_roadmap.md) · [M7.8](m7_8_helicity_pair.md) (the walkthrough this benchmark reinforces) · the reserved M7.10-M7.14 Maxwell-track band (the consumer of the toolkit) · [tracker Q4](../m7_question_tracker.md#q4-detail) (source-material provenance) · corpus anchor for the chaotic-flow direction: Dombre et al. 1986 (ABC chaotic streamlines, [`theory/_CITATIONS.md`](../../theory/_CITATIONS.md)).
+[Roadmap](../m7_roadmap.md) · [M7.8](m7_8_helicity_pair.md) (the walkthrough this benchmark reinforces; § 7.2 of [`m7_phase1_walkthrough.md`](m7_phase1_walkthrough.md) carries this task's scorecard, one report bundling M7.8 + M7.9 + M7.10) · [M7.10](m7_10_pure_maxwell.md) (the first consumer of the toolkit: its cavity CK mode is verified as a periodic orbit of the Maxwell flow, its destruction test described as an orbit losing stability; M7.11-M7.14 stay reserved) · [tracker Q4](../m7_question_tracker.md#q4-detail) (source-material provenance) · corpus anchor for the chaotic-flow direction: Dombre et al. 1986 (ABC chaotic streamlines, [`theory/_CITATIONS.md`](../../theory/_CITATIONS.md)).

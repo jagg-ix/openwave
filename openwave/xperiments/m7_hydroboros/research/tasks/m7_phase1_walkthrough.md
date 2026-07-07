@@ -1,6 +1,6 @@
 # M7 / HydroBoros: the Phase 1 walkthrough (under the hood)
 
-> A reader-first companion to the [Phase 1 report](m7_phase1_report.md), written for a physicist who wants to see **what was actually done** before trusting it: how the stable electron candidate was found, which equations are integrated, how the numerics are kept honest, and how a one-engineer-plus-AI team runs this at all. Everything links to runnable code and raw data; nothing here rests on prose. Produced as deliverable (b) of [M7.8](m7_8_helicity_pair.md); sections marked 🚧 fill as that task lands.
+> A reader-first companion to the [Phase 1 report](m7_phase1_report.md), written for a physicist who wants to see **what was actually done** before trusting it: how the stable electron candidate was found, which equations are integrated, how the numerics are kept honest, and how a one-engineer-plus-AI team runs this at all. Everything links to runnable code and raw data; nothing here rests on prose. Produced as deliverable (b) of [M7.8](m7_8_helicity_pair.md) and completed across the Phase 1 extension: **§ 7 bundles the results of all three extension tasks (M7.8 helicity pair, M7.9 ChaosBook benchmark, M7.10 pure-Maxwell no-Lagrangian test) into the one report that goes to the author**; sections marked 🚧 fill as those tasks land.
 
 ## 1. How the stable dynamical orbit was found (the discovery chain)
 
@@ -47,9 +47,15 @@ Honest boundary: what exists is a stable rotating knotted soliton with unit angu
 
 (M7.8 fills: the human + AI + governance loop ([`AI_HYGIENE.md`](../../../../../AI_HYGIENE.md), method notes, script-backed claims, adversarial audits); the leverage stack: GPU lattice + automatic differentiation + agent throughput + known-answer gates at every step; what this system is NOT trusted to do alone.)
 
-## 7. The M7.8 helicity-pair results 🚧
+## 7. The extension results: M7.8 + M7.9 + M7.10, one report 🚧
 
-(The run of record: `U₊/U₋` vs the closure prediction `3 + α/2 + 4f_bb`; the pair-asymmetry spin `(U₊ − U₋)/ω` vs the ℏ/2 target; both seed protocols, √3-seeded and unbiased.)
+Three subsections, one per task, filled as each lands (run order M7.8 → M7.9 → M7.10):
+
+| § | Task | What lands here |
+| --- | --- | --- |
+| 7.1 | [M7.8](m7_8_helicity_pair.md) helicity pair 🚧 | the run of record: `U₊/U₋` vs the closure prediction `3 + α/2 + 4f_bb`; the pair-asymmetry spin `(U₊ − U₋)/ω` vs the ℏ/2 target; both seed protocols, √3-seeded and unbiased |
+| 7.2 | [M7.9](m7_9_chaosbook.md) ChaosBook benchmark 🚧 | the canonical-exercise scorecard (each implemented exercise vs its published solution: Poincaré sections, periodic-orbit finding, cycle stability); the orbit-hunting toolkit the Maxwell track uses |
+| 7.3 | [M7.10](m7_10_pure_maxwell.md) pure-Maxwell no-Lagrangian test 🚧 | Theorem 2 verified as a known-answer gate (Trkalian cavity mode persists); the honest boundary as a measurement (free-space evaporation, electron destruction time with the coupling off); the coupling ladder and the tachyon-attribution result |
 
 ## 8. Reproduce everything 🚧
 
@@ -57,4 +63,4 @@ Honest boundary: what exists is a stable rotating knotted soliton with unit angu
 
 ---
 
-Cross-refs: [Phase 1 report](m7_phase1_report.md) · [M7.8 task](m7_8_helicity_pair.md) · [canonical spec](../m7_theory_canonical.md) · [roadmap](../m7_roadmap.md) · [question tracker](../m7_question_tracker.md).
+Cross-refs: [Phase 1 report](m7_phase1_report.md) · [M7.8 task](m7_8_helicity_pair.md) · [M7.9 task](m7_9_chaosbook.md) · [M7.10 task](m7_10_pure_maxwell.md) · [canonical spec](../m7_theory_canonical.md) · [roadmap](../m7_roadmap.md) · [question tracker](../m7_question_tracker.md).

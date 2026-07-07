@@ -52,7 +52,7 @@ Skeleton already in place; filled during this task. Tuned to the author's regist
 | 4 | The automated test suite: inventory + current pass report (auto-generated from the gate JSONs) | "let's make sure we have tests automated that show the PDE is behaving correctly... generate me a report" |
 | 5 | "Approximately Beltrami", precisely: `λ_eff = F·(∇×F)/\|F\|²` defined, the 0.96 alignment map shown | "is that word salad?" |
 | 6 | The system under the hood: human + AI + repo governance (AI_HYGIENE, method notes, script-backed claims, adversarial audits), and the honest answer to "one person + a laptop": GPU lattice + AD gradients + agent throughput + validated gates + known-answer tests at every step | the David-and-Goliath question |
-| 7 | The M7.8 results (from deliverable a) | the agreed data handoff |
+| 7 | The extension results, one report: § 7.1 = the M7.8 results (from deliverable a); § 7.2 = the [M7.9](m7_9_chaosbook.md) benchmark scorecard; § 7.3 = the [M7.10](m7_10_pure_maxwell.md) pure-Maxwell results (2026-07-07: the walkthrough ships to the author once all three land) | the agreed data handoff |
 | 8 | Reproduce everything: `m7_7_canonical.py` quick mode, the grid ladder, and the local-install path for when he takes it | "I do want to install OpenWave at some point" |
 
 ## 6. Folded from the call-prep sheet (so nothing is lost and that doc can retire)
@@ -66,7 +66,7 @@ Skeleton already in place; filled during this task. Tuned to the author's regist
 | § 5 units contract table | Q15 resolved-directive; both readings versioned in the canonical spec § 4 (deliverable c) |
 | § 6 question list | tracker (Q15 resolved; Q7/Q3 post-August; Q1 open; Q4 addendum) |
 | § 7 already-answered + the Q11 window measurement | tracker Q10/Q11 details |
-| § 8 after-the-call | the restructured [roadmap](../m7_roadmap.md) (Phase 1 extension M7.8/M7.9 + reserved M7.10-M7.14 + Phase 2 = M7.15+) |
+| § 8 after-the-call | the restructured [roadmap](../m7_roadmap.md) (Phase 1 extension M7.8/M7.9/[M7.10](m7_10_pure_maxwell.md) + reserved M7.11-M7.14 + Phase 2 = M7.15+) |
 
 ## 7. Cross-refs
 
