@@ -148,3 +148,17 @@ Issues: the 2D relaxes end with gnorm still descending at cap (energy-gap verdic
 **Findings**: Duda's 4D Lagrangian and Hamiltonian are both RIGHT and now verified, but the energy is unbounded below through boost-rotation textures on the vacuum manifold at zero potential cost, and the vacuum manifold splits into 4 disjoint branches: two new owner-intent questions with measured witnesses. His universal spectral potential works exactly as intended (exact biaxial pinning), leaves the calibrated electron sector essentially unchanged (`r_half` robust to 0.3%), and measurably does NOT close the melt channel, so defect stability now points uniquely at the Q13 terms or the clock dressing.
 
 **Research docs created/updated**: this file (FINDINGS + PHASE-B VERDICT + phase-C bullets); [`../findings/m5_18_verification_note.md`](../findings/m5_18_verification_note.md) (the deliverable); [`../scripts/m5_18_lorentz_check.py`](../scripts/m5_18_lorentz_check.py) · [`../scripts/m5_18_spectral.py`](../scripts/m5_18_spectral.py) · [`../scripts/m5_18_plot.py`](../scripts/m5_18_plot.py) + 9 data JSONs + [`../plots/m5_18_spectral.png`](../plots/m5_18_spectral.png); [`../m5_question_tracker.md`](../m5_question_tracker.md); [`../m5_roadmap.md`](../m5_roadmap.md); [`m5_12_task_details.md`](m5_12_task_details.md); [`../checkpoints/m5_18_progress.md`](../checkpoints/m5_18_progress.md) (closed).
+
+---
+
+## POST-REVIEW: the owner reply (2026-07-06, group-cc'd)
+
+The reply email (phase C) went out 2026-07-05 15:16; Duda answered twice on 2026-07-06 (00:25 + 02:56), cc'ing **models-of-particles** (the thread is now group-public). Full verbatim + decode + routing: **[`m5_18_convo.md`](m5_18_convo.md)**. Ledger of this task's three back-questions:
+
+| M5.18 back-question | Outcome |
+| --- | --- |
+| 1. Degenerate Legendre map / Dirac constraints | ⚠️ not answered in words → tracker **Q18**; urgency downgraded by his least-action BVP stance (the canonical formulation is a convenience, not the foundation) |
+| 2. 4-branch vacuum split + domain walls | ⚠️ not answered in words → tracker **Q19**; partial core signal: the static-charge core spec `(g', a, a, a)` |
+| 3. Negative boost-texture channel intended? | ✅ **ANSWERED: INTENDED + load-bearing** (clock oscillations + gravitational-mass boosts; GR precedent; instabilities dissolved by the least-action two-sided-BC foundation, "not Euler-Lagrange") |
+
+Bonus outcomes riding the same replies: **Q13 answered by redirect** (LC chiral/Frank unsanctioned; Lorentz-invariant Skyrme-like terms are the admissible class), **Q14 answered as a constraint** (pin centers to lattice points + replace the central value with `M = aI` / `(g', a, a, a)`), the phase-B melt-channel negative gets his diagnosis (center-of-charge off-lattice artifact, to be re-tested as M5.12 phase D0), and the verification note's Lagrangian is elevated to "might be the final Lagrangian for this level of physics" (kept open for potential modifications + Skyrme-like kinetic terms). Consumers: [`m5_12_task_details.md § 2026-07-06 spec updates`](m5_12_task_details.md) + the tracker count block.
