@@ -1,6 +1,6 @@
 # M7 / HydroBoros - Background
 
-  ![hydroboros_icon](../images/hydroboros_icon_small.jpg)
+  ![hydroboros_icon](images/hydroboros_icon_small.jpg)
 
 > **Purpose.** Build a rigorous **full 3D PDE simulation** of the electron as a
 > self-linked toroidal vortex, blending the **hydrodynamics school** (Marc Fleury's toroidal

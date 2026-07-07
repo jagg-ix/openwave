@@ -1,6 +1,6 @@
 # M7 / HydroBoros - PHASE 1 REPORT
 
-  ![hydroboros_icon](../../images/hydroboros_icon_small.jpg)
+  ![hydroboros_icon](../images/hydroboros_icon_small.jpg)
 
 > The human-readable summary of Phase 1 (tasks M7.0-M7.7, finished on 2026-07-04). Everything here is a pointer: each claim links its detail doc, script, and data. Written for the two physics parents (Marc Fleury, Paul Werbos) and for anyone auditing the program.
 
