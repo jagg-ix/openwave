@@ -1,4 +1,4 @@
-# M7 / HydroBoros, roadmap
+# M7 / HYDROBOROS, ROADMAP
 
 > Local task roadmap for the **M7 (HydroBoros)** model, replicating the M5 local-roadmap structure (2026-07-01). M7 has **no GitHub issues**; tasks are tracked here. **taskID = M7.N**. Full planning + findings live in each [`tasks/m7_N_*.md`](tasks/) detail doc; scripts / data / plots live in [`scripts/`](scripts/) · [`data/`](data/) · [`plots/`](plots/), all named `m7_N_*.{py,npz,png}`. Ordering is the build sequence (M7.0 → M7.23, Phases 1 → 5; task IDs are stable, table order = build order); the **top of Backlog is the next task**.
 >
