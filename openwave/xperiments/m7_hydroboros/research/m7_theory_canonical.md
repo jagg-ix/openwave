@@ -2,7 +2,7 @@
 
 > The results-of-record spec for the M7 electron, consolidated at the **M7.7 milestone** (2026-07-03) from tasks M7.1-M7.6. Shaped per [`dev_docs/METHOD_NOTE.md`](../../../../dev_docs/METHOD_NOTE.md): **equations first**, an equation-to-code map, results after methods, and an explicit not-computed list. The runnable reproduction is ONE script: [`scripts/m7_7_canonical.py`](scripts/m7_7_canonical.py); the physics lives in ONE small module: [`scripts/m7_functional.py`](scripts/m7_functional.py) (~200 lines, docstring = these equations).
 >
-> ⚠️ **Scheduled refreshes (2026-07-06):** this spec has two planned revisions: **#1 at the [M7.8](tasks/m7_8_helicity_pair.md) close** (bring the equation-to-code map to the current METHOD_NOTE `file:line` audit granularity; make the doc self-sufficient on the under-the-hood questions an author audit asks: the ansatz, the integrator, the lattice, how charge and energy are computed; fold in the M7.8 results) and **#2 at M7.21** (publication-grade, alongside the MODELS.md column entry). Until #1 lands, the [Phase 1 walkthrough](tasks/m7_phase1_walkthrough.md) is the companion for under-the-hood reading.
+> ⚠️ **Scheduled refreshes (2026-07-06):** **#1 applied at M7.8 (2026-07-07)**: the search recipe (§ 1b), the real-time integrator (§ 1c), the M7.8 map rows (§ 2), the helicity-pair measurement (§ 3b/§ 4). **#2 rides M7.21** (publication-grade, alongside the MODELS.md column entry). The [Phase 1 walkthrough](tasks/m7_phase1_walkthrough.md) is the companion for under-the-hood reading.
 
 ## 1. The theory (all conventions pinned, with provenance)
 
@@ -42,7 +42,27 @@ H_A   = ½ ∫ ( a_c·∇×a_c + a_s·∇×a_s )                      (the local
 
 Why these two, measured: the fixed-`Q_can` extremal is the real-time orbit (`ω` is the multiplier; the fixed-`H_A`-only state misses the orbit by exactly `−2ω²`, measured −1.978, M7.5 § 4); the `ω`-`Q_can` conjugacy is verified in 3D (`dE*/dω = Q_can` to ~1-2%, M7.5 § 3); helicity is load-bearing (zero-`H_A` states evaporate at fixed `H_A` [M7.4] and delocalize to the band-edge condensate at fixed `Q_can` [M7.6]).
 
-**Discretization:** uniform cubic lattice, `h = L/N`, central differences (curl self-adjoint), vacuum Dirichlet shell (3 cells), volume element `h³`; FIRE minimizer with Gram-Schmidt tangent projection on both constraint gradients and exact interleaved rescale restores; Taichi f64 engine cross-validated against the numpy reference module on the final state (gate ≤ 1e-10).
+**Discretization:** uniform cubic lattice, `h = L/N`, central differences (curl self-adjoint), vacuum Dirichlet shell (3 cells), volume element `h³`; FIRE minimizer with Gram-Schmidt tangent projection on both constraint gradients and exact interleaved rescale restores (through-zero-safe helicity variant since M7.8: Newton step along `dH` when `sign(H) ≠ sign(H₀)`); Taichi f64 engine cross-validated against the numpy reference module on the final state (gate ≤ 1e-10).
+
+### 1b. The search recipe (ansatz → relax → gates), self-contained
+
+| Step | Content |
+| --- | --- |
+| Seed (the ansatz) | an explicit doublet built from the parents' geometry; the electron of record uses the **rotating blend**: the M6 torus profile + a poloidal A-twist (nonzero `H_A`), rotated to `m = 1` (`a_c ∝ cos φ, a_s ∝ sin φ`); construction [`m7_4_linked_vortex.py:278-322`](scripts/m7_4_linked_vortex.py) + the m1 rotation [`m7_6_observables.py:181-192`](scripts/m7_6_observables.py). The M7.8 helicity pair adds the CK/LG two-mode ansatz from the closure notes ([`m7_8_helicity_pair.py`](scripts/m7_8_helicity_pair.py) `_one_mode`/`build_pair_seed`; conventions and repairs in [`tasks/m7_8_helicity_pair.md § 4a`](tasks/m7_8_helicity_pair.md)) |
+| Relax | FIRE descent of `E_ω` at fixed `(Q_can, H_A)`: gradient from Taichi reverse-mode AD, both constraint gradients Gram-Schmidt-projected out of the descent direction, constraints restored exactly (rescales / Newton) every step; [`m7_6_observables.py:90-173`](scripts/m7_6_observables.py) `relax_qcan` (through-zero-safe variant: `m7_8_helicity_pair.py` `relax_qcan_safe`) |
+| Converge | `‖∇E‖ → ~1e-7`, constraints held to 5+ digits, `maxf` bounded |
+| Gate | dilation probe (interior `E(scale)` minimum), grid ladder 48³ → 64³ → 96³ (0.15%), the observables battery, real-time frame identity (§ 1c) |
+
+### 1c. The real-time integrator (the validation frame)
+
+Temporal gauge, pure-vector sector; the evolution equations the leapfrog steps:
+
+```text
+d²A/dt² = −∇×∇×A − J
+d²J/dt² = −∇×∇×J − A − 2(c1 + 2c2|J|²) J
+```
+
+Velocity-Verlet (kick-drift-kick), `dt = 0.2h`, Dirichlet shell, optional absorbing sponge; drift measured `O(dt²)` (0.59 → 0.148 at half dt). Initial data from the relaxed doublet: `A(0) = a_c, Ȧ(0) = ω a_s` (same for J). The frame identity `⟨E_real⟩ = E_ω` holds to 1.85e-14 (M7.5), which is what licenses the harmonic search. Engine: [`m7_5_clock_stability.py:89-233`](scripts/m7_5_clock_stability.py) (forces at `:134-146`).
 
 ## 2. Equation-to-code map
 
@@ -60,6 +80,10 @@ Every term findable in one click; permalinks are pinned to the Phase 1 merge com
 | `j_z` per quantum (orbital + spin, circular components) | `jz_per_quantum` | [m7_functional.py#L164-L179](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L164-L179) | same |
 | RMS charge / Gauss reading | `charge_rms` | [m7_functional.py#L182-L192](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_functional.py#L182-L192) | same |
 | the canonical run + gate table (the driver; no physics of its own) | `main` | [m7_7_canonical.py#L55-L121](https://github.com/openwave-labs/openwave/blob/bc51a0985b9ca4ae9e6b4c91017d1f9946e947e7/openwave/xperiments/m7_hydroboros/research/scripts/m7_7_canonical.py#L55-L121) | [`m7_7_canonical.py`](scripts/m7_7_canonical.py) |
+| per-helicity energies `U±` + longitudinal/charge bucket (Waleffe split, discrete-curl-exact; Parseval gate 1.5e-16) | `helical_split` | [m7_8_helicity_pair.py](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m7_hydroboros/research/scripts/m7_8_helicity_pair.py) (blob/main until the M7.8 merge pins it) | [`m7_8_helicity_pair.py`](scripts/m7_8_helicity_pair.py) |
+| through-zero-safe constrained relaxation (M7.8 tooling fix) | `relax_qcan_safe` | same file | same |
+
+**How charge is computed** (the audit question, answered in one place): the instantaneous charge density is `ρ = ∇·E_A` read directly off the doublet (`E_Ac = −ω a_s`, `E_As = +ω a_c`; with scalars, the `−∇a₀` terms add); the **RMS/Fleury charge** integrates `√((ρ_c² + ρ_s²)/2)` inside a stated window (`charge_rms`, map row above); the **net Gauss monopole** is the boundary flux `∮E_A·dS`, nonzero only with the fixed-`j₀` reservoir (§ 5 limit; M7.6 measured 99.1% flux closure). The M7.8 longitudinal bucket `U_long` is the k-space face of the same content: the curl-free part of the doublet, exactly where `∇·A ≠ 0` lives.
 
 ## 3. The canonical electron (results of record, N = 64, L = 16)
 
@@ -75,6 +99,19 @@ The state: the **rotating blend** (m = 1 azimuthal pair of the M6-torus + poloid
 | KG sector | both fluctuation branches exact KG; `m_eff² = (1+√5)/2` | dispersion anchored by the measured tachyon rate (0.785 vs 0.786, M7.5) |
 | existence threshold | solitons only for **`ω > ω* = 0.786`** | measured (bracketed 0.75-0.79); the clock IS the stabilizer |
 
+### 3b. The M7.8 helicity-pair measurement (2026-07-07, N = 64)
+
+The closure-notes two-mode ansatz (CK/LG helicity pair), five seeded asymmetries bracketing √3, each relaxed at fixed `(Q_can, H_A)`:
+
+| Measured | Value |
+| --- | --- |
+| stationarity of the `U₊/U₋ = 3` pair | **not stationary at any rung**: the minus mode is expelled (relaxed `U₊/U₋` 104 → 1077, asym 0.981 → 0.998); adversarially audited (minus re-insertion at fixed constraints gives `dE ∝ +ε²`) |
+| the basin | the § 3 electron family: `E/\|H_A\|` → 0.808 (family law 0.802), `j_z` → 0.99 per quantum |
+| the pair-asymmetry spin `(U₊ − U₋)/(U₊ + U₋)` | **≈ 1 (one quantum), not 1/2** |
+| honest boundary | this frame only (fixed NET `Q_can` + `H_A`, pure-vector); separately-constrained helicities / scalar sector / resonant states not excluded |
+
+Run record + gates: [`tasks/m7_8_helicity_pair.md § FINDINGS`](tasks/m7_8_helicity_pair.md).
+
 ## 4. The units contract (resolved as a directive 2026-07-06; both readings versioned pending the M7.8 measurement)
 
 Measured dimensionless inputs: `⟨j_z⟩ = 1` per quantum; `ωL_z/E_ω = 2.07`; `E_ω = 6.3246 p.u.` The physical mapping needs ONE choice:
@@ -84,7 +121,7 @@ Measured dimensionless inputs: `⟨j_z⟩ = 1` per quantum; `ωL_z/E_ω = 2.07`;
 | `ω = ω_Compton = m_ec²/ℏ` | `E_ω = m_ec²` sets the unit | `L_z ≈ 2.07 ℏ` (total field angular momentum ~ 2ℏ; the per-quantum `j_z = 1` reads as ℏ) |
 | `ω = ω_Dirac = 2m_ec²/ℏ` (Zitter) | same energy anchor | `L_z ≈ 1.03 ℏ`; the per-quantum `j_z = 1` reads as **ℏ/2-per-2ω-cycle** (the Zitter reading: bilinears at 2ω) |
 
-Recommendation on record was the Dirac/Zitter mapping (bilinears oscillate at 2ω, matching the M5.8 clock structure and Fleury's `ω/ω_D` targets), which lands the total `L_z` at ℏ within 3%; the spin-½ STATISTICS question (double cover) is untouched either way (🚧 in the column). **Decision (2026-07-06, author directive at the Phase-1-review call, [tracker Q15](m7_question_tracker.md#q15-detail)):** no mapping is pinned; the frequency is treated as **emergent** and the target is the **observable `S_z = ℏ/2`**, read from the helicity-pair asymmetry `(U₊ − U₋)/ω`, which [M7.8](tasks/m7_8_helicity_pair.md) measures. Both rows above stay versioned until that measurement selects the reading.
+Recommendation on record was the Dirac/Zitter mapping (bilinears oscillate at 2ω, matching the M5.8 clock structure and Fleury's `ω/ω_D` targets), which lands the total `L_z` at ℏ within 3%; the spin-½ STATISTICS question (double cover) is untouched either way (🚧 in the column). **Decision (2026-07-06, author directive at the Phase-1-review call, [tracker Q15](m7_question_tracker.md#q15-detail)):** no mapping is pinned; the frequency is treated as **emergent** and the target is the **observable `S_z = ℏ/2`**, read from the helicity-pair asymmetry `(U₊ − U₋)/ω`, which [M7.8](tasks/m7_8_helicity_pair.md) measures. **Measurement (2026-07-07, § 3b):** the pair asymmetry reads **≈ 1 quantum, not ½**, at every stable state of this frame (the two-mode mechanism is expelled by relaxation). Consequence for this table: the ℏ/2 target is NOT met via pair asymmetry; it survives via the **frequency mapping** (the `ω_D` / Zitter row: per-quantum `j_z = 1` reads ℏ/2-per-2ω-cycle, and the bilinears do oscillate at 2ω). Both rows stay versioned; the measurement now weights the Zitter row, and the question the data poses back to the author is whether a separately-constrained-helicity (or charge-sector-active, or resonant) ensemble can rescue the pair mechanism.
 
 ## 5. Known limits (the not-computed list, explicit)
 

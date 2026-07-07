@@ -45,7 +45,7 @@ The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_mod
 
 Tracked with stable IDs in [`m7_question_tracker.md`](../m7_question_tracker.md) (full statement + history at each anchor).
 
-> **Updated 2026-07-06, post-call.** Q10 ✅ resolved by the author's reply (the Eq 122/124/127 bug confirmed; corrected figure 0.95 vs our 0.958). **Q15 ✅ resolved by author directive at the 2026-07-06 call**: no frequency mapping pinned ("the frequency is emergent"); the target is the **observable `S_z = ℏ/2`**, measured by [M7.8](m7_8_helicity_pair.md). The remaining asks (Q7, Q3) ride the author's post-August static→dynamic Beltrami window; Q1/Q4 as below. Priority order matches the [tracker](../m7_question_tracker.md).
+> **Updated 2026-07-06, post-call.** Q10 ✅ resolved by the author's reply (the Eq 122/124/127 bug confirmed; corrected figure 0.95 vs our 0.958). **Q15 ✅ resolved by author directive at the 2026-07-06 call**: no frequency mapping pinned ("the frequency is emergent"); the target is the **observable `S_z = ℏ/2`**, measured by [M7.8](m7_8_helicity_pair.md). **M7.8 measured it (2026-07-07)**: the pair asymmetry reads **one quantum, not ℏ/2**, at every stable state of the fixed-`(Q_can, H_A)` frame (the two-mode pair is expelled toward single-helicity; adversarially audited); the ℏ/2 route shifts to the frequency mapping ([walkthrough § 7.1](m7_phase1_walkthrough.md)). The remaining asks (Q7, Q3) ride the author's post-August static→dynamic Beltrami window; Q1/Q4 as below. Priority order matches the [tracker](../m7_question_tracker.md).
 
 | ID | Question | Why we ask |
 | --- | --- | --- |

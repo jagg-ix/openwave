@@ -1,6 +1,6 @@
 # M7.8: the helicity-pair 3:1 test + the Phase 1 walkthrough
 
-> **Status: GO** (confirmed at the 2026-07-06 Phase-1-review call with the author; Phase 1 extension). Roadmap row: [`m7_roadmap.md`](../m7_roadmap.md) § IN PROGRESS. Author-convo record: `theory/author_convos/m7_phase1_convo.pdf` (local-only). This doc carries the plan; FINDINGS land here at FINISH.
+> **Status: ✅ DONE** (2026-07-07, review approved; GO confirmed at the 2026-07-06 Phase-1-review call with the author; Phase 1 extension). Roadmap row: [`m7_roadmap.md`](../m7_roadmap.md) § DONE. Author-convo record: `theory/author_convos/m7_phase1_convo.pdf` (local-only). Results: [`§ FINDINGS`](#findings-2026-07-07-execution); the walkthrough package for the author: [`m7_phase1_walkthrough.md`](m7_phase1_walkthrough.md) (§ 7.1 = this task's results; ships after M7.9 + M7.10 complete it).
 
 ## 1. Context and what changed at the call
 
@@ -107,6 +107,118 @@ Skeleton already in place; filled during this task. Tuned to the author's regist
 | § 7 already-answered + the Q11 window measurement | tracker Q10/Q11 details |
 | § 8 after-the-call | the restructured [roadmap](../m7_roadmap.md) (Phase 1 extension M7.8/M7.9/[M7.10](m7_10_pure_maxwell.md) + reserved M7.11-M7.14 + Phase 2 = M7.15+) |
 
+## FINDINGS (2026-07-07, execution)
+
+Artifacts: [`../scripts/m7_8_helicity_pair.py`](../scripts/m7_8_helicity_pair.py) (modes `seed` / `smoke` / `run` / `grid` / `audit` / `analyze`) · data [`m7_8_seed_gates.json`](../data/m7_8_seed_gates.json) · [`m7_8_smoke.json`](../data/m7_8_smoke.json) · [`m7_8_ladder.json`](../data/m7_8_ladder.json) · [`m7_8_audit.json`](../data/m7_8_audit.json) · [`m7_8_grid96.json`](../data/m7_8_grid96.json) · plot [`m7_8_ladder.png`](../plots/m7_8_ladder.png).
+
+![m7_8_ladder](../plots/m7_8_ladder.png)
+
+### 1. Machinery gates (all green before any physics claim)
+
+| Gate | Result |
+| --- | --- |
+| Helical-split completeness (Parseval, transverse ± + longitudinal + curl-null buckets vs the real-space quad energy) | **1.5e-16** ✅ |
+| Projector calibration (single `s = ±1` CK/LG mode lands in its sector) | 93.5% ✅ (the 6.5% = toroidal-curvature mixing at `σ/R = 0.5`, a seed property, not a projector error) |
+| Sign consistency (mode `s = +1` → `H_A > 0` → `U₊`) | ✅ after the frame fix (execution log: the naive poloidal angle gives a LEFT-handed triad; caught by this gate) |
+| Beltrami identity on the seed `(U₊ − U₋)/(ωH_A)` | 1.057 ✅ (≈ 1) |
+| Divergence identity (charge on the gradient shell, zero at core) | ✅ qualitative (rms core 9.7e-3 < shell 1.25e-2) |
+| Constraints through every relaxation | `Q_can` exact, `H_A` to 5 digits, `\|g\|` 6e-8 - 1.5e-6 ✅ |
+
+### 2. THE HEADLINE: the pair is not stationary; relaxation expels the minus mode at every rung ✅ measured
+
+The five-rung ladder (N = 64, fixed `Q_can = 13.2017` + the rung's own `H_A`, 1500 FIRE iterations each):
+
+| ratio a₊/a₋ | `H_A` | E | `U₊/U₋` relaxed | asym `(U₊−U₋)/(U₊+U₋)` | `E/\|H_A\|` | r50 | align | `j_z` (A) | `U_long` % |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1.2 | 1.70 | 3.0903 | 104 | 0.981 | 1.82 | 5.33 | +0.707 | 0.499 | 45.7 |
+| 1.5 | 3.62 | 3.7386 | 184 | 0.989 | 1.03 | 4.78 | +0.755 | 0.940 | 3.7 |
+| √3 | 4.70 | 4.2110 | 528 | 0.996 | 0.895 | 4.37 | +0.861 | 0.975 | 2.2 |
+| 2.0 | 5.64 | 4.7327 | 644 | 0.997 | 0.838 | 4.06 | +0.913 | 0.992 | 1.1 |
+| 2.5 | 6.81 | 5.5066 | 1077 | 0.998 | 0.808 | 3.70 | +0.946 | 0.990 | 0.4 |
+
+Three measured statements:
+
+| Statement | Evidence |
+| --- | --- |
+| The thin-torus helicity pair with `U₊/U₋ = 3` is **nowhere stationary** in the fixed-`(Q_can, H_A)` frame: every seeded asymmetry runs to the single-helicity boundary | asym 0.981 → 0.998 monotone; `U₊/U₋` is 2-3 orders of magnitude above the closure value at every rung (plot, left panel, log scale) |
+| The basin it falls into is the **known electron family**: as `H_A` rises the relaxed states converge to the Arnold-efficient Taylor family | `E/\|H_A\|` → 0.808 at the top rung (the M7.4 family law 0.8016; the M7.6 electron = 0.802); align → 0.946; r50 → 3.70; `j_z` → 0.99 per quantum |
+| The in-model pair-asymmetry spin reads **≈ 1 quantum (ℏ under P2), not ℏ/2** | asym ≈ 1 at every rung; consistent with the M7.6 single-mode `j_z = 1` per quantum |
+
+### 3. The low-`H_A` anomaly, flagged honestly
+
+The 1.2 rung's `j_z = 0.499` is a **mixture artifact, NOT a spin-half state**: 45.7% of its A-sector energy sits in the longitudinal (curl-free) bucket. At low helicity the excess `Q_can` norm condenses into the cheap curl-free reservoir (`E/Q_can = 0.23`, near the M7.6 band-edge condensate value 0.19); the `j_z` average is diluted by that reservoir. The new `U_long` observable (added when the Parseval gate caught the 2.7% deficit) is what makes this diagnosis one line instead of a mystery.
+
+### 4. Adversarial audit: CONFIRMED ✅
+
+Refutation attempt (the AI_HYGIENE cardinal rule): re-insert minus-mode content into the relaxed √3 state at amplitude ε, restore BOTH constraints exactly, measure `E(ε)`. If E fell anywhere, the expulsion would be a relaxation artifact.
+
+| ε | 0.02 | 0.05 | 0.10 | 0.20 |
+| --- | --- | --- | --- | --- |
+| `dE` | +4.2e-3 | +2.7e-2 | +1.1e-1 | +5.3e-1 |
+
+`dE` rises **quadratically in ε** (positive curvature): the pure-plus state is a genuine directional minimum against minus-mode re-insertion. Verdict recorded in [`m7_8_audit.json`](../data/m7_8_audit.json).
+
+### 5. Grid check (96³) ✅
+
+The √3 rung re-run at N = 96 (`h = 0.167`): E = 4.1872 vs 4.2110 at 64³ (**0.57% grid shift**), asymmetry **0.996 identical**, `U₊/U₋ = 505` (vs 528), `E/\|H_A\| = 0.893`, `j_z = 0.978`, `\|g\| = 1.1e-7`. The expulsion and the basin are grid-converged; only the energy carries the expected sub-percent grid dependence. Data: [`m7_8_grid96.json`](../data/m7_8_grid96.json).
+
+### 6. What this means for the closure postulates and Q15 (stated carefully)
+
+| Item | Reading |
+| --- | --- |
+| P3 as pair asymmetry (`S_z = ℏ/2` from `U₊ − U₋` of a two-mode state) | the **mechanism does not survive 3D relaxation in this frame**: the functional prefers all transverse energy in one helicity sector; the 3:1 arithmetic (which we re-derived and stands) never gets a stationary state to live on |
+| The `S_z = ℏ/2` directive | NOT met by pair asymmetry here; the stable states read one quantum. The surviving route to ℏ/2 is the **frequency mapping** (the Zitter/`ω_D = 2ω_C` reading, canonical spec § 4: per-quantum `j_z = 1` reads ℏ/2-per-2ω-cycle), i.e. exactly the Case-A-flavored reading, while the closure notes pinned Case B via P3. Both readings stay versioned; the measurement now weights them |
+| Honest boundary of the claim | measured in THIS frame (fixed net `Q_can` + net `H_A`, pure-vector sector, the frame validated by M7.3-M7.6). NOT excluded: a frame fixing the two helicities **separately** (`H₊`, `H₋` as independent constraints), the scalar/charge sector active, or the pair as a resonant (metastable) rather than minimal state. These are the natural author questions the data now poses |
+| Either-outcome clause from the plan | fired on the "closure fails" branch, quantitatively: the failure mode is localized (the P3 pair mechanism, not the arithmetic and not the thin-torus profile per se) |
+
+## EXECUTION LOG (2026-07-07)
+
+| Time | Event |
+| --- | --- |
+| 15:18 | go (reset 7:20pm; resume ping armed at 7:25pm, slot `SABER Resume: Task M7.8`) |
+| 15:22 | seed gates v1: projector purity 93.5% but **two catches**: (a) the naive poloidal angle `atan2(z, ρ−R₀)` makes the toroidal triad LEFT-handed (the `s = +1` mode measured `H_A < 0`, curl eigenvalues flipped vs the notes); (b) the helical split dropped the longitudinal component: Parseval deficit 2.7%, which is exactly the charge-carrying `∇·A` content |
+| 15:25 | both fixed: right-handed frame (`φ = atan2(−z, ρ−R₀)`), longitudinal bucket `U_long` added (physically meaningful: the k-space face of the divergence charge). Seed gates v2 ALL GREEN: projector 93.5% with consistent signs, **Parseval 1.5e-16**, Beltrami identity `(U₊−U₋)/(ωH_A) = 1.057`, divergence on the gradient shell (rms core 9.7e-3 < shell 1.25e-2). The 6.5% seed impurity = toroidal-curvature mixing at `σ/R = 0.5`, a seed property, reported |
+| 15:27 | smoke (48³, √3 rung, 500 it): converged clean (`\|g\| = 1.6e-6`, constraints exact). **THE SMOKE FINDING: the relaxation EXPELS the minus mode** (relaxed `U₊/U₋ = 521`, asym 0.996, `j_z = 0.972`): at fixed `(Q_can, H_A)` the two-mode pair is not stationary; the functional falls into the single-helicity rotating basin (= the M7.6 electron). Arnold economics: minus-sector energy carries canceling helicity, pure-plus is the efficient state |
+| 15:30 | 64³ five-rung ladder launched (background); walkthrough §§ 2-6 + 8 filled; canonical refresh #1 applied (§§ 1b, 1c, map rows, charge prose, § 3b placeholder) |
+
+Deviations from plan: none yet (the projector calibration and the sign fixes are exactly what the § 4d step 1 gates were for).
+
 ## 7. Cross-refs
 
 [Roadmap](../m7_roadmap.md) · [tracker](../m7_question_tracker.md) (Q15 resolution, Q3/Q4/Q7 call addenda) · [Phase 1 report](m7_phase1_report.md) · [call-prep (archived)](m7_7_call_prep.md) · closure-notes provenance: [`theory/_CITATIONS.md`](../../theory/_CITATIONS.md) · author-convo record: `theory/author_convos/m7_phase1_convo.pdf` (local-only) · [`AI_HYGIENE.md`](../../../../../AI_HYGIENE.md) (the audit-loop contract).
+
+---
+
+## TASK REVIEW (2026-07-07)
+
+**Task Duration:** 01:47 (from 15:18 to 17:05 EDT)
+**Usage Cap Triggered:** NO (resume ping parked without firing)
+
+**Results** (full detail: [`§ FINDINGS`](#findings-2026-07-07-execution)):
+
+| Gate | Outcome |
+| --- | --- |
+| machinery gates | ✅ helical-split Parseval **1.5e-16** (longitudinal bucket added when the deficit gate caught it), projector 93.5% sign-consistent, seed Beltrami identity 1.057; two bugs caught BY the gates pre-physics (left-handed toroidal frame; missing longitudinal sector) |
+| the closure prediction `U₊/U₋ = 3 + α/2 + 4f_bb` | ✅ measured, NOT observed: the pair is **not stationary at any seeded asymmetry**; the minus mode is expelled at all 5 rungs (relaxed `U₊/U₋` 104 → 1077, asym 0.981 → 0.998) |
+| the pair-asymmetry spin vs ℏ/2 (Q15 directive) | ✅ reads **≈ 1 quantum (ℏ under P2), not ℏ/2** at every stable state of this frame; the ℏ/2 route shifts to the frequency mapping (Zitter/2ω) |
+| the basin | ✅ the Phase 1 electron family (`E/\|H_A\|` → 0.808 vs 0.802, `j_z` → 0.99) |
+| adversarial audit | ✅ CONFIRMED: minus re-insertion at fixed constraints raises E **quadratically** |
+| grid check | ✅ 96³: asym 0.996 identical, E shift 0.57% |
+| deliverable b (walkthrough) | ✅ §§ 2-6, 7.1, 8 filled; §§ 7.2/7.3 await M7.9/M7.10 |
+| deliverable c (canonical refresh #1) | ✅ §§ 1b, 1c, map rows, charge prose, § 3b, § 4 weighted |
+
+**Issues / blockers:** the low-`H_A` rung's `j_z = 0.499` is a longitudinal-reservoir mixture artifact, NOT spin-half (flagged, § FINDINGS 3). No >1MB raw data created (all artifacts small JSONs + one plot; nothing to delete). Doc checker exit 0 across all touched files.
+
+**Deviations from plan:** none.
+
+**Action needed:** the sharpest author question the data poses (does a separately-constrained-helicity / charge-sector-active / resonant ensemble rescue the P3 pair mechanism?) rides the M7.8 package for the author's external pass; the walkthrough ships after M7.9 + M7.10 complete § 7; next = "go M7.9".
+
+**Findings**: The thin-torus helicity pair behind the 3:1 closure is nowhere stationary in the full nonlinear 3D functional: relaxation expels the minus mode at every seeded asymmetry (adversarially audited, grid-checked) and lands in the known single-helicity electron family, so the pair-asymmetry spin observable reads one quantum rather than the targeted ℏ/2, shifting the surviving ℏ/2 route to the frequency mapping (the Zitter/2ω reading). The closure's arithmetic stands; what 3D relaxation rejects is the two-mode stationarity postulate, and the measurement is bounded honestly to the fixed-`(Q_can, H_A)` pure-vector frame, with the separately-constrained-helicity ensemble as the open question the data poses back to the author.
+
+**Research docs created / updated**:
+
+- [this task doc](m7_8_helicity_pair.md) (§ FINDINGS 1-6, plot inline, execution log)
+- [`../scripts/m7_8_helicity_pair.py`](../scripts/m7_8_helicity_pair.py) (modes `seed`/`smoke`/`run`/`grid`/`audit`/`analyze`)
+- [`../data/m7_8_seed_gates.json`](../data/m7_8_seed_gates.json) · [`m7_8_smoke.json`](../data/m7_8_smoke.json) · [`m7_8_ladder.json`](../data/m7_8_ladder.json) · [`m7_8_audit.json`](../data/m7_8_audit.json) · [`m7_8_grid96.json`](../data/m7_8_grid96.json)
+- [`../plots/m7_8_ladder.png`](../plots/m7_8_ladder.png) (key plot: the three-panel ladder)
+- [`m7_phase1_walkthrough.md`](m7_phase1_walkthrough.md) (§§ 2-6, 7.1, 8) · [`../m7_theory_canonical.md`](../m7_theory_canonical.md) (refresh #1) · [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q15 addendum + chronology) · [`m7_phase1_report.md`](m7_phase1_report.md) (§ 5 Q15 line) · [`../m7_roadmap.md`](../m7_roadmap.md) (row → DONE)
