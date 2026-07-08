@@ -266,6 +266,218 @@ Copies, never moves: the `m5_11_*` originals stay frozen as the closed task's ev
 
 A **stable, regularized neutrino loop at the physical `(g, δ, V)` regime** (or the honest physical-regime negative, which, unlike the M5.11 placeholders, IS a verdict on the model), then the clock, masses, and mixing computed **on that solution**, documented to article standard. The stake is Duda's own framing (round 3, [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md)): a rigorous derivation of the 4 PMNS parameters "able to pass peer review ... would already be huge". Rigor bar: § Rigor compliance above (the inherited M5.16 table + the M5.12-specific rows).
 
+## EXECUTION LOG (2026-07-07, go 11:23 EDT)
+
+Running record + deviations (logged as they happen, per the flow's deviations-log rule). Checkpoints: [`../checkpoints/m5_12_progress.md`](../checkpoints/m5_12_progress.md).
+
+| Time | Event |
+| --- | --- |
+| 11:23 | GO. Resume ping armed (fires 14:25 EDT if a cap hits). Roadmap row In Progress |
+| 11:27 | D0 driver written ([`../scripts/m5_12_core_pin.py`](../scripts/m5_12_core_pin.py)); hedgehog leg launched (coordinate descent on `a` + frozen bump protocol, n96×192) |
+| 11:38 | Phase A seeder written ([`../scripts/m5_12_loop.py`](../scripts/m5_12_loop.py)): the rotated vortex loop as a 2D vortex at `(R0, 0)` in the equivariant (ρ,z) reduction; melt-core scan q ∈ {1/2, 1} × R0 ∈ {8, 12, 16} launched |
+| 11:42 | ⚠️ Deviation (tooling): `m5_16_axisym.py` parses `sys.argv` positionals as ints AT IMPORT, so any importing driver with non-numeric CLI args crashes (`--core melt` did). Fix: capture-then-strip argv before the import chain in both m5_12 drivers; scan relaunched. No physics impact; note for future drivers importing the axisym stack |
+| 12:00 | D0 hedgehog leg DONE (1889 s): a* = 0.5366; ⚠️ the corepinned unconstrained relax lands at E 4.19 < the M5.18 escaped 7.61 < radial 16.85: the prescription does NOT restore the spherical hedgehog; the JSON's `escaped=False` uses the wrong (already-relaxed) baseline, superseded by this reading. Driver patched to save the final state (`m5_12_d0_hedgehog_state.npz`) for the structure diagnostic |
+| 12:10 | D0 antipair leg launched (d ∈ {16, 17, 24, 25}, aI cores) |
+| 12:15 | Loop scan interim: q=1/2 R8/R12 contract/dissolve (0.3-1.8 gnorm decades, melt heals to ~0.7); R16 q=1/2 DIVERGED (FIRE NaN → eigvalsh crash). ⚠️ Deviation (tooling): NaN guards + conservative FIRE steps (dt0 0.005, dt_max 0.05) added to the loop driver; remaining 4 scan points rerunning. Also: zsh does not word-split unquoted `$args` (a rerun launcher bug, no physics impact) |
+| 12:40 | D0 antipair DONE: annihilates at all d incl. lattice-centered; the isotropic core is a free unwinding surface. Pre-registered branch taken: the σ-term (Skyrme quadratic partner) pilot built (`m5_12_sigma.py`, gate SG1 6.4e-10) + launched. Hedgehog v2 rerun with state saving |
+| 13:15 | Loop melt-core scan COMPLETE: 6/6 dissolve (both q, all R0): the phase-A bare-functional negative is verdict-grade |
+| 13:30 | Hedgehog v2 bit-identical to v1; the 4.19 state decoded (escape texture around the frozen core: far winding intact, biaxial halo, ρ̂-combed director) |
+| 13:45 | σ-pilot: frac 0.1 dissolves; 0.3/1.0 ring-holds FLAGGED as possible confound → discriminator launched (20k extend + matched no-loop control) |
+| 14:40* | Discriminator: `E_localized = −6.8`, ring drifts to 22.5, E_near 3.7/49: the σ hold was far-field texture + slow descent. Statics CLOSED at this search level. (*wall-clock ~13:40 EDT; the 14:40 estimate in an earlier status was an arithmetic slip, corrected) |
+| 13:48 | FINISH block 1: resume ping PARKED unfired (no cap); figure + findings + checkpoint finalized; block-1 review presented |
+| 14:05 | BLOCK 2 OPEN (user: D-first; group share held for final M5.12). Ping re-armed for 19:25 EDT. D1 built: the uniform-rotation clock reduction `H(ω) = E_static + 4ω²Q_W`; gates CQ1-CQ4 machine-precision |
+| 14:20 | D1 measured: boosts negative (−2.4e5 class), rotations positive; dense R0 scan shows an apparent interior loop-size minimum tracking ω. FLAGGED for adversarial audit before any reporting |
+| 14:50 | ⚠️ AUDIT VERDICT: size-selection headline REFUTED (far-field-driven, box-divergent, g_time-background-dominated, 4× ω-normalization slip); algebra + φ-averaging EXACT; sign structure = a theorem of the zero-time-mixing class; `Q_def > 0` (the defect REDUCES boost negativity in this class). D2 rung specified: the time-mixing dressed-state class (the M5.8 GEM-dip home) as the honest clock-stabilizer test. Corrections written into the script docstring + findings; JSONs stand with the correction note |
+| 14:25 | BLOCK 3 GO (reset 19:20, ping armed 19:25): D2a dressed-state class built (`m5_12_dressed.py`); DG1 initially failed → the p=4 necessity surfaced (a real 4D modeling requirement, not a bug); gates fixed + ALL PASS |
+| 15:05 | D2a scan: vacuum-subtracted dips defect-attributed 100-1000× (D1 failure mode gone), but no static bottom (monotone to b0 = 4): the balance must be dynamic |
+| 15:15 | D2b: the R12 clock balances the runaway at fixed J: interior minima (hedgehog b0 1.6-1.7, loop 0.45-0.6), box-stable at n128; controls carry Q_R12 = 0 exactly. Flagged for audit |
+| 15:50 | ⚠️ AUDIT VERDICT (2nd of the day): C1 instrument CONFIRMED (+ the exhibited spurious p≤3 vacuum); C2 → "defect-AMPLIFIED g-background ghost channel" (99% collapses at g = 1: the `ΛηΛ = η` dressing-inertness identity); C3 balanced-minima REFUTED as stated (rigid-rotor-internal, g=8-only, ghost directions in every cell). Block synthesis: three reductions closed in one day; the genuine time-periodic 4D BVP is what remains; the g-mechanism is the new knowledge |
+| 07-08 08:53 | BLOCK 11 GO (reset 11:20, ping 11:25 on the M5.12 slot, message verified; reset-time WATCHDOG armed at 11:20, first live use). Driver gains `--ascale`/`--tagx`; gauntlet BG7 fixed (salvage `ArpackNoConvergence` partials, k = 4, maxiter 12000). Launched: 11a n64 deep rung, 11b a4 amplitude ladder, 11c gauntlet rerun, 11d THE ADVERSARIAL AUDIT (C1-C4 × T1-T6) |
+| 07-08 09:25 | ⚠️ AUDIT VERDICT (block 11): **C1 REFUTED**: ω\* = the closed-form LS balance `w*² = −⟨R_sp,R_t⟩/\|R_t\|²` of the UNCONVERGED residual (7e-7 match at n64), 99.9% core-selected, one warm-start chain, ω\*(nr) ratio 22.5 vs h² 2.86, H-drift 220% grid-independent; **the pinned boundary carried rotating harmonics (max \|A1\| = 0.5): boundary-DRIVEN state**. C2 WEAKENED (non-gauge real; but rigid-rotor algebra satisfied to 0.1-0.8% = the D1 ansatz in Fourier clothes; staticR non-discriminating). C3 WEAKENED (core-concentration real; h² ratios off 15%; "plateau" not established). C4 WEAKENED-SHARPENED: the 0.3% pin is an algebraic identity; `Q2_mix = 0` exactly and Q2 ≥ 0 at any amplitude → NO free-period orbit in the mixing-free class at ANY amplitude; needs η-negative time-mixing (Q2 < 0). T1: the block-3 g-disease does NOT recur (g=1 repose keeps Q2 > 0); the pathology is driven-boundary |
+| 07-08 09:30 | ⚠️ Deviation (audit-driven mid-block redirect): 11a and 11b KILLED (both converging refuted formulations). Driver fixed: zero harmonic BCs on pinned cells (always on) + `--bmix` time-mixing breather seed (0i boost sector). Relaunched: **11a'** axisswing n32 zero-BC LSMR 500 × 20 steps (converge ONE grid, H-drift as metric) + **11b'** breather `--bmix 1` fresh seed. 11c untouched (its BG7 result = "index of the unconverged driven state") |
+| 07-08 10:55 | **THE Q2-SIGN PROBE** (`m5_12_b11_q2probe.py`): the time-mixing class carries **Q2 < 0** (−0.473 at ε 0.15, ~ε² deepening; mixing-free control positive, matching the audit's theorem): the free-period root EXISTS at `ω = sqrt(S0/\|Q2\|) ≈ 11.7` seed-level. ⚠️ Deviation: 11b' (ω ~ 1.04, c_ω pinned at the identity as predicted) killed at step 3; **11b''** relaunched AT the balance root (`--omega0 11.7`, `*_mixw12*`). The block-2 sign theorem (boosts ≤ 0) finds its constructive use: the 0i harmonic is the negative channel |
+
+## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
+
+### D0: the core prescription does NOT close the melt channel (both legs ✅ measured)
+
+| Leg | Result | Status |
+| --- | --- | --- |
+| Hedgehog | `a* = 0.5366` (golden-stable, deterministic across two identical runs); the corepinned unconstrained relax lands at **E 4.19 < the M5.18 escaped 7.61 < the spherical 16.85**: the aI core makes the ESCAPE CHEAPER, not the hedgehog stabler. Structure decoded (`m5_12_d0_hedgehog_state.npz`): far-field winding intact (boundary-pinned), near field = the escape texture (biaxial halo, eigs (−0.30, 0.70, 0.76) at ρ=5; director combed to ρ̂ off-equator) around the frozen isotropic core | ✅ measured |
+| Antipair | **Annihilates at ALL d ∈ {16, 17, 24, 25}** (E → 0.09-0.21, BELOW the M5.18 baseline 0.35/0.41); lattice-centered (d = 17, 25) identical to off-lattice; no melt bridge forms because none is needed: **the frozen isotropic core is a free unwinding surface** (it carries no director, so the winding combs out through it) | ✅ measured |
+
+Honest scope note: the prescription remains sound for its ORIGINAL context (fixed-ansatz Coulomb / running-coupling calibration, where nothing relaxes); as a defect-stability mechanism under free relaxation it fails on both legs, and the M5.18 director-pinned cores fail the complementary way (bridge at 0.008). Statics chain M5.16 → M5.17 → M5.18 → D0 is now fully consistent: **no core regularization stabilizes defects or pairs**.
+
+### Phase A: no stationary bare rotated-vortex loop at δ = 0 (6/6, ✅ measured)
+
+The full scan (q ∈ {1/2, 1} × R0 ∈ {8, 12, 16}, melt core, 6000 iters, n96×192): ALL dissolve: melt heals to 0.68-0.75, E collapses to 7-12, ≤3.1 gnorm decades ([`../data/m5_12_loop_scan_melt.json`](../data/m5_12_loop_scan_melt.json)). The R8-q½ raw "stable" label is overridden by the pre-registered double criterion (1.8 decades + healed melt = contracting stall). The M5.11 unknotted-loop lesson carries to the physical regime: the bare functional (quartic curvature + spectral potential) has no loop-protecting mechanism.
+
+### The σ-term pilot (Skyrme quadratic partner): the non-collapsing signal was a CONFOUND (✅ measured negative)
+
+Physics: M5's quartic curvature IS the Skyrme-family quartic; the σ-model quadratic kinetic term `σ‖∇M‖²` is its Derrick partner (the classic Skyrme stabilization pair) and the exact class Duda sanctioned. Pilot (SCAFFOLDING grade, placeholder σ; gate SG1 = 6.4e-10):
+
+| σ / E_curv(seed) | Outcome |
+| --- | --- |
+| 0.1 | dissolves (ring 12.5 → 9.5, melt heals) |
+| 0.3 | **ring HOLDS at 11.5**, E_end 26 ≫ bare ~7-12, melt heals to 0.74 (smooth core?) |
+| 1.0 | **ring HOLDS at 11.5**, E_end 54, melt heals to 0.71 |
+
+**The discriminator (20k iters + a matched no-loop control, same pinned boundary; [`../data/m5_12_sigma_extend_f1.json`](../data/m5_12_sigma_extend_f1.json)) kills it**: `E_localized = E_end − E_control = 49.07 − 55.84 = −6.8` (the loop run ends BELOW the control: everything is far-field σ-texture cost pinned by the boundary), the "held ring" drifts outward to 22.5 by 20k iters with only 3.7/49 energy units within 8 cells of it, and neither run converges past ~1.9 decades. Both confounds confirmed: slow descent masqueraded as stationarity, boundary texture masqueraded as an object. **σ at pilot scale does not stabilize the loop.** Caveats: 3 placeholder σ values, one seed geometry, pilot grade; but `E_localized ≈ 0` means there is nothing localized left to converge around, which is the load-bearing readout.
+
+**Block-1 conclusion: STATICS ARE CLOSED at this search level.** Core regularizations (melt, director-pinned, isotropic aI), potential shapes (quartic LdG, exact-pinning spectral), and the first Skyrme-family gradient term all fail to hold defects, pairs, or loops. Two candidates remain, in order: **the 4D clock** (phase D, the time-periodic action BVP: Duda's own stance, resolved Q1 "particles are time-periodic resonances") and **topological protection** (phase C, the forced-singular knotted/linked loop, the one unbuilt 2×2 cell, whose trigger condition "A fails and D0 did not close" is now met). Which runs first is the block-2 decision (C is heavy full-3D construction; D is new BVP numerics on the verified Lagrangian).
+
+![M5.12 D0 + phase A: core prescription and rotated vortex loop](../plots/m5_12_d0_loop.png)
+
+## FINDINGS (2026-07-07, block 2: phase D1, the clock-dressing lever)
+
+**Built + gated (banked ✅):** the uniform-rotation clock reduction on the calibrated instrument ([`../scripts/m5_12_clock_q.py`](../scripts/m5_12_clock_q.py)): for `M(x,t) = Λ(ωt)^{-T} M̃(x) Λ(ωt)^{-1}`, `Ṁ = ω[W, M̃]_η` and `H(ω) = E_static + 4ω²·Q_W[M̃]` (the 4 from the instrument's curvature normalization, audit-caught). Gates CQ1-CQ4 machine-precision; the audit independently confirmed the algebra (its own derivation, 7.5e-16) and the exact φ-averaging.
+
+**Measured (✅), then audited (the cardinal rule earned its keep AGAIN):**
+
+| Claim (pre-audit) | Audit verdict |
+| --- | --- |
+| Boosts = the negative channel (Q_W ≈ −2.4e5 to −3.9e5, negative every cell); rotations cost | CONFIRMED-WITH-CAVEATS: the SIGN is an algebraic THEOREM of the zero-time-mixing field class (any texture, defect or not: boosts → purely time-mixing `F_{0i}` → density ≤ 0 identically), so it is not defect-diagnostic; magnitudes are box-divergent (linear in box size: instrument numbers, not converged physics) and **99.4% carried by the frozen `g_time = 8` background** |
+| The boost clock creates an interior loop-size minimum (R0 16 → 8 over ω² ∈ [1e-4, 5e-4]): "the clock selects the loop size" | **REFUTED as physics** (arithmetic reproduces exactly, interpretation does not): the ω² axis was mislabeled 4×; the window bottom is a box artifact (fails at ω² = 1e-4 on 128²/160² boxes); the R0-trend is >100% FAR-FIELD (the near-ring trend has the OPPOSITE sign); the channel is 102-105% as strong with the DEFECT REMOVED. The size-selection lived in the boundary texture + fixed-rc family + g_time background, not in the loop |
+
+**The audit's constructive lead (the real block-2 output):** the defect-attributed clock coupling `Q_def = Q_melt − Q_vac` is **POSITIVE** (+8.2e3 to +1.7e4, growing with R0): within the zero-time-mixing ansatz class, the defect core REDUCES boost negativity, so the uniform-rotation conjugation of undressed fields CANNOT be the stabilizer. This squares exactly with the M5.8 heritage: the GEM dip (boost dressing LOWERING the defect energy, E* 2.61 < 6.14) lives in states whose time row/col is genuinely DRESSED (time-mixing components in the state itself), a class this D1 ansatz excludes by construction. **The D2 rung is therefore specified, not guessed: extend the axisym instrument's field class to carry time-mixing DOF (the dressed-defect class) and re-pose the clock as stationarity there (the time-periodic action BVP proper), with boundary-matched families and vacuum-subtracted observables as the audit prescribes.**
+
+Audit record: independent second agent, own scripts + derivations (scratchpad `audit_A_algebra.py`, `audit_grid.py`), 6 refutation targets, 22 tool uses; verdicts and corrected numbers as tabulated (the § 10 pattern). Data: [`../data/m5_12_clock_q.json`](../data/m5_12_clock_q.json) + `m5_12_clock_q_dense.json` + `m5_12_clock_q_gates.json` (read all three WITH the normalization + audit notes above).
+
+## FINDINGS (2026-07-07, block 3: phase D2, the dressed-state class)
+
+### Banked ✅: the dressed-class instrument (audit-CONFIRMED)
+
+[`../scripts/m5_12_dressed.py`](../scripts/m5_12_dressed.py): the 4D static energy on time-mixing dressed fields (η-curvature at instrument normalization; `V_4D` p = 1..4 with covariant `m00 = −g`; closed-form boost dressing). Gates DG1-DG4 pass; the audit's independent implementation matches to 3e-13 and **exhibited a spurious p ≤ 3 vacuum** (spectrum {8.001, 0.916, 0.306, −0.223} with V(p≤3) = 9e-24 but p4-term = 4.0): the p = 4 invariant is a real necessity, now proven, and a finding Duda will care about (his "generalization to 4D is far nontrivial"). The p4 term shifts undressed statics by 39% (recalibration under `V_4D` deferred, labeled).
+
+### Measured ✅, audited: the ghost channel is g-POWERED (the block's mechanism discovery)
+
+| Claim (pre-audit) | Audit verdict |
+| --- | --- |
+| Boost dressing lowers defect E monotonically; defect-localized (controls 100-1000× smaller, `Q_R12(control) = 0` exactly) | CONFIRMED-WITH-CAVEATS: true at w_b = 8/16, but the channel is negative on the PURE VACUUM too (nonuniform boost of vacuum: dE = −20.7 at b0 = 2: E is unbounded below on the dressed class with NO defect), control suppression degrades to ~2× at w_b = 4 / b0 = 2, and **~99% of the channel rides the frozen g = 8 background** (at g = 1: gain −2413 → −21; mechanism: the g = 1 covariant vacuum satisfies `Λ η Λ = η` EXACTLY, so it is dressing-inert: the channel is powered by the g-vs-1 mismatch). Honest name: a **defect-AMPLIFIED g-background ghost channel** |
+| THE HEADLINE: R12-clock-balanced dressed-defect minima (hedgehog b0 ≈ 1.7, E −169.6 at J = 2000; loop b0 ≈ 0.45-0.6 at J = 50-1000; box-stable at n128; controls cannot spin) | **REFUTED as stated**: the minima reproduce exactly and are real WITHIN the rigid-rotor family at g = 8, but (i) at g = 1 and g = 0 they DO NOT EXIST (no Q zero crossing, no bracket, any J), (ii) w_b = 16 gives only shallow positive-energy minima (gone by J = 1000), (iii) the exact kinetic quadratic form has a NEGATIVE eigenvalue in EVERY cell (an explicit J-neutral velocity reaches T = −230k at J ≈ 0), so the fixed-J centrifugal wall confines nothing outside the rotor line. "Stationary points of the field equations" was an overclaim: a 1-parameter minimum inside an ansatz is not that |
+
+The rotor reduction itself is exact for R12 (dress-then-rotate == rotate-then-dress to 5.6e-17; `T = 4ω²Q_R12` to 6e-11; J is a genuine Noether charge), and ⚠️ ansatz-AMBIGUOUS for the axis-swing clock (orderings differ O(4): all `Q_axis_swing` columns carry that label).
+
+### The block-3 synthesis (what this buys the program)
+
+1. **Every cheap route is now measured-closed**: statics (block 1), the undressed uniform-rotation clock (block 2), the rigid-rotor dressed clock (block 3). Three reductions, three audited closures: the Track-C "reductions are ansatz-gated" lesson, now with a D1-D2 sequel. What remains is the genuine object: **the time-periodic 4D field BVP** (Duda's least-action framing, where per-cell ghost directions do not poison two-sided boundary-value stationarity). This matches his own difficulty assessment ("the most difficult is regularization... not seconds but weeks"; no reference implementation exists anywhere).
+2. **The g-mechanism is new knowledge**: the negative channel scales with the g-background mismatch (measured: −13.5 / −21 / −2413 at g = 0 / 1 / 8, and the g = 1 dressing-inertness identity), the defect amplifies it 100-1000× at moderate dressing widths: this is the model's gravity/mass sector showing its face in the statics ("boosts for gravitational mass"), and the physical g ~ 1e10 makes its treatment THE gating question for phase D proper (dynamic range + the ghost sector together).
+3. Artifacts: [`../scripts/m5_12_dressed.py`](../scripts/m5_12_dressed.py) · balance + controls scans (`../data/m5_12_dressed_*.json`, 5 files) · gates `m5_12_dressed_gates.json` · audit record (this section; auditor scripts in scratchpad, 21 tool uses, independent implementations incl. scipy-expm cross-check).
+
+## FINDINGS (2026-07-07, block 5: D3-pre + D3a)
+
+### D3-pre: the `V_4D` recalibration (✅ measured; the card the BVP compares against)
+
+[`../scripts/m5_12_d3pre.py`](../scripts/m5_12_d3pre.py) (gates P1 `dV_4D/dM` FD 5.7e-8, P2 uniaxial reduction 3.2e-14) + [`../data/m5_12_d3pre_lock.json`](../data/m5_12_d3pre_lock.json):
+
+| Grid | E_sim | r_half_phys | virial |
+| --- | --- | --- | --- |
+| 64×128 | 26.886 | 2.9203 fm | 1.016 |
+| 96×192 | 18.029 | 2.9689 fm | 1.006 |
+| 128×256 | 13.548 | 2.9907 fm | 1.003 |
+
+**The p=4 term moves the electron-size prediction TOWARD Faber**: Richardson from (96,128) gives `r_half ≈ 3.00 fm` vs Faber's 3.0754 (≈ −2.6%, from −4.6% under the 3D-spectral form and −4.8% under LdG): the 4D-consistent potential IMPROVES the cross-model agreement, and the prediction is now robust across THREE potential forms (LdG, 3D-spectral, `V_4D`). Honest caveat: the h-trend is less flat than the 3D chain (J_half 208.4 → 211.8 → 213.4, still rising): quote the Richardson with the spread, not a point value.
+
+### D3a: the BVP core, built + gated (✅ banked)
+
+[`../scripts/m5_12_d3a_bvp.py`](../scripts/m5_12_d3a_bvp.py): the Fourier-in-time action evaluator (`Ŝ` = the verified L's sign structure, reducing EXACTLY to the static energy at zero harmonics) + the full analytic residual (η-sandwich adjoints `dE/dA = 2·sym(η[C,B]_η η)` scattered through the gated channel patterns; `dV_4D/dM`; the Fourier/ω chain) + `dŜ/dω`. Gates: **BG1** residual == FD (field blocks 1.6e-9; ω 1.9e-5, FD-conditioning-limited), **BG2** static embedding identity (7.3e-12; harmonic residuals 1.8e-12 structurally zero), **BG3** the vacuum rotor is an EXACT solution end-to-end through the harmonic plumbing (2.5e-8 absolute = the `(ηM)⁴` fp floor at g = 8, ~1e-11 relative). Tolerances documented in-code. BG4 (rotor-consistency vs the audited D2b numbers) rides D3b with the rotor projection; BG5 (Noether drift) needs a converged solution.
+
+**Block-5 handoff**: the instrument for D3b is complete: recalibrated statics + a gated residual + `dŜ/dω`. D3b = Newton-Krylov on R (matrix-free JVP, GMRES, static-diagonal preconditioner) + the phase/amplitude constraints + continuation from the D2b seeds: the first nontrivial branch attempt (hedgehog first, then the loop).
+
+## FINDINGS (2026-07-07, block 6: D3b, the first Newton branch attempts)
+
+### The machinery (✅ banked)
+
+[`../scripts/m5_12_d3b_newton.py`](../scripts/m5_12_d3b_newton.py): damped Gauss-Newton on the gated D3a residual; bordered system (phase condition + first-harmonic amplitude selector, ω the paired unknown); matrix-free LSMR with EXACT rmatvec via the variational structure (`dR/dX` = the symmetric Hessian of `Ŝ`; `dR/dω` FD-cached per iteration; constraint gradients analytic); diagonal `D^{1/2}` column scaling (per-DOF sqrt cell weight); per-iteration cap-survival checkpoints; generator-parameterized rotor seeds.
+
+### The gauge catch (the block's load-bearing finding, caught pre-claim)
+
+Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a hard plateau at \|F\| ≈ 1072 (`lsmr istop=7`; the preconditioner fix did not move it). The residual-localization diagnostic: 99.7% of the seed residual in the M0 static block, 85% in the time-mixing rows, core-peaked: Newton fights the boost dressing's static imbalance. The deeper structure: **on an axisymmetric field the R12 clock is PURE GAUGE** (a global z-rotation equals a φ-shift of the equivariant field), so "the rotating static hedgehog" is an exact zero-cost symmetry orbit with first-harmonic norm ≈ the seed's, satisfying the amplitude constraint: the solver was crawling toward a PHYSICALLY TRIVIAL orbit that the endpoint classifier would have labeled converged-nontrivial. Consequences, folded into the design: (a) the clock generator must not be absorbed by the spatial symmetry (axis-swing R23/R13, boosts, or products); (b) any converged solution must pass a **symmetry-orbit test** (is it Λ-conjugate to a static solution?) before being called nontrivial; (c) retrospectively, the D2b "R12 balance" was doubly wrong (the audit's g-artifact verdict + the gauge nature). ⚠️ This also re-reads the M5.8 heritage: rigid ROTATIONS about the hedgehog axis were never the clock; the M5.8 breathing/boost modes and the axis-swing are the physical candidates.
+
+### Try 3 (the axis-swing clock, the first genuine attempt): ✅ measured, partial descent
+
+Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
+
+## FINDINGS (2026-07-08, block 10: the rotor gauntlet + the breather arm)
+
+### 10a: the rotor candidate hardens across a THIRD grid (✅ measured)
+
+n64 warm-started hop (6 steps, ~97 min): **ω\* = 0.6446 / 0.6564 / 0.6569 across n32/48/64** (Richardson ≈ 0.657-0.658: the branch frequency is converged-with-resolution); the **h² line extends to three grids** (M0-residual RMS/cell 19.94 / 9.11 / 5.82; the n64 point 14% above pure h², consistent with its shallower 6-step convergence); core share 0.925. State: `m5_12_d3b_axisswing_n64_state.npz`.
+
+Gauntlet on the n48 candidate (`m5_12_gauntlet.py`; BG7 eigensolve still running at block close):
+
+| Check | Result | Reading |
+| --- | --- | --- |
+| ROT nontriviality | rigidity 0.132 (genuine non-rigid co-rotating structure); static residual of the co-rotating mean = **851** | **The rotation is load-bearing**: nothing like a trivially-rotating static solution ✅ |
+| BG5 Noether | H drift 220% over the period at \|F\| = 718 | Honest: the candidate is a converging APPROXIMATION, not yet a dynamical solution; conservation demands the deep-convergence rung (more Newton at n64 + the h² extrapolation) |
+| BG7 index | 🔶 eigensolve in flight | lands async |
+
+### 10b: the breather obstruction, measured to 0.3% (✅ the block's quantitative gem)
+
+The amplitude-harmonic seed (ε = 0.15, no rotation, ω₀ = 1.1) converges its FIELD nearly three decades (\|F\| 6858 → 10.2, rel 1.5e-3) at the held small amplitude, with ω drifting 1.09 → 1.04, but `c_ω` pins at −37.8 while `−Ŝ/ω = −39.25/1.041 = −37.7`: **the obstruction identity `c_ω = −Ŝ/ω` satisfied to 0.3%**. The measured statement: a small-amplitude free-period orbit CANNOT exist because free periodicity requires the action balance `Ŝ = ω·dŜ/dω`, and `dŜ/dω` scales with amplitude²: **genuine breathers are necessarily LARGE-amplitude objects**, exactly the regime M5.8's molten clock lived in (H_dyn ≈ 2.7× H_static). Cross-code validation: the mode band 1.04-1.09 overlaps M5.8's independently-measured ω₁ attractor (1.07-1.15). Next rung: the amplitude-continuation ladder (raise the a\* target stepwise, follow `c_ω` toward the balance point). Endpoint: `m5_12_d3b_breather_n32.json` + state.
+
+## FINDINGS (2026-07-07/08, block 9: the ω-eigenvalue rung, and what it found instead)
+
+Three goal-loop tries on the ω-stationarity row (all warm-started from the block-8 n48 endpoint, w_om flag added to the driver):
+
+| Try | What | Outcome |
+| --- | --- | --- |
+| 1 | `dŜ/dω = 0` row at w_om = 1e-4 | the row at 0.5% system weight steers nothing (flat over 2 steps) |
+| 2 | same at w_om = 2e-2 (parity) | ω takes real steps but `dSdw` stalls at −3.6e4: working the stall caught **a formulation error of mine (pre-audit)**: the free-period condition on the per-period average is `dŜ/dω = Ŝ/ω` (from `S = −(2π/ω)Ŝ`), NOT `dŜ/dω = 0` |
+| 3 | the CORRECTED row `c_ω = dŜ/dω − Ŝ/ω` | `c_ω` is INVARIANT at ≈ −3.62e4 across steps (−3.645, −3.626, −3.622: asymptote) with ω pinned at 0.656 and the amplitude held: **no free-period stationary point exists near this state** |
+
+**THE FINDING: the axis-swing rotating state carries an irreducible conjugate momentum.** `c_ω ≈ −3.6e4` invariant across the constrained manifold means `dS/dω ≠ 0` structurally: by the classical relation this is a large J-like charge, so the state belongs to the **ROTOR CLASS** (the correct stationarity concept: fixed-J / fixed-ω field equations: exactly what the block-7/8 fixed-ω solves converge toward, now understood as the right formulation rather than a stopgap), while genuine **free-period orbits are the BREATHER class** (amplitude oscillation without net internal rotation: the M5.8 breathing heritage), requiring a different seed family. The M5.8 arc's own structure (the breather as THE object; rotations as costs) re-emerges from the BVP independently.
+
+**Block-10 spec:** (a) declare the fixed-ω n48 axis-swing state the ROTOR-CLASS candidate and run the full claim gauntlet on it (n64 hop for the h² line, BG5 Noether drift, BG7 index, symmetry-orbit test, ADVERSARIAL AUDIT: the candidate concept is now sharp enough to audit); (b) the breather-seeded free-period attempt (Ṁ-amplitude first-harmonic seed on the undressed/dressed hedgehog, n32 scaffolding) as the parallel arm; (c) the loop transplant of whichever class survives.
+
+## FINDINGS (2026-07-07, block 8: the warm-started resolution continuation)
+
+Driver upgrades: `--warmstart` (order-1 zoom of a saved state to the target grid: the seed convention scales the object with nr, so grid-to-grid is pure zoom) + grid-tagged filenames (the block-7 collision fixed). Run: n48×96, Nt = 1, LSMR 150, warm-started from the n32 endpoint; 10 Newton steps (~87 min).
+
+| Readout | Result | Status |
+| --- | --- | --- |
+| Warm-start transfer | the zoomed state re-contracts 1.85 decades in ONE step (1.02e5 → 1441) with ω unmoved: continuation works | ✅ measured |
+| **The plateau is h² core discretization error** | M0-residual RMS/cell 19.94 (n32) → 9.11 (n48): factor 2.19 at a 1.5× grid vs the h² prediction 2.25; core share 0.80 → 0.87 (tighter), boundary share halved | ✅ measured: the block-7 diagnosis CONFIRMED quantitatively |
+| **ω* is grid-stable** | 0.6446 (n32) → 0.6564 (n48): +1.8% across a 1.5× resolution jump (and try-3's independent n48 run settled at 0.634-0.640 from a different seed/solver config) | ✅ measured: the branch-frequency candidate behaves like a physical quantity |
+| ω-stationarity | `dŜ/dω` −24.7k → −37.1k: NOT approaching zero: the bordered amplitude-constrained formulation converges the FIELD but moves ω only ~1e-3/step: the branch point proper needs the ω-equation driven explicitly | ⚠️ the block-9 refinement target |
+| Endpoint | \|F\| 718 (rel 7.0e-3), Ŝ = −426.0, state persisted (`m5_12_d3b_axisswing_n48_state.npz`) | banked |
+
+**Block-9 spec (from these numbers):** (a) add the explicit ω-Newton row (solve the bordered system with the `dŜ/dω = 0` equation replacing or augmenting the amplitude constraint: the frequency must become a solved-for eigenvalue, not a slow drift); (b) one more hop (n64) to extend the h²-scaling line and Richardson the plateau away; (c) then BG5/BG7 + the symmetry-orbit test + the adversarial audit on whatever converges: the candidate is close enough that the claim-gauntlet needs to be ready.
+
+## FINDINGS (2026-07-07, block 7: D3b-v2, the direct-formulation push)
+
+### The design correction (banked into [`m5_12_d3_bvp_design.md`](m5_12_d3_bvp_design.md) § 2)
+
+The co-rotating-frame option is INCOMPATIBLE with the equivariant reduction for the physical clock: only R12 (pure gauge, the block-6 catch) and boosts (hyperbolic → non-periodic: no boost clock can be a rigid periodic conjugation) commute with the equivariance. The axis-swing clock is a genuine texture motion WITHIN the equivariant class (block 6's try 3 was legitimate), and the DIRECT Fourier formulation + inner-solve strength is the working route. A real scoping finding: periodic clocks are compact (rotations); the boost sector enters through dressing, not through the clock generator.
+
+### D3b-v2 (axis-swing, n32, Nt = 1, LSMR 250, ω₀ = 0.64): 2.5 decades, plateau ANATOMIZED
+
+| Metric | Value |
+| --- | --- |
+| Descent | \|F\| 2.94e5 → 965 (rel 3.3e-3, 2.5 decades; try 3 managed 0.27 decades): the 4× inner budget + Nt=1 converted the crawl into genuine contraction (1.6 + 0.7 decades in steps 1-2), then the same crawl-plateau |
+| ω | stabilizes at **0.644 ± 0.003 over the last 8 steps**: a robust branch-frequency candidate (try 3 independently settled at 0.634-0.640 at n48) |
+| Endpoint | Ŝ = +351.5; state PERSISTED (`m5_12_d3b_axisswing_state.npz`): warm-start ready |
+| The plateau dissected (on the saved state) | **80% of the M0-residual density within r < 3 of the origin** (the core: resolved by only ~2.7 cells at n32); harmonic residuals 75-87% TIME-MIXING rows (the F_0i sector at the core); 11% boundary shell; `dŜ/dω = −2.5e4` (ω-stationarity NOT reached: the branch point is beyond the plateau) |
+
+**Reading**: the formulation works (steady full-step descent, frequency self-selection, no divergence/collapse/gauge-trap); the blocker is CORE RESOLUTION on the scaffolding grid, not the solver or the physics. Next rung (block 8): warm-started continuation to n48/n64 (the state file makes this cheap to seed), core-resolution scaling of the plateau, and, if the core stress persists at resolution, the lattice-pinned `aI` core (Duda's Q14 prescription) as the BVP core REGULARIZER: the prescription's proper home may be exactly here, closing the circle with D0.
+
+⚠️ Deviations: (a) the co-rotating plan was replaced pre-build by the design correction above (the reason is the finding); (b) tag collision: v2 overwrote try-3's endpoint JSON (`m5_12_d3b_axisswing.json`); try-3's numbers survive in block-6 findings + its log; fix = grid-tagged filenames next run.
+
+## FINDINGS (2026-07-07, block 4: the D3 design)
+
+Design-only block (user decision, option a). Deliverable: **[`m5_12_d3_bvp_design.md`](m5_12_d3_bvp_design.md)**: the time-periodic 4D BVP formulation (action + conventions with the audit-corrected normalization explicit), Fourier-spectral-in-time discretization with the rotating-frame option, Newton-Krylov saddle-finding (critical points, not minima: the ghost sector obstructs descent, not stationarity), 7 pre-registered gates (BG1-BG7 incl. the exact vacuum-rotor solution and the D2b-consistency gate), the g-continuation route (adopted) for the g-treatment, the `V_4D` recalibration flagged as D3-pre REQUIRED, the run-block ladder D3a-D3d (residual+gates → hedgehog branch → g-ladder → the loop branch = the neutrino attempt), and the honest outcome statement (a converged branch = the first particle-candidate solution; a measured non-existence = a verdict-grade negative with real falsification weight). ⚠️ Ops deviation logged: the resume-ping pool collided with the concurrent M7.8 session (its armed slot got relabeled by this session's re-arm; resolved per the pool protocol: slot restored to M7.8, M5.12 moved to the second slot, both verified): propose a flow-doc hardening line at review ("re-list and verify the slot's MESSAGE matches your task before arming; never single-field-update a slot whose message is not yours").
+
+### Artifacts (block 1)
+
+| Artifact | Content |
+| --- | --- |
+| [`../scripts/m5_12_core_pin.py`](../scripts/m5_12_core_pin.py) | D0 driver (aI cores, golden-a coordinate descent, frozen M5.17/18 protocols) |
+| [`../scripts/m5_12_loop.py`](../scripts/m5_12_loop.py) | the rotated-vortex-loop seeder (equivariant (ρ,z), both winding classes) + verdict classifier |
+| [`../scripts/m5_12_sigma.py`](../scripts/m5_12_sigma.py) | σ-term (density + analytic adjoints, gate SG1) + pilot + extend/control discriminator |
+| [`../scripts/m5_12_plot.py`](../scripts/m5_12_plot.py) → [`../plots/m5_12_d0_loop.png`](../plots/m5_12_d0_loop.png) | the 3-panel block figure |
+| `../data/m5_12_d0_hedgehog.json` · `m5_12_d0_pair_anti.json` · `m5_12_loop_scan_melt.json` (+ 6 singles) · `m5_12_sigma_pilot_R12_q0p5.json` · `m5_12_sigma_gate.json` | results |
+| `../data/m5_12_d0_hedgehog_state.npz` (0.9 MB) | the decoded final state (structure diagnostic source) |
+
 ## Cross-links
 
 - Predecessor (closed): [`m5_11_task_details.md`](m5_11_task_details.md) · frozen findings [`m5_11b_findings.md`](m5_11b_findings.md) · resume-state archive [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md)

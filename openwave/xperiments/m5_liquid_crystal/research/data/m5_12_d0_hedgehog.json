@@ -1,0 +1,67 @@
+{
+  "task": "M5.12",
+  "script": "m5_12_core_pin.py",
+  "mode": "hedgehog",
+  "prescription": "core disk r<r_pin replaced by a*I (Duda 2026-07-06), a golden-optimized, field FIRE-relaxed, core frozen",
+  "grid": {
+    "NR": 96,
+    "NZ": 192,
+    "h": 1.0
+  },
+  "params": {
+    "wscale": 0.0007240238793069094,
+    "r_pin": 2.5,
+    "rc_seed": 8.0,
+    "n_core_cells": 8,
+    "rounds": 3,
+    "iters_cd": 4000,
+    "iters_stab": 8000
+  },
+  "coordinate_descent": [
+    {
+      "round": 1,
+      "a": 0.5365652208435734,
+      "E": 5.4373521535623395,
+      "gnorm_last": 0.14893859482230096
+    },
+    {
+      "round": 2,
+      "a": 0.5365651848995905,
+      "E": 4.520708898977435,
+      "gnorm_last": 0.11345348287696908
+    },
+    {
+      "round": 3,
+      "a": 0.5365651901437469,
+      "E": 4.188485743228622,
+      "gnorm_last": 4.448281428422584
+    }
+  ],
+  "a_star": 0.5365651901437469,
+  "V_core_per_cell_at_a_star": 0.0004910378328178113,
+  "E_base_corepinned": 4.188485743228622,
+  "melt_min_s_base": 0.5365651901437469,
+  "E_after_bump_relax": 4.462108707949096,
+  "drop_rel": -0.06532741938129581,
+  "escaped_hedgehog": false,
+  "melt_min_s": 0.5365651901437469,
+  "melt_min_location_rho_z": [
+    0.5,
+    -1.5
+  ],
+  "gnorm_first_last": [
+    8.524225212131473,
+    11.140123782853207
+  ],
+  "wall_s": 1955.4,
+  "baselines": {
+    "m5_18_spectral_no_prescription": {
+      "drop_rel": 0.548,
+      "melt_min_s": 0.508
+    },
+    "m5_16_ldg_n64": {
+      "drop_rel": 0.35
+    }
+  },
+  "note": "escaped=False => the core prescription holds the point defect (channel CLOSED on this leg); escaped=True => the orientation escape survives the prescription"
+}

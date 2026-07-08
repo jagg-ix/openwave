@@ -1,0 +1,7 @@
+{
+ "CQ1_vec_vs_scalar": 1.7763568394002505e-15,
+ "CQ2_dtM_fd_vs_eta_comm": 3.0387248273200385e-11,
+ "CQ3_quadratic_law_rel": 1.8234630618597245e-11,
+ "CQ4_vacuum_Q": 0.0,
+ "all_pass": true
+}

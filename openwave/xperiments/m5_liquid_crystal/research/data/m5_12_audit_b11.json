@@ -1,0 +1,401 @@
+{
+ "task": "M5.12 block 11",
+ "role": "INDEPENDENT ADVERSARIAL AUDIT of the blocks 7-10 rotor-class candidate",
+ "date": "2026-07-08",
+ "scripts": [
+  "m5_12_audit_b11_lib.py",
+  "m5_12_audit_b11_run.py",
+  "m5_12_audit_b11_verdicts.py"
+ ],
+ "audit_tool_gates": {
+  "AG1_shat_rel": 0.0,
+  "AG2_residual_vs_myFD": 5.7038573097365324e-08,
+  "AG3_shat_quad_rel": 3.8833404654512105e-16,
+  "AG3_residual_quad_rel": 4.918765678388756e-16,
+  "AG4_dv4d_vs_myFD": 1.1076920257885648e-07,
+  "AG5_eta_vs_plain_rot_lam": 1.1102230246251565e-16,
+  "AG5_eta_vs_plain_rot_action": 0.0
+ },
+ "structural_fact": "Machine-verified (4.9e-16): M(t_j) is omega-independent and Mdot ~ omega, so Shat(X,w) = S0(X) - w^2 Q2(X) and R(X,w) = R_sp(X) + w^2 R_t(X) EXACTLY. The least-squares-optimal omega at fixed X is closed-form: w*^2 = -<R_sp,R_t>/|R_t|^2.",
+ "claims": {
+  "C1_branch_frequency": {
+   "verdict": "REFUTED",
+   "claim": "omega* = 0.6446/0.6564/0.6569 (n32/48/64), Richardson ~0.657, is a physical grid-converged property of a genuine branch",
+   "evidence": [
+    "omega* IS the closed-form least-squares balance frequency of the UNCONVERGED state: w_ls = 0.64346/0.65634/0.656943 vs saved 0.64464/0.65642/0.656943 (n64 agrees to 7e-7). It is computable from any state whatsoever and has no branch-eigenvalue status.",
+    "The omega-selecting inner products live 99.89-99.92% in the core cells (r < 2rc), the SAME cells that carry 84-94% of the plateau residual which C3 attributes to discretization error. If C3 is right, omega* is a function of the discretization-error field; C1 and C3 cannot both stand.",
+    "No run converged: F_rel_end = 3.3e-3/7.0e-3/2.9e-2 vs the 1e-5 target; the claimant's own verdict field says stalled_or_partial 3/3; LSMR hit maxiter (istop=7) on EVERY iteration of every run.",
+    "The grids are one warm-start chain, not independent: |R| of the n32 endpoint zoomed to n48 = 102161.9 vs the n48 run's logged |F|0 = 102160 (exact match); n64's omega0 = 0.65642 = n48's endpoint. Grid-to-grid omega agreement is inherited.",
+    "The omega sequence CONTRADICTS h^2 convergence: observed diff ratio 22.5 vs h^2-predicted 2.86 (off x7.9); the two Richardson extrapolations disagree: 0.6658 (32/48) vs 0.6576 (48/64), spread 0.0082 = 16x the (n48,n64) grid difference; n64's within-run omega drift (0.0037, still +0.0007/iter at stop) is 7x the (n48,n64) grid difference (0.0005).",
+    "Free-period stationarity is violated by 4-5 orders and is UNSATISFIABLE: c_omega = dShat/dw - Shat/w = -25290/-36484/-47064 (vs Shat = +352/-426/-1554); c_omega = -(S0 + w^2 Q2)/w with measured S0 > 0 AND Q2 > 0 (S0 = 8327/11761/14682, Q2 = 19193/28284/37621) has NO root at any omega. The object can only be a driven/constrained forced response (pinned boundary carries rotating values, max |A1| = 0.5 on pinned cells; the soft c_amp row imposes the seed amplitude).",
+    "The claimant's own solution-quality metric refutes it: BG5 H drift = 2.17/2.20/2.19 across n32/48/64 (I recomputed independently), grid-INDEPENDENT at 220%. An approach to a genuine branch limited by h^2 core error would show the drift improving with grid. It does not move.",
+    "omega_ls is a knife-edge function of the imposed amplitude: rescaling the harmonics by 0.7 destroys the interior minimum entirely (w_ls^2 < 0); by 1.3 sends it to 8.2. The 'branch frequency' exists only at the constraint-imposed amplitude."
+   ],
+   "surviving_form": "At the plateau state, |R(w)|^2 does have a genuine interior minimum in w (depth 0.87/0.94/0.96 relative to w=0), reproducibly near 0.65-0.66 along the warm-start chain: a forced-balance frequency of the constrained, driven-boundary, unconverged rotor configuration. Nothing more.",
+   "numbers": {
+    "omega_ls_vs_saved": {
+     "n32": [
+      0.643459570276984,
+      0.644639166361333
+     ],
+     "n48": [
+      0.6563397388593347,
+      0.6564195303434569
+     ],
+     "n64": [
+      0.6569426834128954,
+      0.6569433692457636
+     ]
+    },
+    "core_share_of_omega_selection": {
+     "n32": 0.9988881045448519,
+     "n48": 0.9990669749285052,
+     "n64": 0.9991646497139466
+    },
+    "c_omega": {
+     "n32": -25290.357949628593,
+     "n48": -36483.83861730895,
+     "n64": -47064.07223332728
+    },
+    "S0_Q2": {
+     "n32": [
+      8327.328654308478,
+      19192.97631292767
+     ],
+     "n48": [
+      11761.341359357597,
+      28284.3858596159
+     ],
+     "n64": [
+      14682.047829861189,
+      37621.265743726275
+     ]
+    },
+    "H_drift_rel": {
+     "n32": 2.1654936126862863,
+     "n48": 2.197229138734022,
+     "n64": 2.1853203399200147
+    },
+    "richardson": {
+     "omega_seq": [
+      0.644639166361333,
+      0.6564195303434569,
+      0.6569433692457636
+     ],
+     "diff_ratio_observed": 22.488524487681683,
+     "diff_ratio_h2_predicted": 2.8571428571428577,
+     "h2_inconsistency_factor": 7.870983570688588,
+     "richardson_from_32_48": 0.665843821529156,
+     "richardson_from_48_64": 0.6576168764058722,
+     "extrapolation_spread": 0.008226945123283813,
+     "within_run_drift_n64_total": 0.003686021599030309,
+     "grid_diff_48_64": 0.0005238389023066725
+    },
+    "warmstart_forensic_n32_to_n48": [
+     102161.93419759617,
+     102160.0
+    ],
+    "omega_ls_vs_amplitude_n32": {
+     "lam_0.7": null,
+     "lam_1.3": 8.206778740663646,
+     "lam_1.0": 0.643459570276984
+    },
+    "omega_selection_depth": {
+     "n32": 0.8691650615722436,
+     "n48": 0.9447377516797995,
+     "n64": 0.9622735089883542
+    }
+   }
+  },
+  "C2_load_bearing_rotation": {
+   "verdict": "WEAKENED",
+   "claim": "the state is not a trivially-rotating static solution nor a symmetry/gauge orbit; evidence: rigidity 0.132, static-residual-of-co-rotating-mean 851",
+   "evidence": [
+    "SURVIVES (non-gauge): the (2,3) swing is genuinely non-gauge. R12 conjugation of M0 changes the static energy by 9.5e-16 (exact isometry, block-6 confirmed); the swing orbit's sampled spatial+V energy varies by 240-250% over the period; A1 is orthogonal to every one-parameter generator tangent [W, M0]_eta (6-generator least-squares fit residual 0.999).",
+    "REFUTED (interpretation of rigidity): rigidity 0.132 (n48; I reproduce 0.13230, ns-independent) is 4.1% of the swing amplitude (max |A1| = 3.25) and 1.7% of the field scale: the co-rotating profile is CONSTANT to within 5%. The state satisfies the rigid-rotor algebra to high precision: |[W23, M0]|/|M0| = 0.0011, |B1 - [W23,A1]|/|B1| = 0.008, |A1 + [W23,B1]|/|A1| = 0.008 (n48). It is numerically a UNIFORM-ROTATION-ANSATZ configuration, the same class the block-2/3 audit already handled, not a new time-periodic object.",
+    "REFUTED (static residual 851): the co-rotating mean's static residual (I reproduce 851.45 at n48; 1124/851/734 across grids) is 1.09-1.15x the state's OWN unconverged plateau residual (1030/742/661) with per-cell distribution cosine similarity 0.91/0.94/0.93 and the same core concentration (87-97% vs 84-94%). It is the same unconverged core residual measured twice; it cannot distinguish 'load-bearing rotation' from 'unconverged rotating configuration'."
+   ],
+   "surviving_form": "The axis-swing motion is not a gauge/symmetry orbit (that part stands). But the state is a near-rigid uniform-rotation-ansatz configuration far from solving anything; 'load-bearing' is unestablished: both its evidence numbers are re-measurements of the same unconverged core residual.",
+   "numbers": {
+    "rigidity": {
+     "n32": 0.07948035046111634,
+     "n48": 0.13229902609498495,
+     "n64": 0.15653682886347164
+    },
+    "rigidity_rel_to_swing": {
+     "n32": 0.024526030826496337,
+     "n48": 0.04067047695269688,
+     "n64": 0.0474463932496426
+    },
+    "rotor_identities_n48": [
+     0.0011064789462398967,
+     0.008125553783205107,
+     0.008106993934017231
+    ],
+    "staticR_vs_plateau": {
+     "n32": [
+      1124.2674698146138,
+      1029.9499938502065,
+      0.9141083478609101
+     ],
+     "n48": [
+      851.4462146568266,
+      741.8143463397004,
+      0.9358012354637132
+     ],
+     "n64": [
+      734.4199167630322,
+      660.5884702858713,
+      0.9334848845576619
+     ]
+    },
+    "orbit_fit_A1_rel_residual": {
+     "n32": 0.9987698107550994,
+     "n48": 0.9989361744654219,
+     "n64": 0.9990102268101488
+    },
+    "gauge_check_n32": {
+     "R12": {
+      "E0": 4924157.870590251,
+      "E_rot": 4924157.870590256,
+      "rel_change": 9.456668521716611e-16
+     },
+     "R23": {
+      "E0": 4924157.870590251,
+      "E_rot": 4924158.490357384,
+      "rel_change": 1.2586256359653105e-07
+     }
+    },
+    "sampleE_variation_rel": {
+     "n32": 2.429112658668452,
+     "n48": 2.5158906168353283,
+     "n64": 2.488113267186598
+    }
+   }
+  },
+  "C3_plateau_is_h2_core_error": {
+   "verdict": "WEAKENED",
+   "claim": "the unconverged residual (RMS/cell 19.94/9.11/5.82) is core discretization error scaling as h^2, not a sign the branch does not exist",
+   "evidence": [
+    "SURVIVES (core concentration): the plateau residual is core-concentrated: 84/90/94% of |R|^2 within r < 2rc, and per-cell RMS falls with grid (my recompute at the saved states: 23.5/11.2/7.4).",
+    "WEAKENED (h^2 attribution): my RMS ratios are 2.11 (32->48) and 1.51 (48->64) vs h^2-predicted 2.25 and 1.78; the second is off by 15% and the comparison is polluted: wscale changes 15x across grids (0.0341/0.00695/0.00223) and the runs stopped at different depths.",
+    "REFUTED (plateau established): no plateau is demonstrated. |F| was still falling at every stop (-1.6%/-1.1%/-1.6% per iteration at n32/48/64); n64 ran only 6 iterations; LSMR hit maxiter (istop=7) on every iteration, so the stall is at least partly LINEAR-SOLVER truncation, not a converged least-squares floor.",
+    "REFUTED (h^2-error reading of the obstruction): if the only obstruction were h^2 core error, solution-quality metrics would improve with grid. The Noether H drift is 2.17/2.20/2.19 (grid-independent), the co-rotating static residual stays 1.1x the plateau at every grid, and omega's h^2 Richardson fails by x7.9.",
+    "State-injection test (n64 state zoomed to n32/n48) inconclusive: interpolation error dominates (order-1 vs order-3 differ 1.6-3x)."
+   ],
+   "surviving_form": "The residual is core-resident and shrinks with resolution, consistent with SOME resolution-limited core structure; but 'h^2 discretization error of an existing branch' is not established, the plateau itself is not established, and the grid-independent H drift positively suggests the obstruction is not mere discretization error.",
+   "numbers": {
+    "rms_per_free_cell": {
+     "n32": 23.49305241724271,
+     "n48": 11.16046712081422,
+     "n64": 7.414390268456948
+    },
+    "rms_ratios_observed_vs_h2": [
+     [
+      2.105,
+      2.25
+     ],
+     [
+      1.505,
+      1.778
+     ]
+    ],
+    "core_share_of_R2": {
+     "n32": 0.8360241928473962,
+     "n48": 0.9026781222232432,
+     "n64": 0.9426945556758637
+    },
+    "F_slope_per_iter_at_stop": {
+     "n32": -0.015589151148110325,
+     "n48": -0.010721649854790183,
+     "n64": -0.016297011899576996
+    },
+    "wscale_per_grid": [
+     0.03407,
+     0.0069546,
+     0.0022265
+    ],
+    "injection_test": {
+     "n32": {
+      "Rfree_injected_order1": 39242.6113398709,
+      "Rfree_injected_order3": 24266.85928280212
+     },
+     "n48": {
+      "Rfree_injected_order1": 21810.997043051153,
+      "Rfree_injected_order3": 7189.502328139974
+     },
+     "n32_state_zoomed_to_n48_Rfree": 102161.93419759617
+    }
+   }
+  },
+  "C4_breather_obstruction": {
+   "verdict": "WEAKENED",
+   "claim": "c_omega pins to -Shat/omega within 0.3%, hence dShat/domega ~ 0 at small amplitude and genuine free-period orbits require large amplitude",
+   "evidence": [
+    "The 0.3% 'pin' is an exact algebraic identity, not a measurement: Shat is exactly quadratic in omega (verified 4e-16), so c_omega = -(S0 + w^2 Q2)/w identically and the gap to -Shat/w equals 2 w^2 Q2 / |Shat| = 0.003034 for the saved state: precisely the observed 0.3%. Any near-static state of any physics gives the same pin; it restates 'the harmonics are small'.",
+    "dShat/domega ~ amplitude^2 is likewise structural, not discovered: Q2(lam)/(lam^2 Q2) = 0.9995 (lam=0.5) and 1.0018 (lam=2.0).",
+    "The surviving (and sharpened) content is the SIGN measurement: Q2 = +0.0549 > 0 with S0 = +39.31, and the free-period root needs w^2 Q2 = -S0 < 0. Moreover the breather state has ZERO time-mixing content (Q2_mixing = 0.0 exactly), and for mixing-free states inner_eta is non-negative, so Q2 >= 0 at ANY amplitude in this class: 'requires large amplitude' is an UNDERSTATEMENT; it requires developing eta-negative time-mixing channels that dominate Q2, which the class as posed does not contain at all.",
+    "The breather run itself shows no branch: omega drifting monotonically down (1.086 -> 1.041), amplitude sliding off its target (c_amp -0.10 and growing), c_omega parked at -38, LSMR istop=7 throughout: slow collapse toward the static solution."
+   ],
+   "surviving_form": "As a measurement: only the signs Q2 > 0, S0 > 0 (and Q2_mix = 0) survive; the correct conclusion is stronger than the claim: in the mixing-free breather class NO free-period orbit exists at any amplitude; a root requires a sign flip of Q2 via dominant time-mixing channels.",
+   "numbers": {
+    "omega_saved": 1.041413132276085,
+    "S0": 39.3144920798633,
+    "Q2": 0.05490391118531092,
+    "Q2_mixing_part": 0.0,
+    "Shat": 39.254946519988216,
+    "dShat_domega": -0.11435530824340523,
+    "minus_Shat_over_omega": -37.69392309677683,
+    "c_omega": -37.80827840502023,
+    "c_omega_over_minusShat_over_omega": 1.0030337863201397,
+    "identity_gap_2w2Q2_over_Shat": 0.003033786320139855,
+    "free_period_root_needs": "omega^2 Q2 = -S0",
+    "root_impossible_perturbative": true,
+    "Q2_lam_over_lam2Q2": {
+     "lam_0.5": 0.9995495024022877,
+     "lam_2.0": 1.001801990390849
+    },
+    "dShat_domega_FD_check_rel": 1.6924314360012841e-10
+   }
+  }
+ },
+ "targets": {
+  "T1_g8_background_disease": {
+   "finding": "The block-3 form of the disease does NOT recur: the omega-channel is defect/core-resident, not g-background-resident. Q2 is 92.5% core (r < 2rc), only 5% far-field; the eta-negative mixing part of Q2 is only ~6-8% of Q2 (-1511/-1712/-1973 vs +19193/+28284/+37621); the PURE-VACUUM (2,3) rotor has Q2 = 1e-28 (exactly zero time channel), so no background rotor structure exists to ride; the g=1 repose (m00/8, mixing/sqrt8) keeps Q2 > 0 (1699 vs S0 1789): no root structure appears or disappears with g. HOWEVER a different background pathology exists: 91-92% of the volume-weighted swing amplitude |A1|^2+|B1|^2 lives in the far field (r > 6rc) and the PINNED boundary carries rotating values (max |A1| = 0.5 on pinned cells): the c_amp branch selector + BC maintain a box-wide driven rotating texture; the core carries only 1.2-1.6% of the swing amplitude.",
+   "verdict_effect": "C1 dies by other means (core-error selection); the amplitude constraint is exposed as mostly a far-field/boundary rotation constraint.",
+   "numbers": {
+    "Q2_core_share": {
+     "n32": 0.9274084922215577,
+     "n48": 0.925763265608479,
+     "n64": 0.925070504652876
+    },
+    "Q2_mixing_over_Q2": {
+     "n32": -0.07871016423083245,
+     "n48": -0.06053687891285463,
+     "n64": -0.052438455132311476
+    },
+    "amp2_far_share": {
+     "n32": 0.9106943257906909,
+     "n48": 0.9176948388432785,
+     "n64": 0.9186444823482657
+    },
+    "A1_max_on_pinned_boundary": 0.5,
+    "vacuum_rotor_Q2": [
+     1.3e-28,
+     2.2e-28
+    ],
+    "g1_repose": {
+     "S0": 1788.494991285465,
+     "Q2": 1699.3562131313113,
+     "Q2_mixing_part": -66.09005202852939,
+     "c_omega_at_saved": -3869.8841193434173,
+     "free_period_root_exists_Q2sign": false,
+     "note": "m00 -> m00/8, mixing/sqrt(8); Shat-level only"
+    }
+   }
+  },
+  "T2_constraint_artifact": {
+   "finding": "CONFIRMED as the operative mechanism. omega is not determined by any stationarity of the action (c_omega = -25290 to -47064, unsatisfiable while Q2 > 0); it is the closed-form LS balance w*^2 = -<R_sp,R_t>/|R_t|^2 of the unconverged residual, reproducing the saved omegas to 1e-3/8e-5/7e-7. It exists only at the imposed amplitude (harmonics x0.7: no minimum; x1.3: w_ls = 8.2) and moved 0.6564 -> 0.6440 in the claimant's own om2 side-run when row weights changed. The raw seed's w_ls is 3.4 (not 0.65): the 0.65 value forms during relaxation as the core residual reorganizes: a forced-response/balance frequency of the constrained system.",
+   "numbers": {
+    "omega_ls_amplitude_scan_n32": {
+     "lam_0.7": null,
+     "lam_1.3": 8.206778740663646,
+     "lam_1.0": 0.643459570276984
+    },
+    "seed_omega_ls": {
+     "seed_b0_0.4_omega_ls": 3.4315550930856364,
+     "seed_b0_1.6_omega_ls": null,
+     "seed_b0_2.4_omega_ls": 274.90893596506254,
+     "seed_rc_2.00_omega_ls": 3.41375415131929,
+     "seed_rc_4.00_omega_ls": 3.435595534209421
+    },
+    "claimant_om2_log_shift": [
+     0.6564,
+     0.644
+    ]
+   }
+  },
+  "T3_gauge_symmetry_orbit": {
+   "finding": "The (2,3) swing is NOT a gauge/symmetry orbit: R12 conjugation is an exact isometry of the reduced functional (9.5e-16) while the (2,3) orbit's sample energies vary 240-250%; no one-parameter generator W fits A1 ~ [W, M0]_eta (residual 0.999; forced: M0 is charge-0 under W23 so [W23, M0] ~ 0 while A1 is charge-1). C2's non-gauge sub-claim stands. But the harmonic content satisfies the rigid-rotor charge algebra to 0.1-1.7%: the state is the uniform-rotation ANSATZ in Fourier clothes, not a new orbit class.",
+   "numbers": {
+    "orbit_fit": {
+     "n32": 0.9987698107550994,
+     "n48": 0.9989361744654219,
+     "n64": 0.9990102268101488
+    },
+    "rotor_algebra_n48": [
+     0.0011064789462398967,
+     0.008125553783205107,
+     0.008106993934017231
+    ]
+   }
+  },
+  "T4_rot_test_validity": {
+   "finding": "Plain conjugation IS the correct group action for (2,3) rotations: expm(eta W23 th) equals the plain rotation and the eta-action Lam^-T M Lam^-1 equals L M L^T (both machine-zero, gate AG5), so the ROT numbers are well-defined; rigidity is ns-independent (ns=12 vs 36 identical, as forced by the Nt=1 band limit) and I reproduce 0.13230 at n48. The INTERPRETATION fails, not the arithmetic: staticR(mean) = 1.09-1.15x the state's own plateau |R| with cell-map cosine 0.91-0.94 and the same core concentration: it is the plateau residual re-measured, not independent evidence of load-bearing rotation.",
+   "numbers": {
+    "eta_vs_plain": [
+     1.1102230246251565e-16,
+     0.0
+    ],
+    "staticR_over_plateau": {
+     "n32": 1.0915748109399228,
+     "n48": 1.1477888219041295,
+     "n64": 1.1117661748549899
+    },
+    "cell_cosine": {
+     "n32": 0.9141083478609101,
+     "n48": 0.9358012354637132,
+     "n64": 0.9334848845576619
+    }
+   }
+  },
+  "T5_h2_arithmetic_richardson": {
+   "finding": "The omega sequence CONTRADICTS h^2 convergence: observed difference ratio 22.5 vs h^2-predicted 2.86 (off x7.9); Richardson from (32,48) gives 0.6658, from (48,64) gives 0.6576: spread 0.0082 = 16x the (48,64) grid difference, so 'Richardson ~0.657' cherry-picks the second pair. The n64 point is 6 shallow iterations still drifting +0.0007/iter (total within-run drift 0.0037 = 7x the grid difference it is supposed to resolve), warm-started from n48's endpoint (omega0 = 0.65642); n48 was warm-started from n32 (forensic: zoomed-n32 |R| = 102161.9 vs logged |F|0 = 102160). My RMS ratios 2.11/1.51 vs h^2 2.25/1.78.",
+   "numbers": {
+    "omega_seq": [
+     0.644639166361333,
+     0.6564195303434569,
+     0.6569433692457636
+    ],
+    "diff_ratio_observed": 22.488524487681683,
+    "diff_ratio_h2_predicted": 2.8571428571428577,
+    "h2_inconsistency_factor": 7.870983570688588,
+    "richardson_from_32_48": 0.665843821529156,
+    "richardson_from_48_64": 0.6576168764058722,
+    "extrapolation_spread": 0.008226945123283813,
+    "within_run_drift_n64_total": 0.003686021599030309,
+    "grid_diff_48_64": 0.0005238389023066725
+   }
+  },
+  "T6_breather_identity_triviality": {
+   "finding": "It IS an identity: exact omega-quadraticity of Shat makes c_omega = -(S0 + w^2 Q2)/w for every state, and the 0.3% gap equals 2 w^2 Q2/|Shat| = 0.003034 computed from the state: the 'pin' is contentless as a measurement; dShat/dw ~ amplitude^2 is structural (Q2 scaling 0.9995/1.0018 at lam 0.5/2.0). What survives: the signs (Q2 = +0.0549, S0 = +39.31) and the sharper theorem that the mixing-free breather class has Q2 >= 0 at ANY amplitude (Q2_mix = 0 exactly; eta-negative contributions require time-mixing entries), so no free-period orbit exists in the class as posed: large amplitude alone cannot rescue it.",
+   "numbers": {
+    "omega_saved": 1.041413132276085,
+    "S0": 39.3144920798633,
+    "Q2": 0.05490391118531092,
+    "Q2_mixing_part": 0.0,
+    "Shat": 39.254946519988216,
+    "dShat_domega": -0.11435530824340523,
+    "minus_Shat_over_omega": -37.69392309677683,
+    "c_omega": -37.80827840502023,
+    "c_omega_over_minusShat_over_omega": 1.0030337863201397,
+    "identity_gap_2w2Q2_over_Shat": 0.003033786320139855,
+    "free_period_root_needs": "omega^2 Q2 = -S0",
+    "root_impossible_perturbative": true,
+    "Q2_lam_over_lam2Q2": {
+     "lam_0.5": 0.9995495024022877,
+     "lam_2.0": 1.001801990390849
+    },
+    "dShat_domega_FD_check_rel": 1.6924314360012841e-10
+   }
+  }
+ },
+ "most_damaging_finding": "omega* is the closed-form least-squares balance frequency w*^2 = -<R_sp,R_t>/|R_t|^2 of an unconverged state (reproduces the claimed 0.6446/0.6564/0.6569 to up to 7e-7), and that balance is selected 99.9% by the same core cells whose residual C3 attributes to discretization error, on a warm-start chain whose runs never converged, never conserved H (drift 2.2, grid-independent), and can never satisfy the free-period condition while Q2 > 0. The branch candidate is a constrained forced response; C1 and C3 are mutually exclusive as stated.",
+ "what_a_fix_requires": [
+  "Converge SOMETHING: drive one grid to F_rel < 1e-5 (more LSMR iterations / better preconditioning / a direct sparse solve at n32) so 'plateau' claims have a converged object behind them; if |F| floors far above roundoff at a genuine LS floor, report that floor and its h-scaling with fixed wscale normalization.",
+  "Replace the omega story: a genuine free-period branch needs the c_omega row satisfied (dS/domega = 0), which is impossible while Q2 > 0; either exhibit states with dominant eta-negative time-mixing (Q2 < 0) or reframe the object honestly as a driven-boundary forced response and stop calling omega* a branch frequency.",
+  "Kill the boundary drive: rerun with static (time-independent) pinned boundary (A1 = B1 = 0 on pinned cells) and check whether any nontrivial time-periodic content survives; currently max |A1| = 0.5 on the pinned shell and 91% of the swing amplitude is far-field.",
+  "Grid study without warm-start inheritance: independent seeds per grid, equal convergence depth, fixed-physical-units normalization, and H-drift as the convergence metric (it currently does not improve with grid at all)."
+ ],
+ "compute_note": "All checks ran at full grids (n32/n48/n64 states); total audit compute ~1 min (single residual evaluations are cheap; the expensive part of the claimant's runs was LSMR, which the closed-form omega analysis bypasses)."
+}
