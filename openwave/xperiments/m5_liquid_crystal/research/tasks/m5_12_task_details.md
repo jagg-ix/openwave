@@ -301,6 +301,10 @@ Running record + deviations (logged as they happen, per the flow's deviations-lo
 | 07-08 14:35 | Rotor arm CLOSED: honest stall at rel 0.239 (3 consecutive sub-1% steps at λ = 1/32 after a 4.2× contraction). Driver gains per-iteration field-state checkpointing (early stops used to lose fields) |
 | 07-08 15:15 | Breather arm CLOSED at the goal-loop cap: mixfix converged its field (rel 4.95e-3, 12 full steps) but the endpoint Q2 readout (−0.0287, 16× shallower; ω_bal 39.4) exposes **the receding-root mechanism** (\|Q2\| ∝ a² → ω_bal ~ 1/a: penalty methods cannot corner the branch; HARD amplitude continuation required). Probe-vs-solver cross-check exact (−3.5146 vs −3.515) |
 | 07-08 15:35 | BG7 gauntlet KILLED after 6.5h by decision: a second-variation index gates a SOLUTION, and the audit refuted the n48 state's solution status: BG7 moves to block 12's converged endpoint. Cleanup: deleted `m5_12_d3b_axisswing_n64_state_b10.npz` (1.0 MB, verified bit-identical to the kept `m5_12_d3b_axisswing_n64_state.npz`; regen: `cp` of that file) + 2 empty logs of the pre-audit killed runs. Doc checker: ✅ clean |
+| 07-08 14:24 | BLOCK 12 GO (reset 16:20, ping 16:25, watchdog 16:20). Built + gated `m5_12_b12_hard.py` (ω-elimination + hard retraction); gates ALL PASS (HG2 8.2e-14); ladder launched (rungs 1/2/4/8 from the mixfix endpoint) |
+| 07-08 16:20 | Watchdog live cycle 2: fired, session alive, ping → 21:25, watchdog → 21:20; no false alarm |
+| 07-08 17:30 | Core ladder in (4 rungs, every metric ~10×/rung); ω_bal still falling → extension rungs ×16/×32 launched from the r8 endpoint (`--tagpre x`, collision-proofed tags + ladder JSON) |
+| 07-08 19:05 | Extension done. Six-rung law measured: pure 1/a through ×16 (S0 pinned ~45, retraction shocks relax away), **Q2-saturation bend at ×32** (ratio 1.37 vs 2). ⚠️ The ω-floor ≈ 6 reading is HYPOTHESIS (least-converged rung): audit-gated, block-13 fork. No convergence to 1e-5 anywhere: the stronger inner solver remains THE standing need |
 
 ## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
 
@@ -402,6 +406,32 @@ Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a 
 ### Try 3 (the axis-swing clock, the first genuine attempt): ✅ measured, partial descent
 
 Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
+
+## FINDINGS (2026-07-08, block 12: the ω-eliminated hard-amplitude ladder)
+
+### The solver that ends the receding-root chase (✅ built + gated)
+
+[`m5_12_b12_hard.py`](../scripts/m5_12_b12_hard.py): on the audit-verified structure `Ŝ = S0 − ω²Q2` the free-period condition is solved in CLOSED FORM, `ω_bal(X) = sqrt(S0/(−Q2))`, so the solver drives `R(X, ω_bal(X)) = 0` in X alone: every iterate satisfies the free-period condition exactly (no ω to chase); the amplitude is held HARD by retraction (constraint elimination, no penalty row to leak: the block-11 lesson). Jacobian = fixed-ω symmetric Hessian + the rank-one `(dR/dω) ⊗ dω_bal/dX`, all pieces analytic or two-residual-cached (`dR/dω = −2ω(R(X,0) − R(X,1))`). Gates ALL PASS (`m5_12_b12_gates.json`): HG2 = the closed-form root satisfies the instrument's own `c_ω` to rel 8.2e-14; HG3 retraction 4.4e-16; HG4 row-match 0.0; ω_bal(warmstart) = 39.4043 reproduces the block-11 probe exactly.
+
+### The six-rung amplitude ladder (✅ measured; `m5_12_b12_hard_ladder.json` + `_x.json`)
+
+Warm-start chain from the mixfix endpoint, amplitude doubling per rung, endpoint values:
+
+| a² | 0.076 | 0.152 | 0.304 | 0.607 | 1.215 | 2.430 |
+| --- | --- | --- | --- | --- | --- | --- |
+| floor rel | 0.741 | 0.320 | 0.130 | 0.046 | 0.025 | 0.060 |
+| ω_bal | 32.80 | 22.70 | 15.51 | 10.40 | 7.33 | 6.35 |
+| Q2 | −0.041 | −0.086 | −0.184 | −0.409 | −0.821 | −1.128 |
+| H-drift | 3.9e11 | 3.6e10 | 3.3e9 | 3.0e8 | 4.2e7 | 1.6e7 |
+
+| Reading | Status |
+| --- | --- |
+| **Larger amplitude = MORE solvable**: floor rel improves 0.74 → 0.025 across four doublings; H-drift improves ~10× PER RUNG for five consecutive rungs; each rung opens with one huge full-Newton step (up to 97%) then hits a line-search wall (LSMR-200 clears the easy subspace, stalls on the stiff directions) | ✅ measured: the "genuine breathers are large-amplitude" prediction realized as solver behavior |
+| **The scaling law**: ω_bal per doubling falls at ratio 0.69/0.68/0.67/0.71 (pure 1/a: Q2 ∝ a² with S0 pinned ≈ 45; every retraction's S0 shock relaxes away) then **0.87 on the last doubling**: the bend arrives via **Q2 SATURATION** (a²-ratio 1.37 instead of ~2), NOT S0 growth | ✅ measured through ×16; the ×32 bend is real data from the least-converged rung (rel 0.060) |
+| ⚠️ The extrapolated reading: if Q2 saturates near −1.2, ω_bal floors at ≈ 6, and the M5.8 molten-clock band (1.07-1.15) is UNREACHABLE in this seed class | HYPOTHESIS: audit-gated; the alternative (LSMR stall before Q2 re-deepens: the ×32 rung got only 2 real steps) is live; block-13 fork |
+| No rung converged (best rel 2.5e-2 vs the 1e-5 bar); all verdicts `stalled_or_partial`; no free-period-orbit candidate claimed | honest scorecard: the stiff directions at ω² ~ 40-1000 need the stronger inner solver (still the standing need) |
+
+Artifacts: per-rung endpoint states `m5_12_b12_hard_{r1,r2,r4,r8,x2,x4}_state.npz` + per-iteration checkpoints `*_state_ck.npz` + progress JSONs + logs `m5_12_b12_hard_ladder{,_x}.log`.
 
 ## FINDINGS (2026-07-08, block 11: THE ADVERSARIAL AUDIT + the corrected arms)
 
