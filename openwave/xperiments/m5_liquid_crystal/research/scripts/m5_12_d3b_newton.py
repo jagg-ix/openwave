@@ -299,7 +299,10 @@ def run_newton(nr=48, nz=None, h=1.0, Nt=2, b0=1.6, omega0=0.34,
         out[:-1] = Hw
         out[-1] = float(np.dot(dRdw_cache, w_R))
         gph, gamp = constraint_grads()
-        out = out + w_ph * gph + w_a * gamp
+        # block-11 fix: the forward row is w_amp*c_amp, so the adjoint must
+        # carry w_amp too (it was missing: LSMR's A and A^T disagreed on the
+        # row and no w_amp value could steer the amplitude)
+        out = out + w_ph * gph + w_a * (w_amp * gamp)
         if w_om:
             # grad of the c_omega row: [dR/domega (X part, symmetric cross
             # derivative = the cached column); d2Shat/domega2] times w_om
@@ -354,6 +357,18 @@ def run_newton(nr=48, nz=None, h=1.0, Nt=2, b0=1.6, omega0=0.34,
             json.dump({"hist": hist, "params": {
                 "nr": nr, "nz": nz, "Nt": Nt, "b0": b0, "omega0": omega0,
                 "wscale": wscale, "a2_star": a2_star}}, f, indent=1)
+        # block-11 fix: checkpoint the FIELD state every iteration too (an
+        # early-stopped run used to lose its fields: states saved only at
+        # loop exit)
+        Xck, omck = V.from_vec(z, X0)
+        np.savez_compressed(
+            os.path.join(DATA, f"m5_12_d3b_{tag}_state_ck.npz"),
+            M0=Xck["M0"].astype(np.float32),
+            **{f"A{k+1}": Xck["A"][k].astype(np.float32)
+               for k in range(len(Xck["A"]))},
+            **{f"B{k+1}": Xck["B"][k].astype(np.float32)
+               for k in range(len(Xck["B"]))},
+            omega=np.array([omck]))
         if not ok:
             print("[newton] line search failed: stalled")
             break

@@ -70,11 +70,41 @@ def q2_of(X, h, wscale):
     return s0, s0 - s1          # S0, Q2
 
 
+def load_state(path, Nt=2):
+    d = np.load(path)
+    M0 = d["M0"].astype(np.float64)
+    As = [d[f"A{k+1}"].astype(np.float64) for k in range(Nt)
+          if f"A{k+1}" in d]
+    Bs = [d[f"B{k+1}"].astype(np.float64) for k in range(Nt)
+          if f"B{k+1}" in d]
+    return x_pack(M0, As, Bs), float(d["omega"][0])
+
+
 def main():
     nr = int(_flag("nr", 32, int))
     eps = _flag("eps", 0.15)
+    state = _flag("state", None, str)
     nz, h = 2 * nr, 1.0
     wscale = wscale_at(nr, nz, h, 8.0 * nr / 96)
+    if state:
+        # Q2/S0 readout of a SAVED endpoint state: the balance diagnosis
+        # c_omega(w) = -w*Q2 - S0/w has a root at w_bal = sqrt(S0/|Q2|)
+        # iff Q2 < 0
+        X, om = load_state(state)
+        s0, q2 = q2_of(X, h, wscale)
+        rec = {"state": os.path.basename(state), "omega": om, "S0": s0,
+               "Q2": q2, "Q2_negative": bool(q2 < 0),
+               "w_balance": (float(np.sqrt(s0 / -q2)) if q2 < 0 and s0 > 0
+                             else None),
+               "c_om_at_omega": float(-om * q2 - s0 / om)}
+        print(f"[q2-state] {rec['state']}  omega={om:.4f}  S0={s0:+.4f}  "
+              f"Q2={q2:+.6f}  w_bal={rec['w_balance']}  "
+              f"c_om={rec['c_om_at_omega']:+.4f}")
+        path = os.path.join(DATA, "m5_12_b11_q2state.json")
+        with open(path, "w") as f:
+            json.dump(rec, f, indent=2)
+        print(f"json -> {os.path.basename(path)}")
+        return
     out = {"task": "M5.12 block 11", "script": "m5_12_b11_q2probe.py",
            "nr": nr, "identity": "Shat = S0 - omega^2 Q2 (audit-verified)",
            "probes": []}
