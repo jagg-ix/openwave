@@ -1,0 +1,48 @@
+{
+ "G1_lorenz_equilibria": {
+  "pass": true,
+  "residual": 1.4210854715202004e-14,
+  "eig_dev_vs_sympy_cubic": 1.2470256109222577e-14,
+  "cubic_coeffs": [
+   1.0,
+   13.666666666666666,
+   101.33333333333331,
+   1439.9999999999998
+  ],
+  "eigs_Cplus": [
+   "(-13.85457791459604+0j)",
+   "(0.09395562396468529-10.194505220927844j)",
+   "(0.09395562396468529+10.194505220927844j)"
+  ]
+ },
+ "G2_henon_fixed_points": {
+  "pass": true,
+  "xplus": {
+   "x_fixed": 0.6313544770895047,
+   "newton_dev": 0.0,
+   "multipliers_analytic": [
+    -1.9237388581534067,
+    0.15594632230279393
+   ],
+   "mult_dev": 2.7755575615628914e-17
+  },
+  "xminus": {
+   "x_fixed": -1.1313544770895048,
+   "newton_dev": 0.0,
+   "multipliers_analytic": [
+    -0.09202956204083912,
+    3.259822097891452
+   ],
+   "mult_dev": 8.326672684688674e-17
+  }
+ },
+ "G3_rotation_return": {
+  "pass": true,
+  "return_time_dev": 5.186961971048731e-13,
+  "return_point_dev": 7.658096379259405e-12
+ },
+ "G4_energy_drift_100T": {
+  "pass": true,
+  "radius_drift_100T": 2.5554758309453973e-10
+ }
+}

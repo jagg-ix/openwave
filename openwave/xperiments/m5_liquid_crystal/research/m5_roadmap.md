@@ -1,4 +1,4 @@
-# M5 ROADMAP / LIQUID-CRYSTAL MODEL
+# M5 / LIQUID-CRYSTAL, ROADMAP
 
 > **Index convention (2026-06-21).** The M5 engine now stores the order parameter at INDEX-0: `D = diag(g, 1, δ, 0)`, `eta = diag(-1, 1, 1, 1)` (time/g axis = array index 0, Duda's convention). Dated entries below written before the flip use the legacy index-3 labels (`D = diag(1, δ, 0, g)`; the time-coupled curvature block called the `(α,3)` block) , the SAME physics under the relabel `index k -> (k+1) mod 4` (proven physics-neutral: [`_convention_refactor/CONVENTION.md`](_convention_refactor/CONVENTION.md)). Read `(α,3)` as `(α,0)`.
 >
@@ -12,6 +12,7 @@
 
 | TaskID | Title | Description | Gated By |
 | --- | --- | --- | --- |
+| [M5.12](tasks/m5_12_task_details.md) | Neutrino vortex-loop at the physical regime (the fresh M5.11 re-entry) | **🔶 GO 2026-07-07 11:23 EDT** (checkpoints: `checkpoints/m5_12_progress.md`). All gates green (the pre-flight ask round CLOSED 2026-07-06 by Duda's two group-cc replies, [`tasks/m5_18_convo.md`](tasks/m5_18_convo.md): **Q13 answered by redirect**, LC chiral/Frank unsanctioned, admissible class = Lorentz-invariant Skyrme-like terms; **Q14 answered as a constraint**, pin centers to lattice points + replace the core value with `M = aI` / `(g', a, a, a)`; **negative-H channel INTENDED**, the clock = a time-periodic action BVP). Successor of the closed M5.11, started FRESH (clean `m5_12_*` Duda-facing docs/scripts; the `m5_11_*` corpus stays frozen, reused via the fork-on-use manifest). Phases, post-redirect (deltas in [`tasks/m5_12_task_details.md § 2026-07-06 spec updates`](tasks/m5_12_task_details.md)): **D0 core-prescription melt re-run FIRST**; A rotated-vortex-loop primary (heliknoton demoted to scaffold); B δ-continuation into the biaxial tensor; C forced-singular knotted backup; D clock as time-periodic BVP on the verified 4D Lagrangian + spectral potential; E masses (mass/length density + the 6.2 pm anchor); F mixing on real loops (δ_CP fork leans 180°; doubles as the weak-SO(3) deliverable). Article-grade target (Duda round 3: the 4 PMNS parameters "would already be huge"). | ~~[M5.18](tasks/m5_18_task_details.md)~~ ✅ + ~~ask round~~ ✅ |
 
 ## BACKLOG
 
@@ -19,7 +20,6 @@
 
 | TaskID | Title | Description | Gated By |
 | --- | --- | --- | --- |
-| [M5.12](tasks/m5_12_task_details.md) | Neutrino vortex-loop at the physical regime (the fresh M5.11 re-entry) | **⭐ Next after M5.18** (was "after M5.17 + the ask round"; Duda's 2026-07-05 reply changed the instrument, see M5.18). Successor of the closed M5.11, started FRESH (clean `m5_12_*` Duda-facing docs/scripts; the `m5_11_*` corpus stays frozen as the closed task's record, reused via the fork-on-use manifest). Phases A-F: A uniaxial heliknoton at the physical `(g, δ, V)` (theory-motivated primary: Duda's `4f` uniaxial-neutrino sketch + the δ→0 quasi-uniaxial limit); B map back to the biaxial tensor; C biaxial-native backup ansatz (Machon & Alexander); D stability + clock (now on the verified 4D Lagrangian + universal potential from M5.18); E masses (mass/length density + knot-family spread vs the ~6× compression); F mixing on real loops (N4c gap closure + the δ_CP fork). Article-grade target (Duda round 3: the 4 PMNS parameters "would already be huge"). | [M5.18](tasks/m5_18_task_details.md) |
 | [M5.9](tasks/m5_9_task_details.md) | Leptons (e/mu/tau) + Cornell quark strings + neutrino-flavor beat | Three axis-choices of the biaxial Λ give e/μ/τ (calibrate mass ratios); Cornell `V(r)=−α/r+σr` quark strings; the neutrino as the δ-0 axis-swing. | M5.8, M5.9.0 calibration (M5.16 parameter-lock) |
 | [M5.9.0](tasks/m5_9_0_task_details.md) | Duda delta/g calibration + unit-scale prep | Calibration prep: the δ/g energy scaling + EM/GEM boost split, the ω(δ) settled-state read, and the Coulomb-unit + LdG-to-rest-energy axis feeding M5.9. Real-calibration axis now runs through M5.16. | M5.16 (real-calibration axis) |
 | [M5.10](tasks/m5_10_task_details.md) | Effective Dirac description (toward a SM effective Lagrangian) | Show the M5 defect reduces to an effective Dirac equation, the first step toward a Standard-Model effective Lagrangian for the deep model (#197). | M5.9 |

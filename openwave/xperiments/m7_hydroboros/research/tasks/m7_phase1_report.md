@@ -1,6 +1,6 @@
 # M7 / HydroBoros - PHASE 1 REPORT
 
-  ![hydroboros_icon](../../images/hydroboros_icon_small.jpg)
+  ![hydroboros_icon](../images/hydroboros_icon_small.jpg)
 
 > The human-readable summary of Phase 1 (tasks M7.0-M7.7, finished on 2026-07-04). Everything here is a pointer: each claim links its detail doc, script, and data. Written for the two physics parents (Marc Fleury, Paul Werbos) and for anyone auditing the program.
 
@@ -45,7 +45,7 @@ The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_mod
 
 Tracked with stable IDs in [`m7_question_tracker.md`](../m7_question_tracker.md) (full statement + history at each anchor).
 
-> **Updated 2026-07-06, post-call.** Q10 ✅ resolved by the author's reply (the Eq 122/124/127 bug confirmed; corrected figure 0.95 vs our 0.958). **Q15 ✅ resolved by author directive at the 2026-07-06 call**: no frequency mapping pinned ("the frequency is emergent"); the target is the **observable `S_z = ℏ/2`**, measured by [M7.8](m7_8_helicity_pair.md). The remaining asks (Q7, Q3) ride the author's post-August static→dynamic Beltrami window; Q1/Q4 as below. Priority order matches the [tracker](../m7_question_tracker.md).
+> **Updated 2026-07-06, post-call.** Q10 ✅ resolved by the author's reply (the Eq 122/124/127 bug confirmed; corrected figure 0.95 vs our 0.958). **Q15 ✅ resolved by author directive at the 2026-07-06 call**: no frequency mapping pinned ("the frequency is emergent"); the target is the **observable `S_z = ℏ/2`**, measured by [M7.8](m7_8_helicity_pair.md). **M7.8 measured it (2026-07-07)**: the pair asymmetry reads **one quantum, not ℏ/2**, at every stable state of the fixed-`(Q_can, H_A)` frame (the two-mode pair is expelled toward single-helicity; adversarially audited); the ℏ/2 route shifts to the frequency mapping ([walkthrough § 7.1](m7_phase1_walkthrough.md)). The remaining asks (Q7, Q3) ride the author's post-August static→dynamic Beltrami window; Q1/Q4 as below. Priority order matches the [tracker](../m7_question_tracker.md).
 
 | ID | Question | Why we ask |
 | --- | --- | --- |
@@ -81,8 +81,9 @@ Full roadmap: [`m7_roadmap.md`](../m7_roadmap.md), restructured after the 2026-0
 | --- | --- | --- |
 | 1 | [M7.8](m7_8_helicity_pair.md) helicity-pair 3:1 test + the Phase 1 walkthrough | **GO (2026-07-06 call)**: the independent lattice check of the closure notes (`U₊/U₋` vs `3 + α/2 + 4f_bb`) + the pair-asymmetry spin vs the ℏ/2 directive (Q15) + the under-the-hood [walkthrough](m7_phase1_walkthrough.md) + the canonical-spec refresh; the package goes to the author for his adversarial external pass |
 | 2 | [M7.9](m7_9_chaosbook.md) ChaosBook benchmark | canonical dynamical-systems exercises with published solutions, implemented + unit-tested; the orbit-hunting toolkit; the self-test the author asked for |
-| 3 | M7.10-M7.14 (reserved) | the pure-Maxwell / Beltrami orbit track (linear Maxwell evolution, variable-λ seeds, a defined stable-orbit notion), firming up with the author's post-August re-entry |
-| 4 | Phase 2: M7.15-M7.20 | magnetic, gravity, nuclear, antimatter + annihilation (Q14 pre-step), leptons + neutrinos (the Q11 `(λ, m_c)` scan), dark matter |
+| 3 | [M7.10](m7_10_pure_maxwell.md) pure-Maxwell sector: the no-Lagrangian test | coupling terms off, plain Maxwell evolution: Theorem 2 (Trkalian cavity mode) as a known-answer gate, free-space evaporation + electron destruction time (the honest boundary as a measurement), the coupling ladder (tachyon attribution); uses the M7.9 orbit toolkit; results join M7.8 + M7.9 in the one [walkthrough](m7_phase1_walkthrough.md) report for the author |
+| 4 | M7.11-M7.14 (reserved) | the rest of the pure-Maxwell / Beltrami orbit track (variable-λ seeds, the orbit hunt, static→dynamic charge), firming up with the author's post-August re-entry |
+| 5 | Phase 2: M7.15-M7.20 | magnetic, gravity, nuclear, antimatter + annihilation (Q14 pre-step), leptons + neutrinos (the Q11 `(λ, m_c)` scan), dark matter |
 
 After Phase 2: **M7.21 publishes the column to MODELS.md** for cross-model benchmarking (Phase 3, including the second canonical-spec refresh), gated by the question tables above; then composites (M7.22, Phase 4) and production rendering (M7.23, Phase 5).
 

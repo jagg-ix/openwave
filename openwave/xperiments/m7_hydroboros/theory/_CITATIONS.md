@@ -54,6 +54,7 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Arrayas, Trueba | 2017 | The Fibration Defined by Field Lines | Symmetry 9(10), 218; DOI [10.3390/sym9100218](https://doi.org/10.3390/sym9100218) |
 | Celani, Di Tommaso, Vassallo | 2017 | Maxwell's Equations and Occam's Razor | J. Condens. Matter Nucl. Sci. 25, 100; DOI [10.70923/001c.72461](https://doi.org/10.70923/001c.72461) |
 | Sato, Yamada | 2018 | Local Representation and Construction of Beltrami Fields | Physica D 391, 8 (2019); DOI [10.1016/j.physd.2019.02.003](https://doi.org/10.1016/j.physd.2019.02.003); arXiv:1809.03136 |
+| Cvitanović, Artuso, Mainieri, Tanner, Vattay | 2018 | Chaos: Classical and Quantum ("ChaosBook", webbook, edition 16.0 text via the version 17 stable download) | [chaosbook.org](https://chaosbook.org/), per-chapter PDFs at [version17/paper.shtml](https://chaosbook.org/version17/paper.shtml) |
 | Hestenes | 2019 | Zitterbewegung Structure in Electrons and Photons | arXiv [1910.11085](https://arxiv.org/abs/1910.11085) |
 | Duda | 2021 | Framework for Liquid Crystal Based Particle Models | arXiv [2108.07896](https://arxiv.org/abs/2108.07896) |
 | Kent et al. | 2021 | Creation and Observation of Hopfions in Magnetic Multilayer Systems | Nat. Commun. 12, 1562; DOI [10.1038/s41467-021-21846-5](https://doi.org/10.1038/s41467-021-21846-5) |
@@ -126,6 +127,7 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Celani, Di Tommaso, Vassallo (2017) | electron_beltrami/2017 - Celani - Maxwells Equations and Occams Razor.pdf | 396 KB |
 | Sato, Yamada (2018) | electron_beltrami/2018 - Sato - Local Representation and Construction of Beltrami Fields.pdf | 3.6 MB |
 | Hestenes (2019) | electron_beltrami/2019 - Hestenes - Zitterbewegung Structure in Electrons and Photons.pdf | 1.4 MB |
+| Cvitanović et al. (2018) | chaosbook/ (9 chapter PDFs: contents, intro ch. 1, flows ch. 2, maps ch. 3, stability ch. 4, invariants ch. 5, cycles ch. 16, count ch. 18, appendix A16; folder gitignored, re-fetch per chapter from chaosbook.org) | 3.4 MB |
 | Duda (2021) | 2021 - Duda - Framework for Liquid Crystal Based Particle Models.pdf | 13.6 MB |
 | Kent et al. (2021) | electron_beltrami/2021 - Kent - Creation and Observation of Hopfions in Magnetic Multilayers.pdf | 1.7 MB |
 | Yadav, Sen, Ghosh (2021) | electron_beltrami/2021 - Yadav - Bubbles in Superfluid Helium with Six and Eight Electrons.pdf | 3.1 MB |
