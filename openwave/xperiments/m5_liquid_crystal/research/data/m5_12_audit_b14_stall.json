@@ -1,0 +1,107 @@
+{
+ "script": "m5_12_audit_b14_stall.py",
+ "sections": {
+  "floors_and_descent": [
+   {
+    "state": "m5_12_b12_hard_c2_1_state.npz",
+    "U_mode": "state",
+    "F_pub": 215.78,
+    "F_recomputed": 217.0546209598336,
+    "phase_row_share": 1.562521279396785e-14,
+    "JtF_norm": 267202411.38935575,
+    "JtF_over_F": 1231037.654060367,
+    "best_step_t": 0.0,
+    "best_F": 217.0546209598336,
+    "best_drop_rel": 0.0,
+    "omega_bal": 8.637738326423197
+   },
+   {
+    "state": "m5_12_b12_hard_c1_1_state.npz",
+    "U_mode": "state",
+    "F_pub": 139.06,
+    "F_recomputed": 141.98697849469548,
+    "phase_row_share": 3.896480509911738e-11,
+    "JtF_norm": 409031648.8425885,
+    "JtF_over_F": 2880768.7379435967,
+    "best_step_t": 0.0,
+    "best_F": 141.98697849469548,
+    "best_drop_rel": 0.0,
+    "omega_bal": 6.57471438574848
+   },
+   {
+    "state": "m5_12_b12_hard_s_1_state.npz",
+    "U_mode": "state",
+    "F_pub": 206.84,
+    "F_recomputed": 208.56844191940252,
+    "phase_row_share": 4.331560424697056e-11,
+    "JtF_norm": 336438635.0922578,
+    "JtF_over_F": 1613085.0477478679,
+    "best_step_t": 0.0,
+    "best_F": 208.56844191940252,
+    "best_drop_rel": 0.0,
+    "omega_bal": 5.806831315076039
+   },
+   {
+    "state": "m5_12_b12_hard_c2_1_state.npz",
+    "U_mode": "random",
+    "F_pub": 215.78,
+    "F_recomputed": 217.0546209598336,
+    "phase_row_share": 5.109176652908467e-16,
+    "JtF_norm": 267202411.38935575,
+    "JtF_over_F": 1231037.654060367,
+    "best_step_t": 0.0,
+    "best_F": 217.0546209598336,
+    "best_drop_rel": 0.0,
+    "omega_bal": 8.637738326423197
+   },
+   {
+    "state": "m5_12_b12_hard_c2_1_state.npz",
+    "U_mode": "none",
+    "F_pub": 215.78,
+    "F_recomputed": 217.0546209598336,
+    "phase_row_share": 0.0,
+    "JtF_norm": 267202411.38935575,
+    "JtF_over_F": 1231037.654060367,
+    "best_step_t": 0.0,
+    "best_F": 217.0546209598336,
+    "best_drop_rel": 0.0,
+    "omega_bal": 8.637738326423197
+   }
+  ],
+  "independent_GN_step_c2": [
+   {
+    "damp_frac": 0.0,
+    "lsmr_iters": 50,
+    "lsmr_stop": 7,
+    "best_lam": 1.0,
+    "best_F": 215.46301758571997,
+    "drop_rel": 0.007332732042632628
+   },
+   {
+    "damp_frac": 0.01,
+    "lsmr_iters": 40,
+    "lsmr_stop": 7,
+    "best_lam": 1.0,
+    "best_F": 215.4633589038865,
+    "drop_rel": 0.007331159543668919
+   }
+  ],
+  "grid_transfer": [
+   {
+    "transfer": "c2 n32 -> n48",
+    "F": 631.4720612676148,
+    "omega_bal": 6.196721214128474,
+    "S0": 30.05815671755001,
+    "Q2": -0.7827776704185858
+   },
+   {
+    "transfer": "g48 ck n48 -> n32",
+    "F": 867.4047261947754,
+    "omega_bal": 8.683093879302843,
+    "S0": 43.887379696048285,
+    "Q2": -0.582090697687633
+   }
+  ]
+ },
+ "wall_s": 423.3
+}

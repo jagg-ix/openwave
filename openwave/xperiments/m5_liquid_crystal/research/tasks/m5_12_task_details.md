@@ -307,6 +307,13 @@ Running record + deviations (logged as they happen, per the flow's deviations-lo
 | 07-08 19:05 | Extension done. Six-rung law measured: pure 1/a through ×16 (S0 pinned ~45, retraction shocks relax away), **Q2-saturation bend at ×32** (ratio 1.37 vs 2). ⚠️ The ω-floor ≈ 6 reading is HYPOTHESIS (least-converged rung): audit-gated, block-13 fork. No convergence to 1e-5 anywhere: the stronger inner solver remains THE standing need |
 | 07-08 18:43 | BLOCK 13 GO (reset 21:20, ping 21:25, watchdog 21:20). Launched 13a (LSMR budget probes 200/500/1000/2000, single step each on the x2 state) + 13d (the ladder audit). 13b deep push + 13c ×32 discrimination queued on 13a |
 | 07-08 20:15 | ⚠️ AUDIT VERDICT (13d): **L4 solver CONFIRMED exact**; **L1 REFUTED as a law** (fresh-seed kill: independent seed at r4's a² relaxes to a better floor at ω_bal 8.83 vs 15.51: the ladder = one chain's stall points; rescaling null test passed in the claimant's favor; S0 → 44.5 seed-independent); **L2 mechanism REFUTED** (the bend = η-positive super-quadratic cancellation growth, NOT mixing saturation; x4-stall counter-hypothesis supported); **L3 WEAKENED** (rel floors half denominator-inflation; absolute floors reverse after r8); **L5 REFUTED** (`H_mean = S0 + ω²Q2 = 0` at ω_bal BY CONSTRUCTION, 1e-14-verified: drift_rel was noise-normalized; H_swing honest: ~2×S0 everywhere). Assets banked: the audit's relaxed fresh-seed state = chain-2 rung-1; the zero-mean-energy identity; honest-metric ruleset (absolute \|F\|, H_swing/S0, pos/\|mix\|) |
+| 07-08 20:55-01:45 | 13a probe verdict (non-monotone in LSMR budget: accidental-regularization diagnosis) + LM damping implemented; 13b/13c deep chains launched 20:55, closed ~01:45 07-09 as honest stalls (c2 216/8.638, c1 139/6.575, s 207/5.807); BLOCK 13 CLOSED, review presented (details: FINDINGS block 13 + checkpoint) |
+| 07-09 04:32 | BLOCK 14 GO, option B (reset 9:20, ping 9:25, watchdog 9:20). Built `m5_12_b14_seeds.py` (seed forge + exact Q2/ω_bal probe, 6 classes, all solver-consumable); `m5_12_b12_hard.py` gates JSON tagpre-suffixed (3-parallel-launch race fix) |
+| 07-09 04:41 | Probes in: class battery at matched a² all Q2 < 0, none undercuts the bmix control; scale-family series ω_bal 15.0 → 5.4 (n24 → n64); ⚠️ SELF-CATCH (fixobj): at fixed h that axis is a BOX test (passed: Q2 exact to 6 decimals), the falling series is object-size + convention, flagged to the audit. Chains A (n48 bmix) + B (n32 loop) launched 04:45, gates machine-clean |
+| 07-09 05:55 | ⚠️ AUDIT VERDICT (14d, 25 min): **N2 coverage REFUTED** (shape hole: wide 8.619 / node 8.947 vs control 11.031; A1/B1 degeneracy = time-translation identity), **N3 = 1/L calibration kinematics** (reverses at fixed wscale; true h-refinement converged, limit 10.80), **N1 floors real but non-stationary + below the discretization scale** (wording must be "unfound"), **N4 loop-hood confirmed / S0 217.6 refuted as physics**, **N5 band sentence unsupported**; ⚠️ author-gated unit-map question surfaced (which object scale does the M5.8 band live at?) |
+| 07-09 05:58 | Deviation (audit-driven, in-scope): `wide_rz`/`node_rz` shape classes added to the forge (re-forge reproduces the audit's numbers exactly, cross-validated); chain C (n32 wide_rz) launched |
+| 07-09 06:30-08:08 | All three chains CLOSED as honest stalls (stall rule, H_swing/S0 ≈ 2, no solution): lp 522 / ω_bal 10.19 (topology intact), wd 194 / 7.455 (undercuts the bmix band at same a²/grid), g48 101 / 5.720 (= 1/L rescaling to 0.7%) |
+| 07-09 08:25 | Audit ENDPOINT ADDENDUM: all endpoints re-derived exactly; loop winding q = 0.5 at the FINAL state; wd confirms the shape kill at the relaxed level; stalls still descending (independent GN 0.7-2.2%); the assembled honest class-negative paragraph banked (`endpoint_addendum.honest_paragraph`) and quoted in FINDINGS block 14 |
 
 ## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
 
@@ -408,6 +415,41 @@ Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a 
 ### Try 3 (the axis-swing clock, the first genuine attempt): ✅ measured, partial descent
 
 Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
+
+## FINDINGS (2026-07-09, block 14: option B, the class-negative hardening + the loop transplant)
+
+The user resolved the block-13 fork to OPTION B: harden the honest class-negative, then run the loop transplant. What ran: the seed forge + exact probes ([`../scripts/m5_12_b14_seeds.py`](../scripts/m5_12_b14_seeds.py): grid series, fixed-object series, 8-class battery at matched a²), three LM chains (n48 object `g48_`, n32 loop transplant `lp_`, n32 wide-shape `wd_`), and THE ADVERSARIAL AUDIT with an endpoint addendum (`m5_12_audit_b14_{probe,loop,stall,verdicts,endpoints}.py` + [`../data/m5_12_audit_b14.json`](../data/m5_12_audit_b14.json)).
+
+### The audit verdicts (14d, pre-endpoint + endpoint addendum)
+
+| Claim | Verdict | Basis |
+| --- | --- | --- |
+| N1 class-negative wording | ⚠️ WEAKENED | floors confirmed (1-2%, phase-row variants cannot break them) BUT the stalls are NOT stationary points (\|JᵀF\| ~ 3e8-6e8, independent GN steps still descend 0.7-2.2%) and sit BELOW the grid-transfer discretization scale (631-867): the 1e-5 bar cannot demonstrate nonexistence. Honest wording: "no orbit FOUND; chains enter a sub-1%-per-step regime at \|F\| ~ 101-522" |
+| N2 class coverage | ❌ REFUTED | my battery froze the RADIAL SHAPE: `wide_rz` (ω_bal 8.619) and `node_rz` (8.947) undercut the bmix control (11.031) ~20% at matched a²; the A1/B1 "degeneracy" is a provable time-translation identity (zero coverage content); higher-harmonic ω_bal not class-comparable (physical frequency = k·ω) |
+| N3 object-scale trend | ⚠️ WEAKENED | the falling ω_bal series (15.0 → 5.4) is 1/L CALIBRATION KINEMATICS (ω·nr ≈ 350 across the family; REVERSES at fixed wscale); true h-refinement (fixed object + box) is h-converged: order ~2.4, limit 10.80, n32 error 2.1% |
+| N4 loop transplant | 🔶 MIXED | loop-hood CONFIRMED (winding q = 0.5 measured, preserved through the FULL chain: endpoint ring intact, \|dM0\| = 0.006); S0 = 217.6 REFUTED as physics (background-only = 141 under the hedgehog-calibrated wscale) |
+| N5 "band reachable at larger scale" | ❌ UNSUPPORTED | matched-a² ω_bal saturates ~9.2-9.5; the fixed-ε law needs ~nr-300-equivalent objects at a² ~ 25, inside the regime where block 13 showed the balance root DIES |
+
+### The three chains (all honest stalls, H_swing/S0 ≈ 2, no solution anywhere)
+
+| Chain | Seed → relaxed ω_bal | \|F\| floor | Q2 (mix / pos) | Read |
+| --- | --- | --- | --- | --- |
+| g48_ (n48 object, bmix) | 7.26 → **5.720** | 101 | −0.933 (−0.916 / +0.004) | = the n32 root × 32/48 to 0.7%: pure 1/L scale covariance, NOT band approach |
+| wd_ (n32, wide shape) | 8.62 → **7.455** | 194 | −0.797 (−0.794 / +0.002) | UNDERCUTS the bmix relaxed band 8.64-8.83 at the same a²/grid: the shape kill survives relaxation |
+| lp_ (n32, loop transplant) | 15.19 → **10.19** | 522 | −0.935 (−0.933 / +0.000) | topology intact end-to-end, but the WORST performer at matched amplitude (S0 pins ~97 vs ~44): no loop-sector advantage |
+
+### The assembled class-negative (the audit's honest paragraph, quoted verbatim)
+
+> Across seven chains (the block-13 bmix lineage plus the closed g48_1, lp_1 and wd_1), no free-period orbit was FOUND in any (A, omega) rz-mixing class probed: every chain enters a sub-1%-per-step regime at a nonzero floor (\|F\| 101-522) that is not a stationary point of \|F\|², and the floors sit below the grid-transfer discretization scale, so failing the 1e-5 discrete-root bar is evidence of unfound, not nonexistent. The stall balance root is shape-dependent: the wide_rz profile relaxes to omega_bal 7.45 at the same amplitude and grid where the bmix profile stalls at 8.64-8.83, so the class-negative must be stated over the (profile, width) shape family, whose floor is unmapped, not over the single bmix profile. All quoted omega_bal values are calibration-relative: relaxed same-shape states obey omega_bal × L ~ const, so any distance-to-band statement requires the still-unresolved unit map fixing the object scale of the M5.8 band; at the n96 calibration scale the closed stalls rescale to 1.9-2.9, i.e. 1.8-2.7× the band, not 5-8×. The loop transplant preserved its topology through the full chain but performed worst at matched amplitude: the loop sector shows no advantage for reaching lower balance roots.
+
+### What block 14 changes
+
+| Item | Before | After |
+| --- | --- | --- |
+| The class-negative | "no orbit in the bmix class at n32, ω_bal 5.8-8.6 far above the band" | "no orbit FOUND in any rz-mixing shape probed; the shape-family floor is UNMAPPED (one shape variation already broke the stall band downward); ω_bal statements are calibration-relative" |
+| Distance to the M5.8 band | quoted as 5-8× | ⚠️ AUTHOR-GATED: depends on the unit map fixing which object scale the band lives at; at the n96 calibration scale the stalls sit 1.8-2.7× above the band |
+| The loop sector | untested (the original D3d target) | transplant RAN: topology survives relaxation cleanly (a genuine positive: the machinery handles loops), but no energetic advantage at matched amplitude |
+| Block-15 fork | | (i) map the (profile, width) shape family's ω_bal floor at fixed calibration (the audit's saturation read says ~9.2-9.5 at matched a², but the wide chain broke expectations once already); (ii) resolve the unit-map question (author-gated: which object scale does ω ~ 1.1 live at?) BEFORE any band claim; (iii) or close phase D at the honest negative and move to the E/F wrap |
 
 ## FINDINGS (2026-07-08/09, block 13: the inner-solver rung + the ladder audit)
 

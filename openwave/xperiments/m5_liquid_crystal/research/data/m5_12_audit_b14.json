@@ -1,0 +1,541 @@
+{
+ "task": "M5.12 block 14",
+ "role": "INDEPENDENT ADVERSARIAL AUDIT (block 14): seed battery, scale family, loop transplant, stall floors",
+ "date": "2026-07-09",
+ "scripts": [
+  "m5_12_audit_b14_probe.py",
+  "m5_12_audit_b14_loop.py",
+  "m5_12_audit_b14_stall.py",
+  "m5_12_audit_b14_verdicts.py"
+ ],
+ "instrument_note": "shat/residual (m5_12_d3a_bvp) used as the meter (independently verified by the block-11 audit); all seeds, flattenings, windings, line searches and GN steps are audit-owned reimplementations.",
+ "claims": {
+  "N1_class_negative": {
+   "verdict": "WEAKENED (all stall data CONFIRMED, floor robust to phase-row choice; but the stalls are NOT stationary points of |F|^2, descent demonstrably continues at sub-1%/step, the floors sit BELOW the grid-transfer discretization scale so failing the discrete-root bar cannot show nonexistence, and the '~5-8x above the band' framing is scale-inconsistent with the block's own N3 scaling)",
+   "evidence": {
+    "confirmed": [
+     "stall endpoints reproduced independently (audit flattening, own phase row): |F| = 217.05/141.99/208.57 vs published 215.78/139.06/206.84 (1-2%: float32 storage + different phase-row U); omega_bal 8.6377/6.5747/5.8068 exact",
+     "H_swing/S0 = 1.994/1.981/2.711: the claimed 2-2.7 range is honest arithmetic",
+     "floor NOT an artifact of the phase row or retraction point: the phase row carries 1e-16..1e-11 of |F|; recomputing with a random U or no phase row leaves the floor at 217.05 unchanged"
+    ],
+    "kills": [
+     "NOT A STATIONARY POINT: |J^T F| = 2.7e8/4.1e8/3.4e8 at the three stalls (|J^T F|/|F| ~ 1e6): in exact arithmetic a descent direction exists at every stall; the natural steepest-descent step is t ~ phi/|g|^2 ~ 1e-13 (my line search grid, min t = 1e-5, correctly found nothing: the landscape curvature is enormous, conditioning ~1e6), and my own independent damped-GN step from the c2 stall DESCENDS 0.73% at full lam = 1. The chains stop on the '3 consecutive sub-1% steps' RULE: the floors are progress-rate stalls, not demonstrated obstructions",
+     "WORDING: 'no reachable orbit EXISTS' asserts nonexistence from budget-limited stalls of chains in ONE seed lineage (c1/c2/s all descend from the same bmix warm-start family). Honest form: 'no orbit was FOUND; every chain enters a sub-1%-per-step regime at |F| ~ 140-220'",
+     "THE BAR vs DISCRETIZATION: grid transfer (order-1 zoom) puts the cross-grid consistency scale at |F| ~ 631 (c2 n32->n48) and ~867 (g48 ck n48->n32): the in-grid floors 139-216 are ALREADY BELOW the scale at which n32 can distinguish continuum physics. The 1e-5 rel bar (absolute |F| ~ 2e-3..0.11, denominators differing 55x across chains) probes the exact DISCRETE root; failing it at n32 does not rule out a continuum orbit near these states",
+     "SCALE MISMATCH: under the block's own omega_bal ~ 1/L scaling (w*nr = 347-360 const; relaxed states too: 283 at n32 vs 275 at n48), the n32 stalls 5.8-8.6 rescale to 1.9-2.9 at the n96 calibration scale, i.e. 1.7-2.7x the band, not 5-8x. Either N3's scale covariance or 'far above the band' must yield. Whether the sqrt(70/61) band lives at the n96 object scale is an author-gated question that must be answered before ANY band comparison is quoted"
+    ],
+    "stall_numbers": [
+     {
+      "state": "m5_12_b12_hard_c2_1_state.npz",
+      "U_mode": "state",
+      "F_pub": 215.78,
+      "F_recomputed": 217.0546209598336,
+      "phase_row_share": 1.562521279396785e-14,
+      "JtF_norm": 267202411.38935575,
+      "JtF_over_F": 1231037.654060367,
+      "best_step_t": 0.0,
+      "best_F": 217.0546209598336,
+      "best_drop_rel": 0.0,
+      "omega_bal": 8.637738326423197
+     },
+     {
+      "state": "m5_12_b12_hard_c1_1_state.npz",
+      "U_mode": "state",
+      "F_pub": 139.06,
+      "F_recomputed": 141.98697849469548,
+      "phase_row_share": 3.896480509911738e-11,
+      "JtF_norm": 409031648.8425885,
+      "JtF_over_F": 2880768.7379435967,
+      "best_step_t": 0.0,
+      "best_F": 141.98697849469548,
+      "best_drop_rel": 0.0,
+      "omega_bal": 6.57471438574848
+     },
+     {
+      "state": "m5_12_b12_hard_s_1_state.npz",
+      "U_mode": "state",
+      "F_pub": 206.84,
+      "F_recomputed": 208.56844191940252,
+      "phase_row_share": 4.331560424697056e-11,
+      "JtF_norm": 336438635.0922578,
+      "JtF_over_F": 1613085.0477478679,
+      "best_step_t": 0.0,
+      "best_F": 208.56844191940252,
+      "best_drop_rel": 0.0,
+      "omega_bal": 5.806831315076039
+     },
+     {
+      "state": "m5_12_b12_hard_c2_1_state.npz",
+      "U_mode": "random",
+      "F_pub": 215.78,
+      "F_recomputed": 217.0546209598336,
+      "phase_row_share": 5.109176652908467e-16,
+      "JtF_norm": 267202411.38935575,
+      "JtF_over_F": 1231037.654060367,
+      "best_step_t": 0.0,
+      "best_F": 217.0546209598336,
+      "best_drop_rel": 0.0,
+      "omega_bal": 8.637738326423197
+     },
+     {
+      "state": "m5_12_b12_hard_c2_1_state.npz",
+      "U_mode": "none",
+      "F_pub": 215.78,
+      "F_recomputed": 217.0546209598336,
+      "phase_row_share": 0.0,
+      "JtF_norm": 267202411.38935575,
+      "JtF_over_F": 1231037.654060367,
+      "best_step_t": 0.0,
+      "best_F": 217.0546209598336,
+      "best_drop_rel": 0.0,
+      "omega_bal": 8.637738326423197
+     }
+    ],
+    "gn_step": [
+     {
+      "damp_frac": 0.0,
+      "lsmr_iters": 50,
+      "lsmr_stop": 7,
+      "best_lam": 1.0,
+      "best_F": 215.46301758571997,
+      "drop_rel": 0.007332732042632628
+     },
+     {
+      "damp_frac": 0.01,
+      "lsmr_iters": 40,
+      "lsmr_stop": 7,
+      "best_lam": 1.0,
+      "best_F": 215.4633589038865,
+      "drop_rel": 0.007331159543668919
+     }
+    ],
+    "grid_transfer": [
+     {
+      "transfer": "c2 n32 -> n48",
+      "F": 631.4720612676148,
+      "omega_bal": 6.196721214128474,
+      "S0": 30.05815671755001,
+      "Q2": -0.7827776704185858
+     },
+     {
+      "transfer": "g48 ck n48 -> n32",
+      "F": 867.4047261947754,
+      "omega_bal": 8.683093879302843,
+      "S0": 43.887379696048285,
+      "Q2": -0.582090697687633
+     }
+    ]
+   }
+  },
+  "N2_class_coverage": {
+   "verdict": "REFUTED as a coverage statement (battery numbers themselves CONFIRMED; A1/B1 degeneracy CONFIRMED and proven structural, hence vacuous as coverage)",
+   "evidence": {
+    "probe_numbers": "all 12 published seed records reproduced to <= 3e-8 rel (float32 storage floor); grid + fixobj series reproduced to 0 (bit-identical formulas)",
+    "degeneracy": "bmix_B1 == bmix_rz is EXACT FOR ANY SEED: (A1,B1) = (P cos phi0, P sin phi0) is a time translation and the N_s = 10 trapezoid is exact for the degree <= 8 density: verified at 4 arbitrary phases with a RANDOM field (spread S0 7e-15, Q2 3e-11). The B1 battery entry adds ZERO coverage: it is the same state",
+    "the_kill": {
+     "statement": "two cheap seeds OUTSIDE the battery, same M0, same wscale, same matched a2 = 0.3037, undercut bmix_rz's omega_bal 11.03 by ~20%",
+     "node_rz (radial-node profile eps b2 (1-2r^2/w^2))": {
+      "S0": 67.27,
+      "Q2": -0.8403,
+      "omega_bal": 8.947
+     },
+     "wide_rz_2x (w_b doubled)": {
+      "S0": 64.29,
+      "Q2": -0.8654,
+      "omega_bal": 8.619
+     },
+     "control bmix_rz reproduced": 11.0306,
+     "battery minimum": 11.03
+    },
+    "metric_fragility": "an A2 (second-harmonic) transplant of the same mix shows omega_bal 5.515 at matched norm, but the physical oscillation frequency is 2 omega = 11.03: omega_bal is not class-comparable when amplitude sits in higher harmonics: any future battery must compare k*omega",
+    "caveat": "seed-level omega_bal orderings may not survive relaxation (block-13: bmix 11.03 relaxed to 8.83); but the claim under audit IS a seed-level statement and dies at seed level",
+    "rows": [
+     {
+      "name": "bmix_rz_CTRL",
+      "harmonic": 1,
+      "S0": 69.19010492300666,
+      "Q2": -0.5686530400216583,
+      "omega_bal": 11.03057906681226
+     },
+     {
+      "name": "node_rz",
+      "harmonic": 1,
+      "S0": 67.2697924821666,
+      "Q2": -0.8402734148977515,
+      "omega_bal": 8.947459316022924
+     },
+     {
+      "name": "wide_rz_2x",
+      "harmonic": 1,
+      "S0": 64.29378353306292,
+      "Q2": -0.8654055861210139,
+      "omega_bal": 8.619352551807134
+     },
+     {
+      "name": "narrow_rz_0p5x",
+      "harmonic": 1,
+      "S0": 78.02432969239487,
+      "Q2": -0.11065024992709027,
+      "omega_bal": 26.55454250388007
+     },
+     {
+      "name": "combo_spatial_rz",
+      "harmonic": 1,
+      "S0": 67.16348943117069,
+      "Q2": -0.4311909740915638,
+      "omega_bal": 12.480494552506128
+     },
+     {
+      "name": "bigrc_rz_2x",
+      "harmonic": 1,
+      "S0": 146.5412663991936,
+      "Q2": -0.31080822270115505,
+      "omega_bal": 21.713694348828557
+     },
+     {
+      "name": "A2harm_rz",
+      "harmonic": 2,
+      "S0": 69.19010492300667,
+      "Q2": -2.274612160086562,
+      "omega_bal": 5.515289533406217,
+      "omega_eff": 11.030579066812434
+     }
+    ]
+   }
+  },
+  "N3_object_scale": {
+   "verdict": "WEAKENED (series arithmetic CONFIRMED and h-convergence VERIFIED here at ~2%, but 'object-size physics' holds ONLY under per-grid wscale recalibration and the fixed-eps amplitude convention; the trend REVERSES in any fixed theory and under weighted amplitude matching; fixobj is a BOX test and never tested discretization)",
+   "evidence": {
+    "confirmed": [
+     "grid series reproduced exactly; w_bal*nr = 360.5/353.0/348.4/347.0: the fall IS the kinematic 1/L law of a shape-preserving family (log-log slope -1.038)",
+     "fixobj: Q2 box-independent to 1e-12 rel (trivially exact: the added cells carry zero harmonic), S0 drift 2.1% = tail truncation: box-independence claim honest",
+     "TRUE h-refinement (n32 h=1 vs n48 h=2/3 vs n64 h=1/2, same object, same box: the test the block did NOT run): omega_bal 11.031/10.886/10.843, order ~2.4, h->0 limit 10.800: n32 discretization error 2.1%: the seed-level numbers ARE h-converged (the 'not discretization' clause is true, but was never established by fixobj, whose docstring mislabels it 'pure resolution')"
+    ],
+    "kills": [
+     "FIXED-WSCALE REVERSAL: at wscale frozen at the n32 calibration the series is 12.46/11.03/12.11/14.88; frozen at n48: 11.30/8.78/7.26/7.61: in ANY fixed theory omega_bal has a minimum at the calibration scale and RISES for larger objects. The monotone fall exists only because wscale is recalibrated per object (it varies 46x across the family). 'Object-size physics' is a property of the family-of-theories, not of objects in a theory",
+     "AMPLITUDE CONVENTION: fixed eps means raw a2 grows as nr^2 (0.171/0.304/0.683/1.215) and |Q2| tracks it. At matched raw a2 the fall shrinks to 13.47/11.03/9.78/9.46 (-30% vs the published -64%); at matched WEIGHTED a2w it is NON-monotonic: 13.38/11.03/11.63/13.04 (minimum at n32). The 'story' is a convention choice"
+    ],
+    "fixed_wscale_rows": [
+     {
+      "nr": 24,
+      "wscale_own": 0.10302887701205803,
+      "own": {
+       "S0": 89.57340728842911,
+       "Q2": -0.39695556533605725,
+       "omega_bal": 15.021683237506446
+      },
+      "fixed_wscale": {
+       "S0": 61.66190656613247,
+       "Q2": -0.39695556533605725,
+       "omega_bal": 12.463428507663062
+      }
+     },
+     {
+      "nr": 32,
+      "wscale_own": 0.03407009618611885,
+      "own": {
+       "S0": 69.19010468229321,
+       "Q2": -0.5686530352237327,
+       "omega_bal": 11.03057909415892
+      },
+      "fixed_wscale": {
+       "S0": 69.19010468229321,
+       "Q2": -0.5686530352237327,
+       "omega_bal": 11.03057909415892
+      }
+     },
+     {
+      "nr": 48,
+      "wscale_own": 0.006954588287406285,
+      "own": {
+       "S0": 47.23691064489658,
+       "Q2": -0.8968626153438777,
+       "omega_bal": 7.257345225103783
+      },
+      "fixed_wscale": {
+       "S0": 131.60722026388277,
+       "Q2": -0.8968626153438208,
+       "omega_bal": 12.11370232815915
+      }
+     },
+     {
+      "nr": 64,
+      "wscale_own": 0.002226478174967018,
+      "own": {
+       "S0": 35.751994406145634,
+       "Q2": -1.216411544895223,
+       "omega_bal": 5.421380260709804
+      },
+      "fixed_wscale": {
+       "S0": 269.38957861150925,
+       "Q2": -1.2164115448952089,
+       "omega_bal": 14.881617193509253
+      }
+     }
+    ],
+    "matched_amplitude_rows": [
+     {
+      "nr": 24,
+      "a2_raw": 0.17084511202413258,
+      "a2w_raw": 0.8958097034760949,
+      "matched_raw_a2": {
+       "S0": 125.70347616776671,
+       "Q2": -0.6930517958763005,
+       "omega_bal": 13.467618242521237
+      },
+      "matched_weighted_a2w": {
+       "S0": 159.95167936827937,
+       "Q2": -0.8937546089761099,
+       "omega_bal": 13.377817126475787
+      }
+     },
+     {
+      "nr": 32,
+      "a2_raw": 0.3037246468487802,
+      "a2w_raw": 2.0803180231345872,
+      "matched_raw_a2": {
+       "S0": 69.19010492300666,
+       "Q2": -0.5686530400216583,
+       "omega_bal": 11.03057906681226
+      },
+      "matched_weighted_a2w": {
+       "S0": 69.19010468229321,
+       "Q2": -0.5686530352237327,
+       "omega_bal": 11.03057909415892
+      }
+     },
+     {
+      "nr": 48,
+      "a2_raw": 0.6833804554100736,
+      "a2w_raw": 6.924912490120768,
+      "matched_raw_a2": {
+       "S0": 38.746049425653126,
+       "Q2": -0.40476299602114807,
+       "omega_bal": 9.783929465955794
+      },
+      "matched_weighted_a2w": {
+       "S0": 37.17759752267996,
+       "Q2": -0.27466810325781665,
+       "omega_bal": 11.634200567299228
+      }
+     },
+     {
+      "nr": 64,
+      "a2_raw": 1.2148985873959985,
+      "a2w_raw": 16.33795431716627,
+      "matched_raw_a2": {
+       "S0": 27.787285930048547,
+       "Q2": -0.3108082227011586,
+       "omega_bal": 9.4553327059781
+      },
+      "matched_weighted_a2w": {
+       "S0": 26.992067235841112,
+       "Q2": -0.15885990562358643,
+       "omega_bal": 13.034996635971622
+      }
+     }
+    ],
+    "h_refinement_rows": [
+     {
+      "nr": 32,
+      "h": 1.0,
+      "wscale_own": 0.03407009618611885,
+      "own": {
+       "S0": 69.19010468229321,
+       "Q2": -0.5686530352237327,
+       "omega_bal": 11.03057909415892
+      },
+      "fixed_wscale32": {
+       "S0": 69.19010468229321,
+       "Q2": -0.5686530352237327,
+       "omega_bal": 11.03057909415892
+      }
+     },
+     {
+      "nr": 48,
+      "h": 0.6666666666666666,
+      "wscale_own": 0.03520760320499434,
+      "own": {
+       "S0": 70.85536596733269,
+       "Q2": -0.5979084102290528,
+       "omega_bal": 10.88601783765655
+      },
+      "fixed_wscale32": {
+       "S0": 69.80666369938243,
+       "Q2": -0.597908410229067,
+       "omega_bal": 10.805157703800173
+      }
+     },
+     {
+      "nr": 64,
+      "h": 0.5,
+      "wscale_own": 0.03562365079947229,
+      "own": {
+       "S0": 71.50398881226961,
+       "Q2": -0.6082057724473344,
+       "omega_bal": 10.842760521420436
+      },
+      "fixed_wscale32": {
+       "S0": 70.07917919002583,
+       "Q2": -0.6082057724473486,
+       "omega_bal": 10.734188916457509
+      }
+     }
+    ]
+   }
+  },
+  "N4_loop_transplant": {
+   "verdict": "MIXED: under-resolution refutation FAILS (the n32 object IS a genuine loop: CONFIRMED); topology preserved so far (CONFIRMED, provisional at 2 Newton iterations); 'deepest Q2' arithmetic CONFIRMED but misleading as an advantage; S0 = 217.6 as a physical energy REFUTED (seed artifact)",
+   "evidence": {
+    "loopness": "measured nematic winding q = 0.5 (at rc/2 and rc) at n32/n48/n96; hedgehog control on the same circle: q = 0; ring melt floor min_s = 0.038 at n32 (vs 0.008 at n96: shallower core but a real melt ring at (5.5, -0.5))",
+    "topology_after_chain": "lp checkpoint (iter 2): winding still 0.5, ring at (5.5,-0.5), min_s 0.0384; |dM0| from seed = 0.006 vs distance-to-hedgehog 19.4: NOT relaxing toward the hedgehog sector (yet; only 2 iterations)",
+    "S0_kill": "S0 fell 217.6 -> 97.9 -> 97.1 under a total field move of L2 norm ~0.007 (|F|0 = 4.9e4: the seed sits on an extremely steep wall): 55% of the number is unrelaxed gradient, not object energy. Background-only (harmonics zeroed) S0: loop 141.0 vs hedgehog 50.7: the honest seed-level background ratio is 2.8x, not 217.6-vs-69; and the wscale is HEDGEHOG-calibrated (seed-virial of the rc=2.67 hedgehog), never recalibrated for the loop",
+    "deepest_Q2": "loop Q2 -0.9425 is indeed the battery's deepest, but its omega_bal 15.19 was second-WORST in the battery, and the out-of-battery wide_rz seed carries Q2 -0.865 with omega_bal 8.62: depth of Q2 alone is not an advantage",
+    "chain_trajectory": [
+     [
+      1,
+      97.85576096585365,
+      10.721607486721323,
+      2942.0559055292656
+     ],
+     [
+      2,
+      97.10417177066373,
+      10.199784008438003,
+      554.8114036229427
+     ]
+    ],
+    "chain_note": "omega_bal 15.19 -> 10.72 -> 10.20 (|F| 48869 -> 2942 -> 555, unconverged): 'relaxes toward lower omega_bal' is true so far but is the generic S0-relaxation effect at fixed a2; still above the hedgehog-class relaxed value 8.83 at the SAME amplitude (block-13 audit)"
+   }
+  },
+  "N5_honesty_check": {
+   "verdict": "the tempting sentence is UNSUPPORTED; the honest sentence is written below",
+   "seed_level_facts": {
+    "fixed_eps_law": "omega_bal * nr = 347-360 (1/L kinematics), log-log slope -1.038",
+    "band_crossing_fixed_eps": "nr-equivalent 284-304 (object rc 24-25), raw a2 there 24-27 (~80-90x the c2 amplitude); block-13's rescaling analysis found the balance root DIES (Q2 >= 0) near a2 ~ 5-7: the extrapolation crosses into a region where the root's existence is already refuted at seed level",
+    "at_n96_calibration_scale": "fixed-eps law gives seed omega_bal ~ 3.55 at the n96 object: still 3.1x the band",
+    "matched_a2_saturation": "S0/|Q2| = 181/122/96/89: decelerating toward ~85-90, i.e. omega_bal saturates ~9.2-9.5 at matched raw a2: the band is NOT approached",
+    "fixed_theory": "in any fixed-wscale theory the trend reverses: bigger objects RAISE omega_bal beyond the calibration scale"
+   },
+   "honest_sentence": "Seed-level omega_bal follows the kinematic 1/L law of a shape-preserving family under the per-grid seed-virial recalibration (w*nr ~ 350); the fall to 5.4 at n64 is amplitude- and convention-driven, reverses in any fixed theory, and extrapolating it to the M5.8 band requires an object ~25 cells and raw a2 ~ 25, inside the regime where the balance root is already known to die; no chain has converged anywhere, so seed-level omega_bal carries no existence content about orbits in the band."
+  }
+ },
+ "constructive_findings": [
+  "b14_seeds.py fixobj docstring mislabels a BOX test as 'pure resolution': with h = 1 fixed, growing nr grows the box, not the resolution. The h-refinement gap is now closed by this audit (order ~2.4, n32 error ~2%)",
+  "the A1/B1 degeneracy is a provable time-translation identity: battery slots should not be spent on it",
+  "omega_bal comparisons need k*omega (physical frequency), not the fundamental omega, once higher harmonics carry amplitude",
+  "the seed battery's real gap is SHAPE (profile/width) not component structure: node and 2x-width rz seeds undercut every battery entry by ~20% at matched a2",
+  "two claims in the block's stack (N1's 'far above the band' and N3's scale covariance) are mutually inconsistent: fix the unit map (author-gated) before any band comparison is published"
+ ],
+ "endpoint_addendum": {
+  "date": "2026-07-09",
+  "endpoints": {
+   "g48_1": {
+    "F_recomputed": 101.4399276847047,
+    "F_pub": 100.9,
+    "omega_bal": 5.720374568133451,
+    "omega_pub": 5.7204,
+    "S0": 30.5197998542832,
+    "Q2": -0.9326801779249543,
+    "Q2_mix": -0.9159056093147306,
+    "Q2_pos": 0.0037470288289327414,
+    "Q2_cross": -0.02052159743915638,
+    "H_swing_over_S0": 1.8048183179227568,
+    "H_mean_over_S0": -4.429280536693545e-15,
+    "pub": {
+     "F": 100.9,
+     "w": 5.7204,
+     "Q2": -0.93268,
+     "mix": -0.9159,
+     "pos": 0.0037,
+     "HswS0": 1.9961
+    }
+   },
+   "lp_1": {
+    "F_recomputed": 524.8136983115296,
+    "F_pub": 522.2,
+    "omega_bal": 10.19226739107246,
+    "omega_pub": 10.1923,
+    "S0": 97.10208277421637,
+    "Q2": -0.9347316063865634,
+    "Q2_mix": -0.932676354659705,
+    "Q2_pos": 6.600261599487567e-05,
+    "Q2_cross": -0.0021212543428532626,
+    "H_swing_over_S0": 1.8280175528115943,
+    "H_mean_over_S0": -2.6855158671550053e-15,
+    "pub": {
+     "F": 522.2,
+     "w": 10.1923,
+     "Q2": -0.93473,
+     "mix": -0.9327,
+     "pos": 0.0001,
+     "HswS0": 2.0358
+    }
+   },
+   "wd_1": {
+    "F_recomputed": 198.2143336534699,
+    "F_pub": 193.89,
+    "omega_bal": 7.454571465133031,
+    "omega_pub": 7.4546,
+    "S0": 44.26668986093637,
+    "Q2": -0.7965841902005479,
+    "Q2_mix": -0.7941388433284473,
+    "Q2_pos": 0.002052242033158791,
+    "Q2_cross": -0.00449758890525942,
+    "H_swing_over_S0": 1.8016979078978355,
+    "H_mean_over_S0": 2.3956727653534953e-15,
+    "pub": {
+     "F": 193.89,
+     "w": 7.4546,
+     "Q2": -0.79658,
+     "mix": -0.7941,
+     "pos": 0.0021,
+     "HswS0": 1.9906
+    }
+   }
+  },
+  "loop_topology": {
+   "ring_rho": 5.5,
+   "ring_z": -0.5,
+   "min_s": 0.038398934505199295,
+   "q_at_seed_ring": 0.5,
+   "q_at_own_ring": 0.5,
+   "dist_to_loop_seed": 0.006021591407654638,
+   "dist_to_hedgehog": 19.428605481678186
+  },
+  "stationarity_wd1": {
+   "F": 198.21433365346988,
+   "JtF": 595919860.3026925,
+   "JtF_over_F": 3006441.8113400172,
+   "gn_step_best_lam": 1.0,
+   "gn_step_F": 193.88753443292384,
+   "gn_step_drop_rel": 0.021828891689086416,
+   "gn_step_omega": 7.45456839352915,
+   "lsmr_stop": 7
+  },
+  "wall_s": 159.6,
+  "H_swing_note": "published H_swing/S0 CONFIRMED exactly by an audit-owned H(t) at ns=20 (1.9961/2.0358/1.9906; ns=40 identical): the addendum table's 1.80-1.83 values were the audit's ns=10 under-sampling, not a claimant error",
+  "kinematic_check_g48": {
+   "prediction_from_c2_1_over_L": 5.758466666666667,
+   "actual": 5.7204,
+   "rel_err": 0.006654546302123516,
+   "note": "the n48 relaxed root is the n32 same-shape relaxed root kinematically rescaled by 1/L to 0.7%: g48_1 confirms scale covariance of the relaxed stall, NOT approach to the band"
+  },
+  "n96_rescaled_stalls": {
+   "s": 1.936,
+   "c1": 2.192,
+   "wd_1": 2.485,
+   "g48_1": 2.86,
+   "c2": 2.879,
+   "lp_1": 3.397,
+   "note": "under the block's own 1/L covariance the closed stalls sit 1.8-2.7x the band (loop sector 3.2x) at the n96 calibration scale; the unit map fixing the band's object scale remains author-gated"
+  },
+  "verdict_deltas": {
+   "N1": "UNCHANGED (WEAKENED), sharpened: the stall PATTERN is now confirmed on 3 more chains (n48 object, loop sector, wide shape) so 'no orbit FOUND' is more robust; but wd_1 relaxing to 7.455 at the SAME a2/grid where bmix stalls at 8.64-8.83 shows the quoted stall band 5.8-8.6 was profile-specific: the class floor is shape-dependent and unmapped. wd_1 endpoint is STILL not stationary: |JtF| = 6.0e8, independent GN step descends 198.2 -> 193.9 (2.2%) at full step",
+   "N2": "REFUTED stands and is now confirmed at the RELAXED level: the audit's wide_rz seed, adopted as chain wd_1, relaxed to omega_bal 7.4546 vs the bmix relaxed band 8.64-8.83 at matched a2 and grid (~14% undercut surviving relaxation)",
+   "N3": "UNCHANGED (WEAKENED): g48_1's 5.7204 is the 1/L kinematic image of the n32 relaxed root (predicted 5.759, 0.7% off): calibration-relative, no independent object-size physics and no band-approach content",
+   "N4": "topology half UPGRADED to CONFIRMED at the final endpoint (iter 6: winding q = 0.5 at seed ring and own ring, ring at (5.5,-0.5), min_s 0.0384, |dM0| from seed 0.006): relaxation did NOT degrade the ring. But the transplant is the WORST performer at matched amplitude: omega_bal 10.19 vs 8.64-8.83 (bmix) and 7.45 (wide), S0 pinned ~97 vs ~44, |F| floor 522 (highest): no evidence the loop sector helps"
+  },
+  "honest_paragraph": "Across seven chains (the block-13 bmix lineage plus the closed g48_1, lp_1 and wd_1), no free-period orbit was FOUND in any (A, omega) rz-mixing class probed: every chain enters a sub-1%-per-step regime at a nonzero floor (|F| 101-522) that is not a stationary point of |F|^2 (independent Gauss-Newton steps still descend 0.7-2.2%), and the floors sit below the grid-transfer discretization scale, so failing the 1e-5 discrete-root bar is evidence of unfound, not nonexistent. The stall balance root is shape-dependent: the wide_rz profile relaxes to omega_bal 7.45 at the same amplitude and grid where the bmix profile stalls at 8.64-8.83, so the class-negative must be stated over the (profile, width) shape family, whose floor is unmapped, not over the single bmix profile. All quoted omega_bal values are calibration-relative: relaxed same-shape states obey omega_bal x L ~ const (g48_1's 5.72 is the n32 root kinematically rescaled, 0.7% off the 1/L prediction), so any distance-to-band statement requires the still-unresolved unit map fixing the object scale of the M5.8 band; at the n96 calibration scale the closed stalls rescale to 1.9-2.9, i.e. 1.8-2.7x the band, not 5-8x. The loop transplant preserved its topology through the full chain (winding q = 1/2, ring position and melt depth unchanged, M0 moved 0.006) but performed worst at matched amplitude (omega_bal 10.19, S0 pinned ~97 vs ~44 for the hedgehog class): the loop sector shows no advantage for reaching lower balance roots."
+ }
+}

@@ -182,7 +182,9 @@ def run_ladder(nr, state, rungs, max_newton, lsmr_iters, h=1.0, Nt=2,
     gates = {"HG1_nonfinite": hg1, "HG2_com_rel": hg2, "HG3_retract": hg3,
              "HG4_rowmatch": hg4,
              "omega_bal0": w0, "S0": s00, "Q2": q20}
-    with open(os.path.join(DATA, "m5_12_b12_gates.json"), "w") as f:
+    gname = "m5_12_b12_gates" \
+        + ("" if tag_prefix == "r" else "_" + tag_prefix) + ".json"
+    with open(os.path.join(DATA, gname), "w") as f:
         json.dump(gates, f, indent=2)
     ok = (hg1 == 0 and hg2 < 1e-8 and hg3 < 1e-12 and hg4 < 1e-12)
     print(f"[HG] {'ALL PASS' if ok else 'FAIL'}; omega_bal(warmstart)="
