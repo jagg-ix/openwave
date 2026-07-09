@@ -314,6 +314,13 @@ Running record + deviations (logged as they happen, per the flow's deviations-lo
 | 07-09 05:58 | Deviation (audit-driven, in-scope): `wide_rz`/`node_rz` shape classes added to the forge (re-forge reproduces the audit's numbers exactly, cross-validated); chain C (n32 wide_rz) launched |
 | 07-09 06:30-08:08 | All three chains CLOSED as honest stalls (stall rule, H_swing/S0 ≈ 2, no solution): lp 522 / ω_bal 10.19 (topology intact), wd 194 / 7.455 (undercuts the bmix band at same a²/grid), g48 101 / 5.720 (= 1/L rescaling to 0.7%) |
 | 07-09 08:25 | Audit ENDPOINT ADDENDUM: all endpoints re-derived exactly; loop winding q = 0.5 at the FINAL state; wd confirms the shape kill at the relaxed level; stalls still descending (independent GN 0.7-2.2%); the assembled honest class-negative paragraph banked (`endpoint_addendum.honest_paragraph`) and quoted in FINDINGS block 14 |
+| 07-09 08:37 | FINISH block 14: doc checker ✅ clean (1 file), no >1 MB files, ping parked unfired (no cap), watchdog + monitors stopped, completion push sent; BLOCK 14 CLOSED, review presented |
+| 07-09 16:51 | Block-14 review APPROVED. BLOCK 15 GO per the approved recommendation: (ii) the unit-map decision memo (author-gated, presented for the user's sanction, no compute) + (i) the shape-family ω_bal floor mapping at fixed calibration and matched a², relax chains on the undercutters. Reset time supplied by the user at 17:09 (7:30pm): ping armed 19:35, watchdog armed 19:30 (the go itself carried no reset; interval covered by the checkpoint) |
+| 07-09 17:05 | Sweep DONE in seconds (`m5_12_b15_shapes.py`, 23 points, 7 families, 3 anchor guards exact): isotropic-slice seed floor 8.23 (rgauss_k2 / shell_k1), every 1-D width scan turns back up; chains F1/F2 launched 17:07 on the two floor seeds (gates ALL PASS) |
+| 07-09 17:20 | The unit-map memo drafted + checkpointed (the block-6 overlap cannot fix the map: small-amplitude modes are scale-free, ω_bal and the M5.8 breather are large-amplitude; options O1 declare / O2 measure / O3 defer, recommendation O3 now + O2 if the close needs a number) |
+| 07-09 18:29-18:44 | Both chains CLOSED as honest stalls (stall rule, H_swing/S0 ≈ 2): f2 shell 8.268 → **6.987** (below wd_1's 7.455), f1 rgauss 8.235 → 7.376; the seed-root ordering SWAPPED under relaxation. Adversarial audit launched 18:47 |
+| 07-09 19:20 | ⚠️ AUDIT VERDICT (b15, ~33 min): **P1 REFUTED as a class floor** (Rayleigh minimization over 72 directions: a z-flattened pancake mix reaches 7.90 at seed level; the sweep was z-anisotropy-blind), **P2 CONFIRMED exactly** (endpoints re-derived; not stationary; independent GN lands on the published floors), **P3 WEAKENED** (floor dropped every family: 6.99 = a moving upper bound), **P4 CONFIRMED** (23/23 rows ≤7.5e-8). New: convention-relativity (weighted matching reorders the leaderboard), the harmonic-relabel hole (2nd harmonic halves ω_bal, invisible to `a2_free`; physical frequency k·ω, not a band route), nonlinearity in S0 not Q2 |
+| 07-09 19:25 | FINISH block 15: ping PARKED unfired 19:16 (before the 19:35 fire; no cap), watchdog stopped, artifacts all < 1 MB (largest 323 KB); findings written; BLOCK 15 CLOSED, review presented |
 
 ## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
 
@@ -415,6 +422,52 @@ Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a 
 ### Try 3 (the axis-swing clock, the first genuine attempt): ✅ measured, partial descent
 
 Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
+
+## FINDINGS (2026-07-09, block 15: the shape-family floor map + the unit-map memo)
+
+### The audit verdicts (b15, `../data/m5_12_audit_b15.json`)
+
+| Claim | Verdict | Decisive evidence |
+| --- | --- | --- |
+| P1 seed-level family floor ~8.23, interior | ❌ REFUTED as a class floor (slice arithmetic confirmed) | generalized-Rayleigh minimization over a 72-direction basis (exact-Shat-verified at full amplitude, same matched a²/calibration): a z-flattened PANCAKE anisotropic mix reaches ω_bal 7.8955, 4.1% below 8.2348; the 23-point sweep was blind to z-anisotropy (every profile a function of r alone) |
+| P2 relaxed floors + ordering swap | ✅ CONFIRMED | f1 7.3755 / f2 6.9869 / wd 7.4546 reproduce exactly; H_mean identity 7e-17 to 4e-13; a² conserved; endpoints NOT stationary (the audit's independent damped GN step descends 1.22-3.45% and lands exactly on the published floors) |
+| P3 floor trend | ⚠️ WEAKENED | the relaxed floor dropped with EVERY family probed (8.64 → 7.455 → 7.376 → 6.987), gains not demonstrably saturating: **6.99 is a moving upper bound, not a floor** |
+| P4 sweep integrity | ✅ CONFIRMED | all 23 rows reproduce from the saved seeds to ≤7.5e-8 rel; all three block-14 anchors exact |
+
+### The sweep + chains (n32, matched a² = 0.3037, hedgehog-calibrated wscale)
+
+23 (profile, width) points across 7 families (`m5_12_b15_shapes.py` → `m5_12_b15_shapes.json`): within the isotropic slice the seed floor is 8.23 (rgauss κ=2; displaced shell 8.27) and every 1-D width scan turns back up past its optimum. Both floor seeds were relax-chained (rung 1, LM, stall rule):
+
+| Chain | Seed ω_bal | Relaxed ω_bal | \|F\| floor | H_swing/S0 |
+| --- | --- | --- | --- | --- |
+| f2_ (shell_k1, displaced shell) | 8.268 | **6.987** | 189 | 1.992 |
+| f1_ (rgauss_k2, r-weighted gauss) | 8.235 | 7.376 | 187 | 1.995 |
+
+The seed-root ordering SWAPPED under relaxation (seeds f1 < f2, relaxed f2 < f1): the seed-level map is not a reliable proxy for the relaxed floor. New audit findings beyond the claims: the floor is convention-relative (cell-weighted amplitude matching reorders the leaderboard); the harmonic-relabel hole (the same shape on the second harmonic halves ω_bal exactly and is invisible to `a2_free`: floor statements only mean anything inside the fixed first-harmonic ansatz, and physical frequency is k·ω so this is NOT a band route); nonlinearity lives in S0, not Q2 (quadratic-model floors must be exact-probed: ~4-20% shifts).
+
+### The unit-map memo (author-gated, decision pending)
+
+The "distance to band" comparison mixes two quantities: ω_bal (a large-amplitude balance root of an n32-scale object, ∝ 1/L, measured to 0.7%) and the M5.8 band 1.07-1.15 (the molten-clock breathing fundamental from `m5_8_2h_omega_attractor.py`: 24³-class constrained-f64 sandbox, breather r_mean ~ 5-7 lattice units, large amplitude H_dyn ≈ 2.7 H_static, ± one FFT bin 0.13). The block-6 "cross-code overlap" (n32 mode band 1.04-1.09 vs 1.07-1.15) cannot fix the map: small-amplitude modes are set by the vacuum gap (calibration-fixed, scale-free by the wscale protocol) while both ω_bal and the M5.8 breather are large-amplitude objects. The BVP's canonical object is the rc = 8 n96 hedgehog (seed-virial wscale); M5.8 has its own absolute anchor (ω = 5.5e19 rad/s) but no map into BVP units exists.
+
+| Option | Meaning | Cost |
+| --- | --- | --- |
+| O1 declare the n96 reading | the band lives at the n96 anchor object; stalls rescale ×32/96 → 1.9-2.9 → headline "1.8-2.7× above the band" | zero compute; an unmeasured convention |
+| O2 measure the map | exhume the M5.8 breather core size in its lattice units, map cores (M5.8 ↔ BVP hedgehog rc), derive the factor (⚠️ raw 2h npz deleted; regen = rerun `m5_8_2h_omega_attractor.py run 48000`, ~22 min, or read core size off retained JSONs) | ~1 block; the only audit-proof reading |
+| O3 defer | no outbound band comparison; ω_bal calibration-relative only (the standing block-14 wording) | zero; weakest science, airtight |
+
+Recommendation: O3 stays the outbound rule now; O2 as a bounded measurement if the phase-D close needs a distance number; O1 only ever as an explicitly-labeled convention.
+
+### The assembled honest statement (the audit's paragraph, quoted verbatim)
+
+> Block 15 mapped the omega_bal landscape of a 23-point isotropic (profile, width) slice of first-harmonic 0i-mixing seeds at n32 calibration and matched a2 = 0.3037: within that slice the seed floor is ~8.23 (rgauss k2, displaced shell close behind), the sweep arithmetic is exact, and two bounded relax chains produced new progress-rate stalls at omega_bal 7.376 and 6.987 (H_swing/S0 ~ 2, \|F\| ~ 187-194 on reprobe, not stationary points), swapping the seed ordering. The audit's generalized-Rayleigh minimization over a 72-direction basis shows the slice floor is not the class floor: a z-flattened anisotropic mix reaches omega_bal = 7.90 at seed level under the same convention (exact Shat probe at full amplitude), and the relaxed floor has dropped with every family probed so far, so 6.99 is an upper bound that is still moving, not a converged floor. The floor is also convention-relative: cell-weighted amplitude matching reorders the leaderboard, and moving the same shape to the second harmonic exactly halves omega_bal while being invisible to the a2_free convention. No comparison to any band reading is licensed at this calibration until the unit map is fixed; every negative here is an "unfound at this budget", not a nonexistence.
+
+### What block 15 changes
+
+| Before (block 14) | After (block 15) |
+| --- | --- |
+| the shape-family floor is unmapped; the audit's saturation read said ~9.2-9.5 | the isotropic slice is mapped (seed floor 8.23, exact); the RELAXED floor is 6.99 and still falling family-over-family; the class optimum is z-ANISOTROPIC (pancake, 7.90 at seed level, unchained) |
+| distance-to-band 1.8-2.7× vs 5-8× pending the unit map | unchanged; the memo now on the table with O1/O2/O3 and a recommendation |
+| Block-16 fork | (a) chain the audit's Rayleigh-optimum pancake seed (`m5_12_audit_b15_rayleigh_opt.npz`): the floor is still moving; (b) the unit-map decision (user call on O1/O2/O3); (c) close phase D at the honest negative and move to the E/F wrap |
 
 ## FINDINGS (2026-07-09, block 14: option B, the class-negative hardening + the loop transplant)
 
