@@ -213,6 +213,8 @@ def run_ladder(nr, state, rungs, max_newton, lsmr_iters, h=1.0, Nt=2,
         hist = []
         t0 = time.time()
         stall = 0
+        frac_prev = 0.0     # winning LM damp fraction of the previous iter
+        norma_est = None
         for it in range(1, max_newton + 1):
             X = V.from_vec(z, X0)
             w, s0, q2 = omega_bal(X, h, wscale)
@@ -254,28 +256,50 @@ def run_ladder(nr, state, rungs, max_newton, lsmr_iters, h=1.0, Nt=2,
                                matvec=lambda vv: jv(vv / Dscale),
                                rmatvec=lambda ww: rmv(ww) / Dscale,
                                dtype=float)
-            sol = lsmr(A, -F, maxiter=lsmr_iters, atol=1e-8, btol=1e-8)
-            s = sol[0] / Dscale
-            lam, ok_step = 1.0, False
+            # Levenberg-Marquardt damp escalation (the block-13 probe
+            # verdict: the exact GN step from FD-noisy operators is NOT a
+            # descent direction; truncated Krylov only regularized by
+            # accident, non-monotonically in budget). damp is a FRACTION of
+            # LSMR's running ||A|| estimate; the winning fraction seeds the
+            # next iteration's schedule.
+            if frac_prev > 0:
+                fracs = (frac_prev / 3, frac_prev, 3 * frac_prev,
+                         10 * frac_prev)
+            else:
+                fracs = (0.0, 1e-3, 1e-2, 1e-1)
             fn = float(np.linalg.norm(F))
-            for _ in range(6):
-                z_try, _ = retract(z + lam * s, a2_star)
-                F_try, meta_try = F_of(z_try)
-                if F_try is not None \
-                        and float(np.linalg.norm(F_try)) < fn:
-                    z, F, ok_step = z_try, F_try, True
-                    w, s0, q2 = meta_try[0], meta_try[1], meta_try[2]
+            ok_step, lam, used_frac, sol = False, 1.0, None, None
+            for frac in fracs:
+                damp = frac * norma_est if (frac and norma_est) else 0.0
+                sol = lsmr(A, -F, damp=damp, maxiter=lsmr_iters,
+                           atol=1e-8, btol=1e-8)
+                norma_est = float(sol[5]) or norma_est
+                s = sol[0] / Dscale
+                lam = 1.0
+                for _ in range(6):
+                    z_try, _ = retract(z + lam * s, a2_star)
+                    F_try, meta_try = F_of(z_try)
+                    if F_try is not None \
+                            and float(np.linalg.norm(F_try)) < fn:
+                        z, F, ok_step = z_try, F_try, True
+                        w, s0, q2 = meta_try[0], meta_try[1], meta_try[2]
+                        break
+                    lam *= 0.5
+                if ok_step:
+                    used_frac = frac
+                    frac_prev = frac if frac > 0 else 0.0
                     break
-                lam *= 0.5
             rec = {"iter": it, "F_norm": float(np.linalg.norm(F)),
                    "F_rel": float(np.linalg.norm(F)) / fn0,
                    "omega_bal": w, "S0": s0, "Q2": q2, "lam": lam,
                    "accepted": ok_step, "lsmr_stop": int(sol[1]),
+                   "damp_frac": used_frac,
                    "wall_s": round(time.time() - t0, 1)}
             hist.append(rec)
             print(f"[{tag} newton {it}] |F|={rec['F_norm']:.4e} "
                   f"rel={rec['F_rel']:.2e} w_bal={w:.4f} Q2={q2:+.5f} "
-                  f"lam={lam:g} ok={ok_step} wall={rec['wall_s']}s")
+                  f"lam={lam:g} damp={used_frac} ok={ok_step} "
+                  f"wall={rec['wall_s']}s")
             with open(os.path.join(
                     DATA, f"m5_12_b12_hard_{tag}_progress.json"), "w") as f:
                 json.dump({"hist": hist, "a2_star": a2_star}, f, indent=1)
@@ -303,10 +327,31 @@ def run_ladder(nr, state, rungs, max_newton, lsmr_iters, h=1.0, Nt=2,
         Xe = V.from_vec(z, X0)
         we, s0e, q2e = omega_bal(Xe, h, wscale)
         bg5 = bg5_noether(Xe, we, h, wscale) if we else None
+        # honest H metric (block-13 audit L5): at omega_bal H_mean = 0 BY
+        # CONSTRUCTION, so drift_rel is noise-normalized; report the SWING
+        swing = (bg5["H_max"] - bg5["H_min"]) if bg5 else None
+        # Q2 channel split (audit L2: the bend = eta-positive growth):
+        # zero the time-mixing rows / the spatial block of A1,B1 in turn
+        def q2_channel(keep_mix):
+            Xc = {"M0": Xe["M0"].copy(),
+                  "A": [a.copy() for a in Xe["A"]],
+                  "B": [b.copy() for b in Xe["B"]]}
+            for arr in Xc["A"] + Xc["B"]:
+                if keep_mix:
+                    arr[..., 1:4, 1:4] = 0.0
+                else:
+                    arr[..., 0, :] = 0.0
+                    arr[..., :, 0] = 0.0
+            _, q2c = s0_q2(Xc, h, wscale)
+            return q2c
+        q2_mix, q2_pos = q2_channel(True), q2_channel(False)
         end = {"rung": ascale, "a2_star": a2_star, "hist": hist,
                "omega_bal_end": we, "S0_end": s0e, "Q2_end": q2e,
+               "Q2_mix": q2_mix, "Q2_pos": q2_pos,
+               "Q2_cross": (q2e - q2_mix - q2_pos),
                "Shat_end": shat(Xe, we, h, wscale) if we else None,
-               "BG5": bg5,
+               "BG5": bg5, "H_swing": swing,
+               "H_swing_over_S0": (swing / s0e if swing and s0e else None),
                "verdict": ("converged_free_period_candidate"
                            if hist and hist[-1]["F_rel"] < 1e-5
                            else "stalled_or_partial")}
@@ -323,10 +368,10 @@ def run_ladder(nr, state, rungs, max_newton, lsmr_iters, h=1.0, Nt=2,
             json.dump({"task": "M5.12", "script": "m5_12_b12_hard.py",
                        "nr": nr, "state0": os.path.basename(state),
                        "rungs": ladder_out}, f, indent=2)
-        drift = bg5["drift_rel"] if bg5 else float("nan")
         print(f"[rung {tag} END] verdict={end['verdict']} "
               f"w_bal={we if we else -1:.4f} Q2={q2e:+.5f} "
-              f"H_drift={drift:.3e}")
+              f"(mix {q2_mix:+.4f} pos {q2_pos:+.4f}) "
+              f"H_swing/S0={end['H_swing_over_S0'] or float('nan'):.3f}")
     print("[ladder] done -> m5_12_b12_hard_ladder.json")
 
 

@@ -305,6 +305,8 @@ Running record + deviations (logged as they happen, per the flow's deviations-lo
 | 07-08 16:20 | Watchdog live cycle 2: fired, session alive, ping → 21:25, watchdog → 21:20; no false alarm |
 | 07-08 17:30 | Core ladder in (4 rungs, every metric ~10×/rung); ω_bal still falling → extension rungs ×16/×32 launched from the r8 endpoint (`--tagpre x`, collision-proofed tags + ladder JSON) |
 | 07-08 19:05 | Extension done. Six-rung law measured: pure 1/a through ×16 (S0 pinned ~45, retraction shocks relax away), **Q2-saturation bend at ×32** (ratio 1.37 vs 2). ⚠️ The ω-floor ≈ 6 reading is HYPOTHESIS (least-converged rung): audit-gated, block-13 fork. No convergence to 1e-5 anywhere: the stronger inner solver remains THE standing need |
+| 07-08 18:43 | BLOCK 13 GO (reset 21:20, ping 21:25, watchdog 21:20). Launched 13a (LSMR budget probes 200/500/1000/2000, single step each on the x2 state) + 13d (the ladder audit). 13b deep push + 13c ×32 discrimination queued on 13a |
+| 07-08 20:15 | ⚠️ AUDIT VERDICT (13d): **L4 solver CONFIRMED exact**; **L1 REFUTED as a law** (fresh-seed kill: independent seed at r4's a² relaxes to a better floor at ω_bal 8.83 vs 15.51: the ladder = one chain's stall points; rescaling null test passed in the claimant's favor; S0 → 44.5 seed-independent); **L2 mechanism REFUTED** (the bend = η-positive super-quadratic cancellation growth, NOT mixing saturation; x4-stall counter-hypothesis supported); **L3 WEAKENED** (rel floors half denominator-inflation; absolute floors reverse after r8); **L5 REFUTED** (`H_mean = S0 + ω²Q2 = 0` at ω_bal BY CONSTRUCTION, 1e-14-verified: drift_rel was noise-normalized; H_swing honest: ~2×S0 everywhere). Assets banked: the audit's relaxed fresh-seed state = chain-2 rung-1; the zero-mean-energy identity; honest-metric ruleset (absolute \|F\|, H_swing/S0, pos/\|mix\|) |
 
 ## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
 
@@ -406,6 +408,42 @@ Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a 
 ### Try 3 (the axis-swing clock, the first genuine attempt): ✅ measured, partial descent
 
 Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
+
+## FINDINGS (2026-07-08/09, block 13: the inner-solver rung + the ladder audit)
+
+### 13a: the probe verdict (✅ measured; the block's diagnostic)
+
+Four single-Newton-step probes on the x2 state at LSMR 200/500/1000/2000: **non-monotone in budget** (200 REJECT / 500 ACCEPT 205 → 168 / 1000 REJECT / 2000 REJECT; walls 732/1793/3538/6989 s). The exact Gauss-Newton step assembled from FD-noisy operators near a rank-deficient Jacobian is NOT a descent direction; truncated Krylov had been regularizing BY ACCIDENT. Fix: **explicit Levenberg-Marquardt damping** (damp = fraction × LSMR's ‖A‖ estimate; escalation (0, 1e-3, 1e-2, 1e-1); the winning fraction seeds the next iteration), wired into `m5_12_b12_hard.py` together with the audit-mandated honest metrics (H_swing/S0 replacing drift_rel; Q2 mix/pos channel split; absolute \|F\| alongside rel).
+
+### 13d: THE LADDER AUDIT (verdicts on the block-12 claims, `m5_12_audit_b13.json`)
+
+| Claim | Verdict | The decisive number |
+| --- | --- | --- |
+| L4 the ω-elimination solver | **CONFIRMED exact** | c_ω 8e-10..7e-11 at all six endpoints; rank-one Jacobian O(ε²); adjoints clean |
+| L1 the 1/a law | **REFUTED as a law** | fresh independent seed at r4's a² relaxes to a BETTER floor at **ω_bal 8.83 vs the chain's 15.51**; rescaling null test passed (relaxation is load-bearing); S0 → 44.5 seed-independently |
+| L2 Q2 saturation | mechanism REFUTED | mixing exponent 1.00 exact (never saturates); the bend attributed to η-positive growth; the x4-stall counter-hypothesis SUPPORTED |
+| L3 more solvable | WEAKENED | rel floors half denominator-inflation; absolute floors reverse after r8 |
+| L5 H-drift | **REFUTED** | at ω_bal, `H_mean = S0 + ω²Q2 = 0` BY CONSTRUCTION (1e-14-verified): drift_rel was noise-normalized; honest H_swing ≈ 2×S0 everywhere |
+
+The zero-mean-energy identity is a genuine structural insight banked from the refutation: **the free-period balance point is exactly the point where the ghost channel cancels the static energy on period average.**
+
+### 13b/13c: the deep LM endpoints (✅ measured; the block's data product)
+
+| Run (lineage) | a² | \|F\| floor (abs) | ω_bal | Q2 (mix / pos) | H_swing/S0 |
+| --- | --- | --- | --- | --- | --- |
+| c2 (independent fresh seed) | 0.304 | 216 | 8.638 | −0.596 (−0.586 / +0.003) | 1.98 |
+| c1 (x2 state) | 1.215 | **139** | 6.575 | −1.015 (−0.928 / +0.065) | 1.99 |
+| s (x4 state) | 2.430 | 207 | 5.807 | −1.322 (−1.133 / +0.035) | 2.71 |
+
+| Reading | Status |
+| --- | --- |
+| LM breaks the truncation walls: the x2 state's floor 205 → 139 (32% deeper than anything in block 12); c2 reproduces the audit's independent relax (8.64 vs their 8.83), so the fresh basin is solver-independent; the old ladder's early rungs are superseded (under-relaxed lineage artifacts) | ✅ measured |
+| 13c discrimination: Q2 never settled (−1.128 → −1.322 over 12 steps, past its rung-open value): **the sharp ×32 bend was substantially SOLVER STALL**; the residual sub-quadraticity is mild and smooth (per-doubling Q2 ratio ≈ 1.30 consistently at deep endpoints vs 2.0 pure) | ✅ measured |
+| The η-positive contamination at DEEP endpoints is small and non-monotone (pos/\|mix\| 0.005/0.070/0.031 vs the old chain's 0.38): itself partly a stall artifact | ✅ measured |
+| ω_bal at deep endpoints declines only ~12%/doubling (0.87-0.88): reaching the M5.8 band ω ~ 1.1 would need ~18 more doublings at this trend: the free-period orbit at reachable amplitude remains UNFOUND; but per the audit's own L1 lesson these are STILL stall points (rel 0.02-0.68, H_swing ~ 2-2.7 S0): the trend is not yet a physics claim | honest label |
+| No convergence to 1e-5 anywhere: LM regularizes but does not resolve the stiff subspace: the next escalation is a true preconditioner / trust-region second-order method, OR the honest negative ("no free-period orbit in this class at n32") pending grid/class robustness | the block-14 fork |
+
+Artifacts: probes `m5_12_b13_probe_{200,500,1000,2000}.log` + `p*_1` ladder JSONs/states; deep runs `m5_12_b13_{c1,c2,x4settle}.log` + `ladder_{c1_,c2_,s_}.json` + endpoint/ck states; chain-2 seed `m5_12_d3b_breather_n32_c2seed_state.npz`; audit `m5_12_audit_b13*.{py,json}`.
 
 ## FINDINGS (2026-07-08, block 12: the ω-eliminated hard-amplitude ladder)
 

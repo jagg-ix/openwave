@@ -1,0 +1,294 @@
+{
+ "task": "M5.12 block 12",
+ "role": "INDEPENDENT ADVERSARIAL AUDIT (block 13) of the block-12 omega-eliminated hard-amplitude ladder",
+ "date": "2026-07-08",
+ "scripts": [
+  "m5_12_audit_b13_verify.py",
+  "m5_12_audit_b13_rescale.py",
+  "m5_12_audit_b13_hdrift.py",
+  "m5_12_audit_b13_seed.py",
+  "m5_12_audit_b13_verdicts.py"
+ ],
+ "audit_instruments": "independent block-11 audit functionals (m5_12_audit_b11_lib: own stencil, own inner_eta, own V, own H); the claimant d3a residual is used only where the audited BG1-gated instrument is itself the object (|F| recomputation, relax driver), stated per check",
+ "claims": {
+  "L1_scaling_law": {
+   "verdict": "REFUTED as a seed-independent amplitude law (the pre-registered chain-dependence criterion fired); survives only as a single-chain regularity plus a seed-INDEPENDENT S0 ~ 44.5 pinning",
+   "claim": "omega_bal falls as pure 1/a across the ladder (Q2 prop a^2, S0 pinned ~45, retraction shock relaxes away every rung)",
+   "evidence": [
+    "DATA CONFIRMED: every endpoint a2/S0/Q2/omega_bal reproduced by the independent functional to <=1e-6 rel (a2 to 4e-8); per-doubling omega ratios 0.692/0.683/0.671/0.705/0.865 as published.",
+    "NOT retraction-trivial (the null test PASSES in the claimant's favor): pure first-harmonic rescaling of the chain seed does NOT reproduce the law: omega_null/omega_endpoint = 1.20/1.32/1.73/4.45 at r1-r8 and the balance root is DESTROYED (Q2 >= 0) at the x2/x4 amplitudes. The Newton relaxation is load-bearing; the law is a property of the relaxed endpoints.",
+    "BUT 'pure 1/a / Q2 prop a^2' overstates: endpoint Q2 per-doubling ratios run 2.09/2.14/2.22/2.01: systematically SUPER-quadratic through x16 (Q2/a2 drifts -0.544 to -0.676, +24%), which is why omega ratios run below 1/sqrt(2); and 'S0 relaxes away every rung' FAILS at x4 (endpoint S0 45.42 vs the chain's 44.15, never relaxed).",
+    "ALL SIX endpoints are unconverged (best rel 2.5e-2, worst 0.741 at r1: the first point of the 'law' is a barely-relaxed state) and the ladder is ONE warm-start chain.",
+    "THE KILL (fresh-seed check, r4 amplitude): the canonical bmix seed at a2=0.3037 (eps*=0.1649) relaxed with MY independent solver reaches a BETTER floor than the chain's r4 endpoint (|F| 229 vs 265; rel 2.0e-2 vs 1.3e-1) with omega_bal SETTLED at 11.03 -> 8.84 -> 8.84 -> 8.83 -> 8.83 vs the chain's 15.51 at the SAME amplitude: 1.76x apart. S0 relaxes to ~44.6 on BOTH branches (the pinning is seed-independent), but Q2 at fixed a2 is state-dependent by 3.1x (-0.572 vs -0.184). omega_bal(a2) is not a function of amplitude; the published curve is a property of one warm-start chain."
+   ],
+   "surviving_form": "Within the one chain, the relaxed endpoints show |Q2| growing ~quadratically and omega ratios 0.67-0.71 per doubling: a real single-chain regularity. Seed-independent survivors: S0 relaxes to ~44.5 regardless of seed; Q2 < 0 with |Q2| growing with amplitude (qualitative); omega_bal DECREASES with amplitude on both branches. The quantitative law (the coefficient, hence any predicted omega at a given a2) does not transfer across seeds.",
+   "numbers": {
+    "omega_ratios": [
+     0.6919,
+     0.6833,
+     0.6708,
+     0.705,
+     0.8652
+    ],
+    "Q2_ratios": [
+     2.0874,
+     2.1388,
+     2.217,
+     2.0083,
+     1.3739
+    ],
+    "Q2_over_a2": [
+     -0.5439245086079528,
+     -0.5676955567086915,
+     -0.6070864702383649,
+     -0.6729553386447419,
+     -0.6757476681096961,
+     -0.46420077466900006
+    ],
+    "null_rescale_omega_over_endpoint": {
+     "r1": 1.2011863395678393,
+     "r2": 1.3172883273208174,
+     "r4": 1.731370678613596,
+     "r8": 4.444956991775243,
+     "x2": null,
+     "x4": null
+    },
+    "endpoint_F_rel": [
+     0.7413687821824508,
+     0.32040595966905305,
+     0.1295218355586663,
+     0.045668274800260755,
+     0.025342711357990412,
+     0.05957803365681135
+    ]
+   }
+  },
+  "L2_Q2_saturation": {
+   "verdict": "WEAKENED (bend datum real but from a transient state; claimed mechanism REFUTED in its channel attribution; floor corollary stays a hypothesis, with new independent structural support)",
+   "claim": "the x32 softening (ratio 0.87, Q2 ratio 1.37) = mixing-channel saturation, NOT S0 growth; omega_bal may floor near 6: M5.8 band unreachable in this seed class",
+   "evidence": [
+    "Bend arithmetic CONFIRMED: omega x4/x2 = 0.8652 = sqrt((S0 ratio)/(Q2 ratio)); S0 growth contributes only a 1.4% factor (so 'NOT S0 growth' holds arithmetically), the Q2 shortfall contributes 1.21x.",
+    "MECHANISM REFUTED: the mixing (eta-negative, 0i) channel does NOT saturate. Endpoint Q2_mix per-doubling ratios 2.12/2.19/2.27/2.14/1.92: still ~quadratic at the last doubling; under pure rescaling its exponent in a2 is 1.00 EXACTLY at every tested amplitude. The net-Q2 bend comes from the eta-POSITIVE time-pair channel growing super-quadratically (endpoint ratios 3.4/3.5/3.0/3.7/5.4; pos/|mix| 0.022 -> 0.380) and cancelling the mixing channel. 'Mixing-channel saturation' names the wrong channel: it is positive-channel CANCELLATION growth.",
+    "The claimant's own counter-hypothesis (LSMR stall) is SUPPORTED: the x4 endpoint Q2 (-1.128) is SHALLOWER than its own rung-open retracted value (-1.282); the last accepted step moved Q2 by 72% (-0.656 -> -1.128); S0 never relaxed (45.4 vs 44.15). The x4 point is a solver transient: the 1.37 'saturation ratio' is not endpoint-grade data.",
+    "FLOOR COROLLARY: independent structural support at the functional level: because pos grows with exponent ~2 in a2 vs mix exponent 1.00, the balance root is DESTROYED (Q2 >= 0) at a2 ~ 5-7 under rescaling from BOTH the x2 and x4 endpoints; min omega_bal along every tested rescaling path = the endpoint value itself (6.35). Reaching the M5.8 band (1.07-1.15) needs |Q2| ~ 37 at S0 ~ 45: two orders beyond anything observed with the net sign already dying. BUT relaxation reshapes states (it deepened Q2 at every rung), so the corollary remains an extrapolation: correctly kept audit-gated by the claimant."
+   ],
+   "surviving_form": "Net Q2 does go sub-quadratic at x32 and an omega_bal floor well above the M5.8 band is plausible in this seed class, but via eta-positive cancellation growth, not mixing saturation, and the quantitative bend (1.37, floor ~6) cannot be trusted from a 2-step transient.",
+   "numbers": {
+    "Q2_mix_endpoints": [
+     -0.042250145747687304,
+     -0.08947853895001297,
+     -0.1957338673344798,
+     -0.4433041018544215,
+     -0.9490351223772208,
+     -1.8182550901982402
+    ],
+    "Q2_pos_endpoints": [
+     0.0009493251798206453,
+     0.003266973581397506,
+     0.011346742063789661,
+     0.03451785397318863,
+     0.12807026325637783,
+     0.6903413281087183
+    ],
+    "pos_over_mix": [
+     0.0224691575146249,
+     0.03651125308631375,
+     0.05797025429635936,
+     0.07786495506988134,
+     0.13494786466445727,
+     0.3796724298093135
+    ],
+    "rescale_root_death_a2": "Q2 >= 0 at a2 = 6.88 (from x2) and 6.88 (from x4); still negative at 4.86",
+    "x4_open_vs_end_Q2": [
+     -1.282235,
+     -1.127915
+    ]
+   }
+  },
+  "L3_more_solvable": {
+   "verdict": "WEAKENED (rel-floor framing dishonest as published; absolute improvement survives only to r8; the H-drift half is REFUTED, see L5)",
+   "claim": "larger amplitude = more solvable: REL floor 0.741 -> 0.025 and H-drift improves ~10x/rung",
+   "evidence": [
+    "The rel denominators |F|0 = rung-open norms grow ~2.0x per rung (584/1055/2043/4058/8015/15919: ratios 1.81/1.94/1.99/1.98/1.99), tracking the retraction shock, i.e. the a2 target itself. Half of every 'rel improvement' decade is denominator inflation.",
+    "ABSOLUTE endpoint floors (claimant's own records, confirmed by my float32-state recomputation 433.6/338.8/265.7/186.9/205.3/948.4): 433/338/265/185/203/948: improve 0.78/0.78/0.70 per rung through r8, then REVERSE (+10% at x2, x4.7 at x4). 'Larger amplitude = more solvable' is false beyond a2 = 0.607 in absolute terms.",
+    "H-drift 10x/rung: REFUTED: pure denominator artifact of a mean that is zero by construction (L5).",
+    "The claimant pre-flagged this exact angle at close: honest flag, dishonest headline table."
+   ],
+   "surviving_form": "A modest genuine absolute-floor improvement (~25%/rung) through the first four doublings, plus larger opening Newton steps per rung. Nothing survives past r8.",
+   "numbers": {
+    "F0_sequence": [
+     584.0259776451737,
+     1055.028567207727,
+     2043.3401474005657,
+     4058.041159618123,
+     8015.446374890301,
+     15919.071980603358
+    ],
+    "Fend_sequence": [
+     432.9786278097177,
+     338.0374405544578,
+     264.65716656203705,
+     185.32373882820926,
+     203.1331438842955,
+     948.4270062455894
+    ],
+    "rel_sequence": [
+     0.7413687821824508,
+     0.32040595966905305,
+     0.1295218355586663,
+     0.045668274800260755,
+     0.025342711357990412,
+     0.05957803365681135
+    ],
+    "abs_ratios": [
+     0.7807254650523214,
+     0.7829226435034518,
+     0.7002407727537141,
+     1.096098887108009,
+     4.668991913923278
+    ]
+   }
+  },
+  "L4_solver_and_ladder_status": {
+   "verdict": "solver machinery CONFIRMED; one-chain ladder meaningfulness WEAKENED (fresh-seed check: see numbers; the block-11 C1 critique still binds)",
+   "claim": "omega elimination exact (HG2); ladder meaningful despite one warm-start chain",
+   "evidence": [
+    "Omega elimination CONFIRMED independently: with MY OWN Shat (independent stencil/inner_eta/V), c_omega(X, omega_bal) / (S0/omega) = 8.0e-10 .. 6.7e-11 at ALL six endpoints: every iterate satisfies the free-period condition to fp, as claimed.",
+    "The rank-one domega_bal/dX formula CONFIRMED: FD of my own omega_bal vs the claimant formula converges O(eps^2) to the formula (rel 1.1e-4 / 2.8e-5 / 7.1e-6 at eps 1e-4 / 5e-5 / 2.5e-5): pure FD truncation, no formula error.",
+    "Adjoint consistency of the claimant operator (matvec = FD of composed map vs rmatvec = Hessian FD + rank-one + phase) at the r4 endpoint: worst rel 4.47e-07 over 3 random pairs: the LSMR pair is consistent (no repeat of the block-11 w_amp adjoint bug).",
+    "ONE-CHAIN CRITIQUE UPHELD: the fresh bmix seed at the r4 amplitude (a2=0.3037, eps*=0.1649) sits at seed level at S0=69.19, Q2=-0.5687, omega_bal=11.03; after 4 Newton steps of MY independent solver (same math, fresh code, LSMR 60) it settles at omega_bal 11.03 -> 8.84 -> 8.84 -> 8.83 -> 8.83 (endpoint rel 0.020, |F| 229 vs the chain r4's 265) vs the chain's 15.51: the ladder's quantitative content is chain-specific (see L1). Seed-level scan (r1/r4/x2 amplitudes): fresh-seed omega_bal 19.23 / 11.03 / 10.61 vs chain endpoints 32.80 / 15.51 / 7.33."
+   ],
+   "surviving_form": "The solver is sound and does what is claimed (exact omega elimination, exact retraction, consistent adjoint pair). The LADDER remains one chain of unconverged stall points; its numbers do not transfer.",
+   "numbers": {
+    "c_omega_rel_all_endpoints": [
+     7.992742094590704e-10,
+     3.212346755360339e-10,
+     1.08093226600073e-10,
+     2.0191873662622412e-10,
+     7.459998845056591e-11,
+     6.692794376931403e-11
+    ],
+    "rank_one_grad_rel": 0.0010986332849426987,
+    "adjoint_worst_rel": 4.471289211681386e-07,
+    "fresh_seed_level": {
+     "eps_star": 0.164896465616327,
+     "a2": 0.30372464684878014,
+     "S0": 69.19010468229321,
+     "Q2": -0.5686530352237228,
+     "Q2_mix": -0.5829553051879314,
+     "omega_bal": 11.030579094159016,
+     "chain_r4": {
+      "omega": 15.507528337510594,
+      "S0": 44.34207040782907,
+      "Q2": -0.18438721312449502
+     }
+    },
+    "fresh_seed_relax_traj": [
+     {
+      "iter": 0,
+      "F": 11391.746708184099,
+      "omega_bal": 11.03057909415892,
+      "S0": 69.19010468229321,
+      "Q2": -0.5686530352237327
+     },
+     {
+      "iter": 1,
+      "F": 231.75658168881614,
+      "rel": 0.02034425339902587,
+      "omega_bal": 8.841841396860746,
+      "S0": 44.5784855399501,
+      "Q2": -0.5702166173567846,
+      "lam": 1.0,
+      "accepted": true,
+      "wall_s": 216.7
+     },
+     {
+      "iter": 2,
+      "F": 229.92885199978613,
+      "rel": 0.020183810076693492,
+      "omega_bal": 8.839959202457548,
+      "S0": 44.578377935231046,
+      "Q2": -0.5704580860088484,
+      "lam": 1.0,
+      "accepted": true,
+      "wall_s": 215.2
+     },
+     {
+      "iter": 3,
+      "F": 229.7559106620072,
+      "rel": 0.02016862879306693,
+      "omega_bal": 8.830638764559449,
+      "S0": 44.57539736825723,
+      "Q2": -0.5716246974842676,
+      "lam": 0.5,
+      "accepted": true,
+      "wall_s": 216.6
+     },
+     {
+      "iter": 4,
+      "F": 228.92394624507926,
+      "rel": 0.02009559658490431,
+      "omega_bal": 8.829560571834925,
+      "S0": 44.57521919379756,
+      "Q2": -0.571762024717934,
+      "lam": 1.0,
+      "accepted": true,
+      "wall_s": 214.3
+     }
+    ]
+   }
+  },
+  "L5_H_drift_metric": {
+   "verdict": "REFUTED",
+   "claim": "drift_rel = (max-min)/|mean| of H(t) is a solution-quality metric whose ~10x/rung improvement means the ladder improves",
+   "evidence": [
+    "At omega = omega_bal the period-mean of H is ZERO BY CONSTRUCTION: mean_t H = S0 + omega^2 Q2 (same quadrature), and omega_bal^2 = S0/(-Q2) makes it vanish identically. Verified: with the solver's own ns=10 quadrature my H_mean = O(1e-14) at every endpoint; the identity H_mean = S0 + w^2 Q2 holds to 3e-14 at ns=20.",
+    "The reported nonzero means (-2.3e-10 -> -8.9e-6) are pure quadrature aliasing: BG5 samples at ns=20 while omega_bal is defined by the ns=10 functional, and the degree-16 V harmonics alias differently; the aliasing GROWS ~10x/rung with amplitude. drift_rel therefore divides a ~90-unit physical swing by an amplitude-growing rounding error: its '10x/rung improvement' is exactly the 10x/rung GROWTH of the denominator noise, and carries zero information about solution quality.",
+    "My independent H(t) reproduces the claimant's drift_rel values (3.93e11/3.61e10/3.28e9/3.01e8/4.21e7/1.57e7 vs published 3.9e11/3.6e10/3.3e9/3.0e8/4.2e7/1.6e7): the DATA is honest; the METRIC is degenerate.",
+    "The honest absolute metric, H_swing = max-min: 90.3/90.5/90.9/91.0/95.0/140.7 across the six rungs: FLAT for four rungs then WORSE (+4.4%, +48%). No improvement at any rung. The swing is ~2x S0 at every rung: none of these states is anywhere near conserving H."
+   ],
+   "surviving_form": "H_min/H_max themselves are honest numbers; any future use must report absolute swing (or swing/S0), never drift_rel, at omega_bal.",
+   "numbers": {
+    "H_mean_ns10": [
+     1.1368683772161604e-14,
+     -4.263256414560601e-15,
+     -7.815970093361103e-15,
+     -1.0658141036401503e-14,
+     6.0396132539608514e-15,
+     2.1316282072803005e-15
+    ],
+    "identity_err_ns20": [
+     -7.460698725475882e-15,
+     1.5987211554602254e-14,
+     -1.3145040612223598e-14,
+     -1.0658140930522384e-15,
+     -6.394884452434312e-15,
+     3.1974426497336297e-15
+    ],
+    "mean_over_swing": [
+     2.54699457898148e-12,
+     2.7676950459467293e-11,
+     3.045509981128979e-10,
+     3.323907147564724e-09,
+     2.377216583674759e-08,
+     6.349843219332893e-08
+    ],
+    "H_swing_abs": [
+     90.31737143427867,
+     90.48846097877905,
+     90.88963532941955,
+     91.03460164842147,
+     95.02401290105763,
+     140.70154633050018
+    ],
+    "swing_ratios": [
+     1.001894314922848,
+     1.0044334310286764,
+     1.0015949708509282,
+     1.0438230209216863,
+     1.480694637438682
+    ]
+   }
+  }
+ }
+}
