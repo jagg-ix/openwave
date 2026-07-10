@@ -189,7 +189,7 @@ The pattern I see: omega^2 is the framework-intrinsic scaling (matches classical
 log(207)/log(11) = 2.21 and log(3478)/log(40.7) = 2.21.
 
 Reproduction sandbox + plots + JSON summaries:
-<https://github.com/openwave-labs/openwave/tree/main/openwave/xperiments/m6_ouroboros/research/sandbox_v1>
+<https://github.com/openwave-labs/openwave/tree/main/openwave/xperiments/m6_ouroboros/research/archive/sandbox_v1>
 
 ### THE QUESTION
 

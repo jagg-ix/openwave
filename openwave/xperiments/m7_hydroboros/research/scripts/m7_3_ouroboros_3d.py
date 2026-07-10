@@ -15,7 +15,7 @@ Task doc: research/tasks/m7_3_ouroboros_3d.md. Modes:
   python m7_3_ouroboros_3d.py all       everything in sequence
 
 The three circulating ODE forms this pre-gate adjudicates (research/checkpoints and
-m6_ouroboros/research/0c_sandbox_v8.md step 3):
+m6_ouroboros/research/archive/0c_sandbox_v8.md step 3):
 
   benchmark (H/Q = 1.6890 producer, sandbox_v8/ouroboros_benchmark.py):
       a'' + a'/r - a/r^2 + w^2 a = b

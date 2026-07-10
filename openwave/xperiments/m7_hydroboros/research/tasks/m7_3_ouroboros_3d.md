@@ -2,7 +2,7 @@
 
 > Task **M7.3** (M7 / HydroBoros). taskID = M7.N iteration. Status: **Done** (2026-07-03, review approved; gate outcomes in [`§ FINDINGS 5`](#5-gate-outcomes-vs-the-plan--5)) · Roadmap: [`../m7_roadmap.md`](../m7_roadmap.md)
 
-This doc is the task's full record: planning + findings + future planning + documentation. **M7.3 carries the M6 Ouroboros electron from its 1D radial reduction into the full 3D lattice**, the second parent-reproduction gate. M6's canonical spec is [`0d_canonical.md`](../../../m6_ouroboros/research/0d_canonical.md); its § 6 ("things that DON'T work": ten sandbox versions of sign, regularity-class, Laplacian, and measure failures) is the reason this task leads with a derivation gate, not a run.
+This doc is the task's full record: planning + findings + future planning + documentation. **M7.3 carries the M6 Ouroboros electron from its 1D radial reduction into the full 3D lattice**, the second parent-reproduction gate. M6's canonical spec is [`0d_canonical.md`](../../../m6_ouroboros/research/archive/0d_canonical.md); its § 6 ("things that DON'T work": ten sandbox versions of sign, regularity-class, Laplacian, and measure failures) is the reason this task leads with a derivation gate, not a run.
 
 ---
 
@@ -15,7 +15,7 @@ A₀ = α(r) cos(ωt),   A⃗ = 0
 J₀ = 0,              J⃗ = β(r) sin(ωt) φ̂
 ```
 
-and its canonical reduced ODE ([`0d_canonical.md § 2.2`](../../../m6_ouroboros/research/0d_canonical.md)):
+and its canonical reduced ODE ([`0d_canonical.md § 2.2`](../../../m6_ouroboros/research/archive/0d_canonical.md)):
 
 ```text
 α'' + α'/r − α/r²         + (ω² − m_J²) α + 4g α (α² + β²) = 0
@@ -39,7 +39,7 @@ BCs: the charged chaoiton has a Coulomb-tail `A₀ ~ Q/r`, so **vacuum-fixed bou
 
 | Calibration | `g` | `H/Q` | Role here |
 | --- | --- | --- | --- |
-| **M6 canonical** ([`0d_canonical.md § 2.5`](../../../m6_ouroboros/research/0d_canonical.md)) | 1.0 | **1.6890** | **the primary target**: the 3D lattice vs the M6 1D BVP at the SAME `(g, ω, f)`, gate ≤ 1% |
+| **M6 canonical** ([`0d_canonical.md § 2.5`](../../../m6_ouroboros/research/archive/0d_canonical.md)) | 1.0 | **1.6890** | **the primary target**: the 3D lattice vs the M6 1D BVP at the SAME `(g, ω, f)`, gate ≤ 1% |
 | Werbos v5 point (corpus #10, June 2026) | 1.0625 | 1.6969 | tracked secondary until Q9 (the `(Ω,G)` dictionary) resolves |
 | physical | , | 1.6875 | reference (`≈ 27/16`) |
 
@@ -77,7 +77,7 @@ Artifacts: [`../scripts/m7_3_ouroboros_3d.py`](../scripts/m7_3_ouroboros_3d.py) 
 
 ### 1. Pre-gate part A (symbolic): the verbatim reduction found, with convention pins
 
-The sympy scan reduces `L = −¼F² − ¼G² + κ A·J − f(J·J)`, `f(s) = c1 s + c2 s²` (metric (−,+,+,+), cylindrical, z-independent) over six candidate ansaetze × two quartic time-average conventions, takes the Euler-Lagrange equations of the period-averaged Lagrangian `⟨L⟩`, and solves `(κ, c1, c2)` for a verbatim match against the benchmark ODE (the `H/Q = 1.6890` producer, [`sandbox_v8/ouroboros_benchmark.py`](../../../m6_ouroboros/research/sandbox_v8/ouroboros_benchmark.py)) and against the [`0d_canonical.md § 2.2`](../../../m6_ouroboros/research/0d_canonical.md) form.
+The sympy scan reduces `L = −¼F² − ¼G² + κ A·J − f(J·J)`, `f(s) = c1 s + c2 s²` (metric (−,+,+,+), cylindrical, z-independent) over six candidate ansaetze × two quartic time-average conventions, takes the Euler-Lagrange equations of the period-averaged Lagrangian `⟨L⟩`, and solves `(κ, c1, c2)` for a verbatim match against the benchmark ODE (the `H/Q = 1.6890` producer, [`sandbox_v8/ouroboros_benchmark.py`](../../../m6_ouroboros/research/archive/sandbox_v8/ouroboros_benchmark.py)) and against the [`0d_canonical.md § 2.2`](../../../m6_ouroboros/research/archive/0d_canonical.md) form.
 
 | Candidate | vs benchmark ODE | vs canonical § 2.2 |
 | --- | --- | --- |
@@ -113,7 +113,7 @@ Probing the benchmark profile (g=1, ω=1, λ=1, A0=B0=0.1) as a function of the 
 | 24 | 1.473 | 0.634 |
 | 40 | 1.396 | 1.097 |
 
-`Q` grows without bound; the profile does not decay (`max|α| = 0.225` at all windows). The reason is analytic: the far-field linear system gives the dispersion `(ω² − k²)(ω² + λ − k²) = 1`, at the canonical point `k⁴ − 3k² + 1 = 0` with both roots `k² = (3±√5)/2 > 0`: **no decaying channel exists at the canonical point**; the A-sector is a radiation field at frequency ω. `H/Q = 1.6890` is therefore a windowed quadrature pinned to `r_max = 12`, the same windowed-integration disease the M6 record itself caught in the neutral sector ([`0c_sandbox_v8.md`](../../../m6_ouroboros/research/0c_sandbox_v8.md) Q42) but never flagged for the charged calibration. This retroactively strengthens the HydroBoros thesis: a localized pure-Maxwell-like electron needs confinement ([`../m7_background.md § 5b`](../m7_background.md), Nadirashvili), and the M6 charged sector alone does not provide it in the radial reduction.
+`Q` grows without bound; the profile does not decay (`max|α| = 0.225` at all windows). The reason is analytic: the far-field linear system gives the dispersion `(ω² − k²)(ω² + λ − k²) = 1`, at the canonical point `k⁴ − 3k² + 1 = 0` with both roots `k² = (3±√5)/2 > 0`: **no decaying channel exists at the canonical point**; the A-sector is a radiation field at frequency ω. `H/Q = 1.6890` is therefore a windowed quadrature pinned to `r_max = 12`, the same windowed-integration disease the M6 record itself caught in the neutral sector ([`0c_sandbox_v8.md`](../../../m6_ouroboros/research/archive/0c_sandbox_v8.md) Q42) but never flagged for the charged calibration. This retroactively strengthens the HydroBoros thesis: a localized pure-Maxwell-like electron needs confinement ([`../m7_background.md § 5b`](../m7_background.md), Nadirashvili), and the M6 charged sector alone does not provide it in the radial reduction.
 
 Gate consequence: the 3D comparison is defined **windowed like-with-like**: the benchmark quadratures implemented as 3D per-unit-length lattice integrals on the window ρ ≤ 12 (M7.2 interface weights), against the 1D reference on the same window.
 
@@ -154,7 +154,7 @@ The M6 ansatz carries **zero A-sector helicity** (`αφ̂ · ∇×(αφ̂) ≡ 0
 
 ---
 
-Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.3) · M6 canonical spec [`0d_canonical.md`](../../../m6_ouroboros/research/0d_canonical.md) (§ 2 recipe, § 5 units, § 6 graveyard) · background [`../m7_background.md`](../m7_background.md) (§ 4 ledger + structural note, § 5a harmonic frame) · tracker [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q8 resolved here; Q6 evidence; Q11/Q12/Q13 opened here) · upstream [`m7_1_infra.md`](m7_1_infra.md) (the functional this task gates) · downstream [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md) (the M6-embedded seed + the helicity-guard motivation, § FINDINGS 4).
+Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.3) · M6 canonical spec [`0d_canonical.md`](../../../m6_ouroboros/research/archive/0d_canonical.md) (§ 2 recipe, § 5 units, § 6 graveyard) · background [`../m7_background.md`](../m7_background.md) (§ 4 ledger + structural note, § 5a harmonic frame) · tracker [`../m7_question_tracker.md`](../m7_question_tracker.md) (Q8 resolved here; Q6 evidence; Q11/Q12/Q13 opened here) · upstream [`m7_1_infra.md`](m7_1_infra.md) (the functional this task gates) · downstream [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md) (the M6-embedded seed + the helicity-guard motivation, § FINDINGS 4).
 
 ---
 

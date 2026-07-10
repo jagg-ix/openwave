@@ -191,7 +191,7 @@ To reproduce or extend one:
 ```bash
 # Every MODELS.md cell links its backing script. Open a cell, follow the link, run it. Examples:
 python openwave/xperiments/m5_liquid_crystal/research/sandbox_v2/m5_1_coulomb.py
-python openwave/xperiments/m6_ouroboros/research/sandbox_v8/ouroboros_benchmark.py
+python openwave/xperiments/m6_ouroboros/research/archive/sandbox_v8/ouroboros_benchmark.py
 ```
 
 To add a **new** validation of an existing model:

@@ -281,7 +281,7 @@ def main():
     print(f"  Recommendation: treat 0.998 MeV and 1.033 MeV as the best available numbers;")
     print(f"  flag the C value as 'order-of-magnitude pending true ground state'.")
     print()
-    print(f"Source: m6_ouroboros/research/sandbox_v8/extract_mJ_C_mchi.py")
+    print(f"Source: m6_ouroboros/research/archive/sandbox_v8/extract_mJ_C_mchi.py")
 
 
 if __name__ == '__main__':

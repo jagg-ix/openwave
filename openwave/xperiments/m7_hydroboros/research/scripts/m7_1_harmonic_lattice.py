@@ -22,7 +22,7 @@ the functional's correctness is the M7.3 verbatim-ODE pre-gate):
     E_A = -grad A0 - dt Avec,   B_A = curl Avec       (same for the J sector)
     A_mu J^mu  = -A0 J0 + Avec.Jvec
     s = J_mu J^mu = -J0^2 + |Jvec|^2,   f(s) = (g/4) s^2
-  Lagrangian (M6 canonical, m6_ouroboros/research/0d_canonical.md section 1):
+  Lagrangian (M6 canonical, m6_ouroboros/research/archive/0d_canonical.md section 1):
     L = -1/4 F^2 - 1/4 G^2 + mJ^2 A.J - f(J.J)
   Period-averaged energy density (Legendre transform; interaction terms carry
   no time derivative so H_int = -L_int):
@@ -38,7 +38,7 @@ the functional's correctness is the M7.3 verbatim-ODE pre-gate):
     <s^2> = s0^2 + (s1^2 + s2^2)/2                            [exact quartic]
 
 Units: M6 natural units wholesale (c = 1, electron omega = 1, m_e anchor;
-conversion table m6_ouroboros/research/0d_canonical.md section 5).
+conversion table m6_ouroboros/research/archive/0d_canonical.md section 5).
 
 Boundary conditions: 'periodic' (neutral / net-zero configs, the Woltjer gate)
 or 'vacuum' (charged sectors: fields pinned to zero on an n-cell boundary
@@ -627,7 +627,7 @@ def m6_profile(g=1.0, omega=1.0, lam=1.0, A0=0.1, B0=0.1,
                r_max=12.0, r_inner=0.02, n_grid=800):
     """Solve the M6 canonical charged-sector ODE (benchmark form, vector
     cylindrical Laplacian, slope BCs) - port of the repo-validated
-    m6_ouroboros/research/sandbox_v8/ouroboros_benchmark.py.
+    m6_ouroboros/research/archive/sandbox_v8/ouroboros_benchmark.py.
     Returns (r, alpha, beta, obs) with obs the H/Q ledger observables."""
     from scipy.integrate import solve_ivp
 

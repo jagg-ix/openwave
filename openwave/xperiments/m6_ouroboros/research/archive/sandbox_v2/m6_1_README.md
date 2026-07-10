@@ -96,7 +96,7 @@ No localized solution found            | Locked ansatz incompatible with
 ## How to run
 
 ```bash
-cd openwave/xperiments/m6_ouroboros/research/sandbox_v2/
+cd openwave/xperiments/m6_ouroboros/research/archive/sandbox_v2/
 python m6_1_neutral_chaoiton.py
 
 # Sweep open questions:

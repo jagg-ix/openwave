@@ -27,7 +27,7 @@
 | Source | Substrate | How it is solved today | Charge origin | Role in M7 |
 | --- | --- | --- | --- | --- |
 | **Fleury** (hydrodynamics school), [arXiv:2510.22384](https://arxiv.org/abs/2510.22384) | EM field `E, B` confined to a torus | closed-form **analytic** ansatz + Heaviside mask | `ρ = ∇·E` (geometric / divergence charge) | physics parent; limit: mask unphysical at boundary, energy `0.795 m_e c²`, **no dynamics/PDE** |
-| **Werbos Ouroboros** (M6), [`0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) | **double vector field** `(A_μ, J_μ)`, **time-periodic** (`cos ωt / sin ωt` pair) | **reduced 1D ODE / BVP** (cylindrical `(α,β)`; spherical `l=1`) | `Q_CS` = Chern-Simons **linking** number | physics parent; limit: never a full **3D** field, electron only a radial profile (`H/Q` ledger in § 4) |
+| **Werbos Ouroboros** (M6), [`0d_canonical.md`](../../m6_ouroboros/research/archive/0d_canonical.md) | **double vector field** `(A_μ, J_μ)`, **time-periodic** (`cos ωt / sin ωt` pair) | **reduced 1D ODE / BVP** (cylindrical `(α,β)`; spherical `l=1`) | `Q_CS` = Chern-Simons **linking** number | physics parent; limit: never a full **3D** field, electron only a radial profile (`H/Q` ledger in § 4) |
 
 The honest gap the two physics parents share: **neither has ever been evolved as a full 3D nonlinear
 PDE on a lattice.** Fleury is analytic; M6 is a 1D radial reduction. That is exactly the gap M5.11
@@ -182,7 +182,7 @@ spin `= ℏ/2` constraint. See [`../theory/ceperley_rotating_waves.md`](../theor
 ## 4. Ouroboros (M6) , the self-confinement the blend inherits
 
 Werbos's two coupled vector fields `A_μ, J_μ` on Minkowski `(−,+,+,+)`
-([`0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md), Werbos's
+([`0d_canonical.md`](../../m6_ouroboros/research/archive/0d_canonical.md), Werbos's
 *Evaluating Universe Model Alternatives v5* shared doc):
 
 ```text
@@ -202,7 +202,7 @@ and must not be conflated:
 
 | Calibration | `g` | `H/Q` | Source |
 | --- | --- | --- | --- |
-| **M6 canonical (M7.3 primary target)** | 1.0 | **1.6890** | [`0d_canonical.md § 2.5`](../../m6_ouroboros/research/0d_canonical.md) (repo-validated 1D BVP) |
+| **M6 canonical (M7.3 primary target)** | 1.0 | **1.6890** | [`0d_canonical.md § 2.5`](../../m6_ouroboros/research/archive/0d_canonical.md) (repo-validated 1D BVP) |
 | Werbos v5 canonical point | 1.0625 | 1.6969 | *Evaluating Universe Model Alternatives v5* (corpus #10, June 2026) |
 | physical target | , | 1.6875 | v5 (`≈ 27/16`) |
 
@@ -244,7 +244,7 @@ IN the soliton from M7.1; M7.5 validates the reduction in real time rather than 
 The exact reduction (component bookkeeping, constraint structure) is an M7.1 deliverable, gated at
 M7.3 by the **verbatim-ODE check**: restricted to M6's ansatz, the 3D functional must reproduce the
 M6 `(α,β)` ODE exactly, term by term (including the `2ωα` chiral cross-term). M6's
-[`0d_canonical.md § 6`](../../m6_ouroboros/research/0d_canonical.md) (ten sandbox versions of subtle
+[`0d_canonical.md § 6`](../../m6_ouroboros/research/archive/0d_canonical.md) (ten sandbox versions of subtle
 reduction failures: signs, regularity classes, Laplacians, measures) is the cautionary record. The
 Lagrangian itself is M6's, unchanged (§ 4).
 
@@ -283,7 +283,7 @@ M7.4 experiment (Q2), **off by default**.
 | --- | --- |
 | **BCs for charged sectors** | a net charge on a periodic lattice is Gauss-inconsistent (total boundary flux 0 ≠ `Q/ε₀`): charged configs use **vacuum-fixed boundaries** (Faber & Golubich's and Sutcliffe's practice); periodic boxes remain for neutral / net-zero configs (the M7.6 two-charge dipole is net-neutral) |
 | **Gauge handling** | gauge orbits of `A` are flat directions of the minimizer, and `m_J² A·J` is gauge-sensitive off-shell; the concrete scheme (Coulomb gauge on `a⃗` + kept `a₀`, vs projection, vs penalty) is **Q8**, decided at M7.1 |
-| **Units contract** | M6's natural units adopted wholesale (`c = 1`, electron `ω = 1`, `m_e` anchor; conversion table in [`0d_canonical.md § 5`](../../m6_ouroboros/research/0d_canonical.md)); Fleury's targets are all dimensionless ratios (`E₀/E_S`, `R₀/r_c`, `U/m_ec²`, `ω/ω_D`), so M7.2 works in `r_c = 1` units and compares ratios directly |
+| **Units contract** | M6's natural units adopted wholesale (`c = 1`, electron `ω = 1`, `m_e` anchor; conversion table in [`0d_canonical.md § 5`](../../m6_ouroboros/research/archive/0d_canonical.md)); Fleury's targets are all dimensionless ratios (`E₀/E_S`, `R₀/r_c`, `U/m_ec²`, `ω/ω_D`), so M7.2 works in `r_c = 1` units and compares ratios directly |
 
 ---
 
@@ -298,8 +298,8 @@ M7.4 experiment (Q2), **off by default**.
 - Source corpus (the evolving M7 library, 64 docs): [`../theory/`](../theory/) , Marc's original 53 in [`electron_beltrami/`](../theory/electron_beltrami/) plus 11 later additions in the theory root, manifest [`../theory/_CITATIONS.md`](../theory/_CITATIONS.md) (Beltrami / force-free / knotted-EM / ball-lightning / LENR / Pisello-Faber canon, the M7.0 corpus)
 - Rigor standard: [`../../m5_liquid_crystal/research/11a_vortex_loop.md`](../../m5_liquid_crystal/research/tasks/m5_11a_vortex_loop.md) (M5.11 vortex-loop)
 - Wave-physics library to mine (§ 0, not parents): [`m1_granule_motion`](../../m1_granule_motion/) · [`m2_free_wave`](../../m2_free_wave/) · [`m3_wolff_lafreniere`](../../m3_wolff_lafreniere/) · [`m4_ewt`](../../m4_ewt/)
-- Ouroboros canonical spec: [`../../m6_ouroboros/research/0d_canonical.md`](../../m6_ouroboros/research/0d_canonical.md) ·
-  background [`../../m6_ouroboros/research/0a_background.md`](../../m6_ouroboros/research/0a_background.md)
+- Ouroboros canonical spec: [`../../m6_ouroboros/research/archive/0d_canonical.md`](../../m6_ouroboros/research/archive/0d_canonical.md) ·
+  background [`../../m6_ouroboros/research/archive/0a_background.md`](../../m6_ouroboros/research/archive/0a_background.md)
 - EM ≡ hydrodynamics bridge (already in M5): [`../../m5_liquid_crystal/research/1b_topological_defect.md`](../../m5_liquid_crystal/research/tasks/m5_1b_topological_defect.md) § "EM-hydrodynamics formal equivalence"
 - Production-engine template: [`../../m5_liquid_crystal/`](../../m5_liquid_crystal/) (`medium.py`, `engine1_seeds.py` … `_launcher.py`)
 - Comparison table (the M7 column goal): [`MODELS.md`](../../../../MODELS.md) · new-model flow [`ONBOARDING_MODELS.md`](../../../../ONBOARDING_MODELS.md), [`CONTRIBUTING.md`](../../../../CONTRIBUTING.md)

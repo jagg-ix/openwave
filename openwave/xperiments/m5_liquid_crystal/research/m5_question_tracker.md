@@ -392,11 +392,11 @@ found in **sandbox v9 phase 2** by treating `m_J` as a free eigenvalue with a pr
 | Pohozaev-type virial identity as a self-consistency diagnostic (M6's `m_J/η = 1.21` family-invariant, Q47) | A scaling identity is a cheap correctness check on any M5 soliton profile |
 | Sandbox-first: prototype in scipy, validate, *then* port to production | Prototype the M5 V(M) + matrix-defect-profile BVP in a scipy M5-sandbox before the Taichi M5.6+ kernels (the path M5.5 followed: `sandbox_v5` scipy/numpy → Taichi port) |
 
-Canonical M6 numerical recipe (charged sector via 2-function IVP, neutral sector via the BVP above) is consolidated in `m6_ouroboros/research/0d_canonical.md` — the reference if we want to mirror the methodology.
+Canonical M6 numerical recipe (charged sector via 2-function IVP, neutral sector via the BVP above) is consolidated in `m6_ouroboros/research/archive/0d_canonical.md` — the reference if we want to mirror the methodology.
 
 ### M6 strengths available to M5 regardless of M6's gate outcomes
 
-Imported from `m6_ouroboros/research/0b_model_gates.md` § "What M6 offers regardless of gate outcomes" and `1_model_selection.md`:
+Imported from `m6_ouroboros/research/archive/0b_model_gates.md` § "What M6 offers regardless of gate outcomes" and `1_model_selection.md`:
 
 | M6 strength | Relevance to M5 |
 | --- | --- |
