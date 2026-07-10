@@ -323,9 +323,21 @@ Running record + deviations (logged as they happen, per the flow's deviations-lo
 | 07-09 19:25 | FINISH block 15: ping PARKED unfired 19:16 (before the 19:35 fire; no cap), watchdog stopped, artifacts all < 1 MB (largest 323 KB); findings written; BLOCK 15 CLOSED, review presented |
 | 07-09 19:28 | BLOCK 16 GO, legs a+b (reset 12:30am, ping armed 00:35, watchdog 00:30). Pre-registered stopping rule: two consecutive families < 5% relaxed gain = floor saturated. Built `m5_12_b16_aniso.py`; probe DONE 19:45 (16-point (wr, wz) grid, anchors exact; rayleigh_opt assembles to exactly 7.8955); chains P1/P2 launched 19:47 |
 | 07-09 20:00 | Leg (b) MEASURED without a rerun (`m5_12_b16_unitmap.py`; the retained `_m5_8_2h_run.log`/`_dense.npz` carried the observables): like-observable map (motion radius ↔ motion radius, assumptions A1 cell=cell + A2 c=1 declared, author-gated); first pass: f2 floor 4.5-5.2× above the band, O1's 1.8-2.7× refuted |
-| 07-09 21:12-21:35 | Both chains CLOSED as honest stalls: p1 7.8955 → **5.5440** (\|F\| ~170, 100% mix-pure), p2 8.0577 → 6.5717; unit-map re-run over all 5 endpoints; the raw-vs-invariant tension flagged to the audit (p1's drop vs f2's smaller product) |
-| 07-09 21:58 | ⚠️ AUDIT VERDICT (b16, ~18 min): C1/C5 CONFIRMED; **C2 both sub-claims REFUTED** (p1 gained 29.8% invariant at FIXED size, no growth; **c2/g48 = the true invariant floor, 18.2: no family since block 12 advanced it**); **C3 adjudicated: the rule binds on the invariant** (mid-course amendment; strikes at blocks 15 AND 16); **C4 MIXED** (honest bracket 3.2-6.9×; O1 dead in every variant; identity not replaced; A2 partially unverified, potential sectors differ). New: the amplitude confound (fixed-(size, a²) re-ranking = the next control); \|F\| float32-fragile ~10% |
-| 07-09 22:05 | FINISH block 16: findings written; ping to park, watchdog to stop; BLOCK 16 CLOSED, review presented |
+| 07-09 20:54-21:03 | Both chains CLOSED as honest stalls: p1 7.8955 → **5.5440** (\|F\| ~170, 100% mix-pure), p2 8.0577 → 6.5717; unit-map re-run over all 5 endpoints; the raw-vs-invariant tension flagged to the audit (p1's drop vs f2's smaller product) |
+| 07-09 21:21 | ⚠️ AUDIT VERDICT (b16, ~18 min): C1/C5 CONFIRMED; **C2 both sub-claims REFUTED** (p1 gained 29.8% invariant at FIXED size, no growth; **c2/g48 = the true invariant floor, 18.2: no family since block 12 advanced it**); **C3 adjudicated: the rule binds on the invariant** (mid-course amendment; strikes at blocks 15 AND 16); **C4 MIXED** (honest bracket 3.2-6.9×; O1 dead in every variant; identity not replaced; A2 partially unverified, potential sectors differ). New: the amplitude confound (fixed-(size, a²) re-ranking = the next control); \|F\| float32-fragile ~10% |
+| 07-09 21:28 | FINISH block 16: findings written; ping parked unfired, watchdog stopped; BLOCK 16 CLOSED, review presented |
+| 07-09 21:30 | Block-16 review APPROVED. ⚠️ Stamp correction (the block-14 lesson recurring): my chain-close/audit/finish stamps ran ~30 min fast; corrected against file mtimes (chains 20:54/21:03, audit 21:21, finish 21:28); the presented review's duration line should have read 02:00 (to 21:28), not 02:39. BLOCK 17 GO, option (a) (reset 12:30am, ping armed 00:35, watchdog 00:30): the fixed-(size, a²) re-ranking control, then the phase-D close if c2/g48 holds as the invariant floor |
+| 07-09 21:35 | CONTROL DONE (guards GC1 5.8e-7 / GC2 2.7e-3 / GC3 c2-g48 within 4%): **the control inverts the b16 floor**: at fixed (size, a²) in all 4 frames, p1 = the floor (5.11-5.61), the bmix c2/g48 lineage LAST (9.6-22.0); the b16 audit's own amplitude-confound prediction confirmed. Adversarial audit launched 21:37 with the metric adjudication as its central ruling |
+| 07-09 22:01 | ⚠️ AUDIT VERDICT (b17): A1 CONFIRMED where load-bearing (p1 floor robust at 9× worst error + a ×0.5/×2 budget sweep; wd/f1/f2 internal order unresolved); **A2 ADJUDICATED: fixed-(size, a²) = the standing metric**; **A3: STILL DESCENDING, "saturated" not licensed** (one strike max; b16's "no advance since block 12" inverted; band ~6-7 family-scale advances away at ~20%/family); A4: controlled distance **4.4-5.5×**, anchor-flat, wscale-dominated, A1/A2-conditional. The block-17-open close condition NOT met: phase D stays open; closing = a bounded-resource decision with the audit's licensed sentence |
+| 07-09 22:10 | FINISH block 17: findings written; ping parked unfired, watchdog stopped; BLOCK 17 CLOSED, review presented |
+| 07-09 22:19 | BLOCK 18 GO, "a then b" (standing reset 12:30am, ping re-armed 00:35, watchdog 00:30): the optimizer-saturation decider, then the phase-D close either way. Built `m5_12_b18_decider.py` (32-member basis incl. the relaxed endpoint shapes; one false start on a stale cwd, relaunched) |
+| 07-09 22:52 | DECIDER DONE (mtime): anchor exact 4.1e-7; exact span optimum 7.213 native / 6.148 rc-matched, far above the relaxed floor 5.44/5.11; coded flag knife-edge; rule ambiguity handed to the audit (launched 22:53) |
+| 07-09 23:03 | ⚠️ AUDIT VERDICT (b18): D1 MIXED (exact layer confirmed; ⚠️ my `G = I` Gram proxy was a real bug, 12× underweighting: the model-exact gap was the Gram, not nonlinearity; verdict survives on exact probes); **D2 RULED: seed-level shape search SATURATED-AT-THIS-BUDGET** (reference ambiguity dissolved by measurement: equal-background ≡ the floor-producing seed to 0.05%; best candidate +5.0% native-only / −14.2% rc-matched, projects ~6.2 > floor); **D3: the phase-D close sentence LICENSED**; D4: 12-item supersede list. New: relax gains live in M0 background deformation (invisible to seed-level metrics); rc-matched seed values are decision-grade |
+| 07-09 23:10 | **PHASE D CLOSED** (leg b): the licensed sentence + supersede rule + positive-legacy list written into FINDINGS block 18; ping parked unfired, watchdog stopped; BLOCK 18 CLOSED, review presented |
+| 07-10 03:29 | BLOCK 19 GO (the wrap): E/F disposition + the M5.12 final close. ⚠️ No reset time given: ping stays parked (writing-only block, user at terminal). METHOD_NOTE.md re-read per the freshness rule before writing |
+| 07-10 03:55 | Written: [`../findings/m5_12_close_note.md`](../findings/m5_12_close_note.md) (METHOD-NOTE standard: equations first, 12-row equation-to-code map, results with gates, the licensed close sentence, E/F disposition, not-computed list, the audit record) + FINDINGS block 19 (E/F disposition tables, the verdict vs the definition of done, the positive-legacy table). Wrap audit launched 03:58 |
+| 07-10 04:10 | ⚠️ WRAP AUDIT (b19): initial FAIL on three trivial errors (2-char quote-style drift in the "verbatim" sentence; "six" vs the actual seven audits; "audit-caught" misattributed to the self-caught rmatvec bug) + two wording nits; ALL numbers/map rows/equations/gates/dispositions CONFIRMED. Fixes landed; the mechanical checker re-run: **ALL PASS, exit 0**; § 7 filled. The note is FINAL (internal; group share HELD) |
+| 07-10 04:15 | FINISH block 19: doc checker clean; **M5.12 CLOSE presented as the final TASK REVIEW**. Post-approval steps (roadmap row to Done at the END of the DONE list, tracker milestone entry) held for the user |
 
 ## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
 
@@ -428,6 +440,104 @@ Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a 
 
 Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
 
+## FINDINGS (2026-07-10, block 19: E/F disposition + THE M5.12 CLOSE)
+
+### The close note
+
+The task's close deliverable is [`../findings/m5_12_close_note.md`](../findings/m5_12_close_note.md), built to the METHOD NOTE standard (equations first, equation-to-code map with blob/main permalinks, minimal inspection set, not-computed list, the full audit record embedded). It is an INTERNAL audit page: the group share stays HELD; nothing has crossed the repo boundary.
+
+### E/F disposition (designed, not runnable, disposed)
+
+| Phase | Pre-registered gate | Disposition |
+| --- | --- | --- |
+| E (masses) | `Δm²` honest pass/fail via mass/length density + knot-family spread; the 6.2 pm anchor; the `E = λ·L` gate | **NOT RUN**: no loop family exists to map. The M5.11 compression tension (splitting ratios 5.8-7.3× below the observed 33.6) remains the standing falsifier-candidate at its M5.11 evidence level, untested at the physical regime |
+| F (mixing on real loops) | the 4 PMNS parameters from solutions vs NuFIT 6.0; the N4c gap map | **NOT RUN**: every N4c gap required solutions; the [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md) scorecard stands unweakened and unimproved as the honest state of the art. New F-adjacent asset: loop topology survives relaxation (b14), machinery ready if D reopens and converges |
+
+Both reopen together with phase D (conditions in the close sentence).
+
+### The task verdict vs the definition of done
+
+The definition of done offered two closes: a stable regularized loop at the physical regime, **or the honest physical-regime negative, "which, unlike the M5.11 placeholders, IS a verdict on the model"**. M5.12 delivered the second, in its strongest available form: measured (not budget-exhausted: the b18 decider), metric-adjudicated (b17), audited seven times with every headline that died dying BEFORE it shipped, distance-quantified conditionally (4.4-5.5× above the band, A1/A2 author-gated), and equipped with named reopening conditions. The clock/orbit sector of the model, in the probed class and at the probed budget, does not produce the free-period resonance Duda's framing requires; masses and mixing remain uncomputed at the physical regime, with the N4c scorecard as the honest baseline.
+
+### What M5.12 banked (the positive legacy)
+
+| Asset | Where |
+| --- | --- |
+| The exact `Shat = S0 − ω²Q2` instrument + balance root + `H_mean = 0` identity | `m5_12_d3a_bvp.py`, b13-audit-confirmed |
+| The ω-eliminated LM hard-amplitude solver + honest endpoint metrics | `m5_12_b12_hard.py` |
+| The Q2_mix sign theorem (time-mixing = the only negative channel) | b11 audit + `m5_12_b11_q2probe.py` |
+| The standing fixed-(size, a²) metric + the control frame | `m5_12_b17_control.py`, b17-adjudicated |
+| The measured conditional unit map (M5.8 ↔ BVP) | `m5_12_b16_unitmap.py` |
+| The loop-topology survival result | b14 endpoint addendum |
+| The g-powered ghost mechanism + the p = 4 requirement | blocks 2-3 audits |
+| Seven adversarial audits (b11, b13-b18) with verdicts + two bugs killed before shipping (the rmatvec adjoint, a pre-audit self-catch; the b18 Gram proxy, audit-caught) | `m5_12_audit_b1{3,4,5,6,7,8}.json` + the b11 record in FINDINGS block 11 (+ the two block-2/3 same-day audits) |
+
+## FINDINGS (2026-07-09, block 18: the optimizer-saturation decider + THE PHASE D CLOSE)
+
+### The decider (`m5_12_b18_decider.py` → `m5_12_b18_decider.json`)
+
+32-member basis (26 analytic + the 6 relaxed endpoint A1 shapes in-frame; the span contains every shape the task probed), pencil by exact-Shat polarization, generalized eigensolve, top-6 model directions exact-probed at full a² in the controlled frame (both wscales). Anchor exact (4.1e-7).
+
+| Result | Value |
+| --- | --- |
+| Exact-probed span optimum | 7.213 native / 6.148 rc-matched: no fresh direction reaches the relaxed floor (p1 5.44/5.11), and vs the floor-producing seed (7.591/5.384 in-frame, = the equal-background reference to 0.05%) the best candidate gains 5.0% native-only and REGRESSES 14.2% rc-matched |
+| ⚠️ The Gram bug (audit-caught) | the decider's `G = np.eye(n)` proxy ignored basis overlaps up to 0.997: the 3.28 → 7.21 model-exact gap was 12× Gram underweighting (+127.9%), not quartic nonlinearity (+5.8% genuine); the verdict SURVIVES because it rested on exact probes, and the audit's true-Gram re-solve probes WORSE (8.23/5.51); my "model fails at full amplitude" mechanism claim was wrong |
+| Projection through measured relax gains | at the median measured seed → relaxed gain (5 chains: native median 14.6%, rc-matched median 0.5%), the best candidate projects to ~6.2, above the floor; it undercuts only at the single best gain ever observed (p1's own 28.3%) |
+| Where relax gains live (audit-new) | p1's 28% relax gain is background (M0) deformation, not A1 shape: a bound on what ANY seed-level decider can see; under rc-matched wscale, seed in-frame ≈ relaxed in-frame (gains −3.3..+5.1%): seed values are decision-grade in that convention |
+
+### The audit verdicts (b18, `../data/m5_12_audit_b18.json`)
+
+| Claim | Verdict | Evidence |
+| --- | --- | --- |
+| D1 machinery | ⚠️ MIXED | exact layer CONFIRMED (eigensolve exact, τ-insensitive 1e-4..1e-10, Q pencil ≤ 2.6e-4, in-frame probes to all digits); the mechanism claim REFUTED (the Gram bug above) |
+| D2 rule | ✅ RULED | **seed-level shape search SATURATED-AT-THIS-BUDGET** (marginal); the reference ambiguity dissolved by measurement (equal-background ≡ floor-producing seed to 0.05%); the coded `False` flag overturned as not decision-grade (knife-edge, single-convention) |
+| D3 close | ✅ LICENSED | the sentence below |
+| D4 completeness | ✅ | 12-item supersede list banked in the JSON; blocks 11/13/14 structural findings (the Q2_mix sign theorem, the zero-mean-energy identity, the loop-topology positive) remain valid |
+
+### THE PHASE D CLOSE (the licensed sentence, quotable verbatim)
+
+> Phase D closes on a measured endpoint plus a bounded decider, not on a found orbit: no free-period orbit was found (every chain ends in an honest progress-rate stall, none at a stationary point, so the negative is unfound, not nonexistent). Under the standing fixed-(size, a2) metric (common n32 frame, common r_target, common first-harmonic a2 = 0.3037, one wscale, orderings quoted only across the frame battery) the controlled floor is p1 at 5.11-5.61 at the M5.8 size anchors, 4.4-5.5x above the band, A1/A2-conditional throughout with the potential-sector gap author-gated. The block-18 seed-level decider, audit-corrected for its Gram convention, found no fresh shape direction that beats the floor-producing seed in both wscale conventions (best candidate 5.0% better native-only, 14.2% worse rc-matched, projecting to ~6.2 at the median measured seed-to-relaxed gain, above the floor), so seed-level shape search within the probed basis is exhausted at this budget and the b17 'still descending' status is retired, with the standing caveat that relaxation dynamics have reordered seeds before and most of the measured relax gain lives in background adaptation that no seed-level metric can see. Phase D reopens on any of: a solver rung that converges at the floor (the stalls are non-stationary); the author sanctioning or refuting the A1/A2 unit-map assumptions; or any measured seed direction that beats the floor-producing seed in both conventions (equivalently, one that plausibly relaxes below p1's 5.44/5.11).
+
+**Supersede rule**: the 12-item list in `m5_12_audit_b18.json § supersede_list` is binding: no distance/floor/saturation number from blocks 12-17 is quotable except through this close (the structural findings stand: the Q2_mix sign theorem, the zero-mean-energy identity `H_mean = 0` at ω_bal, the loop-topology survival, the 1/L covariance, the standing metric itself).
+
+**What remains of phase D's positive legacy**: the audit-confirmed ω-eliminated hard-amplitude solver + LM; the exact Q2/ω_bal instrument; the standing fixed-(size, a²) metric + control frame; the measured (conditional) unit map; seven audited negative results that each killed a wrong story before it shipped.
+
+## FINDINGS (2026-07-09, block 17: the fixed-(size, a²) control + THE STANDING METRIC)
+
+### The control (`m5_12_b17_control.py` → `m5_12_b17_control.json`)
+
+Every stall endpoint (8: the bmix c2/g48 lineage, wd, f1, f2, p1, p2, lp) zoomed to a common object size on the common n32 frame (cubic resampling, cross-grid for g48), harmonics rescaled to the common a² = 0.3037, probed under one wscale; guards GC1 identity 5.8e-7, GC2 round trip 2.7e-3, GC3 c2-g48 in-frame within 4%. Rankings computed in 4 frames (r_target {4.77, 3.686} × wscale {native, rc-matched}); the audit added a ×0.5/×1/×2 amplitude-budget sweep (6 more orderings) and an independent zoom implementation.
+
+| Frame-stable result | Value |
+| --- | --- |
+| The controlled floor | **p1 (the b15-audit Rayleigh-optimum pancake), 5.11-5.61 in every frame**, every gap to it ≥ 16.8% = 9× the worst measured instrument error, floor in all 10 orderings |
+| The bmix c2/g48 lineage | LAST in every frame (9.6-22.0): the b16 product-metric floor identification was amplitude-density-confounded, exactly as the b16 audit's own prediction anticipated |
+| The wd/f1/f2 cluster | 6.5-8.0, internal order frame-dependent and UNRESOLVED (gaps inside the interpolation error): not quotable |
+| Controlled distance to the band | **4.4-5.5×** (p1 anchor-flat 5.10-5.89 across M5.8 size anchors 2.63-4.94; bracket now dominated by the wscale convention, not the M5.8 window; A1/A2-conditional throughout, the A2 potential-sector gap author-gated) |
+
+### The audit verdicts (b17, `../data/m5_12_audit_b17.json`)
+
+| Claim | Verdict | Decisive evidence |
+| --- | --- | --- |
+| A1 control correctness | ✅ CONFIRMED where load-bearing | independent zoom reproduces floor numbers to 0.5-1.5% (cross-grid 0.8%); p1 survives a 4-variant interpolation attack + rescale-convention attack; c2/g48 deep zoom soft (~14%) but last place robust (35-170% margins); guard lesson: round-trip at the deepest s used |
+| A2 THE METRIC | ✅ ADJUDICATED | **fixed-(size, a²) in-frame probing = the standing metric** for every cross-family M5.12 claim; raw ω_bal void cross-family; the product retained only as a within-lineage invariant; energy normalization ill-posed (zoomed M0 backgrounds differ 3.5×) |
+| A3 saturation | 🔶 STILL DESCENDING | controlled floors monotone through four family generations (bmix 9.6-21.2 → wd 6.9-7.9 → f 6.5-7.1 → p1 5.11-5.61); one strike max under the re-bound rule; **"saturated" is not a licensed word**; no licensed extrapolation (gains oscillate 4-63%); at the median ~20%/family the band is ~6-7 family-scale advances away, with gains increasingly optimizer-driven |
+| A4 distance | ✅ CONFIRMED + completed | full bracket 4.4-5.5×; the b16 window-driven 3.2-6.9× collapses under the standing metric |
+
+### The phase-D status (the audit's licensed sentence, quoted verbatim)
+
+> Phase D found no free-period orbit (every chain ends in an honest progress-rate stall, none at a stationary point); under the standing fixed-(size, a2) metric the family search is STILL DESCENDING, not saturated (controlled floor bmix -> wd -> f -> p1, one sub-5% step, p1 = 5.11-5.61 at the M5.8 sizes, 4.4-5.5x above the band, A1/A2-conditional), so a close here is a bounded-resource decision, not a measured endpoint.
+
+The block-17-open close condition ("if c2/g48 holds as the invariant floor, declare saturated") was NOT met: the control inverted it and the audit confirmed the inversion. Phase D therefore did NOT close this block; closing remains available as a resource call with the sentence above.
+
+### What block 17 changes
+
+| Before (block 16) | After (block 17) |
+| --- | --- |
+| metric seesaw (raw vs product), floor = c2/g48, "saturating, one control outstanding" | the metric question is SETTLED by adjudication (fixed-(size, a²) standing); the floor is p1; the search is still descending; the saturation strikes are void |
+| distance 3.3-4.9× (window-dominated bracket 3.2-6.9×) | **4.4-5.5×**, anchor-flat, wscale-convention-dominated, A1/A2-conditional |
+| Block-18 fork | (a) the optimizer-saturation decider (Rayleigh-optimize ω_bal directly in the controlled frame; optimum within ~5% of p1 = optimizer-saturated, then close on a measured endpoint); (b) close phase D NOW as a bounded-resource decision with the licensed sentence; (c) one solver rung on p1 before closing |
+
 ## FINDINGS (2026-07-09, block 16: the pancake chains + the measured unit map + THE INVARIANT INVERSION)
 
 ### The audit verdicts (b16, `../data/m5_12_audit_b16.json`)
@@ -476,8 +586,8 @@ Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min):
 
 | Chain | Seed ω_bal | Relaxed ω_bal | \|F\| floor | H_swing/S0 |
 | --- | --- | --- | --- | --- |
-| f2_ (shell_k1, displaced shell) | 8.268 | **6.987** | 189 | 1.992 |
-| f1_ (rgauss_k2, r-weighted gauss) | 8.235 | 7.376 | 187 | 1.995 |
+| f2_(shell_k1, displaced shell) | 8.268 | **6.987** | 189 | 1.992 |
+| f1_(rgauss_k2, r-weighted gauss) | 8.235 | 7.376 | 187 | 1.995 |
 
 The seed-root ordering SWAPPED under relaxation (seeds f1 < f2, relaxed f2 < f1): the seed-level map is not a reliable proxy for the relaxed floor. New audit findings beyond the claims: the floor is convention-relative (cell-weighted amplitude matching reorders the leaderboard); the harmonic-relabel hole (the same shape on the second harmonic halves ω_bal exactly and is invisible to `a2_free`: floor statements only mean anything inside the fixed first-harmonic ansatz, and physical frequency is k·ω so this is NOT a band route); nonlinearity lives in S0, not Q2 (quadratic-model floors must be exact-probed: ~4-20% shifts).
 
