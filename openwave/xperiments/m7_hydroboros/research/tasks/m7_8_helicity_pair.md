@@ -175,7 +175,7 @@ The √3 rung re-run at N = 96 (`h = 0.167`): E = 4.1872 vs 4.2110 at 64³ (**0.
 
 | Time | Event |
 | --- | --- |
-| 15:18 | go (reset 7:20pm; resume ping armed at 7:25pm, slot `SABER Resume: Task M7.8`) |
+| 15:18 | go (reset 7:20pm; resume ping armed at 7:25pm, slot `Resume: Task M7.8`) |
 | 15:22 | seed gates v1: projector purity 93.5% but **two catches**: (a) the naive poloidal angle `atan2(z, ρ−R₀)` makes the toroidal triad LEFT-handed (the `s = +1` mode measured `H_A < 0`, curl eigenvalues flipped vs the notes); (b) the helical split dropped the longitudinal component: Parseval deficit 2.7%, which is exactly the charge-carrying `∇·A` content |
 | 15:25 | both fixed: right-handed frame (`φ = atan2(−z, ρ−R₀)`), longitudinal bucket `U_long` added (physically meaningful: the k-space face of the divergence charge). Seed gates v2 ALL GREEN: projector 93.5% with consistent signs, **Parseval 1.5e-16**, Beltrami identity `(U₊−U₋)/(ωH_A) = 1.057`, divergence on the gradient shell (rms core 9.7e-3 < shell 1.25e-2). The 6.5% seed impurity = toroidal-curvature mixing at `σ/R = 0.5`, a seed property, reported |
 | 15:27 | smoke (48³, √3 rung, 500 it): converged clean (`\|g\| = 1.6e-6`, constraints exact). **THE SMOKE FINDING: the relaxation EXPELS the minus mode** (relaxed `U₊/U₋ = 521`, asym 0.996, `j_z = 0.972`): at fixed `(Q_can, H_A)` the two-mode pair is not stationary; the functional falls into the single-helicity rotating basin (= the M7.6 electron). Arnold economics: minus-sector energy carries canceling helicity, pure-plus is the efficient state |
