@@ -17,9 +17,10 @@
 ## Active Questions Count
 
 ```text
-4 QUEUED      THE M5.19 BATCHED ASK (drafted 2026-07-10, ONE message,
-(this round)  user-gated, method-note link attached; nothing sits on
-              his desk until it sends): Q16 loop protection + degree
+4 PENDING     THE M5.19 BATCHED ASK, SENT 2026-07-10 evening (ONE
+(his side)    message in the program thread "Regularized neutrino
+              vortex-loop: runs + questions", method-note link
+              attached): Q16 loop protection + degree
               (sharpened by the measured removability channel), Q21
               the R7 temporal-boost prescription as an equation + on
               which background, Q20 curvature-degeneracy calibration
@@ -79,7 +80,7 @@ NuFIT 6.0 (~212° ± 30) sits **between** them and excludes neither. Deciders: *
 
 ## The ask round lives with its consumer
 
-**The CURRENT round (2026-07-10): the M5.19 batch (Q16, Q21, Q20, Q22)**, queued in the outbound message per the ask-when-gated cadence (§ Email cadence); its consumer = any M5.19 successor (opens gated on the answers). Historical: the M5.12 pre-flight ask queue (Q13, Q16, Q14, Q15, Q17: table order = priority, why-critical, what each answer feeds) is baked into **[`tasks/m5_12_task_details.md § The pre-flight ask round`](tasks/m5_12_task_details.md)**, the task gated on the answers. This file stays the question REGISTRY: the [`§ OPEN QUESTIONS`](#open-questions) table (already priority-sorted) + [`§ QUESTION DETAILS`](#question-details-open-questions) per ID. The deliver-first-ask-second strategy and the outbound sequence are recorded in [`tasks/m5_16_task_details.md § Comms plan`](tasks/m5_16_task_details.md).
+**The CURRENT round (2026-07-10): the M5.19 batch (Q16, Q21, Q20, Q22)**, SENT 2026-07-10 evening in the program email thread per the ask-when-gated cadence (§ Email cadence); its consumer = any M5.19 successor (opens gated on the answers). Historical: the M5.12 pre-flight ask queue (Q13, Q16, Q14, Q15, Q17: table order = priority, why-critical, what each answer feeds) is baked into **[`tasks/m5_12_task_details.md § The pre-flight ask round`](tasks/m5_12_task_details.md)**, the task gated on the answers. This file stays the question REGISTRY: the [`§ OPEN QUESTIONS`](#open-questions) table (already priority-sorted) + [`§ QUESTION DETAILS`](#question-details-open-questions) per ID. The deliver-first-ask-second strategy and the outbound sequence are recorded in [`tasks/m5_16_task_details.md § Comms plan`](tasks/m5_16_task_details.md).
 
 ---
 
