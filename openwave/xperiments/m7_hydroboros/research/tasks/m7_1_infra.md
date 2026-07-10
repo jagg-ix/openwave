@@ -30,7 +30,7 @@ What any acceptable substrate must satisfy (the blend test):
 
 **A-primary ontology (Marc, committed 2026-06-30):** the work starts from an **"A primary"** ontology, the vector potential `A` is the fundamental field, with `F = dA`, the `E, B` fields and the charge `∇·E` all derived from it. This favors the potential-primary candidate **B** (the `A_μ` doublet, where `A` is literally the primary DoF) over the field-primary RS candidate **A**; the Riemann-Silberstein `F` reading is kept as a derived diagnostic, not the evolved DoF.
 
-The decision between A and B (and whether D enters only as a seeder) is **open**, tracked as **Q1** in [`../m7_question_tracker.md`](../m7_question_tracker.md), the M5-style question tracker (cf. [`0b_question_tracker.md`](../../../m6_ouroboros/research/0b_question_tracker.md)); the open questions Q1-Q10 live there (priority-sorted, the ask list for Marc). A structural argument now favoring **B**: Nadirashvili's theorem makes the pure-Maxwell (single-field) finite-energy Beltrami electron impossible, so the doublet's confinement sector is required for existence ([`../m7_background.md § 5b`](../m7_background.md)).
+The decision between A and B (and whether D enters only as a seeder) is **open**, tracked as **Q1** in [`../m7_question_tracker.md`](../m7_question_tracker.md), the M5-style question tracker (cf. [`0b_question_tracker.md`](../../../m6_ouroboros/research/archive/0b_question_tracker.md)); the open questions Q1-Q10 live there (priority-sorted, the ask list for Marc). A structural argument now favoring **B**: Nadirashvili's theorem makes the pure-Maxwell (single-field) finite-energy Beltrami electron impossible, so the doublet's confinement sector is required for existence ([`../m7_background.md § 5b`](../m7_background.md)).
 
 **Duda's field-configuration bar (2026-07-01) constrains this decision.** On the models-of-particles list (2026-07-01, continuing the 2026-06-29 prescription captured in [`../m7_roadmap.md`](../m7_roadmap.md) § Phase A / Ouroboros [#247](https://github.com/openwave-labs/openwave/issues/247)), Duda re-stated the precondition for any particle model: **specify the field configuration of every particle** (photons, neutrinos, leptons, mesons, baryons, nuclei) and answer **"do you use topological vortices? for which particles?"** before simulating, validated against an independent benchmark ([MODELS.md](https://github.com/openwave-labs/openwave/blob/main/MODELS.md)), "not just talking to an LLM chatbot." He attached a comprehensive **liquid-crystal field-configuration sketch** (his own model's answer), decoded in [`../../../m5_liquid_crystal/research/tasks/m5_4f_convo_2026.07.01.md`](../../../m5_liquid_crystal/research/tasks/m5_4f_convo_2026.07.01.md) § 2; figure [`../../../m5_liquid_crystal/theory/duda_2026-07-01_particle_field_configs.png`](../../../m5_liquid_crystal/theory/duda_2026-07-01_particle_field_configs.png).
 
@@ -67,7 +67,7 @@ That demand IS the blend test above: the substrate must carry a **topological-vo
 | --- | --- | --- |
 | **Boundary conditions** | **vacuum-fixed** boundary for any net-charged configuration; **periodic** box for neutral / net-zero configs (Woltjer gate, M7.6 two-charge dipole) | a net charge on a periodic lattice is Gauss-inconsistent (boundary flux 0 ≠ `Q/ε₀`); Faber & Golubich and Sutcliffe both use vacuum-fixed in practice |
 | **Gauge handling** | OPEN = **Q8**: Coulomb gauge on `a⃗` + kept `a₀`, vs projection, vs penalty; decided empirically here by minimizer conditioning | gauge orbits of `A` are flat directions; `m_J²A·J` is gauge-sensitive off-shell; M6's ansatz has `A₀ ≠ 0` (Weyl incompatible) |
-| **Units contract** | M6 natural units wholesale: `c = 1`, electron `ω = 1`, `m_e` anchor; conversion table [`0d_canonical.md § 5`](../../../m6_ouroboros/research/0d_canonical.md) | prevents unit chaos at M7.2/M7.3; Fleury targets are dimensionless ratios so M7.2 works in `r_c = 1` units directly |
+| **Units contract** | M6 natural units wholesale: `c = 1`, electron `ω = 1`, `m_e` anchor; conversion table [`0d_canonical.md § 5`](../../../m6_ouroboros/research/archive/0d_canonical.md) | prevents unit chaos at M7.2/M7.3; Fleury targets are dimensionless ratios so M7.2 works in `r_c = 1` units directly |
 
 ---
 
@@ -77,7 +77,7 @@ Deliverables 1-7 built and gated. Code: [`../scripts/m7_1_harmonic_lattice.py`](
 
 ### The harmonic reduction, exact bookkeeping (deliverable 1)
 
-Every component of `A_μ = (A⁰, A⃗)` and `J_μ = (J⁰, J⃗)` carries one global ω through a `(cos ωt, sin ωt)` pair: 16 real fields per lattice point (`a0c, a0s, a⃗c, a⃗s, j0c, j0s, j⃗c, j⃗s`). Conventions: Minkowski `(−,+,+,+)`, A-primary, `E⃗ = −∇A⁰ − ∂ₜA⃗`, `B⃗ = ∇×A⃗`, `A_μJ^μ = −A⁰J⁰ + A⃗·J⃗`, `s = J_μJ^μ = −(J⁰)² + \|J⃗\|²`, `f(s) = (g/4)s²` (M6 canonical, [`0d_canonical.md § 1`](../../../m6_ouroboros/research/0d_canonical.md)).
+Every component of `A_μ = (A⁰, A⃗)` and `J_μ = (J⁰, J⃗)` carries one global ω through a `(cos ωt, sin ωt)` pair: 16 real fields per lattice point (`a0c, a0s, a⃗c, a⃗s, j0c, j0s, j⃗c, j⃗s`). Conventions: Minkowski `(−,+,+,+)`, A-primary, `E⃗ = −∇A⁰ − ∂ₜA⃗`, `B⃗ = ∇×A⃗`, `A_μJ^μ = −A⁰J⁰ + A⃗·J⃗`, `s = J_μJ^μ = −(J⁰)² + \|J⃗\|²`, `f(s) = (g/4)s²` (M6 canonical, [`0d_canonical.md § 1`](../../../m6_ouroboros/research/archive/0d_canonical.md)).
 
 | Piece | Exact closed form |
 | --- | --- |

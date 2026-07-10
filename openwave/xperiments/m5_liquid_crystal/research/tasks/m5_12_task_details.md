@@ -266,6 +266,559 @@ Copies, never moves: the `m5_11_*` originals stay frozen as the closed task's ev
 
 A **stable, regularized neutrino loop at the physical `(g, δ, V)` regime** (or the honest physical-regime negative, which, unlike the M5.11 placeholders, IS a verdict on the model), then the clock, masses, and mixing computed **on that solution**, documented to article standard. The stake is Duda's own framing (round 3, [`m5_10a_neutrino_oscillations.md`](m5_10a_neutrino_oscillations.md)): a rigorous derivation of the 4 PMNS parameters "able to pass peer review ... would already be huge". Rigor bar: § Rigor compliance above (the inherited M5.16 table + the M5.12-specific rows).
 
+## EXECUTION LOG (2026-07-07, go 11:23 EDT)
+
+Running record + deviations (logged as they happen, per the flow's deviations-log rule). Checkpoints: [`../checkpoints/m5_12_progress.md`](../checkpoints/m5_12_progress.md).
+
+| Time | Event |
+| --- | --- |
+| 11:23 | GO. Resume ping armed (fires 14:25 EDT if a cap hits). Roadmap row In Progress |
+| 11:27 | D0 driver written ([`../scripts/m5_12_core_pin.py`](../scripts/m5_12_core_pin.py)); hedgehog leg launched (coordinate descent on `a` + frozen bump protocol, n96×192) |
+| 11:38 | Phase A seeder written ([`../scripts/m5_12_loop.py`](../scripts/m5_12_loop.py)): the rotated vortex loop as a 2D vortex at `(R0, 0)` in the equivariant (ρ,z) reduction; melt-core scan q ∈ {1/2, 1} × R0 ∈ {8, 12, 16} launched |
+| 11:42 | ⚠️ Deviation (tooling): `m5_16_axisym.py` parses `sys.argv` positionals as ints AT IMPORT, so any importing driver with non-numeric CLI args crashes (`--core melt` did). Fix: capture-then-strip argv before the import chain in both m5_12 drivers; scan relaunched. No physics impact; note for future drivers importing the axisym stack |
+| 12:00 | D0 hedgehog leg DONE (1889 s): a* = 0.5366; ⚠️ the corepinned unconstrained relax lands at E 4.19 < the M5.18 escaped 7.61 < radial 16.85: the prescription does NOT restore the spherical hedgehog; the JSON's `escaped=False` uses the wrong (already-relaxed) baseline, superseded by this reading. Driver patched to save the final state (`m5_12_d0_hedgehog_state.npz`) for the structure diagnostic |
+| 12:10 | D0 antipair leg launched (d ∈ {16, 17, 24, 25}, aI cores) |
+| 12:15 | Loop scan interim: q=1/2 R8/R12 contract/dissolve (0.3-1.8 gnorm decades, melt heals to ~0.7); R16 q=1/2 DIVERGED (FIRE NaN → eigvalsh crash). ⚠️ Deviation (tooling): NaN guards + conservative FIRE steps (dt0 0.005, dt_max 0.05) added to the loop driver; remaining 4 scan points rerunning. Also: zsh does not word-split unquoted `$args` (a rerun launcher bug, no physics impact) |
+| 12:40 | D0 antipair DONE: annihilates at all d incl. lattice-centered; the isotropic core is a free unwinding surface. Pre-registered branch taken: the σ-term (Skyrme quadratic partner) pilot built (`m5_12_sigma.py`, gate SG1 6.4e-10) + launched. Hedgehog v2 rerun with state saving |
+| 13:15 | Loop melt-core scan COMPLETE: 6/6 dissolve (both q, all R0): the phase-A bare-functional negative is verdict-grade |
+| 13:30 | Hedgehog v2 bit-identical to v1; the 4.19 state decoded (escape texture around the frozen core: far winding intact, biaxial halo, ρ̂-combed director) |
+| 13:45 | σ-pilot: frac 0.1 dissolves; 0.3/1.0 ring-holds FLAGGED as possible confound → discriminator launched (20k extend + matched no-loop control) |
+| 14:40* | Discriminator: `E_localized = −6.8`, ring drifts to 22.5, E_near 3.7/49: the σ hold was far-field texture + slow descent. Statics CLOSED at this search level. (*wall-clock ~13:40 EDT; the 14:40 estimate in an earlier status was an arithmetic slip, corrected) |
+| 13:48 | FINISH block 1: resume ping PARKED unfired (no cap); figure + findings + checkpoint finalized; block-1 review presented |
+| 14:05 | BLOCK 2 OPEN (user: D-first; group share held for final M5.12). Ping re-armed for 19:25 EDT. D1 built: the uniform-rotation clock reduction `H(ω) = E_static + 4ω²Q_W`; gates CQ1-CQ4 machine-precision |
+| 14:20 | D1 measured: boosts negative (−2.4e5 class), rotations positive; dense R0 scan shows an apparent interior loop-size minimum tracking ω. FLAGGED for adversarial audit before any reporting |
+| 14:50 | ⚠️ AUDIT VERDICT: size-selection headline REFUTED (far-field-driven, box-divergent, g_time-background-dominated, 4× ω-normalization slip); algebra + φ-averaging EXACT; sign structure = a theorem of the zero-time-mixing class; `Q_def > 0` (the defect REDUCES boost negativity in this class). D2 rung specified: the time-mixing dressed-state class (the M5.8 GEM-dip home) as the honest clock-stabilizer test. Corrections written into the script docstring + findings; JSONs stand with the correction note |
+| 14:25 | BLOCK 3 GO (reset 19:20, ping armed 19:25): D2a dressed-state class built (`m5_12_dressed.py`); DG1 initially failed → the p=4 necessity surfaced (a real 4D modeling requirement, not a bug); gates fixed + ALL PASS |
+| 15:05 | D2a scan: vacuum-subtracted dips defect-attributed 100-1000× (D1 failure mode gone), but no static bottom (monotone to b0 = 4): the balance must be dynamic |
+| 15:15 | D2b: the R12 clock balances the runaway at fixed J: interior minima (hedgehog b0 1.6-1.7, loop 0.45-0.6), box-stable at n128; controls carry Q_R12 = 0 exactly. Flagged for audit |
+| 15:50 | ⚠️ AUDIT VERDICT (2nd of the day): C1 instrument CONFIRMED (+ the exhibited spurious p≤3 vacuum); C2 → "defect-AMPLIFIED g-background ghost channel" (99% collapses at g = 1: the `ΛηΛ = η` dressing-inertness identity); C3 balanced-minima REFUTED as stated (rigid-rotor-internal, g=8-only, ghost directions in every cell). Block synthesis: three reductions closed in one day; the genuine time-periodic 4D BVP is what remains; the g-mechanism is the new knowledge |
+| 07-08 08:53 | BLOCK 11 GO (reset 11:20, ping 11:25 on the M5.12 slot, message verified; reset-time WATCHDOG armed at 11:20, first live use). Driver gains `--ascale`/`--tagx`; gauntlet BG7 fixed (salvage `ArpackNoConvergence` partials, k = 4, maxiter 12000). Launched: 11a n64 deep rung, 11b a4 amplitude ladder, 11c gauntlet rerun, 11d THE ADVERSARIAL AUDIT (C1-C4 × T1-T6) |
+| 07-08 09:25 | ⚠️ AUDIT VERDICT (block 11): **C1 REFUTED**: ω\* = the closed-form LS balance `w*² = −⟨R_sp,R_t⟩/\|R_t\|²` of the UNCONVERGED residual (7e-7 match at n64), 99.9% core-selected, one warm-start chain, ω\*(nr) ratio 22.5 vs h² 2.86, H-drift 220% grid-independent; **the pinned boundary carried rotating harmonics (max \|A1\| = 0.5): boundary-DRIVEN state**. C2 WEAKENED (non-gauge real; but rigid-rotor algebra satisfied to 0.1-0.8% = the D1 ansatz in Fourier clothes; staticR non-discriminating). C3 WEAKENED (core-concentration real; h² ratios off 15%; "plateau" not established). C4 WEAKENED-SHARPENED: the 0.3% pin is an algebraic identity; `Q2_mix = 0` exactly and Q2 ≥ 0 at any amplitude → NO free-period orbit in the mixing-free class at ANY amplitude; needs η-negative time-mixing (Q2 < 0). T1: the block-3 g-disease does NOT recur (g=1 repose keeps Q2 > 0); the pathology is driven-boundary |
+| 07-08 09:30 | ⚠️ Deviation (audit-driven mid-block redirect): 11a and 11b KILLED (both converging refuted formulations). Driver fixed: zero harmonic BCs on pinned cells (always on) + `--bmix` time-mixing breather seed (0i boost sector). Relaunched: **11a'** axisswing n32 zero-BC LSMR 500 × 20 steps (converge ONE grid, H-drift as metric) + **11b'** breather `--bmix 1` fresh seed. 11c untouched (its BG7 result = "index of the unconverged driven state") |
+| 07-08 10:55 | **THE Q2-SIGN PROBE** (`m5_12_b11_q2probe.py`): the time-mixing class carries **Q2 < 0** (−0.473 at ε 0.15, ~ε² deepening; mixing-free control positive, matching the audit's theorem): the free-period root EXISTS at `ω = sqrt(S0/\|Q2\|) ≈ 11.7` seed-level. ⚠️ Deviation: 11b' (ω ~ 1.04, c_ω pinned at the identity as predicted) killed at step 3; **11b''** relaunched AT the balance root (`--omega0 11.7`, `*_mixw12*`). The block-2 sign theorem (boosts ≤ 0) finds its constructive use: the 0i harmonic is the negative channel |
+| 07-08 11:20 | The reset-time WATCHDOG fired its first live wake: session alive → ping pushed to 16:25, watchdog re-armed for 16:20 (the procedure works end-to-end; no false-alarm push this window) |
+| 07-08 12:10 | ⚠️ Deviation (pre-audit self-catch): w_amp 0.3 → 2.0 changed the mixw12b trajectory by NOTHING (3 decimals) → found the `rmatvec` adjoint bug (amplitude-row gradient unscaled: A vs Aᵀ disagreed). Fixed; mixw12b killed; `mixfix` relaunched as the definitive breather try. The rotor run left on old in-memory code (bug degrades direction quality only, not endpoint validity: line search accepts only true \|F\| decreases) |
+| 07-08 14:35 | Rotor arm CLOSED: honest stall at rel 0.239 (3 consecutive sub-1% steps at λ = 1/32 after a 4.2× contraction). Driver gains per-iteration field-state checkpointing (early stops used to lose fields) |
+| 07-08 15:15 | Breather arm CLOSED at the goal-loop cap: mixfix converged its field (rel 4.95e-3, 12 full steps) but the endpoint Q2 readout (−0.0287, 16× shallower; ω_bal 39.4) exposes **the receding-root mechanism** (\|Q2\| ∝ a² → ω_bal ~ 1/a: penalty methods cannot corner the branch; HARD amplitude continuation required). Probe-vs-solver cross-check exact (−3.5146 vs −3.515) |
+| 07-08 15:35 | BG7 gauntlet KILLED after 6.5h by decision: a second-variation index gates a SOLUTION, and the audit refuted the n48 state's solution status: BG7 moves to block 12's converged endpoint. Cleanup: deleted `m5_12_d3b_axisswing_n64_state_b10.npz` (1.0 MB, verified bit-identical to the kept `m5_12_d3b_axisswing_n64_state.npz`; regen: `cp` of that file) + 2 empty logs of the pre-audit killed runs. Doc checker: ✅ clean |
+| 07-08 14:24 | BLOCK 12 GO (reset 16:20, ping 16:25, watchdog 16:20). Built + gated `m5_12_b12_hard.py` (ω-elimination + hard retraction); gates ALL PASS (HG2 8.2e-14); ladder launched (rungs 1/2/4/8 from the mixfix endpoint) |
+| 07-08 16:20 | Watchdog live cycle 2: fired, session alive, ping → 21:25, watchdog → 21:20; no false alarm |
+| 07-08 17:30 | Core ladder in (4 rungs, every metric ~10×/rung); ω_bal still falling → extension rungs ×16/×32 launched from the r8 endpoint (`--tagpre x`, collision-proofed tags + ladder JSON) |
+| 07-08 19:05 | Extension done. Six-rung law measured: pure 1/a through ×16 (S0 pinned ~45, retraction shocks relax away), **Q2-saturation bend at ×32** (ratio 1.37 vs 2). ⚠️ The ω-floor ≈ 6 reading is HYPOTHESIS (least-converged rung): audit-gated, block-13 fork. No convergence to 1e-5 anywhere: the stronger inner solver remains THE standing need |
+| 07-08 18:43 | BLOCK 13 GO (reset 21:20, ping 21:25, watchdog 21:20). Launched 13a (LSMR budget probes 200/500/1000/2000, single step each on the x2 state) + 13d (the ladder audit). 13b deep push + 13c ×32 discrimination queued on 13a |
+| 07-08 20:15 | ⚠️ AUDIT VERDICT (13d): **L4 solver CONFIRMED exact**; **L1 REFUTED as a law** (fresh-seed kill: independent seed at r4's a² relaxes to a better floor at ω_bal 8.83 vs 15.51: the ladder = one chain's stall points; rescaling null test passed in the claimant's favor; S0 → 44.5 seed-independent); **L2 mechanism REFUTED** (the bend = η-positive super-quadratic cancellation growth, NOT mixing saturation; x4-stall counter-hypothesis supported); **L3 WEAKENED** (rel floors half denominator-inflation; absolute floors reverse after r8); **L5 REFUTED** (`H_mean = S0 + ω²Q2 = 0` at ω_bal BY CONSTRUCTION, 1e-14-verified: drift_rel was noise-normalized; H_swing honest: ~2×S0 everywhere). Assets banked: the audit's relaxed fresh-seed state = chain-2 rung-1; the zero-mean-energy identity; honest-metric ruleset (absolute \|F\|, H_swing/S0, pos/\|mix\|) |
+| 07-08 20:55-01:45 | 13a probe verdict (non-monotone in LSMR budget: accidental-regularization diagnosis) + LM damping implemented; 13b/13c deep chains launched 20:55, closed ~01:45 07-09 as honest stalls (c2 216/8.638, c1 139/6.575, s 207/5.807); BLOCK 13 CLOSED, review presented (details: FINDINGS block 13 + checkpoint) |
+| 07-09 04:32 | BLOCK 14 GO, option B (reset 9:20, ping 9:25, watchdog 9:20). Built `m5_12_b14_seeds.py` (seed forge + exact Q2/ω_bal probe, 6 classes, all solver-consumable); `m5_12_b12_hard.py` gates JSON tagpre-suffixed (3-parallel-launch race fix) |
+| 07-09 04:41 | Probes in: class battery at matched a² all Q2 < 0, none undercuts the bmix control; scale-family series ω_bal 15.0 → 5.4 (n24 → n64); ⚠️ SELF-CATCH (fixobj): at fixed h that axis is a BOX test (passed: Q2 exact to 6 decimals), the falling series is object-size + convention, flagged to the audit. Chains A (n48 bmix) + B (n32 loop) launched 04:45, gates machine-clean |
+| 07-09 05:55 | ⚠️ AUDIT VERDICT (14d, 25 min): **N2 coverage REFUTED** (shape hole: wide 8.619 / node 8.947 vs control 11.031; A1/B1 degeneracy = time-translation identity), **N3 = 1/L calibration kinematics** (reverses at fixed wscale; true h-refinement converged, limit 10.80), **N1 floors real but non-stationary + below the discretization scale** (wording must be "unfound"), **N4 loop-hood confirmed / S0 217.6 refuted as physics**, **N5 band sentence unsupported**; ⚠️ author-gated unit-map question surfaced (which object scale does the M5.8 band live at?) |
+| 07-09 05:58 | Deviation (audit-driven, in-scope): `wide_rz`/`node_rz` shape classes added to the forge (re-forge reproduces the audit's numbers exactly, cross-validated); chain C (n32 wide_rz) launched |
+| 07-09 06:30-08:08 | All three chains CLOSED as honest stalls (stall rule, H_swing/S0 ≈ 2, no solution): lp 522 / ω_bal 10.19 (topology intact), wd 194 / 7.455 (undercuts the bmix band at same a²/grid), g48 101 / 5.720 (= 1/L rescaling to 0.7%) |
+| 07-09 08:25 | Audit ENDPOINT ADDENDUM: all endpoints re-derived exactly; loop winding q = 0.5 at the FINAL state; wd confirms the shape kill at the relaxed level; stalls still descending (independent GN 0.7-2.2%); the assembled honest class-negative paragraph banked (`endpoint_addendum.honest_paragraph`) and quoted in FINDINGS block 14 |
+| 07-09 08:37 | FINISH block 14: doc checker ✅ clean (1 file), no >1 MB files, ping parked unfired (no cap), watchdog + monitors stopped, completion push sent; BLOCK 14 CLOSED, review presented |
+| 07-09 16:51 | Block-14 review APPROVED. BLOCK 15 GO per the approved recommendation: (ii) the unit-map decision memo (author-gated, presented for the user's sanction, no compute) + (i) the shape-family ω_bal floor mapping at fixed calibration and matched a², relax chains on the undercutters. Reset time supplied by the user at 17:09 (7:30pm): ping armed 19:35, watchdog armed 19:30 (the go itself carried no reset; interval covered by the checkpoint) |
+| 07-09 17:05 | Sweep DONE in seconds (`m5_12_b15_shapes.py`, 23 points, 7 families, 3 anchor guards exact): isotropic-slice seed floor 8.23 (rgauss_k2 / shell_k1), every 1-D width scan turns back up; chains F1/F2 launched 17:07 on the two floor seeds (gates ALL PASS) |
+| 07-09 17:20 | The unit-map memo drafted + checkpointed (the block-6 overlap cannot fix the map: small-amplitude modes are scale-free, ω_bal and the M5.8 breather are large-amplitude; options O1 declare / O2 measure / O3 defer, recommendation O3 now + O2 if the close needs a number) |
+| 07-09 18:29-18:44 | Both chains CLOSED as honest stalls (stall rule, H_swing/S0 ≈ 2): f2 shell 8.268 → **6.987** (below wd_1's 7.455), f1 rgauss 8.235 → 7.376; the seed-root ordering SWAPPED under relaxation. Adversarial audit launched 18:47 |
+| 07-09 19:20 | ⚠️ AUDIT VERDICT (b15, ~33 min): **P1 REFUTED as a class floor** (Rayleigh minimization over 72 directions: a z-flattened pancake mix reaches 7.90 at seed level; the sweep was z-anisotropy-blind), **P2 CONFIRMED exactly** (endpoints re-derived; not stationary; independent GN lands on the published floors), **P3 WEAKENED** (floor dropped every family: 6.99 = a moving upper bound), **P4 CONFIRMED** (23/23 rows ≤7.5e-8). New: convention-relativity (weighted matching reorders the leaderboard), the harmonic-relabel hole (2nd harmonic halves ω_bal, invisible to `a2_free`; physical frequency k·ω, not a band route), nonlinearity in S0 not Q2 |
+| 07-09 19:25 | FINISH block 15: ping PARKED unfired 19:16 (before the 19:35 fire; no cap), watchdog stopped, artifacts all < 1 MB (largest 323 KB); findings written; BLOCK 15 CLOSED, review presented |
+| 07-09 19:28 | BLOCK 16 GO, legs a+b (reset 12:30am, ping armed 00:35, watchdog 00:30). Pre-registered stopping rule: two consecutive families < 5% relaxed gain = floor saturated. Built `m5_12_b16_aniso.py`; probe DONE 19:45 (16-point (wr, wz) grid, anchors exact; rayleigh_opt assembles to exactly 7.8955); chains P1/P2 launched 19:47 |
+| 07-09 20:00 | Leg (b) MEASURED without a rerun (`m5_12_b16_unitmap.py`; the retained `_m5_8_2h_run.log`/`_dense.npz` carried the observables): like-observable map (motion radius ↔ motion radius, assumptions A1 cell=cell + A2 c=1 declared, author-gated); first pass: f2 floor 4.5-5.2× above the band, O1's 1.8-2.7× refuted |
+| 07-09 20:54-21:03 | Both chains CLOSED as honest stalls: p1 7.8955 → **5.5440** (\|F\| ~170, 100% mix-pure), p2 8.0577 → 6.5717; unit-map re-run over all 5 endpoints; the raw-vs-invariant tension flagged to the audit (p1's drop vs f2's smaller product) |
+| 07-09 21:21 | ⚠️ AUDIT VERDICT (b16, ~18 min): C1/C5 CONFIRMED; **C2 both sub-claims REFUTED** (p1 gained 29.8% invariant at FIXED size, no growth; **c2/g48 = the true invariant floor, 18.2: no family since block 12 advanced it**); **C3 adjudicated: the rule binds on the invariant** (mid-course amendment; strikes at blocks 15 AND 16); **C4 MIXED** (honest bracket 3.2-6.9×; O1 dead in every variant; identity not replaced; A2 partially unverified, potential sectors differ). New: the amplitude confound (fixed-(size, a²) re-ranking = the next control); \|F\| float32-fragile ~10% |
+| 07-09 21:28 | FINISH block 16: findings written; ping parked unfired, watchdog stopped; BLOCK 16 CLOSED, review presented |
+| 07-09 21:30 | Block-16 review APPROVED. ⚠️ Stamp correction (the block-14 lesson recurring): my chain-close/audit/finish stamps ran ~30 min fast; corrected against file mtimes (chains 20:54/21:03, audit 21:21, finish 21:28); the presented review's duration line should have read 02:00 (to 21:28), not 02:39. BLOCK 17 GO, option (a) (reset 12:30am, ping armed 00:35, watchdog 00:30): the fixed-(size, a²) re-ranking control, then the phase-D close if c2/g48 holds as the invariant floor |
+| 07-09 21:35 | CONTROL DONE (guards GC1 5.8e-7 / GC2 2.7e-3 / GC3 c2-g48 within 4%): **the control inverts the b16 floor**: at fixed (size, a²) in all 4 frames, p1 = the floor (5.11-5.61), the bmix c2/g48 lineage LAST (9.6-22.0); the b16 audit's own amplitude-confound prediction confirmed. Adversarial audit launched 21:37 with the metric adjudication as its central ruling |
+| 07-09 22:01 | ⚠️ AUDIT VERDICT (b17): A1 CONFIRMED where load-bearing (p1 floor robust at 9× worst error + a ×0.5/×2 budget sweep; wd/f1/f2 internal order unresolved); **A2 ADJUDICATED: fixed-(size, a²) = the standing metric**; **A3: STILL DESCENDING, "saturated" not licensed** (one strike max; b16's "no advance since block 12" inverted; band ~6-7 family-scale advances away at ~20%/family); A4: controlled distance **4.4-5.5×**, anchor-flat, wscale-dominated, A1/A2-conditional. The block-17-open close condition NOT met: phase D stays open; closing = a bounded-resource decision with the audit's licensed sentence |
+| 07-09 22:10 | FINISH block 17: findings written; ping parked unfired, watchdog stopped; BLOCK 17 CLOSED, review presented |
+| 07-09 22:19 | BLOCK 18 GO, "a then b" (standing reset 12:30am, ping re-armed 00:35, watchdog 00:30): the optimizer-saturation decider, then the phase-D close either way. Built `m5_12_b18_decider.py` (32-member basis incl. the relaxed endpoint shapes; one false start on a stale cwd, relaunched) |
+| 07-09 22:52 | DECIDER DONE (mtime): anchor exact 4.1e-7; exact span optimum 7.213 native / 6.148 rc-matched, far above the relaxed floor 5.44/5.11; coded flag knife-edge; rule ambiguity handed to the audit (launched 22:53) |
+| 07-09 23:03 | ⚠️ AUDIT VERDICT (b18): D1 MIXED (exact layer confirmed; ⚠️ my `G = I` Gram proxy was a real bug, 12× underweighting: the model-exact gap was the Gram, not nonlinearity; verdict survives on exact probes); **D2 RULED: seed-level shape search SATURATED-AT-THIS-BUDGET** (reference ambiguity dissolved by measurement: equal-background ≡ the floor-producing seed to 0.05%; best candidate +5.0% native-only / −14.2% rc-matched, projects ~6.2 > floor); **D3: the phase-D close sentence LICENSED**; D4: 12-item supersede list. New: relax gains live in M0 background deformation (invisible to seed-level metrics); rc-matched seed values are decision-grade |
+| 07-09 23:10 | **PHASE D CLOSED** (leg b): the licensed sentence + supersede rule + positive-legacy list written into FINDINGS block 18; ping parked unfired, watchdog stopped; BLOCK 18 CLOSED, review presented |
+| 07-10 03:29 | BLOCK 19 GO (the wrap): E/F disposition + the M5.12 final close. ⚠️ No reset time given: ping stays parked (writing-only block, user at terminal). METHOD_NOTE.md re-read per the freshness rule before writing |
+| 07-10 03:55 | Written: [`../findings/m5_12_close_note.md`](../findings/m5_12_close_note.md) (METHOD-NOTE standard: equations first, 12-row equation-to-code map, results with gates, the licensed close sentence, E/F disposition, not-computed list, the audit record) + FINDINGS block 19 (E/F disposition tables, the verdict vs the definition of done, the positive-legacy table). Wrap audit launched 03:58 |
+| 07-10 04:10 | ⚠️ WRAP AUDIT (b19): initial FAIL on three trivial errors (2-char quote-style drift in the "verbatim" sentence; "six" vs the actual seven audits; "audit-caught" misattributed to the self-caught rmatvec bug) + two wording nits; ALL numbers/map rows/equations/gates/dispositions CONFIRMED. Fixes landed; the mechanical checker re-run: **ALL PASS, exit 0**; § 7 filled. The note is FINAL (internal; group share HELD) |
+| 07-10 04:15 | FINISH block 19: doc checker clean; **M5.12 CLOSE presented as the final TASK REVIEW**. Post-approval steps (roadmap row to Done at the END of the DONE list, tracker milestone entry) held for the user |
+
+## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
+
+### D0: the core prescription does NOT close the melt channel (both legs ✅ measured)
+
+| Leg | Result | Status |
+| --- | --- | --- |
+| Hedgehog | `a* = 0.5366` (golden-stable, deterministic across two identical runs); the corepinned unconstrained relax lands at **E 4.19 < the M5.18 escaped 7.61 < the spherical 16.85**: the aI core makes the ESCAPE CHEAPER, not the hedgehog stabler. Structure decoded (`m5_12_d0_hedgehog_state.npz`): far-field winding intact (boundary-pinned), near field = the escape texture (biaxial halo, eigs (−0.30, 0.70, 0.76) at ρ=5; director combed to ρ̂ off-equator) around the frozen isotropic core | ✅ measured |
+| Antipair | **Annihilates at ALL d ∈ {16, 17, 24, 25}** (E → 0.09-0.21, BELOW the M5.18 baseline 0.35/0.41); lattice-centered (d = 17, 25) identical to off-lattice; no melt bridge forms because none is needed: **the frozen isotropic core is a free unwinding surface** (it carries no director, so the winding combs out through it) | ✅ measured |
+
+Honest scope note: the prescription remains sound for its ORIGINAL context (fixed-ansatz Coulomb / running-coupling calibration, where nothing relaxes); as a defect-stability mechanism under free relaxation it fails on both legs, and the M5.18 director-pinned cores fail the complementary way (bridge at 0.008). Statics chain M5.16 → M5.17 → M5.18 → D0 is now fully consistent: **no core regularization stabilizes defects or pairs**.
+
+### Phase A: no stationary bare rotated-vortex loop at δ = 0 (6/6, ✅ measured)
+
+The full scan (q ∈ {1/2, 1} × R0 ∈ {8, 12, 16}, melt core, 6000 iters, n96×192): ALL dissolve: melt heals to 0.68-0.75, E collapses to 7-12, ≤3.1 gnorm decades ([`../data/m5_12_loop_scan_melt.json`](../data/m5_12_loop_scan_melt.json)). The R8-q½ raw "stable" label is overridden by the pre-registered double criterion (1.8 decades + healed melt = contracting stall). The M5.11 unknotted-loop lesson carries to the physical regime: the bare functional (quartic curvature + spectral potential) has no loop-protecting mechanism.
+
+### The σ-term pilot (Skyrme quadratic partner): the non-collapsing signal was a CONFOUND (✅ measured negative)
+
+Physics: M5's quartic curvature IS the Skyrme-family quartic; the σ-model quadratic kinetic term `σ‖∇M‖²` is its Derrick partner (the classic Skyrme stabilization pair) and the exact class Duda sanctioned. Pilot (SCAFFOLDING grade, placeholder σ; gate SG1 = 6.4e-10):
+
+| σ / E_curv(seed) | Outcome |
+| --- | --- |
+| 0.1 | dissolves (ring 12.5 → 9.5, melt heals) |
+| 0.3 | **ring HOLDS at 11.5**, E_end 26 ≫ bare ~7-12, melt heals to 0.74 (smooth core?) |
+| 1.0 | **ring HOLDS at 11.5**, E_end 54, melt heals to 0.71 |
+
+**The discriminator (20k iters + a matched no-loop control, same pinned boundary; [`../data/m5_12_sigma_extend_f1.json`](../data/m5_12_sigma_extend_f1.json)) kills it**: `E_localized = E_end − E_control = 49.07 − 55.84 = −6.8` (the loop run ends BELOW the control: everything is far-field σ-texture cost pinned by the boundary), the "held ring" drifts outward to 22.5 by 20k iters with only 3.7/49 energy units within 8 cells of it, and neither run converges past ~1.9 decades. Both confounds confirmed: slow descent masqueraded as stationarity, boundary texture masqueraded as an object. **σ at pilot scale does not stabilize the loop.** Caveats: 3 placeholder σ values, one seed geometry, pilot grade; but `E_localized ≈ 0` means there is nothing localized left to converge around, which is the load-bearing readout.
+
+**Block-1 conclusion: STATICS ARE CLOSED at this search level.** Core regularizations (melt, director-pinned, isotropic aI), potential shapes (quartic LdG, exact-pinning spectral), and the first Skyrme-family gradient term all fail to hold defects, pairs, or loops. Two candidates remain, in order: **the 4D clock** (phase D, the time-periodic action BVP: Duda's own stance, resolved Q1 "particles are time-periodic resonances") and **topological protection** (phase C, the forced-singular knotted/linked loop, the one unbuilt 2×2 cell, whose trigger condition "A fails and D0 did not close" is now met). Which runs first is the block-2 decision (C is heavy full-3D construction; D is new BVP numerics on the verified Lagrangian).
+
+![M5.12 D0 + phase A: core prescription and rotated vortex loop](../plots/m5_12_d0_loop.png)
+
+## FINDINGS (2026-07-07, block 2: phase D1, the clock-dressing lever)
+
+**Built + gated (banked ✅):** the uniform-rotation clock reduction on the calibrated instrument ([`../scripts/m5_12_clock_q.py`](../scripts/m5_12_clock_q.py)): for `M(x,t) = Λ(ωt)^{-T} M̃(x) Λ(ωt)^{-1}`, `Ṁ = ω[W, M̃]_η` and `H(ω) = E_static + 4ω²·Q_W[M̃]` (the 4 from the instrument's curvature normalization, audit-caught). Gates CQ1-CQ4 machine-precision; the audit independently confirmed the algebra (its own derivation, 7.5e-16) and the exact φ-averaging.
+
+**Measured (✅), then audited (the cardinal rule earned its keep AGAIN):**
+
+| Claim (pre-audit) | Audit verdict |
+| --- | --- |
+| Boosts = the negative channel (Q_W ≈ −2.4e5 to −3.9e5, negative every cell); rotations cost | CONFIRMED-WITH-CAVEATS: the SIGN is an algebraic THEOREM of the zero-time-mixing field class (any texture, defect or not: boosts → purely time-mixing `F_{0i}` → density ≤ 0 identically), so it is not defect-diagnostic; magnitudes are box-divergent (linear in box size: instrument numbers, not converged physics) and **99.4% carried by the frozen `g_time = 8` background** |
+| The boost clock creates an interior loop-size minimum (R0 16 → 8 over ω² ∈ [1e-4, 5e-4]): "the clock selects the loop size" | **REFUTED as physics** (arithmetic reproduces exactly, interpretation does not): the ω² axis was mislabeled 4×; the window bottom is a box artifact (fails at ω² = 1e-4 on 128²/160² boxes); the R0-trend is >100% FAR-FIELD (the near-ring trend has the OPPOSITE sign); the channel is 102-105% as strong with the DEFECT REMOVED. The size-selection lived in the boundary texture + fixed-rc family + g_time background, not in the loop |
+
+**The audit's constructive lead (the real block-2 output):** the defect-attributed clock coupling `Q_def = Q_melt − Q_vac` is **POSITIVE** (+8.2e3 to +1.7e4, growing with R0): within the zero-time-mixing ansatz class, the defect core REDUCES boost negativity, so the uniform-rotation conjugation of undressed fields CANNOT be the stabilizer. This squares exactly with the M5.8 heritage: the GEM dip (boost dressing LOWERING the defect energy, E* 2.61 < 6.14) lives in states whose time row/col is genuinely DRESSED (time-mixing components in the state itself), a class this D1 ansatz excludes by construction. **The D2 rung is therefore specified, not guessed: extend the axisym instrument's field class to carry time-mixing DOF (the dressed-defect class) and re-pose the clock as stationarity there (the time-periodic action BVP proper), with boundary-matched families and vacuum-subtracted observables as the audit prescribes.**
+
+Audit record: independent second agent, own scripts + derivations (scratchpad `audit_A_algebra.py`, `audit_grid.py`), 6 refutation targets, 22 tool uses; verdicts and corrected numbers as tabulated (the § 10 pattern). Data: [`../data/m5_12_clock_q.json`](../data/m5_12_clock_q.json) + `m5_12_clock_q_dense.json` + `m5_12_clock_q_gates.json` (read all three WITH the normalization + audit notes above).
+
+## FINDINGS (2026-07-07, block 3: phase D2, the dressed-state class)
+
+### Banked ✅: the dressed-class instrument (audit-CONFIRMED)
+
+[`../scripts/m5_12_dressed.py`](../scripts/m5_12_dressed.py): the 4D static energy on time-mixing dressed fields (η-curvature at instrument normalization; `V_4D` p = 1..4 with covariant `m00 = −g`; closed-form boost dressing). Gates DG1-DG4 pass; the audit's independent implementation matches to 3e-13 and **exhibited a spurious p ≤ 3 vacuum** (spectrum {8.001, 0.916, 0.306, −0.223} with V(p≤3) = 9e-24 but p4-term = 4.0): the p = 4 invariant is a real necessity, now proven, and a finding Duda will care about (his "generalization to 4D is far nontrivial"). The p4 term shifts undressed statics by 39% (recalibration under `V_4D` deferred, labeled).
+
+### Measured ✅, audited: the ghost channel is g-POWERED (the block's mechanism discovery)
+
+| Claim (pre-audit) | Audit verdict |
+| --- | --- |
+| Boost dressing lowers defect E monotonically; defect-localized (controls 100-1000× smaller, `Q_R12(control) = 0` exactly) | CONFIRMED-WITH-CAVEATS: true at w_b = 8/16, but the channel is negative on the PURE VACUUM too (nonuniform boost of vacuum: dE = −20.7 at b0 = 2: E is unbounded below on the dressed class with NO defect), control suppression degrades to ~2× at w_b = 4 / b0 = 2, and **~99% of the channel rides the frozen g = 8 background** (at g = 1: gain −2413 → −21; mechanism: the g = 1 covariant vacuum satisfies `Λ η Λ = η` EXACTLY, so it is dressing-inert: the channel is powered by the g-vs-1 mismatch). Honest name: a **defect-AMPLIFIED g-background ghost channel** |
+| THE HEADLINE: R12-clock-balanced dressed-defect minima (hedgehog b0 ≈ 1.7, E −169.6 at J = 2000; loop b0 ≈ 0.45-0.6 at J = 50-1000; box-stable at n128; controls cannot spin) | **REFUTED as stated**: the minima reproduce exactly and are real WITHIN the rigid-rotor family at g = 8, but (i) at g = 1 and g = 0 they DO NOT EXIST (no Q zero crossing, no bracket, any J), (ii) w_b = 16 gives only shallow positive-energy minima (gone by J = 1000), (iii) the exact kinetic quadratic form has a NEGATIVE eigenvalue in EVERY cell (an explicit J-neutral velocity reaches T = −230k at J ≈ 0), so the fixed-J centrifugal wall confines nothing outside the rotor line. "Stationary points of the field equations" was an overclaim: a 1-parameter minimum inside an ansatz is not that |
+
+The rotor reduction itself is exact for R12 (dress-then-rotate == rotate-then-dress to 5.6e-17; `T = 4ω²Q_R12` to 6e-11; J is a genuine Noether charge), and ⚠️ ansatz-AMBIGUOUS for the axis-swing clock (orderings differ O(4): all `Q_axis_swing` columns carry that label).
+
+### The block-3 synthesis (what this buys the program)
+
+1. **Every cheap route is now measured-closed**: statics (block 1), the undressed uniform-rotation clock (block 2), the rigid-rotor dressed clock (block 3). Three reductions, three audited closures: the Track-C "reductions are ansatz-gated" lesson, now with a D1-D2 sequel. What remains is the genuine object: **the time-periodic 4D field BVP** (Duda's least-action framing, where per-cell ghost directions do not poison two-sided boundary-value stationarity). This matches his own difficulty assessment ("the most difficult is regularization... not seconds but weeks"; no reference implementation exists anywhere).
+2. **The g-mechanism is new knowledge**: the negative channel scales with the g-background mismatch (measured: −13.5 / −21 / −2413 at g = 0 / 1 / 8, and the g = 1 dressing-inertness identity), the defect amplifies it 100-1000× at moderate dressing widths: this is the model's gravity/mass sector showing its face in the statics ("boosts for gravitational mass"), and the physical g ~ 1e10 makes its treatment THE gating question for phase D proper (dynamic range + the ghost sector together).
+3. Artifacts: [`../scripts/m5_12_dressed.py`](../scripts/m5_12_dressed.py) · balance + controls scans (`../data/m5_12_dressed_*.json`, 5 files) · gates `m5_12_dressed_gates.json` · audit record (this section; auditor scripts in scratchpad, 21 tool uses, independent implementations incl. scipy-expm cross-check).
+
+## FINDINGS (2026-07-07, block 5: D3-pre + D3a)
+
+### D3-pre: the `V_4D` recalibration (✅ measured; the card the BVP compares against)
+
+[`../scripts/m5_12_d3pre.py`](../scripts/m5_12_d3pre.py) (gates P1 `dV_4D/dM` FD 5.7e-8, P2 uniaxial reduction 3.2e-14) + [`../data/m5_12_d3pre_lock.json`](../data/m5_12_d3pre_lock.json):
+
+| Grid | E_sim | r_half_phys | virial |
+| --- | --- | --- | --- |
+| 64×128 | 26.886 | 2.9203 fm | 1.016 |
+| 96×192 | 18.029 | 2.9689 fm | 1.006 |
+| 128×256 | 13.548 | 2.9907 fm | 1.003 |
+
+**The p=4 term moves the electron-size prediction TOWARD Faber**: Richardson from (96,128) gives `r_half ≈ 3.00 fm` vs Faber's 3.0754 (≈ −2.6%, from −4.6% under the 3D-spectral form and −4.8% under LdG): the 4D-consistent potential IMPROVES the cross-model agreement, and the prediction is now robust across THREE potential forms (LdG, 3D-spectral, `V_4D`). Honest caveat: the h-trend is less flat than the 3D chain (J_half 208.4 → 211.8 → 213.4, still rising): quote the Richardson with the spread, not a point value.
+
+### D3a: the BVP core, built + gated (✅ banked)
+
+[`../scripts/m5_12_d3a_bvp.py`](../scripts/m5_12_d3a_bvp.py): the Fourier-in-time action evaluator (`Ŝ` = the verified L's sign structure, reducing EXACTLY to the static energy at zero harmonics) + the full analytic residual (η-sandwich adjoints `dE/dA = 2·sym(η[C,B]_η η)` scattered through the gated channel patterns; `dV_4D/dM`; the Fourier/ω chain) + `dŜ/dω`. Gates: **BG1** residual == FD (field blocks 1.6e-9; ω 1.9e-5, FD-conditioning-limited), **BG2** static embedding identity (7.3e-12; harmonic residuals 1.8e-12 structurally zero), **BG3** the vacuum rotor is an EXACT solution end-to-end through the harmonic plumbing (2.5e-8 absolute = the `(ηM)⁴` fp floor at g = 8, ~1e-11 relative). Tolerances documented in-code. BG4 (rotor-consistency vs the audited D2b numbers) rides D3b with the rotor projection; BG5 (Noether drift) needs a converged solution.
+
+**Block-5 handoff**: the instrument for D3b is complete: recalibrated statics + a gated residual + `dŜ/dω`. D3b = Newton-Krylov on R (matrix-free JVP, GMRES, static-diagonal preconditioner) + the phase/amplitude constraints + continuation from the D2b seeds: the first nontrivial branch attempt (hedgehog first, then the loop).
+
+## FINDINGS (2026-07-07, block 6: D3b, the first Newton branch attempts)
+
+### The machinery (✅ banked)
+
+[`../scripts/m5_12_d3b_newton.py`](../scripts/m5_12_d3b_newton.py): damped Gauss-Newton on the gated D3a residual; bordered system (phase condition + first-harmonic amplitude selector, ω the paired unknown); matrix-free LSMR with EXACT rmatvec via the variational structure (`dR/dX` = the symmetric Hessian of `Ŝ`; `dR/dω` FD-cached per iteration; constraint gradients analytic); diagonal `D^{1/2}` column scaling (per-DOF sqrt cell weight); per-iteration cap-survival checkpoints; generator-parameterized rotor seeds.
+
+### The gauge catch (the block's load-bearing finding, caught pre-claim)
+
+Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a hard plateau at \|F\| ≈ 1072 (`lsmr istop=7`; the preconditioner fix did not move it). The residual-localization diagnostic: 99.7% of the seed residual in the M0 static block, 85% in the time-mixing rows, core-peaked: Newton fights the boost dressing's static imbalance. The deeper structure: **on an axisymmetric field the R12 clock is PURE GAUGE** (a global z-rotation equals a φ-shift of the equivariant field), so "the rotating static hedgehog" is an exact zero-cost symmetry orbit with first-harmonic norm ≈ the seed's, satisfying the amplitude constraint: the solver was crawling toward a PHYSICALLY TRIVIAL orbit that the endpoint classifier would have labeled converged-nontrivial. Consequences, folded into the design: (a) the clock generator must not be absorbed by the spatial symmetry (axis-swing R23/R13, boosts, or products); (b) any converged solution must pass a **symmetry-orbit test** (is it Λ-conjugate to a static solution?) before being called nontrivial; (c) retrospectively, the D2b "R12 balance" was doubly wrong (the audit's g-artifact verdict + the gauge nature). ⚠️ This also re-reads the M5.8 heritage: rigid ROTATIONS about the hedgehog axis were never the clock; the M5.8 breathing/boost modes and the axis-swing are the physical candidates.
+
+### Try 3 (the axis-swing clock, the first genuine attempt): ✅ measured, partial descent
+
+Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
+
+## FINDINGS (2026-07-10, block 19: E/F disposition + THE M5.12 CLOSE)
+
+### The close note
+
+The task's close deliverable is [`../findings/m5_12_close_note.md`](../findings/m5_12_close_note.md), built to the METHOD NOTE standard (equations first, equation-to-code map with blob/main permalinks, minimal inspection set, not-computed list, the full audit record embedded). It is an INTERNAL audit page: the group share stays HELD; nothing has crossed the repo boundary.
+
+### E/F disposition (designed, not runnable, disposed)
+
+| Phase | Pre-registered gate | Disposition |
+| --- | --- | --- |
+| E (masses) | `Δm²` honest pass/fail via mass/length density + knot-family spread; the 6.2 pm anchor; the `E = λ·L` gate | **NOT RUN**: no loop family exists to map. The M5.11 compression tension (splitting ratios 5.8-7.3× below the observed 33.6) remains the standing falsifier-candidate at its M5.11 evidence level, untested at the physical regime |
+| F (mixing on real loops) | the 4 PMNS parameters from solutions vs NuFIT 6.0; the N4c gap map | **NOT RUN**: every N4c gap required solutions; the [`m5_10e_findings_N4c.md`](m5_10e_findings_N4c.md) scorecard stands unweakened and unimproved as the honest state of the art. New F-adjacent asset: loop topology survives relaxation (b14), machinery ready if D reopens and converges |
+
+Both reopen together with phase D (conditions in the close sentence).
+
+### The task verdict vs the definition of done
+
+The definition of done offered two closes: a stable regularized loop at the physical regime, **or the honest physical-regime negative, "which, unlike the M5.11 placeholders, IS a verdict on the model"**. M5.12 delivered the second, in its strongest available form: measured (not budget-exhausted: the b18 decider), metric-adjudicated (b17), audited seven times with every headline that died dying BEFORE it shipped, distance-quantified conditionally (4.4-5.5× above the band, A1/A2 author-gated), and equipped with named reopening conditions. The clock/orbit sector of the model, in the probed class and at the probed budget, does not produce the free-period resonance Duda's framing requires; masses and mixing remain uncomputed at the physical regime, with the N4c scorecard as the honest baseline.
+
+### What M5.12 banked (the positive legacy)
+
+| Asset | Where |
+| --- | --- |
+| The exact `Shat = S0 − ω²Q2` instrument + balance root + `H_mean = 0` identity | `m5_12_d3a_bvp.py`, b13-audit-confirmed |
+| The ω-eliminated LM hard-amplitude solver + honest endpoint metrics | `m5_12_b12_hard.py` |
+| The Q2_mix sign theorem (time-mixing = the only negative channel) | b11 audit + `m5_12_b11_q2probe.py` |
+| The standing fixed-(size, a²) metric + the control frame | `m5_12_b17_control.py`, b17-adjudicated |
+| The measured conditional unit map (M5.8 ↔ BVP) | `m5_12_b16_unitmap.py` |
+| The loop-topology survival result | b14 endpoint addendum |
+| The g-powered ghost mechanism + the p = 4 requirement | blocks 2-3 audits |
+| Seven adversarial audits (b11, b13-b18) with verdicts + two bugs killed before shipping (the rmatvec adjoint, a pre-audit self-catch; the b18 Gram proxy, audit-caught) | `m5_12_audit_b1{3,4,5,6,7,8}.json` + the b11 record in FINDINGS block 11 (+ the two block-2/3 same-day audits) |
+
+## FINDINGS (2026-07-09, block 18: the optimizer-saturation decider + THE PHASE D CLOSE)
+
+### The decider (`m5_12_b18_decider.py` → `m5_12_b18_decider.json`)
+
+32-member basis (26 analytic + the 6 relaxed endpoint A1 shapes in-frame; the span contains every shape the task probed), pencil by exact-Shat polarization, generalized eigensolve, top-6 model directions exact-probed at full a² in the controlled frame (both wscales). Anchor exact (4.1e-7).
+
+| Result | Value |
+| --- | --- |
+| Exact-probed span optimum | 7.213 native / 6.148 rc-matched: no fresh direction reaches the relaxed floor (p1 5.44/5.11), and vs the floor-producing seed (7.591/5.384 in-frame, = the equal-background reference to 0.05%) the best candidate gains 5.0% native-only and REGRESSES 14.2% rc-matched |
+| ⚠️ The Gram bug (audit-caught) | the decider's `G = np.eye(n)` proxy ignored basis overlaps up to 0.997: the 3.28 → 7.21 model-exact gap was 12× Gram underweighting (+127.9%), not quartic nonlinearity (+5.8% genuine); the verdict SURVIVES because it rested on exact probes, and the audit's true-Gram re-solve probes WORSE (8.23/5.51); my "model fails at full amplitude" mechanism claim was wrong |
+| Projection through measured relax gains | at the median measured seed → relaxed gain (5 chains: native median 14.6%, rc-matched median 0.5%), the best candidate projects to ~6.2, above the floor; it undercuts only at the single best gain ever observed (p1's own 28.3%) |
+| Where relax gains live (audit-new) | p1's 28% relax gain is background (M0) deformation, not A1 shape: a bound on what ANY seed-level decider can see; under rc-matched wscale, seed in-frame ≈ relaxed in-frame (gains −3.3..+5.1%): seed values are decision-grade in that convention |
+
+### The audit verdicts (b18, `../data/m5_12_audit_b18.json`)
+
+| Claim | Verdict | Evidence |
+| --- | --- | --- |
+| D1 machinery | ⚠️ MIXED | exact layer CONFIRMED (eigensolve exact, τ-insensitive 1e-4..1e-10, Q pencil ≤ 2.6e-4, in-frame probes to all digits); the mechanism claim REFUTED (the Gram bug above) |
+| D2 rule | ✅ RULED | **seed-level shape search SATURATED-AT-THIS-BUDGET** (marginal); the reference ambiguity dissolved by measurement (equal-background ≡ floor-producing seed to 0.05%); the coded `False` flag overturned as not decision-grade (knife-edge, single-convention) |
+| D3 close | ✅ LICENSED | the sentence below |
+| D4 completeness | ✅ | 12-item supersede list banked in the JSON; blocks 11/13/14 structural findings (the Q2_mix sign theorem, the zero-mean-energy identity, the loop-topology positive) remain valid |
+
+### THE PHASE D CLOSE (the licensed sentence, quotable verbatim)
+
+> Phase D closes on a measured endpoint plus a bounded decider, not on a found orbit: no free-period orbit was found (every chain ends in an honest progress-rate stall, none at a stationary point, so the negative is unfound, not nonexistent). Under the standing fixed-(size, a2) metric (common n32 frame, common r_target, common first-harmonic a2 = 0.3037, one wscale, orderings quoted only across the frame battery) the controlled floor is p1 at 5.11-5.61 at the M5.8 size anchors, 4.4-5.5x above the band, A1/A2-conditional throughout with the potential-sector gap author-gated. The block-18 seed-level decider, audit-corrected for its Gram convention, found no fresh shape direction that beats the floor-producing seed in both wscale conventions (best candidate 5.0% better native-only, 14.2% worse rc-matched, projecting to ~6.2 at the median measured seed-to-relaxed gain, above the floor), so seed-level shape search within the probed basis is exhausted at this budget and the b17 'still descending' status is retired, with the standing caveat that relaxation dynamics have reordered seeds before and most of the measured relax gain lives in background adaptation that no seed-level metric can see. Phase D reopens on any of: a solver rung that converges at the floor (the stalls are non-stationary); the author sanctioning or refuting the A1/A2 unit-map assumptions; or any measured seed direction that beats the floor-producing seed in both conventions (equivalently, one that plausibly relaxes below p1's 5.44/5.11).
+
+**Supersede rule**: the 12-item list in `m5_12_audit_b18.json § supersede_list` is binding: no distance/floor/saturation number from blocks 12-17 is quotable except through this close (the structural findings stand: the Q2_mix sign theorem, the zero-mean-energy identity `H_mean = 0` at ω_bal, the loop-topology survival, the 1/L covariance, the standing metric itself).
+
+**What remains of phase D's positive legacy**: the audit-confirmed ω-eliminated hard-amplitude solver + LM; the exact Q2/ω_bal instrument; the standing fixed-(size, a²) metric + control frame; the measured (conditional) unit map; seven audited negative results that each killed a wrong story before it shipped.
+
+## FINDINGS (2026-07-09, block 17: the fixed-(size, a²) control + THE STANDING METRIC)
+
+### The control (`m5_12_b17_control.py` → `m5_12_b17_control.json`)
+
+Every stall endpoint (8: the bmix c2/g48 lineage, wd, f1, f2, p1, p2, lp) zoomed to a common object size on the common n32 frame (cubic resampling, cross-grid for g48), harmonics rescaled to the common a² = 0.3037, probed under one wscale; guards GC1 identity 5.8e-7, GC2 round trip 2.7e-3, GC3 c2-g48 in-frame within 4%. Rankings computed in 4 frames (r_target {4.77, 3.686} × wscale {native, rc-matched}); the audit added a ×0.5/×1/×2 amplitude-budget sweep (6 more orderings) and an independent zoom implementation.
+
+| Frame-stable result | Value |
+| --- | --- |
+| The controlled floor | **p1 (the b15-audit Rayleigh-optimum pancake), 5.11-5.61 in every frame**, every gap to it ≥ 16.8% = 9× the worst measured instrument error, floor in all 10 orderings |
+| The bmix c2/g48 lineage | LAST in every frame (9.6-22.0): the b16 product-metric floor identification was amplitude-density-confounded, exactly as the b16 audit's own prediction anticipated |
+| The wd/f1/f2 cluster | 6.5-8.0, internal order frame-dependent and UNRESOLVED (gaps inside the interpolation error): not quotable |
+| Controlled distance to the band | **4.4-5.5×** (p1 anchor-flat 5.10-5.89 across M5.8 size anchors 2.63-4.94; bracket now dominated by the wscale convention, not the M5.8 window; A1/A2-conditional throughout, the A2 potential-sector gap author-gated) |
+
+### The audit verdicts (b17, `../data/m5_12_audit_b17.json`)
+
+| Claim | Verdict | Decisive evidence |
+| --- | --- | --- |
+| A1 control correctness | ✅ CONFIRMED where load-bearing | independent zoom reproduces floor numbers to 0.5-1.5% (cross-grid 0.8%); p1 survives a 4-variant interpolation attack + rescale-convention attack; c2/g48 deep zoom soft (~14%) but last place robust (35-170% margins); guard lesson: round-trip at the deepest s used |
+| A2 THE METRIC | ✅ ADJUDICATED | **fixed-(size, a²) in-frame probing = the standing metric** for every cross-family M5.12 claim; raw ω_bal void cross-family; the product retained only as a within-lineage invariant; energy normalization ill-posed (zoomed M0 backgrounds differ 3.5×) |
+| A3 saturation | 🔶 STILL DESCENDING | controlled floors monotone through four family generations (bmix 9.6-21.2 → wd 6.9-7.9 → f 6.5-7.1 → p1 5.11-5.61); one strike max under the re-bound rule; **"saturated" is not a licensed word**; no licensed extrapolation (gains oscillate 4-63%); at the median ~20%/family the band is ~6-7 family-scale advances away, with gains increasingly optimizer-driven |
+| A4 distance | ✅ CONFIRMED + completed | full bracket 4.4-5.5×; the b16 window-driven 3.2-6.9× collapses under the standing metric |
+
+### The phase-D status (the audit's licensed sentence, quoted verbatim)
+
+> Phase D found no free-period orbit (every chain ends in an honest progress-rate stall, none at a stationary point); under the standing fixed-(size, a2) metric the family search is STILL DESCENDING, not saturated (controlled floor bmix -> wd -> f -> p1, one sub-5% step, p1 = 5.11-5.61 at the M5.8 sizes, 4.4-5.5x above the band, A1/A2-conditional), so a close here is a bounded-resource decision, not a measured endpoint.
+
+The block-17-open close condition ("if c2/g48 holds as the invariant floor, declare saturated") was NOT met: the control inverted it and the audit confirmed the inversion. Phase D therefore did NOT close this block; closing remains available as a resource call with the sentence above.
+
+### What block 17 changes
+
+| Before (block 16) | After (block 17) |
+| --- | --- |
+| metric seesaw (raw vs product), floor = c2/g48, "saturating, one control outstanding" | the metric question is SETTLED by adjudication (fixed-(size, a²) standing); the floor is p1; the search is still descending; the saturation strikes are void |
+| distance 3.3-4.9× (window-dominated bracket 3.2-6.9×) | **4.4-5.5×**, anchor-flat, wscale-convention-dominated, A1/A2-conditional |
+| Block-18 fork | (a) the optimizer-saturation decider (Rayleigh-optimize ω_bal directly in the controlled frame; optimum within ~5% of p1 = optimizer-saturated, then close on a measured endpoint); (b) close phase D NOW as a bounded-resource decision with the licensed sentence; (c) one solver rung on p1 before closing |
+
+## FINDINGS (2026-07-09, block 16: the pancake chains + the measured unit map + THE INVARIANT INVERSION)
+
+### The audit verdicts (b16, `../data/m5_12_audit_b16.json`)
+
+| Claim | Verdict | Decisive evidence |
+| --- | --- | --- |
+| C1 chains honest | ✅ CONFIRMED | endpoints exact, a² conserved < 2e-8, not stationary (audit Cauchy step descends 5.6-9.6%); \|F\| is float32-fragile at ~10%: quote tolerances |
+| C2 growth discrimination | ⚠️ MIXED, both sub-claims refuted | (i) p1 did NOT grow (r 5.370 → 5.371: 29.8% invariant gain at FIXED size); (ii) **f2 is not the invariant floor: the bmix c2/g48 lineage scores product 18.2, common-radius ω 3.83, vs f2's 25.8 / 5.40** |
+| C3 saturation rule | 🔶 ADJUDICATED: bind on the invariant | raw metric disqualified (c2 → g48: 33.8% raw gain at 0.2% invariant change = pure kinematics); mid-course amendment logged; under the invariant, blocks 15 AND 16 are strikes: **no family since block 12 advanced the invariant floor** |
+| C4 unit map | ⚠️ MIXED | arithmetic confirmed; honest bracket **3.2-6.9× above the band** (late-window inflation corrected; f2 4.7-6.9, c2 3.3-4.9); O1's 1.8-2.7× refuted in EVERY variant; the identity 6.1-6.5× not replaced; A2 partially unverified (potential sectors differ structurally, author-gated) |
+| C5 probe integrity | ✅ CONFIRMED | anchors + the opt seed reproduce < 4e-9; independent re-forge of r4z1 lands 8.0577 |
+
+### The measurements
+
+| Item | Result |
+| --- | --- |
+| (wr, wz) anisotropic probe grid | 16 points, both iso anchors exact; pancake direction confirmed (wr >> wz ≈ w_b); grid floor r4z1 8.058; the b15-audit Rayleigh-optimum seed assembles + probes at exactly 7.8955 |
+| Chain P1 (rayleigh_opt) | 7.8955 → **5.5440** raw (\|F\| ~170-195, H_swing/S0 1.984, 100% mix-pure); a genuine 29.8% invariant gain at fixed size, but landing at product 29.8, still above the c2/g48 floor 18.2 |
+| Chain P2 (pancake r4z1) | 8.0577 → 6.5717 (\|F\| ~182-196); invariant 55.2 → 44.1 |
+| The scale invariant | ω_bal × r_mean validated lineage-invariant to 0.2% (c2 18.26 vs g48 18.22); the honest ranking: **c2/g48 18.2 < f2 25.8 < p1 29.8 < wd 30.8 < f1 41.0 < p2 44.1** |
+| The O2 unit map (measured, assumptions A1 cell=cell + A2 c=1 declared) | M5.8 motion radius vs BVP endpoint radius: the invariant floor sits **3.3-4.9× above the band** (c2/g48), the full defensible bracket 3.2-6.9×; the M5.8 late window is delocalization-inflated (81% toward the box asymptote 5.07), so window choice dominates the spread |
+| ⚠️ Unresolved confound | ω_bal at fixed shape is strongly amplitude-sensitive (f2: 10.12 at 0.49× a² → 5.03 at 2.25× a²): a fixed-(size, a²) re-ranking is the one cheap control between "saturating" and "saturated" |
+
+### What block 16 changes
+
+| Before (block 15) | After (block 16) |
+| --- | --- |
+| "the relaxed floor dropped with every family, 6.99 still moving" | INVERTED in the honest metric: the invariant floor has been the bmix c2/g48 lineage (18.2) since block 12; every newer family made fixed-size progress but never beat it; the saturation rule (re-bound to the invariant, mid-course amendment) has struck twice retroactively |
+| distance-to-band = pick a convention (1.8-2.7× vs 5-8×) | MEASURED (conditional on A1/A2): 3.3-4.9× for the invariant floor, bracket 3.2-6.9×; the optimistic O1 reading is dead in every variant; A2's "same Lagrangian family" remains author-gated (potential sectors differ) |
+| Block-17 fork | (a) the fixed-(size, a²) control, then close phase D at the honest negative; (b) one solver rung on the TRUE floor states (c2/g48); (c) straight to the E/F wrap |
+
+## FINDINGS (2026-07-09, block 15: the shape-family floor map + the unit-map memo)
+
+### The audit verdicts (b15, `../data/m5_12_audit_b15.json`)
+
+| Claim | Verdict | Decisive evidence |
+| --- | --- | --- |
+| P1 seed-level family floor ~8.23, interior | ❌ REFUTED as a class floor (slice arithmetic confirmed) | generalized-Rayleigh minimization over a 72-direction basis (exact-Shat-verified at full amplitude, same matched a²/calibration): a z-flattened PANCAKE anisotropic mix reaches ω_bal 7.8955, 4.1% below 8.2348; the 23-point sweep was blind to z-anisotropy (every profile a function of r alone) |
+| P2 relaxed floors + ordering swap | ✅ CONFIRMED | f1 7.3755 / f2 6.9869 / wd 7.4546 reproduce exactly; H_mean identity 7e-17 to 4e-13; a² conserved; endpoints NOT stationary (the audit's independent damped GN step descends 1.22-3.45% and lands exactly on the published floors) |
+| P3 floor trend | ⚠️ WEAKENED | the relaxed floor dropped with EVERY family probed (8.64 → 7.455 → 7.376 → 6.987), gains not demonstrably saturating: **6.99 is a moving upper bound, not a floor** |
+| P4 sweep integrity | ✅ CONFIRMED | all 23 rows reproduce from the saved seeds to ≤7.5e-8 rel; all three block-14 anchors exact |
+
+### The sweep + chains (n32, matched a² = 0.3037, hedgehog-calibrated wscale)
+
+23 (profile, width) points across 7 families (`m5_12_b15_shapes.py` → `m5_12_b15_shapes.json`): within the isotropic slice the seed floor is 8.23 (rgauss κ=2; displaced shell 8.27) and every 1-D width scan turns back up past its optimum. Both floor seeds were relax-chained (rung 1, LM, stall rule):
+
+| Chain | Seed ω_bal | Relaxed ω_bal | \|F\| floor | H_swing/S0 |
+| --- | --- | --- | --- | --- |
+| f2_(shell_k1, displaced shell) | 8.268 | **6.987** | 189 | 1.992 |
+| f1_(rgauss_k2, r-weighted gauss) | 8.235 | 7.376 | 187 | 1.995 |
+
+The seed-root ordering SWAPPED under relaxation (seeds f1 < f2, relaxed f2 < f1): the seed-level map is not a reliable proxy for the relaxed floor. New audit findings beyond the claims: the floor is convention-relative (cell-weighted amplitude matching reorders the leaderboard); the harmonic-relabel hole (the same shape on the second harmonic halves ω_bal exactly and is invisible to `a2_free`: floor statements only mean anything inside the fixed first-harmonic ansatz, and physical frequency is k·ω so this is NOT a band route); nonlinearity lives in S0, not Q2 (quadratic-model floors must be exact-probed: ~4-20% shifts).
+
+### The unit-map memo (author-gated, decision pending)
+
+The "distance to band" comparison mixes two quantities: ω_bal (a large-amplitude balance root of an n32-scale object, ∝ 1/L, measured to 0.7%) and the M5.8 band 1.07-1.15 (the molten-clock breathing fundamental from `m5_8_2h_omega_attractor.py`: 24³-class constrained-f64 sandbox, breather r_mean ~ 5-7 lattice units, large amplitude H_dyn ≈ 2.7 H_static, ± one FFT bin 0.13). The block-6 "cross-code overlap" (n32 mode band 1.04-1.09 vs 1.07-1.15) cannot fix the map: small-amplitude modes are set by the vacuum gap (calibration-fixed, scale-free by the wscale protocol) while both ω_bal and the M5.8 breather are large-amplitude objects. The BVP's canonical object is the rc = 8 n96 hedgehog (seed-virial wscale); M5.8 has its own absolute anchor (ω = 5.5e19 rad/s) but no map into BVP units exists.
+
+| Option | Meaning | Cost |
+| --- | --- | --- |
+| O1 declare the n96 reading | the band lives at the n96 anchor object; stalls rescale ×32/96 → 1.9-2.9 → headline "1.8-2.7× above the band" | zero compute; an unmeasured convention |
+| O2 measure the map | exhume the M5.8 breather core size in its lattice units, map cores (M5.8 ↔ BVP hedgehog rc), derive the factor (⚠️ raw 2h npz deleted; regen = rerun `m5_8_2h_omega_attractor.py run 48000`, ~22 min, or read core size off retained JSONs) | ~1 block; the only audit-proof reading |
+| O3 defer | no outbound band comparison; ω_bal calibration-relative only (the standing block-14 wording) | zero; weakest science, airtight |
+
+Recommendation: O3 stays the outbound rule now; O2 as a bounded measurement if the phase-D close needs a distance number; O1 only ever as an explicitly-labeled convention.
+
+### The assembled honest statement (the audit's paragraph, quoted verbatim)
+
+> Block 15 mapped the omega_bal landscape of a 23-point isotropic (profile, width) slice of first-harmonic 0i-mixing seeds at n32 calibration and matched a2 = 0.3037: within that slice the seed floor is ~8.23 (rgauss k2, displaced shell close behind), the sweep arithmetic is exact, and two bounded relax chains produced new progress-rate stalls at omega_bal 7.376 and 6.987 (H_swing/S0 ~ 2, \|F\| ~ 187-194 on reprobe, not stationary points), swapping the seed ordering. The audit's generalized-Rayleigh minimization over a 72-direction basis shows the slice floor is not the class floor: a z-flattened anisotropic mix reaches omega_bal = 7.90 at seed level under the same convention (exact Shat probe at full amplitude), and the relaxed floor has dropped with every family probed so far, so 6.99 is an upper bound that is still moving, not a converged floor. The floor is also convention-relative: cell-weighted amplitude matching reorders the leaderboard, and moving the same shape to the second harmonic exactly halves omega_bal while being invisible to the a2_free convention. No comparison to any band reading is licensed at this calibration until the unit map is fixed; every negative here is an "unfound at this budget", not a nonexistence.
+
+### What block 15 changes
+
+| Before (block 14) | After (block 15) |
+| --- | --- |
+| the shape-family floor is unmapped; the audit's saturation read said ~9.2-9.5 | the isotropic slice is mapped (seed floor 8.23, exact); the RELAXED floor is 6.99 and still falling family-over-family; the class optimum is z-ANISOTROPIC (pancake, 7.90 at seed level, unchained) |
+| distance-to-band 1.8-2.7× vs 5-8× pending the unit map | unchanged; the memo now on the table with O1/O2/O3 and a recommendation |
+| Block-16 fork | (a) chain the audit's Rayleigh-optimum pancake seed (`m5_12_audit_b15_rayleigh_opt.npz`): the floor is still moving; (b) the unit-map decision (user call on O1/O2/O3); (c) close phase D at the honest negative and move to the E/F wrap |
+
+## FINDINGS (2026-07-09, block 14: option B, the class-negative hardening + the loop transplant)
+
+The user resolved the block-13 fork to OPTION B: harden the honest class-negative, then run the loop transplant. What ran: the seed forge + exact probes ([`../scripts/m5_12_b14_seeds.py`](../scripts/m5_12_b14_seeds.py): grid series, fixed-object series, 8-class battery at matched a²), three LM chains (n48 object `g48_`, n32 loop transplant `lp_`, n32 wide-shape `wd_`), and THE ADVERSARIAL AUDIT with an endpoint addendum (`m5_12_audit_b14_{probe,loop,stall,verdicts,endpoints}.py` + [`../data/m5_12_audit_b14.json`](../data/m5_12_audit_b14.json)).
+
+### The audit verdicts (14d, pre-endpoint + endpoint addendum)
+
+| Claim | Verdict | Basis |
+| --- | --- | --- |
+| N1 class-negative wording | ⚠️ WEAKENED | floors confirmed (1-2%, phase-row variants cannot break them) BUT the stalls are NOT stationary points (\|JᵀF\| ~ 3e8-6e8, independent GN steps still descend 0.7-2.2%) and sit BELOW the grid-transfer discretization scale (631-867): the 1e-5 bar cannot demonstrate nonexistence. Honest wording: "no orbit FOUND; chains enter a sub-1%-per-step regime at \|F\| ~ 101-522" |
+| N2 class coverage | ❌ REFUTED | my battery froze the RADIAL SHAPE: `wide_rz` (ω_bal 8.619) and `node_rz` (8.947) undercut the bmix control (11.031) ~20% at matched a²; the A1/B1 "degeneracy" is a provable time-translation identity (zero coverage content); higher-harmonic ω_bal not class-comparable (physical frequency = k·ω) |
+| N3 object-scale trend | ⚠️ WEAKENED | the falling ω_bal series (15.0 → 5.4) is 1/L CALIBRATION KINEMATICS (ω·nr ≈ 350 across the family; REVERSES at fixed wscale); true h-refinement (fixed object + box) is h-converged: order ~2.4, limit 10.80, n32 error 2.1% |
+| N4 loop transplant | 🔶 MIXED | loop-hood CONFIRMED (winding q = 0.5 measured, preserved through the FULL chain: endpoint ring intact, \|dM0\| = 0.006); S0 = 217.6 REFUTED as physics (background-only = 141 under the hedgehog-calibrated wscale) |
+| N5 "band reachable at larger scale" | ❌ UNSUPPORTED | matched-a² ω_bal saturates ~9.2-9.5; the fixed-ε law needs ~nr-300-equivalent objects at a² ~ 25, inside the regime where block 13 showed the balance root DIES |
+
+### The three chains (all honest stalls, H_swing/S0 ≈ 2, no solution anywhere)
+
+| Chain | Seed → relaxed ω_bal | \|F\| floor | Q2 (mix / pos) | Read |
+| --- | --- | --- | --- | --- |
+| g48_ (n48 object, bmix) | 7.26 → **5.720** | 101 | −0.933 (−0.916 / +0.004) | = the n32 root × 32/48 to 0.7%: pure 1/L scale covariance, NOT band approach |
+| wd_ (n32, wide shape) | 8.62 → **7.455** | 194 | −0.797 (−0.794 / +0.002) | UNDERCUTS the bmix relaxed band 8.64-8.83 at the same a²/grid: the shape kill survives relaxation |
+| lp_ (n32, loop transplant) | 15.19 → **10.19** | 522 | −0.935 (−0.933 / +0.000) | topology intact end-to-end, but the WORST performer at matched amplitude (S0 pins ~97 vs ~44): no loop-sector advantage |
+
+### The assembled class-negative (the audit's honest paragraph, quoted verbatim)
+
+> Across seven chains (the block-13 bmix lineage plus the closed g48_1, lp_1 and wd_1), no free-period orbit was FOUND in any (A, omega) rz-mixing class probed: every chain enters a sub-1%-per-step regime at a nonzero floor (\|F\| 101-522) that is not a stationary point of \|F\|², and the floors sit below the grid-transfer discretization scale, so failing the 1e-5 discrete-root bar is evidence of unfound, not nonexistent. The stall balance root is shape-dependent: the wide_rz profile relaxes to omega_bal 7.45 at the same amplitude and grid where the bmix profile stalls at 8.64-8.83, so the class-negative must be stated over the (profile, width) shape family, whose floor is unmapped, not over the single bmix profile. All quoted omega_bal values are calibration-relative: relaxed same-shape states obey omega_bal × L ~ const, so any distance-to-band statement requires the still-unresolved unit map fixing the object scale of the M5.8 band; at the n96 calibration scale the closed stalls rescale to 1.9-2.9, i.e. 1.8-2.7× the band, not 5-8×. The loop transplant preserved its topology through the full chain but performed worst at matched amplitude: the loop sector shows no advantage for reaching lower balance roots.
+
+### What block 14 changes
+
+| Item | Before | After |
+| --- | --- | --- |
+| The class-negative | "no orbit in the bmix class at n32, ω_bal 5.8-8.6 far above the band" | "no orbit FOUND in any rz-mixing shape probed; the shape-family floor is UNMAPPED (one shape variation already broke the stall band downward); ω_bal statements are calibration-relative" |
+| Distance to the M5.8 band | quoted as 5-8× | ⚠️ AUTHOR-GATED: depends on the unit map fixing which object scale the band lives at; at the n96 calibration scale the stalls sit 1.8-2.7× above the band |
+| The loop sector | untested (the original D3d target) | transplant RAN: topology survives relaxation cleanly (a genuine positive: the machinery handles loops), but no energetic advantage at matched amplitude |
+| Block-15 fork | | (i) map the (profile, width) shape family's ω_bal floor at fixed calibration (the audit's saturation read says ~9.2-9.5 at matched a², but the wide chain broke expectations once already); (ii) resolve the unit-map question (author-gated: which object scale does ω ~ 1.1 live at?) BEFORE any band claim; (iii) or close phase D at the honest negative and move to the E/F wrap |
+
+## FINDINGS (2026-07-08/09, block 13: the inner-solver rung + the ladder audit)
+
+### 13a: the probe verdict (✅ measured; the block's diagnostic)
+
+Four single-Newton-step probes on the x2 state at LSMR 200/500/1000/2000: **non-monotone in budget** (200 REJECT / 500 ACCEPT 205 → 168 / 1000 REJECT / 2000 REJECT; walls 732/1793/3538/6989 s). The exact Gauss-Newton step assembled from FD-noisy operators near a rank-deficient Jacobian is NOT a descent direction; truncated Krylov had been regularizing BY ACCIDENT. Fix: **explicit Levenberg-Marquardt damping** (damp = fraction × LSMR's ‖A‖ estimate; escalation (0, 1e-3, 1e-2, 1e-1); the winning fraction seeds the next iteration), wired into `m5_12_b12_hard.py` together with the audit-mandated honest metrics (H_swing/S0 replacing drift_rel; Q2 mix/pos channel split; absolute \|F\| alongside rel).
+
+### 13d: THE LADDER AUDIT (verdicts on the block-12 claims, `m5_12_audit_b13.json`)
+
+| Claim | Verdict | The decisive number |
+| --- | --- | --- |
+| L4 the ω-elimination solver | **CONFIRMED exact** | c_ω 8e-10..7e-11 at all six endpoints; rank-one Jacobian O(ε²); adjoints clean |
+| L1 the 1/a law | **REFUTED as a law** | fresh independent seed at r4's a² relaxes to a BETTER floor at **ω_bal 8.83 vs the chain's 15.51**; rescaling null test passed (relaxation is load-bearing); S0 → 44.5 seed-independently |
+| L2 Q2 saturation | mechanism REFUTED | mixing exponent 1.00 exact (never saturates); the bend attributed to η-positive growth; the x4-stall counter-hypothesis SUPPORTED |
+| L3 more solvable | WEAKENED | rel floors half denominator-inflation; absolute floors reverse after r8 |
+| L5 H-drift | **REFUTED** | at ω_bal, `H_mean = S0 + ω²Q2 = 0` BY CONSTRUCTION (1e-14-verified): drift_rel was noise-normalized; honest H_swing ≈ 2×S0 everywhere |
+
+The zero-mean-energy identity is a genuine structural insight banked from the refutation: **the free-period balance point is exactly the point where the ghost channel cancels the static energy on period average.**
+
+### 13b/13c: the deep LM endpoints (✅ measured; the block's data product)
+
+| Run (lineage) | a² | \|F\| floor (abs) | ω_bal | Q2 (mix / pos) | H_swing/S0 |
+| --- | --- | --- | --- | --- | --- |
+| c2 (independent fresh seed) | 0.304 | 216 | 8.638 | −0.596 (−0.586 / +0.003) | 1.98 |
+| c1 (x2 state) | 1.215 | **139** | 6.575 | −1.015 (−0.928 / +0.065) | 1.99 |
+| s (x4 state) | 2.430 | 207 | 5.807 | −1.322 (−1.133 / +0.035) | 2.71 |
+
+| Reading | Status |
+| --- | --- |
+| LM breaks the truncation walls: the x2 state's floor 205 → 139 (32% deeper than anything in block 12); c2 reproduces the audit's independent relax (8.64 vs their 8.83), so the fresh basin is solver-independent; the old ladder's early rungs are superseded (under-relaxed lineage artifacts) | ✅ measured |
+| 13c discrimination: Q2 never settled (−1.128 → −1.322 over 12 steps, past its rung-open value): **the sharp ×32 bend was substantially SOLVER STALL**; the residual sub-quadraticity is mild and smooth (per-doubling Q2 ratio ≈ 1.30 consistently at deep endpoints vs 2.0 pure) | ✅ measured |
+| The η-positive contamination at DEEP endpoints is small and non-monotone (pos/\|mix\| 0.005/0.070/0.031 vs the old chain's 0.38): itself partly a stall artifact | ✅ measured |
+| ω_bal at deep endpoints declines only ~12%/doubling (0.87-0.88): reaching the M5.8 band ω ~ 1.1 would need ~18 more doublings at this trend: the free-period orbit at reachable amplitude remains UNFOUND; but per the audit's own L1 lesson these are STILL stall points (rel 0.02-0.68, H_swing ~ 2-2.7 S0): the trend is not yet a physics claim | honest label |
+| No convergence to 1e-5 anywhere: LM regularizes but does not resolve the stiff subspace: the next escalation is a true preconditioner / trust-region second-order method, OR the honest negative ("no free-period orbit in this class at n32") pending grid/class robustness | the block-14 fork |
+
+Artifacts: probes `m5_12_b13_probe_{200,500,1000,2000}.log` + `p*_1` ladder JSONs/states; deep runs `m5_12_b13_{c1,c2,x4settle}.log` + `ladder_{c1_,c2_,s_}.json` + endpoint/ck states; chain-2 seed `m5_12_d3b_breather_n32_c2seed_state.npz`; audit `m5_12_audit_b13*.{py,json}`.
+
+## FINDINGS (2026-07-08, block 12: the ω-eliminated hard-amplitude ladder)
+
+### The solver that ends the receding-root chase (✅ built + gated)
+
+[`m5_12_b12_hard.py`](../scripts/m5_12_b12_hard.py): on the audit-verified structure `Ŝ = S0 − ω²Q2` the free-period condition is solved in CLOSED FORM, `ω_bal(X) = sqrt(S0/(−Q2))`, so the solver drives `R(X, ω_bal(X)) = 0` in X alone: every iterate satisfies the free-period condition exactly (no ω to chase); the amplitude is held HARD by retraction (constraint elimination, no penalty row to leak: the block-11 lesson). Jacobian = fixed-ω symmetric Hessian + the rank-one `(dR/dω) ⊗ dω_bal/dX`, all pieces analytic or two-residual-cached (`dR/dω = −2ω(R(X,0) − R(X,1))`). Gates ALL PASS (`m5_12_b12_gates.json`): HG2 = the closed-form root satisfies the instrument's own `c_ω` to rel 8.2e-14; HG3 retraction 4.4e-16; HG4 row-match 0.0; ω_bal(warmstart) = 39.4043 reproduces the block-11 probe exactly.
+
+### The six-rung amplitude ladder (✅ measured; `m5_12_b12_hard_ladder.json` + `_x.json`)
+
+Warm-start chain from the mixfix endpoint, amplitude doubling per rung, endpoint values:
+
+| a² | 0.076 | 0.152 | 0.304 | 0.607 | 1.215 | 2.430 |
+| --- | --- | --- | --- | --- | --- | --- |
+| floor rel | 0.741 | 0.320 | 0.130 | 0.046 | 0.025 | 0.060 |
+| ω_bal | 32.80 | 22.70 | 15.51 | 10.40 | 7.33 | 6.35 |
+| Q2 | −0.041 | −0.086 | −0.184 | −0.409 | −0.821 | −1.128 |
+| H-drift | 3.9e11 | 3.6e10 | 3.3e9 | 3.0e8 | 4.2e7 | 1.6e7 |
+
+| Reading | Status |
+| --- | --- |
+| **Larger amplitude = MORE solvable**: floor rel improves 0.74 → 0.025 across four doublings; H-drift improves ~10× PER RUNG for five consecutive rungs; each rung opens with one huge full-Newton step (up to 97%) then hits a line-search wall (LSMR-200 clears the easy subspace, stalls on the stiff directions) | ✅ measured: the "genuine breathers are large-amplitude" prediction realized as solver behavior |
+| **The scaling law**: ω_bal per doubling falls at ratio 0.69/0.68/0.67/0.71 (pure 1/a: Q2 ∝ a² with S0 pinned ≈ 45; every retraction's S0 shock relaxes away) then **0.87 on the last doubling**: the bend arrives via **Q2 SATURATION** (a²-ratio 1.37 instead of ~2), NOT S0 growth | ✅ measured through ×16; the ×32 bend is real data from the least-converged rung (rel 0.060) |
+| ⚠️ The extrapolated reading: if Q2 saturates near −1.2, ω_bal floors at ≈ 6, and the M5.8 molten-clock band (1.07-1.15) is UNREACHABLE in this seed class | HYPOTHESIS: audit-gated; the alternative (LSMR stall before Q2 re-deepens: the ×32 rung got only 2 real steps) is live; block-13 fork |
+| No rung converged (best rel 2.5e-2 vs the 1e-5 bar); all verdicts `stalled_or_partial`; no free-period-orbit candidate claimed | honest scorecard: the stiff directions at ω² ~ 40-1000 need the stronger inner solver (still the standing need) |
+
+Artifacts: per-rung endpoint states `m5_12_b12_hard_{r1,r2,r4,r8,x2,x4}_state.npz` + per-iteration checkpoints `*_state_ck.npz` + progress JSONs + logs `m5_12_b12_hard_ladder{,_x}.log`.
+
+## FINDINGS (2026-07-08, block 11: THE ADVERSARIAL AUDIT + the corrected arms)
+
+### 11d: the audit demolishes the rotor headline (C1 REFUTED; the block's load-bearing event)
+
+Independent agent, own implementations (`m5_12_audit_b11_lib.py`, gates: its Ŝ == the claimant functional 0.0; the claimant residual == FD of ITS Ŝ 5.7e-8). Verdicts (`m5_12_audit_b11.json`):
+
+| Claim | Verdict | The evidence |
+| --- | --- | --- |
+| C1 ω\* ≈ 0.657 grid-converged branch frequency | **REFUTED** | The exact structure `Ŝ = S0 − ω²Q2`, `R = R_sp + ω²R_t` makes the LS-optimal ω closed-form: `w\*² = −⟨R_sp,R_t⟩/\|R_t\|²`; it reproduces the saved ω\* to 7e-7 (n64), selected 99.9% by the unconverged core cells. The "three grids" = ONE warm-start chain; ω\*(nr) diff ratio 22.5 vs h²-predicted 2.86; H-drift 220% grid-INDEPENDENT; no run below rel 2.9e-3 |
+| C2 load-bearing non-gauge rotation | WEAKENED | Non-gauge CONFIRMED (R12 isometry 9.5e-16; generator-fit residual 0.999); but the state satisfies the rigid-rotor algebra ([W23,M0] = 0 to 0.11%, B1 = [W23,A1] to 0.8%): the audited-refuted D1 uniform-rotation ansatz in Fourier clothes; staticR 851 = the same unconverged residual measured twice (cosine 0.936) |
+| C3 plateau = h² core error | WEAKENED | Core concentration real (84/90/94% inside 2rc); ratios 2.11/1.51 vs h² 2.25/1.78; no plateau established (still falling 1.1-1.6%/iter at every stop) |
+| C4 breather obstruction | WEAKENED-SHARPENED | The 0.3% pin is an algebraic identity (gap = 2ω²Q2/\|Ŝ\| for ANY near-static state); the REAL theorem: `Q2_mix = 0` exactly and Q2 ≥ 0 for mixing-free harmonics at ANY amplitude → that class contains NO free-period orbit; the route requires η-negative TIME-MIXING (Q2 < 0) |
+
+T1 (the g=8 disease): does NOT recur in the block-3 form (pure-vacuum rotor Q2 = 1e-28; g=1 repose keeps Q2 > 0); the actual pathology was **the driven boundary**: the pinned shell carried rotating harmonics (max \|A1\| = 0.5): ω\* was the forced-response frequency of a boundary-driven problem.
+
+### The corrected rotor arm (11a'): honest stall, verdict-grade at this budget
+
+Driver fixed (zero harmonic BCs on pinned cells, always on). The zero-BC n32 run: 5494 → 1311 (steps 1-4 at ~30%/step) then 3 consecutive sub-1% crawl steps at λ = 1/32: stopped per the pre-registered criterion at rel 0.239. **With the boundary honest, the fixed-ω rotor problem does not approach a solution at n32 under LSMR 500 × 8 steps**; the next rung is a better inner solver (direct/multigrid), not more budget. History: `m5_12_d3b_axisswing_n32_zbc_progress.json`.
+
+### The corrected breather arm (11b): Q2 < 0 measured, and the receding-root mechanism
+
+The block's constructive discovery chain: (1) **the Q2-sign probe** (`m5_12_b11_q2probe.py`): the time-mixing (0i boost) seed class carries **Q2 < 0** (−0.473/−1.773/−5.211 at ε 0.15/0.30/0.60; mixing-free control positive: the audit's theorem confirmed constructively): the free-period equation `c_ω = −ωQ2 − S0/ω = 0` has a real root, ω_bal = sqrt(S0/\|Q2\|) ≈ 11.7 at seed. (2) The solve AT the root (mixfix, 12 full steps, \|F\| 1.05e4 → 52, rel 4.95e-3): the field converges but the soft amplitude row leaks (\|h1\| 0.412 → 0.276) and the endpoint readout (`m5_12_b11_q2state.json`; probe c_ω(ω) = −3.5146 == solver −3.515 exactly) shows **Q2 = −0.0287 (sign held, 16× shallower), ω_bal = 39.4**: (3) **THE MECHANISM: \|Q2\| ∝ a² makes ω_bal ~ 1/a: under any penalty method Gauss-Newton drains amplitude and the balance root recedes faster than ω chases it.** The free-period branch, if it exists, must be cornered by HARD amplitude continuation (constraint elimination). Both arms therefore converge on the same conclusion: block 12 is a solver-design rung (hard constraints + better linear solves), not a physics rung.
+
+### Tooling banked (block 11)
+
+`--ascale`/`--tagx`/`--bmix` driver flags; zero harmonic BCs; per-iteration field-state checkpointing (`*_state_ck.npz`); the w_amp adjoint bug fixed (`rmatvec` carried `gamp` unscaled: A vs Aᵀ disagreed on the amplitude row; found because w_amp 0.3 → 2.0 changed the trajectory by NOTHING, to 3 decimals); gauntlet BG7 salvage fix (catch `ArpackNoConvergence`, keep partials, k = 4, maxiter 12000).
+
+## FINDINGS (2026-07-08, block 10: the rotor gauntlet + the breather arm)
+
+### 10a: the rotor candidate hardens across a THIRD grid (✅ measured)
+
+n64 warm-started hop (6 steps, ~97 min): **ω\* = 0.6446 / 0.6564 / 0.6569 across n32/48/64** (Richardson ≈ 0.657-0.658: the branch frequency is converged-with-resolution); the **h² line extends to three grids** (M0-residual RMS/cell 19.94 / 9.11 / 5.82; the n64 point 14% above pure h², consistent with its shallower 6-step convergence); core share 0.925. State: `m5_12_d3b_axisswing_n64_state.npz`.
+
+Gauntlet on the n48 candidate (`m5_12_gauntlet.py`; BG7 eigensolve still running at block close):
+
+| Check | Result | Reading |
+| --- | --- | --- |
+| ROT nontriviality | rigidity 0.132 (genuine non-rigid co-rotating structure); static residual of the co-rotating mean = **851** | **The rotation is load-bearing**: nothing like a trivially-rotating static solution ✅ |
+| BG5 Noether | H drift 220% over the period at \|F\| = 718 | Honest: the candidate is a converging APPROXIMATION, not yet a dynamical solution; conservation demands the deep-convergence rung (more Newton at n64 + the h² extrapolation) |
+| BG7 index | 🔶 eigensolve in flight | lands async |
+
+### 10b: the breather obstruction, measured to 0.3% (✅ the block's quantitative gem)
+
+The amplitude-harmonic seed (ε = 0.15, no rotation, ω₀ = 1.1) converges its FIELD nearly three decades (\|F\| 6858 → 10.2, rel 1.5e-3) at the held small amplitude, with ω drifting 1.09 → 1.04, but `c_ω` pins at −37.8 while `−Ŝ/ω = −39.25/1.041 = −37.7`: **the obstruction identity `c_ω = −Ŝ/ω` satisfied to 0.3%**. The measured statement: a small-amplitude free-period orbit CANNOT exist because free periodicity requires the action balance `Ŝ = ω·dŜ/dω`, and `dŜ/dω` scales with amplitude²: **genuine breathers are necessarily LARGE-amplitude objects**, exactly the regime M5.8's molten clock lived in (H_dyn ≈ 2.7× H_static). Cross-code validation: the mode band 1.04-1.09 overlaps M5.8's independently-measured ω₁ attractor (1.07-1.15). Next rung: the amplitude-continuation ladder (raise the a\* target stepwise, follow `c_ω` toward the balance point). Endpoint: `m5_12_d3b_breather_n32.json` + state.
+
+## FINDINGS (2026-07-07/08, block 9: the ω-eigenvalue rung, and what it found instead)
+
+Three goal-loop tries on the ω-stationarity row (all warm-started from the block-8 n48 endpoint, w_om flag added to the driver):
+
+| Try | What | Outcome |
+| --- | --- | --- |
+| 1 | `dŜ/dω = 0` row at w_om = 1e-4 | the row at 0.5% system weight steers nothing (flat over 2 steps) |
+| 2 | same at w_om = 2e-2 (parity) | ω takes real steps but `dSdw` stalls at −3.6e4: working the stall caught **a formulation error of mine (pre-audit)**: the free-period condition on the per-period average is `dŜ/dω = Ŝ/ω` (from `S = −(2π/ω)Ŝ`), NOT `dŜ/dω = 0` |
+| 3 | the CORRECTED row `c_ω = dŜ/dω − Ŝ/ω` | `c_ω` is INVARIANT at ≈ −3.62e4 across steps (−3.645, −3.626, −3.622: asymptote) with ω pinned at 0.656 and the amplitude held: **no free-period stationary point exists near this state** |
+
+**THE FINDING: the axis-swing rotating state carries an irreducible conjugate momentum.** `c_ω ≈ −3.6e4` invariant across the constrained manifold means `dS/dω ≠ 0` structurally: by the classical relation this is a large J-like charge, so the state belongs to the **ROTOR CLASS** (the correct stationarity concept: fixed-J / fixed-ω field equations: exactly what the block-7/8 fixed-ω solves converge toward, now understood as the right formulation rather than a stopgap), while genuine **free-period orbits are the BREATHER class** (amplitude oscillation without net internal rotation: the M5.8 breathing heritage), requiring a different seed family. The M5.8 arc's own structure (the breather as THE object; rotations as costs) re-emerges from the BVP independently.
+
+**Block-10 spec:** (a) declare the fixed-ω n48 axis-swing state the ROTOR-CLASS candidate and run the full claim gauntlet on it (n64 hop for the h² line, BG5 Noether drift, BG7 index, symmetry-orbit test, ADVERSARIAL AUDIT: the candidate concept is now sharp enough to audit); (b) the breather-seeded free-period attempt (Ṁ-amplitude first-harmonic seed on the undressed/dressed hedgehog, n32 scaffolding) as the parallel arm; (c) the loop transplant of whichever class survives.
+
+## FINDINGS (2026-07-07, block 8: the warm-started resolution continuation)
+
+Driver upgrades: `--warmstart` (order-1 zoom of a saved state to the target grid: the seed convention scales the object with nr, so grid-to-grid is pure zoom) + grid-tagged filenames (the block-7 collision fixed). Run: n48×96, Nt = 1, LSMR 150, warm-started from the n32 endpoint; 10 Newton steps (~87 min).
+
+| Readout | Result | Status |
+| --- | --- | --- |
+| Warm-start transfer | the zoomed state re-contracts 1.85 decades in ONE step (1.02e5 → 1441) with ω unmoved: continuation works | ✅ measured |
+| **The plateau is h² core discretization error** | M0-residual RMS/cell 19.94 (n32) → 9.11 (n48): factor 2.19 at a 1.5× grid vs the h² prediction 2.25; core share 0.80 → 0.87 (tighter), boundary share halved | ✅ measured: the block-7 diagnosis CONFIRMED quantitatively |
+| **ω* is grid-stable** | 0.6446 (n32) → 0.6564 (n48): +1.8% across a 1.5× resolution jump (and try-3's independent n48 run settled at 0.634-0.640 from a different seed/solver config) | ✅ measured: the branch-frequency candidate behaves like a physical quantity |
+| ω-stationarity | `dŜ/dω` −24.7k → −37.1k: NOT approaching zero: the bordered amplitude-constrained formulation converges the FIELD but moves ω only ~1e-3/step: the branch point proper needs the ω-equation driven explicitly | ⚠️ the block-9 refinement target |
+| Endpoint | \|F\| 718 (rel 7.0e-3), Ŝ = −426.0, state persisted (`m5_12_d3b_axisswing_n48_state.npz`) | banked |
+
+**Block-9 spec (from these numbers):** (a) add the explicit ω-Newton row (solve the bordered system with the `dŜ/dω = 0` equation replacing or augmenting the amplitude constraint: the frequency must become a solved-for eigenvalue, not a slow drift); (b) one more hop (n64) to extend the h²-scaling line and Richardson the plateau away; (c) then BG5/BG7 + the symmetry-orbit test + the adversarial audit on whatever converges: the candidate is close enough that the claim-gauntlet needs to be ready.
+
+## FINDINGS (2026-07-07, block 7: D3b-v2, the direct-formulation push)
+
+### The design correction (banked into [`m5_12_d3_bvp_design.md`](m5_12_d3_bvp_design.md) § 2)
+
+The co-rotating-frame option is INCOMPATIBLE with the equivariant reduction for the physical clock: only R12 (pure gauge, the block-6 catch) and boosts (hyperbolic → non-periodic: no boost clock can be a rigid periodic conjugation) commute with the equivariance. The axis-swing clock is a genuine texture motion WITHIN the equivariant class (block 6's try 3 was legitimate), and the DIRECT Fourier formulation + inner-solve strength is the working route. A real scoping finding: periodic clocks are compact (rotations); the boost sector enters through dressing, not through the clock generator.
+
+### D3b-v2 (axis-swing, n32, Nt = 1, LSMR 250, ω₀ = 0.64): 2.5 decades, plateau ANATOMIZED
+
+| Metric | Value |
+| --- | --- |
+| Descent | \|F\| 2.94e5 → 965 (rel 3.3e-3, 2.5 decades; try 3 managed 0.27 decades): the 4× inner budget + Nt=1 converted the crawl into genuine contraction (1.6 + 0.7 decades in steps 1-2), then the same crawl-plateau |
+| ω | stabilizes at **0.644 ± 0.003 over the last 8 steps**: a robust branch-frequency candidate (try 3 independently settled at 0.634-0.640 at n48) |
+| Endpoint | Ŝ = +351.5; state PERSISTED (`m5_12_d3b_axisswing_state.npz`): warm-start ready |
+| The plateau dissected (on the saved state) | **80% of the M0-residual density within r < 3 of the origin** (the core: resolved by only ~2.7 cells at n32); harmonic residuals 75-87% TIME-MIXING rows (the F_0i sector at the core); 11% boundary shell; `dŜ/dω = −2.5e4` (ω-stationarity NOT reached: the branch point is beyond the plateau) |
+
+**Reading**: the formulation works (steady full-step descent, frequency self-selection, no divergence/collapse/gauge-trap); the blocker is CORE RESOLUTION on the scaffolding grid, not the solver or the physics. Next rung (block 8): warm-started continuation to n48/n64 (the state file makes this cheap to seed), core-resolution scaling of the plateau, and, if the core stress persists at resolution, the lattice-pinned `aI` core (Duda's Q14 prescription) as the BVP core REGULARIZER: the prescription's proper home may be exactly here, closing the circle with D0.
+
+⚠️ Deviations: (a) the co-rotating plan was replaced pre-build by the design correction above (the reason is the finding); (b) tag collision: v2 overwrote try-3's endpoint JSON (`m5_12_d3b_axisswing.json`); try-3's numbers survive in block-6 findings + its log; fix = grid-tagged filenames next run.
+
+## FINDINGS (2026-07-07, block 4: the D3 design)
+
+Design-only block (user decision, option a). Deliverable: **[`m5_12_d3_bvp_design.md`](m5_12_d3_bvp_design.md)**: the time-periodic 4D BVP formulation (action + conventions with the audit-corrected normalization explicit), Fourier-spectral-in-time discretization with the rotating-frame option, Newton-Krylov saddle-finding (critical points, not minima: the ghost sector obstructs descent, not stationarity), 7 pre-registered gates (BG1-BG7 incl. the exact vacuum-rotor solution and the D2b-consistency gate), the g-continuation route (adopted) for the g-treatment, the `V_4D` recalibration flagged as D3-pre REQUIRED, the run-block ladder D3a-D3d (residual+gates → hedgehog branch → g-ladder → the loop branch = the neutrino attempt), and the honest outcome statement (a converged branch = the first particle-candidate solution; a measured non-existence = a verdict-grade negative with real falsification weight). ⚠️ Ops deviation logged: the resume-ping pool collided with the concurrent M7.8 session (its armed slot got relabeled by this session's re-arm; resolved per the pool protocol: slot restored to M7.8, M5.12 moved to the second slot, both verified): propose a flow-doc hardening line at review ("re-list and verify the slot's MESSAGE matches your task before arming; never single-field-update a slot whose message is not yours").
+
+### Artifacts (block 1)
+
+| Artifact | Content |
+| --- | --- |
+| [`../scripts/m5_12_core_pin.py`](../scripts/m5_12_core_pin.py) | D0 driver (aI cores, golden-a coordinate descent, frozen M5.17/18 protocols) |
+| [`../scripts/m5_12_loop.py`](../scripts/m5_12_loop.py) | the rotated-vortex-loop seeder (equivariant (ρ,z), both winding classes) + verdict classifier |
+| [`../scripts/m5_12_sigma.py`](../scripts/m5_12_sigma.py) | σ-term (density + analytic adjoints, gate SG1) + pilot + extend/control discriminator |
+| [`../scripts/m5_12_plot.py`](../scripts/m5_12_plot.py) → [`../plots/m5_12_d0_loop.png`](../plots/m5_12_d0_loop.png) | the 3-panel block figure |
+| `../data/m5_12_d0_hedgehog.json` · `m5_12_d0_pair_anti.json` · `m5_12_loop_scan_melt.json` (+ 6 singles) · `m5_12_sigma_pilot_R12_q0p5.json` · `m5_12_sigma_gate.json` | results |
+| `../data/m5_12_d0_hedgehog_state.npz` (0.9 MB) | the decoded final state (structure diagnostic source) |
+
 ## Cross-links
 
 - Predecessor (closed): [`m5_11_task_details.md`](m5_11_task_details.md) · frozen findings [`m5_11b_findings.md`](m5_11b_findings.md) · resume-state archive [`../findings/SESSION_STATE.md`](../findings/SESSION_STATE.md)

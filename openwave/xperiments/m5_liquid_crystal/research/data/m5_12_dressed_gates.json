@@ -1,0 +1,11 @@
+{
+ "DG1_curv_rel": 0.0,
+ "DG1_pot_decomp_rel": 7.496670016775752e-14,
+ "DG1_p4_term_share": 0.3883128305703378,
+ "DG2_boosted_vacuum_V": 4.890672764288422e-18,
+ "DG2_uniform_boost_isometry_rel": 3.1622860509025563e-13,
+ "DG3_lam_closed_form": 1.3322676295501878e-15,
+ "DG4_max_time_mixing": 9.269045764541708,
+ "DG4_eta_vs_plain_rel": 1.2640774905946295,
+ "all_pass": true
+}

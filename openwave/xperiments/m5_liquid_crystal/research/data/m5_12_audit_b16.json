@@ -1,0 +1,440 @@
+{
+ "task": "M5.12 block 16",
+ "role": "INDEPENDENT ADVERSARIAL AUDIT (block 16): chains p1/p2, growth discrimination, saturation rule, O2 unit map, probe integrity",
+ "date": "2026-07-09",
+ "scripts": [
+  "m5_12_audit_b16_endpoints.py",
+  "m5_12_audit_b16_rmean.py",
+  "m5_12_audit_b16_unitmap_attack.py",
+  "m5_12_audit_b16_verdicts.py"
+ ],
+ "instrument_note": "shat/residual (m5_12_d3a_bvp) as the meter (block-11-audit verified); r_mean variants, channel split, a2, J^T F, Cauchy step, zoom tests and the M5.8 box asymptote are audit-owned.",
+ "controls": {
+  "seed_r_amp2": {
+   "p1_seed": 5.370410720588241,
+   "p2_seed": 6.848299782721457,
+   "f2_seed": 3.7346290941253266,
+   "c2_seed": 2.1002875944747266
+  },
+  "omega_bal_amplitude_sensitivity": {
+   "f2": {
+    "a2_x0.49": 10.116800002916785,
+    "a2_x1.00": 6.986874611104042,
+    "a2_x2.25": 5.029869033721083,
+    "a2_x5.11": 5.278558940101795
+   },
+   "c2": {
+    "a2_x0.49": 12.553031508868388,
+    "a2_x1.00": 8.63773833929815,
+    "a2_x2.25": 6.471020281129632,
+    "a2_x5.11": 7.643519443365412
+   }
+  }
+ },
+ "claims": {
+  "C1_chains": {
+   "verdict": "CONFIRMED",
+   "statement": "Both endpoints reproduce exactly from the state files: p1 omega_bal 5.5440 (pub 5.5440), p2 6.5717 (pub 6.5717); a2 conserved to <2e-8 rel; H_mean/H_swing ~ 1e-15/1e-13 (zero by construction verified); p1 mix share 1.0000, p2 0.9980; H_swing/S0 1.984/1.992 honest. |F| recomputed from the float32 states is 194.7/196.4 vs published 169.7/182.0 (8-15% high): consistent with the measured landscape stiffness (|J^T F|/|F| ~ 1.3e7, a float32 truncation moves |F| by ~10%), same class as the block-14 audit's 1-2% at lower stiffness. NOT stationary points, independently verified: |J^T F| = 2.6e9 (p1) / 2.0e9 (p2), and the audit's own Cauchy step descends 9.6% (p1) / 5.6% (p2) in |F| from the reloaded states. 'Honest progress-rate stalls' is the correct wording.",
+   "evidence": {
+    "p1": {
+     "omega_bal": 5.543982544306042,
+     "S0": 44.22200435227237,
+     "Q2": -1.438781068066028,
+     "Q2_mix": -1.438782748070551,
+     "Q2_pos": 1.317567921432783e-07,
+     "Q2_cross": 1.5482477309092246e-06,
+     "a2_free": 0.30372465416736044,
+     "F_norm": 194.66674309807644,
+     "H_mean": -1.6342482922482304e-13,
+     "H_swing": 87.73234367652243,
+     "H_swing_over_S0": 1.9839069929451143,
+     "JtF_norm": 2554948593.569413,
+     "JtF_over_F": 13124730.772745226,
+     "mix_share": 1.0000011676582077
+    },
+    "p2": {
+     "omega_bal": 6.571742058008641,
+     "S0": 44.255602079865675,
+     "Q2": -1.0247247731813331,
+     "Q2_mix": -1.0226595737330015,
+     "Q2_pos": 0.0008053357894013402,
+     "Q2_cross": -0.002870535237732952,
+     "a2_free": 0.3037246436269162,
+     "F_norm": 196.39734356140227,
+     "H_mean": -7.352340958277637e-12,
+     "H_swing": 88.1386445917376,
+     "H_swing_over_S0": 1.9915816405045985,
+     "JtF_norm": 2009211399.0154567,
+     "JtF_over_F": 10230338.978018258,
+     "mix_share": 0.9979846301149526
+    },
+    "p1_cauchy": [
+     {
+      "t": 1.0569101485905827e-15,
+      "F_norm": 176.05687589395075
+     },
+     {
+      "t": 4.227640594362331e-15,
+      "F_norm": 305.1089704991702
+     },
+     {
+      "t": 1.6910562377449323e-14,
+      "F_norm": 1258.319065041698
+     }
+    ],
+    "p2_cauchy": [
+     {
+      "t": 1.0402393054489678e-15,
+      "F_norm": 185.3985996068657
+     },
+     {
+      "t": 4.160957221795871e-15,
+      "F_norm": 268.64189068792416
+     },
+     {
+      "t": 1.6643828887183485e-14,
+      "F_norm": 989.5737053487377
+     }
+    ]
+   }
+  },
+  "C2_growth_discrimination": {
+   "verdict": "MIXED (arithmetic + f2-first ranking CONFIRMED and robust to radius observable; the GROWTH mechanism wording REFUTED; the f2-floor identification REFUTED by the block's own excluded endpoints; the ranking is amplitude-confounded at measured ranking-breaking size)",
+   "statement": "CONFIRMED: r_amp2 reproduces exactly (p1 5.371, f2 3.686), the size-corrected ranking at 4.77 reproduces to the digit (f2 5.400 < p1 6.242 < wd 6.454 < f1 8.585 < p2 9.248), products 25.76/29.78; the order is unchanged under r_rms and r_50, and f2 stays first under all four radius observables (under linear-amplitude weight p1 drops to 4th: its diffuse halo). The product invariant is validated: c2-vs-g48 lineage products agree to 0.2% (18.26 vs 18.22) and audit zoom tests (n32->n24/n48, f2 and p1) hold it to 4-6%. REFUTED (mechanism): the p1 object did NOT grow during relaxation; the seed already had r_amp2 5.370 and the endpoint has 5.371. The chain improved omega_bal 29.8% AT FIXED SIZE (invariant product 42.4 -> 29.8, genuine within-size progress); p1's raw advantage over f2 is inherited seed size, not relaxation growth. REFUTED (floor identification): applying the block's own size correction to the excluded comparable endpoints puts c2 at 3.83 and g48 at 3.82 at r = 4.77, far below f2's 5.400; same a2_star, same solver, comparable stall quality (F_rel 0.019 vs 0.014). f2 is not the invariant floor of the program's endpoint set. CAVEAT (cuts both ways): the common-radius construction is amplitude-uncontrolled; the implied a2 at r = 4.77 spans 0.24 (p1) to 1.55 (c2), and the directly measured amplitude sensitivity at fixed shape (f2: omega_bal 10.12 at 0.49x a2, 6.99 at 1x, 5.03 at 2.25x) exceeds the ranking margins; an amplitude-matched estimate moves p1 to or below f2. No cross-family invariant ranking is settled until a fixed-(size, a2) control is run.",
+   "evidence": {
+    "endpoint_radii": {
+     "f2": 3.686407846888624,
+     "f1": 5.551894298459711,
+     "wd": 4.12947114427054,
+     "p1": 5.37099557428683,
+     "p2": 6.712633813716393,
+     "c2": 2.1143067925543564,
+     "g48": 3.1850154804737296
+    },
+    "rankings": {
+     "r_amp2": [
+      {
+       "tag": "f2",
+       "omega_at_4p77": 5.399675401499702
+      },
+      {
+       "tag": "p1",
+       "omega_at_4p77": 6.242482526427961
+      },
+      {
+       "tag": "wd",
+       "omega_at_4p77": 6.453546733446241
+      },
+      {
+       "tag": "f1",
+       "omega_at_4p77": 8.584527900401937
+      },
+      {
+       "tag": "p2",
+       "omega_at_4p77": 9.248141374484304
+      }
+     ],
+     "r_amp1": [
+      {
+       "tag": "f2",
+       "omega_at_4p77": 6.549121226818529
+      },
+      {
+       "tag": "wd",
+       "omega_at_4p77": 9.261383305465866
+      },
+      {
+       "tag": "f1",
+       "omega_at_4p77": 10.808497127397516
+      },
+      {
+       "tag": "p1",
+       "omega_at_4p77": 12.341247900189455
+      },
+      {
+       "tag": "p2",
+       "omega_at_4p77": 13.208465656659753
+      }
+     ],
+     "r_rms": [
+      {
+       "tag": "f2",
+       "omega_at_4p77": 5.6669335113583275
+      },
+      {
+       "tag": "p1",
+       "omega_at_4p77": 6.828244501730227
+      },
+      {
+       "tag": "wd",
+       "omega_at_4p77": 7.038556840171737
+      },
+      {
+       "tag": "f1",
+       "omega_at_4p77": 9.045358177096194
+      },
+      {
+       "tag": "p2",
+       "omega_at_4p77": 10.381371547451163
+      }
+     ],
+     "r_50": [
+      {
+       "tag": "f2",
+       "omega_at_4p77": 5.178682407359238
+      },
+      {
+       "tag": "p1",
+       "omega_at_4p77": 5.513073720956038
+      },
+      {
+       "tag": "wd",
+       "omega_at_4p77": 5.95097361537536
+      },
+      {
+       "tag": "f1",
+       "omega_at_4p77": 8.53935654433858
+      },
+      {
+       "tag": "p2",
+       "omega_at_4p77": 8.981646722482674
+      }
+     ]
+    },
+    "lineage": {
+     "c2_product": 18.26282251540314,
+     "g48_product": 18.21947889413307,
+     "rel_dev": 0.002373325439346262,
+     "omega_ratio": 0.6622538783212681,
+     "r_ratio": 1.506411222671152,
+     "expected_omega_ratio_1_over_L": 0.6666666666666666
+    },
+    "zoom": [
+     {
+      "tag": "f2",
+      "nr_from": 32,
+      "nr_to": 24,
+      "omega_bal": 9.573997441861756,
+      "r_amp2": 2.8375750880466692,
+      "product": 27.16693663404946,
+      "product_rel_dev": 0.0547623945733238,
+      "omega_ratio": 1.3702842206141421,
+      "expected_1_over_L": 1.3333333333333333
+     },
+     {
+      "tag": "f2",
+      "nr_from": 32,
+      "nr_to": 48,
+      "omega_bal": 4.868503623658148,
+      "r_amp2": 5.514952455313533,
+      "product": 26.849566012996334,
+      "product_rel_dev": 0.04244040918577514,
+      "omega_ratio": 0.6968075491990362,
+      "expected_1_over_L": 0.6666666666666666
+     },
+     {
+      "tag": "p1",
+      "nr_from": 32,
+      "nr_to": 24,
+      "omega_bal": 7.604541463625404,
+      "r_amp2": 4.132735300221483,
+      "product": 31.427556948722646,
+      "product_rel_dev": 0.05544330072570251,
+      "omega_ratio": 1.3716778078684666,
+      "expected_1_over_L": 1.3333333333333333
+     },
+     {
+      "tag": "p1",
+      "nr_from": 32,
+      "nr_to": 48,
+      "omega_bal": 3.891451053657942,
+      "r_amp2": 8.008328777406456,
+      "product": 31.164019458877572,
+      "product_rel_dev": 0.04659282346458799,
+      "omega_ratio": 0.7019249058264979,
+      "expected_1_over_L": 0.6666666666666666
+     }
+    ],
+    "seed_radii": {
+     "p1_seed": 5.370410720588241,
+     "p2_seed": 6.848299782721457,
+     "f2_seed": 3.7346290941253266,
+     "c2_seed": 2.1002875944747266
+    },
+    "c2_g48_at_4p77": {
+     "c2": 3.828683965493321,
+     "g48": 3.8195972524387987
+    },
+    "amplitude_sensitivity": {
+     "f2": {
+      "a2_x0.49": 10.116800002916785,
+      "a2_x1.00": 6.986874611104042,
+      "a2_x2.25": 5.029869033721083,
+      "a2_x5.11": 5.278558940101795
+     },
+     "c2": {
+      "a2_x0.49": 12.553031508868388,
+      "a2_x1.00": 8.63773833929815,
+      "a2_x2.25": 6.471020281129632,
+      "a2_x5.11": 7.643519443365412
+     }
+    }
+   }
+  },
+  "C3_saturation_rule": {
+   "verdict": "ADJUDICATED: the rule binds on the INVARIANT metric; block 16 is a no-gain strike; applied consistently the invariant floor has not advanced since block 12",
+   "statement": "Raw omega_bal is disqualified as the rule's metric by measurement: the same-lineage pair c2 -> g48 shows a 33.8% raw 'gain' at 0.2% invariant-product change (pure kinematics), and the pancake seeds bake size into the family (the p2 seed is a 4x-wide gaussian), so a raw-metric rule is gameable by seeding ever-larger objects. Binding the pre-registered rule on the invariant metric is therefore the only defensible reading, and it must be logged as a mid-course amendment (the rule was pre-registered on raw). Under it: the pancake family's best invariant number (p1 29.78) does not beat the standing f2 25.76, so block 16 is a strike. Consistency then also forces the c2/g48 endpoints into the comparison, where the invariant floor is 18.2 (bmix, block 12) and NO family since (wd 30.8, f1 41.0, f2 25.8, p1 29.8, p2 44.1) has advanced it: the rule fired retroactively at block 15, not 'strike 1' now. One control is owed before declaring hard saturation: the invariant is amplitude-confounded (see C2), so an amplitude-matched re-ranking (fixed size AND fixed a2) is the next gate.",
+   "headline_sentence": "Block 16 headline: in the size-invariant metric the pancake family did not advance the floor (strike, and retroactively no invariant-floor advance since the block-12 bmix lineage: the raw 'floor still falling' narrative was rescaling kinematics); hard 'saturated' awaits one amplitude-matched control."
+  },
+  "C4_unit_map": {
+   "verdict": "MIXED (arithmetic CONFIRMED; O1 1.8-2.7x stays unfound in every variant; 'replaces the identity reading 6.1-6.5x' WEAKENED: it survives window honesty; floor identification moves the number)",
+   "statement": "(a) Observable mismatch: measured NEGLIGIBLE on the M0 side. The BVP time-average of ||M(t)-M_ref||^2 equals dc2 + amp2/2 with dc2 = ||M0_end - M0_seed||^2 carrying < 0.5% of the weight: r_dep 3.685 vs r_amp2 3.686 (f2). The M5.8 core exclusion (r <= 2 RC = 1.6) raises the matched-mask BVP radius ~4% (f2 3.686 -> 3.840), pushing the factor slightly UP; the claimed factor is conservative on this axis. (b) Window drift: the strong attack. M5.8 r_mean(dep) drifts 3.47 -> 4.77 over t 4-48 while the uniform-weight asymptote of the wide mask is 5.07: the late-window value sits 81% of the way to full delocalization, so it measures the heating background as much as the breather; earlier windows are equally defensible and give (f2 floor) up to 6.9x. Honest motion-window spans: f2 4.7-6.9x, c2 3.3-4.9x. The claimed 4.5-5.2x is the late-window low edge. 'Replaces the identity reading (6.1-6.5x)' does not survive: 6.1-6.5 lies inside the f2-floor honest span. 'Refutes the O1 1.8-2.7x' survives: the global minimum over every probed variant (floor x window x static anchors x masks) is 3.2x, no overlap. (c) Static anchors do not change the verdict class (seed 2.628 gives 8.5-9.2x, settled 4.941 gives 4.5-4.9x; all 'several x above band'). (d) A1/A2 from source reading: the unitmap docstring mislabels M5.8 r_mean as 'lattice cells'; it is in x-units (box [-6,6]^3, h = 0.522). Harmless arithmetically because the factor is a ratio of dimensionless omega*r products, which needs only A2 (c = 1 in each code's own units), and c = 1 IS verified in the curvature sector of both codes (M5.8 2c1: T and U carry equal coefficients 2/2; BVP d3a: 4/4). BUT the potential sectors differ structurally: M5.8 2h evolves with +beta u^2 (beta = 1.558) and no V_4D, the BVP carries wscale*V_4D (0.034) and no beta u^2, so 'same 4D Lagrangian family' is NOT established; the band frequency is partly set by restoring terms the two codes do not share. The size of that correction is not decidable from source reading; every factor above is conditional on it. Provenance nit: the docstring's 'kicked 4.61/4.64' are R2-seed values; kicked late-window is 4.69/4.74 (numerically immaterial).",
+   "evidence": {
+    "bvp_weight_variants": [
+     {
+      "tag": "f2",
+      "omega_bal": 6.986869802507705,
+      "r_amp2": 3.686407846888624,
+      "r_dep_timeavg": 3.6853389831127403,
+      "r_dc_only": 3.2738780539260492,
+      "r_amp2_coremask_1p6": 3.840183141435423,
+      "r_amp2_coremask_3p07": 4.371612130123136,
+      "dc2_share_of_dep": 0.0025909977754793967
+     },
+     {
+      "tag": "p1",
+      "omega_bal": 5.543970617591723,
+      "r_amp2": 5.37099557428683,
+      "r_dep_timeavg": 5.370910772380444,
+      "r_dc_only": 3.9316527277616977,
+      "r_amp2_coremask_1p6": 5.376976259918297,
+      "r_amp2_coremask_3p07": 5.571305240930439,
+      "dc2_share_of_dep": 5.8917099974826186e-05
+     },
+     {
+      "tag": "c2",
+      "omega_bal": 8.63773534650536,
+      "r_amp2": 2.1143067925543564,
+      "r_dep_timeavg": 2.1119239893868906,
+      "r_dc_only": 1.5739276760624958,
+      "r_amp2_coremask_1p6": 2.775952536313185,
+      "r_amp2_coremask_3p07": 3.808327022755096,
+      "dc2_share_of_dep": 0.004409502689397772
+     }
+    ],
+    "m58_box": {
+     "h_x_units": 0.5217391304347823,
+     "uniform_r_mean_wide_mask": 5.071690366797929,
+     "note": "M5.8 r_mean lives in x-units (box [-6,6]^3, h = 0.522), NOT lattice cells as the unitmap docstring says; the factor is a ratio of dimensionless omega*r products so the mislabel does not move the number IF c = 1 holds in each code's own units (A2)"
+    },
+    "factor_spans": {
+     "f2_motion_windows": [
+      4.7,
+      6.94
+     ],
+     "c2_motion_windows": [
+      3.33,
+      4.92
+     ],
+     "global_min_all_variants": 3.21,
+     "claimed": [
+      4.53,
+      5.22
+     ]
+    }
+   }
+  },
+  "C5_probe_integrity": {
+   "verdict": "CONFIRMED",
+   "statement": "Anchors reproduce from the saved seed npz to < 3e-9 rel (iso (1,1) 11.0306, (2,2) 8.6194); the assembled rayleigh_opt seed probes 7.8955 under the standing matched-a2 convention (3.5e-9 rel from the published 7.8955); a2_star recomputed 0.303724649 from the c2seed reference; an audit-owned re-forge of the p2 seed (r4z1, own formula) lands on 8.0577 to 4 digits. The 16-point grid is internally consistent.",
+   "evidence": {
+    "seed_checks": [
+     {
+      "family": "aniso_gauss",
+      "kr": 1.0,
+      "kz": 1.0,
+      "pub": {
+       "S0": 69.19010492300666,
+       "Q2": -0.5686530400216583,
+       "omega_bal": 11.03057906681226,
+       "a2": 0.3037246494775249
+      },
+      "rec": {
+       "S0": 69.19010461728652,
+       "Q2": -0.568653040147467,
+       "omega_bal": 11.030579041222461,
+       "a2": 0.30372464961439777
+      },
+      "w_rel_dev": 2.3198962238945458e-09
+     },
+     {
+      "family": "aniso_gauss",
+      "kr": 2.0,
+      "kz": 2.0,
+      "pub": {
+       "S0": 64.29378353306292,
+       "Q2": -0.8654055861210139,
+       "omega_bal": 8.619352551807134,
+       "a2": 0.30372464947752503
+      },
+      "rec": {
+       "S0": 64.29378354583224,
+       "Q2": -0.8654055840029002,
+       "omega_bal": 8.619352563211175,
+       "a2": 0.3037246478130574
+      },
+      "w_rel_dev": 1.3230738979695235e-09
+     },
+     {
+      "family": "aniso_gauss",
+      "kr": 4.0,
+      "kz": 1.0,
+      "pub": {
+       "S0": 69.17457664895983,
+       "Q2": -1.0654174929619842,
+       "omega_bal": 8.057741735568465,
+       "a2": 0.3037246494775251
+      },
+      "rec": {
+       "S0": 69.17457666248542,
+       "Q2": -1.0654174908152925,
+       "omega_bal": 8.057741744473926,
+       "a2": 0.30372464723358017
+      },
+      "w_rel_dev": 1.1052055960050384e-09
+     },
+     {
+      "family": "rayleigh_opt",
+      "kr": null,
+      "kz": null,
+      "pub": {
+       "S0": 89.5512263927979,
+       "Q2": -1.4365219079161875,
+       "omega_bal": 7.895500076610115,
+       "a2": 0.303724649477525
+      },
+      "rec": {
+       "S0": 89.55122733384086,
+       "Q2": -1.4365219331899652,
+       "omega_bal": 7.895500048639131,
+       "a2": 0.3037246528539668
+      },
+      "w_rel_dev": 3.542648784750708e-09
+     }
+    ],
+    "reforge": {
+     "kr": 4.0,
+     "kz": 1.0,
+     "omega_bal": 8.057741735568465,
+     "pub": 8.057741735568465,
+     "rel_dev": 1.1352810353747918e-05
+    }
+   }
+  }
+ },
+ "honest_paragraph": "Block 16 established, calibration-relative (n32, matched a2 = 0.3037, hedgehog-calibrated wscale): a 16-point anisotropic probe grid whose numbers reproduce exactly; two honest progress-rate stalls (p1 5.5440, p2 6.5717) that are demonstrably not stationary points; and the correct insight that raw omega_bal comparisons across families are size-dominated (the product omega_bal * r_mean is invariant to 0.2% within a lineage). What it got wrong: p1's radius was inherited from the Rayleigh seed, not grown in relaxation (the chain improved the invariant 29.8% at fixed size), and f2 is not the invariant floor once the block's own c2/g48 endpoints are scored by the same rule (they sit at 18.2 vs f2's 25.8, meaning no family since block 12 has advanced the invariant floor); the ranking additionally carries an unresolved amplitude confound of ranking-breaking size. The O2 unit map, WITH its A1/A2 conditionality (c = 1 verified in the shared curvature sector, but the potential sectors differ: beta u^2 vs wscale V_4D, so 'same Lagrangian family' is unconfirmed), gives a floor 3.2-6.9x above the M5.8 band across defensible floor/window choices: the block-14 n96-anchor reading (1.8-2.7x) stays unfound in every variant, but the claimed 4.5-5.2x is the late-window low edge of that bracket, and the identity reading (6.1-6.5x) is inside it, not replaced. No free-period orbit has been found; none has been shown nonexistent.",
+ "saturation_adjudication": {
+  "ruling": "Raw omega_bal is disqualified as the rule's metric by measurement: the same-lineage pair c2 -> g48 shows a 33.8% raw 'gain' at 0.2% invariant-product change (pure kinematics), and the pancake seeds bake size into the family (the p2 seed is a 4x-wide gaussian), so a raw-metric rule is gameable by seeding ever-larger objects. Binding the pre-registered rule on the invariant metric is therefore the only defensible reading, and it must be logged as a mid-course amendment (the rule was pre-registered on raw). Under it: the pancake family's best invariant number (p1 29.78) does not beat the standing f2 25.76, so block 16 is a strike. Consistency then also forces the c2/g48 endpoints into the comparison, where the invariant floor is 18.2 (bmix, block 12) and NO family since (wd 30.8, f1 41.0, f2 25.8, p1 29.8, p2 44.1) has advanced it: the rule fired retroactively at block 15, not 'strike 1' now. One control is owed before declaring hard saturation: the invariant is amplitude-confounded (see C2), so an amplitude-matched re-ranking (fixed size AND fixed a2) is the next gate.",
+  "block_headline": "Block 16 headline: in the size-invariant metric the pancake family did not advance the floor (strike, and retroactively no invariant-floor advance since the block-12 bmix lineage: the raw 'floor still falling' narrative was rescaling kinematics); hard 'saturated' awaits one amplitude-matched control."
+ }
+}

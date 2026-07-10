@@ -15,8 +15,8 @@
 | Author | Paul J. Werbos (NSF, retired) |
 | Collaboration | AI co-authorship disclosed on the papers: DeepSeek + Claude (Sonnet 4.6, Code Opus 4.7); OpenWave contributed the neutral-chaoiton BVP profile + scaling symmetry |
 | Lineage | Schwinger 1969 dyons + Maxwell extension (toroidal-poloidal mutual confinement); shares the Schwinger ancestor with M5 |
-| Primary sources | [`research/0d_canonical.md`](research/0d_canonical.md); Werbos Zenodo 20030162 (chaoitons), 20296060 (Lean Hopf proof), 20350105 (DM paper v2) |
-| In-repo | `research/` + `theory/` + `research/sandbox_v8..v11` scripts (sandbox-only; no Taichi production port) |
+| Primary sources | [`research/archive/0d_canonical.md`](research/archive/0d_canonical.md); Werbos Zenodo 20030162 (chaoitons), 20296060 (Lean Hopf proof), 20350105 (DM paper v2) |
+| In-repo | `research/` + `theory/` + `research/archive/sandbox_v8..v11` scripts (sandbox-only; no Taichi production port) |
 
 ## Model Profile (what it brings, short form)
 
@@ -41,10 +41,10 @@ cross-model version may return to `MODELS.md` later.)
 
 | Attribute | M6 |
 | --- | --- |
-| Free parameters | 3 claimed (g, λ, ω); the neutral sector's exact scaling symmetry closes the (g, λ) plane, making m_J parameter-free (in-platform result)<br>[`research/0c_sandbox_v11.md`](research/0c_sandbox_v11.md) |
-| Formal artifacts | Author's Lean 4 proof artifacts (linking number, mountain-pass existence, power counting) + our independent numerical reproduction of the canonical profile and benchmark<br>[`research/0d_canonical.md`](research/0d_canonical.md) |
-| Falsifiable near-term tests | Author's roadmap: NEGF vertex check, sub-MeV searches, six-peak Gaia-stream annual modulation of the J-field flux<br>[`research/0e_dm_paper_review.md`](research/0e_dm_paper_review.md) |
-| Direct-detection compatibility (DM) | Dipole-suppressed chaoiton-proton cross section claimed compatible with direct-detection bounds (the monopole coupling vanishes by angular-momentum orthogonality; the numerical chain is still being reconciled on the author's side)<br>[`research/0e_dm_paper_review.md`](research/0e_dm_paper_review.md), [`research/sandbox_v11/dm_paper_supplement/`](research/sandbox_v11/dm_paper_supplement/) |
+| Free parameters | 3 claimed (g, λ, ω); the neutral sector's exact scaling symmetry closes the (g, λ) plane, making m_J parameter-free (in-platform result)<br>[`research/archive/0c_sandbox_v11.md`](research/archive/0c_sandbox_v11.md) |
+| Formal artifacts | Author's Lean 4 proof artifacts (linking number, mountain-pass existence, power counting) + our independent numerical reproduction of the canonical profile and benchmark<br>[`research/archive/0d_canonical.md`](research/archive/0d_canonical.md) |
+| Falsifiable near-term tests | Author's roadmap: NEGF vertex check, sub-MeV searches, six-peak Gaia-stream annual modulation of the J-field flux<br>[`research/archive/0e_dm_paper_review.md`](research/archive/0e_dm_paper_review.md) |
+| Direct-detection compatibility (DM) | Dipole-suppressed chaoiton-proton cross section claimed compatible with direct-detection bounds (the monopole coupling vanishes by angular-momentum orthogonality; the numerical chain is still being reconciled on the author's side)<br>[`research/archive/0e_dm_paper_review.md`](research/archive/0e_dm_paper_review.md), [`research/archive/sandbox_v11/dm_paper_supplement/`](research/archive/sandbox_v11/dm_paper_supplement/) |
 
 ## Field Configuration of Particles
 
@@ -82,10 +82,10 @@ uses OpenWave's numbers verbatim and is M6's credibility anchor.
 | Lepton spectrum | ⚠️ μ / τ fit at chosen harmonics; no ω-selection mechanism |
 | Magnetic moment · spin · quarks · gravity · weak | 🚧 not addressed / paper-level |
 
-Deep dives: [`research/0d_canonical.md`](research/0d_canonical.md) (canonical numerical
-spec), [`research/0b_M6_roadmap.md`](research/0b_M6_roadmap.md),
-[`research/0b_question_tracker.md`](research/0b_question_tracker.md),
-[`research/0e_dm_paper_review.md`](research/0e_dm_paper_review.md).
+Deep dives: [`research/archive/0d_canonical.md`](research/archive/0d_canonical.md) (canonical numerical
+spec), [`research/archive/0b_M6_roadmap.md`](research/archive/0b_M6_roadmap.md),
+[`research/archive/0b_question_tracker.md`](research/archive/0b_question_tracker.md),
+[`research/archive/0e_dm_paper_review.md`](research/archive/0e_dm_paper_review.md).
 
 ## Roadmap
 
@@ -109,7 +109,7 @@ M6 is on hold but fully reproducible from the canonical spec. Contributions welc
 | --- | --- |
 | A full-3D validation | the biggest open gap: run the chaoiton on a lattice (M7's program) |
 | A discrete-ω mechanism | find what selects the lepton ω values |
-| An independent re-derivation | reproduce `H/Q` or the DM inputs from [`research/0d_canonical.md`](research/0d_canonical.md) |
+| An independent re-derivation | reproduce `H/Q` or the DM inputs from [`research/archive/0d_canonical.md`](research/archive/0d_canonical.md) |
 | A falsifier test | the Gaia-stream modulation or a sub-MeV direct-detection comparison |
 
 Flow: open an issue or discussion → fork → branch → PR with a DCO sign-off

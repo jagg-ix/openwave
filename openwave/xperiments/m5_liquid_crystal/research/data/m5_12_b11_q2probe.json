@@ -1,0 +1,50 @@
+{
+  "task": "M5.12 block 11",
+  "script": "m5_12_b11_q2probe.py",
+  "nr": 32,
+  "identity": "Shat = S0 - omega^2 Q2 (audit-verified)",
+  "probes": [
+    {
+      "class": "bmix_0i_boost",
+      "eps": 0.15,
+      "S0": 64.67005004989954,
+      "Q2": -0.47259323088088934,
+      "Q2_negative": true
+    },
+    {
+      "class": "bmix_0i_boost",
+      "eps": 0.3,
+      "S0": 183.24236360831964,
+      "Q2": -1.7728545247958891,
+      "Q2_negative": true
+    },
+    {
+      "class": "bmix_0i_boost",
+      "eps": 0.6,
+      "S0": 1805.4496316644559,
+      "Q2": -5.211123719541547,
+      "Q2_negative": true
+    },
+    {
+      "class": "mixfree_spatial",
+      "eps": 0.15,
+      "S0": 50.781376963102915,
+      "Q2": 0.08644707569555976,
+      "Q2_negative": false
+    },
+    {
+      "class": "mixfree_spatial",
+      "eps": 0.3,
+      "S0": 50.97057873802107,
+      "Q2": 0.3465068937261364,
+      "Q2_negative": false
+    },
+    {
+      "class": "mixfree_spatial",
+      "eps": 0.6,
+      "S0": 51.742043050805435,
+      "Q2": 1.3975250300068183,
+      "Q2_negative": false
+    }
+  ]
+}
