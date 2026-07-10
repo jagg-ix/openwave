@@ -122,3 +122,6 @@ The independent b19 wrap audit re-traced every quantitative claim in this note a
 | Final task review | ✅ approved 2026-07-10; documented in [`tasks/m5_12_task_details.md § TASK REVIEW (2026-07-10, final)`](../tasks/m5_12_task_details.md) |
 | Roadmap | ✅ the M5.12 row moved to the END of the [`m5_roadmap.md`](../m5_roadmap.md) DONE list, dated 2026-07-10 |
 | Question tracker | ✅ milestone entry prepended to [`m5_question_tracker.md § Last updated`](../m5_question_tracker.md); NO tracker question changed status (the unit-map sanction is user-gated, no new ask opened) |
+| Group share | held at close, then **posted by the user to [issue #236](https://github.com/openwave-labs/openwave/issues/236) the same morning** (2026-07-10 07:13 PDT); the A1/A2 sanction rule stands for any future outbound distance-to-band claim |
+| The author's reply | ✅ **Duda replied same day (10:56)**: the ansatz-regularization diagnosis (spatial eigenvalues must deform to two equal at the vortex center) + the `M(r)` → vortex → torus-of-radius-R construction; verbatim + diagrams + decode in [`m5_12_convo.md`](../tasks/m5_12_convo.md) |
+| Successor | ✅ **[M5.19](../tasks/m5_19_task_details.md)** drafted 2026-07-10 from the reply (backlog-top, awaiting go): the phase-D reopening conditions are satisfied by author redirect, routed to a fresh task per the M5.11 → M5.12 precedent |
