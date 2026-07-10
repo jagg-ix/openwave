@@ -1,8 +1,10 @@
 # M5.12 close note: the phase-D verdict and the task wrap
 
-**Status**: internal audit page (METHOD NOTE standard, [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)). The group share of this material is HELD pending the user's decision; nothing here has crossed the repo boundary. Task record: [`tasks/m5_12_task_details.md`](../tasks/m5_12_task_details.md); running checkpoint: [`checkpoints/m5_12_progress.md`](../checkpoints/m5_12_progress.md).
+**Status**: internal audit page (METHOD NOTE standard, [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)). Task record: [`tasks/m5_12_task_details.md`](../tasks/m5_12_task_details.md); running checkpoint: [`checkpoints/m5_12_progress.md`](../checkpoints/m5_12_progress.md).
 
 **One-line verdict**: no free-period orbit was found in the time-mixing class at the physical regime; the negative is measured, audited (seven adversarial audits: b11, b13-b18, plus the two same-day block-2/3 audits), stated under a standing metric, and closed with explicit reopening conditions. Per the task's definition of done, the honest physical-regime negative IS a verdict on the model; masses (phase E) and mixing (phase F) are disposed as designed-but-not-runnable on solutions that do not exist.
+
+**Task span**: 64:52 total (~65h) across 19 blocks, go 2026-07-07 11:23 EDT → close 2026-07-10 04:15 EDT; the final task review approved 2026-07-10 (recorded in [`tasks/m5_12_task_details.md § TASK REVIEW (2026-07-10, final)`](../tasks/m5_12_task_details.md)). No usage cap fired task-wide (no resume ping ever triggered; every reset-time watchdog wake found the session alive).
 
 ## 1. Equations first
 
@@ -112,3 +114,11 @@ Both phases were designed to run ON stationary/periodic loop solutions; phase D 
 ## 7. Wrap-audit outcome (b19, 2026-07-10)
 
 The independent b19 wrap audit re-traced every quantitative claim in this note and in the block-18/19 task-details sections to the primary artifacts (the b13-b18 audit JSONs, the b17 control, the b16 unit map, the b18 decider, and the ladder endpoint battery), character-diffed the close sentence in both documents against the b18-licensed original, re-walked all 12 equation-to-code map rows to their def lines, and checked the stated equations, the E/F dispositions, and the METHOD NOTE shape against code, pre-registered gates, and the standard. Every number, map row, equation, gate quote, and disposition claim was CONFIRMED; three trivial errors blocked finality and were fixed on the audit's instruction: a 2-character quote-style drift in the "verbatim" close sentence, the audit count "six" against the note's own record of seven, and "audit-caught" misattributed to the self-caught rmatvec bug. Full record: [`m5_12_audit_b19.json`](../data/m5_12_audit_b19.json); mechanical layer re-runnable via `scripts/m5_12_audit_b19_check.py` (exit 0 after the fixes).
+
+## 8. Task close-out (post-approval record, 2026-07-10)
+
+| Step | Status |
+| --- | --- |
+| Final task review | ✅ approved 2026-07-10; documented in [`tasks/m5_12_task_details.md § TASK REVIEW (2026-07-10, final)`](../tasks/m5_12_task_details.md) |
+| Roadmap | ✅ the M5.12 row moved to the END of the [`m5_roadmap.md`](../m5_roadmap.md) DONE list, dated 2026-07-10 |
+| Question tracker | ✅ milestone entry prepended to [`m5_question_tracker.md § Last updated`](../m5_question_tracker.md); NO tracker question changed status (the unit-map sanction is user-gated, no new ask opened) |
