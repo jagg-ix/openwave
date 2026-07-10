@@ -1,0 +1,139 @@
+{
+  "task": "M5.12 block 16 leg b",
+  "assumptions": [
+    "A1 cell=cell (1 M5.8 lattice unit = 1 BVP h unit)",
+    "A2 c=1 in both codes (same 4D Lagrangian family)",
+    "author-gated: both must be sanctioned before any outbound use"
+  ],
+  "m58": {
+    "static_seed_core": 2.628,
+    "settled_ground": 4.941,
+    "breathing_late": [
+      4.61,
+      4.64,
+      4.72,
+      4.77
+    ],
+    "band": [
+      1.07,
+      1.15
+    ]
+  },
+  "rows": [
+    {
+      "endpoint": "f2 shell (b15 floor)",
+      "state": "m5_12_b12_hard_f2_1_state.npz",
+      "nr": 32,
+      "omega_bal": 6.986869802507705,
+      "r_mean_bvp": 3.686407846888624,
+      "omega_at_m58_size": {
+        "4.61": 5.5870827907057645,
+        "4.77": 5.399675401499702,
+        "4.941": 5.212801389425942
+      },
+      "factor_range": [
+        4.532870773413863,
+        5.221572701594172
+      ]
+    },
+    {
+      "endpoint": "f1 rgauss",
+      "state": "m5_12_b12_hard_f1_1_state.npz",
+      "nr": 32,
+      "omega_bal": 7.375536327533774,
+      "r_mean_bvp": 5.551894298459709,
+      "omega_at_m58_size": {
+        "4.61": 8.88247246961328,
+        "4.77": 8.584527900401934,
+        "4.941": 8.287431306398952
+      },
+      "factor_range": [
+        7.2064620055643065,
+        8.301376139825495
+      ]
+    },
+    {
+      "endpoint": "wd wide (b14)",
+      "state": "m5_12_b12_hard_wd_1_state.npz",
+      "nr": 32,
+      "omega_bal": 7.454566660733108,
+      "r_mean_bvp": 4.12947114427054,
+      "omega_at_m58_size": {
+        "4.61": 6.677531001852183,
+        "4.77": 6.453546733446241,
+        "4.941": 6.230199943035533
+      },
+      "factor_range": [
+        5.417565167856986,
+        6.240683179301105
+      ]
+    },
+    {
+      "endpoint": "p1 rayleigh_opt (b16)",
+      "state": "m5_12_b12_hard_p1_1_state.npz",
+      "nr": 32,
+      "omega_bal": 5.543970617591723,
+      "r_mean_bvp": 5.37099557428683,
+      "omega_at_m58_size": {
+        "4.61": 6.4591413559786055,
+        "4.77": 6.242482526427961,
+        "4.941": 6.02644032605978
+      },
+      "factor_range": [
+        5.240382892225896,
+        6.036580706522061
+      ]
+    },
+    {
+      "endpoint": "p2 pancake r4z1 (b16)",
+      "state": "m5_12_b12_hard_p2_1_state.npz",
+      "nr": 32,
+      "omega_bal": 6.571732583736306,
+      "r_mean_bvp": 6.712633813716392,
+      "omega_at_m58_size": {
+        "4.61": 9.569118081624755,
+        "4.77": 9.248141374484304,
+        "4.941": 8.928078193946595
+      },
+      "factor_range": [
+        7.7635462556057355,
+        8.943101010864256
+      ]
+    }
+  ],
+  "table": [
+    {
+      "convention": "identity n32 (rc 2.667)",
+      "omega_floor_rescaled": [
+        6.986869802507705,
+        6.986869802507705
+      ],
+      "factor_vs_band": [
+        6.075538958702353,
+        6.529784862156734
+      ]
+    },
+    {
+      "convention": "O1 n96 anchor (x32/96)",
+      "omega_floor_rescaled": [
+        2.3289566008359017,
+        2.3289566008359017
+      ],
+      "factor_vs_band": [
+        2.025179652900784,
+        2.1765949540522445
+      ]
+    },
+    {
+      "convention": "O2 measured (breathing 4.61-4.94)",
+      "omega_floor_rescaled": [
+        5.212801389425942,
+        5.5870827907057645
+      ],
+      "factor_vs_band": [
+        4.532870773413863,
+        5.221572701594172
+      ]
+    }
+  ]
+}

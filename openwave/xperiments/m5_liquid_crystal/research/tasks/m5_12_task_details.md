@@ -321,6 +321,11 @@ Running record + deviations (logged as they happen, per the flow's deviations-lo
 | 07-09 18:29-18:44 | Both chains CLOSED as honest stalls (stall rule, H_swing/S0 ≈ 2): f2 shell 8.268 → **6.987** (below wd_1's 7.455), f1 rgauss 8.235 → 7.376; the seed-root ordering SWAPPED under relaxation. Adversarial audit launched 18:47 |
 | 07-09 19:20 | ⚠️ AUDIT VERDICT (b15, ~33 min): **P1 REFUTED as a class floor** (Rayleigh minimization over 72 directions: a z-flattened pancake mix reaches 7.90 at seed level; the sweep was z-anisotropy-blind), **P2 CONFIRMED exactly** (endpoints re-derived; not stationary; independent GN lands on the published floors), **P3 WEAKENED** (floor dropped every family: 6.99 = a moving upper bound), **P4 CONFIRMED** (23/23 rows ≤7.5e-8). New: convention-relativity (weighted matching reorders the leaderboard), the harmonic-relabel hole (2nd harmonic halves ω_bal, invisible to `a2_free`; physical frequency k·ω, not a band route), nonlinearity in S0 not Q2 |
 | 07-09 19:25 | FINISH block 15: ping PARKED unfired 19:16 (before the 19:35 fire; no cap), watchdog stopped, artifacts all < 1 MB (largest 323 KB); findings written; BLOCK 15 CLOSED, review presented |
+| 07-09 19:28 | BLOCK 16 GO, legs a+b (reset 12:30am, ping armed 00:35, watchdog 00:30). Pre-registered stopping rule: two consecutive families < 5% relaxed gain = floor saturated. Built `m5_12_b16_aniso.py`; probe DONE 19:45 (16-point (wr, wz) grid, anchors exact; rayleigh_opt assembles to exactly 7.8955); chains P1/P2 launched 19:47 |
+| 07-09 20:00 | Leg (b) MEASURED without a rerun (`m5_12_b16_unitmap.py`; the retained `_m5_8_2h_run.log`/`_dense.npz` carried the observables): like-observable map (motion radius ↔ motion radius, assumptions A1 cell=cell + A2 c=1 declared, author-gated); first pass: f2 floor 4.5-5.2× above the band, O1's 1.8-2.7× refuted |
+| 07-09 21:12-21:35 | Both chains CLOSED as honest stalls: p1 7.8955 → **5.5440** (\|F\| ~170, 100% mix-pure), p2 8.0577 → 6.5717; unit-map re-run over all 5 endpoints; the raw-vs-invariant tension flagged to the audit (p1's drop vs f2's smaller product) |
+| 07-09 21:58 | ⚠️ AUDIT VERDICT (b16, ~18 min): C1/C5 CONFIRMED; **C2 both sub-claims REFUTED** (p1 gained 29.8% invariant at FIXED size, no growth; **c2/g48 = the true invariant floor, 18.2: no family since block 12 advanced it**); **C3 adjudicated: the rule binds on the invariant** (mid-course amendment; strikes at blocks 15 AND 16); **C4 MIXED** (honest bracket 3.2-6.9×; O1 dead in every variant; identity not replaced; A2 partially unverified, potential sectors differ). New: the amplitude confound (fixed-(size, a²) re-ranking = the next control); \|F\| float32-fragile ~10% |
+| 07-09 22:05 | FINISH block 16: findings written; ping to park, watchdog to stop; BLOCK 16 CLOSED, review presented |
 
 ## FINDINGS (2026-07-07, block 1: D0 + phase A statics)
 
@@ -422,6 +427,37 @@ Tries 1-2 (the R12-clock dressed-rotor seed, n48): one-decade first step then a 
 ### Try 3 (the axis-swing clock, the first genuine attempt): ✅ measured, partial descent
 
 Axis-swing seed (plane (2,3), b0 = 0.4, n48, Nt = 2, 8 Newton steps ≈ 48 min): qualitatively different from the gauge runs: **ω navigates** (0.34 → 0.64, settling ≈ 0.634-0.640), the harmonics hold at seed scale, and \|F\| descends EVERY step, 6302 → 3382 (46%, sawtooth ~1-4%/step), all steps at full λ = 1. Verdict: `stalled_or_partial` (honest label: inner-solve-truncation-limited descent, NOT converged; Ŝ_end = −3258). Reading: the first genuinely non-gauge Newton trajectory of the program behaves like slow navigation along a branch direction: no divergence, no collapse, no plateau-freeze: the formulation is workable and the bottleneck is identified (LSMR truncation at 60 inner iterations on the still-stiff spectrum). Next knobs, in order: (a) the **co-rotating-frame formulation** (design § 2's rotating-frame option: quotients out the gauge sector entirely, shrinks the harmonic content the solver must resolve, and makes symmetry orbits static: kills two birds), (b) inner-solve budget + a static-Hessian block preconditioner beyond the diagonal, (c) Nt = 1 first (the seed's h2 content is tiny: 17 of 6302). Data: [`../data/m5_12_d3b_axisswing.json`](../data/m5_12_d3b_axisswing.json) + per-iteration `m5_12_d3b_axisswing_progress.json`; the gauge-run record kept in `m5_12_d3b_hedgehog_progress.json` (tries 1-2, evidence for the catch).
+
+## FINDINGS (2026-07-09, block 16: the pancake chains + the measured unit map + THE INVARIANT INVERSION)
+
+### The audit verdicts (b16, `../data/m5_12_audit_b16.json`)
+
+| Claim | Verdict | Decisive evidence |
+| --- | --- | --- |
+| C1 chains honest | ✅ CONFIRMED | endpoints exact, a² conserved < 2e-8, not stationary (audit Cauchy step descends 5.6-9.6%); \|F\| is float32-fragile at ~10%: quote tolerances |
+| C2 growth discrimination | ⚠️ MIXED, both sub-claims refuted | (i) p1 did NOT grow (r 5.370 → 5.371: 29.8% invariant gain at FIXED size); (ii) **f2 is not the invariant floor: the bmix c2/g48 lineage scores product 18.2, common-radius ω 3.83, vs f2's 25.8 / 5.40** |
+| C3 saturation rule | 🔶 ADJUDICATED: bind on the invariant | raw metric disqualified (c2 → g48: 33.8% raw gain at 0.2% invariant change = pure kinematics); mid-course amendment logged; under the invariant, blocks 15 AND 16 are strikes: **no family since block 12 advanced the invariant floor** |
+| C4 unit map | ⚠️ MIXED | arithmetic confirmed; honest bracket **3.2-6.9× above the band** (late-window inflation corrected; f2 4.7-6.9, c2 3.3-4.9); O1's 1.8-2.7× refuted in EVERY variant; the identity 6.1-6.5× not replaced; A2 partially unverified (potential sectors differ structurally, author-gated) |
+| C5 probe integrity | ✅ CONFIRMED | anchors + the opt seed reproduce < 4e-9; independent re-forge of r4z1 lands 8.0577 |
+
+### The measurements
+
+| Item | Result |
+| --- | --- |
+| (wr, wz) anisotropic probe grid | 16 points, both iso anchors exact; pancake direction confirmed (wr >> wz ≈ w_b); grid floor r4z1 8.058; the b15-audit Rayleigh-optimum seed assembles + probes at exactly 7.8955 |
+| Chain P1 (rayleigh_opt) | 7.8955 → **5.5440** raw (\|F\| ~170-195, H_swing/S0 1.984, 100% mix-pure); a genuine 29.8% invariant gain at fixed size, but landing at product 29.8, still above the c2/g48 floor 18.2 |
+| Chain P2 (pancake r4z1) | 8.0577 → 6.5717 (\|F\| ~182-196); invariant 55.2 → 44.1 |
+| The scale invariant | ω_bal × r_mean validated lineage-invariant to 0.2% (c2 18.26 vs g48 18.22); the honest ranking: **c2/g48 18.2 < f2 25.8 < p1 29.8 < wd 30.8 < f1 41.0 < p2 44.1** |
+| The O2 unit map (measured, assumptions A1 cell=cell + A2 c=1 declared) | M5.8 motion radius vs BVP endpoint radius: the invariant floor sits **3.3-4.9× above the band** (c2/g48), the full defensible bracket 3.2-6.9×; the M5.8 late window is delocalization-inflated (81% toward the box asymptote 5.07), so window choice dominates the spread |
+| ⚠️ Unresolved confound | ω_bal at fixed shape is strongly amplitude-sensitive (f2: 10.12 at 0.49× a² → 5.03 at 2.25× a²): a fixed-(size, a²) re-ranking is the one cheap control between "saturating" and "saturated" |
+
+### What block 16 changes
+
+| Before (block 15) | After (block 16) |
+| --- | --- |
+| "the relaxed floor dropped with every family, 6.99 still moving" | INVERTED in the honest metric: the invariant floor has been the bmix c2/g48 lineage (18.2) since block 12; every newer family made fixed-size progress but never beat it; the saturation rule (re-bound to the invariant, mid-course amendment) has struck twice retroactively |
+| distance-to-band = pick a convention (1.8-2.7× vs 5-8×) | MEASURED (conditional on A1/A2): 3.3-4.9× for the invariant floor, bracket 3.2-6.9×; the optimistic O1 reading is dead in every variant; A2's "same Lagrangian family" remains author-gated (potential sectors differ) |
+| Block-17 fork | (a) the fixed-(size, a²) control, then close phase D at the honest negative; (b) one solver rung on the TRUE floor states (c2/g48); (c) straight to the E/F wrap |
 
 ## FINDINGS (2026-07-09, block 15: the shape-family floor map + the unit-map memo)
 
