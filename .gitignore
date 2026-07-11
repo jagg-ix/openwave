@@ -229,32 +229,19 @@ openwave/xperiments/m5_liquid_crystal/research/data/_m5_8_2f3_kin.npz
 openwave/xperiments/m5_liquid_crystal/research/data/_m5_8_2g_settled.npz
 openwave/xperiments/m5_liquid_crystal/research/data/_m5_8_2o_settled.npz
 
-# All model theory/ folders hold third-party copyrighted papers (PDF/docx/etc.), kept LOCAL only
-# (publisher PDFs, author docs , not redistributable on a public repo; the m7 corpus alone is ~700 MB).
-# Decision 2026-06-30: untrack going forward (files remain in pre-existing history; no rewrite).
-# Our own research notes (*.md) and the per-folder _CITATIONS.md manifests stay tracked.
-# (`**/` matches zero or more dirs, so these cover both theory/ root and any subfolders.)
-openwave/xperiments/*/theory/**/*.pdf
-openwave/xperiments/*/theory/**/*.docx
-openwave/xperiments/*/theory/**/*.doc
-openwave/xperiments/*/theory/**/*.epub
-openwave/xperiments/*/theory/**/*.ppt
-openwave/xperiments/*/theory/**/*.pptx
-openwave/xperiments/*/theory/**/*.djvu
-openwave/xperiments/*/theory/**/*.tex
-openwave/xperiments/*/theory/**/*.bib
-# m7 electron_beltrami/ is a pure local corpus , ignore the whole folder (incl. any non-doc strays).
-# Its manifest lives one level up at theory/_CITATIONS.md (a *.md, tracked by default).
-openwave/xperiments/m7_hydroboros/theory/electron_beltrami/*
-
-# Author-conversation records (call transcripts, message threads) are LOCAL-ONLY for author
-# privacy, whatever the format: ignore the whole folder in every model's theory/.
-# Naming convention: <taskID or phaseID>_convo.<ext> (e.g. m7_phase1_convo.pdf).
-openwave/xperiments/*/theory/author_convos/
+# All model theory/ folders are LOCAL-ONLY corpora: third-party copyrighted papers (publisher
+# PDFs, author docs; the m7 corpus alone is ~700 MB), author-shared material and images,
+# call/session transcripts (author privacy, incl. the author_convos/ convention
+# <taskID or phaseID>_convo.<ext>), and reading notes on all of the above.
+# Decision 2026-07-11 (supersedes the 2026-06-30 per-extension rule): NOTHING under any
+# theory/ is published except the per-folder _CITATIONS.md manifests. Untracked going
+# forward; files remain in pre-existing history (no rewrite).
+# (First pattern ignores all contents; `!**/` re-includes directories so the manifest
+# negation can reach into subfolders; only _CITATIONS.md files escape the ignore.)
+openwave/xperiments/*/theory/**
+!openwave/xperiments/*/theory/**/
+!openwave/xperiments/*/theory/**/_CITATIONS.md
 
 # Agent resume checkpoints (session-local in-flight state for any Mx model task; not research
 # artifacts, never tracked). Findings live in the tracked tasks/ + data/ + plots/ instead.
 openwave/xperiments/*/research/checkpoints/
-
-# ChaosBook chapter PDFs (M7.9 benchmark source; freely served at chaosbook.org, not redistributed here)
-openwave/xperiments/*/theory/chaosbook/
