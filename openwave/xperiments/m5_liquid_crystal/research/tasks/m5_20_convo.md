@@ -68,7 +68,7 @@ The reply (drafted per the message-drafting rule) explained the unwinding mechan
 
 ## 2026-07-12 afternoon: both runs closed same-day; the combined answer + the one question drafted
 
-**Outbound posture**: M5.20.1 (the (1, δ, 0) protection verdict) and M5.20.2 (the 4×4 clock sector) both closed and review-approved 2026-07-12. Per the user's delivery call: ONE email, ONE method note ([`../findings/m5_20_2_method_note.md`](../findings/m5_20_2_method_note.md), Part I + Part II + both audits), ONE question. The FABLE VOICE block is drafted and with Rodrigo (he adds his voice and sends after commit/merge); the next convo entry here records his send + Duda's reply.
+**Outbound posture**: M5.20.1 (the (1, δ, 0) protection verdict) and M5.20.2 (the 4×4 clock sector) both closed and review-approved 2026-07-12. Per the user's delivery call: ONE email, ONE method note ([`../findings/m5_20_2_method_note.md`](../findings/m5_20_2_method_note.md), Part I + Part II + both audits), ONE question. The FABLE VOICE block was wrapped in Rodrigo's voice (biography-only motivation, the thermal-program boundary held per the 2026-07-12 disclosure decision) and **SENT 2026-07-12 late afternoon EDT**, after the M5.20.x commit/merge to main. Awaiting his constraint answer; the next entry here records his reply.
 
 | What goes to him | Content |
 | --- | --- |
@@ -76,3 +76,31 @@ The reply (drafted per the message-drafting rule) explained the unwinding mechan
 | Part II answer to his 4×4 insistence | the EOM derived from HIS verified Lagrangian (purely quartic; no canonical kinetic term; K degenerate); the boost runaway measured and audit-confirmed physical; the clock quantified exactly (rotations positive, boosts negative, unbounded): "clock propulsion with negative Hamiltonian terms" is real but needs a constraint |
 | THE question (Q18 + Q19 + Q23 fused) | what constraint closes the boost sector so the 4×4 oscillation run is well-posed (Dirac treatment? rotation-orbit restriction? a branch/sign choice we missed?); given it, the run goes same-day |
 | Audit disclosure | both parts independently adversarially audited (own instruments); Part I headline confirmed with two presentation corrections folded; Part II six-for-six confirmed |
+
+## 2026-07-12 evening: quick acknowledgment: the ansatz restated, a ≈ δ/2 named, the radius-oscillation mechanism; deeper reply promised for his morning
+
+**From**: Jarek Duda, 2026-07-12 18:19 EDT, 1:1 on the thread. A quick pass ("Will look closer and respond in ~6 hours (my morning)"): the constraint question (our ONE question) is NOT yet answered; this entry records what the quick pass already gives.
+
+### Verbatim core
+
+> The "holds the (delta, 0)" suggests there is some manual choice of eigenspectrum, while everything should come from energy minimization.
+>
+> Once again, there is potential with minimum in 3D: Lambda = (1,delta, 0), e.g. V(M) = sum_p (Tr(M^p) - c_p)^2 for c_p = sum_i (Lambda_i)^p and summation over 3. In 4D: Lambda = (g, 1,delta, 0) and summation over 4.
+>
+> So far from particles eigespectrum is (g, 1,delta, 0) minimum called vacuum, in the center of vortex should automatically get some intermediate spectrum with 2 equal eigenvalues, e.g. (g,1, a,a) for a ~ delta/2.
+>
+> [ellipse-field diagram] Like in this diagram with eigenvalues being radii of ellipses, eigenvectors being their axes - potential prefers elongated ellipse of fixed radii, but in the center for continuity it needs to become circle of two equal intermediate radii, at cost of activating potential (grayness). Everything is optimized to minimize total energy (integral of Hamiltonian).
+>
+> During neutrino oscillation, radius of loop can also oscillate - I suspect to maintain total energy, which is density per length depending on flavor, times loop length.
+
+Attachment: the same half-integer vortex ellipse-field diagram already on file from the M5.12 round ([`../images/m5_12_duda_ansatz.png`](../images/m5_12_duda_ansatz.png)); no new figure content.
+
+### Decode + routing
+
+| Item | Decode | Routing |
+| --- | --- | --- |
+| "manual choice of eigenspectrum ... everything should come from energy minimization" | A wording gap in our note, not a physics gap: "holds the (δ, 0) equalization" read as imposed. The measurement was FREE: both pairings seeded symmetrically, the endpoint core spectrum selected by the dynamics alone | Next outbound clarifies in one sentence (seeds imposed nothing at the endpoint; minimization selected (δ, 0)). Wording lesson, same family as "unwinds": say "the dynamics SELECTS", never "holds" |
+| the potential restated ("once again"): V = Σ_p (Tr M^p − c_p)², c_p = Σ_i λ_i^p; 3D (1, δ, 0) p ≤ 3, 4D (g, 1, δ, 0) p ≤ 4 | Already implemented VERBATIM: M5.20.1 `c_p = 1 + δ^p`, M5.20.2 `C_p = g^p + 1 + δ^p`. The "once again" is the same legibility loop as the FIELD CONTENT box: he cannot yet see from our note that his formula IS the code | Next outbound points at the exact code lines (already in the combined note's code map) and states the identity explicitly, closing the loop |
+| "in the center ... automatically ... 2 equal eigenvalues, e.g. (g, 1, a, a) for a ~ delta/2" | FIRST TIME the core value is named: a ≈ δ/2. The M5.20.1 measured selected core IS (1, δ/2, δ/2) (the (δ, 0)-equalized pair, pair_d0 construction (1, δ/2, δ/2) chosen by the dynamics from both seedings): his prediction CONFIRMED by the already-sent measurement | Next outbound states the match (his prediction → our measurement, genuine at δ ≥ 0.3 per the audit caveat). The eventual 4×4 run gains a pre-registered core gate: endpoint core reads (g, 1, a, a), a ≈ δ/2 |
+| "radius of loop can also oscillate - I suspect to maintain total energy, which is density per length depending on flavor, times loop length" | NEW mechanism spec for the oscillation run: flavor ↔ linear energy density; loop radius R(t) breathes so that E_total = (E/length)(flavor) × 2πR stays conserved. Concrete observable set: E per unit length vs core-spectrum state, R(t), and the exchange between them | Folds into the [M5.20.3](m5_20_3_task_details.md) plan as the primary observable set (alongside the staged H(ω) machinery and the AMBer scoreboard); the run itself stays gated on his constraint answer |
+| "respond in ~6 hours (my morning)" + he asked that results reach him before his 20:00 (14:00 EDT) for a same-evening read | The deep analysis (and presumably the constraint answer) arrives ≈ our midnight. Comms window recorded as standing logistics | [M5.20.3](m5_20_3_task_details.md) stays PLAN-ready (plan written same evening, roadmap row at the top of Backlog), production HELD for the morning email; the next outbound opens with a brief timing apology (user call 2026-07-12) |
