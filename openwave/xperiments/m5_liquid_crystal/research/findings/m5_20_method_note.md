@@ -90,7 +90,7 @@ The vacuum mass spectrum at the uniaxial vacuum diag(1,0,0) (audit-confirmed ana
 
 - The author's Γ-variable time sector (the negative `Γ·Γ̃` clock terms): no Γ↔M dictionary exists on our side (Q23). Every conclusion here is conditional on the canonical kinetic term.
 - Full 3D (non-axisymmetric) evolution: the axisym reduction restricts the mode set. For the UNWINDING result this makes the negative stronger (a removal path exists already within the constraint); for radiation it removes non-axisymmetric channels (unmeasured).
-- The relativistic boost / time-dilation frame of his closing remark (needs the clock machinery; M5.21+).
+- The relativistic boost / time-dilation frame of his closing remark (needs the clock machinery; M5.20.2).
 - Blob longevity beyond the run horizon; blob existence in true unbounded vacuum (box + sponge is the instrument's proxy).
 - δ ≠ 0 sectors (Q22 parked: "I don't know in this moment").
 
