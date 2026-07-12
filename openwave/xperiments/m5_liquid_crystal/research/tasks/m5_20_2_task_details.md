@@ -1,6 +1,6 @@
 # M5.20.2 - Full 4×4 (g, 1, δ, 0) dynamics: the clock sector on the loop
 
-**Status**: 🔶 GO 2026-07-12 11:03 EDT (runs in parallel with the M5.20.1 tail; both resume-ping slots armed for 12:45pm). **Spec**: Duda 2026-07-11/12 ([`m5_20_convo.md`](m5_20_convo.md)): "finally to get oscillations requires full 4x4 tensor with potential preferring (1,g,delta,0) eigenvalues" (his 07-12 ordering read as a misspelling of the standing `(g, 1, δ, 0)`, user call 2026-07-12) + "clock propulsion with negative Hamiltonian terms require full 4x4 tensor field with (g, 1, delta, 0) spectrum" (07-11). Predecessor: [M5.20.1](m5_20_1_task_details.md) (the spatial (1, δ, 0) verdict: UNWOUND across the grid; the spectrum objection fails in-framework; the time sector is protection's last in-framework door). Delivery intent (user call 2026-07-12): M5.20.1 + M5.20.2 results go to Duda in ONE combined email, no intermediate ask round, PROVIDED no load-bearing fork requires his answer first; the § Q23-resolution plan below is how we avoid the turnaround.
+**Status**: ✅ DONE 2026-07-12 (review approved; roadmap DONE row; the combined email awaits Rodrigo's send). **Spec**: Duda 2026-07-11/12 ([`m5_20_convo.md`](m5_20_convo.md)): "finally to get oscillations requires full 4x4 tensor with potential preferring (1,g,delta,0) eigenvalues" (his 07-12 ordering read as a misspelling of the standing `(g, 1, δ, 0)`, user call 2026-07-12) + "clock propulsion with negative Hamiltonian terms require full 4x4 tensor field with (g, 1, delta, 0) spectrum" (07-11). Predecessor: [M5.20.1](m5_20_1_task_details.md) (the spatial (1, δ, 0) verdict: UNWOUND across the grid; the spectrum objection fails in-framework; the time sector is protection's last in-framework door). Delivery intent (user call 2026-07-12): M5.20.1 + M5.20.2 results go to Duda in ONE combined email, no intermediate ask round, PROVIDED no load-bearing fork requires his answer first; the § Q23-resolution plan below is how we avoid the turnaround.
 
 ## TASK PLANNING
 
@@ -77,3 +77,33 @@ Scripts `m5_20_2_*` in [`../scripts/`](../scripts/), data/plots `m5_20_2_*`, clo
 ### Model + effort
 
 Same as M5.20.1 (main-loop model; high effort on the derivation, the mode census, and the audit; standard on run babysitting). Headless NumPy; the 4×4 axisym stack stays at 128×256.
+
+## FINDINGS (2026-07-12, all phases run; adversarial audit DONE: all six claims CONFIRMED, zero refutations; sharpenings folded into the combined note)
+
+**The clock sector is real, quantified, and ill-posed without one structural input from the author.** Everything below was derived and run from HIS OWN machine-verified Lagrangian (M5.18), no new physics assumptions; the combined method note carries the full detail and is the single Duda-facing document ([`../findings/m5_20_2_method_note.md`](../findings/m5_20_2_method_note.md)).
+
+| Result | Status |
+| --- | --- |
+| Q23 resolved by derivation: his L is PURELY QUARTIC in derivatives (kinetic sector = the F₀ᵢ block); the kinetic form K(M) vanishes on gradient-free states, has the η null direction everywhere (his verified primary constraint), and is rank 8/10 with 3 negative directions at the loop core | ✅ measured (phase A gates GB0-GB4 all PASS) |
+| 4×4 gap map at diag(−g, 1, δ, 0): 6 exact boost/rotation flats + ω = {0.0093, 0.0466, 0.1349, 78.28} at δ = 0.3; all four timelike-assignment branches exact V = 0 (Q19 structure) | ✅ measured (analytic, FD cross-check 1.7e-11) |
+| Boost-sector RUNAWAY under the canonical completion: time-mixing injections on the biaxial vacuum diverge at t ≈ 21 (audit: dt-robust across 4×, physical; requires spatial gradients: inert on gradient-free backgrounds); rotation textures exactly stable: the M5.18 4b indefiniteness is ACTIVE on physical states: field-level time integration is obstructed | ✅ measured (pre-registered GO/NO-GO → NO-GO; the pivot executed) |
+| The ansatz-level clock (exact, no integration): H(ω) = H(0) + ω²K_eff on rigid Lorentz orbits; ALL rotation orbits cost energy (+8e2..+4e4), ALL boost orbits are negative (−3e5..−2.5e6, 100% negative density): "clock propulsion with negative Hamiltonian terms" quantified; H unbounded along boosts ⟹ no stable finite-ω clock without a constraint | ✅ measured (vacuum J12/B03 zeros exact; alternate branch ~100× stiffer) |
+| Protection re-probe: UNWOUND under his FULL 4-target potential (p = 1..4, +1.70 seed energy), time row frozen, T = 2000, drift 2.3e-6: the p = 4 target does not rescue the spatial verdict | ✅ measured |
+| The one author-gated question: what constraint closes the boost sector (Dirac treatment? rotation-orbit restriction? another branch/sign?) so the 4×4 oscillation run is well-posed; given it, the run is ready same-day | 🚧 outbound with the combined email |
+
+![the ansatz-level clock](../plots/m5_20_2_clock_homega.png)
+
+![triage](../plots/m5_20_2_clock_baseline.png)
+
+![4-target protection re-probe](../plots/m5_20_2_protection_maps.png)
+
+**Deviations from plan**: (1) the pre-registered NO-GO branch fired at phase B (boost runaway), so the original production oscillation matrix was replaced by the ansatz-level H(ω) measurement (blindspot 6's hard cap, logged as it happened); (2) DoD 3-4's "clock baseline + clock on the loop" were delivered through the exact K_eff census instead of time integration (stronger: exact, not integrated); (3) dt production = 0.02 for the frozen-time run (the stiff mode lives in the frozen sector), 0.01 was the triage pick for full-4×4 dynamics.
+
+Checkpoint trail: [`../checkpoints/m5_20_2_progress.md`](../checkpoints/m5_20_2_progress.md). Data: `m5_20_2_a_eom.json`, `m5_20_2_b_triage.json`, `m5_20_2_c_clock.json`, `m5_20_2_run_protection.json`.
+
+## TASK REVIEW (2026-07-12)
+
+**Task Duration:** 04:10 (from 11:03 to 15:13 EDT)
+**Usage Cap Triggered:** NO
+
+Approved by Rodrigo 2026-07-12 (terminal review). Results: Q23 resolved by derivation (purely-quartic L, degenerate K) ✅; 4×4 gap map analytic ✅; boost runaway physical (dt-robust, gradient-requiring) ✅; the exact H(ω) clock census (rotations positive, boosts negative, unbounded ⟹ the one constraint question) ✅; protection re-probe UNWOUND under the full 4-target V ✅; adversarial audit 6/6 CONFIRMED ✅. Deviations: the pre-registered NO-GO fired at phase B, production replaced by the exact H(ω) measurement (logged). Delivery: ONE combined method note ([`../findings/m5_20_2_method_note.md`](../findings/m5_20_2_method_note.md)) + the FABLE VOICE block handed to Rodrigo (he sends after commit/merge); next = await Duda's constraint answer, which unblocks the oscillation run same-day.

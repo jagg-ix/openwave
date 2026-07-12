@@ -1,6 +1,6 @@
 # M5.20.1 method note: biaxial (1, δ, 0) dynamics, does the spectral gap protect the vortex loop?
 
-**Task**: [`m5_20_1_task_details.md`](../tasks/m5_20_1_task_details.md) · **Spec**: Duda 2026-07-11/12 ([`m5_20_convo.md`](../tasks/m5_20_convo.md)): "topological vortex requires potential with (1, delta, 0) minimum - preferred three different, which should regularize to two equal in center"; "the problem was indeed assuming delta=0 everywhere, for which there is no topological vortex"; "in 3D (1, delta, 0) you can start with". Predecessor: [`m5_20_method_note.md`](m5_20_method_note.md) (the δ = 0 verdict: all runs unwind, no radiation needed). Status: 🚧 runs in progress.
+**Task**: [`m5_20_1_task_details.md`](../tasks/m5_20_1_task_details.md) · **Spec**: Duda 2026-07-11/12 ([`m5_20_convo.md`](../tasks/m5_20_convo.md)): "topological vortex requires potential with (1, delta, 0) minimum - preferred three different, which should regularize to two equal in center"; "the problem was indeed assuming delta=0 everywhere, for which there is no topological vortex"; "in 3D (1, delta, 0) you can start with". Predecessor: [`m5_20_method_note.md`](m5_20_method_note.md) (the δ = 0 verdict: all runs unwind, no radiation needed). Status: ✅ complete (audited; review approved 2026-07-12; merged into the combined note [`m5_20_2_method_note.md`](m5_20_2_method_note.md) as Part I).
 
 ## 0. FIELD CONTENT (what the engine evolves, and what THIS run evolves)
 
@@ -50,7 +50,10 @@ Vacuum V-Hessian at diag(1, δ, 0) (6x6, symmetric-block directions):
           of the degenerate (0,0) pair (flat to quartic order)
           = the potential-free removability face M5.20's unwinding used.
   δ ≠ 0 : the splitting mode ACTIVATES ("activating potential"):
-          ω_split(δ) = 0.0054 / 0.0177 / 0.0336  at δ = 0.1 / 0.3 / 0.5;
+          lowest activated Hessian gap ω = 0.0041 / 0.0099 / 0.0125 at
+          δ = 0.1 / 0.3 / 0.5 (the Rayleigh quotient along the pure
+          diag(0,1,−1) split direction is higher: sqrt(w(4δ² + 9δ⁴)) =
+          0.0054 / 0.0177 / 0.0336; audit-corrected presentation);
           zero modes drop 4 → 3 (conjugation only).
 Analytic check: the eigenvalue-sector Hessian is 2w J^T J, J_pi = p λ_i^{p−1}
 (the residual factors vanish at the exact minimum); rank J = 3 iff the three
@@ -112,18 +115,20 @@ Chosen far fields (continuity with the M5.20 escape arms at δ → 0):
 
 | Result | Number | Gate / verification |
 | --- | --- | --- |
-| Gap map: zero modes 4 → 3, ω_split(δ) | 0.00544 / 0.01770 / 0.03363 at δ = 0.1/0.3/0.5 | gates A1-A3 (`data/m5_20_1_a_theory.json`); analytic 2wJ^TJ to 4.6e-10 |
+| Gap map: zero modes 4 → 3; lowest activated gap ω | 0.0041 / 0.0099 / 0.0125 at δ = 0.1/0.3/0.5 (Rayleigh along diag(0,1,−1): 0.00544 / 0.01770 / 0.03363 = sqrt(w(4δ²+9δ⁴)), audit) | gates A1-A3 (`data/m5_20_1_a_theory.json`); analytic 2wJ^TJ to 4.6e-10; audit claim 2 |
 | Instruments valid | seed reads q = 0.5 exact at r_w 3-6, both instruments, every (δ, pairing) | gates B0-B2, bilinear gate (`data/m5_20_1_b_gates.json`) |
 | Integrator valid at δ ≠ 0 | GF-d 0.0/1.3e-16; dt² ratios ~4; drift 9.7e-7 (dt 0.02, T 20) | gates GF/GA1/GA2 (`data/m5_20_1_d_gates.json`) |
 | Linear channel per vacuum | pair_1d −0.007 cells / pair_d0 +0.79 cells (T = 60) | GA3-d, matches the § 1 lemma |
-| Statics triage: ALL SIX DISSOLVE | E collapses toward vacuum (δ=0.3 pair_1d: 20.9 → 0.47); endpoint q = 0 at machine level, every (δ, pairing) | FIRE, 4000 iters (`data/m5_20_1_c_statics.json`); NOT stationary endpoints (1.6-2.0 gnorm decades): dissolution in progress, not minima |
-| **Dynamics verdict grid: UNWOUND at every δ, both pairings** (the headline) | 6/6 closed-box runs t = 2000; bilinear endpoint reads 0.0 at r_w 3-8; no wound core-hunt peak; energy conserved to ≤ 3.6e-6 over 100k steps | classifier v2 (both M5.20 bugs fixed) + per-peak hunt + maps (`data/m5_20_1_verdicts.json`) |
+| Statics triage: ALL SIX DISSOLVE (net-charge) | E collapses toward vacuum (δ=0.3 pair_1d: 20.9 → 0.47), E strictly monotone (audit); centroid q reads 0 | FIRE, 4000 iters (`data/m5_20_1_c_statics.json`); NOT stationary (1.6-2.0 decades); ⚠️ audit: the δ=0.1 pair_1d endpoint retains a ±1/2 dipole at (ρ,z) ≈ (24-25, 0), net 0: dissolution incomplete there |
+| **Dynamics verdict grid: UNWOUND at every δ, both pairings** (the headline) | 6/6 closed-box runs t = 2000; bilinear endpoint reads 0.0 at r_w 3-8; no wound core-hunt peak; energy conserved to ≤ 3.6e-6 (core 6) / ≤ 7.3e-6 (all 10) over 100k steps | classifier v2 (both M5.20 bugs fixed) + per-peak hunt + maps (`data/m5_20_1_verdicts.json`) |
 | Unwinding needs NO radiation at δ ≠ 0 | closed boxes unwind with E conserved (drift ≤ 3.6e-6) | same as M5.20's audit-C4 logic, now in the gapped theory |
-| Why the gap fails: barrier vs driving | integrated two-equal core-tube cost 1.34 / 0.63 / 0.21 (pair_1d) and ~0 / 0.005 / 0.05 (pair_d0) vs loop energies 48.7 / 20.9 / 7.8 (pair_1d): the activation is 3-5% of the driving at the calibrated w = 7.24e-4 | analytic per-cell V (§ 1) × core tube π ws² × 2πR₀; statics confirms net-downhill |
-| Core-equalization readout (the measured Q22 pairing answer) | every pair_1d run DRIFTS to the (δ,0)-equalized core (21/21 last-quarter snaps); pair_d0 runs stay (δ,0) (δ=0.5: 11/21 mixed) | the DoD-3b diagnostic; matches the near-free (δ,0) barrier |
+| Why the gap fails: barrier vs driving | integrated two-equal core-tube cost 1.34 / 0.63 / 0.21 (pair_1d) and ~0 / 0.005 / 0.05 (pair_d0) vs loop energies 48.7 / 20.9 / 7.8 (pair_1d): the activation is ~3% of the driving (audit: 2.7-3.0%) at the calibrated w = 7.24e-4 | analytic per-cell V (§ 1) × core tube π ws² × 2πR₀; statics E strictly monotone (audit claim 6) |
+| Core-equalization readout (the measured Q22 pairing answer, audit-tempered) | the dynamics definitively ABANDONS the seeded (1,δ) two-equal core in every pair_1d run; the endpoint reads (δ,0)-equalized, CONFIRMED as genuine at δ ≥ 0.3 (remnant λ = (0.99, 0.23, 0.07)-class) and VACUUM-CONFOUNDED below (near-vacuum debris always carries the (δ,0) label for δ < 0.5; δ=0.1 unproven) | the DoD-3b diagnostic + audit claim 3; matches the near-free (δ,0) barrier |
 | Unwind timing / remnant morphology | pair_d0: m13 half-life t ≈ 125-375, energy DISPERSES box-wide (the weak linear channel); pair_1d: a LOCALIZED unwound biaxial remnant persists to t = 2000 (m13 ≥ seed, PE_end 20.4 / 8.8 / 3.8), no winding | maps + trajectories; the remnant is the blob-probe target |
-| 🚧 Sponge arms, recal-w control, δ = 0 anchor | | running |
-| 🚧 Remnant re-probe vs the δ mass ladder | | running |
+| Recal-w control: UNWOUND (the verdict is not a wscale artifact) | δ = 0.3 pair_1d at the seed-virial autochi w: same endpoint (bilinear reads 0.0, core drifts to (δ,0)-equalized) | classifier v2, `m5_20_1_run_d0p3_pair_1d_closed_recal` |
+| δ = 0 anchor: UNWOUND (corpus continuity) | the new pipeline at δ = 0 reproduces the M5.20 outcome | `m5_20_1_run_d0p0_pair_1d_closed_anchor` |
+| Remnant re-probe: a persistent localized oscillation with spectral power in a band overlapping the top mass line | broad non-stationary band 0.13-0.16 around the δ = 0.3 top line 0.1463 (window-dependent peak 0.137-0.148; the raw "0.1466 = 0.2%" was FFT-bin quantization, ±3.5% floor: audit claim 5); E_blob FLAT over T = 300 (0.348 → 0.349): persistent, unwound | blob probe + audit re-estimate; the δ = 0.5 pair_d0 remnant near the middle line (0.042-0.043 band) decays (0.326 → 0.296) |
+| 🚧 Sponge arms (δ = 0.3, both pairings) | | running |
 
 ## 4. Inspection set (≤ 4 artifacts) + the object itself
 
@@ -154,6 +159,19 @@ Chosen far fields (continuity with the M5.20 escape arms at δ → 0):
 - 3D non-axisymmetric evolution (the axisym instrument cannot represent a Cartesian-uniform biaxial far field; the axis-disclination caveat in § 1 is the honest price).
 - Radiated-spectrum decomposition per mode (the sponge ledger is total-energy only).
 
-## 6. Adversarial audit
+## 6. Adversarial audit (independent agent, 2026-07-12; own instruments: `m5_20_1_audit_check.py` → `data/m5_20_1_audit.json`)
 
-🚧 Independent audit runs after synthesis (its findings recorded here per the § 10 pattern).
+The auditor built its own winding instruments (dense plaquette defect maps on all three 2-plane blocks, own bilinear circle reads, coarse circle grid), its own exact Hessian derivation, its own energy reimplementation (matches endpoint PE to ≤ 2e-7), and its own spectral estimator; validated on an own-built synthetic vortex, a null field, and the task seeds.
+
+| Claim | Audit verdict | What changed in this note |
+| --- | --- | --- |
+| 1. UNWOUND 10/10 (the headline) | **CONFIRMED** (zero confirmed wound cores in every endpoint; the large δ=0.1 pair_1d remnant m13 carries NO winding; the 10 strong plaquettes in d0p5_pair_d0 are 1-cell ± dipoles, net 0, none circle-confirmed) | none |
+| 2. Gap map 4 → 3, ω_split | **CONFIRMED with caveat**: ω_split (Rayleigh along diag(0,1,−1)) = sqrt(w(4δ² + 9δ⁴)) exactly, but the TRUE lowest activated gap is the Hessian ω = 0.0041 / 0.0099 / 0.0125 (25-63% below the Rayleigh number) | headline gap numbers now quote BOTH (§ 1 corrected) |
+| 3. Minimization selects the (δ,0)-equalized core | **PARTIALLY**: real at δ = 0.3/0.5 (remnant λ = (0.99, 0.23, 0.07)-class, the seeded (1,δ) two-equal core definitively abandoned); UNPROVEN at δ = 0.1 (remnant gap_bot 0.20 > δ); the diagnostic label is vacuum-trivial for δ < 0.5 (near-vacuum debris always reads "(δ,0)") and statics endpoints keep the pair_1d label | claim reworded (§ 3): "the dynamics abandons the seeded (1,δ) two-equal core; the (δ,0)-equalization label is confirmed at δ ≥ 0.3 and is vacuum-confounded below" |
+| 4. Conservation ≤ 3.6e-6 | **CONFIRMED** (6 core runs ≤ 3.6e-6; the δ=0 anchor 5.2e-6 endpoint / 7.3e-6 max; sponge ledgers close to 2.7e-6) | drift row now says "≤ 3.6e-6 (core 6) / ≤ 7.3e-6 (all 10)" |
+| 5. Remnant "on the top mass line, 0.2%" | **REFUTED AS STATED**: 0.1466 is exactly FFT bin 7 (Δω = 0.0209, ±3.5% floor, no interpolation); refined estimates are window-dependent (0.137-0.148) over a broad non-stationary band (half-1 dominant 0.084, half-2 0.136); E_blob flatness confirmed | claim reworded everywhere: "a persistent localized oscillation with spectral power in a band overlapping the top mass line"; the 0.2% coincidence deleted |
+| 6. Barrier vs driving | **CONFIRMED** (own closed forms match; statics E strictly monotone decreasing in all 6); actual barrier/driving 2.7-3.0% | "3-5%" → "~3%" |
+
+**Audit side finding**: the δ = 0.1 pair_1d STATICS endpoint retains a tight +1/2 −1/2 defect DIPOLE at (ρ, z) ≈ (24-25, 0) (net charge 0, E collapsed 48.7 → 0.80, non-stationary): "DISSOLVES" is net-charge-true but dissolution is INCOMPLETE at δ = 0.1 after 4000 iters; the dynamics runs at the same δ show no such dipole. The statics row carries this footnote now.
+
+**Instrument bugs found (documented, not fixed in the frozen task files, the M5.20 pattern)**: (1) `winding_measure_biax` has no axis/edge guard (`m5_20_1_b_seeds.py:103-131`; latent here, ring centers stayed ≥ 17; the endpoint classifier's `winding_measure_bilin` DOES guard); (2) the statics verdict path uses the debris-sensitive `ring_by_m13` centroid with no core-hunt backup (source of the masked δ=0.1 dipole); (3) `m5_20_1_f_blob.py` takes a raw FFT-bin argmax (the claim-5 artifact; `omega_peak_E` = bin 1 = detrend artifact); (4) `core_spectrum`'s equalization label is vacuum-trivial for δ < 0.5 and tie-breaks to pair_d0. Audit limits: non-coordinate-plane eigenframe windings only indirectly excluded; sub-cell cores near the axis outside instrument coverage; inter-snapshot drift not observable from trajectories (GA1 makes it implausible); the GA3 pulse numbers not re-run.

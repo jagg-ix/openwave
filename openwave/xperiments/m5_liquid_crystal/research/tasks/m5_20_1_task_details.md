@@ -1,6 +1,6 @@
 # M5.20.1 - Biaxial (1, δ, 0) dynamics: does the spectral gap protect the vortex loop?
 
-**Status**: 🚧 PLANNED 2026-07-11, awaiting go (roadmap IN PROGRESS row). **Renumbered 2026-07-12** (user call): M5.21 → **M5.20.1**, successor M5.22 → **M5.20.2**; the neutrino vortex-loop runs group as M5.20.x. **Spec**: Duda 2026-07-11 14:27 ([`m5_20_convo.md`](m5_20_convo.md)): "topological vortex requires potential with (1, delta, 0) minimum - preferred three different, which should regularize to two equal in center - to prevent discontinuity of infinite energy, activating potential. So maybe there is problem with assumed simpler spectrum." Predecessors: [M5.20](m5_20_task_details.md) (conservative dynamics at δ = 0, all runs unwound) · [M5.19](m5_19_task_details.md) (statics; B2 measured the winding-pair classes at δ = 0.3). Outbound seed round sent 2026-07-11 16:07 (3 questions); **ANSWERED overnight 2026-07-12 00:06 and FOLDED into this plan** ([`m5_20_convo.md`](m5_20_convo.md)): "in 3D (1, delta, 0) you can start with" (Q3 = the no-scope-change branch, the spatial run is the sanctioned start), no δ value given (the sweep stands), the winding pair left to energy minimization ("has to equalize 2 eigenvalues in the center": measured, not assumed, via the core-equalization diagnostic below); the full 4×4 (g, 1, δ, 0) oscillation run is the declared successor (**M5.20.2** stub, roadmap Backlog; his 07-12 "(1,g,delta,0)" read as a misspelling of the standing spectrum, user call).
+**Status**: ✅ DONE 2026-07-12 (review approved; roadmap DONE row). **Renumbered 2026-07-12** (user call): M5.21 → **M5.20.1**, successor M5.22 → **M5.20.2**; the neutrino vortex-loop runs group as M5.20.x. **Spec**: Duda 2026-07-11 14:27 ([`m5_20_convo.md`](m5_20_convo.md)): "topological vortex requires potential with (1, delta, 0) minimum - preferred three different, which should regularize to two equal in center - to prevent discontinuity of infinite energy, activating potential. So maybe there is problem with assumed simpler spectrum." Predecessors: [M5.20](m5_20_task_details.md) (conservative dynamics at δ = 0, all runs unwound) · [M5.19](m5_19_task_details.md) (statics; B2 measured the winding-pair classes at δ = 0.3). Outbound seed round sent 2026-07-11 16:07 (3 questions); **ANSWERED overnight 2026-07-12 00:06 and FOLDED into this plan** ([`m5_20_convo.md`](m5_20_convo.md)): "in 3D (1, delta, 0) you can start with" (Q3 = the no-scope-change branch, the spatial run is the sanctioned start), no δ value given (the sweep stands), the winding pair left to energy minimization ("has to equalize 2 eigenvalues in the center": measured, not assumed, via the core-equalization diagnostic below); the full 4×4 (g, 1, δ, 0) oscillation run is the declared successor (**M5.20.2** stub, roadmap Backlog; his 07-12 "(1,g,delta,0)" read as a misspelling of the standing spectrum, user call).
 
 ## TASK PLANNING
 
@@ -107,3 +107,51 @@ Scripts `m5_20_1_*` in [`../scripts/`](../scripts/), data/plots `m5_20_1_*` in `
 ### Model + effort
 
 Same combo as M5.20 (it closed a comparable scope in 03:28): main-loop model, high effort on the physics derivations (gap map, lemma re-derivation) and the audit; mechanical phases (seed sweeps, run babysitting) at standard effort. Headless throughout; NumPy stack (no GPU need at 128×256).
+
+## FINDINGS (2026-07-12, production complete; adversarial audit DONE, verdicts folded in: headline CONFIRMED, two claims reworded, see the method note § 6)
+
+**The headline: the (1, δ, 0) spectral gap does NOT protect the vortex loop at the calibrated scale.** All 10 production dynamics runs and all 6 statics relaxations end UNWOUND: every δ ∈ {0.1, 0.3, 0.5}, both winding pairings, fixed AND recalibrated w, closed box AND sponge, plus the δ = 0 anchor. His premise was confirmed exactly where it is a statement about the potential (the removability face DOES gap, 4 → 3 zero modes, lowest activated ω = 0.0041-0.0125 measured); protection still fails because the activated barrier is ~3% of the loop's curvature driving at w = 7.24e-4: the removal path stays net downhill (statics E strictly monotone, audit-verified).
+
+![protection vs delta](../plots/m5_20_1_protection.png)
+
+| Result (all ✅ measured) | Value |
+| --- | --- |
+| Gap map (DoD 1) | zero modes 4 → 3 at δ ≠ 0 (prediction CONFIRMED); lowest activated gap ω = 0.0041 / 0.0099 / 0.0125 (Rayleigh along the split direction: 0.0054 / 0.0177 / 0.0336, audit-corrected presentation); Hessian analytic 2wJ^TJ vs numeric 4.6e-10 |
+| Vacuum enumeration (DoD 2) | all 6 uniform (1,δ,0) assignments: V = 0 and u_curv = 0 exactly; NONE axis-regular (every biax far field carries a scheme-invisible axis disclination); chosen: pair_1d → diag(δ,0,1), pair_d0 → diag(0,1,δ) |
+| Instruments (DoD 3) | winding reads exact q = 0.5 on seeds at r_w 3-6 (both nearest-cell and the bilinear v2); core-equalization diagnostic reads the seeded pairing at t = 0, every (δ, pairing) |
+| Statics triage (DoD 4) | ALL SIX DISSOLVE downhill (E → vacuum, strictly monotone; net winding 0); ⚠️ audit: the δ=0.1 pair_1d endpoint retains a net-zero ±1/2 dipole (incomplete dissolution after 4000 iters); endpoints NOT stationary (1.6-2.0 decades); no metastable loop found |
+| Dynamics verdict (DoD 5) | **UNWOUND 10/10** (classifier v2 + per-peak core hunt; audit: zero confirmed wound cores by three independent instruments); energy conserved ≤ 3.6e-6 (core 6) / ≤ 7.3e-6 (all 10) closed-box: unwinding needs NO radiation at δ ≠ 0 either |
+| Core equalization (the measured Q22 pairing answer, audit-tempered) | the dynamics ABANDONS the seeded (1,δ) two-equal core in every pair_1d run; the (δ,0)-equalized endpoint is genuine at δ ≥ 0.3 and vacuum-confounded below (the label is trivial near vacuum for δ < 0.5; δ=0.1 unproven); matches the near-free (δ,0) barrier (V/w 3e-5-0.024) vs the (1,δ) barrier (0.095-0.61) |
+| Remnant re-probe (DoD 6) | the δ = 0.3 pair_1d unwound remnant is a PERSISTENT localized oscillation with spectral power in a broad band (0.13-0.16) overlapping the top vacuum mass line 0.1463 (the earlier "0.2% on-the-line" was FFT-bin quantization, audit-refuted); E_blob flat over T = 300; the pair_d0 remnants disperse instead (19% sponge-absorbed) through the weak O(1) linear channel of their far field |
+| Controls | recal-w (autochi): UNWOUND (verdict not a wscale artifact); δ = 0 anchor: UNWOUND (M5.20 corpus continuity); GA3-d pulse: pair_1d vacuum has NO linear channel (−0.007 cells), pair_d0 the weak O(1) channel (+0.79 cells) |
+
+![seed state](../plots/m5_20_1_seed_maps.png)
+
+![endpoints](../plots/m5_20_1_endpoints.png)
+
+![gap map](../plots/m5_20_1_gapmap.png)
+
+![dynamics](../plots/m5_20_1_dynamics.png)
+
+**Honest caveats**: (a) the verdict is a statement at the CALIBRATED w = 7.24e-4 and the recal control (w = 9.2e-4-class autochi) only bounds the scheme dependence locally: a regime w >> 1 where the barrier dominates the curvature driving was not swept (out of scope, flagged for the author); (b) the axisym instrument cannot represent Cartesian-uniform biaxial far fields (the axis-disclination caveat, § method note); (c) q = 1/2, R0 = 17, NARROW cores only (the M5.20 comparability choices); (d) the conservative kinetic term is the canonical completion, author-sanctioned as the START ("in 3D (1, delta, 0) you can start with"), and the time sector is exactly the successor [M5.20.2](m5_20_2_task_details.md).
+
+Method note (equations + code map + full results): [`../findings/m5_20_1_method_note.md`](../findings/m5_20_1_method_note.md). Verdicts: `../data/m5_20_1_verdicts.json`. Checkpoint trail: [`../checkpoints/m5_20_1_progress.md`](../checkpoints/m5_20_1_progress.md).
+
+## Large-file cleanup (2026-07-12 FINISH, per the >1MB rule)
+
+Five endpoint `_state.npz` files (1.0-1.1 MB each) deleted after the audits and the M5.20.2 clock probe finished consuming them; every other artifact is under 1 MB. Regeneration: `python3 m5_20_1_d_dynamics.py run <delta> <pairing> 2000 <closed|sponge> [tag] [--recal]` reproduces each endpoint bit-comparably (deterministic seed + integrator).
+
+| Deleted | Size | Regen |
+| --- | --- | --- |
+| `m5_20_1_run_d0p3_pair_1d_closed_state.npz` | 1.0 MB | `run 0.3 pair_1d 2000 closed` |
+| `m5_20_1_run_d0p3_pair_1d_closed_recal_state.npz` | 1.0 MB | `run 0.3 pair_1d 2000 closed d0p3_pair_1d_closed_recal --recal` |
+| `m5_20_1_run_d0p3_pair_1d_sponge_state.npz` | 1.0 MB | `run 0.3 pair_1d 2000 sponge` |
+| `m5_20_1_run_d0p5_pair_1d_closed_state.npz` | 1.1 MB | `run 0.5 pair_1d 2000 closed` |
+| `m5_20_1_run_d0p5_pair_d0_closed_state.npz` | 1.1 MB | `run 0.5 pair_d0 2000 closed` |
+
+## TASK REVIEW (2026-07-12)
+
+**Task Duration:** 03:24 (from 08:50 to 12:14 EDT)
+**Usage Cap Triggered:** NO
+
+Approved by Rodrigo 2026-07-12 (terminal review). Results: gap map CONFIRMED his mechanism (4 → 3 zero modes, lowest activated ω 0.0041-0.0125) ✅; **UNWOUND 10/10 dynamics + 6/6 statics, no radiation needed (E conserved ≤ 7.3e-6), barrier ~3% of driving** ✅; pairing answer measured (dynamics abandons the (1,δ) core, holds (δ,0), genuine δ ≥ 0.3) ✅; persistent unwound remnant in the top-mass-line band ✅; the time sector = protection's last in-framework door 🔶. Issues: audit corrected two presentation claims (blob bin-quantization; Rayleigh-vs-true gap) + the δ=0.1 statics dipole footnote; 4 instrument bugs documented, none verdict-bearing. Deviations: none material. The full findings + closing block are in [`## FINDINGS`](#findings-2026-07-12-production-complete-adversarial-audit-done-verdicts-folded-in-headline-confirmed-two-claims-reworded-see-the-method-note--6) and the review as presented lives in the session record; verdicts `../data/m5_20_1_verdicts.json`, audit `../data/m5_20_1_audit.json`.
