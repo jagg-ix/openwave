@@ -44,10 +44,10 @@
 | Static minimization shrinking R to zero is not the physics; total energy is conserved; loss requires transfer into other field excitations (radiation) | Machine-checkable → THE M5.20 run |
 | "I suspect lack of radiation mechanism at least flying through empty vacuum" (his Q16 answer) | The hypothesis under test; protection = measured absence of the channel |
 | Beta-decay neutrinos should be 1-vortex (hedgehog charge topologically requires it); 1/2-vortex loops = primordial "half-neutrinos", dark-matter candidates | Seed prioritization: q=1 is the physical class, run FIRST; q=1/2 kept (his dark-sector class + M5.19's energetically favored one) |
-| Q21: same Lagrangian; Hamiltonian carries negative `−(Γ0¹Γ̃μⁱ − Γμ¹Γ̃0ⁱ)²` (i=2,3) terms; clock = twist in time; boosts = gravitational mass | Author answer on record; the Γ↔M dictionary = new tracker question; the clock sector stays M5.21+ |
+| Q21: same Lagrangian; Hamiltonian carries negative `−(Γ0¹Γ̃μⁱ − Γμ¹Γ̃0ⁱ)²` (i=2,3) terms; clock = twist in time; boosts = gravitational mass | Author answer on record; the Γ↔M dictionary = new tracker question; the clock sector stays M5.20.2 |
 | Q20: core potential contribution positive; oscillation-gravity negative but smaller; per-length energy positive (zero/negative possible absent radiation). The Dirichlet-presence question NOT directly answered | Partial answer; M5.20 runs BOTH functional variants (commutator-only + Dirichlet control) so the verdict does not hinge on it |
 | Q22: "I don't know in this moment" | Parked (author-gated, unanswered by choice) |
-| Time-dilation remark: radiation might exist but be slowed to near-negligible by the enormous rest-frame boost | ⚠️ speculative, needs the clock machinery; deferred M5.21+ |
+| Time-dilation remark: radiation might exist but be slowed to near-negligible by the enormous rest-frame boost | ⚠️ speculative, needs the clock machinery; deferred M5.20.2 |
 
 ### Phased plan (gates pre-registered)
 
