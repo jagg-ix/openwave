@@ -13,7 +13,25 @@
 | Clock sector | **Phased**: rotation sector now (ungated), full constrained 4×4 later (M5.21.1, gated with M5.20.3) |
 | Geometry | **Axisym (ρ,z) primary + one 3D spot-check** (the saddle direction the axisym box freezes) |
 | Plot style | **Ellipse glyphs + heat maps**, film-strip at chosen timesteps |
-| Audience | **Internal preview + feeder for the rendering block**: the snapshot pipeline is itself a deliverable, previewing the future full-3D Taichi production engine's viz features (flux mesh of energies, electric/magnetic field, scalar + vector viz, magnitude + direction views, glyphs). The [`m5_4b`](m5_4b_rendering_features.md) framework catalog it feeds, per the user's 2026-07-13 enumeration: charge, mass/energy, deBroglie clock/ZBW, particle stability, angular momentum, spin, magnetic moment, **2-particle attraction/repulsion**, LC director vector, **Coulomb**, force fields (ele-mag-grav), EM waves, and thermal energy in the future if it lands. This task's panels cover the electron-relevant subset; the rest are future pipeline cases (the 2-particle film-strip is the natural next reuse). Promote to a Duda-facing note only if the movie earns it |
+| Audience | **Internal preview + feeder for the rendering block**: the snapshot pipeline is itself a deliverable, previewing the future full-3D Taichi production engine's viz features. The [`m5_4b`](m5_4b_rendering_features.md) framework catalog it feeds, per the user's 2026-07-13. This task's panels cover the electron-relevant subset; the rest are future pipeline cases (the 2-particle film-strip is the natural next reuse). Promote to a Duda-facing note only if the movie earns it |
+
+- flux mesh of energies
+- electric/magnetic field
+- scalar + vector viz
+- magnitude + direction views
+- glyphs
+
+enumeration:
+
+- charge
+- mass/energy
+- deBroglie clock/ZBW, particle stability
+- angular momentum, spin, magnetic moment
+- **2-particle attraction/repulsion**
+- LC director vector
+- **Coulomb**, force fields (ele-mag-grav)
+- EM waves
+- and thermal energy in the future if it lands
 
 ### Scope
 
