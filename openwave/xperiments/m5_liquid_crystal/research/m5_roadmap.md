@@ -12,6 +12,7 @@
 
 | TaskID | Title | Description | Gated By |
 | --- | --- | --- | --- |
+| [M5.21](tasks/m5_21_task_details.md) | The particle-clock film strip: electron cross-section snapshots | PLAN-ready (2026-07-13, specs interview folded): a reusable headless snapshot pipeline (ellipse glyphs with the δ-axis clock tick + A/ω/energy/charge/curl heat-map panels, the [`m5_4b`](tasks/m5_4b_rendering_features.md) launcher features previewed in matplotlib) + the electron rotation-clock movie: hedgehog charge with a rotation-sector clock (measured stable, K_eff > 0) evolved in the 4×4 tensor, film-strip at chosen timesteps: "see the particle clock creating particle stability". Probes M5.16's Q8 saddle dynamically; axisym primary + one 3D spot-check. Phase 2 stub M5.21.1 = the full constrained time term (inherits the M5.20.3 gate). | ungated (rides the measured rotation-sector stability; M5.20.3 takes priority when its gate lifts) |
 
 ## BACKLOG
 

@@ -104,3 +104,25 @@ Attachment: the same half-integer vortex ellipse-field diagram already on file f
 | "in the center ... automatically ... 2 equal eigenvalues, e.g. (g, 1, a, a) for a ~ delta/2" | FIRST TIME the core value is named: a ≈ δ/2. The M5.20.1 measured selected core IS (1, δ/2, δ/2) (the (δ, 0)-equalized pair, pair_d0 construction (1, δ/2, δ/2) chosen by the dynamics from both seedings): his prediction CONFIRMED by the already-sent measurement | Next outbound states the match (his prediction → our measurement, genuine at δ ≥ 0.3 per the audit caveat). The eventual 4×4 run gains a pre-registered core gate: endpoint core reads (g, 1, a, a), a ≈ δ/2 |
 | "radius of loop can also oscillate - I suspect to maintain total energy, which is density per length depending on flavor, times loop length" | NEW mechanism spec for the oscillation run: flavor ↔ linear energy density; loop radius R(t) breathes so that E_total = (E/length)(flavor) × 2πR stays conserved. Concrete observable set: E per unit length vs core-spectrum state, R(t), and the exchange between them | Folds into the [M5.20.3](m5_20_3_task_details.md) plan as the primary observable set (alongside the staged H(ω) machinery and the AMBer scoreboard); the run itself stays gated on his constraint answer |
 | "respond in ~6 hours (my morning)" + he asked that results reach him before his 20:00 (14:00 EDT) for a same-evening read | The deep analysis (and presumably the constraint answer) arrives ≈ our midnight. Comms window recorded as standing logistics | [M5.20.3](m5_20_3_task_details.md) stays PLAN-ready (plan written same evening, roadmap row at the top of Backlog), production HELD for the morning email; the next outbound opens with a brief timing apology (user call 2026-07-12) |
+
+## 2026-07-13 late morning: outbound: the one blocking question isolated (sent inside the comms window)
+
+**From**: Rodrigo, 2026-07-13 ~11:20 EDT (his ~17:20, inside the before-20:00 window). His promised deeper reply had not arrived by late morning; rather than wait, the outbound isolates the single blocking question so his answer can be short, and defers everything else ("full analysis ... whenever convenient, no rush"). Voice-separation format; the RODRIGO VOICE section (timing apology + no-rush framing + "everything staged") is his own words, not logged here.
+
+### FABLE VOICE block (as sent)
+
+> The single blocking question is the boost sector of the 4x4 dynamics. Your verified Lagrangian is purely quartic in derivatives, and on rigid Lorentz orbits we measured H(omega) = H(0) + omega^2 K_eff exactly: all three rotation generators give K_eff > 0, all three boost generators give K_eff < 0 with 100% negative density, so H is unbounded along boosts and free time integration runs away (t ~ 21, dt-robust).
+>
+> The question: what closes the boost sector? For example: a Dirac treatment of the primary constraint (Mdot ~ eta is an exact null direction), a restriction of the dynamics to rotation orbits, a branch or sign choice we missed, or the clock being ansatz-level rather than field-level.
+>
+> If the answer is simply "do not integrate freely, everything comes from energy minimization under constraints" (as your last note hints), one line saying so, plus which quantities are held fixed (winding? total energy?), is all we need. Given that input, the (g, 1, delta, 0) oscillation run goes the same day, with your core prediction (g, 1, a, a), a ~ delta/2 pre-registered as a gate, and the loop-radius breathing at conserved total energy = (energy per length) x (loop length) as the primary observable.
+>
+> Full analysis and everything else can come whenever convenient, no rush.
+
+### Notes
+
+| Item | Content |
+| --- | --- |
+| Design intent | Restates the census numbers inline so he need not reopen the method note; pre-commits to his own two predictions (the a ≈ δ/2 core gate, the radius breathing) so his answer slots straight into the staged [M5.20.3](m5_20_3_task_details.md) run; offers the minimization-first branch explicitly (the hint in his 2026-07-12 quick reply) with the two fixed-quantity candidates named (winding, total energy) |
+| Tracker | The question is the standing Q18 + Q19 + Q23 fusion (no new Qn); resolution routes on his reply |
+| Next | His reply → verbatim + decode entry here → the [M5.20.3](m5_20_3_task_details.md) folding-table row chosen → user "go" |
