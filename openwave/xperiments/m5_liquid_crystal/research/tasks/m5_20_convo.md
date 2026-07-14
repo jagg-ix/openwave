@@ -191,27 +191,7 @@ Verbatim core:
 
 **Context**: the task ran his 2026-07-13 prescription verbatim same-day (record: [`m5_20_3_task_details.md`](m5_20_3_task_details.md), note: [`../findings/m5_20_3_method_note.md`](../findings/m5_20_3_method_note.md)). Verdict: the free-EL IVP is ill-posed; every regularization blows up in finite time with E → −∞ (HIS pre-named fallback branch fires); q never unwinds; the (g, 1, a, a) core lands at statics (a = 0.85 δ/2); the vacuum ladder is ρ-chirped. New ask = [Q24](../m5_question_tracker.md#q24-detail) (BVP confirmation). **Send: user-gated, next 14:00 EDT window (2026-07-15). Backstage posture stands.**
 
-**RODRIGO VOICE (content bullets only, his phrasing)**:
-
-- the a ≈ delta/2 core value he named came out of free minimization at 0.85 × delta/2, nobody set it by hand
-- we ran exactly what he prescribed, no added restrictions, and hit the branch he himself named (EL diving to −infinity), so the question is whether least-action BVP is the way he wants it formulated
-- his two checks on the 3D→4D extension were already in the verified code, links inside
-
-**FABLE VOICE (paste-ready draft)**:
-
-```text
-Dear Jarek,
-
-Three parts: your two checks, the run of your prescription, and one question.
-
-YOUR TWO CHECKS (both already implemented and machine-verified; permalinks): (1) SO(1,3) not SO(4): the Lorentz-invariance gate applies a random boost + rotation Lambda in SO(1,3) and the verified Lagrangian is invariant to ~1e-11, with a no-eta negative control that correctly FAILS (https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_18_lorentz_check.py, checks 1/1b). (2) eta inside the trace products: the potential is built from Tr((eta M)^p) with C_p from the eta-spectrum g^p + 1 + delta^p (https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_20_2_a_eom.py, v4_density / c4_of).
-
-YOUR PRESCRIPTION, RUN VERBATIM (method note with equations first: https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/findings/m5_20_3_method_note.md). We evolved the free Euler-Lagrange equations of your quartic Lagrangian itself (no added restrictions; the exact Legendre-null directions handled as the theory's own structure, with the discarded force bookkept). First, the positive: starting from the energy-minimized 3D loop + g time row, the core spectrum comes out (g, 1, a, a) with a = 0.127 = 0.85 x delta/2, from free minimization: your predicted value, measured, not set. Second, the verdict: the initial-value problem is not usable on these backgrounds. The kinetic form K(M) has exact null directions (rank 5 of 10 on the loop) plus negative-inertia directions that come in +- pairs (the eta signature), and on every non-trivial background we tried (loop, minimized loop, unwound remnant, vacuum + time-mixing textures; the one stable case is a pure spatial-rotation texture on the vacuum) an exponentially growing time-mixing mode rises from rounding noise (measured rates 6.3 to 81 per time unit depending on how much of the near-null spectrum is frozen) until the evolution dives to E -> -infinity in finite time. This is exactly the branch you named ("if EL evolution -> -infinity energy, we should rather go to least action"). Notably, the topological charge NEVER unwinds through any of it (q = 0.500 exact to the last finite step, where the canonical-kinetic stack unwound 10/10): the force that unwound the loop has no inertia channel under your L. Also measured: on the vacuum, the small-oscillation frequencies are not a flat ladder: the kinetic form scales as 1/rho^2 (equivariant background), so omega_1 = 0.0674 rho, linear in rho.
-
-THE QUESTION: do we take the least-action two-point BVP as the intended dynamical formulation (we would start from the time-periodic action instrument built for the clock search), or is there a constraint surface / kinetic normalization you intend that makes the initial-value problem well-posed? The radius-breathing and spectrum observables you specified are ready to run the moment the formulation is fixed.
-
-Best,
-```
+**Draft text**: removed 2026-07-14 evening (unsent; superseded by the entry below; standing rule: proposed outbound texts stay out of this public repo, terminal-only). It covered: his two checks (permalinks) · the M5.20.3 results · the Q24 BVP ask.
 
 **Decode/routing**:
 
@@ -222,3 +202,24 @@ Best,
 | The negative | framed in HIS branch language; mechanism numbers included, no drama |
 | Q24 | the one question; tracker top |
 | Timing | user-gated; 14:00 EDT window 2026-07-15; Jarek carries the group voice (backstage stands) |
+
+
+## 2026-07-14 evening: the outbound draft UPDATED at the M5.20.5 close (supersedes the morning draft above)
+
+**Context**: since his 2026-07-13/14 constraint answer, THREE tasks ran: [M5.20.3](m5_20_3_task_details.md) (his prescription verbatim: ill-posed IVP, his branch fires), [M5.20.4](m5_20_4_task_details.md) (the formulation search: alternatives eliminated, balance roots EXIST), [M5.20.5](m5_20_5_task_details.md) (the rigid level measured OUT + the escape dead at statics; audited 7C/2Q). The γ = −1 sub-ask is WITHDRAWN (answered by our own measurement); the ask sharpens to BVP confirmation + the profile-dynamic (breathing) clock question. **M5 PARKS on this message + his answer.** Send: user-gated, 14:00 EDT window (2026-07-15). Backstage posture stands.
+
+**What to send (decision at review)**: ONE email covering everything since his last message, anchored on the M5.20.3 note (the "we ran your answer" document), with the 20.4/20.5 notes as depth links: NOT the 20.5 note alone. **Two image attachments** (also committed in-repo, permalinked inline): `plots/m5_20_3_film_recipe.png` (the pre-singular window: the loop HOLDS its shape while the blowup nucleates at a point, q = 0.500 throughout: his branch, visualized) and `plots/m5_20_5_a1_ladders.png` (the balance-root ladders: the least-action positive that grounds the breathing question).
+
+**Draft text**: NOT stored in this repo (public GitHub; standing rule 2026-07-14: proposed outbound message texts are delivered in the TERMINAL at review only). The draft covers: his two checks (permalinks) · the M5.20.3 verbatim-run results incl. the film · the compressed M5.20.4/20.5 formulation search · the sharpened Q24 ask (BVP confirmation + the profile-dynamic/breathing clock; γ = −1 withdrawn as self-answered).
+
+**Decode/routing**:
+
+| Item | Route |
+| --- | --- |
+| His two checks | unchanged (M5.18 check 1 + 1b; `v4_density`/`c4_of` permalinks) |
+| M5.20.3 (his prescription) | leads the results; the film attachment = the visual of HIS branch firing with q intact |
+| M5.20.4 + M5.20.5 | compressed to one paragraph: alternatives dead (lemma + measurement), roots real (ladders attached), rigid level out (directional), escape self-answered |
+| γ = −1 sub-ask | WITHDRAWN: reported as a measurement, no question spent (ask-economy per ask-when-gated) |
+| Q24 (the one question) | BVP confirmation + the breathing/profile-dynamic clock; his two named alternatives (rigid class we missed / constraint surface) offered back |
+| Attachments | `m5_20_3_film_recipe.png` + `m5_20_5_a1_ladders.png` (committed in-repo; blob URLs resolve after Rodrigo's commit) |
+| Timing | user-gated; 14:00 EDT window 2026-07-15; backstage posture stands; **M5 PARKED on this message + his answer** |

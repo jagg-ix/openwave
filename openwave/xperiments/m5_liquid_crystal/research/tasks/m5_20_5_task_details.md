@@ -103,3 +103,40 @@ Full equations + results + figures: [`../findings/m5_20_5_method_note.md`](../fi
 | 7 | **The audit-escape candidate (γ = −1 s2 + β·qc) is DEAD at its own statics gate at EVERY β** (1e-2, 1e-4, 0): the loop unwinds (q → 0 within 500 FIRE iterations, ring 17.5 → 27-42); the β = 0 row proves the kill is texture-independent: the loop is statically UNSTABLE under `L − s2` itself. No ask spent on γ = −1 | ✅ measured (kill) | note § 2.3 |
 | 8 | The audit's PSD margins REPRODUCED with our own independent `k10_s2` build (marginal −1e-13 at β = 0; 2.45e-3 / 2.45e-1 at β = 1e-4 / 1e-2), including on a background the audit never saw: the candidate's kinetic operator was fine; statics killed it | ✅ measured | note § 2.4 |
 | 9 | B3 evolution SKIPPED per the pre-registered contingency (statics dead at every β); the combined-dynamics machinery (accel_esc, k10_s2 fast build) is built, gated, on disk for successors | ✅ per plan | note § 2.5 |
+
+
+## TASK REVIEW (2026-07-14)
+
+**Task Duration:** 01:13 (from 17:29 to 18:42)
+**Usage Cap Triggered:** NO (the resume ping was disarmed at FINISH without firing)
+
+Presented in the terminal at FINISH; approved by the user 2026-07-14 evening. The user's follow-on decisions at approval: **M5 PARKS gated on the Q24 outbound to Duda** (roadmap note added); the Duda draft updated with the sharpened ask (see [`m5_20_convo.md`](m5_20_convo.md)).
+
+**Results**
+
+| # | Result | Status |
+| --- | --- | --- |
+| 1 | Instrument gates all green FIRST TRY: `grad_q2_avg` == complex-step (2.8e-16); nphi band-limit MEASURED exact (5 == 16 at 1.7e-16; audit: harmonics even tighter, Q2 ≤ 2); all nine s2 EL pieces machine-verified | ✅ measured |
+| 2 | A1 ladders monotone in χ (no interior dS/dχ extremum); the chirped-ladder scale ω₁(ring) = 1.177 sits AT the sign-crossing edge of every family | ✅ measured |
+| 3 | **ARM A KILL**: 18/18 solver runs fail the pre-registered bar; loop-preserving stalls at rel 0.99-1.02; Newton progress (5-470×) only by destroying the winding (unwound rough state, 18.7× loop energy, still non-stationary) | ✅ measured (kill) |
+| 4 | **The WHY**: rotation kinetic gradient ANTI-ALIGNED (J23^K2, cos = −0.328, χ-stable, noise-robust) or orthogonal (other families) to the loop's 99.9997%-time-row static force: over real ω the residual floor is exactly \|G_static\|; a rigid conjugation orbit cannot trade energy with the time-row sector (breathing can: the successor question) | ✅ measured + audit-extended |
+| 5 | A3 alternation stops at its guard in round 1 (Q2_avg flips positive: root lost; H = 0 certificate fails); A4 observables read at the best loop-preserving state per the pre-registered fallback | ✅ / 🔶 |
+| 6 | **ARM B KILL**: the γ = −1 escape dead at its own statics gate at EVERY β (1e-2/1e-4/0): the loop statically unstable under L − s2 itself; PSD identity reproduced with our own build; B3 skipped per contingency; ask withdrawn, none spent | ✅ measured (kill) |
+| 7 | Adversarial audit (independent agent, own instruments): 7 CONFIRMED / 2 QUALIFIED, zero substantive refutations; 9 wording/number fixes applied (headline: "vacuum trap" → "winding destroyed, non-stationary end state"); audit extended coverage (J23^K3 probed: orthogonal class) | ✅ |
+
+**Issues / blockers**: none open. wp1/wp2 solver logs buffer until run completion (cosmetic). No >1 MB data files produced (largest npz 0.64 MB; nothing deleted).
+
+**Deviations from plan**: three, logged in § Deviations as they happened (a2x diagnostic; B1 β-extension to {0, 1e-4}; A3 started from the regenerated loop-preserving stall state).
+
+**Action needed**: Duda draft updated with the sharpened ask (done at review); M5 parked on the Q24 answer (roadmap note + M5.21.1 gate rewired); the one-harmonic breathing container is the named successor task once the formulation lands.
+
+**Model-doc sweep**: canonical [`../m5_theory_canonical.md`](../m5_theory_canonical.md) UPDATED (§ 2 row 4 amended + new row 4b rigid-level kill + row 5 escape annotated dead; § 3 nphi = 5 gate; § 5.4 a2x diagnostic + the s2/qc EL library; § 6 two new anti-recipes; § 7 tracker pointer). Briefing `__M5_model_briefing.md`: EXPLICIT SKIP: no cell it states changes (its clock/status rows are M5.8-era scoped; deep-dive pointers already current).
+
+**Findings**: M5.20.5 measured the rigid-orbit level OUT on the loop: the M5.20.4 balance roots are real but do not extend to extremal orbits, because the rotation kinetic gradient cannot cancel the loop's almost-purely-time-row static force at any real frequency (a directional obstruction, not a solver failure), and the audit-proposed γ = −1 kinetic completion died at its own statics gate before costing an ask. The clock, if it lives in this Lagrangian, must be profile-dynamic (breathing), which is exactly the energy-transfer channel the rigid ansatz lacks.
+
+**Research docs created / updated**:
+
+- [`../findings/m5_20_5_method_note.md`](../findings/m5_20_5_method_note.md) (the record: equations first, code map, § 4 audit; plots embedded)
+- This file (FINDINGS + deviations) · [`../m5_question_tracker.md § Q24`](../m5_question_tracker.md) · [`../m5_roadmap.md`](../m5_roadmap.md) (Done row + park note) · [`../m5_theory_canonical.md`](../m5_theory_canonical.md) (model-doc sweep)
+- Scripts: [`../scripts/m5_20_5_a_orbit.py`](../scripts/m5_20_5_a_orbit.py) · [`../scripts/m5_20_5_b_escape.py`](../scripts/m5_20_5_b_escape.py) · [`../scripts/m5_20_5_plots.py`](../scripts/m5_20_5_plots.py) · audit [`../scripts/m5_20_5_audit_check.py`](../scripts/m5_20_5_audit_check.py)
+- Data `../data/m5_20_5_*` · key plots [`m5_20_5_a1_ladders.png`](../plots/m5_20_5_a1_ladders.png), [`m5_20_5_a2_convergence.png`](../plots/m5_20_5_a2_convergence.png), [`m5_20_5_b_gates.png`](../plots/m5_20_5_b_gates.png), [`m5_20_5_a_maps_wp0.png`](../plots/m5_20_5_a_maps_wp0.png)
