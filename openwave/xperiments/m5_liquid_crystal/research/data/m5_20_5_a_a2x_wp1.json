@@ -1,0 +1,28 @@
+{
+ "wp": {
+  "fam": "J23^K2",
+  "chi": 0.75,
+  "note": "shallow negative branch (the a1c point)",
+  "Q2_avg": -1780.1384194236628,
+  "omega": 0.01389805323634192
+ },
+ "states": {
+  "recipe_seed": {
+   "cos_align_gkin_gstat": -0.32829121710230075,
+   "norm_gkin": 55681.735404904124,
+   "norm_gstat": 214.8526788264214,
+   "omega2_used": 0.00019315588376019413,
+   "omega2_optimal": -0.0012667393880005282,
+   "omega_optimal": null,
+   "best_rel_residual_any_omega": 0.9445765595088045,
+   "sectors_gkin": {
+    "time_row": 39472.427688535136,
+    "spatial_block": 39273.18563695997
+   },
+   "sectors_gstat": {
+    "time_row": 214.85212162851488,
+    "spatial_block": 0.4893164775781214
+   }
+  }
+ }
+}

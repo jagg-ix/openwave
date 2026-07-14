@@ -1,0 +1,34 @@
+{
+ "a": 4.5,
+ "gamma": -1.0,
+ "backgrounds": {
+  "recipe": {
+   "beta=0": {
+    "mineig": -1.0944727720062208e-13,
+    "frac_cells_neg": 0.0
+   },
+   "beta=0.0001": {
+    "mineig": 0.00245,
+    "frac_cells_neg": 0.0
+   },
+   "beta=0.01": {
+    "mineig": 0.245,
+    "frac_cells_neg": 0.0
+   }
+  },
+  "a2_wp0_best": {
+   "beta=0": {
+    "mineig": -2.1688639057347899e-13,
+    "frac_cells_neg": 0.0
+   },
+   "beta=0.0001": {
+    "mineig": 0.0024497522329288836,
+    "frac_cells_neg": 0.0
+   },
+   "beta=0.01": {
+    "mineig": 0.24497522329228028,
+    "frac_cells_neg": 0.0
+   }
+  }
+ }
+}

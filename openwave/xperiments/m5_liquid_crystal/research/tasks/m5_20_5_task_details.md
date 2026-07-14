@@ -1,6 +1,6 @@
 # M5.20.5: the extremal-orbit solve: converging the particle clock on the loop
 
-**Status**: roadmap row at the top of [BACKLOG](../m5_roadmap.md) (PLAN written 2026-07-14 at the M5.20.4 close). Opens on the user's "go". Not Duda-gated: every step is machine-checkable; his Q24 answer folds at arm boundaries (the standing folding rule). If his answer lands BEFORE the go and contradicts the BVP framing, re-plan at PLAN.
+**Status**: ✅ CLOSED 2026-07-14 (go 17:29, FINISH same evening; adversarially audited 7C/2Q, fixes applied). **Both arms returned kills**: no extremal rigid orbit on the loop (directional block), the γ = −1 escape dead at its own statics gate. Full record: [`../findings/m5_20_5_method_note.md`](../findings/m5_20_5_method_note.md). Duda's Q24 answer did NOT land mid-task (no folds).
 
 **Lineage**: [M5.20.4](m5_20_4_task_details.md) (the formulation winner: free-period least-action roots exist on exactly-periodic boost-conjugated rotation orbits under the corrected φ-averaged kinetic Q2_avg; the a4 descent machinery + state; the audit's γ = −1 escape candidate) · [`../findings/m5_20_4_method_note.md`](../findings/m5_20_4_method_note.md) (equations + the audit record) · tracker [Q24](../m5_question_tracker.md#q24-detail) · the M5.20.3 true-L instrument (gates GC0a-e green).
 
@@ -71,6 +71,14 @@ Roadmap `Gated By`: user "go" only. Duda's Q24 answer folds at the next arm boun
 
 Fable 5 high for the A2/A3 solver design and the B2 operator derivation (novel numerics + algebra); default effort for the mechanical gate loops; independent agent with own instruments for the audit (cardinal rule).
 
+### Deviations log (EXECUTE, as they happen)
+
+| # | When | Deviation | Why (conservative option taken) |
+| --- | --- | --- | --- |
+| 1 | 2026-07-14 ~18:20 | Added phase `a2x` (alignment diagnostic, not in the plan) after all 6 wp0 runs failed the bar | the pre-registered kill branch requires "the sharpest characterization of what blocks (saddle structure vs conditioning)"; a2x measures exactly that (cos alignment + sector split), 3 cheap evals, no scope creep |
+| 2 | 2026-07-14 ~18:25 | B1 extended to β = 0 and β = 1e-4 beyond the planned β ~ 1e-2 | the candidate is defined at β → 0⁺; killing it only at β = 1e-2 (where the qc texture dominates) would be an unfair gate; the β-limit runs make the statics verdict decisive |
+| 3 | 2026-07-14 ~18:40 | A3 started from a regenerated loop-preserving STALL state (new `stall` phase) instead of the a2 best-residual state | the a2 "best" was the winding-destroyed Newton state (q = 0): not a valid clock start; the alternation must be given the best LOOP state to be a fair test |
+
 ### Contingencies + comms
 
 | Trigger | Action |
@@ -79,3 +87,19 @@ Fable 5 high for the A2/A3 solver design and the B2 operator derivation (novel n
 | A2 converges early at the first working point | Spend the freed budget on A5 (one-harmonic breathing) rather than more working points |
 | B fails an early gate | Stop arm B there (the escape is dead by measurement), log, give the time to A |
 | Hard cap | Ship per-arm partials + the residual-vs-budget record |
+
+## FINDINGS (2026-07-14)
+
+Full equations + results + figures: [`../findings/m5_20_5_method_note.md`](../findings/m5_20_5_method_note.md). Data in `../data/m5_20_5_*`, plots in `../plots/m5_20_5_*`.
+
+| # | Finding | Status | Where |
+| --- | --- | --- | --- |
+| 1 | Instrument gates: `grad_q2_avg` == complex-step (2.8e-16); the band-limit claim MEASURED (nphi 5 == 16 at 1.7e-16, run at nphi = 5); all nine s2 EL pieces (statics, kinetic, pi, both gradients, kdot, fast K10 build, operator consistency) machine-verified FIRST TRY | ✅ | note § 1.2, § 2.2 |
+| 2 | The refined root ladders are MONOTONE in χ (no interior dS/dχ extremum); the chirped-ladder scale ω₁(ring) = 1.177 sits AT the sign-crossing edge of every family (within Δχ ≈ 1e-3): the "natural" clock frequency is the stiff edge, not a workable interior point | ✅ measured | note § 1.3 |
+| 3 | **The extremal solve FAILS the pre-registered bar at every working point**: 18/18 runs non-converged (3 methods × 2 starts × 3 working points; two of the three distinct families solved, the third audit-probed same-class); loop-preserving methods stall at rel 0.99-1.02; Newton-Krylov lowers the residual 5-470× only by DESTROYING the winding, ending in an unwound rough state (U = 18.7× the loop's, still non-stationary), not the vacuum | ✅ measured (kill branch) | note § 1.4 |
+| 4 | **WHAT blocks (the kill branch's required characterization)**: the kinetic gradient is ANTI-ALIGNED with the static residual, cos(g_kin, g_stat) = −0.328 (J23^K2, all χ probed 0.72-2.0, noise-robust) / ≈ 0 (J23^K3, J12^K1): over REAL ω the residual floor is exactly \|g_stat\| (at ω = 0) and every ω > 0 makes it worse (J23) or leaves it unchanged (orthogonal families); g_stat is 99.9997% time-row (the frozen-time-relax legacy force): the block is DIRECTIONAL/structural, not conditioning | ✅ measured + audit-extended | note § 1.4b |
+| 5 | The coupled (M, ω, χ) alternation stops at its own guard in round 1: the M-descent flips Q2_avg to POSITIVE (+1.386), the balance root ceases to exist, H = 0 certificate fails by order unity: no rigid-orbit fixed point in the reachable basin | ✅ measured | note § 1.5 |
+| 6 | Observables at the best loop-preserving state (pre-registered 🔶 fallback): loop intact (q = 0.5, ring 17.46, r50/r90 = 22.5/27.5 vs baseline 20.5/27.5), H = 0.463 ≠ 0: the state is a loop, not a clock | 🔶 at non-extremal state | note § 1.6 |
+| 7 | **The audit-escape candidate (γ = −1 s2 + β·qc) is DEAD at its own statics gate at EVERY β** (1e-2, 1e-4, 0): the loop unwinds (q → 0 within 500 FIRE iterations, ring 17.5 → 27-42); the β = 0 row proves the kill is texture-independent: the loop is statically UNSTABLE under `L − s2` itself. No ask spent on γ = −1 | ✅ measured (kill) | note § 2.3 |
+| 8 | The audit's PSD margins REPRODUCED with our own independent `k10_s2` build (marginal −1e-13 at β = 0; 2.45e-3 / 2.45e-1 at β = 1e-4 / 1e-2), including on a background the audit never saw: the candidate's kinetic operator was fine; statics killed it | ✅ measured | note § 2.4 |
+| 9 | B3 evolution SKIPPED per the pre-registered contingency (statics dead at every β); the combined-dynamics machinery (accel_esc, k10_s2 fast build) is built, gated, on disk for successors | ✅ per plan | note § 2.5 |
