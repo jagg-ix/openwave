@@ -1,0 +1,191 @@
+{
+ "rows": [
+  {
+   "rho": 2.5,
+   "K_absmax": 0.6271999999999999,
+   "omega_pos": [
+    0.16838080752054765
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 5.5,
+   "K_absmax": 0.1295867768595041,
+   "omega_pos": [
+    0.3704377765452049
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 8.5,
+   "K_absmax": 0.0542560553633218,
+   "omega_pos": [
+    0.5724947455698619
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 11.5,
+   "K_absmax": 0.02964083175803402,
+   "omega_pos": [
+    0.7745517145945192
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 14.5,
+   "K_absmax": 0.018644470868014268,
+   "omega_pos": [
+    0.9766086836191763
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 17.5,
+   "K_absmax": 0.0128,
+   "omega_pos": [
+    1.1786656526438335
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 20.5,
+   "K_absmax": 0.009327781082688873,
+   "omega_pos": [
+    1.380722621668491
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 23.5,
+   "K_absmax": 0.007098234495246717,
+   "omega_pos": [
+    1.582779590693148
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 26.5,
+   "K_absmax": 0.005582057671769312,
+   "omega_pos": [
+    1.7848365597178053
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 29.5,
+   "K_absmax": 0.004504452743464521,
+   "omega_pos": [
+    1.9868935287424623
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 32.5,
+   "K_absmax": 0.0037112426035502957,
+   "omega_pos": [
+    2.1889504977671197
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 35.5,
+   "K_absmax": 0.0031104939496131713,
+   "omega_pos": [
+    2.391007466791777
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 38.5,
+   "K_absmax": 0.0026446280991735535,
+   "omega_pos": [
+    2.593064435816434
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 41.5,
+   "K_absmax": 0.0022760923210915955,
+   "omega_pos": [
+    2.795121404841091
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 44.5,
+   "K_absmax": 0.0019795480368640316,
+   "omega_pos": [
+    2.9971783738657485
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 47.5,
+   "K_absmax": 0.0017373961218836564,
+   "omega_pos": [
+    3.1992353428904052
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 50.5,
+   "K_absmax": 0.0015371042054700516,
+   "omega_pos": [
+    3.401292311915063
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 53.5,
+   "K_absmax": 0.0013695519259323957,
+   "omega_pos": [
+    3.60334928093972
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 56.5,
+   "K_absmax": 0.001227973999530112,
+   "omega_pos": [
+    3.805406249964377
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  },
+  {
+   "rho": 59.5,
+   "K_absmax": 0.001107266435986159,
+   "omega_pos": [
+    4.007463218989034
+   ],
+   "n_zero": 4,
+   "n_neg_omega2": 0
+  }
+ ],
+ "omega1_linear_fit": {
+  "slope": 0.06735232300821904,
+  "intercept": -7.944109290391271e-16
+ },
+ "K_absmax_powerlaw_in_rho": -1.9999999999999993,
+ "n_neg_omega2_anywhere": 0,
+ "reading": "K10 ~ rho^p (p ~ -2) => omega1 ~ rho: the true-L vacuum spectrum is rho-chirped, not a flat ladder"
+}

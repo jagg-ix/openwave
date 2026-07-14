@@ -145,3 +145,37 @@ Series framing: [`../m5_particle_hunt.md`](../m5_particle_hunt.md) (M5.20 = the 
 | dt = 0.02 gave ledgers 1e-6 to 4e-6 over T ≤ 400 with the time row on-branch (the 78.28 stiff mode never excited when unforced) | GD-triage prior: start the dt scan at (0.02, 0.01, 0.005); the stiff bound binds only if the constraint activates the time eigenvalue |
 | Real-FD gradient checks hit a ~5e-6 roundoff floor at the g⁴ trace scale; the energy is polynomial in M, so COMPLEX-STEP directional derivatives are exact (1.75e-15 measured) | Gate any new constrained-EOM gradient with complex-step, not real FD (pattern in [`../scripts/m5_21_d_3dcheck.py`](../scripts/m5_21_d_3dcheck.py) `gate_gd3a`) |
 | The fixed-radius meridional winding read branch-swaps (±1/0 flips) where λ1 ≈ λ2 after churn; endpoint-only reads mislead | The loop winding measure here (`winding_measure_biax`, multi-r_w) should keep the multi-radius + endpoint-plus-trace practice; treat single-radius q dips as suspect before calling unwinding |
+
+## FINDINGS (2026-07-14)
+
+Full technical record: [`../findings/m5_20_3_method_note.md`](../findings/m5_20_3_method_note.md) (equations first, code map, figures, audit). Instrument: the free-EL (true-L) dynamics stack [`../scripts/m5_20_3_a_constraint.py`](../scripts/m5_20_3_a_constraint.py), gates GC0a-e all PASS at complex-step precision (4e-16 to 7e-18).
+
+### The headline: the free-EL IVP of the purely-quartic L is ill-posed, and every regularization blows up in finite time
+
+| # | Finding | Status |
+| --- | --- | --- |
+| 1 | **The kinetic form K(M) is rank 5/10 EXACTLY on the loop background** (machine-zero nulls, first active eigenvalue ≥ 0.17 of cell max; rank 8 at core), with structural negative-inertia directions (two exact ± pairs + one unpaired positive on the vacuum: the η-signature; audit-corrected phrasing) and **98.6% of the static force in null(K) at from-rest release** | ✅ measured (GC1 census) |
+| 2 | **Unregularized: blowup in a fixed STEP COUNT** (~3 steps at any dt, amplitude-independent over 3 decades): unbounded RHS, no Lipschitz bound: **the initial-value problem is ill-posed** | ✅ measured |
+| 3 | **Regularized (any cutoff): genuine finite-time blowup**: t* dt-robust (1.96/1.9375/1.93125 at rc 1e-2); t*(cutoff) monotone 0.08 → 3.4 (raw), 0.02 → 7.2 (recipe), NO plateau; every defect background blows (loop, recipe, unwound remnant, vacuum + time-mixing textures); the ONE stable case: a pure rotation-sector texture on the vacuum (T = 50, both dts, rc 1e-2) | ✅ measured |
+| 4 | **The blowup dives to E → −∞, and the MECHANISM is measured**: a roundoff-seeded exponentially unstable boost-sector (time-mixing) mode on every non-vacuum background, rates σ = 6.31 to 80.9/t (cutoff-dependent); **t\* ≈ onset + ln(0.1/1e-16)/σ reproduces every blowup time** (E conserved to ≤ 5e-5 through 87% of life, drift not dt²-clean: projection-set chatter; the mode goes nonlinear at O(0.1) and the singularity fires): **exactly the owner's pre-named branch** ("if EL dives to −∞ → least-action BVP") | ✅ measured |
+| 5 | **The topological charge NEVER unwinds through the blowup**: q_r4 = 0.500 exact at every finite snapshot at rc 1e-2 (canonical stack: unwound 10/10); at rc 1e-1 q = 0.500 through the trusted read window, then the degeneracy guard declines (no unwinding signature; churn-read caveat applied). The unwinding force has no inertia channel under the true L (finding 1) | ✅ measured |
+| 6 | **G-CORE lands at the statics level**: frozen-time-row minimization at the intact-loop point reads (g, 1, a, a) with **a = 0.1269 = 0.85 × δ/2** (his a ≈ δ/2 prediction), pair split 0.021, box-independent 4e-10; the pair SPLITS as the loop dissolves (the equalized core is the LOOP's property) | ✅ measured |
+| 7 | **The true-L vacuum ladder is ρ-CHIRPED**: ω₁(ρ) = 0.0674·ρ exactly through the origin (K10 ∝ ρ^−2.00 from the equivariant background); no negative ω² on the vacuum; replaces the flat canonical ladder for any spectral comparison (axisym sector) | ✅ measured |
+| 8 | ~~Free 4D static minimization dives to E → −∞~~ **RETRACTED at audit (C8 REFUTED)**: the FIRE dive was a step-size instability (adaptive dt crossed the 2/√λ_max ≈ 0.0256 stiff-mode bound); monotone GD / L-BFGS / dt-capped FIRE all stay bounded from this seed. The M5.18 indefiniteness statement stands as M5.18's result only | ❌ retracted |
+| 9 | The from-rest EL-inconsistency (finding 1) suggests the theory's consistent initial data lives on a Dirac secondary-constraint surface (RHS_null = 0); not derived here | 🔶 hypothesis |
+
+### Deviations from the plan (logged as they happened)
+
+| # | Deviation | Why |
+| --- | --- | --- |
+| 1 | GC1's "boost sector must read closed" criterion reinterpreted as a recorded census | his answer forbids added restrictions; the degeneracy structure IS the physics under test |
+| 2 | GC0's "reduces to the M5.20.2 EOM" replaced by complex-step force/gradient/identity gates | the true-L EOM does not reduce to the canonical completion; the static sector reuse (GB0 lineage) is the actual join |
+| 3 | T1 dts moved to (0.02, 0.01, 0.005) then the whole triage redesigned as B1-B5 discriminators | the first run blew up: the triage became the measurement |
+| 4 | The recipe seed = the it-500 frozen-time-row relax state (q = 0.500 intact, E 2.68 → 0.34), not the full relax | full relaxation dissolves the loop (statics negative reproduced at 64×128); "energy-minimized loop" is otherwise not a loop |
+| 5 | Phase C production re-scoped to the 4 instrumented anatomy runs up to t* | the pre-registered T = 2000 oscillation production is unreachable (headline) |
+| 6 | Phase D re-scoped: G-RADIUS/G-SPECTRUM recorded NOT REACHED; core gate answered in statics; the chirped ladder replaces the flat-ladder comparison | honesty over ritual: the observables that survive are delivered, the rest declared |
+| 7 | 64×128 primary grid (not 128×256) | the blowup verdict is grid-cheap; D1 box-independence spot-checked at 128×256; wall-clock spent on discriminators instead |
+
+### Data + large-file log
+
+All `m5_20_3_*` data files are < 1 MB (summary JSONs + 8 small npz states); nothing deleted. Regen commands in the method note § 9.

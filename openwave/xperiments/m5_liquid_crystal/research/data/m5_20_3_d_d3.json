@@ -1,0 +1,259 @@
+{
+ "reading": "unregularized (rel_cut -> 0): blowup in a fixed STEP COUNT at any dt (unbounded RHS: the IVP is ill-posed); regularized (any fixed cutoff): finite-time blowup, t* dt-robust, t* monotone in cutoff with NO plateau; channel = SPATIAL sector; seeds: raw loop, recipe loop, unwound remnant, vacuum+textures ALL blow",
+ "b1": {
+  "ok": true,
+  "detail": {
+   "1e-08": {
+    "tstar_per_dt": {
+     "0.005": 0.1,
+     "0.0025": 0.0775,
+     "0.00125": 0.07
+    },
+    "dt_robust": true
+   },
+   "1e-02": {
+    "tstar_per_dt": {
+     "0.005": 1.96,
+     "0.0025": 1.9375,
+     "0.00125": 1.9312500000000001
+    },
+    "dt_robust": true
+   }
+  }
+ },
+ "b2": {
+  "raw": {
+   "ladder": {
+    "1e-08": {
+     "tstar": 0.0775,
+     "n_active0": 5.148148148148148,
+     "nff0": 0.9854966447761143
+    },
+    "1e-03": {
+     "tstar": 1.4425000000000001,
+     "n_active0": 5.140085663895188,
+     "nff0": 0.985501086611197
+    },
+    "1e-02": {
+     "tstar": 1.9375,
+     "n_active0": 5.123204837490552,
+     "nff0": 0.9855163352778576
+    },
+    "3e-02": {
+     "tstar": 2.82,
+     "n_active0": 5.09750566893424,
+     "nff0": 0.9855282884522564
+    },
+    "1e-01": {
+     "tstar": 3.4125,
+     "n_active0": 5.050894431846813,
+     "nff0": 0.9860894483786607
+    }
+   },
+   "all_blow_up": true,
+   "plateau": false
+  },
+  "recipe": {
+   "ladder": {
+    "1e-08": {
+     "tstar": 0.0225,
+     "n_active0": 5.687578735197783,
+     "nff0": 0.9999977075345909
+    },
+    "1e-03": {
+     "tstar": 0.3225,
+     "n_active0": 5.219954648526077,
+     "nff0": 0.9999977570128878
+    },
+    "1e-02": {
+     "tstar": 0.5125,
+     "n_active0": 5.08692365835223,
+     "nff0": 0.9999979100091475
+    },
+    "3e-02": {
+     "tstar": 1.445,
+     "n_active0": 5.035273368606702,
+     "nff0": 0.999997970581279
+    },
+    "1e-01": {
+     "tstar": 7.205,
+     "n_active0": 5.0100781053162,
+     "nff0": 0.9999979712087042
+    }
+   },
+   "all_blow_up": true,
+   "plateau": false
+  },
+  "remnant_unwound": {
+   "ladder": {
+    "1e-08": {
+     "tstar": 0.02,
+     "n_active0": 6.314688838498363,
+     "nff0": 0.9999998031699229
+    },
+    "1e-03": {
+     "tstar": 0.16,
+     "n_active0": 5.129251700680272,
+     "nff0": 0.9999999717223798
+    },
+    "1e-02": {
+     "tstar": 0.935,
+     "n_active0": 5.016628873771731,
+     "nff0": 0.9999999717223798
+    },
+    "3e-02": {
+     "tstar": 1.9925,
+     "n_active0": 5.00655076845553,
+     "nff0": 0.9999999717223798
+    },
+    "1e-01": {
+     "tstar": null,
+     "n_active0": 5.0,
+     "nff0": 0.9999999717223798
+    }
+   },
+   "all_blow_up": false,
+   "plateau": false
+  }
+ },
+ "b3": {
+  "dive_4d": {
+   "dived": true,
+   "E_per_chunk": [
+    2.6755380285186425,
+    NaN
+   ],
+   "maxM_per_chunk": [
+    8.0,
+    3.6089666051337953e+120
+   ],
+   "chunk": 50
+  },
+  "seed_file": "m5_20_3_b_seed_recipe.npz",
+  "E_raw": 2.6755380285186425,
+  "E_recipe": 0.06376667394025085
+ },
+ "b4": {
+  "rel_cut": 0.01,
+  "tstar": 1.9375,
+  "T_probe": 1.7875,
+  "sector_max_dM": {
+   "time_diag_00": 2.225952755452454e-11,
+   "time_mix_0i": 1.3347797380983338e-06,
+   "spatial_diag": 0.09779643830671203,
+   "spatial_offdiag": 0.05007318596807707
+  },
+  "blow_cell_rho_z": [
+   24.5,
+   -2.5
+  ],
+  "blow_cell_dist_to_ring": 7.905694150420948,
+  "v_max_cell": [
+   24,
+   57
+  ],
+  "max_dM": 0.09779643830671203,
+  "max_v": 0.1197298710419687
+ },
+ "b5_regularized": {
+  "rotation": {
+   "0.005": null,
+   "0.0025": null
+  },
+  "clock": {
+   "0.005": 0.03,
+   "0.0025": 0.02
+  },
+  "boost4b": {
+   "0.005": 0.03,
+   "0.0025": 0.02
+  },
+  "recipe_dt_check_rc3e-2": {
+   "0.0025": 1.445,
+   "0.00125": 1.4225
+  }
+ },
+ "amplitude_ladder_clock_rc1e-8": {
+  "0.02": 0.0075,
+  "0.002": 0.0075,
+  "0.0002": 0.0075,
+  "2e-05": null
+ },
+ "anatomy_recipe_rc1e-2": {
+  "tstar": 0.52875,
+  "E_first_last": [
+   0.3438442096192527,
+   -879.0302586827911
+  ],
+  "leak_final": 3430495.8682328984,
+  "q_r4_first_last": [
+   0.49999999999999994,
+   0.49999999999999983
+  ],
+  "sectors_last": {
+   "sec_time_diag": 0.08266091611977089,
+   "sec_time_mix": 0.12127732079145193,
+   "sec_sp_diag": 0.2238221068082994,
+   "sec_sp_off": 0.03084102539345802
+  }
+ },
+ "anatomy_recipe_rc1e-1": {
+  "tstar": 7.1850000000000005,
+  "E_first_last": [
+   0.3438442096192527,
+   384800886907348.8
+  ],
+  "leak_final": 1.4942102677607286e+18,
+  "q_r4_first_last": [
+   0.49999999999999994,
+   -7.067899292141149e-17
+  ],
+  "sectors_last": {
+   "sec_time_diag": 28.981130311572105,
+   "sec_time_mix": 120.57235296155719,
+   "sec_sp_diag": 28.983059802851784,
+   "sec_sp_off": 4.968154988031001
+  }
+ },
+ "anatomy_raw_rc1e-2": {
+  "tstar": 1.9312500000000001,
+  "E_first_last": [
+   2.6755380285186425,
+   -1935.4195735751891
+  ],
+  "leak_final": 7448949.071865801,
+  "q_r4_first_last": [
+   0.5,
+   0.49999999999999983
+  ],
+  "sectors_last": {
+   "sec_time_diag": 0.10150516552629707,
+   "sec_time_mix": 0.07657104667625766,
+   "sec_sp_diag": 0.11505848171592342,
+   "sec_sp_off": 0.05587161634283956
+  }
+ },
+ "anatomy_remnant_rc1e-2": {
+  "tstar": 0.95875,
+  "E_first_last": [
+   0.06376667394025085,
+   -5.863891737099625
+  ],
+  "leak_final": 725.5699903441268,
+  "q_r4_first_last": [
+   7.067899292141149e-17,
+   3.533949646070574e-17
+  ],
+  "sectors_last": {
+   "sec_time_diag": 0.00425441728490128,
+   "sec_time_mix": 0.015281720442011738,
+   "sec_sp_diag": 0.004227063534360059,
+   "sec_sp_off": 7.77917961106633e-05
+  }
+ },
+ "not_reached": {
+  "G-RADIUS (R(t) breathing at conserved E)": "NOT REACHED: no stable evolution exists under the free EL to measure it on",
+  "G-SPECTRUM (lines vs the gap ladder)": "NOT REACHED: same; the D2 rho-chirped ladder is the surviving spectral statement",
+  "unwind DURATION (his shrink-to-R=0 branch)": "the loop does not shrink-and-unwind under free EL: it blows up at t*(cutoff); the duration observable is regularization-dependent, i.e. NOT defined by the theory without his least-action BVP formulation"
+ }
+}
