@@ -21,20 +21,34 @@ Scored against the criteria the author himself laid out (Coulomb as the named di
 
 ### NEUTRINO HUNT (M5.20 series)
 
-| Criterion | Topology: Hedgehog (the M5.21 series) | Topology: Vortex-Loop (the M5.20 series) |
+Criteria sources: the defining neutrino properties (no charge, sub-eV mass, spin 1/2) + the **AMBer 9-observable lepton scoreboard** (Baretz et al. 2026, [`../theory/_CITATIONS.md`](../theory/_CITATIONS.md), local `amber_neutrino_flavor_rl.pdf`): 3 charged-lepton masses + 2 mass-squared splittings + 3 PMNS angles + δ_CP, fit against the KATRIN / KamLAND-ZEN / Planck bounds (the charged-lepton masses belong to the flavor-sector fit and ride the oscillation rows here).
+
+| Criterion (what a neutrino must match) | Topology: Vortex-Loop (the M5.20 series) | Topology: Hedgehog (the M5.21 series) |
 | --- | --- | --- |
+| Zero electric charge / NO Coulomb tail | ✅ measured: the (δ,0) pair winding is chargeless (no monopole flux); far field localized, no 1/r⁴ tail in any run | ❌ monopole-charged: the Coulomb tail is measured (its electron anchor) |
+| Near-zero rest mass (KATRIN < 0.45 eV; Planck Σm_ν < 0.12 eV) | 🔶 the near-zero rest-energy character of the winding pair is structural; no calibrated eV number yet | ❌ carries the 511 keV mass anchor |
+| Three flavor states + PMNS mixing (sin²θ₁₂, θ₁₃, θ₂₃: AMBer rows 4-6) | 🔶 structural lineage: the M5.11 closed-loop → PMNS ladder (the N4c scorecard = the honest baseline); the author's flavor-as-loop-state ansatz | ❌ no flavor / oscillation story |
+| Mass-squared splittings Δm²₂₁ ≈ 7.5e-5 eV², Δm²₃₁ ≈ 2.5e-3 eV² (AMBer rows 7-8) | 🚧 needs a stable oscillation spectrum: NOT REACHED under free EL ([M5.20.3](tasks/m5_20_3_task_details.md)); blocked on the [Q24](m5_question_tracker.md#q24-detail) formulation | ❌ n/a |
+| δ_CP (AMBer row 9) | 🚧 the in-model δ_CP fork (180° vs 270°) is flagged; the chiral-term redirect (Q13) pending | ❌ n/a |
+| Spin ħ/2 | 🚧 untested (blocked on Q24) | 🚧 same (M5.21.1) |
+| Stability (a persistent particle) | ⚠️ unwinds 10/10 in canonical stacks; under the true L the winding NEVER unwinds but the free-EL IVP is ill-posed (Q24) | ⚠️ the charge survives everything; energy containment pending |
+| **Candidate Score** | **1✅ / 7** | **0✅ / 7** |
 
 ### ELECTRON HUNT (M5.21 series)
 
-| Criterion | Topology: Hedgehog (the M5.21 series) | Topology: Vortex-Loop (the M5.20 series) |
-| --- | --- | --- |
-| **Coulomb, "as required for electron"** (named discriminator) | ✅ measured: the far-field curvature energy density is exactly 8c₂/r⁴ (the M5.16 G3/G4 anchors), which is the Coulomb form (E ~ 1/r² gives energy ~ 1/r⁴); quantitatively anchored: c₂ = αħc/64π with α⁻¹ → 137 measured (M5.11, the Faber anchor) | ❌ nothing: the (δ,0)-pair winding has no monopole flux; its far field is localized/dipole-like, no 1/r⁴ tail in any run |
-| Charge quantization | ✅ integer π₂ degree; q = 1.000 measured at every radius through the entire M5.21 noclock evolution | The pair winding is a different (chargeless) class; its q is a winding along the loop, not a monopole charge |
-| Mass anchor | ✅ 511 keV calibration (M5.11 Faber electron) + parameter-free r_half = 2.926 fm (M5.16) | Near-zero rest-energy character, which is exactly why it fits the NEUTRINO |
-| Angular momentum / spin ("negative terms propel electron angular momentum") | 🚧 untested under the true L: the canonical-stack kick stalled (M5.21); this is precisely M5.21.1 | 🚧 same, M5.20.3 |
-| Stability | ⚠️ slides (Q8) in unconstrained stacks | ⚠️ unwinds 10/10 in unconstrained stacks: a neutral criterion until the true-L runs |
+Criteria sources: the standard electron observables (charge, mass, spin, g-factor) + the author's named discriminator (Coulomb) and his "negative terms propel electron angular momentum" line.
 
-Three quantitative electron anchors sit on the hedgehog side (the Coulomb-form tail, α⁻¹ → 137, 511 keV + r_half) versus zero on the as-simulated loop side, and the loop's near-zero-mass character actively argues neutrino.
+| Criterion (what an electron must match) | Topology: Vortex-Loop (the M5.20 series) | Topology: Hedgehog (the M5.21 series) |
+| --- | --- | --- |
+| **Coulomb far field, "as required for electron"** (named discriminator) | ❌ nothing: the (δ,0)-pair winding has no monopole flux; no 1/r⁴ tail in any run | ✅ measured: the far-field curvature energy density is exactly 8c₂/r⁴ (the M5.16 G3/G4 anchors) = the Coulomb form; quantitatively anchored: c₂ = αħc/64π with α⁻¹ → 137 measured (M5.11, the Faber anchor) |
+| Charge quantization (−e) | ❌ the pair winding is a chargeless class; its q is a winding along the loop, not a monopole charge | ✅ integer π₂ degree; q = 1.000 measured at every radius through the entire M5.21 noclock evolution (and q = 0.500 exact through the M5.20.3 blowups on the loop's own read) |
+| Mass anchor (511 keV) + size consistency | ❌ near-zero rest-energy character, which is exactly why it fits the NEUTRINO | ✅ 511 keV calibration (M5.11 Faber electron) + parameter-free r_half = 2.926 fm (M5.16; potential-shape robust at M5.18) |
+| Magnetic moment g ≈ 2 | 🚧 no channel demonstrated | 🚧 the μ channel exists (tilt/precession, the EID-C measurement); g ≈ 2 awaits the Coulomb e_scale calibration |
+| Angular momentum / spin ħ/2 ("negative terms propel electron angular momentum") | 🚧 untested under the true L (blocked on Q24) | 🚧 untested under the true L: the canonical-stack kick stalled (M5.21); this is precisely M5.21.1 |
+| Stability (a persistent particle) | ⚠️ unwinds 10/10 in unconstrained stacks: neutral until the formulation is fixed | ⚠️ slides (Q8) in unconstrained stacks: same |
+| **Candidate Score** | **0✅ / 6** | **3✅ / 6** |
+
+Reading the scores: the electron hunt has three quantitative anchors on the hedgehog side (the Coulomb-form tail + α⁻¹ → 137, charge quantization, 511 keV + r_half) versus zero on the as-simulated loop side; the neutrino hunt's one measured match (chargelessness) sits on the loop side, with its remaining rows blocked on the [Q24](m5_question_tracker.md#q24-detail) dynamical formulation (the AMBer fit is the pre-registered long-run target).
 
 **The synthesis nuance (worth holding; our own data produced it)**: in LC topology a point hedgehog and a small charged disclination ring live in the SAME topological sector: a hedgehog can open into a ring carrying the identical monopole charge. M5.16's Q8 measured exactly that tendency (the point form is a saddle; the melt moves off-origin, toward a ring-like core). So Marc/Andras/Giorgio's "electron = vortex loop" and our "electron = hedgehog" may be two core-regimes of the same charged object. The sharp discriminator is then not loop-vs-point shape at all, it is the WINDING CLASS: monopole-charged (Coulomb tail, our hedgehog/charged-ring) = electron; the chargeless (δ,0) pair loop (no Coulomb, near-zero energy, flavor-oscillation-friendly) = neutrino, which is Duda's loop and the one M5.20 simulates. Under that reading, both camps can be right about "loop" while Duda stays right about which loop is the neutrino.
 
