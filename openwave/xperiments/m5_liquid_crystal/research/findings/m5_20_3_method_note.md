@@ -97,7 +97,11 @@ Every background measured (bare ansatz loop, the recipe seed, the unwound remnan
 
 **5a. The topological charge never unwinds.** Through every regularized blowup at rc 1e-2, the winding read stays q = 0.500 EXACT at every finite snapshot (raw run: q_r4 = 0.5 at t = 0 and at the last finite state, all radii). At rc 1e-1 (the longest-lived run) q reads 0.500 while the eigenframe read is trusted (t ≲ 1.8-2.4), after which the degeneracy/mixing guard declines the read (the M5.21 branch-swap lesson applied; the 0.000 at the singular final snapshot is a churned-state read, not a measured unwinding); no unwinding signature appears in any trusted window. Under the canonical-completion stack the same loop unwound 10/10 with energy conserved; under the true-L dynamics the unwinding channel never engages: the loop dies by explosion, not by unwinding. Consistent with § 3: 98.6% of the (unwinding-driving) static force has no inertia channel.
 
-![cross-sections, M5.20-series spec](../plots/m5_20_3_sections.png)
+![cross-sections: the raw-run pre-singular window, basic-template film strip](../plots/m5_20_3_film_raw.png)
+
+![the recipe-run pre-singular window, basic template](../plots/m5_20_3_film_recipe.png)
+
+(Cross-section format: the 2026-07-14 film standard, [`../m5_visualization.md`](../m5_visualization.md): first row = the t = 0 seed, 6 frames, titles in steps + model time.)
 
 **5b. His core prediction lands at the statics level (G-CORE ✅).** Frozen-time-row minimization (the bounded sector; the 4D recipe seed) at the point where the loop is still intact (q = 0.500, E down 2.68 → 0.34):
 

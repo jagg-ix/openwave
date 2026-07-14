@@ -300,21 +300,25 @@ def render_panels(ax_row, Mnp, R, Z, h, delta, g=G_T, Vdot=None,
 
 def film_strip(states, R, Z, h, delta, path, g=G_T, panels=PANELS,
                glyph_mode="structure", step=6, suptitle="",
-               log_channels=(), norms=None, zoom=None):
-    """rows = timesteps, columns = panels; states = [{t, M, V(optional)}]."""
+               log_channels=(), norms=None, zoom=None, title_fn=None):
+    """rows = timesteps, columns = panels; states = [{t, M, V(optional)}].
+    title_fn(st) overrides the default per-row title (the 2026-07-14 film
+    standard passes the steps + tu [+ s] title through here; see
+    research/m5_visualization.md)."""
     nrow, ncol = len(states), len(panels)
     fig, axes = plt.subplots(nrow, ncol,
                              figsize=(2.9 * ncol, 2.2 * nrow), squeeze=False)
     chans = []
     for i, st in enumerate(states):
+        ttl = title_fn(st) if title_fn else f"t={st['t']:g}"
         chans.append(render_panels(
             axes[i], st["M"], R, Z, h, delta, g, st.get("V"),
             glyph_mode=glyph_mode, step=step,
-            title=f"t={st['t']:g}", panels=panels,
+            title=ttl, panels=panels,
             orient_ref=st.get("orient_ref"), vac_spec=st.get("vac_spec"),
             log_channels=log_channels, norms=norms, zoom=zoom))
     if suptitle:
-        fig.suptitle(suptitle, fontsize=10)
+        fig.suptitle(suptitle, fontsize=15)
     fig.tight_layout()
     fig.savefig(path, dpi=130)
     plt.close(fig)
