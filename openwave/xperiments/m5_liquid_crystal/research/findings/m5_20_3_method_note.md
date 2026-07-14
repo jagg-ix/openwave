@@ -146,9 +146,22 @@ The canonical 4×4 ladder ω = {0.0093, 0.0466, 0.1349, 78.28} assumed unit iner
 | AMBer flavor fit | pre-registered as long-run target; nothing here reaches it |
 | The g-value sensitivity spot check | not run (the blowup is spatial-sector; the g-mode never engaged: time row moved 2e-11) |
 
-## 8. Adversarial audit
+## 8. Adversarial audit (cardinal rule): 6 CONFIRMED, 2 QUALIFIED, 1 REFUTED
 
-Independent second agent, own instruments (`m5_20_3_audit_check.py`, `data/m5_20_3_audit.json`): PENDING; verdicts folded here on completion.
+Independent second agent, own instruments throughout (`m5_20_3_audit_check.py`, `data/m5_20_3_audit.json`; the task's functions used only as the force oracle where stated):
+
+| Claim | Verdict | Auditor's evidence (own instruments) |
+| --- | --- | --- |
+| C1 the EOM / closed-form K | CONFIRMED | closed form == complex-step dT at 4.5e-16; an independent polarization-identity K10 build matches `build_k10` at 3.2e-16 (3 cells) |
+| C2 rank/spectrum structure | QUALIFIED | rank-5/2-negative generic + rank-8/3-negative core EXACT (own eigensolve, 7938 cells; first active ≥ 0.17 cell max); the vacuum "± pairs" sub-claim REFUTED as phrased: the active spectrum is (8c², 2c², 2c², −2c², −2c²): two ± pairs + one unpaired positive → § 3 corrected |
+| **C3 the finite-time blowup** | **CONFIRMED** | the auditor's OWN classic-RK4 integrator reproduces t\* = 1.93 / 1.95 at dt 0.005 / 0.0025 (ours 1.96 / 1.9375: within 1.5% / 0.6%); **the refutation attempt failed: a Tikhonov-damped inverse (a qualitatively different null treatment) also blows up, t\* = 1.825: the headline is NOT a projection-choice artifact** |
+| C4 no unwinding | CONFIRMED | own winding read on the saved end state: q = 0.500 at r_w = 3/4/5 (2e-16 from 0.5), mix ratio 0.0 |
+| C5 the core gate | CONFIRMED | own disk-average + eigensolve: (1.0144, 0.1375, 0.1162), a = 0.1269, split 0.0213 |
+| C6 the ρ-chirped ladder | CONFIRMED | analytic proof (uniform vac4: A_ρ = A_z = 0 exactly, only A_φ ∝ 1/ρ survives; K homogeneous degree 2 ⟹ K10 ∝ 1/ρ² EXACT) + own gen-eig: ω₁/ρ = 0.0673523 at 3 radii |
+| C7 energy bookkeeping | QUALIFIED | the leak identity re-derived and verified exactly (9.7e-12); the conservation figure is 5.0e-5 (not 3e-5) and NOT dt²-clean (projection-set chatter, an instrument limit) → § 4 corrected |
+| C8 the 4D statics dive | **REFUTED** | the FIRE dive was a step-size instability (adaptive dt crossed 2/√λ_max ≈ 0.0256 < dt_max 0.05); monotone GD (E 2.68 → 2.58, bounded), L-BFGS (E → 0.19, bounded), dt-capped FIRE all stay bounded → the statics-dive finding RETRACTED throughout this note and the task record |
+
+The two catches (C8, C2-phrasing) and the C7 numbers were folded into §§ 3-5 before this note was finalized; the retraction is marked in place.
 
 ## 9. Data + regeneration
 
