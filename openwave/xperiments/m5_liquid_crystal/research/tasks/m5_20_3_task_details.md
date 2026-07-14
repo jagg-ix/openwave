@@ -43,6 +43,20 @@ Roadmap `Gated By`: **Duda's constraint answer** (the Q18 + Q19 + Q23 fusion sen
 | Energy-minimization-first (the hint in his quick reply: "everything should come from energy minimization") | Constrained descent (FIRE/gradient flow) at fixed winding + fixed E_total; R(t) read from the quasi-static sequence | Light-medium |
 | The answer does not close the sector | The hard cap fires (M5.20.2 precedent): document what his answer does give, ship partials + ONE sharp follow-up question | Bounded |
 
+### THE ANSWER (2026-07-13/14, logged in [`m5_20_convo.md`](m5_20_convo.md)): the row that fires
+
+His answer (group-cc'd 2026-07-13 evening): **"We don't want to add artificial restrictions, everything should come from evolution of field configuration of particle using assumed Lagrangian."** Decoded against the table: the **Dirac-treatment row fires, amended**: run free Euler-Lagrange evolution of HIS purely-quartic L (NOT the canonical completion), where handling the degenerate Legendre map (Ṁ ∝ η exact null, the M5.18-verified primary constraint) is the theory's OWN structure, not an added restriction: invert K(M) on its range / project the null direction, gate the projection ledger. His negative-Hamiltonian acknowledgment ("difficult to avoid in 3+1D, and seem necessary to propel neutrino oscillations or electron angular momentum") CONFIRMS the M5.20.2 census as physical.
+
+| His prescription | Task consequence |
+| --- | --- |
+| Start: energy-minimized 3D vortex loop, extended to 4D by adding the 0th axis with the g eigenvalue in the time direction | Phase A/B seed = the M5.20.1 relaxed 3D loop states (or a fresh relax) with the block-diagonal −g time row; NO 4-target-imposed core: minimization decides (the measured-not-manual line stands) |
+| Then: free EL evolution; expected to "stabilize leaving mostly neutrino oscillations, maybe also radiation (in neutrino rest frame)"; compare with experimental data | The production run + the pre-registered observables (R(t) breathing at conserved E_total, spectra vs the gap ladder, the a ≈ δ/2 core gate) |
+| If the loop shrinks to R = 0 and vanishes: "calculate duration of such process" (time dilation makes lab-frame durations long for ultrarelativistic neutrinos) | Unwind DURATION becomes a first-class observable, not a failure: M5.20.1's measured unwind half-life (t ≈ 125-375) is the first draft of this number; re-measure under the quartic-kinetic EL evolution |
+| If EL dives to −∞ energy: least-action two-point BVP (S-matrix style, fix initial + final configurations; "much more difficult") | Out of this task's scope: recorded as the successor branch if G-RUNAWAY fails under the true-L evolution |
+| His two 3D→4D checks (direct email, 2026-07-14 morning): SO(1,3) not SO(4); η inside the trace products + modified c_p | ✅ BOTH already implemented + machine-verified: M5.18 check 1 (random boost + rotation, Λ ∈ SO(1,3), invariance ~1e-11, no-eta negative control 1b) and `v4_density` (powers of ηM = Tr((ηM)^p); C_p from the η-spectrum: g^p + 1 + δ^p). The next outbound answers both with equation-to-code permalinks |
+
+Preconditions row updated: the answer is logged + decoded, the folding row is chosen. **Remaining gate: user "go".** The implementation weight shifts phase A to the quartic-kinetic EOM (K(M) M̈ term from his L, null direction projected): heavier than the canonical stack but exactly the M5.20.2-derived machinery (`kin_form_apply` is K(M) applied; its census already measured rank + negativity per state).
+
 ### Pre-registered gates
 
 | Gate | Criterion |
@@ -99,7 +113,7 @@ Roadmap `Gated By`: **Duda's constraint answer** (the Q18 + Q19 + Q23 fusion sen
 
 | Precondition | State |
 | --- | --- |
-| Duda's morning email logged + decoded, folding row chosen | 🚧 pending (expected ≈ our midnight) |
+| Duda's morning email logged + decoded, folding row chosen | ✅ 2026-07-14 (three messages; § THE ANSWER above; [`m5_20_convo.md`](m5_20_convo.md)) |
 | M5.20.2 assets on disk (`m5_20_2_a_eom.py`, hessian4, k_eff, protection machinery) | ✅ frozen at close |
 | AMBer scoreboard reference | ✅ `../../theory/_CITATIONS.md` + local PDF |
 | Resume ping + checkpoint file | 🚧 at go (user supplies resets_at) |

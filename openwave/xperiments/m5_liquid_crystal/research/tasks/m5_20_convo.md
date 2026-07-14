@@ -126,3 +126,63 @@ Attachment: the same half-integer vortex ellipse-field diagram already on file f
 | Design intent | Restates the census numbers inline so he need not reopen the method note; pre-commits to his own two predictions (the a ≈ δ/2 core gate, the radius breathing) so his answer slots straight into the staged [M5.20.3](m5_20_3_task_details.md) run; offers the minimization-first branch explicitly (the hint in his 2026-07-12 quick reply) with the two fixed-quantity candidates named (winding, total energy) |
 | Tracker | The question is the standing Q18 + Q19 + Q23 fusion (no new Qn); resolution routes on his reply |
 | Next | His reply → verbatim + decode entry here → the [M5.20.3](m5_20_3_task_details.md) folding-table row chosen → user "go" |
+
+## 2026-07-13/14: THE CONSTRAINT ANSWER (three messages) + the thread goes public
+
+His reply to the 2026-07-13 nudge came in three parts: a same-evening group-cc'd answer (2026-07-13 14:51 EDT, cc **models-of-particles**), a group thread convening the loop-identification debate (2026-07-14 02:47 EDT), and a direct technical-check email (2026-07-14 04:58 EDT). **The M5.20.3 gate is LIFTED.**
+
+### Message 1 (2026-07-13 14:51 EDT, to the group + Rodrigo): the answer
+
+Verbatim core:
+
+> "Thank you, looks great! As also e.g. Marc, Andras, Giorgio use vortex loops (but with interpretation as electron instead of neutrino), they might be interested that Fable can handle their simulations: [the m5_20_2 method note link] ... so let me cc models-of-particles."
+>
+> "The central eigenspectrum of vortex still seems assumed, while should be found from energy minimization - at least in 3D."
+>
+> "In 4D indeed there are problems with negative Hamiltonian terms - both difficult to avoid in 3+1D, and seem necessary to propel neutrino oscillations or electron angular momentum."
+>
+> "Energy minimization assumes abundant energy was already radiated, but generally such process requires radiation mechanism and time."
+>
+> "Formally there should be used Euler-Lagrange evolution, and if e.g. vortex loop would reduce to R=0 and vanish this way, would be great to calculate duration of such process - which would be increased by time dilation due to neutrinos usually being ultrarelativistic."
+>
+> "So maybe the best would be starting with energy minimized 3D vortex loop, and extending it to 4D by adding 0th axis with g eigenvalues in time direction. Then perform its Euler-Lagrange evolution, which should stabilize leaving mostly neutrino oscillations, maybe also radiation (in neutrino rest frame) - we could compare with experimental data."
+>
+> "**We don't want to add artificial restrictions, everything should come from evolution of field configuration of particle using assumed Lagrangian.**"
+>
+> "If Euler-Lagrange would go to minus infinite energy, more appropriate but much more difficult is solving by the least action principle - fixing initial and final field configurations, like they do with S-matrix in QFT. In this view e.g. photon literally couples e.g. two electron in 4D scenario ... for neutrinos emission/absorption is e.g. beta process, but we could just use two vortex loops."
+
+### Message 2 (2026-07-14 04:58 EDT, direct): two 3D-to-4D checks
+
+> "For example O matrix in 3D is SO(3), while in 4D should be SO(1,3) instead of SO(4) - please check if there is assumed SO(1,3)."
+>
+> "Also the potential should be Lorentz invariant - requires to include eta signature in traces of powers e.g. Tr((M.eta)^p) instead of Tr(M^p), also modifying c_p. There is Tr_eta but please check if it uses eta also for products."
+>
+> "ps. I mention in models-of-particles to search for help, especially that you say there are only few days left with Fable."
+
+### Message 3 (2026-07-14 02:47 EDT, to Marc, Andras, Giorgio + the group): the identification debate
+
+> "As many of us see vortex loop crucial in models of particles, but disagree on its interpretation, maybe let's try to determine it somehow to be able to work together - if you convince me it should be electron, I will do my best to help."
+>
+> "You can use it e.g. replacing Lagrangian to try to get Coulomb as required for electron ... or maybe you have a different idea how to distinguish electron from neutrino?"
+
+### Decode + routing
+
+| Item | Decode | Route |
+| --- | --- | --- |
+| THE ANSWER: "no artificial restrictions, everything from Euler-Lagrange evolution of the assumed Lagrangian" | The folding-table branch = free EL evolution of HIS purely-quartic L (NOT our canonical completion). The degenerate Legendre map (Ṁ ∝ η exact null, M5.18 check 3) is part of HIS L, so handling it (invert K(M) on its range / project the null direction) is the theory's own constraint structure, not an artificial restriction: the Dirac-treatment row fires, amended to the quartic kinetic operator | [M5.20.3](m5_20_3_task_details.md) § The answer |
+| The starting-state recipe | Energy-minimized 3D loop → extend to 4D by a block-diagonal time row with the g eigenvalue → free EL evolution | M5.20.3 phase A/B |
+| Outcome taxonomy he names | (a) stabilizes → mostly neutrino oscillations + maybe rest-frame radiation → compare with experiment; (b) shrinks to R = 0 and vanishes → the DURATION is the measurable (time-dilation reading; M5.20.1's measured unwind half-life t ≈ 125-375 is already this number's first draft); (c) dives to −∞ energy → the least-action two-point BVP fallback (he flags it as much harder; out of this task's scope, recorded) | M5.20.3 observables |
+| "negative Hamiltonian terms ... seem necessary to propel neutrino oscillations or electron angular momentum" | He CONFIRMS the measured boost-sector indefiniteness as physical and load-bearing, not a bug: the M5.20.2 census + runaway stand | tracker Q18/Q19/Q23 → ANSWERED |
+| "eigenspectrum still seems assumed" (second time) | The measured-not-manual clarification is STILL the top line of the next outbound: M5.20.1's dynamics freely SELECTED the (δ,0)-equalized core (his a ≈ δ/2 value matched); nothing was imposed | next outbound, bullet 1 |
+| "energy minimization assumes abundant energy was already radiated ... requires radiation mechanism and time" | Matches the M5.21 measurement (the kick radiates; the statics is a slide): minimization = post-radiation idealization; EL evolution = the honest instrument | context for M5.20.3 + [M5.21.1](m5_21_task_details.md) |
+| Check: SO(1,3) not SO(4)? | ✅ ALREADY SO(1,3), machine-verified: M5.18 check 1 transforms M as a rank-2 covariant tensor under random BOOST + rotation (Λ ∈ SO(1,3)), invariance ~1e-11, with the no-eta NEGATIVE control (check 1b, O(1) drift); the rigid-orbit generators are G = ηW (so(1,3)); answer with permalinks | next outbound |
+| Check: Tr((Mη)^p) + modified c_p? | ✅ ALREADY in: `v4_density` powers multiply by ηM each step (Tr((ηM)^p) exactly), and C_p = g^p + 1 + δ^p + 0^p comes from the η-spectrum of the branch representative (M_vac = diag(−g,1,δ,0) → ηM = diag(g,1,δ,0)); `Tr_eta(M^p) = tr((eta M)^p)` is the M5.18-verified definition; answer with permalinks | next outbound |
+| The thread is PUBLIC now | He cc'd models-of-particles on the method-note link ("Fable can handle their simulations") and convened Marc/Andras/Giorgio on loop = electron vs neutrino, offering to help if convinced; also rallying help re "few days left with Fable" | user's call on posture; the internal framing page [`../m5_particle_hunt.md`](../m5_particle_hunt.md) is exactly this question |
+| Comms window | Message 1 landed same-evening (his 20:51); the deeper checks arrived his morning as predicted; next outbound should land before 14:00 EDT | standing |
+
+### Notes
+
+| Item | Content |
+| --- | --- |
+| Tracker | Q18 + Q19 + Q23 (the fused constraint question) → ✅ ANSWERED 2026-07-13: no constraint added by hand; free EL of the assumed L with its own degenerate-kinetic structure; minimization only as the initial-state builder |
+| Next | Fold into [M5.20.3](m5_20_3_task_details.md) (done same-day) → user "go M5.20.3" |
