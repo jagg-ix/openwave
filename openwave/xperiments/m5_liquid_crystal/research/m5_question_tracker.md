@@ -17,36 +17,36 @@
 ## Active Questions Count
 
 ```text
-0 OUTBOUND    Nothing sits with him as a blocking question. Next
-              outbound = the M5.20.3 results (leads with the measured-
-              not-manual eigenspectrum line, second time he raised it,
-              + the answers to his two 3D-to-4D checks with permalinks:
-              SO(1,3) machine-verified M5.18 check 1 + negative
-              control; Tr((eta M)^p) with modified c_p in v4_density).
+1 OUTBOUND    Q24 (the dynamical formulation after the free-EL
+              negative): rides the next outbound together with the
+              M5.20.3 results (leads with the measured-not-manual
+              core line: a = 0.85 x delta/2 from free minimization,
+              second time he raised "assumed") + the answers to his
+              two 3D-to-4D checks with permalinks (SO(1,3) machine-
+              verified M5.18 check 1 + negative control; Tr((eta M)^p)
+              with modified c_p in v4_density). DRAFTED, user-gated
+              (tasks/m5_20_convo.md), timed for the 2026-07-15
+              14:00 EDT window.
 
 ANSWERED      THE fused Q18/Q19/Q23 constraint question: ANSWERED
-this round    2026-07-13/14 (three messages, cc models-of-particles;
-(his side)    tasks/m5_20_convo.md): "we don't want to add artificial
-              restrictions, everything should come from evolution of
-              field configuration of particle using assumed
-              Lagrangian" = free Euler-Lagrange of his purely-quartic
-              L, the degenerate-kinetic null direction handled as the
-              theory's OWN structure; start = energy-minimized 3D loop
-              + g time row; unwind DURATION a first-class observable
-              (time-dilation reading); least-action two-point BVP is
-              the fallback if EL dives to -inf. He CONFIRMS the
-              negative Hamiltonian terms as physical ("necessary to
-              propel neutrino oscillations or electron angular
-              momentum"). Consumer: M5.20.3 (gate lifted, awaiting
-              "go").
++ RUN         2026-07-13/14 AND EXECUTED SAME-DAY by M5.20.3
+this round    (tasks/m5_20_3_task_details.md): free Euler-Lagrange of
+              his purely-quartic L, run verbatim -> the IVP is
+              ILL-POSED; every regularization blows up in finite time
+              with E -> -inf = HIS pre-named fallback branch (least-
+              action BVP). q NEVER unwinds; his (g, 1, a, a) core
+              lands at statics; the vacuum ladder is rho-chirped.
+              Q18 + Q19 + Q23 moved to RESOLVED; the follow-on
+              formulation question = Q24.
 
-5 OPEN        Q22 (delta VALUE only; sweep covered 0.1-0.5),
+9 OPEN        Q24 (the one outbound ask), Q22 (delta VALUE only),
               Q20 partial (verdict-insensitive), Q17 (HELD);
               self-determined / background: Q11, Q4, Q10, Q9, Q12.
-              NEW context (not a Qn): he convened the group on loop =
-              electron vs neutrino (Marc/Andras/Giorgio) and offered
-              Coulomb-from-a-replaced-Lagrangian as a discriminator;
-              the internal framing page is m5_particle_hunt.md.
+              Group context (not a Qn): the loop = electron vs
+              neutrino debate (Marc/Andras/Giorgio); the internal
+              scorecard is m5_particle_hunt.md (Candidate Scores:
+              electron hunt hedgehog 3/6 vs loop 0/6; neutrino hunt
+              loop 1/7 vs hedgehog 0/7).
 ```
 
 ## OPEN QUESTIONS
@@ -58,11 +58,8 @@ this round    2026-07-13/14 (three messages, cc models-of-particles;
 | ID | Title | Question (one line) | Gates |
 | --- | --- | --- | --- |
 | [Q24](#q24-detail) 🚧 | The dynamical formulation after the free-EL negative | M5.20.3 measured: the free-EL IVP of the purely-quartic L is ill-posed (roundoff-seeded boost-sector instability, rates 6-81/t; every regularization blows up in finite time, E dives to −∞: HIS pre-named branch), while q never unwinds and his (g, 1, a, a) core lands in statics (a = 0.85 δ/2). Which formulation is the theory's dynamics: the least-action two-point BVP (his named fallback; time-periodic variant = the M5.12 phase-D instrument), a Dirac secondary-constraint surface (initial data with RHS_null = 0), or a different kinetic normalization? | the whole oscillation program (any successor run) |
-| [Q23](#q23-detail) 🔶 | The Γ↔M dictionary + kinetic term for real dynamics | His Q21 answer states the time sector in Γ (tetrad) variables (Hamiltonian negative `Γ0·Γ̃` contributions); our stack evolves the 4×4 symmetric M. What is the intended kinetic/time term in M variables? M5.20 ran the flagged canonical `½‖∂ₜM‖²` assumption. RIDER 2026-07-11 (his reply): "clock propulsion with negative Hamiltonian terms require full 4x4 tensor field with (g, 1, delta, 0) spectrum", the terms "from Hamiltonian we have agreed to" (M5.18-verified). **Loop-level half ANSWERED 2026-07-12** ("you can start with"); **the dictionary half RESOLVED BY DERIVATION 2026-07-12 (M5.20.2)**: L is purely quartic in derivatives (kinetic = the F₀ᵢ block, no canonical term; K(M) degenerate, vanishing on gradient-free states); his CONFIRMATION requested with the combined results email. RESIDUAL (fused with Q18/Q19): what CONSTRAINT closes the boost sector (H unbounded along boost orbits, runaway measured at t ≈ 21): THE one outbound question. **✅ ANSWERED 2026-07-13/14** ([`tasks/m5_20_convo.md`](tasks/m5_20_convo.md)): NO added constraint: free Euler-Lagrange of the assumed (purely-quartic) L, the degenerate-kinetic null direction handled as the theory's own structure; minimization only builds the initial state; unwind duration = observable; least-action BVP = the −∞ fallback; the negative Hamiltonian terms confirmed physical ("necessary to propel") | ✅ consumed by [M5.20.3](tasks/m5_20_3_task_details.md) § THE ANSWER (gate lifted, awaiting "go") |
 | [Q20](#q20-detail) 🔶 | Curvature-term degeneracy at vortex cores | PARTIAL ANSWER 2026-07-10 (energy-sign framing: core potential positive, oscillation-gravity negative but smaller, per-length total positive); the Dirichlet-presence question AS ASKED unanswered. M5.20 runs BOTH functional variants (commutator-only + Dirichlet control) so no verdict hinges on it | M5.20 arm D; the gradient-term class (Q13 residual) |
 | [Q22](#q22-detail) 🔶 | Sector δ for the neutrino | REOPENED 2026-07-11: the 2026-07-10 park ("I don't know in this moment") is superseded by his structural directive on the M5.20 note: the topological vortex REQUIRES (1, δ, 0) with three DISTINCT eigenvalues (δ ≠ 0), two-equal only at the regularized core where it activates the potential. The VALUE + the winding pair stay unknown: both RE-ASKED 2026-07-11 (seed-round Q1 + Q2). **07-12 UPDATE**: no value given → the sweep ran {0.1, 0.3, 0.5}; **pairing half MEASURED (M5.20.1 ✅)**: the dynamics abandons the (1, δ) two-equal core in every run and holds the (δ, 0) equalization (genuine at δ ≥ 0.3, vacuum-confounded below; audit-tempered wording). OPEN residual: the δ VALUE only (sector calibration; the protection verdict is δ-insensitive across the sweep) | sector calibration (M5.9 lineage); [`tasks/m5_20_1_task_details.md`](tasks/m5_20_1_task_details.md) |
-| [Q18](#q18-detail) 🔶 | Canonical constraints | The Legendre map is degenerate (`[η,B]_η = 0` ∀ symmetric B): what is the intended constraint structure (Dirac analysis)? **2026-07-12 (M5.20.2): now URGENT and CONCRETE: the measured boost runaway means the constraint must close the boost sector; fused into the one outbound question with Q19/Q23. ✅ ANSWERED 2026-07-13/14 via the fusion** (no Dirac analysis handed down; his ruling: no artificial restrictions, the theory's own degenerate structure IS the constraint handling; [`tasks/m5_20_convo.md`](tasks/m5_20_convo.md)) | ✅ consumed by [M5.20.3](tasks/m5_20_3_task_details.md) |
-| [Q19](#q19-detail) 🔶 | Vacuum branches + domain walls | The vacuum manifold splits into 4 disjoint Lorentz orbits (which eigenvalue rides the timelike direction): is the g-branch physical everywhere, and are inter-branch domain walls meaningful? **2026-07-12 (M5.20.2): all four branches verified exact vacua; g-timelike ran as primary, the 1-timelike control is ~100× stiffer with the same boost-sign structure; the branch choice rides the one outbound constraint question. ✅ ANSWERED 2026-07-13/14 via the fusion**: his recipe pins the branch ("adding 0th axis with g eigenvalues in time direction" = g-timelike); domain walls stay open background | ✅ branch pinned; consumed by [M5.20.3](tasks/m5_20_3_task_details.md); walls → background |
 | [Q17](#q17-detail) 🔶 | β and g anchors | RESTRUCTURED 2026-07-05: β dissolves with the potential swap; remaining anchors = the g VALUE (via the `c_p` spectrum targets) + the overall energy scale (m_e). HELD for the next round | the full lock on the new potential; `#220`; M5.9 |
 | [Q11](#q11-detail) 🚧 | Close's Eq.23 form | Direct form vs `s = ∇×A` vs divergence-cleaning: SELF-DETERMINE (published paper + numerical discriminator), not a Duda item | M5.7.3 |
 | [Q4](#q4-detail) 🚧 | Liu lab anchor | Does the 2026 lab creation of isolated hopfions/skyrmions change what to simulate first? | background |
@@ -107,6 +104,9 @@ NuFIT 6.0 (~212° ± 30) sits **between** them and excludes neither. Deciders: *
 | Q15 | δ-pinning: how is the (1, δ, 0) spectrum enforced? | ✅ ANSWERED 2026-07-05: the universal spectral potential `V = Σ_p (Tr M^p − c_p)²` pins `(1, δ, 0)` / `(g, 1, δ, 0)` EXACTLY; implemented + validated same day (`r_half = 2.935 fm`, potential-shape robust). Coefficient freedom owner-confirmed open-by-design; the δ-SECTOR residual promoted to **Q22** (2026-07-10). Detail kept: [`§ Q15 detail`](#q15-detail) |
 | Q16 | Neutrino seed topology + loop protection | ✅ ANSWERED 2026-07-10 ([`tasks/m5_19_convo.md`](tasks/m5_19_convo.md)): protection = **lack of a radiation mechanism in vacuum** (dynamical, not a conserved structure); he flags it "(?)" himself, so the empirical verdict is **M5.20** (real Euler-Lagrange evolution, his directive). Degree: beta-sourced neutrinos = **1-vortex** (hedgehog charge topologically requires it); 1/2-loops = primordial "half-neutrinos", dark-sector candidates (M5.19's 2:1 preference for 1/2 reinterpreted, not contradicted). Detail kept: [`§ Q16 detail`](#q16-detail) |
 | Q21 | The R7 temporal-boost prescription | ✅ ANSWERED 2026-07-10 ([`tasks/m5_19_convo.md`](tasks/m5_19_convo.md)): the Lagrangian is unchanged; the Hamiltonian carries negative `−(Γ0¹Γ̃μⁱ − Γμ¹Γ̃0ⁱ)²` contributions (i = 2, 3) that make energy minimization prefer nonzero time derivatives (oscillations = the clock), which require local boosts = the particle's gravitational mass (his matrix slide attached). Misiaczek: possible gravitational effect on oscillations in MSW. Residual (the Γ↔M dictionary + kinetic term for our stack) promoted to **Q23**; the clock sector stays M5.20.2. Detail kept: [`§ Q21 detail`](#q21-detail) |
+| Q18 | Canonical constraints (the degenerate Legendre map) | ✅ RESOLVED 2026-07-13/14, answered by directive + measured ([`tasks/m5_20_convo.md`](tasks/m5_20_convo.md)): "we don't want to add artificial restrictions, everything should come from evolution" = the null directions are the theory's OWN structure, no Dirac machinery added. [M5.20.3](tasks/m5_20_3_task_details.md) ran it: rank-5-exact K(M), 98.6% null-force at rest (from-rest initial data EL-inconsistent), the IVP ill-posed: the follow-on formulation question = **[Q24](#q24-detail)**. Detail kept: [`§ Q18 detail`](#q18-detail) |
+| Q19 | Vacuum branches + domain walls | ✅ RESOLVED 2026-07-13 (the branch half): his seed recipe "adding 0th axis with g eigenvalues in time direction" pins the **g-timelike branch** M_vac = diag(−g, 1, δ, 0); M5.20.3 ran on it. The domain-wall half stays background (no task consumes it). Detail kept: [`§ Q19 detail`](#q19-detail) |
+| Q23 | The Γ↔M dictionary + kinetic term for real dynamics | ✅ CLOSED 2026-07-14: the dictionary half RESOLVED BY DERIVATION (M5.20.2: L is purely quartic, kinetic = the F₀ᵢ block, NO canonical term); the dynamics half RUN at [M5.20.3](tasks/m5_20_3_task_details.md) (free EL: ill-posed IVP, finite-time blowup, E → −∞ = his pre-named BVP branch; the negative Γ·Γ̃ sector measured as the roundoff-seeded boost-mode instability, σ = 6.31-80.9/t). The formulation question lives on as **[Q24](#q24-detail)**. Detail kept: [`§ Q23 detail`](#q23-detail) |
 
 ---
 
@@ -421,9 +421,15 @@ Imported from `m6_ouroboros/research/archive/0b_model_gates.md` § "What M6 offe
 
 **Canonical constraints (the degenerate Legendre map).** Opened 2026-07-06 from M5.18 back-question 1 (sent 2026-07-05, not answered in his 2026-07-06 replies). Measured basis ([`findings/m5_18_verification_note.md`](findings/m5_18_verification_note.md) § 4): `[η, B]_η = 0` for every symmetric B, so the velocity component along η carries no conjugate momentum, a primary constraint (the analogue of `A_0` in EM); the energy FUNCTION is fine (Noether-conserved) but a canonical/Hamiltonian formulation needs the Dirac constraint analysis. **Urgency DOWNGRADED 2026-07-06** by his least-action stance ([`tasks/m5_18_convo.md`](tasks/m5_18_convo.md) reply 2): if the physics is the stationary point of a 4D action BVP, the canonical formulation is a convenience, not the foundation; the practical M5.12 phase-D route (relax the 4D action with time-periodic BCs) never builds H. Keep open for the record + any future canonical/quantization work; gates phase D bookkeeping only. **2026-07-12 (M5.20.2): RE-PROMOTED to load-bearing and fused into the one outbound question**: the measured boost-sector runaway (t ≈ 21, physical) means the missing constraint structure is exactly what decides whether the 4×4 oscillation run is well-posed; the verified primary constraint removes only the η direction, which is NOT enough (the runaway lives in the boost sector). Outbound with the combined M5.20.x email.
 
+
+**RESOLVED 2026-07-13/14 (rider)**: answered by directive ("no artificial restrictions") and executed at M5.20.3; the measured consequence (ill-posed IVP, blowup) is carried by [Q24](#q24-detail). Section kept for history.
+
 ### Q19 detail
 
 **Vacuum branches + domain walls.** Opened 2026-07-06 from M5.18 back-question 2 (sent 2026-07-05, not answered in his 2026-07-06 replies). Measured basis ([`findings/m5_18_verification_note.md`](findings/m5_18_verification_note.md) § 5-6): `V = 0` fixes only the spectrum of `ηM`, so the vacuum manifold is a UNION of 4 disjoint Lorentz orbits, one per choice of which preferred eigenvalue rides the timelike eigenvector; the covariant vacuum is `diag(−g, 1, δ, 0)`. Open: is the g-branch the intended physical vacuum everywhere, and are inter-branch domain walls meaningful objects (cosmology? forbidden?). **Partial core signal 2026-07-06** ([`tasks/m5_18_convo.md`](tasks/m5_18_convo.md) reply 1): at a static charge CORE he prescribes the spherically-symmetric eigenspectrum `(g', a, a, a)`, i.e. the spatial eigenvalues DEGENERATE at the center while a distinct `g'` rides the timelike direction: branch structure at cores is specified, the bulk/wall question stays open. Gates M5.12 phase D + the gravity sector; not phases A-C. **2026-07-12 (M5.20.2)**: all four branch representatives verified exact vacua (V = 0 to machine zero); the g-timelike branch ran as primary and the 1-timelike control shows the same boost-sign structure at ~100× the stiffness: the branch choice does not change the runaway class, so Q19 rides the fused constraint question rather than blocking on its own.
+
+
+**RESOLVED 2026-07-13 (rider)**: the branch half answered by his seed recipe (g-timelike, M_vac = diag(−g, 1, δ, 0)); run at M5.20.3. The domain-wall half stays background. Section kept for history.
 
 ### Q20 detail
 
@@ -440,6 +446,9 @@ Imported from `m6_ouroboros/research/archive/0b_model_gates.md` § "What M6 offe
 ### Q23 detail
 
 **The Γ↔M dictionary + kinetic term for real dynamics.** Opened 2026-07-10 at the M5.20 PLAN ([`tasks/m5_20_task_details.md`](tasks/m5_20_task_details.md) blindspot 7). His Q21 answer states the time sector in Γ (tetrad-like) variables: the Hamiltonian's negative `−(Γ0¹Γ̃μⁱ − Γμ¹Γ̃0ⁱ)²` contributions (his matrix slide, [`tasks/m5_19_convo.md`](tasks/m5_19_convo.md)). Our audited stack evolves the 4×4 real symmetric M directly, and his M5.20 directive ("real evolution e.g. with Euler-Lagrange equations for the assumed Lagrangian") leaves the time term in M variables unstated. M5.20 proceeds on the canonical sigma-model choice, kinetic density `½‖∂ₜM‖²_F` (so `w·∂ₜ²M = −∂E/∂M`), FLAGGED as the load-bearing assumption in the method note: it is the minimal Lorentz-consistent completion of the sanctioned static functional, but it is NOT derived from his Γ structure, and the negative Hamiltonian contributions he names have no counterpart in it. The ask (next batch, with the M5.20 results): the intended kinetic/time term written in M (or the Γ↔M map so we can derive it), and whether the negative `Γ·Γ̃` terms should appear already at the neutrino-loop level or only in the clock sector. **RIDER 2026-07-11** ([`tasks/m5_20_convo.md`](tasks/m5_20_convo.md)): his reply confirms the terms are "from Hamiltonian we have agreed to" (the M5.18-verified 4D Lagrangian) and adds the spectrum requirement: "clock propulsion with negative Hamiltonian terms require full 4x4 tensor field with (g, 1, delta, 0) spectrum", i.e. the time eigenvalue g must enter the potential targets alongside δ ≠ 0. The loop-level half was ASKED 2026-07-11 (seed-round Q3); its answer decides whether [M5.20.1](tasks/m5_20_1_task_details.md) stays a spatial (1, δ, 0) run (canonical kinetic term, flagged) or becomes the clock-augmented run (scope change, per the folding table in the M5.20.1 plan). **Loop-level half ANSWERED 2026-07-12** ([`tasks/m5_20_convo.md`](tasks/m5_20_convo.md)): "in 3D (1, delta, 0) you can start with, but finally to get oscillations requires full 4x4 tensor with potential preferring (1,g,delta,0) eigenvalues." The clock does NOT act at the protection level: M5.20.1 runs spatial as the sanctioned start, and the residual (the M-variable time term + the [Q18](#q18-detail) constraint structure for the degenerate Legendre map + the [Q19](#q19-detail) branch choice) now gates the **M5.20.2 successor** (roadmap stub; the 4×4 asset/input tables live in [`tasks/m5_20_1_task_details.md § Successor`](tasks/m5_20_1_task_details.md): the substrate, the M5.18-verified Lagrangian, the exact `(g,1,δ,0)` pinning, and the M5.8.2c constrained integrator all EXIST, so the ask is well-posedness, not machinery). His 07-12 "(1,g,delta,0)" is read as a MISSPELLING of the standing (g, 1, δ, 0) (user call 2026-07-12: he has reinforced `D = diag(g, 1, δ, 0)` consistently, and it is the engine convention since M5.8.1); the spectral potential pins the SET regardless, and the timelike assignment stays Q19's question. **2026-07-12 (M5.20.2 ✅): the dictionary half RESOLVED BY DERIVATION, his confirmation requested with the results**: the M-variable EOM was derived directly from the M5.18-verified L (η-commutators, mixed-index traces, 4 targets), finding L PURELY QUARTIC in derivatives: the kinetic sector is the F₀ᵢ block only, so there is no canonical `½‖∂ₜM‖²` term in his theory (M5.20/M5.20.1 ran it as the documented regularization) and the kinetic form K(M) vanishes on gradient-free states, carries the η null everywhere, and has negative directions at the loop core. The negative `Γ·Γ̃` sector was then QUANTIFIED exactly (H(ω) = H(0) + ω²K_eff on rigid orbits: all boosts negative, unbounded) and its dynamical face measured as the boost runaway (t ≈ 21, physical). The RESIDUAL fuses Q23 with Q18 + Q19 into the single outbound question: what constraint closes the boost sector. Answer unblocks the oscillation run same-day.
+
+
+**CLOSED 2026-07-14 (rider)**: both halves done (derivation at M5.20.2, dynamics at M5.20.3); successor = [Q24](#q24-detail). Section kept for history.
 
 ### Q24 detail
 

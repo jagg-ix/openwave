@@ -180,3 +180,26 @@ Full technical record: [`../findings/m5_20_3_method_note.md`](../findings/m5_20_
 ### Data + large-file log
 
 All `m5_20_3_*` data files are < 1 MB (summary JSONs + 8 small npz states); nothing deleted. Regen commands in the method note § 9.
+
+## TASK REVIEW (2026-07-14, approved same day)
+
+Task Duration: 03:42 (from 10:43 to 14:25 EDT)
+Usage Cap Triggered: NO
+
+| # | Result | Status |
+| --- | --- | --- |
+| 1 | The true-L instrument (free EL of the purely-quartic verified L, per-cell spectral solve, exact leak bookkeeping); GC0a-e at complex-step precision (4e-16 to 7e-18) | ✅ measured |
+| 2 | **THE HEADLINE: the free-EL IVP is ill-posed; every regularization blows up in finite time, E → −∞: his pre-named BVP branch fires.** Rank-5-exact K(M); 98.6% null-force at rest; the roundoff-seeded boost-sector exponential (σ = 6.31-80.9/t, the t* law); audit-confirmed incl. independent RK4 + Tikhonov | ✅ measured |
+| 3 | The topological charge NEVER unwinds through the blowup (q = 0.500 exact; canonical stack unwound 10/10) | ✅ measured |
+| 4 | G-CORE: (g, 1, a, a) with a = 0.1269 = 0.85 × δ/2 from free minimization, box-independent 4e-10 | ✅ measured |
+| 5 | The ρ-chirped true-L vacuum ladder: ω₁ = 0.0674·ρ exact (K ∝ ρ⁻², audit-proven) | ✅ measured |
+| 6 | One stable evolution: rotation-sector texture on the vacuum (T = 50, both dts) | ✅ measured |
+| 7 | G-RADIUS + G-SPECTRUM: NOT REACHED (honest disposition); unwind duration = regularization-dependent, undefined without the BVP | ❌ not reached |
+| 8 | From-rest EL-inconsistency → Dirac secondary-constraint surface as consistent initial data | 🔶 hypothesis |
+| 9 | First-draft "4D statics dive" | ❌ RETRACTED at audit (C8: FIRE step-size artifact) |
+
+Audit: 6 CONFIRMED / 2 QUALIFIED / 1 REFUTED (method note § 8); all corrections folded and marked in place. Deviations: 8, logged in § FINDINGS. Mid-run additions at user direction: the film-strip standard ([`../m5_visualization.md`](../m5_visualization.md), `m5_film.py`, the 7-row blowup spacing) + the two-hunt Candidate-Score scorecard ([`../m5_particle_hunt.md`](../m5_particle_hunt.md)).
+
+**Findings**: running Duda's prescription verbatim produced a decisive structural negative with three positives riding it: the free-EL dynamics of his quartic Lagrangian cannot serve as the theory's time evolution (his own least-action BVP is the formulation left standing, opened as [Q24](../m5_question_tracker.md#q24-detail)); the topological charge proved unconditionally protected under the true kinetic form; his core prediction landed quantitatively at statics (a = 0.85 δ/2); the vacuum spectrum acquired a falsifiable new shape (ρ-chirped). Both particle hunts now funnel into the single Q24 blocker.
+
+**Research docs created/updated**: this file · [`../findings/m5_20_3_method_note.md`](../findings/m5_20_3_method_note.md) · [`../m5_visualization.md`](../m5_visualization.md) · [`../m5_particle_hunt.md`](../m5_particle_hunt.md) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q24) · [`m5_20_convo.md`](m5_20_convo.md) (the outbound draft, user-gated) · [`../m5_roadmap.md`](../m5_roadmap.md) · scripts `m5_20_3_a/b/c/d_*.py`, `m5_film.py`, `m5_20_3_audit_check.py` + `data/m5_20_3_*` + `plots/m5_20_3_*`.
