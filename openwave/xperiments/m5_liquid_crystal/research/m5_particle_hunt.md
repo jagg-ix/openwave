@@ -23,7 +23,7 @@ Scored against the criteria the author himself laid out (Coulomb as the named di
 
 Criteria sources: the defining neutrino properties (no charge, sub-eV mass, spin 1/2) + the **AMBer 9-observable lepton scoreboard** (Baretz et al. 2026, [`../theory/_CITATIONS.md`](../theory/_CITATIONS.md), local `amber_neutrino_flavor_rl.pdf`): 3 charged-lepton masses + 2 mass-squared splittings + 3 PMNS angles + δ_CP, fit against the KATRIN / KamLAND-ZEN / Planck bounds (the charged-lepton masses belong to the flavor-sector fit and ride the oscillation rows here).
 
-| Criterion (what a neutrino must match) | Topology: Vortex-Loop (the M5.20 series) | Topology: Hedgehog (the M5.21 series) |
+| Criterion (what a NEUTRINO must match) | Topology: Vortex-Loop<br>(the M5.20 series) | Topology: Hedgehog<br>(the M5.21 series) |
 | --- | --- | --- |
 | Zero electric charge / NO Coulomb tail | ✅ measured: the (δ,0) pair winding is chargeless (no monopole flux); far field localized, no 1/r⁴ tail in any run | ❌ monopole-charged: the Coulomb tail is measured (its electron anchor) |
 | Near-zero rest mass (KATRIN < 0.45 eV; Planck Σm_ν < 0.12 eV) | 🔶 the near-zero rest-energy character of the winding pair is structural; no calibrated eV number yet | ❌ carries the 511 keV mass anchor |
@@ -38,7 +38,7 @@ Criteria sources: the defining neutrino properties (no charge, sub-eV mass, spin
 
 Criteria sources: the standard electron observables (charge, mass, spin, g-factor) + the author's named discriminator (Coulomb) and his "negative terms propel electron angular momentum" line.
 
-| Criterion (what an electron must match) | Topology: Vortex-Loop (the M5.20 series) | Topology: Hedgehog (the M5.21 series) |
+| Criterion (what an ELECTRON must match) | Topology: Vortex-Loop<br>(the M5.20 series) | Topology: Hedgehog<br>(the M5.21 series) |
 | --- | --- | --- |
 | **Coulomb far field, "as required for electron"** (named discriminator) | ❌ nothing: the (δ,0)-pair winding has no monopole flux; no 1/r⁴ tail in any run | ✅ measured: the far-field curvature energy density is exactly 8c₂/r⁴ (the M5.16 G3/G4 anchors) = the Coulomb form; quantitatively anchored: c₂ = αħc/64π with α⁻¹ → 137 measured (M5.11, the Faber anchor) |
 | Charge quantization (−e) | ❌ the pair winding is a chargeless class; its q is a winding along the loop, not a monopole charge | ✅ integer π₂ degree; q = 1.000 measured at every radius through the entire M5.21 noclock evolution (and q = 0.500 exact through the M5.20.3 blowups on the loop's own read) |
