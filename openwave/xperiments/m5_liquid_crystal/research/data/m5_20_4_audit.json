@@ -1,0 +1,673 @@
+{
+ "task": "M5.20.4 adversarial audit",
+ "date": "2026-07-14",
+ "auditor": "independent second agent",
+ "trusted_instruments": "m5_20_3_a/m5_20_2_a/m5_17-20_1 stack",
+ "claims": {
+  "C1": {
+   "verdict": "CONFIRMED",
+   "invariance_worst_abs": {
+    "s_dressed": 4.547473508864641e-13,
+    "mixed": 5.684341886080802e-14,
+    "cross": 1.4210854715202004e-13,
+    "tracesplit": 1.262177448353619e-29,
+    "xdress": 3.637978807091713e-12
+   },
+   "density_scale": {
+    "s_dressed": 4698.453668777533,
+    "mixed": 1469.979359358271,
+    "cross": 1711.3022496490871,
+    "tracesplit": 1.1044052673094165e-29,
+    "xdress": 12134.043022306812
+   },
+   "own_kinform_eta_null_resid": 2.2737367544323206e-13,
+   "own_kinform_max_abs": 769.9852245046098,
+   "algebra": "X0 = eta.eta = I commutes with all -> C_0i = 0; checked V -> V + c*eta full-density invariance"
+  },
+  "C2": {
+   "verdict": "CONFIRMED",
+   "formula_rel_err_max": 3.50885301609926e-16,
+   "pd_window_measured": [
+    1.01,
+    7.99
+   ],
+   "boundary_mineigs": {
+    "a=0.99": -0.0701000000000004,
+    "a=1.0": -1.289623617736413e-16,
+    "a=1.01": 0.00010000000000066603,
+    "a=7.99": 9.999999999999575e-05,
+    "a=8.0": -6.661338147751237e-17,
+    "a=8.01": -0.08010000000001988
+   }
+  },
+  "C3": {
+   "verdict": "CONFIRMED",
+   "hessian_vs_claimed_rel": {
+    "quartic_4xbuild_k10": 3.332043713935693e-16,
+    "qc_k10_add": 3.50885301609926e-16
+   },
+   "percell_checks": {
+    "5,30": {
+     "quartic_rel": 2.1224364052850223e-16,
+     "qc_rel": 1.758218233265227e-16
+    },
+    "17,63": {
+     "quartic_rel": 1.71170402745902e-16,
+     "qc_rel": 1.8482432166987149e-16
+    },
+    "30,60": {
+     "quartic_rel": 4.2197039402878503e-16,
+     "qc_rel": 1.7713286581254858e-16
+    },
+    "45,20": {
+     "quartic_rel": 5.611423868970288e-17,
+     "qc_rel": 1.75442650804963e-16
+    },
+    "60,100": {
+     "quartic_rel": 1.9842255009200336e-16,
+     "qc_rel": 1.75442650804963e-16
+    }
+   },
+   "beta_star_mine_fullgrid": 1.3055712884201398,
+   "mineig_at_beta_star": 1.1503931007380292e-12,
+   "beta_star_mine_sub500": 1.3031109719483993,
+   "beta_star_claimed": 1.305571288421561,
+   "rel_dev_vs_claim": 1.0884778825354657e-12,
+   "wrong_pairing_would_give": {
+    "half": 0.6527856442107804,
+    "double": 2.611142576843122
+   },
+   "subsample": {
+    "n_cells_full": 7938,
+    "n_cells_sub": 500
+   },
+   "quartic_mineig_fullgrid": -31.986798349549844,
+   "qc_mineig_fullgrid": 24.28447451893844
+  },
+  "C4": {
+   "verdict": "CONFIRMED",
+   "a_vacuum": {
+    "u_eta_max": 0.0,
+    "v4_max": 0.0,
+    "E_static": 0.0,
+    "Aphi_mine_vs_channels_maxdiff": 0.0,
+    "Arho_max": 0.0,
+    "Az_max": 0.0,
+    "U_C_mine_beta1.306_a4.5": 90957.89550907777,
+    "U_C_claimed": 91000.0
+   },
+   "b_family": {
+    "coeff_formula_maxerr": 8.881784197001252e-16,
+    "n_scan": 400000,
+    "n_psd": 3085,
+    "min_ratio_c12_over_geomean": 1.0000001969905756,
+    "amgm_bound": "|c12| >= sqrt(c11 c22), eq iff p1 q2 = p2 q1 (P = Q saturates)",
+    "c12zero_constrained_n": 200000,
+    "c12zero_best_min_coeff": -5.006892852369691e-06,
+    "quartic_subblock_idx1_mineig": -31.986798349542248,
+    "quartic_subblock_idx2_mineig": -31.986798347918032
+   }
+  },
+  "C5": {
+   "verdict": "CONFIRMED",
+   "E_mine": 13976.308911498996,
+   "E_claimed": 13976.308911498996,
+   "m13_absmax": {
+    "dressed": 7.372390701485443e-12,
+    "recipe": 0.03167649692915739
+   },
+   "m13_sumsq": {
+    "dressed": 5.749415981036147e-20,
+    "recipe": 0.12256032583366733
+   },
+   "winding_scan": {
+    "n_centers": 1176,
+    "hits_dressed": [],
+    "n_hits_dressed": 0,
+    "n_hits_recipe": 3,
+    "hits_recipe_sample": [
+     {
+      "rho": 15.0,
+      "z": 0.0,
+      "r_w": 5.0,
+      "q": 0.5,
+      "aniso_min": 0.021542148462287167,
+      "mix": 0.0
+     },
+     {
+      "rho": 17.0,
+      "z": 0.0,
+      "r_w": 5.0,
+      "q": 0.4999999999999997,
+      "aniso_min": 0.023210761178657197,
+      "mix": 0.0
+     },
+     {
+      "rho": 19.0,
+      "z": 0.0,
+      "r_w": 5.0,
+      "q": 0.5,
+      "aniso_min": 0.02099140677948911,
+      "mix": 0.0
+     }
+    ]
+   },
+   "targeted_reads_dressed": {
+    "old_ring_17.5": {
+     "center": [
+      17.46,
+      0.0
+     ],
+     "q_mine": -2.473764752249402e-16,
+     "aniso_min": 0.23503514753622,
+     "mix": 0.0,
+     "q_trusted": 0.0
+    },
+    "detector_44.2": {
+     "center": [
+      44.21,
+      0.0
+     ],
+     "q_mine": 1.7669748230352872e-16,
+     "aniso_min": 0.0017190885985331472,
+     "mix": 0.0,
+     "q_trusted": null
+    },
+    "m13max_loc": {
+     "center": [
+      62.5,
+      -62.5
+     ],
+     "q_mine": 0.0,
+     "aniso_min": 5.710357111854427e-05,
+     "mix": 0.0,
+     "q_trusted": 3.533949646070574e-17
+    }
+   },
+   "spatial_spectra_z0": {
+    "rho=5.5,z=0": {
+     "dressed": [
+      0.6113304773816054,
+      0.6046830805478182,
+      0.2912505899375035
+     ],
+     "recipe": [
+      0.9990516326393208,
+      0.2973804865836003,
+      0.036252521741904076
+     ]
+    },
+    "rho=17.5,z=0": {
+     "dressed": [
+      0.6206054906913201,
+      0.5480153178512526,
+      0.2986005970925728
+     ],
+     "recipe": [
+      1.0145003822487633,
+      0.13801641396917194,
+      0.11547428246536223
+     ]
+    },
+    "rho=30.5,z=0": {
+     "dressed": [
+      0.7664496448735384,
+      0.7506446757989969,
+      0.2294175649297966
+     ],
+     "recipe": [
+      0.9979119469079336,
+      0.29993468905409804,
+      0.024540706946291298
+     ]
+    },
+    "rho=44.5,z=0": {
+     "dressed": [
+      0.7793170395530484,
+      0.7530023857677056,
+      0.22750283195817708
+     ],
+     "recipe": [
+      0.9999999993228605,
+      0.3000000000148435,
+      8.695770242830645e-10
+     ]
+    },
+    "rho=55.5,z=0": {
+     "dressed": [
+      0.9006321546909614,
+      0.30082295910686263,
+      0.13870910393799926
+     ],
+     "recipe": [
+      1.0,
+      0.30000000000000004,
+      1.5043004342815583e-21
+     ]
+    }
+   },
+   "inplane_aniso_m11_m22": {
+    "dressed_rms": 0.3673653210195934,
+    "recipe_rms": 0.9935185488032221
+   },
+   "detector_readback": {
+    "ring_rho": 44.210287128754565,
+    "m13_max": 7.372390701485443e-12,
+    "core_lam": [
+     0.7844394455419208,
+     0.44967066720718196,
+     0.27688563580949477
+    ]
+   }
+  },
+  "C6": {
+   "verdict": "REFUTED",
+   "a_nff_mine": 0.999997707534591,
+   "a_nff_claimed": 0.9999977075345909,
+   "a_null_dim_total": 34232,
+   "b_dr_ratios_eps10x": [
+    99.99999999999173,
+    100.0000000025872
+   ],
+   "b_note": "each 10x reduction in eps scales |dr| by 100: pure quadratic, no linear term (claim b holds)",
+   "c_independent_recheck": {
+    "e02_align_pathA": -0.47916649928480753,
+    "e02_align_pathB_slowbuild": -0.4791664992848078,
+    "nff_pathB": 0.9999977075345909
+   },
+   "c_most_negative_align": -0.47939362888770026,
+   "c_best_single_dir_resid": 0.8775999934946911,
+   "c_structured": {
+    "eta_flat": {
+     "align": 0.0,
+     "dr_norm": 0.0
+    },
+    "e00_flat": {
+     "align": 0.0,
+     "dr_norm": 0.0
+    },
+    "e00_bump": {
+     "align": 0.0,
+     "dr_norm": 0.0
+    },
+    "e01_bump": {
+     "align": -0.004660274588417213,
+     "dr_norm": 0.0010642241708484707
+    },
+    "e02_bump": {
+     "align": -0.47916649928480753,
+     "dr_norm": 0.0010946298246570089
+    },
+    "e03_bump": {
+     "align": 0.29451669121576896,
+     "dr_norm": 0.0015799103097895839
+    },
+    "e11m22_bump": {
+     "align": -4.571446974326975e-06,
+     "dr_norm": 1.9422945871104277e-18
+    },
+    "e11m22_flat": {
+     "align": -3.292721528339441e-05,
+     "dr_norm": 3.794622013200683e-11
+    },
+    "G_static": {
+     "align": -6.715775098840453e-05,
+     "dr_norm": 2.4987490377856026e-13
+    },
+    "DGM_J23": {
+     "align": 7.167369538291557e-05,
+     "dr_norm": 0.013537545513694784
+    },
+    "DGM_K1": {
+     "align": -0.05658857122069357,
+     "dr_norm": 0.013783724839341082
+    },
+    "DGM_K3": {
+     "align": 0.37037488865781576,
+     "dr_norm": 0.00012228825972832995
+    },
+    "DGM_J23K2_1.25": {
+     "align": 0.22692249200587863,
+     "dr_norm": 0.00019734450508289322
+    },
+    "DGM_J23K2_2.5": {
+     "align": 0.26802905608815264,
+     "dr_norm": 0.00016757105004005504
+    },
+    "M_itself": {
+     "align": -5.6797345004138876e-05,
+     "dr_norm": 1.460144865439509e-12
+    },
+    "G_static_nullpart": {
+     "align": -8.514498639173036e-06,
+     "dr_norm": 8.427773361526462e-19
+    },
+    "Vstar_b2": {
+     "align": -0.007589699409465087,
+     "dr_norm": 2.341793643727869e-06
+    }
+   },
+   "c_fresh_random": {
+    "null_only_absmax": 0.006026989127800516,
+    "full_absmax": 0.003192201355935926,
+    "n_each": 12
+   },
+   "c_scale_invariance": [
+    -0.47916649928480753,
+    -0.4791664992849638
+   ],
+   "c_hill_climb": {
+    "start": "e02_bump",
+    "start_align": -0.47916649928480753,
+    "final_align": -0.47939362888770026,
+    "final_dr_sector_norms": {
+     "b0": 0.0009436764062438854,
+     "b1": 0.00031463033454068627,
+     "b2": 0.00031463033454092127,
+     "b3": 0.00031467141860442856,
+     "b4": 1.7171872412363808e-10,
+     "b5": 5.21361722206463e-26,
+     "b6": 8.003285389306597e-06,
+     "b7": 6.739398487271687e-10,
+     "b8": 4.3625092205362004e-10,
+     "b9": 7.116561928294001e-15
+    },
+    "r0_sector_norms": {
+     "b0": 0.4287161165457508,
+     "b1": 0.00027873106246966025,
+     "b2": 0.00027873106258004396,
+     "b3": 0.0002800522958904146,
+     "b4": 1.2519993400864047e-20,
+     "b5": 1.1134441342653393e-26,
+     "b6": 2.1469585582176491e-19,
+     "b7": 2.0876391415840293e-37,
+     "b8": 2.438602657939653e-09,
+     "b9": 1.1808818447873676e-29
+    }
+   },
+   "c_max_align_found": 0.47939362888770026,
+   "refute_bar": 0.05
+  },
+  "C7": {
+   "verdict": "QUALIFIED",
+   "a_scaling_rel": 0.0,
+   "a_orbit_constancy": {
+    "J12": {
+     "Q2_t0": 68.71097614890616,
+     "Q2_min": 68.71097614890336,
+     "Q2_max": 68.71097614894067,
+     "Q2_bar": 68.71097614890766,
+     "U_t0": 0.3438442096192527,
+     "U_min": 0.3438442096190262,
+     "U_max": 0.34384420961930934,
+     "U_bar": 0.3438442096192061,
+     "V4_variation_rel": 1.4444236645135112e-12,
+     "closure_resid": 3.7227732628814964e-15,
+     "root_from_t0": null,
+     "root_from_averages": null
+    },
+    "J23": {
+     "Q2_t0": 19046.030549149196,
+     "Q2_min": 1947.5216789629112,
+     "Q2_max": 19046.030549149196,
+     "Q2_bar": 10781.274845139405,
+     "U_t0": 0.3438442096192527,
+     "U_min": 0.20999948513841862,
+     "U_max": 928.6503499642484,
+     "U_bar": 411.5282744391721,
+     "V4_variation_rel": 1.2613609760421017e-12,
+     "closure_resid": 3.438176703469377e-15,
+     "root_from_t0": null,
+     "root_from_averages": null
+    },
+    "J23^K2_2.5": {
+     "Q2_t0": -388835.0426432701,
+     "Q2_min": -5.401318892622711e+21,
+     "Q2_max": 1.015671987448622e+16,
+     "Q2_bar": -1.463656081299096e+21,
+     "U_t0": 0.3438442096192527,
+     "U_min": 0.3438430077424683,
+     "U_max": 6.514623875859449e+18,
+     "U_bar": 1.4704449504607345e+18,
+     "V4_variation_rel": 7.497065944027047,
+     "closure_resid": 1.9989847909715026e-08,
+     "root_from_t0": 0.0009403686859683823,
+     "root_from_averages": 0.03169602964610236
+    }
+   },
+   "a_orbit_note": "S(omega) = (2pi/omega)(omega^2 Q2 - U) needs Q2, U constant along the orbit; measured: massively violated for every generator that does not commute with the axisym J12 = J4 (the A_phi channel is not equivariant; V4 IS exact); J12 itself is exactly rigid but has no root (Q2 > 0, U > 0)",
+   "b_periodicity_resid": 5.5104587559640095e-11,
+   "c_my_crossing_chi": 1.0828980854716057,
+   "c_q2_chi_samples": {
+    "0.0": 19046.030549149196,
+    "1.0": 3656.7649431887767,
+    "1.1": -832.1732683336331,
+    "1.2": -6342.492983464557,
+    "2.5": -388835.0426432701
+   },
+   "d_a4_state": {
+    "U_mine": 0.31463429133650095,
+    "U_json": 0.31463429133650095,
+    "Q2_mine": -388586.79987200606,
+    "Q2_json": -388586.7998720122,
+    "q_trusted": 0.5,
+    "q_mine": 0.5000000000000001,
+    "aniso_min": 0.02187366495369621,
+    "mix": 0.0,
+    "gradnorm_claimed_recomputed": 2.8666286423031466,
+    "gradnorm_json": 2.8666286423032257,
+    "cs_derivative_along_claimed_dir": 2.8666286423031466,
+    "randdir_norm_estimate": 3.0903995527591035,
+    "dir_checks": [
+     {
+      "cs": 0.017945577999145458,
+      "claimed": 0.017945577999145448,
+      "rel": 5.799947405626318e-16
+     },
+     {
+      "cs": 0.010775914491538353,
+      "claimed": 0.010775914491538353,
+      "rel": 0.0
+     },
+     {
+      "cs": 0.0003535483844337013,
+      "claimed": 0.00035354838443369806,
+      "rel": 9.19989076648278e-15
+     }
+    ]
+   }
+  },
+  "C8": {
+   "verdict": "REFUTED",
+   "subsample": {
+    "n_cells": 397,
+    "adversarial_lowest": 100,
+    "random": 300,
+    "fullgrid_checks": "gamma ladder + tiny-beta + 5-background robustness"
+   },
+   "b_background_robustness": {
+    "raw": {
+     "quartic_mineig": -31.99999999999999,
+     "combo_mineig": -1.3720850043043639e-14,
+     "combo_plus_tinybeta_mineig": 0.0245
+    },
+    "remnant": {
+     "quartic_mineig": -31.9735459228645,
+     "combo_mineig": -1.1437139678270367e-13,
+     "combo_plus_tinybeta_mineig": 0.0245
+    },
+    "dressed": {
+     "quartic_mineig": -0.5146357236592923,
+     "combo_mineig": -3.4440510186454316e-16,
+     "combo_plus_tinybeta_mineig": 0.0245
+    },
+    "vacuum": {
+     "quartic_mineig": -15.679999999999993,
+     "combo_mineig": -8.810778118036044e-15,
+     "combo_plus_tinybeta_mineig": 0.0245
+    },
+    "recipe_perturbed": {
+     "quartic_mineig": -44.4767440397981,
+     "combo_mineig": -1.9140125137930445e-13,
+     "combo_plus_tinybeta_mineig": 0.02545611612033794
+    }
+   },
+   "b_pointwise_domain_probe_wildM": [
+    {
+     "M_scale": 1.0,
+     "min": -6946.35775767838,
+     "frac_neg": 0.5075
+    },
+    {
+     "M_scale": 3.0,
+     "min": -10971.886934435151,
+     "frac_neg": 0.5875
+    },
+    {
+     "M_scale": 10.0,
+     "min": -57373.11334395918,
+     "frac_neg": 0.696
+    }
+   ],
+   "escape_construction": "L_esc = L_verified - 1.0 * s2(a=4.5) + beta * qc(a=4.5), beta -> 0+: kinetic Hessian = Hq - Hs2 + beta Hc is PSD (exactly marginal) at every cell on every measured background and PD for any beta > 0; per channel the gamma = -1 combination is -tr((WP)^2) - 4 tr(W^2), W = eta [V, A]_eta in so(1,3); s2 has ZERO co-rotating-vacuum texture cost and its static addition on the recipe is +0.693 (order E_base), NOT the 1e5-scale qc texture bomb; caveats: gamma < 0 sign admissibility is author-gated, no full statics re-relax run, ghost analysis beyond the finite-amplitude probe not done",
+   "a_noncommutator": {
+    "nc1": {
+     "quad_kinetic_maxabs": 15.993399174771135,
+     "eta_null_lift_max": 15.993399174771117,
+     "mineig_of_term_itself": -15.993399174774929,
+     "closure_probe": {
+      "sign1": {
+       "beta_star_sample": null,
+       "mineig": -17584928360268.691
+      },
+      "sign-1": {
+       "beta_star_sample": null,
+       "mineig": -8792464180196.044
+      }
+     }
+    },
+    "nc2": {
+     "quad_kinetic_maxabs": 15.99339917394111,
+     "eta_null_lift_max": 15.993399174771046,
+     "mineig_of_term_itself": -15.99339917436691,
+     "closure_probe": {
+      "sign1": {
+       "beta_star_sample": null,
+       "mineig": -17584928359879.492
+      },
+      "sign-1": {
+       "beta_star_sample": null,
+       "mineig": -17584928358823.557
+      }
+     }
+    },
+    "nc3": {
+     "quad_kinetic_maxabs": 323.8413923488969,
+     "eta_null_lift_max": 323.84139234889767,
+     "mineig_of_term_itself": -323.84139234899976,
+     "closure_probe": {
+      "sign1": {
+       "beta_star_sample": null,
+       "mineig": -356067376442831.06
+      },
+      "sign-1": {
+       "beta_star_sample": null,
+       "mineig": -178033688221478.88
+      }
+     }
+    }
+   },
+   "a_nc_vacuum_texture_cost": {
+    "nc1": 3198.81507747594,
+    "nc3": 47806.29133287792
+   },
+   "a_note": "the class has NONZERO background-dependent QUADRATIC kinetic content (mixed 0i0i contractions) and LIFTS the eta-null, so it is NOT outside the closure question; measured: its own form is sign-indefinite and never closes (beta* None both signs)",
+   "b_s2_eta_null_lift": 5.684341886080802e-14,
+   "b_s2_hessian_xcheck_rel": 3.144576526129359e-16,
+   "b_gamma_ladder_fullgrid": {
+    "gamma=-1.0": {
+     "mineig": -1.6180872858382358e-13,
+     "second_mineig": -4.161585575160644e-17
+    },
+    "gamma=-2.0": {
+     "mineig": -3.043422126992071e-13,
+     "second_mineig": -6.685058471495837e-17
+    },
+    "gamma=-3.0": {
+     "mineig": -2.6486848259893447e-13,
+     "second_mineig": -1.0453439631891398e-16
+    },
+    "gamma=-5.0": {
+     "mineig": -5.039018642550267e-13,
+     "second_mineig": -1.333747164605621e-16
+    },
+    "gamma=-8.0": {
+     "mineig": -7.667524526648867e-13,
+     "second_mineig": -2.731290282388051e-16
+    },
+    "gamma=-12.0": {
+     "mineig": -9.102019041779243e-13,
+     "second_mineig": -2.919815360652792e-16
+    },
+    "gamma=-20.0": {
+     "mineig": -2.285965018870408e-12,
+     "second_mineig": -6.537865650553294e-16
+    },
+    "gamma=-50.0": {
+     "mineig": -3.669057638548863e-12,
+     "second_mineig": -1.9863744453931477e-15
+    }
+   },
+   "b_best_gamma": -1.0,
+   "b_tinybeta_fullgrid_mineig": {
+    "beta=0.0001": 0.00245,
+    "beta=0.001": 0.0245,
+    "beta=0.01": 0.245,
+    "beta=0.05": 1.225
+   },
+   "b_beta_gamma_feasibility_sample": {
+    "beta=0.0": {
+     "gamma_best": -0.338614093482404,
+     "maxmin_eig": -4.180920665391765e-14
+    },
+    "beta=0.0001": {
+     "gamma_best": -59.99999999884839,
+     "maxmin_eig": 0.00245
+    },
+    "beta=0.001": {
+     "gamma_best": -59.99999999884839,
+     "maxmin_eig": 0.0245
+    },
+    "beta=0.01": {
+     "gamma_best": -59.99999999884839,
+     "maxmin_eig": 0.245
+    },
+    "beta=0.1": {
+     "gamma_best": -59.99999999884839,
+     "maxmin_eig": 2.45
+    },
+    "beta=0.5": {
+     "gamma_best": -59.99999999884839,
+     "maxmin_eig": 12.25
+    },
+    "beta=1.0": {
+     "gamma_best": -59.99999999884839,
+     "maxmin_eig": 24.5
+    },
+    "beta=1.3": {
+     "gamma_best": -59.99999999884839,
+     "maxmin_eig": 31.85
+    }
+   },
+   "b_min_feasible_beta_sample": 0.0001,
+   "b_s2_vacuum_texture_cost": 0.0,
+   "b_s2_static_energy_on_recipe": -0.6933382699035562,
+   "b_s2_static_at_best_gamma": 0.6933382699035562,
+   "b_boundedness_probe_min": 1.0371824795228088,
+   "b_escape_flag": true,
+   "texture_cost_per_unit_beta": 69646.24808575804,
+   "loop_energy_scale_E_base": 0.3438442096192527
+  }
+ },
+ "wall_s": 25.1
+}
