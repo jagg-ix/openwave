@@ -1,6 +1,10 @@
 # M5.21: the particle-clock film strip: electron cross-section snapshots
 
-**Status**: roadmap row in [BACKLOG](../m5_roadmap.md) (PLAN-ready, **ungated**: phase 1 runs in the measured-stable rotation sector, no Duda dependency). The M5.21 **series**: this task = phase 1 (rotation clock, snapshot pipeline); successor stub **M5.21.1** = the full constrained 4×4 time term on the electron, gated on the same Duda constraint answer as [M5.20.3](m5_20_3_task_details.md) (add its roadmap row at M5.21 close).
+**Status**: ✅ DONE (roadmap row in [DONE](../m5_roadmap.md); executed 2026-07-13, review approved 2026-07-14). The M5.21 **series**: this task = phase 1 (rotation clock, snapshot pipeline); successors staged in Backlog: **M5.21.1** = the constrained clock on the electron (inherits the [M5.20.3](m5_20_3_task_details.md) gate), **M5.21.2** = the 2-particle film strip. **Series rule (user, 2026-07-14): before every M5.21-series "go", re-capture the latest M5.20-series results into the plan** (constraint form, well-posedness verdicts, observable lessons). The M5.21 film-strip panel format stays M5.21-series-only; the M5.20 series keeps its own cross-section spec (seed + endpoint maps).
+
+> **The M5.21.1 seed framing (user-approved 2026-07-14, carry into its TASK PLANNING verbatim): containment is exactly what the constraint must buy, and that is now a measured statement, not a hunch.** [M5.20.3](m5_20_3_task_details.md) lands the constraint on the loop; M5.21.1 puts it on this same electron and reruns the identical clock-vs-noclock comparison against this task's baseline (`data/m5_21_b_relaxed_state.npz` + the noclock/prod/control/gentle records). If the constrained clock contains the energy where the unconstrained kick radiated, that is "the particle clock creating particle stability" on film. M5.21.2 (the 2-particle strip) inherits the same bar: containment first, then interaction.
+
+**Series framing**: [`../m5_particle_hunt.md`](../m5_particle_hunt.md) (shapes measured vs identifications hypothesized: M5.20 = the vortex-loop hunt, possibly the neutrino; M5.21 = the hedgehog hunt, possibly the electron).
 
 **Lineage**: [M5.20.2](m5_20_2_task_details.md) (the 4×4 EOM machinery + the census this task rides: all rotation generators K_eff > 0, rotation injections measured stable over T = 400) · [M5.16](m5_16_task_details.md) (the audited axisym hedgehog minimizer + parameter lock; the **Q8 saddle finding** this task probes dynamically) · [M5.11](m5_11_task_details.md) (Faber electron statics, 511 keV) · [`m5_4b_rendering_features.md`](m5_4b_rendering_features.md) (the viz framework this task previews headlessly: Part 4 observable catalog, § 4.1.1 the clock-visibility recipe, § 5.3 placeholder-sample strategy) · [M5.13](m5_13_task_details.md) (the future on-screen demo suite this feeds).
 
@@ -26,9 +30,9 @@ enumeration:
 - charge
 - mass/energy
 - deBroglie clock/ZBW, particle stability
+- LC director vector
 - angular momentum, spin, magnetic moment
 - **2-particle attraction/repulsion**
-- LC director vector
 - **Coulomb**, force fields (ele-mag-grav)
 - EM waves
 - and thermal energy in the future if it lands
@@ -152,3 +156,67 @@ Default effort for A/B/D (instrument + mechanical baselines, try cap 3 per gate)
 | Boost coupling fires (GB) | Fall back to the frozen-time-row run; report the coupling as a measured finding |
 | Duda's constraint answer arrives mid-run | M5.20.3 takes priority (program-critical); M5.21 checkpoints and resumes after (both are checkpoint-complete by construction) |
 | The movie is Duda-gold (clock visibly stabilizing the electron) | Promotion decision at REVIEW: method-note standard + audit before any outbound (never auto-send) |
+
+## FINDINGS (2026-07-13)
+
+Full record: [`findings/m5_21_films.md`](../findings/m5_21_films.md) (film-strips embedded there). Scripts: [`m5_21_a_snap.py`](../scripts/m5_21_a_snap.py) · [`m5_21_b_electron.py`](../scripts/m5_21_b_electron.py) · [`m5_21_c_clockrun.py`](../scripts/m5_21_c_clockrun.py) · [`m5_21_d_3dcheck.py`](../scripts/m5_21_d_3dcheck.py).
+
+| # | Finding | Status |
+| --- | --- | --- |
+| 1 | **The snapshot instrument works and is validated before physics** (GV0: vacuum exact-zero channels + mask firing; hedgehog splay 2/r at 3.1e-4 and energy 8/r⁴ at 1.4e-3; rotator phase/ω read-back at 1e-16). Reusable `film_strip` API = the headless twin of the launcher viz features, incl. both glyph variants (structure/strength), log scales, δ-axis clock tick | ✅ measured |
+| 2 | **Duda's 3-equal core is the seed-adjacent transient, not the deep static preference**: at it 300 the core reads mean 0.4338 vs predicted (1+δ)/3 = 0.4333 (spread 0.044); the deep FIRE relax splits it ((0.591, 0.483, 0.284)) while descending without plateau: the V4 hedgehog statics is a slide (Q8-consistent), charge intact throughout (q 0.956) | ✅ measured |
+| 3 | **The rotation sector never touches the boost sector**: time-mixing stays exactly 0.0 through every run (noclock, prod T=400, control, gentle): the M5.20.2 census quarantine holds on the full electron nonlinearity; the frozen-time-row fallback was never needed | ✅ measured |
+| 4 | **The unconstrained kinetic twist is not a persistent clock**: exact at t=0 (Ṁ read-back 4e-16), it does ~one apolar sweep, stalls (long-run slope ≈ 0), and radiates; amplitude-robust (ω = 0.05 and 0.02) | ✅ measured |
+| 5 | **THE HEADLINE: the core rings**: the core spectrum oscillates coherently ~8 cycles over T=400 at ω ≈ 0.11-0.13 (FFT 0.1255 ± 0.0078; detrended 0.111-0.116), NEAR but ~15% below the 0.1349 activated-face rung of the analytic gap ladder: consistent with large-amplitude anharmonic softening of the vacuum's gapped eigenvalue mode. Intrinsic (rings in noclock too; the twist pumps it). The surviving particle clock = core breathing, the same internal-oscillation theme as the author's 2026-07-12 radius-breathing prediction, seen on the hedgehog | ✅ measured (bin-honest: "near the rung, softened", NOT "at the rung") |
+| 6 | **Q8-dynamic verdict**: the rotation clock does NOT stabilize the saddle in this stack (the canonical completion); the kick radiates and accelerates the melt restructuring; the topological winding survives regardless (noclock q = 1.000 at all radii). M5.21.1 (the constrained clock, M5.20.3-gated) now has its comparison baseline | ✅ measured, axisym scope-boxed |
+| 7 | Energy ledger 1.1e-6 to 4.2e-6 across all runs (bar: 1e-5); GD dt² ratios 3.92/4.06 | ✅ measured |
+| 8 | **3D spot-check**: the equivariant embed is exact (a_break 2.8e-15); an l=2 non-axisym perturbation + clock grows SLOWLY and decelerating (4.0e-4 → 1.1e-2 over T=50; tail e-rate ≈ 0.022/t; grows-vs-saturates undecided): no fast hidden instability; axisym verdicts safe on T ≲ 50, flagged beyond. 3D ledger 7.2e-7; 3D gradient complex-step-exact (1.75e-15) | ✅ measured (small-box caveat: boundary reflections after t ≈ 12) |
+
+**Instrument caveats logged**: the fixed-radius meridional q read flips (±1/0) in churned regions where λ1 ≈ λ2 (director branch-swap): NOT read as charge inversion; branch-tracking winding = future work. The defect-center instrument follows the amplitude cloud (incl. radiation), not the topological core.
+
+### Deviations from plan
+
+| Deviation | Handling |
+| --- | --- |
+| GS2's 3-equal-core bar became a two-stage measurement (holds seed-adjacent, splits at depth): the statics baseline is a slide, not a stationary point | The noclock control carries the baseline burden; reported as finding 2 |
+| GS "consistent with the M5.16 lock" read structurally (the lock is LdG-based; this stack is the V4 4-target): correspondence recorded, not numeric equality | Noted at PLAN-to-EXECUTE hand-off, held |
+| GV0b curl bound 1e-4 replaced by an h-refinement truncation proof (ratio 3.73 ≈ 4) at try 2 | Stronger gate than the arbitrary constant |
+| GQ drift gate (< 3 cells) assumed a quiet baseline; the measured baseline slides by itself | Gate reinterpreted as the drift MEASUREMENT (4.2 noclock / 5.0 gentle / 5.4 control / 14.2 prod-T400) |
+| One extra run added (gentle, ω = 0.02) for kick-amplitude dependence | Within the run budget |
+| GD3a FD bar at N = 24 was roundoff-floor-limited (g⁴ trace scale: 4.4e-6 at eps 1e-6, worse at 1e-5): upgraded to COMPLEX-STEP at try 3 of cap 3 (the energy is polynomial in M) → 1.75e-15 PASS | Gate code on disk = complex-step; the run JSON's GD3a entry patched with the note |
+| Phase D's per-snap `core_lams` recorded the near-axis z-PROFILE (48 cells × 3) instead of one cell | Kept: richer data; the JSON holds the profile |
+
+### Raw-data regen (large files deleted at FINISH per the standing rule)
+
+| File | Size | Status | Regen |
+| --- | --- | --- | --- |
+| `data/m5_21_c_final_noclock.npz` | 1.9 MB | deleted | `python3 scripts/m5_21_c_clockrun.py noclock` (~7 min; needs the relaxed npz) |
+| `data/m5_21_c_final_prod.npz` | 3.7 MB | deleted | `python3 scripts/m5_21_c_clockrun.py prod` (~28 min) |
+| `data/m5_21_c_final_control.npz` | 2.9 MB | deleted | `python3 scripts/m5_21_c_clockrun.py control` (~7 min) |
+| `data/m5_21_c_final_gentle.npz` | 3.2 MB | deleted | `python3 scripts/m5_21_c_clockrun.py gentle` (~7 min) |
+| `data/m5_21_b_relaxed_state.npz` | 0.8 MB | KEPT (under the 1 MB bar; the reusable baseline every phase-C/D run loads) | `python3 scripts/m5_21_b_electron.py 12000` (~13 min) |
+
+## TASK REVIEW (2026-07-13, approved 2026-07-14)
+
+Task Duration: 2:05 (from 12:32 to 14:37 EDT, 2026-07-13)
+Usage Cap Triggered: NO
+
+| # | Result | Status |
+| --- | --- | --- |
+| 1 | The snapshot instrument (deliverable 1): reusable `film_strip` API, 6 launcher-analog panels, both glyph variants, GV0-validated before physics (vacuum exact; hedgehog splay 2/r at 3.1e-4, energy 8/r⁴ at 1.4e-3, curl h²-truncation-proven; rotator phase/ω read-back at 1e-16) | ✅ measured |
+| 2 | The movie (deliverable 2): the δ-ticks appear + sweep as the clock runs (invisible at rest: azimuthal δ-axis); 10 frames, T=400, ledger 4.2e-6 | ✅ landed |
+| 3 | THE HEADLINE: the core RINGS ~8 cycles at ω ≈ 0.11-0.13 (FFT 0.1255 ± 0.0078; detrended 0.111-0.116), near but ~15% below the 0.1349 gap-ladder rung (anharmonic softening); intrinsic (rings in noclock) | ✅ measured (bin-honest: "near the rung, softened") |
+| 4 | Q8-dynamic: the unconstrained kinetic twist does NOT stabilize (stalls ~1 sweep, radiates, amplitude-robust); winding survives (noclock q = 1.000 at all radii) | ✅ measured, axisym scope-boxed |
+| 5 | Boost sector exactly 0.0 through all 4 runs (the M5.20.2 quarantine holds on full nonlinearity) | ✅ measured |
+| 6 | Duda's 3-equal core = seed-adjacent transient (0.4338 vs 0.4333 at it 300); deep relax splits it (the statics is a slide) | ✅ measured |
+| 7 | 3D spot-check: embed exact (2.8e-15); slow decelerating non-axisym leak (~0.02/t tail); no fast instability; T ≲ 50 safe | ✅ measured (small-box reflections after t ≈ 12) |
+
+Deviations from plan: six, logged in the FINDINGS deviations table. Issues: fixed-radius q read branch-swaps in churned regions (documented limit); 3D grows-vs-saturates undecided at T = 50.
+
+**Review Q&A (user, 2026-07-14): "energy is not being contained, the particle is not stable yet: is it because we did not run the 4×4 matrix?"** Answer: the runs DID use the full 4×4 tensor (the M5.20.2 stack: η-curvature + 4-target V4, g-timelike branch; the boost watch proves the time sector was live and stayed quiet). What was NOT run is the CONSTRAINED dynamics: our time term is the canonical-kinetic regularization of the author's purely-quartic L, and the twist was a plain velocity kick. In that unconstrained stack there is nothing to hold the energy in: the statics is a Q8 slide (no minimum to sit in) and the kick radiates. What survives is the topological charge and the intrinsic core-breathing clock. The candidate stabilizer is exactly the constraint Duda's answer supplies (M5.20.3), tested on the electron as M5.21.1: this task measured its comparison baseline.
+
+Close-out actions (2026-07-14): roadmap row moved to Done (appended at the END); M5.21.1 + M5.21.2 stub rows added to Backlog; the M5.20-re-capture series rule recorded in the Status line, both stub rows, and here; the M5.21-relevant findings fed into [`m5_20_3_task_details.md`](m5_20_3_task_details.md) (§ M5.21 findings feed) with the M5.20-series cross-section spec kept unchanged (seed + endpoint maps, not the film-strip format).
+
+Findings: the film-strip instrument works end to end; the electron's surviving clock is an intrinsic core-breathing mode ringing near (softened ~15% below) the 0.1349 gap-ladder rung, while an unconstrained kinetic twist stalls and radiates without stabilizing the Q8 saddle: M5.21.1 (the constrained clock) is now sharply posed with its baseline measured.
+
+Research docs created/updated: this file · [`../findings/m5_21_films.md`](../findings/m5_21_films.md) (the record, film-strips embedded) · scripts `m5_21_{a,b,c,d}_*.py` · plots `m5_21_a_placeholders/rotator_strip`, `m5_21_b_baseline`, `m5_21_c_film/traces_{noclock,prod,control,gentle}`, `m5_21_d_slices/traces` · data 7 JSON + the kept 0.8 MB baseline npz (4 final-state npz > 1 MB deleted, regen in the FINDINGS table) · [`../m5_roadmap.md`](../m5_roadmap.md) (Done append + M5.21.1/M5.21.2 stubs) · [`m5_20_3_task_details.md`](m5_20_3_task_details.md) (findings feed).

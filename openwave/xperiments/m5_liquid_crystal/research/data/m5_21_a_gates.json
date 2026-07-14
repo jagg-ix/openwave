@@ -1,0 +1,56 @@
+{
+ "task": "M5.21",
+ "phase": "A",
+ "delta": 0.3,
+ "g": 8.0,
+ "grid": [
+  96,
+  192,
+  1.0
+ ],
+ "GV0a_vacuum": {
+  "ok": true,
+  "detail": {
+   "u_eta_max": 0.0,
+   "v4_rel_spread": 0.0,
+   "amplitude_max": 0.0,
+   "director_defined_frac": 1.0,
+   "tick_defined_frac": 0.0
+  }
+ },
+ "GV0b_hedgehog": {
+  "ok": true,
+  "detail": {
+   "splay_2r_medrelerr": 0.0003054725890773158,
+   "u_8r4_medrelerr": 0.0014013795728862188,
+   "curl_max_annulus": 0.00033212813990968204,
+   "curl_max_annulus_hhalf": 8.907107752298415e-05,
+   "curl_h2_scaling_ratio": 3.728798945134337,
+   "curl_over_splay": 0.0019910719342373746
+  }
+ },
+ "GV0c_rotator": {
+  "ok": true,
+  "detail": {
+   "phase_read": [
+    0.0,
+    0.19999999999999998,
+    0.40000000000000013,
+    0.6000000000000001
+   ],
+   "phase_seeded": [
+    0.0,
+    0.2,
+    0.4,
+    0.6000000000000001
+   ],
+   "phase_maxerr": 1.1102230246251565e-16,
+   "omega_mdot_relerr": 1.3877787807814457e-16,
+   "omega_fit": 0.05000000000000001,
+   "omega_fit_relerr": 1.3877787807814457e-16
+  }
+ },
+ "GV0": {
+  "ok": true
+ }
+}
