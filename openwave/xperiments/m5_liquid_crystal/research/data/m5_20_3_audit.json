@@ -1,0 +1,387 @@
+{
+ "C1": {
+  "verdict": "CONFIRMED",
+  "algebra_closedform_vs_dT_rel_worst": 4.466852127686135e-16,
+  "cells": [
+   {
+    "cell": [
+     17,
+     64
+    ],
+    "k_absmax": 0.021867425525870073,
+    "rel_polar_vs_closed": 3.173164529906929e-16,
+    "rel_mine_vs_build_k10": 3.173164529906929e-16
+   },
+   {
+    "cell": [
+     24,
+     61
+    ],
+    "k_absmax": 0.03691366045539783,
+    "rel_polar_vs_closed": 1.879763160386486e-16,
+    "rel_mine_vs_build_k10": 3.759526320772972e-16
+   },
+   {
+    "cell": [
+     50,
+     100
+    ],
+    "k_absmax": 0.0015684736790510738,
+    "rel_polar_vs_closed": 1.3824932951905786e-16,
+    "rel_mine_vs_build_k10": 1.3824932951905786e-16
+   }
+  ],
+  "secs": 0.0
+ },
+ "_meta": {
+  "auditor": "independent adversarial audit M5.20.3",
+  "date": "2026-07-14"
+ },
+ "C2": {
+  "verdict": "QUALIFIED",
+  "vec_vs_polar_tie_rel": 2.004689816925698e-16,
+  "nzero_hist": {
+   "2": 392,
+   "5": 7546
+  },
+  "nneg_hist": {
+   "2": 7546,
+   "3": 392
+  },
+  "n_cells": 7938,
+  "nneg_on_generic_cells": [
+   2
+  ],
+  "nneg_on_core_rank8_cells": [
+   3
+  ],
+  "min_first_active_over_cellmax_generic": 0.24999999999999992,
+  "eta_global_null_max_rel_resid": 1.3126976574841216e-16,
+  "vac4_spectrum": [
+   {
+    "rho": 5.5,
+    "eigs_over_max": [
+     -0.24999999999999994,
+     -0.24999999999999994,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.24999999999999994,
+     0.24999999999999994,
+     1.0
+    ],
+    "n_pos": 3,
+    "n_neg": 2,
+    "fully_pm_paired": false
+   },
+   {
+    "rho": 20.5,
+    "eigs_over_max": [
+     -0.24999999999999994,
+     -0.24999999999999994,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.24999999999999994,
+     0.24999999999999994,
+     1.0
+    ],
+    "n_pos": 3,
+    "n_neg": 2,
+    "fully_pm_paired": false
+   },
+   {
+    "rho": 45.5,
+    "eigs_over_max": [
+     -0.24999999999999994,
+     -0.24999999999999994,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.24999999999999994,
+     0.24999999999999994,
+     1.0
+    ],
+    "n_pos": 3,
+    "n_neg": 2,
+    "fully_pm_paired": false
+   }
+  ],
+  "vac4_pm_pairs_subclaim": false,
+  "vac4_analytic_spectrum_check_rel": 5.3546311375814724e-17,
+  "auditor_note_vac4": "REFUTES the pm-pairs sub-claim: nonzero vac4 spectrum is (8c^2; +2c^2 x2 [s13,s23]; -2c^2 x2 [s01,s02]; 0 x5), c = 0.7/rho, verified by hand-diagonalization; the dominant e11-e22 mode (8c^2) is UNPAIRED positive; only the boost/rotation quartet pairs +-",
+  "secs": 1.0
+ },
+ "C4": {
+  "verdict": "CONFIRMED",
+  "seed": {
+   "center_m13sq_centroid": [
+    17.00001586609963,
+    -1.2572782476184517e-17
+   ],
+   "center_argmax": [
+    17.5,
+    -7.5
+   ],
+   "q_r3": 0.49999999999999983,
+   "q_r4": 0.49999999999999983,
+   "q_r5": 0.49999999999999983,
+   "mix_ratio_r4": 0.0,
+   "aniso_min_r4": 0.2772349233136557,
+   "max_abs_M": 8.0
+  },
+  "end_last_finite": {
+   "center_m13sq_centroid": [
+    17.212330191292203,
+    0.0008145837343230743
+   ],
+   "center_argmax": [
+    16.5,
+    -5.5
+   ],
+   "q_r3": 0.4999999999999998,
+   "q_r4": 0.49999999999999983,
+   "q_r5": 0.5000000000000002,
+   "mix_ratio_r4": 7.823486218644128e-18,
+   "aniso_min_r4": 0.23019396064335246,
+   "max_abs_M": 8.058460420108515
+  },
+  "secs": 0.0
+ },
+ "C5": {
+  "verdict": "CONFIRMED",
+  "claim": "core ~ (1, a, a), a ~ 0.127, split ~ 0.02",
+  "centroid": {
+   "center": [
+    17.455963336661693,
+    -7.859741297824396e-16
+   ],
+   "n_cells_in_disk": 6,
+   "lam": [
+    1.0143936327852847,
+    0.13753495300072163,
+    0.11618600743118868
+   ],
+   "a_mean": 0.12686048021595514,
+   "pair_split": 0.021348945569532957,
+   "a_over_deltahalf": 0.8457365347730343
+  },
+  "argmax": {
+   "center": [
+    16.5,
+    11.5
+   ],
+   "n_cells_in_disk": 9,
+   "lam": [
+    0.9997099197886412,
+    0.2927585668567734,
+    0.03935949514067148
+   ],
+   "a_mean": 0.16605903099872243,
+   "pair_split": 0.2533990717161019,
+   "a_over_deltahalf": 1.1070602066581496
+  },
+  "secs": 0.0
+ },
+ "C6": {
+  "verdict": "CONFIRMED",
+  "analytic_argument": "uniform vac4: A_rho = A_z = 0 exactly (mirror ghost is sign-even on diagonals), only A_phi = [J4, M_vac]/rho survives; K is quadratic (homogeneous degree 2) in the A_i, so K10(rho) = K10(1)/rho^2 EXACTLY; gen-eig (Hess_V - omega^2 K) then scales omega^2 ~ rho^2, omega ~ rho",
+  "max_abs_Arho_Az_on_vac": 0.0,
+  "K_rho2_scaling_max_rel_resid": 3.398641912117827e-16,
+  "hess_fd_vs_my_analytic_rel": 1.744207199115686e-11,
+  "gen_eig_rows": [
+   {
+    "rho": 2.5,
+    "omega_pos": [
+     0.16838080752054765
+    ],
+    "omega1_over_rho": 0.06735232300821906,
+    "n_neg_omega2": 0
+   },
+   {
+    "rho": 10.5,
+    "omega_pos": [
+     0.7071993915863001
+    ],
+    "omega1_over_rho": 0.06735232300821906,
+    "n_neg_omega2": 0
+   },
+   {
+    "rho": 30.5,
+    "omega_pos": [
+     2.0542458517506814
+    ],
+    "omega1_over_rho": 0.06735232300821906,
+    "n_neg_omega2": 0
+   }
+  ],
+  "their_slope": 0.0674,
+  "secs": 0.5
+ },
+ "C7": {
+  "verdict": "QUALIFIED",
+  "derivation_steps": [
+   "E = T + U, T = SUM_c w_c T_c, T_c = 2 <V, k(M)[V]> (k = per-cell kinetic form, pi = dT_c/dV = 4 w k[V]).",
+   "dE/dt = SUM_c [ (dT_c/dM).V + pi.a + G_stat.V ], a = Vdot.",
+   "T is quadratic in the channels A_i(M) which are LINEAR in M, so (dT/dM).V = 2 SUM w <V, kdot[V]> (kdot = d/dt k(M) at fixed V): the GC0e identity, re-verified below by MY complex step.",
+   "exact EL: 4 w k[a] = gradM_T - G_stat - 4 w kdot[V]. Substituting: dE/dt = 2SUMw<V,kdot V> + <V, gradM_T - G_stat - 4w kdot[V]> + <G_stat, V> = 4SUMw<V,kdot V> - 4SUMw<V,kdot V> = 0: exact conservation for the UNPROJECTED EL.",
+   "with the null projection, in the K-eigenbasis (K x)_a = lam_a x_a: x_a = r_a/lam_a on active, x_a = 0 on null, so k[a] - rhs has components -r_a exactly on the null set; hence dE/dt = SUM_c 4 w_c <V, k[a] - rhs> = - SUM 4 w (V_null . RHS_null): the claimed leak identity. QED."
+  ],
+  "leak_identity_my_cs_vs_their_leak_rel": 9.748646579602704e-12,
+  "my_dEdt": -3.396552350820592e-06,
+  "their_leak_rate": -3.3965523508537037e-06,
+  "gc0e_identity_my_cs_rel": 1.6854140105680293e-16,
+  "drift_rel_through_t1.68_their_run": 5.02466573463111e-05,
+  "leak_corrected_drift_through_t1.68": 1.1928212421963833e-05,
+  "claimed": "~3e-5",
+  "my_PE_recompute": {
+   "seed": [
+    2.6755380285186425,
+    2.6755380285186425
+   ],
+   "end": [
+    7204.865302597314,
+    7204.865302597314
+   ]
+  },
+  "fresh_run_T0.5_maxrelEdev_raw": {
+   "0.00125": 1.3275104692186527e-07,
+   "0.000625": 4.1141327411344087e-07
+  },
+  "fresh_run_T0.5_maxrelEdev_leakcorrected": {
+   "0.00125": 5.694976246302899e-07,
+   "0.000625": 2.9177314846942784e-07
+  },
+  "dev_ratio_dt_halving_raw": 0.32267079181616587,
+  "dev_ratio_dt_halving_leakcorrected": 1.9518507018817126,
+  "secs": 121.0
+ },
+ "C8": {
+  "verdict": "REFUTED",
+  "E_raw_seed": 2.6755380285186425,
+  "a_monotone_gd": {
+   "final_E_after_3000": 2.5754750574243066,
+   "iters_to_E_below_-100": null,
+   "median_accepted_step": 0.0003380909006615202
+  },
+  "b_lbfgs": {
+   "nit": 2500,
+   "final_E": 0.1934161042253362,
+   "min_E_seen": 0.1934161042253362,
+   "E_trace": [
+    2.6755380285186425,
+    0.7789095394564256,
+    0.6612442094542057,
+    0.5986512747357271,
+    0.43036754294048707,
+    0.342330401804223,
+    0.30793614396166125,
+    0.24247645906600146,
+    0.22052038505920116,
+    0.20428943613617964,
+    0.19351096972293208
+   ]
+  },
+  "c_fire_dive_replay": {
+   "replay_tail": [
+    [
+     39,
+     47.99587420239354,
+     8.001549848000385,
+     0.03965773242928738
+    ],
+    [
+     40,
+     3140.279087158564,
+     8.000001637864452,
+     0.043623505672216116
+    ],
+    [
+     41,
+     361896.62624163355,
+     8.135357422336227,
+     0.047985856239437734
+    ],
+    [
+     42,
+     38407332.23752568,
+     8.000185243504276,
+     0.05
+    ],
+    [
+     43,
+     13289013461.391945,
+     14.528478406525238,
+     0.05
+    ],
+    [
+     44,
+     3.191768518340453e+26,
+     1780.0450806792715,
+     0.05
+    ],
+    [
+     45,
+     2.2134100569455124e+143,
+     8.199738394400387e+17,
+     0.05
+    ],
+    [
+     46,
+     Infinity,
+     3.6089666051337953e+120,
+     0.05
+    ]
+   ],
+   "any_finite_negative_E": false,
+   "E_sign_at_explosion": "POSITIVE -> +inf",
+   "maxM_final": 3.6089666051337953e+120,
+   "their_B3_maxM": 3.6089666051337953e+120,
+   "dt_at_onset": 0.03965773242928738,
+   "g_row_stiffness_H00": 6127.305486992478,
+   "explicit_stability_dt_crit_2_over_sqrtH00": 0.025550254417374414
+  },
+  "d_fire_inside_stability": {
+   "dt_max": 0.02,
+   "iters": 2000,
+   "final_E": 0.30181317379723566,
+   "min_E": 0.30181317379723566,
+   "bounded": true
+  },
+  "e_boost_orbit_ray_E": {
+   "0.5": 300.8821038557156,
+   "1.0": 7412.2666050010785,
+   "2.0": 204886.71541253873,
+   "4.0": 21143661.00016224
+  },
+  "auditor_finding": "the B3 'dive to -inf' is an INTEGRATOR-INSTABILITY artifact: the instrumented replay reproduces their max|M| = 3.609e120 exactly and E explodes through POSITIVE values to +inf (never any negative); onset is where FIRE's growing dt crosses the explicit stability limit 2/sqrt(H00) ~ 0.0256 of the g-row potential stiffness H00 ~ 6.1e3 (frozen-time relax removes exactly this stiff row, which is why it was stable at the same dt settings); monotone GD, L-BFGS, and FIRE run inside its stability domain all descend BOUNDED (E stays positive), and the V4-invariant boost ray RAISES E",
+  "secs": 219.9
+ },
+ "C3": {
+  "verdict": "CONFIRMED",
+  "my_rk4_tstar_hardcut": {
+   "0.005": 1.93,
+   "0.0025": 1.95
+  },
+  "their_verlet_tstar": {
+   "0.005": 1.96,
+   "0.0025": 1.9375
+  },
+  "rel_diff_vs_theirs": {
+   "0.005": 0.015306122448979605,
+   "0.0025": 0.006451612903225784
+  },
+  "my_dts_agree_10pct": true,
+  "tikhonov_tstar": {
+   "0.005": 1.825
+  },
+  "tikhonov_blowup_persists": true,
+  "secs": 1147.7
+ }
+}

@@ -12,7 +12,7 @@ Duda, 2026-07-01 ([`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md)): the
 
 ## The strategic fork (why this task exists)
 
-M5.8 established the de Broglie clock by **dynamical leapfrog at V=0**. That route is **scale-free**: the frequency is rigid against energy (`2m`, exponent ≈0.03) and the first absolute ω came out **~28× below** the electron ZBW, a **structural** gap the V=0 sandbox cannot close ([`../m5_summary_report.md`](../m5_summary_report.md) §3, N-6b). `#218` then showed the ZBW scale is recoverable only by anchoring **energy AND length jointly** (the `E·r₀` line, geo-mean to ~13%). The length anchor lives in the **static minimization-with-potential** route, not the scale-free dynamical one.
+M5.8 established the de Broglie clock by **dynamical leapfrog at V=0**. That route is **scale-free**: the frequency is rigid against energy (`2m`, exponent ≈0.03) and the first absolute ω came out **~28× below** the electron ZBW, a **structural** gap the V=0 sandbox cannot close ([`../archive/m5_summary_report.md`](../archive/m5_summary_report.md) §3, N-6b). `#218` then showed the ZBW scale is recoverable only by anchoring **energy AND length jointly** (the `E·r₀` line, geo-mean to ~13%). The length anchor lives in the **static minimization-with-potential** route, not the scale-free dynamical one.
 
 So the plausible reason the absolute scale never closed is a **method choice**, not a model failure: the calibration belongs to energy minimization under a regularizing potential at the **physical `(g, δ)` regime**, which has never been run.
 
@@ -86,7 +86,7 @@ M5.11 was built to answer Duda's 2026-06-22 "too simple" critique ("I am trying 
 | "**do less, but more rigorously**" (round 2, `10a`) | scope = the parameter lock ONLY; downstream observables are explicitly not the bar (§ Definition of done) |
 | serious sims are heavy: "not seconds but weeks; Faber said about weeks" (`4e` § 1; Golubich `4g` confirms weeks on large lattices) | the compute budget is accepted up front; convergence order + Richardson extrapolation where applicable (the P1b pattern), no fast-setup numbers reported as final |
 | the validation bar: state field configurations + pass an **independent benchmark** with "actual simulations", reproducible ([`m5_4f_convo_2026.07.01.md`](m5_4f_convo_2026.07.01.md) § 1, the MODELS.md bar) | every claim = a runnable script + a pre-registered pass/fail gate vs a KNOWN anchor (the M5.11 P0-P1 trust-rebuilder pattern: reproduce Faber's electron + `α⁻¹` before any new claim); article-standard documentation of parameters / potential / configurations |
-| the earned method discipline ([`../m5_summary_report.md`](../m5_summary_report.md) § 4.3) | dt/discretization convergence as the discriminator; surrogate guides, direct quadrature decides; FFT-window + knob-gate rules where spectra/families appear |
+| the earned method discipline ([`../archive/m5_summary_report.md`](../archive/m5_summary_report.md) § 4.3) | dt/discretization convergence as the discriminator; surrogate guides, direct quadrature decides; FFT-window + knob-gate rules where spectra/families appear |
 
 ## Comms plan: deliver first, ask second (decided 2026-07-02)
 
@@ -234,7 +234,7 @@ The unconstrained 2D axisym relax ESCAPES the spherical hedgehog: the melt core 
 ## Cross-links
 
 - Origin convo: [`m5_4e_convo_2026.07.01.md`](m5_4e_convo_2026.07.01.md) · prior δ/g threads [`m5_4c_convo_2026.06.08.md`](m5_4c_convo_2026.06.08.md), [`m5_4d_convo_2026.06.11.md`](m5_4d_convo_2026.06.11.md)
-- Calibration record: [`../m5_summary_report.md`](../m5_summary_report.md) (§3 N-6b absolute-ω; DUDA follow-up) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q7, Q8)
+- Calibration record: [`../archive/m5_summary_report.md`](../archive/m5_summary_report.md) (§3 N-6b absolute-ω; DUDA follow-up) · [`../m5_question_tracker.md`](../m5_question_tracker.md) (Q7, Q8)
 - Downstream: [`m5_9_0_task_details.md`](m5_9_0_task_details.md) · [`m5_9_task_details.md`](m5_9_task_details.md) · [`m5_12_task_details.md`](m5_12_task_details.md) (predecessor record: [`m5_11_task_details.md`](m5_11_task_details.md), closed)
 
 ---

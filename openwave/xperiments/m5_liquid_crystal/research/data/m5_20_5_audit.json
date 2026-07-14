@@ -1,0 +1,597 @@
+{
+ "task": "m5_20_5 adversarial audit",
+ "date": "2026-07-14",
+ "auditor": "independent agent (Fable 5), own instruments",
+ "claims": {
+  "C1": {
+   "verdict": "CONFIRMED",
+   "own_generator_vs_record_expm": 4.440892098500626e-16,
+   "worst_rel_nphi5_vs_31": 3.6676555423124134e-16,
+   "max_harmonic_q2_measured": 2,
+   "max_harmonic_generator_measured": 1,
+   "note": "nphi=5 exact confirmed; measured generator harmonics <= 1 (note's stated bound was <= 2) and q2 harmonics <= 2 (note's bound <= 4): the claim holds; the stated bounds are valid but loose",
+   "rows": {
+    "pert_a|J23^K2@0.9": {
+     "q2_nphi5": -2539285.8295201035,
+     "rel_5_vs_31": 3.6676555423124134e-16,
+     "rel_17_vs_31": 3.6676555423124134e-16,
+     "max_harmonic_q2": 2,
+     "tail_ge5_rel": 1.0251408888330516e-16,
+     "max_harmonic_gen": 1
+    },
+    "pert_a|J12^K1@0.3": {
+     "q2_nphi5": -361715.6455394585,
+     "rel_5_vs_31": 0.0,
+     "rel_17_vs_31": 3.2184209685847113e-16,
+     "max_harmonic_q2": 2,
+     "tail_ge5_rel": 8.046052421461778e-17,
+     "max_harmonic_gen": 1
+    },
+    "pert_a|J23^K3@0.45": {
+     "q2_nphi5": -923423.3980047345,
+     "rel_5_vs_31": 1.260692788145465e-16,
+     "rel_17_vs_31": 2.52138557629093e-16,
+     "max_harmonic_q2": 2,
+     "tail_ge5_rel": 6.351077463976715e-17,
+     "max_harmonic_gen": 1
+    },
+    "pert_b|J23^K2@0.9": {
+     "q2_nphi5": -10178951.068016771,
+     "rel_5_vs_31": 0.0,
+     "rel_17_vs_31": 0.0,
+     "max_harmonic_q2": 2,
+     "tail_ge5_rel": 1.7597702621718418e-17,
+     "max_harmonic_gen": 1
+    },
+    "pert_b|J12^K1@0.3": {
+     "q2_nphi5": -856775.140059355,
+     "rel_5_vs_31": 2.71752333567638e-16,
+     "rel_17_vs_31": 4.0762850035145696e-16,
+     "max_harmonic_q2": 2,
+     "tail_ge5_rel": 3.414137316620971e-17,
+     "max_harmonic_gen": 1
+    },
+    "pert_b|J23^K3@0.45": {
+     "q2_nphi5": -2336011.694639704,
+     "rel_5_vs_31": 0.0,
+     "rel_17_vs_31": 1.9934030654737827e-16,
+     "max_harmonic_q2": 2,
+     "tail_ge5_rel": 1.111542727913892e-16,
+     "max_harmonic_gen": 1
+    }
+   },
+   "phase_wall_s": 14.6
+  },
+  "C2": {
+   "U": 0.3438442096192527,
+   "ring_rho": 17.455963336661693,
+   "w_ladder": 1.1765319288909981,
+   "families": {
+    "J23^K2": {
+     "chi_crossing_own": 0.7038791179656984,
+     "claimed": 0.7039,
+     "dev_from_claim": 2.0882034301616947e-05,
+     "chi_ladder_own": 0.7038857936859132,
+     "delta_chi_ladder_vs_crossing": 6.67572021484375e-06,
+     "n_omega_increasing_steps": 0,
+     "n_interior_extrema": 0,
+     "omega_star_range_scanned": [
+      0.0007074498963633018,
+      0.09680534360450918
+     ],
+     "n_negative_branch_pts": 25,
+     "ok": true
+    },
+    "J23^K3": {
+     "chi_crossing_own": 0.07221285820007324,
+     "claimed": 0.0724,
+     "dev_from_claim": 0.0001871417999267655,
+     "chi_ladder_own": 0.07221360206604004,
+     "delta_chi_ladder_vs_crossing": 7.438659667957648e-07,
+     "n_omega_increasing_steps": 0,
+     "n_interior_extrema": 0,
+     "omega_star_range_scanned": [
+      6.644247686944873e-05,
+      0.03326768971688384
+     ],
+     "n_negative_branch_pts": 25,
+     "ok": true
+    },
+    "J12^K1": {
+     "chi_crossing_own": 0.005667318344116211,
+     "claimed": 0.0056,
+     "dev_from_claim": 6.731834411621146e-05,
+     "chi_ladder_own": 0.005677988815307618,
+     "delta_chi_ladder_vs_crossing": 1.0670471191407023e-05,
+     "n_omega_increasing_steps": 0,
+     "n_interior_extrema": 0,
+     "omega_star_range_scanned": [
+      6.626598012525829e-05,
+      0.11416289811745023
+     ],
+     "n_negative_branch_pts": 25,
+     "ok": true
+    }
+   },
+   "verdict": "CONFIRMED",
+   "phase_wall_s": 21.0
+  },
+  "C3": {
+   "verdict": "QUALIFIED",
+   "kill_18_runs_confirmed": true,
+   "vacuum_trap": {
+    "winding_gone": true,
+    "near_vacuum": false,
+    "note": "wp0_best: q = 0 and 0 scan hits (winding IS destroyed) BUT U = 18.7x the recipe loop and |M13| keeps 30% amplitude: an unwound rough state, NOT the vacuum; 'unwinding the loop to the vacuum' should read 'destroying the winding'"
+   },
+   "own_grad_cs_gate": 0.0,
+   "n_runs_in_jsons": 18,
+   "n_runs_meeting_bar": 0,
+   "min_rel_loop_preserving": 0.9936544660341702,
+   "min_rel_any": 0.9923760948068989,
+   "recipe_max_abs_M13": 0.03167649692915739,
+   "states": {
+    "wp0_best": {
+     "resid_own": 45.98514906318513,
+     "rel_own": 1.2623312941623575,
+     "gstat_norm": 36.42874836094387,
+     "U": 6.441884390356784,
+     "q_ring": 3.533949646070574e-17,
+     "ring_rho": 16.001099563925678,
+     "max_abs_M13": 0.009394740386405932,
+     "m13_vs_recipe": 0.2965839438438131,
+     "n_winding_hits": 0,
+     "resid_task": 45.98514906318565,
+     "rel_task": 1.2623312941623717,
+     "rel_dev": 1.1257626885208221e-14
+    },
+    "wp1_best": {
+     "resid_own": 1.6316839955475357,
+     "rel_own": 1.006667196467671,
+     "gstat_norm": 1.620877288217007,
+     "U": 0.17161039271371653,
+     "q_ring": null,
+     "ring_rho": 17.11918385106178,
+     "max_abs_M13": 0.02122521880298132,
+     "m13_vs_recipe": 0.6700620605381418,
+     "n_winding_hits": 0,
+     "resid_task": 1.6316839955475368,
+     "rel_task": 1.0066671964676717,
+     "rel_dev": 6.617219842987963e-16
+    },
+    "wp2_best": {
+     "resid_own": 0.4551184627977876,
+     "rel_own": 0.9923760948068989,
+     "gstat_norm": 0.4586148993102727,
+     "U": 0.2445343457800796,
+     "q_ring": null,
+     "ring_rho": 17.519863099742484,
+     "max_abs_M13": 0.028349968199702473,
+     "m13_vs_recipe": 0.8949843242800963,
+     "n_winding_hits": 0,
+     "resid_task": 0.4551184627977876,
+     "rel_task": 0.9923760948068989,
+     "rel_dev": 0.0
+    },
+    "wp0_stall": {
+     "resid_own": 479.6119415929796,
+     "rel_own": 0.9936544660341697,
+     "gstat_norm": 482.6747707451925,
+     "U": 0.44333559020976565,
+     "q_ring": 0.5000000000000001,
+     "ring_rho": 17.455948801412656,
+     "max_abs_M13": 0.03167643203573999,
+     "m13_vs_recipe": 0.9999979513701422,
+     "n_winding_hits": 1
+    }
+   },
+   "phase_wall_s": 1.0
+  },
+  "C4": {
+   "seed": {
+    "wp0_J23K2_chi0.7045": {
+     "cos": -0.32840728769446925,
+     "norm_gkin": 48083.6591003662,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.944536210734751,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.7091463777975909
+    },
+    "wp1_J23K2_chi0.75": {
+     "cos": -0.32829121710230075,
+     "norm_gkin": 55681.735404904124,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9445765595088045,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.7088936327415296
+    },
+    "wp2_J12K1_chi0.25": {
+     "cos": 0.021791396574309466,
+     "norm_gkin": 12745.761765979441,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9997625393238843,
+     "real_omega_floor": 0.9997625393238843,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.09729697893015116
+    }
+   },
+   "scope_probes": {
+    "J23^K2@chi0.72": {
+     "cos": -0.32836652217011225,
+     "norm_gkin": 50581.237207045975,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9445503835782956,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.7090575878987503
+    },
+    "J23^K2@chi0.9": {
+     "cos": -0.32798787914304817,
+     "norm_gkin": 86850.23008925308,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9446819311997268,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.7082338342228574
+    },
+    "J23^K2@chi1.2": {
+     "cos": -0.3276443793712608,
+     "norm_gkin": 187992.62405094728,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9448011222825793,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.7074875006717928
+    },
+    "J23^K2@chi2.0": {
+     "cos": -0.32736957078802154,
+     "norm_gkin": 1086237.813406488,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9448963774520815,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.7068908297376427
+    },
+    "J23^K3@chi0.1": {
+     "cos": 0.0280687465794009,
+     "norm_gkin": 1566.481275526683,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9996059951128051,
+     "real_omega_floor": 0.9996059951128051,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.8303733919232636
+    },
+    "J23^K3@chi0.3": {
+     "cos": 0.023664364105514105,
+     "norm_gkin": 17052.576004742696,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9997199597244628,
+     "real_omega_floor": 0.9997199597244628,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.2608489222108836
+    },
+    "J12^K1@chi0.1": {
+     "cos": 0.021826904069545305,
+     "norm_gkin": 2012.2579690482473,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9997617647513526,
+     "real_omega_floor": 0.9997617647513526,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.09689907214484016
+    },
+    "J12^K1@chi0.5": {
+     "cos": 0.021769122205392826,
+     "norm_gkin": 54247.42597658922,
+     "norm_gstat": 214.8526788264214,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9997630245805287,
+     "real_omega_floor": 0.9997630245805287,
+     "gstat_time_frac": 0.9999974066047976,
+     "gkin_time_frac": 0.0972772520542898
+    }
+   },
+   "perturbed_seed": {
+    "wp0": {
+     "cos": -0.39365224249373326,
+     "norm_gkin": 550544.8218766594,
+     "norm_gstat": 2471443.501976545,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.9192594367096022,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999978203578611,
+     "gkin_time_frac": 0.7090317062961404,
+     "noise_amp": 0.02
+    },
+    "wp2": {
+     "cos": -0.4957458045735441,
+     "norm_gkin": 44816.55893636986,
+     "norm_gstat": 2471443.501976545,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.8684676719646676,
+     "real_omega_floor": 1.0,
+     "gstat_time_frac": 0.9999978203578611,
+     "gkin_time_frac": 0.757720219351564,
+     "noise_amp": 0.02
+    }
+   },
+   "stall_state": {
+    "wp0": {
+     "cos": 0.7088169735099759,
+     "norm_gkin": 48012.46690768049,
+     "norm_gstat": 482.6747707451925,
+     "unconstrained_floor_sqrt_1_m_cos2": 0.7053924425907597,
+     "real_omega_floor": 0.7053924425907597,
+     "gstat_time_frac": 0.9999959854931805,
+     "gkin_time_frac": 0.7091426956768214
+    }
+   },
+   "claims_ok": true,
+   "anti_alignment_persists_J23K2_all_chi": true,
+   "J23K3_family_orthogonal_not_antialigned": true,
+   "block_persists_on_perturbed_seed": true,
+   "verdict": "CONFIRMED",
+   "scope_note": "established: at the recipe seed the cosines match the claims; anti-alignment is stable across the whole J23^K2 chi range (0.72-2.0, cos -0.327..-0.328) and SURVIVES 0.02 random perturbation of the seed (cos moves to -0.39/-0.50, never toward +1). NOT established: anything beyond this loop background. NEW: the untested third family J23^K3 is orthogonal-type (cos +0.024..+0.028, like J12^K1), NOT anti-aligned: 'J23-family g_kin is ANTI-aligned' in the note overgeneralizes; the BLOCK still covers it (orthogonal cannot cancel: unconstrained floor 0.9996). The 0.944 'best achievable (ANY real omega)' label is wrong for cos < 0 rows: the optimum needs omega^2 < 0; over real omega the floor is exactly 1.0 (at omega = 0). At the wp0 STALL state the local geometry differs (cos +0.709): the seed-level table does not describe the stall neighborhood",
+   "phase_wall_s": 2.1
+  },
+  "C5": {
+   "verdict": "CONFIRMED",
+   "U_own": 0.443315542305422,
+   "Q2_avg_own": 1.3864589729474963,
+   "H_own": 0.4629496729929669,
+   "H_rel_to_U": 1.0442892901643814,
+   "omega": 0.11900147030942104,
+   "q_ring": 0.49999999999999983,
+   "ring_rho": 17.455944735486973,
+   "root_exists": false,
+   "claimed": {
+    "U": 0.443,
+    "Q2_avg": 1.386,
+    "H": 0.463,
+    "q": 0.5
+   },
+   "phase_wall_s": 0.2
+  },
+  "C6": {
+   "verdict": "CONFIRMED",
+   "a_static_density_own_vs_density_point": 1.6168311950703565e-16,
+   "a_static_density_task_vs_density_point": 1.6168311950703565e-16,
+   "a_random_matrix_algebra": 0.0,
+   "b_g_u_s2_vs_own_cs_of_own_total": 0.0,
+   "c_k10_s2_vs_own_polarization": 4.0028713915904283e-16,
+   "c_own_polarization_vs_kin_form_point": 6.554229451050003e-16,
+   "cells": [
+    [
+     2,
+     74
+    ],
+    [
+     25,
+     21
+    ],
+    [
+     21,
+     11
+    ],
+    [
+     60,
+     45
+    ],
+    [
+     8,
+     72
+    ]
+   ],
+   "phase_wall_s": 0.1
+  },
+  "C8": {
+   "verdict": "CONFIRMED",
+   "n_cells_polarized": 305,
+   "worst_cell_rel_quartic_vs_4build_k10": 5.110461514915633e-16,
+   "worst_cell_rel_s2_vs_k10_s2": 5.511140366063073e-16,
+   "worst_cell_rel_qc_vs_k10_add": 3.543138867501173e-16,
+   "fullgrid": {
+    "beta=0": {
+     "mineig": -1.0944727720062208e-13,
+     "argmin_cell": [
+      0,
+      110
+     ]
+    },
+    "beta=0.0001": {
+     "mineig": 0.00245,
+     "argmin_cell": [
+      0,
+      0
+     ]
+    },
+    "beta=0.01": {
+     "mineig": 0.245,
+     "argmin_cell": [
+      0,
+      0
+     ]
+    }
+   },
+   "claimed": {
+    "0": -1e-13,
+    "0.0001": 0.00245,
+    "0.01": 0.245
+   },
+   "argmin_cell_pure_polarization_mineig": 0.0,
+   "phase_wall_s": 0.7
+  },
+  "C7": {
+   "verdict": "CONFIRMED",
+   "task_endpoints": {
+    "0.01": {
+     "E_final": 211.9195631686547,
+     "ring": 42.337276656078295,
+     "q": -3.533949646070574e-17,
+     "q_at_first_checkpoint_500": -3.533949646070574e-17,
+     "anchors_survive": false,
+     "E_qc_x_beta_recipe": 1501.4403742227855
+    },
+    "0.0001": {
+     "E_final": 13.607248250433848,
+     "ring": 27.133240489801917,
+     "q": 0.0,
+     "q_at_first_checkpoint_500": -3.533949646070574e-17,
+     "anchors_survive": false,
+     "E_qc_x_beta_recipe": 15.014403742227856
+    },
+    "0": {
+     "E_final": 0.06297268899521254,
+     "ring": 27.129389446164154,
+     "q": -3.533949646070574e-17,
+     "q_at_first_checkpoint_500": 1.7669748230352872e-16,
+     "anchors_survive": false,
+     "E_qc_x_beta_recipe": 0.0
+    }
+   },
+   "ring_endpoints_match_claim": true,
+   "q_zero_at_first_checkpoint_all_beta": true,
+   "e_s2_recipe_own": -0.6933382699035563,
+   "e_s2_recipe_task": -0.6933382699035563,
+   "e_s2_recipe_m5204_audit": -0.6933382699035562,
+   "g_u_s2_cs_gate": 1.4463863912596363e-16,
+   "own_relax_beta0": {
+    "E_start": 1.037182479522809,
+    "E_end": 0.056107902606962204,
+    "q_start": 0.49999999999999994,
+    "q_end": -1.0601848938211722e-16,
+    "ring_start": 17.455963336661693,
+    "ring_end": 22.60156923764134,
+    "own_iter_first_q_collapse": 250,
+    "q_collapsed": true,
+    "E_decreased": true,
+    "ring_drifted_outward": true,
+    "hist": [
+     {
+      "it": 250,
+      "E": 0.6207372943554539,
+      "q": null,
+      "ring_rho": 18.528281142298102
+     },
+     {
+      "it": 500,
+      "E": 0.33848589005524266,
+      "q": 1.0601848938211722e-16,
+      "ring_rho": 21.718513380145644
+     },
+     {
+      "it": 750,
+      "E": 0.27045354817945594,
+      "q": 0.0,
+      "ring_rho": 19.931990735944655
+     },
+     {
+      "it": 1000,
+      "E": 0.16953377056234015,
+      "q": -3.533949646070574e-17,
+      "ring_rho": 20.668339320323593
+     },
+     {
+      "it": 1250,
+      "E": 0.09977484274023873,
+      "q": 1.4135798584282297e-16,
+      "ring_rho": 22.866899309610215
+     },
+     {
+      "it": 1500,
+      "E": 0.056107902606962204,
+      "q": -1.0601848938211722e-16,
+      "ring_rho": 22.60156923764134
+     }
+    ]
+   },
+   "phase_wall_s": 90.7
+  },
+  "C9": {
+   "verdict": "QUALIFIED",
+   "note": "content confirmed; wording/number fixes needed (F1-F6)",
+   "nk_reduction_factors": [
+    4.9,
+    6.0,
+    14.8,
+    16.9,
+    128.6,
+    472.1
+   ],
+   "b1_beta0_E": {
+    "start": 1.037182479522809,
+    "it2500": 0.08506013277484806,
+    "it3000": 0.06297268899521254
+   },
+   "gstat_time_frac_pct": 99.99974066047976,
+   "findings": [
+    {
+     "id": "F1",
+     "severity": "wording",
+     "where": "method note section 1.4b table",
+     "issue": "column 'Best achievable rel residual (ANY real omega)': for the anti-aligned J23 rows the 0.944 optimum requires omega^2 < 0; over real omega the floor is exactly 1.0 (attained at omega = 0). 0.944 is the unconstrained (imaginary-omega) bound."
+    },
+    {
+     "id": "F2",
+     "severity": "wording",
+     "where": "method note section 1.4 verdict + findings row 3",
+     "issue": "'3 working points spanning the distinct families': only 2 of the 3 distinct families were solved (J23^K2 twice, J12^K1 once; J23^K3 never). The audit's own probe fills the hole: see C4 scope_probes J23^K3."
+    },
+    {
+     "id": "F3",
+     "severity": "number",
+     "where": "method note section 2.3 (beta = 0 row prose)",
+     "issue": "'E 1.037 -> 0.085 over 3000 iterations': the json 3000-iteration value is 0.0630; 0.085 is the 2500-iteration value (0.0851). Start 1.037 checks (1.0372)."
+    },
+    {
+     "id": "F4",
+     "severity": "number",
+     "where": "task_details FINDINGS row 3",
+     "issue": "'Newton-Krylov reduces the residual 15-100x': the measured per-run factors are [4.9, 6.0, 14.8, 16.9, 128.6, 472.1] (range ~5x to ~472x)."
+    },
+    {
+     "id": "F5",
+     "severity": "wording",
+     "where": "method note section 2.4",
+     "issue": "'the beta-margin is background-independent': true across the measured in-band backgrounds (and the m5_20_4 audit's five), but the m5_20_4 audit also recorded 0.02546 (not 0.0245) per beta = 1e-3 on recipe_perturbed and indefiniteness outside the physical band; scope it to measured in-band backgrounds."
+    },
+    {
+     "id": "F6",
+     "severity": "nit (conservative)",
+     "where": "method note section 1.4b",
+     "issue": "'g_stat is 99.998% TIME ROW': measured 99.99974% (the note understates)."
+    },
+    {
+     "id": "F9",
+     "severity": "wording",
+     "where": "method note section 1.4 + 1.4b ('vacuum trap')",
+     "issue": "'unwinding the loop to the VACUUM (the trivial extremal)': the NK end states destroy the winding (q = 0, zero scan hits) but are NOT near-vacuum: wp0_best has U = 6.44 (18.7x the loop's 0.344) and keeps 30% of the recipe |M13| amplitude, and its residual is rel 1.26 (no extremal reached). Say 'destroying the winding' / 'unwinding trap', not 'to the vacuum'."
+    },
+    {
+     "id": "F10",
+     "severity": "wording",
+     "where": "method note section 1.4b table row 2",
+     "issue": "'J23-family g_kin is ANTI-aligned (cos < 0)': only J23^K2 was measured. The audit measured J23^K3 at chi = 0.1 / 0.3: cos = +0.028 / +0.024 (orthogonal type, like J12^K1), NOT anti-aligned. The block still covers it (orthogonal cannot cancel), but the row should read 'the J23^K2 (and mirror J13^K1) family'."
+    },
+    {
+     "id": "F11",
+     "severity": "nit (conservative)",
+     "where": "method note section 1.1 (band-limit reason)",
+     "issue": "'the adjoint action has phi-harmonics <= 2 ...=> harmonics <= 4': measured generator harmonics <= 1 and q2 harmonics <= 2 (so even nphi >= 3 is exact). The stated bounds are valid but loose; the gated claim (nphi >= 5 exact) holds."
+    },
+    {
+     "id": "F7",
+     "severity": "scope-check PASS",
+     "where": "method note sections 1.4b / 1.5",
+     "issue": "kill statements properly scoped ('on the loop background', 'at any measured working point', 'in the reachable basin'); no general-death claim of the rigid-orbit BVP found."
+    },
+    {
+     "id": "F8",
+     "severity": "pre-registration PASS",
+     "where": "a2 bar / B3 skip / A5 skip",
+     "issue": "the bar (rel <= 1e-3 AND q = 0.5 intact) is coded exactly as registered; B3 skip and A5 skip both covered by pre-registered contingencies; the a2x and beta-extension deviations are logged."
+    }
+   ],
+   "phase_wall_s": 0.0
+  }
+ },
+ "wall_s": 130.4
+}

@@ -1,0 +1,28 @@
+{
+ "wp": {
+  "fam": "J12^K1",
+  "chi": 0.25,
+  "note": "the conjugated symmetry-axis clock",
+  "Q2_avg": -136436.673501362,
+  "omega": 0.0015875057115387649
+ },
+ "states": {
+  "recipe_seed": {
+   "cos_align_gkin_gstat": 0.021791396574309427,
+   "norm_gkin": 12745.761765979527,
+   "norm_gstat": 214.8526788264214,
+   "omega2_used": 2.5201743841682003e-06,
+   "omega2_optimal": 0.000367333080228765,
+   "omega_optimal": 0.019165935412308082,
+   "best_rel_residual_any_omega": 0.9997625393238843,
+   "sectors_gkin": {
+    "time_row": 1240.1241139932363,
+    "spatial_block": 12685.288139297354
+   },
+   "sectors_gstat": {
+    "time_row": 214.85212162851488,
+    "spatial_block": 0.4893164775781214
+   }
+  }
+ }
+}
