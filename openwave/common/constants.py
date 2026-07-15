@@ -80,6 +80,10 @@ ELECTRON_MASS_QG = 9.109384e2  # qg, f32 friendly
 
 ELECTRON_OUTER_SHELL = 2.138743820  # electron outer shell multiplier
 ELECTRON_ORBITAL_G = 0.9873318320  # electron orbital g-factor (gλ, dimensionless)
+# Nonlinear coupling coefficient for the electron soliton (cubic self-trapping term).
+# γ = 1/ε_M = N_final · π³ ≈ 2.4148 × 10⁴
+# Anchored to the measured fine-structure constant (γ_final variant).
+GAMMA_FINAL = 2.4148e4
 ELECTRON_SPIN_G = 0.9826905018  # electron spin g-factor (gA, dimensionless)
 # In Energy Wave Equations: Correction Factors (https://vixra.org/abs/1803.0243),
 # a potential explanation for the values of these g-factors is presented as

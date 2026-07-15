@@ -150,10 +150,12 @@ def compute_laplacian(
 #   v_mode 1 cubic_nls   : V = (c1/4)·u²                      dV = c1·u·ψ            (c1 = k)
 #   v_mode 2 saturating  : V = (c1/4)·u² − (c2/6)·u³          dV = c1·u·ψ − c2·u²·ψ  (c1 = k, c2 = q)
 #   v_mode 3 double_well : V = −(c1/2)·u + (c2/4)·u²          dV = −c1·ψ + c2·u·ψ    (c1 = a, c2 = b)
+#   v_mode 4 density_mod : V = (c1/4)·u²·f(ρ)                 dV = c1·u·ψ·f(ρ)       (c1 = γ, f(ρ) = 1−ρ/ρ₀)
 #
 # For a FOCUSING (soliton-forming) cubic use c1 < 0; pure focusing collapses in 3D,
 # so mode 2 adds a defocusing quintic (c2 > 0) to arrest it. Magnitudes are tuned
 # empirically (the field is in scaled am, so the stable range depends on scale).
+# Mode 4 (Variant B) modulates nonlinearity by local EMC density proxy (energy_local_aJ).
 # ================================================================
 
 
@@ -163,6 +165,7 @@ def V_psi(
     v_mode: ti.i32,  # type: ignore
     c1: ti.f32,  # type: ignore
     c2: ti.f32,  # type: ignore
+    rho_local: ti.f32,  # type: ignore  # for mode 4 only
 ):
     """Scalar non-linear potential V(ψ) on u = ‖ψ‖² (see table above). Offline diagnostics only."""
     u = psi.dot(psi)
@@ -173,6 +176,11 @@ def V_psi(
         out = 0.25 * c1 * u * u - (c2 / 6.0) * u * u * u
     elif v_mode == 3:
         out = -0.5 * c1 * u + 0.25 * c2 * u * u
+    elif v_mode == 4:
+        # Density-modulated potential: V = (c1/4) * u² * modulation
+        RHO_0 = base_amplitude_am * base_amplitude_am  # reference energy scale
+        modulation = 1.0 - ti.min(rho_local / RHO_0, 1.0)
+        out = 0.25 * c1 * u * u * modulation
     return out
 
 
@@ -182,8 +190,15 @@ def dV_psi(
     v_mode: ti.i32,  # type: ignore
     c1: ti.f32,  # type: ignore
     c2: ti.f32,  # type: ignore
+    rho_local: ti.f32,  # type: ignore
 ):
-    """Restoring force dV/dψ (3-vector) for V_psi; enters the leapfrog as −dt²·dV_psi."""
+    """Restoring force dV/dψ (3-vector) for V_psi; enters the leapfrog as −dt²·dV_psi.
+
+    v_mode = 4 (Variant B): density-modulated cubic nonlinearity.
+      F = c1 * u * psi * (1 - rho_local / RHO_0)
+    where u = ||psi||², rho_local is the local energy density (proxy
+    for EMC density), and RHO_0 is a reference density scale.
+    """
     u = psi.dot(psi)
     out = ti.Vector([0.0, 0.0, 0.0])
     if v_mode == 1:
@@ -192,6 +207,14 @@ def dV_psi(
         out = c1 * u * psi - c2 * u * u * psi
     elif v_mode == 3:
         out = -c1 * psi + c2 * u * psi
+    elif v_mode == 4:   # Variant B – density-modulated
+        # RHO_0 is the reference energy density at the statutory vacuum.
+        # We use the square of the base amplitude as a proxy for the background
+        # energy density. The modulation factor (1 - rho_local/RHO_0) ensures
+        # nonlinearity is active only where the EMC density is depleted (soliton core).
+        RHO_0 = base_amplitude_am * base_amplitude_am  # ~ (28.5 am)^2
+        modulation = 1.0 - ti.min(rho_local / RHO_0, 1.0)  # clip to 0 if rho_local > RHO_0
+        out = c1 * u * psi * modulation
     return out
 
 
@@ -224,7 +247,7 @@ def propagate_wave(
         c_amrs: wave speed (am/rs)
         dt_rs: timestep (rs)
         elapsed_t_rs: elapsed simulation time (rs)
-        v_mode: non-linear potential selector (0 linear, 1 cubic, 2 saturating, 3 double-well)
+        v_mode: non-linear potential selector (0 linear, 1 cubic, 2 saturating, 3 double-well, 4 density-modulated)
         v_c1, v_c2: potential coefficients (see V_psi/dV_psi)
     """
     nx, ny, nz = wave_field.nx, wave_field.ny, wave_field.nz
@@ -242,11 +265,12 @@ def propagate_wave(
         psi_cur = wave_field.psi_am[i, j, k]
 
         # Leap-Frog update: ψ_new = 2ψ - ψ_prev + (c·dt)²·∇²ψ − dt²·dV(ψ)
+        # For v_mode=4 we pass the local energy density as a proxy for EMC density
         psi_new = (
             2.0 * psi_cur
             - wave_field.psi_prev_am[i, j, k]
             + c2dt2 * laplacian
-            - dt2 * dV_psi(psi_cur, v_mode, v_c1, v_c2)
+            - dt2 * dV_psi(psi_cur, v_mode, v_c1, v_c2, trackers.energy_local_aJ[i, j, k])
         )
         wave_field.psi_new_am[i, j, k] = psi_new
 
