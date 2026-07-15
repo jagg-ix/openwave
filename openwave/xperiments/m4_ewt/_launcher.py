@@ -669,6 +669,13 @@ def main():
     state.initialize_grid()
     initialize_xperiment(state)
 
+    # ------------------------------------------------------------------
+    # Initialize JSON instrumentation
+    # ------------------------------------------------------------------
+    if state.INSTRUMENTATION:
+        xp_name = xperiment_mgr.current_xperiment or "unknown"
+        instrument.init_instrumentation(state, xperiment_name=xp_name)
+
     # Initialize GGUI rendering
     render.init_UI(state.UNIVERSE_SIZE, state.TICK_SPACING, state.CAM_INIT)
 
@@ -718,6 +725,9 @@ def main():
         if state.EXPORT_VIDEO:
             video.export_frame(state.frame, state.VIDEO_FRAMES)
 
+    # ------------------------------------------------------------------
+    # After the loop: generate plots (also finalizes the JSON logger)
+    # ------------------------------------------------------------------
     if state.INSTRUMENTATION:
         instrument.generate_plots()
 
