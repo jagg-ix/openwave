@@ -1,7 +1,9 @@
 """
 XPERIMENT INSTRUMENTATION (data collection)
 
-This provides zero-overhead data collection that can be toggled on/off per xperiment.
+This provides zero-overhead data collection that can be toggled on/off
+per xperiment.  Timestep data is stored as JSON via the common
+openwave.common.json_logger module.
 """
 
 import numpy as np
@@ -10,58 +12,120 @@ import csv
 from pathlib import Path
 
 from openwave.common import colormap, constants
-
+from openwave.common import json_logger
 
 # ================================================================
-# Module-level Constants (computed once at import)
+# Module-level directories
 # ================================================================
-
 _MODULE_DIR = Path(__file__).parent
-DATA_DIR = _MODULE_DIR / "data"
 PLOT_DIR = _MODULE_DIR / "plots"
 
-# Module-level state
-_timestep_buffer = []
-_timestep_log_initialized = False
-_BUFFER_FLUSH_INTERVAL = 100  # Flush every N timesteps
+
+# ================================================================
+# Initialisation (called from launcher)
+# ================================================================
+
+def init_instrumentation(state, xperiment_name="unknown", data_dir=None):
+    """
+    Build the metadata dict and start a json_logger session.
+    Must be called once before the main simulation loop.
+    """
+    if data_dir is None:
+        data_dir = _MODULE_DIR / "data"
+
+    meta = {
+        "model": "M4",
+        "xperiment": xperiment_name,
+        "engine": {
+            "SEED_MODE": state.SEED_MODE,
+            "SEED_BOOST": state.SEED_BOOST,
+            "V_MODE": state.V_MODE,
+            "V_C1": state.V_C1,
+            "V_C2": state.V_C2,
+            "WC_INTERACT_MODE": state.WC_INTERACT_MODE,
+            "WC_BOOST": state.WC_BOOST,
+            "WC_RADIUS": state.WC_RADIUS,
+            "WC_SIGMA": state.WC_SIGMA,
+        },
+        "wave_centers": {
+            "K": state.NUM_SOURCES,
+            "POSITIONS": state.SOURCES_POSITION,
+            "PHASE_OFFSETS_DEG": state.SOURCES_OFFSET_DEG,
+        },
+        "universe": {
+            "EDGE_X": state.UNIVERSE_SIZE[0],
+            "EDGE_Y": state.UNIVERSE_SIZE[1],
+            "EDGE_Z": state.UNIVERSE_SIZE[2],
+            "TARGET_VOXELS": state.TARGET_VOXELS,
+        },
+        "simulation": {
+            "SIM_SPEED": state.SIM_SPEED,
+            "dt_rs": state.dt_rs,
+            "cfl_factor": state.cfl_factor,
+            "PAUSED": state.PAUSED,
+        },
+    }
+
+    # Add the K value at top level for filename generation
+    meta["K"] = state.NUM_SOURCES
+
+    json_logger.init_session(meta, data_dir=Path(data_dir))
 
 
 # ================================================================
-# Instrumentation Functions (Zero-Overhead)
+# Timestep logging
 # ================================================================
 
+def log_timestep_data(timestep: int, wave_field, trackers) -> None:
+    px, py, pz = wave_field.nx // 2, wave_field.ny // 2, wave_field.nz // 2
+    disp = wave_field.psi_am[px, py, pz]
+    amp = trackers.amp_local_emarms_am[px, py, pz]
+    freq = trackers.freq_local_cross_rHz[px, py, pz]
+
+    def to_float(val):
+        try:
+            if hasattr(val, '__len__'):
+                return float(val[0])
+            return float(val)
+        except:
+            return 0.0
+
+    displacement_am = to_float(disp) / wave_field.scale_factor
+    amp_local_emarms_am = to_float(amp) / wave_field.scale_factor
+    freq_local_cross_rHz = to_float(freq) * wave_field.scale_factor
+
+    json_logger.log_timestep({
+        "timestep": timestep,
+        "displacement_am": displacement_am,
+        "amp_local_emarms_am": amp_local_emarms_am,
+        "freq_local_cross_rHz": freq_local_cross_rHz,
+    })
+
+
+# ================================================================
+# Plotting
+# ================================================================
 
 def plot_probe_wave_profile(wave_field):
     """
     Plot the displacement profile along the x-axis through the probe position.
-
-    Args:
-        wave_field: WaveField instance containing displacement data
+    Currently only longitudinal component is plotted (velocity field not available).
     """
-
-    # Define probe position
     px, py, pz = wave_field.nx // 2, wave_field.ny // 2, wave_field.nz // 2
-
-    # Extract displacement along x-axis at center (y, z)
     x_indices = np.arange(wave_field.nx)
     displacements = np.zeros(wave_field.nx)
-    displacements_T = np.zeros(wave_field.nx)
 
-    # Sample longitudinal displacement values
     for i in range(wave_field.nx):
         displacements[i] = wave_field.psi_am[i, py, pz]
-        displacements_T[i] = wave_field.velocity_am[i, py, pz]
 
-    # Calculate distance from center in grid indices
     distances = x_indices - px
 
-    # Create the plot
     plt.style.use("dark_background")
     fig = plt.figure(figsize=(12, 6), facecolor=colormap.DARK_GRAY[1])
     fig.suptitle("OPENWAVE Analytics", fontsize=20, family="Monospace")
 
-    # Plot 1: Longitudinal Displacement vs distance from center
-    plt.subplot(1, 2, 1)
+    # Plot: Longitudinal Displacement vs distance from center
+    plt.subplot(1, 1, 1)   # only one plot
     plt.plot(
         distances,
         displacements,
@@ -78,115 +142,26 @@ def plot_probe_wave_profile(wave_field):
     plt.grid(True, alpha=0.3)
     plt.legend()
 
-    # Plot 2: Transverse Displacement vs distance from center
-    plt.subplot(1, 2, 2)
-    plt.plot(
-        distances,
-        displacements_T,
-        color=colormap.ironbow_palette[2][1],
-        linewidth=4,
-        label="TRANSVERSE",
-    )
-    plt.axhline(y=0, color="k", linestyle="--", alpha=0.3)
-    plt.axvline(x=0, color="r", linestyle="--", alpha=0.3)
-    plt.ylim(-1.0, 6.0)
-    plt.xlabel("Distance from Wave-Center (grid indices)", family="Monospace")
-    plt.ylabel("Displacement (attometers)", family="Monospace")
-    plt.title("WAVE PROFILE", family="Monospace")
-    plt.grid(True, alpha=0.3)
-    plt.legend()
-
     plt.tight_layout()
-
-    # Save to directory
     PLOT_DIR.mkdir(parents=True, exist_ok=True)
     save_path = PLOT_DIR / "wave_profile.png"
     plt.savefig(save_path, dpi=150, bbox_inches="tight")
     print("\nPlot wave_profile saved to:\n", save_path, "\n")
 
 
-def log_timestep_data(timestep: int, wave_field, trackers) -> None:
-    global _timestep_buffer, _timestep_log_initialized
-
-    px, py, pz = wave_field.nx // 2, wave_field.ny // 2, wave_field.nz // 2
-
-    # Pobieramy surowe wartości – mogą być ti.Matrix (wektor 3D)
-    disp = wave_field.psi_am[px, py, pz]
-    amp = trackers.amp_local_emarms_am[px, py, pz]
-    freq = trackers.freq_local_cross_rHz[px, py, pz]
-
-    # Konwersja na float – jeśli to macierz, bierzemy pierwszą składową
-    def to_float(val):
-        try:
-            # Dla ti.Matrix lub numpy array – długość > 1
-            if hasattr(val, '__len__'):
-                return float(val[0])  # pierwszy element (możesz zmienić na normę)
-            return float(val)
-        except:
-            return 0.0
-
-    displacement_am = to_float(disp) / wave_field.scale_factor
-    amp_local_emarms_am = to_float(amp) / wave_field.scale_factor
-    freq_local_cross_rHz = to_float(freq) * wave_field.scale_factor
-
-    _timestep_buffer.append(
-        [timestep, displacement_am, amp_local_emarms_am, freq_local_cross_rHz]
-    )
-
-    if len(_timestep_buffer) >= _BUFFER_FLUSH_INTERVAL:
-        _flush_timestep_buffer()
-
-
-def _flush_timestep_buffer() -> None:
-    """Write buffered timestep data to disk."""
-    global _timestep_buffer, _timestep_log_initialized
-
-    if not _timestep_buffer:
-        return
-
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    log_path = DATA_DIR / "timestep_data.csv"
-
-    # Write header on first flush
-    if not _timestep_log_initialized:
-        with open(log_path, "w", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(
-                [
-                    "timestep",
-                    "displacement_am",
-                    "amp_local_emarms_am",
-                    "freq_local_cross_rHz",
-                ]
-            )
-        _timestep_log_initialized = True
-
-    # Append all buffered rows at once
-    with open(log_path, "a", newline="") as f:
-        writer = csv.writer(f)
-        for row in _timestep_buffer:
-            writer.writerow(
-                [
-                    row[0],
-                    f"{row[1]:.6f}",
-                    f"{row[2]:.6f}",
-                    f"{row[3]:.6f}",
-                ]
-            )
-
-    _timestep_buffer = []
-
-
 def _read_timestep_data():
-    """Read timestep data from consolidated CSV file.
-
-    Returns:
-        dict: Dictionary with lists for each column, or None if file doesn't exist
     """
-    log_path = DATA_DIR / "timestep_data.csv"
+    Read timestep data from JSON log for plotting purposes.
+    Returns a dict suitable for the existing plotting functions.
+    """
+    import json
+    log_path = json_logger._data_dir / json_logger._filename
     if not log_path.exists():
         print("\nTimestep data log file does not exist.\n")
         return None
+
+    with open(log_path, "r") as f:
+        doc = json.load(f)
 
     data = {
         "timesteps": [],
@@ -194,15 +169,11 @@ def _read_timestep_data():
         "amplitudes": [],
         "frequencies": [],
     }
-
-    with open(log_path, "r") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            data["timesteps"].append(int(row["timestep"]))
-            data["displacements"].append(float(row["displacement_am"]))
-            data["amplitudes"].append(float(row["amp_local_emarms_am"]))
-            data["frequencies"].append(float(row["freq_local_cross_rHz"]))
-
+    for rec in doc["data"]:
+        data["timesteps"].append(rec["timestep"])
+        data["displacements"].append(rec["displacement_am"])
+        data["amplitudes"].append(rec["amp_local_emarms_am"])
+        data["frequencies"].append(rec["freq_local_cross_rHz"])
     return data
 
 
@@ -311,10 +282,14 @@ def plot_probe_values():
 
 def generate_plots():
     """Generate all instrumentation plots."""
-    # Flush any remaining buffered data before plotting
-    _flush_timestep_buffer()
+    json_logger.finalize()
     plot_probe_values()
     plt.show()
+
+
+def finalize_instrumentation():
+    """Flush remaining records. Call at end of simulation."""
+    json_logger.finalize()
 
 
 if __name__ == "__main__":
