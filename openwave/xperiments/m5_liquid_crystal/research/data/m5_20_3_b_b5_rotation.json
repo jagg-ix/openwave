@@ -1,0 +1,8 @@
+{
+ "sector": "rotation",
+ "T": 400.0,
+ "dt": 0.02,
+ "amp": 0.02,
+ "tstar": 1.76,
+ "wall_s": 6.5
+}

@@ -1,0 +1,11 @@
+{
+  "task": "M5.12",
+  "script": "m5_12_d3b_newton.py",
+  "tag": "breather_n32_c2seed",
+  "grade": "scaffolding grid n32; rigid-rotor seed; Nt=2",
+  "hist": [],
+  "omega_end": 11.03,
+  "Shat_end": 138.37294473534303,
+  "h1_norm_end": null,
+  "verdict": "stalled_or_partial"
+}

@@ -1,0 +1,126 @@
+{
+ "melt_q05_R17_z_comm_closed": {
+  "name": "melt_q05_R17_z_comm_closed",
+  "mode": "closed",
+  "variant": "comm",
+  "E0": 70.27322347940901,
+  "t_window": 150.0,
+  "PE_end": 28.98413763487175,
+  "KE_end": 41.28878390417865,
+  "E_abs_end": 0.0,
+  "abs_frac": 0.0,
+  "abs_growing_last_quarter": false,
+  "endpoint": {
+   "ring": {
+    "ring13_rho": 25.060951718508026,
+    "ring13_z": 0.2665181882364845,
+    "m13_max": 0.5946027040481567
+   },
+   "q_reads": {
+    "3.0": -0.0,
+    "4.0": -0.0,
+    "5.0": -0.0,
+    "6.0": -0.0,
+    "8.0": 0.0,
+    "10.0": 0.0,
+    "12.0": 0.0
+   },
+   "m13_spread": 22.019570613085207
+  },
+  "q_seed": 0.5,
+  "verdict": "UNWOUND"
+ },
+ "melt_q05_R17_z_comm_sponge": {
+  "name": "melt_q05_R17_z_comm_sponge",
+  "mode": "sponge",
+  "variant": "comm",
+  "E0": 70.27322347940901,
+  "t_window": 150.0,
+  "PE_end": 28.98413763487175,
+  "KE_end": 41.28878390417865,
+  "E_abs_end": 0.0,
+  "abs_frac": 0.0,
+  "abs_growing_last_quarter": false,
+  "endpoint": {
+   "ring": {
+    "ring13_rho": 25.060951718508026,
+    "ring13_z": 0.2665181882364845,
+    "m13_max": 0.5946027040481567
+   },
+   "q_reads": {
+    "3.0": -0.0,
+    "4.0": -0.0,
+    "5.0": -0.0,
+    "6.0": -0.0,
+    "8.0": 0.0,
+    "10.0": 0.0,
+    "12.0": 0.0
+   },
+   "m13_spread": 22.019570613085207
+  },
+  "q_seed": 0.5,
+  "verdict": "UNWOUND"
+ },
+ "melt_q05_R17_z_dir_sponge": {
+  "name": "melt_q05_R17_z_dir_sponge",
+  "mode": "sponge",
+  "variant": "dir",
+  "E0": 1659.3202640582108,
+  "t_window": 100.0,
+  "PE_end": 1.5516144561918905,
+  "KE_end": 1.5813318388819726,
+  "E_abs_end": 1656.1224113138312,
+  "abs_frac": 0.99807,
+  "abs_growing_last_quarter": false,
+  "endpoint": {
+   "ring": {
+    "ring13_rho": 20.754525010591472,
+    "ring13_z": 1.377003117075433e-15,
+    "m13_max": 0.00501331826671958
+   },
+   "q_reads": {
+    "3.0": 0.0,
+    "4.0": -0.0,
+    "5.0": -0.0,
+    "6.0": 0.0,
+    "8.0": 0.0,
+    "10.0": -0.0,
+    "12.0": 0.0
+   },
+   "m13_spread": 71.93305645075779
+  },
+  "q_seed": 0.5,
+  "verdict": "UNWOUND"
+ },
+ "melt_q10_R13_z_dir_sponge": {
+  "name": "melt_q10_R13_z_dir_sponge",
+  "mode": "sponge",
+  "variant": "dir",
+  "E0": 1553.1769854597846,
+  "t_window": 50.0,
+  "PE_end": 0.8016730875407613,
+  "KE_end": 0.7668347396239306,
+  "E_abs_end": 1551.5440477932468,
+  "abs_frac": 0.99895,
+  "abs_growing_last_quarter": false,
+  "endpoint": {
+   "ring": {
+    "ring13_rho": 5.119134546215624,
+    "ring13_z": 2.369863180685017e-15,
+    "m13_max": 0.005829059984534979
+   },
+   "q_reads": {
+    "3.0": 0.0,
+    "4.0": 0.0,
+    "5.0": 0.0,
+    "6.0": 0.0,
+    "8.0": 0.0,
+    "10.0": 0.0,
+    "12.0": 0.0
+   },
+   "m13_spread": 71.72562448540539
+  },
+  "q_seed": 1.0000000000000002,
+  "verdict": "UNWOUND"
+ }
+}

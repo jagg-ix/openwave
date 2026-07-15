@@ -1,0 +1,78 @@
+{
+  "task": "M5.12",
+  "script": "m5_12_d3b_newton.py",
+  "tag": "axisswing_n64",
+  "grade": "scaffolding grid n64; rigid-rotor seed; Nt=1",
+  "hist": [
+    {
+      "iter": 1,
+      "F_norm": 784.2127441117199,
+      "F_rel": 0.03430154773114322,
+      "omega": 0.6532573476467333,
+      "h1_norm": 72.91081111470174,
+      "lam": 1.0,
+      "accepted": true,
+      "lsmr_stop": 7,
+      "wall_s": 963.9
+    },
+    {
+      "iter": 2,
+      "F_norm": 711.6460686923166,
+      "F_rel": 0.031127473732373272,
+      "omega": 0.6566715190902178,
+      "h1_norm": 72.90859742878376,
+      "lam": 1.0,
+      "accepted": true,
+      "lsmr_stop": 7,
+      "wall_s": 1941.1
+    },
+    {
+      "iter": 3,
+      "F_norm": 684.8943813515536,
+      "F_rel": 0.029957352120479303,
+      "omega": 0.6564975205866098,
+      "h1_norm": 72.90546502516636,
+      "lam": 1.0,
+      "accepted": true,
+      "lsmr_stop": 7,
+      "wall_s": 2921.3
+    },
+    {
+      "iter": 4,
+      "F_norm": 673.7004118832707,
+      "F_rel": 0.029467726721121388,
+      "omega": 0.6566064641833461,
+      "h1_norm": 72.90319845310553,
+      "lam": 1.0,
+      "accepted": true,
+      "lsmr_stop": 7,
+      "wall_s": 3883.8
+    },
+    {
+      "iter": 5,
+      "F_norm": 659.8082804955205,
+      "F_rel": 0.028860083436231924,
+      "omega": 0.6567232155484013,
+      "h1_norm": 72.89975165519263,
+      "lam": 1.0,
+      "accepted": true,
+      "lsmr_stop": 7,
+      "wall_s": 4842.9
+    },
+    {
+      "iter": 6,
+      "F_norm": 651.9207344667419,
+      "F_rel": 0.028515081345129468,
+      "omega": 0.6569433692457636,
+      "h1_norm": 72.89747506837288,
+      "lam": 1.0,
+      "accepted": true,
+      "lsmr_stop": 7,
+      "wall_s": 5803.4
+    }
+  ],
+  "omega_end": 0.6569433692457636,
+  "Shat_end": -1554.335697468903,
+  "h1_norm_end": 72.89747506837288,
+  "verdict": "stalled_or_partial"
+}

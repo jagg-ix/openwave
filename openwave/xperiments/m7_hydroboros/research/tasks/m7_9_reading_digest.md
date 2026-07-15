@@ -12,7 +12,7 @@ A chaotic flow never settles, but it keeps almost-repeating itself: its long-tim
 | --- | --- | --- |
 | § 1.3 "The future as in a mirror" | the 3-disk pinball as the minimal chaotic system | chaos needs only 3 disks and high-school geometry |
 | § 1.3.1 "What is chaos?" | sensitivity (Lyapunov exponent λ) + mixing (topological entropy h); chaos = locally unstable AND globally recurrent | two nearby starts separate as `e^(λt)` while the number of distinguishable trajectories grows as `e^(ht)` |
-| § 1.3.2 "When does chaos matter?" | predictability horizon; when statistics replaces trajectories | past the horizon you predict measures, not paths |
+| § 1.3.3 "When does chaos matter?" | predictability horizon; when statistics replaces trajectories | past the horizon you predict measures, not paths |
 | § 1.4.1 "Symbolic dynamics" | label each bounce by the disk it hits → every trajectory becomes a symbol string (itinerary) | geometry becomes bookkeeping: which strings are realizable |
 | § 1.4.2 "Partitioning with periodic orbits" | each admissible string of length n pins one unstable cycle | cycles ARE the coarse-grained states of the flow |
 | § 1.5.3 "Cycle expansions" | averages = expansions over prime cycles, weighted by their instability `1/\|Λ_p\|` | the shortest cycles carry the physics; long cycles only shadow-correct |

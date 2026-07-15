@@ -1,0 +1,110 @@
+{
+  "task": "M5.12",
+  "mode": "scan",
+  "core": "melt",
+  "note": "phase A pre-registered gate: NONE stationary; all 6 dissolve (melt heals to 0.68-0.75, <=3.1 gnorm decades, both winding classes q=1/2 and q=1, R0 in {8,12,16}). Physical-regime (delta=0 uniaxial) negative for the bare quartic+spectral functional; R8_q0.5 classifier 'stable' overridden: 1.8 decades + melt healed = contracting stall, not stationary (the run-5 double-criterion lesson applied)",
+  "rows": [
+    {
+      "R0": 12.0,
+      "q": 0.5,
+      "core": "melt",
+      "verdict": "dissolved",
+      "ring_rho_first_last": [
+        12.5,
+        9.5
+      ],
+      "min_s_end": 0.7311974509733817,
+      "gnorm_decades": 0.3405134499004068,
+      "E_first_last": [
+        60.82312729331153,
+        6.705319856637177
+      ],
+      "iters_run": 6000
+    },
+    {
+      "R0": 12.0,
+      "q": 1.0,
+      "core": "melt",
+      "verdict": "dissolved",
+      "ring_rho_first_last": [
+        11.5,
+        1.5
+      ],
+      "min_s_end": 0.7534860802196421,
+      "gnorm_decades": 2.9372194116642625,
+      "E_first_last": [
+        888.8663746574935,
+        11.226908124910656
+      ],
+      "iters_run": 6000
+    },
+    {
+      "R0": 16.0,
+      "q": 0.5,
+      "core": "melt",
+      "verdict": "dissolved",
+      "ring_rho_first_last": [
+        15.5,
+        13.5
+      ],
+      "min_s_end": 0.7517200822740048,
+      "gnorm_decades": 1.8104432799444052,
+      "E_first_last": [
+        57.53902505433057,
+        8.684421127716622
+      ],
+      "iters_run": 6000
+    },
+    {
+      "R0": 16.0,
+      "q": 1.0,
+      "core": "melt",
+      "verdict": "dissolved",
+      "ring_rho_first_last": [
+        16.5,
+        1.5
+      ],
+      "min_s_end": 0.7397109731705598,
+      "gnorm_decades": 2.7750986747781643,
+      "E_first_last": [
+        696.9973285815857,
+        12.466974038315993
+      ],
+      "iters_run": 6000
+    },
+    {
+      "R0": 8.0,
+      "q": 0.5,
+      "core": "melt",
+      "verdict": "stable",
+      "ring_rho_first_last": [
+        8.5,
+        2.5
+      ],
+      "min_s_end": 0.6830234504221134,
+      "gnorm_decades": 1.8455209676805104,
+      "E_first_last": [
+        67.9976513498489,
+        7.360044417244349
+      ],
+      "iters_run": 6000
+    },
+    {
+      "R0": 8.0,
+      "q": 1.0,
+      "core": "melt",
+      "verdict": "dissolved",
+      "ring_rho_first_last": [
+        7.5,
+        0.5
+      ],
+      "min_s_end": 0.7272918230461959,
+      "gnorm_decades": 3.112278985841986,
+      "E_first_last": [
+        1197.9607088995042,
+        9.93585382634458
+      ],
+      "iters_run": 6000
+    }
+  ]
+}

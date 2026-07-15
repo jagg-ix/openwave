@@ -1,0 +1,42 @@
+{
+ "script": "m5_12_audit_b15_stall.py",
+ "rows": [
+  {
+   "tag": "f2_shell",
+   "state": "m5_12_b12_hard_f2_1_state.npz",
+   "F_pub": 188.83,
+   "F_recomputed": 191.15475208254068,
+   "phase_row_share": 7.171774919120357e-16,
+   "omega_bal": 6.986874611104042,
+   "a2_star": 0.30372464961834983,
+   "JtF_norm": 385152263.8310142,
+   "JtF_over_F": 2014871.5092612782,
+   "sd_best_drop_rel": 0.0,
+   "sd_best_t": 0.0,
+   "gn_drop_rel": 0.012194064636246726,
+   "gn_best_lam": 1.0,
+   "gn_F_after": 188.82379868012046,
+   "gn_w_after": 6.986871486775073,
+   "lsmr_norma": 8889767.163570074
+  },
+  {
+   "tag": "f1_rgauss",
+   "state": "m5_12_b12_hard_f1_1_state.npz",
+   "F_pub": 187.41,
+   "F_recomputed": 194.10991151147527,
+   "phase_row_share": 3.211705010241251e-15,
+   "omega_bal": 7.375545535322454,
+   "a2_star": 0.3037246476777775,
+   "JtF_norm": 842278778.9526346,
+   "JtF_over_F": 4339184.80717478,
+   "sd_best_drop_rel": 0.0,
+   "sd_best_t": 0.0,
+   "gn_drop_rel": 0.03454207693197742,
+   "gn_best_lam": 1.0,
+   "gn_F_after": 187.40495201478657,
+   "gn_w_after": 7.375537438379729,
+   "lsmr_norma": 8934458.34441829
+  }
+ ],
+ "wall_s": 378.0
+}

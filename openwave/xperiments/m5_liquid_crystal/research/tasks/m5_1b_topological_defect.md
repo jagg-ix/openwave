@@ -109,7 +109,7 @@ Reading the map: if the question is about *what exists or what's protected*, the
 
 ### Alternative stabilization — oscillation (time-periodicity)
 
-Topology is *one* mechanism that evades Derrick's theorem. A second route is **time-periodicity** — energy stored in oscillation rather than in a static gradient — instantiated as Werbos's *chaoiton* (a localized, time-periodic solution of a coupled-vector-field Lagrangian). M6 develops this framework in full; see [M6 / Ouroboros — 0a_background.md § What's a chaoiton](../../../m6_ouroboros/research/0a_background.md).
+Topology is *one* mechanism that evades Derrick's theorem. A second route is **time-periodicity** — energy stored in oscillation rather than in a static gradient — instantiated as Werbos's *chaoiton* (a localized, time-periodic solution of a coupled-vector-field Lagrangian). M6 develops this framework in full; see [M6 / Ouroboros — 0a_background.md § What's a chaoiton](../../../m6_ouroboros/research/archive/0a_background.md).
 
 **Relevance to M5:** the two mechanisms are not mutually exclusive. M5 uses topology as the default (winding number, hedgehog/skyrmion), but the M5.2+ dynamics may *also* exhibit oscillation-stabilization (Wilczek time-crystal preview in [§ Intrinsic oscillation](#intrinsic-oscillation--the-time-crystal-mechanism-preview)) — both could co-occur in the same defect. The Werbos framework also cites the **Sawada `v(r) ~ -C/r⁶`** long-range nuclear-force anomaly (Sawada 1989, 2003) as an empirical anchor; that's a candidate M5.4+ falsifiability target for any field theory that produces composite hadron-like solitons.
 

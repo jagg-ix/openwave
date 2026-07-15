@@ -1,0 +1,75 @@
+{
+  "task": "M5.12",
+  "script": "m5_12_core_pin.py",
+  "mode": "pair",
+  "prescription": "both core disks r<r_pin replaced by a*I, a golden-optimized per run; centers at z=+-d/2 (d odd => ON z-cell centers)",
+  "grid": {
+    "NR": 96,
+    "NZ": 192,
+    "h": 1.0
+  },
+  "params": {
+    "wscale": 0.0007240238793069094,
+    "rc_core": 8.0,
+    "r_pin": 2.5,
+    "iters": 3000
+  },
+  "rows": [
+    {
+      "d": 16.0,
+      "z_centers_on_cell_centers": false,
+      "a": 0.5365652260877298,
+      "E_seed": 18.675449811766516,
+      "E_relaxed": 0.09534351410854186,
+      "drop": 18.580106297657974,
+      "gnorm_decades": 2.103357602311647,
+      "melt_min_axis_strip": 0.5365652260877298,
+      "wall_s": 276.6
+    },
+    {
+      "d": 17.0,
+      "z_centers_on_cell_centers": true,
+      "a": 0.5365652038731268,
+      "E_seed": 19.92187439312061,
+      "E_relaxed": 0.09150773139001915,
+      "drop": 19.83036666173059,
+      "gnorm_decades": 2.2143739550301276,
+      "melt_min_axis_strip": 0.5365652038731268,
+      "wall_s": 276.9
+    },
+    {
+      "d": 24.0,
+      "z_centers_on_cell_centers": false,
+      "a": 0.5365652091172832,
+      "E_seed": 27.70866324054311,
+      "E_relaxed": 0.2073236748797972,
+      "drop": 27.50133956566331,
+      "gnorm_decades": 2.093328746667062,
+      "melt_min_axis_strip": 0.5365652091172832,
+      "wall_s": 276.8
+    },
+    {
+      "d": 25.0,
+      "z_centers_on_cell_centers": true,
+      "a": 0.5365651901437469,
+      "E_seed": 28.541663114991938,
+      "E_relaxed": 0.1876968589754179,
+      "drop": 28.35396625601652,
+      "gnorm_decades": 2.121316803228644,
+      "melt_min_axis_strip": 0.5365651901437469,
+      "wall_s": 277.0
+    }
+  ],
+  "baseline_m5_18": {
+    "d16": {
+      "E_relaxed": 0.345,
+      "melt_min": 0.0076
+    },
+    "d24": {
+      "E_relaxed": 0.409,
+      "melt_min": 0.0078
+    }
+  },
+  "wall_s_total": 1111.7,
+  "note": "melt_min O(1) = the annihilation melt bridge is CLOSED by the core prescription; melt_min ~ 0.008 = the channel survives (M5.18 baseline)"
+}

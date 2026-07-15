@@ -1,0 +1,32 @@
+{
+ "GO_production": false,
+ "loop_blowup_all_cutoffs": true,
+ "no_cutoff_plateau": true,
+ "dt_robust": true,
+ "dive_4d": true,
+ "vacuum_ladder_at_probe": {
+  "omega2_all": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   1.9063949579871105
+  ],
+  "omega_pos": [
+   1.380722621668491
+  ],
+  "n_neg_omega2": 0,
+  "K_eigs_kept": [
+   -0.002331945270672218,
+   -0.002331945270672218,
+   0.002331945270672218,
+   0.002331945270672218,
+   0.009327781082688873
+  ]
+ },
+ "b5_tstars": {
+  "rotation": 1.76,
+  "clock": 0.06,
+  "boost4b": 0.06
+ }
+}

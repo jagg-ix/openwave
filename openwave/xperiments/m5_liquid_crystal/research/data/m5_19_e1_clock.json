@@ -1,0 +1,248 @@
+{
+ "eps": 0.1649,
+ "a2_star": 0.303725,
+ "GE0": {
+  "direct_omega": 15.193449607514014,
+  "ctrl_omega": 15.19344960748366,
+  "rel_err": 1.9978600288810997e-12,
+  "pass": true
+ },
+ "floor": {
+  "rt4.77_wsnative": {
+   "omega_bal": 5.439268243152651,
+   "product": 25.952988518535147,
+   "endpoint": "p1 rayleigh_opt (b16)"
+  },
+  "rt4.77_wsrc-matched": {
+   "omega_bal": 5.108307986562202,
+   "product": 24.37384085465658,
+   "endpoint": "p1 rayleigh_opt (b16)"
+  },
+  "rt3.686_wsnative": {
+   "omega_bal": 5.611379809230649,
+   "product": 20.691942304533562,
+   "endpoint": "p1 rayleigh_opt (b16)"
+  },
+  "rt3.686_wsrc-matched": {
+   "omega_bal": 5.228847229055048,
+   "product": 19.281354829136287,
+   "endpoint": "p1 rayleigh_opt (b16)"
+  }
+ },
+ "results": {
+  "melt8k_wound": {
+   "meta": {
+    "ring": [
+     20.792778359523833,
+     -8.530280634494515e-17
+    ],
+    "m13_max": 0.6358048915863037
+   },
+   "r_mean_native": 22.80966865463076,
+   "frames": {
+    "rt4.77_native": {
+     "S0": 6688745613.856845,
+     "Q2": -3.7668981552124023,
+     "Q2_mix": -3.7668981552124023,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 42138.6288883924,
+     "product": 201011.04612697978,
+     "r_mean_frame": 4.770232241285638,
+     "floor_omega": 5.439268243152651,
+     "beats_floor": false
+    },
+    "rt4.77_matched": {
+     "S0": 680585398.937842,
+     "Q2": -3.766897678375244,
+     "Q2_mix": -3.766897678375244,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 13441.55155418998,
+     "product": 64119.32259670012,
+     "r_mean_frame": 4.770232241285638,
+     "floor_omega": 5.108307986562202,
+     "beats_floor": false
+    },
+    "rt3.686_native": {
+     "S0": 6688741919.658609,
+     "Q2": -2.3939733505249023,
+     "Q2_mix": -2.3939733505249023,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 52858.22361474705,
+     "product": 194824.85265458436,
+     "r_mean_frame": 3.68580022806952,
+     "floor_omega": 5.611379809230649,
+     "beats_floor": false
+    },
+    "rt3.686_matched": {
+     "S0": 1884591476.809328,
+     "Q2": -2.3939709663391113,
+     "Q2_mix": -2.3939709663391113,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 28057.512934724902,
+     "product": 103414.38757387256,
+     "r_mean_frame": 3.68580022806952,
+     "floor_omega": 5.228847229055048,
+     "beats_floor": false
+    }
+   },
+   "native_probe": {
+    "S0": 1900076463.5665314,
+    "Q2": -240.3968424797058,
+    "Q2_mix": -240.3968424797058,
+    "Q2_pos": 0.0,
+    "Q2_cross": 0.0,
+    "Q2_negative": true,
+    "omega_bal": 2811.390413655589
+   },
+   "beats_floor_all_frames": false
+  },
+  "escape8k": {
+   "meta": {
+    "ring": [
+     22.00053079650328,
+     1.1348046742028456e-16
+    ],
+    "m13_max": 0.6029725074768066
+   },
+   "r_mean_native": 23.910406805280395,
+   "frames": {
+    "rt4.77_native": {
+     "S0": 6688742380.190885,
+     "Q2": -2.4311981201171875,
+     "Q2_mix": -2.4311981201171875,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 52452.000778940295,
+     "product": 250193.63472783926,
+     "r_mean_frame": 4.769954072529738,
+     "floor_omega": 5.439268243152651,
+     "beats_floor": false
+    },
+    "rt4.77_matched": {
+     "S0": 680585049.7226894,
+     "Q2": -2.431198835372925,
+     "Q2_mix": -2.431198835372925,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 16731.349177673837,
+     "product": 79807.7671489624,
+     "r_mean_frame": 4.769954072529738,
+     "floor_omega": 5.108307986562202,
+     "beats_floor": false
+    },
+    "rt3.686_native": {
+     "S0": 6688739884.067395,
+     "Q2": -2.4555482864379883,
+     "Q2_mix": -2.4555482864379883,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 52191.27593126385,
+     "product": 192358.8869210758,
+     "r_mean_frame": 3.685652122673018,
+     "floor_omega": 5.611379809230649,
+     "beats_floor": false
+    },
+    "rt3.686_matched": {
+     "S0": 1884590901.2006218,
+     "Q2": -2.4555468559265137,
+     "Q2_mix": -2.4555468559265137,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 27703.486722234968,
+     "product": 102105.41464324908,
+     "r_mean_frame": 3.685652122673018,
+     "floor_omega": 5.228847229055048,
+     "beats_floor": false
+    }
+   },
+   "native_probe": {
+    "S0": 1900076410.7084408,
+    "Q2": -161.17392206192017,
+    "Q2_mix": -161.17392206192017,
+    "Q2_pos": 0.0,
+    "Q2_cross": 0.0,
+    "Q2_negative": true,
+    "omega_bal": 3433.508651014112
+   },
+   "beats_floor_all_frames": false
+  },
+  "corepin": {
+   "meta": {
+    "ring": [
+     20.525335253304867,
+     -2.5622696461945796e-18
+    ],
+    "m13_max": 0.5438871383666992
+   },
+   "r_mean_native": 22.567519029903572,
+   "frames": {
+    "rt4.77_native": {
+     "S0": 6688745851.65451,
+     "Q2": -3.885531425476074,
+     "Q2_mix": -3.885531425476074,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 41490.35343861724,
+     "product": 197930.4658485758,
+     "r_mean_frame": 4.770517709409329,
+     "floor_omega": 5.439268243152651,
+     "beats_floor": false
+    },
+    "rt4.77_matched": {
+     "S0": 680585411.2630098,
+     "Q2": -3.8855305910110474,
+     "Q2_mix": -3.8855305910110474,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 13234.76247762488,
+     "product": 63136.66877933558,
+     "r_mean_frame": 4.770517709409329,
+     "floor_omega": 5.108307986562202,
+     "beats_floor": false
+    },
+    "rt3.686_native": {
+     "S0": 6688742986.084833,
+     "Q2": -2.4600000381469727,
+     "Q2_mix": -2.4600000381469727,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 52144.04253308661,
+     "product": 192194.35690280198,
+     "r_mean_frame": 3.6858353814982827,
+     "floor_omega": 5.611379809230649,
+     "beats_floor": false
+    },
+    "rt3.686_matched": {
+     "S0": 1884591787.177606,
+     "Q2": -2.4600002765655518,
+     "Q2_mix": -2.4600002765655518,
+     "Q2_pos": 0.0,
+     "Q2_negative": true,
+     "omega_bal": 27678.40559536932,
+     "product": 102018.04664687229,
+     "r_mean_frame": 3.6858353814982827,
+     "floor_omega": 5.228847229055048,
+     "beats_floor": false
+    }
+   },
+   "native_probe": {
+    "S0": 1900077134.8890014,
+    "Q2": -225.1049222946167,
+    "Q2_mix": -225.1049222946167,
+    "Q2_pos": 0.0,
+    "Q2_cross": 0.0,
+    "Q2_negative": true,
+    "omega_bal": 2905.314288924306
+   },
+   "beats_floor_all_frames": false
+  }
+ },
+ "E_gate": {
+  "any_background_beats_floor": false,
+  "decision": "the statics negative COMPOUNDS: no new-family seed undercuts the M5.12 floor"
+ }
+}

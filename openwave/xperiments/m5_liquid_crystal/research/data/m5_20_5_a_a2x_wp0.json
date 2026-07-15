@@ -1,0 +1,28 @@
+{
+ "wp": {
+  "fam": "J23^K2",
+  "chi": 0.704541015625,
+  "note": "moderate w* ~ 0.1 (near-crossing, off-edge)",
+  "Q2_avg": -24.28046840011448,
+  "omega": 0.11900147030942104
+ },
+ "states": {
+  "recipe_seed": {
+   "cos_align_gkin_gstat": -0.3284072876944692,
+   "norm_gkin": 48083.65910036623,
+   "norm_gstat": 214.8526788264214,
+   "omega2_used": 0.014161349935804018,
+   "omega2_optimal": -0.0014674254586157015,
+   "omega_optimal": null,
+   "best_rel_residual_any_omega": 0.9445362107347511,
+   "sectors_gkin": {
+    "time_row": 34098.35268227888,
+    "spatial_block": 33901.92644725601
+   },
+   "sectors_gstat": {
+    "time_row": 214.85212162851488,
+    "spatial_block": 0.4893164775781214
+   }
+  }
+ }
+}

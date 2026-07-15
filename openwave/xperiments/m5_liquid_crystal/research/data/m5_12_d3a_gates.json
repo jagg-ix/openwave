@@ -1,0 +1,9 @@
+{
+ "BG1_residual_vs_FD": 1.574444138633184e-09,
+ "BG1_domega_vs_FD": 1.8750464731442238e-05,
+ "BG2_static_identity": 7.275957614183426e-12,
+ "BG2_harmonics_zero": 1.8189894035458565e-12,
+ "BG3_vacuum_rotor_maxR_w0.3": 2.4511311117261977e-08,
+ "BG3_vacuum_rotor_maxR_w1.1": 2.4511311117261977e-08,
+ "all_pass": true
+}

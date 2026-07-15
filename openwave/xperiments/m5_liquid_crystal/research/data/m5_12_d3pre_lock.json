@@ -1,0 +1,52 @@
+{
+  "task": "M5.12",
+  "script": "m5_12_d3pre.py",
+  "mode": "calibrate",
+  "potential": "V_4D p=1..4, covariant m00=-g, delta=0 (uniaxial profile V(s)/w = sum_{p=1..4}(s^p-1)^2)",
+  "rows": [
+    {
+      "NR": 64,
+      "NZ": 128,
+      "E_sim": 26.886286031370137,
+      "r_half_sim": 7.75,
+      "J_half": 208.36871674311857,
+      "wscale": 0.0022182792670484034,
+      "virial": 1.0158973770635857,
+      "gradcheck": 6.015603258591015e-06,
+      "wall_s": 151.2,
+      "ell_fm": 0.3768189715007448,
+      "r_half_phys_fm": 2.9203470291307725
+    },
+    {
+      "NR": 96,
+      "NZ": 192,
+      "E_sim": 18.028600165110753,
+      "r_half_sim": 11.75,
+      "J_half": 211.83605194005133,
+      "wscale": 0.0004427706144821735,
+      "virial": 1.0064419184924316,
+      "gradcheck": 4.96327768437913e-06,
+      "wall_s": 354.2,
+      "ell_fm": 0.25267597629098765,
+      "r_half_phys_fm": 2.9689427214191046
+    },
+    {
+      "NR": 128,
+      "NZ": 256,
+      "E_sim": 13.548352966144295,
+      "r_half_sim": 15.75,
+      "J_half": 213.38655921677264,
+      "wscale": 0.0001406166433869509,
+      "virial": 1.0034337257357306,
+      "gradcheck": 9.332063254547711e-06,
+      "wall_s": 640.2,
+      "ell_fm": 0.1898840332307285,
+      "r_half_phys_fm": 2.990673523383974
+    }
+  ],
+  "headline_r_half_phys_fm": 2.9689427214191046,
+  "vs_faber_rel": -0.03461575033520692,
+  "vs_ldg_rel": 0.014676254757041818,
+  "vs_spectral3d_2935": 0.011495884920654342,
+  "note": "the D3-pre recalibrated card: the BVP compares against THESE numbers, not the 3D-spectral ones"
+}

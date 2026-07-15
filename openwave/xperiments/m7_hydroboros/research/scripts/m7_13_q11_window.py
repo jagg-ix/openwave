@@ -6,7 +6,7 @@ Tests an externally reported claim (2026-07-06, unverified, no script shared):
 
 Method (all definitions ours, pinned to the repo-validated benchmark):
   - Profile: the M6 canonical charged-sector ODE (m7_1_harmonic_lattice.m6_profile,
-    the port of m6_ouroboros/research/sandbox_v8/ouroboros_benchmark.py):
+    the port of m6_ouroboros/research/archive/sandbox_v8/ouroboros_benchmark.py):
         a'' = -a'/r + a/r^2 - w^2 a + b
         b'' = -b'/r + b/r^2 - w^2 b + a - lam*b - 4 g b^3
     slope BCs at r_inner, A0 = B0 = 0.1, lam = 1.

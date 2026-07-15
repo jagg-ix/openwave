@@ -1,0 +1,94 @@
+{
+ "task": "M5.20.3",
+ "phase": "A",
+ "wscale": 0.0007240238793069094,
+ "g": 8.0,
+ "rel_cut": 1e-08,
+ "abs_cut_frac": 1e-10,
+ "eom": "free EL of the purely-quartic verified L; null projected",
+ "GC0a": {
+  "ok": true,
+  "detail": {
+   "rel": 3.985031464714178e-16
+  }
+ },
+ "GC0b": {
+  "ok": true,
+  "detail": {
+   "rel": 6.990119868775872e-16
+  }
+ },
+ "GC0c": {
+  "ok": true,
+  "detail": {
+   "rel": 5.344619135716742e-16
+  }
+ },
+ "GC0d": {
+  "ok": true,
+  "detail": {
+   "rel_fast_vs_slow": 6.938893903907228e-18,
+   "asym": 0.0,
+   "eta_null_resid": 8.673617379884035e-19
+  }
+ },
+ "GC0e": {
+  "ok": true,
+  "detail": {
+   "lhs": -60800.922810720615,
+   "rhs": -60800.92281072062,
+   "rel": 5.983426959516892e-17
+  }
+ },
+ "GC1_census": {
+  "pair_d0": {
+   "rank_hist": {
+    "5": 31866,
+    "8": 392
+   },
+   "nneg_hist": {
+    "2": 31866,
+    "3": 392
+   },
+   "lam_absmax_global": 32.0,
+   "lam_absmax_core": 0.034049474611376536,
+   "lam_absmax_far": 0.0012345202731376102,
+   "t0_ledger": {
+    "null_force_frac": 0.9854966447761143,
+    "n_active_mean": 5.036456072912146,
+    "max_abs_acc": 5.004435386642663,
+    "lam_absmax_global": 32.0,
+    "lam_min_active": 1.110970276227294e-06
+   }
+  },
+  "pair_1d": {
+   "rank_hist": {
+    "5": 31866,
+    "8": 392
+   },
+   "nneg_hist": {
+    "2": 31866,
+    "3": 392
+   },
+   "lam_absmax_global": 2.88,
+   "lam_absmax_core": 0.10164653265171884,
+   "lam_absmax_far": 0.00011110682458238493,
+   "t0_ledger": {
+    "null_force_frac": 0.9999647547216377,
+    "n_active_mean": 5.036456072912146,
+    "max_abs_acc": 573.7307740131275,
+    "lam_absmax_global": 2.88,
+    "lam_min_active": 1.2248422520520148e-07
+   }
+  }
+ },
+ "benchmark": {
+  "128x256": {
+   "accel_s": 0.32246980667114256
+  },
+  "64x128": {
+   "accel_s": 0.07881855964660645
+  }
+ },
+ "all_gc0_pass": true
+}

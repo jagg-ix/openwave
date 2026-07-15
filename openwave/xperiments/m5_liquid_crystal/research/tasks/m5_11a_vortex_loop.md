@@ -178,7 +178,7 @@ the time crystal; the model "combines Skyrme + Landau-de Gennes") · [`../theory
 the [`4a`](m5_4a_convo_2026.05.12.md)/[`4c`](m5_4c_convo_2026.06.08.md)/[`4d`](m5_4d_convo_2026.06.11.md)
 Duda exchanges + [`9a`](m5_9a_lepton_mass_planning.md) review · the M5 framework
 ([`m5_1a_lagrangian_framework.md`](m5_1a_lagrangian_framework.md), [`m5_5a_lagrangian_evolution.md`](m5_5a_lagrangian_evolution.md),
-[`m5_summary_report.md`](../m5_summary_report.md)) · the index-0 engine (`engine2_pde.py` `V_M` + curvature).
+[`m5_summary_report.md`](../archive/m5_summary_report.md)) · the index-0 engine (`engine2_pde.py` `V_M` + curvature).
 
 ## Cross-refs
 

@@ -1,0 +1,375 @@
+{
+ "task": "M5.20.2",
+ "role": "independent adversarial audit",
+ "wscale": 0.0007240238793069094,
+ "C1": {
+  "quartic_scaling_rel": 3.007051056992666e-15,
+  "T_on_gradient_free_maxabs": 0.0,
+  "eta_null_shift_rel": 2.165229653179022e-15,
+  "T_quadratic_in_Mdot_rel": 0.0,
+  "K_scales_as_grad_sq_rel": 0.0,
+  "own_kin_census": [
+   {
+    "cell": [
+     17,
+     128
+    ],
+    "eigs": [
+     -0.05069228951162738,
+     -0.047403990783494054,
+     -0.0032882987281333638,
+     -2.1487860115139126e-17,
+     0.0,
+     0.009502587160556207,
+     0.04740399078349401,
+     0.05069228951162742,
+     0.09490833696236797,
+     0.10164653265171886
+    ],
+    "rank": 8,
+    "n_negative": 3
+   },
+   {
+    "cell": [
+     80,
+     128
+    ],
+    "eigs": [
+     -2.7776706145596233e-05,
+     -2.7776706145596233e-05,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     2.7776706145596233e-05,
+     2.7776706145596233e-05,
+     0.00011110682458238493
+    ],
+    "rank": 5,
+    "n_negative": 2
+   }
+  ],
+  "census_vs_theirs": [
+   {
+    "cell": [
+     17,
+     128
+    ],
+    "rank_match": true,
+    "neg_match": true,
+    "eig_maxreldiff": 2.7305973840475674e-16
+   },
+   {
+    "cell": [
+     80,
+     128
+    ],
+    "rank_match": true,
+    "neg_match": true,
+    "eig_maxreldiff": 6.098872507160756e-17
+   }
+  ],
+  "verdict": "CONFIRMED"
+ },
+ "C2": {
+  "offdiag_gradient_overlap_maxabs": 0.0,
+  "FD_vs_analytic_maxabsdiff": 7.619864845764823e-07,
+  "FD_vs_analytic_rel": 1.243591471314898e-10,
+  "n_zero_analytic": 6,
+  "omegas": [
+   0.009265227769572174,
+   0.04658653575841244,
+   0.1348723224620523,
+   78.27727653398227
+  ],
+  "omega_vs_claimed_rel": [
+   0.003738949508368281,
+   0.00028893222290901735,
+   0.00020517077796656876,
+   3.479133901031049e-05
+  ],
+  "offdiag_straightline_scaling_v(1e-2)/v(1e-3)": [
+   9999.993289764967,
+   9999.992582052477,
+   9999.992306572982,
+   10000.219269317187,
+   10000.27191011004,
+   10000.14594852196
+  ],
+  "V_on_finite_orbit_maxabs": 5.428104947590786e-27,
+  "verdict": "CONFIRMED"
+ },
+ "C6": {
+  "u_eta_vs_plain_rel": 9.033992626387705e-17,
+  "v4_p3_vs_3target_rel": 4.31766246482428e-13,
+  "blockdiag_trace_identity_maxabs": 0.0,
+  "verdict": "CONFIRMED"
+ },
+ "C5": {
+  "M00_min_max": [
+   -8.0,
+   -8.0
+  ],
+  "M0i_maxabs": 0.0,
+  "plaquette_seed": {
+   "n_defects": 2,
+   "total_abs_q": 1.000000000000004,
+   "defects": [
+    {
+     "rho": 16.5,
+     "z": -0.5,
+     "q": 0.49999999999999994
+    },
+    {
+     "rho": 25.5,
+     "z": -0.5,
+     "q": -0.49999999999999994
+    }
+   ]
+  },
+  "plaquette_endpoint": {
+   "n_defects": 0,
+   "total_abs_q": 8.223147431441619e-13,
+   "defects": []
+  },
+  "ledger_maxdev_rel": 3.023424655636192e-06,
+  "PE_endpoint_own": 9.681629676380757,
+  "PE_endpoint_ledger": 9.681629505821217,
+  "PE_recompute_rel": 1.761682160243482e-08,
+  "E0_own_vs_ledger_rel": 0.0,
+  "seed_core_defect_found": true,
+  "verdict": "CONFIRMED"
+ },
+ "C4": {
+  "keff_max_reldiff": 0.0,
+  "sign_census_rot_ge0_boost_le0": true,
+  "vac4_J12_zero": 0.0,
+  "vac4_B03_zero": 0.0,
+  "loopseed_B01_negfrac": 1.0,
+  "parabola_max_rel": 4.689160450795887e-14,
+  "static_invariance_max_rel": 1.0758794674665824e-12,
+  "parabola_rows": [
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "rot_J12",
+    "omega": 0.05,
+    "phase": 0.3,
+    "H_direct": 28.411645187445032,
+    "H_parabola": 28.411645187446364,
+    "rel": 4.689160450795887e-14,
+    "E_static_invariance_rel": 5.873287415450326e-14
+   },
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "rot_J12",
+    "omega": 0.05,
+    "phase": 0.9,
+    "H_direct": 28.411645187445963,
+    "H_parabola": 28.411645187446364,
+    "rel": 1.4130003491731606e-14,
+    "E_static_invariance_rel": 1.758845429225766e-14
+   },
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "rot_J12",
+    "omega": 0.12,
+    "phase": 0.3,
+    "H_direct": 55.96550681632524,
+    "H_parabola": 55.965506816326574,
+    "rel": 2.3868636580260456e-14,
+    "E_static_invariance_rel": 5.873287415450326e-14
+   },
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "rot_J12",
+    "omega": 0.12,
+    "phase": 0.9,
+    "H_direct": 55.96550681632617,
+    "H_parabola": 55.965506816326574,
+    "rel": 7.236767473802372e-15,
+    "E_static_invariance_rel": 1.758845429225766e-14
+   },
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "boost_B03",
+    "omega": 0.05,
+    "phase": 0.3,
+    "H_direct": -754.0272431854245,
+    "H_parabola": -754.0272431854308,
+    "rel": 8.443279695724274e-15,
+    "E_static_invariance_rel": 2.5990082012220025e-13
+   },
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "boost_B03",
+    "omega": 0.05,
+    "phase": 0.9,
+    "H_direct": -754.0272431854096,
+    "H_parabola": -754.0272431854308,
+    "rel": 2.81945232696507e-14,
+    "E_static_invariance_rel": 1.0758794674665824e-12
+   },
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "boost_B03",
+    "omega": 0.12,
+    "phase": 0.3,
+    "H_direct": -4450.882490211437,
+    "H_parabola": -4450.882490211446,
+    "rel": 2.043403086406178e-15,
+    "E_static_invariance_rel": 2.5990082012220025e-13
+   },
+   {
+    "state": "loop_seed_d0p3_pair_1d",
+    "gen": "boost_B03",
+    "omega": 0.12,
+    "phase": 0.9,
+    "H_direct": -4450.882490211438,
+    "H_parabola": -4450.882490211446,
+    "rel": 1.6347224691249423e-15,
+    "E_static_invariance_rel": 1.0758794674665824e-12
+   },
+   {
+    "state": "vac4_background",
+    "gen": "rot_J12",
+    "omega": 0.05,
+    "phase": 0.3,
+    "H_direct": 2.940407674482791e-26,
+    "H_parabola": 0.0,
+    "rel": 2.940407674482791e-26,
+    "E_static_invariance_rel": 2.940385999564286e-26
+   },
+   {
+    "state": "vac4_background",
+    "gen": "rot_J12",
+    "omega": 0.05,
+    "phase": 0.9,
+    "H_direct": 1.204676144635077e-22,
+    "H_parabola": 0.0,
+    "rel": 1.204676144635077e-22,
+    "E_static_invariance_rel": 1.204676144021488e-22
+   },
+   {
+    "state": "vac4_background",
+    "gen": "rot_J12",
+    "omega": 0.12,
+    "phase": 0.3,
+    "H_direct": 2.940510847094873e-26,
+    "H_parabola": 0.0,
+    "rel": 2.940510847094873e-26,
+    "E_static_invariance_rel": 2.940385999564286e-26
+   },
+   {
+    "state": "vac4_background",
+    "gen": "rot_J12",
+    "omega": 0.12,
+    "phase": 0.9,
+    "H_direct": 1.20467614755576e-22,
+    "H_parabola": 0.0,
+    "rel": 1.20467614755576e-22,
+    "E_static_invariance_rel": 1.204676144021488e-22
+   },
+   {
+    "state": "vac4_background",
+    "gen": "boost_B03",
+    "omega": 0.05,
+    "phase": 0.3,
+    "H_direct": 0.0,
+    "H_parabola": 0.0,
+    "rel": 0.0,
+    "E_static_invariance_rel": 0.0
+   },
+   {
+    "state": "vac4_background",
+    "gen": "boost_B03",
+    "omega": 0.05,
+    "phase": 0.9,
+    "H_direct": 3.796212396288667e-19,
+    "H_parabola": 0.0,
+    "rel": 3.796212396288667e-19,
+    "E_static_invariance_rel": 3.796212396288667e-19
+   },
+   {
+    "state": "vac4_background",
+    "gen": "boost_B03",
+    "omega": 0.12,
+    "phase": 0.3,
+    "H_direct": 0.0,
+    "H_parabola": 0.0,
+    "rel": 0.0,
+    "E_static_invariance_rel": 0.0
+   },
+   {
+    "state": "vac4_background",
+    "gen": "boost_B03",
+    "omega": 0.12,
+    "phase": 0.9,
+    "H_direct": 3.796212396288667e-19,
+    "H_parabola": 0.0,
+    "rel": 3.796212396288667e-19,
+    "E_static_invariance_rel": 3.796212396288667e-19
+   }
+  ],
+  "velocity_formula_maxabsdiff": 5.1310067306076235e-12,
+  "alt_branch_extremes": {
+   "max_rot": 329811189.6132215,
+   "min_boost": -252511692.04762274
+  },
+  "verdict": "CONFIRMED"
+ },
+ "C3": {
+  "vac4_clock_dt0.02": {
+   "t_maxabs_gt1": 21.12,
+   "t_nonfinite_or_abort": 21.36,
+   "t_last": 21.36,
+   "maxabs_last": NaN,
+   "wall_s": 82.6
+  },
+  "vac4_clock_dt0.005": {
+   "t_maxabs_gt1": 21.0,
+   "t_nonfinite_or_abort": 21.25,
+   "t_last": 21.25,
+   "maxabs_last": NaN,
+   "wall_s": 315.6
+  },
+  "Jcommuting_uniform_control_dt0.01": {
+   "background": "diag(-8, 0.7, 0.7, 0.2)",
+   "t_maxabs_gt1": null,
+   "t_nonfinite_or_abort": null,
+   "t_last": 60.0,
+   "maxabs_max": 0.019505754364283423,
+   "maxabs_last": 0.019189175162206407,
+   "E_drift_rel": 0.026391360911644735,
+   "wall_s": 467.9
+  },
+  "divergence_dt_robust": true,
+  "verdict": "CONFIRMED"
+ },
+ "date": "2026-07-12",
+ "auditor": "independent adversarial audit agent (own code: m5_20_2_audit_check.py)",
+ "summary": {
+  "C1_purely_quartic_L_and_kin_census": "CONFIRMED",
+  "C2_analytic_10x10_V_hessian": "CONFIRMED",
+  "C3_boost_runaway_physical": "CONFIRMED (dt-robust 21.0-21.4 across dt 0.02/0.01/0.005; J-commuting uniform control does NOT diverge over T=60: the runaway as measured requires the vac4 equivariant A_phi background, consistent with the purely-quartic structure where gradient-free states carry no kinetic channel)",
+  "C4_H_omega_parabola_and_sign_census": "CONFIRMED (parabola exact to 5e-14 at finite phase; all 24 K_eff rows reproduced; vac4 J12/B03 zeros exact; note: the method-note ranges +8e2..+4e4 / -3e5..-2.5e6 cover the three primary states only; the alternate branch reaches +3.3e8 / -2.5e8)",
+  "C5_protection_endpoint_unwound_and_frozen_row": "CONFIRMED (own plaquette scan: seed carries the +1/2 core defect at (16.5,-0.5) plus the topologically required -1/2 blend-shell partner; endpoint carries ZERO defects, residual 8e-13; M00=-8 exact, M0i=0 exact; ledger maxdev 3.0e-6; own endpoint PE recompute matches to 1.8e-8)",
+  "C6_GB0_reduction": "CONFIRMED (own implementation reproduces 9.03e-17 / 4.32e-13; block-diagonal trace identity exact)"
+ },
+ "bugs_and_notes": [
+  "LATENT (not triggered): m5_20_2_a_eom.py:172-173 grad_static_4 default w4 uses module globals NR,NZ instead of Mnp.shape; wrong for any non-128x256 grid.",
+  "NORMALIZATION NOTE: kin_form_apply (m5_20_2_a_eom.py:214-224) uses T = sum_i <F,F>_eta (adjoint factor 2), 4x smaller than the H-consistent factor-4 convention of u_eta/k_eff; rank/negativity census unaffected (diagnostic only), but kin_census max|eig| magnitudes are 4x low vs the H normalization.",
+  "COSMETIC: m5_20_2_b_dynamics.py:168-170 envelope_growth_rate for the rotation run fits log(max(0,1e-30)): the quoted '+1.5e-16/t' is the artifact of fitting a constant floor; the underlying stability statement is solid (time-mixing identically zero, a12 bounded 0.0194-0.0195, |E dev| 2.2e-6 abs over T=400).",
+  "COSMETIC: omega_peak (0.2856) reported for the DIVERGED T2_clock/T3_boost4b runs is an FFT over the truncated pre-NaN window; meaningless, not load-bearing.",
+  "PRESENTATION: method note II.1 finding 5 quotes K_eff ranges that cover the three primary states while the sentence includes the alternate branch (whose rows reach +3.3e8 rot_J13 / -2.5e8 boost_B01); sign claim itself holds on all 24 rows.",
+  "CURIOSITY (not load-bearing): T2_clock and T3_boost4b trajectories report bitwise-identical maxabs from t=20.5 onward despite genuinely different initial states; late-blowup saturation artifact.",
+  "INTERPRETATION CAVEAT (C3 control): on the J-commuting uniform background diag(-8,.7,.7,.2) the same (0,1) bump does NOT run away over T=60 (time-mixing amplitude never grows above the injected 0.02). The measured runaway therefore involves the A_phi equivariant background of the axisym vac4 representation, i.e. it is a statement about states with gradients (as the K_eff census implies), not about time-mixing bumps per se."
+ ],
+ "unchecked": [
+  "T2_rotation NOT re-integrated over T=400 (cost ~1h CPU); verified from their trajectory artifact instead (801 snapshots, a12 in [0.0194,0.0195], time-mixing exactly 0, |E dev| 2.2e-6 abs).",
+  "boost4b class not re-run separately; their data shows the pure (0,1) bump alone reproduces the divergence, which my reruns cover.",
+  "Non-J-commuting generators at finite phase (not axisym-representable; their caveat is correct); s=0 coefficient checked for all 6 generators.",
+  "T1 dt^2 shadow-oscillation scaling not re-run (their ratios 4.19/3.83 are in the dt^2 band); my dt sweep addresses the load-bearing divergence-time question instead.",
+  "Runaway on a NON-axisym (full-3D) representation of the vacuum: out of scheme scope."
+ ]
+}
