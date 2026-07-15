@@ -640,15 +640,16 @@ def render_elements(state):
 
 
 # ================================================================
-# MAIN LOOP (fragment z poprawkami)
+# MAIN LOOP
 # ================================================================
+
 
 def main():
     """Main entry point for xperiment launcher."""
     selected_xperiment_arg = sys.argv[1] if len(sys.argv) > 1 else None
 
     # Initialize Taichi
-    ti.init(arch=ti.cpu, log_level=ti.WARN)  # GPU preferred, suppress info logs
+    ti.init(arch=ti.gpu, log_level=ti.WARN)  # GPU preferred, suppress info logs
 
     # Initialize xperiment manager and state
     xperiment_mgr = XperimentManager()
@@ -664,7 +665,7 @@ def main():
     if not params:
         return
 
-    state.apply_xparameters(params) 
+    state.apply_xparameters(params)
     state.initialize_grid()
     initialize_xperiment(state)
 
@@ -680,36 +681,47 @@ def main():
 
     # Main rendering loop
     while render.window.running:
-        render.init_scene(state.SHOW_AXIS)
+        render.init_scene(state.SHOW_AXIS)  # Initialize scene with lighting and camera
 
+        # Handle ESC key for window close
         if render.window.is_pressed(ti.ui.ESCAPE):
             render.window.running = False
             break
 
+        # Display UI overlays
         new_xperiment = display_xperiment_launcher(xperiment_mgr, state)
         display_controls(state)
 
+        # Handle xperiment switching via process replacement
         if new_xperiment:
             print("\n================================================================")
             print("XPERIMENT LAUNCH")
             print(f"Now running: {new_xperiment}\n")
+
             sys.stdout.flush()
             sys.stderr.flush()
             render.window.running = False
+
+            # os.execv replaces current process (macOS may show harmless warning)
             os.execv(sys.executable, [sys.executable, __file__, new_xperiment])
 
         if not state.PAUSED:
+            # Run simulation step and update time
             compute_wave_oscillation(state)
             compute_force_motion(state)
-            state.elapsed_t_rs += state.dt_rs
+            state.elapsed_t_rs += state.dt_rs  # Accumulate simulation time (PDE dt)
             state.frame += 1
 
+        # Render scene elements
         render_elements(state)
+
+        # Display additional UI elements and scene
         display_wave_menu(state)
         display_data_dashboard(state)
         display_model_specs(state, model_bar_vertices)
         render.show_scene()
 
+        # Capture frame for video export (stops after VIDEO_FRAMES)
         if state.EXPORT_VIDEO:
             video.export_frame(state.frame, state.VIDEO_FRAMES)
 
@@ -718,6 +730,7 @@ def main():
     # ------------------------------------------------------------------
     if state.INSTRUMENTATION:
         instrument.generate_plots()
+
 
 # ================================================================
 # ENTRY POINT
