@@ -1,6 +1,8 @@
 # M5.20.6: the breathing-orbit BVP: the profile-dynamic clock on the loop
 
-**Status**: 🚧 PRE-DRAFTED STUB (2026-07-14, at the M5.20.5 close), written for the **CONFIRM branch** of [Q24](../m5_question_tracker.md#q24-detail) (Duda sanctions the time-periodic least-action BVP + the profile-dynamic/breathing orbit class). **If his answer differs (a constraint surface, a kinetic normalization, a rigid class we missed, or an electron redirect), this plan is RE-WRITTEN at PLAN before any go**: the folding table below routes each answer type. Opens on his reply + user "go".
+**Status**: ❌ ARCHIVED 2026-07-16 (the loop-side reserve). Duda's 2026-07-15 Q24 reply ([`m5_20_convo.md § 2026-07-15`](m5_20_convo.md)) DEFERRED the BVP question ("I think about it - can elaborate, but generally it seems quite difficult"; "numerically it doesn't seem practical (?)") and REDIRECTED to the electron hedgehog: the folding table's electron-redirect row fires exactly as pre-registered. **This stub archives unrun as the loop-side reserve**; the program continues at [M5.21.1](m5_21_1_task_details.md) (user decision 2026-07-16: electron-first). Reopen only if his promised Q24 elaboration lands AND the user routes back to the loop.
+
+> Original stub (2026-07-14, written for the CONFIRM branch of [Q24](../m5_question_tracker.md#q24-detail)), preserved below unmodified:
 
 **Lineage**: [M5.20.5](m5_20_5_task_details.md) (the rigid level measured OUT: the directional block = the loop's static force is 99.9997% time-row, a sector rigid conjugation cannot trade energy with; a breathing profile can) · [`../findings/m5_20_5_method_note.md`](../findings/m5_20_5_method_note.md) · [M5.20.4](m5_20_4_task_details.md) (the balance roots + the φ-average correction) · the M5.12 phase-D time-periodic action instrument (the container precedent) · canonical [§ 2 rows 4/4b](../m5_theory_canonical.md).
 
