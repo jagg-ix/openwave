@@ -223,3 +223,30 @@ Verbatim core:
 | Q24 (the one question) | BVP confirmation + the breathing/profile-dynamic clock; his two named alternatives (rigid class we missed / constraint surface) offered back |
 | Attachments | `m5_20_3_film_recipe.png` + `m5_20_5_a1_ladders.png` (committed in-repo; blob URLs resolve after Rodrigo's commit) |
 | Timing | user-gated; 14:00 EDT window 2026-07-15; backstage posture stands; **M5 PARKED on this message + his answer** |
+
+**SENT 2026-07-14 19:22 EDT** (Rodrigo sent same evening rather than waiting for the 14:00 window; reply landed his next morning: the evening slot works too).
+
+## 2026-07-15: Duda's reply: the Q24 deferral + THE ELECTRON REDIRECT (two messages, group-cc'd)
+
+**Context**: reply to the 2026-07-14 19:22 send, Wed 2026-07-15 04:25 (his ~10:25 morning), cc'd to models-of-particles + **Filip Blaschke** (soliton/BPS specialist, newly on-thread) with "difficult questions somebody might have hints for (e.g. for article coauthorship)"; opens "Thank you Rodrigo and Fable, looks very nice!". A second message same day 15:45 (to Paul, Marc, Chris, the list) added the PRX "Agentic Exploration of Physics Models" article + re-posed the negative-Hamiltonian handling question to the group.
+
+**Decode/routing**:
+
+| Item | Decode | Route |
+| --- | --- | --- |
+| **Q24: DEFERRED, not confirmed** | "Regarding least action approach, I think about it - can elaborate, but generally it seems quite difficult"; second message adds "numerically it doesn't seem practical (?)" | Q24 stays OPEN on his side (he owes the elaboration); no further ask spent; the breathing-BVP stub NOT runnable |
+| **THE REDIRECT: electron hedgehog** | "Maybe better, if stuck with neutrino as vortex loop, it is now worth to switch to investigate complementing perspective: of electron as hedgehog - which (in contrast to neutrino) has to be stable." Prescription: biaxial hedgehog ansatz (his Fig. 9, arXiv:2108.07896; already transcribed + conformance-checked at [M5.17 phase D](m5_17_task_details.md)); z-axis vortex regularized with TWO equal eigenvalues; center = all THREE spatial eigenvalues equal; 511 keV mass mainly in the center, vortex extremely light (pairing opposite spins / Cooper pairs); **minimize energy in 3D → static solution → extend to 4D where energy minimization should lead to angular momentum + gravitational mass**; perpendicular low-energy twists → Klein-Gordon-like (Fig. 9) | = the [M5.20.6](m5_20_6_task_details.md) folding table's electron-redirect row: M5.20.6 ARCHIVED as the loop-side reserve; **[M5.21.1](m5_21_1_task_details.md) becomes the live next task** with his prescription folded |
+| **Spec correction 1: `(-g)^p`** | "in your `C_p = g^p + 1 + delta^p` should be `(-g)^p`, but we should just be open if sign of g is positive or negative" | Machine-checkable, both signs: our current build IS the `ηM = diag(+g,1,δ,0)` branch (M5.18 `v4_density`/`c4_of`); the correction adds the `(−g)` branch as a co-equal candidate → M5.21.1 phase P0 (both-sign targets + statics regression) |
+| **Spec correction 2: physical scales** | "your delta is huge ~0.2, while should be delta~10^-10, and g ~ 10^10 (plus or minus). But numerically such large values are problematic (need practical approximations)" | Consistent with the paper's own anchors (`δ² ~ ħc`, `g⁴ ~ 1e38`, logged at M5.17 phase D). Toy regime stays sanctioned as the practical approximation, but every quantitative claim is regime-qualified until the (g, δ) scaling laws are charted → M5.21.1 scaling phase |
+| **His direct request: neutrino aging** | Radiating vortex loop → "neutrino aging" (distance-growing energy threshold), final flash at R→0; "DAMA/LIBRA data with annual oscillations seems fitting such 'final neutrino flash' hypothesis. Could you check if it fits various neutrino data?" | → NEW parked task **[M5.20.7](m5_20_7_task_details.md)** (phenomenology/literature, no GPU); user decision 2026-07-16: runs AFTER the M5.21 series |
+| Voids question | "are there experimental suggestions that voids require some active mechanism helping with their formation?" (Boötes; his EM-charged-particle energy-minimization suspicion) | Parked, no task; recorded here; revisit only on user call |
+| Blowup-prevention hint | (msg 2) "beside negative Hamiltonian terms, there are also positive activated together with field derivatives - what should prevent going to minus infinity" | A measurable balance claim: the M5.20.3 trajectories can be re-read for the positive-vs-negative term split along the dive → folded as an optional M5.21.1 diagnostic |
+| Channel state | Msg 2: PRX "Agentic Exploration of Physics Models" + "Already Fable nearly doesn't need human-in-the-loop... might be the last chance for humans to really participate"; coauthorship floated; Blaschke on-thread; he asks Paul/Andras/Giorgio how the electron interpretation handles the instabilities | He is publicly legitimizing the AI-assisted workflow on the same list as the 2026-07-08 episode; posture unchanged (backstage, voice separation); Paul-relayed content stays evidence-not-resolution |
+
+### Notes
+
+| Item | Content |
+| --- | --- |
+| Tracker | Q24 → 🔶 DEFERRED-BY-AUTHOR (detail updated); no new Qn opened (his corrections are directives to implement, his two data questions are tasks, not asks) |
+| User decision (2026-07-16) | **Electron-first: the M5.21 series is the program now.** M5.20.6 archived (loop-side reserve, not relevant while the loop hunt is parked); M5.20.7 (neutrino aging) created but parked AFTER the M5.21 series; all Duda 2026-07-15 content folded into the M5.21 plans; both film-strip templates (basic + thermal) on every M5.21-series run |
+| Next | [M5.21.1](m5_21_1_task_details.md) finalized at PLAN, awaiting user "go" |
