@@ -1,6 +1,8 @@
 # M5.21.1 method note: the electron hedgehog under the author's 2026-07-15 prescription (minimization-first)
 
-**Status**: ✅ RUN COMPLETE + AUDITED 2026-07-16 (all phases P0-P4 measured; independent adversarial audit § 11: 5/6 confirmed, 1 wording correction adopted; awaiting task REVIEW). Task record: [`../tasks/m5_21_1_task_details.md`](../tasks/m5_21_1_task_details.md) · prescription source: [`../tasks/m5_20_convo.md § 2026-07-15`](../tasks/m5_20_convo.md) · canonical registry: [`../m5_theory_canonical.md`](../m5_theory_canonical.md).
+**Status**: ✅ RUN COMPLETE + AUDITED 2026-07-16 (all phases P0-P4 measured; independent adversarial audit § 11: 5/6 confirmed, 1 wording correction adopted; review approved same day). Task record: [`../tasks/m5_21_1_task_details.md`](../tasks/m5_21_1_task_details.md) · prescription source: [`../tasks/m5_20_convo.md § 2026-07-15`](../tasks/m5_20_convo.md) · canonical registry: [`../m5_theory_canonical.md`](../m5_theory_canonical.md).
+
+**Companion (same day)**: the spec-conformance retrospective [`m5_21_1e_spec_review.md`](m5_21_1e_spec_review.md) audits THIS implementation against the papers (arXiv:2108.07896v7 term-by-term, the 1+1D time-crystal toy anchors reproduced to 3.4e-7, the SO(1,3)/ξ-trace conformance, the era archaeology confirming a genuine 4×4-in-3D stack since M5.8.1) and explains the § 5 stability negative mechanistically (amplitude escape vs frozen-potential Derrick expansion; the Faber virial window). Read the two together: this note is the run record, that one is the conformance + mechanism record.
 
 **What this run is**: the author's redirect executed as pre-registered: (P0) his `(-g)^p` spec correction gated on BOTH signs of g; (P1) 3D energy minimization of the Fig. 9 biaxial hedgehog measured against his three structural claims and his own stability bar; (P2) the 4D extension by minimization in the rotation-sector orbit class (boost sector quarantined), reading the emergent angular momentum and the mass split; (P3) the perpendicular-twist Klein-Gordon limit, spectrally; (P4) the (g, δ) scaling ladder toward his physical values. NO raw time integration anywhere (the M5.20.3 ill-posed-IVP lesson): dynamics enters as minimization, orbit classes, and spectra only.
 
@@ -42,6 +44,19 @@ omega_canonical^2(k) = D2E(v_k) / (2 * (1/2) INT w ||v_k||_F^2)
 D2E(v) = <v, Hess(E_static) v>   (complex-step Hessian-vector products)
 KG verdict: omega^2(k) = m^2 + c^2 k^2 fit (R^2)
 ```
+
+### 1b. Parameters + working point (everything a re-run needs)
+
+| Parameter | Value | Provenance |
+| --- | --- | --- |
+| Vacuum spectrum (ηM) | (sg, 1, δ, 0), s = ±1 both run; g = **G_T = 8.0**, δ = **0.3** (the toy working point; physical δ ~ 1e-10, g ~ 1e10 reached via the P4 scaling laws, § 8) | his 2026-07-15 note + [M5.16 lock](m5_16_report.md) |
+| Potential weight | wscale = **7.2402e-4** (the M5.12 pin, fixed across δ; exact value `load_wscale()` = 0.000724023879) | [m5_20 § 1](m5_20_method_note.md) |
+| Metric / commutator / norm | ξ = η = diag(−1,1,1,1); `[A,B]_η = AηB − BηA`; ‖X‖²_η = Tr(XηXᵀη): his Eq (40)-(42) as machine-verified at M5.18 | [m5_18_verification_note.md](m5_18_verification_note.md) |
+| O-matrix group | SO(1,3) (boosts included): M transforms as a rank-2 covariant tensor; invariance of the full static energy verified to **1.3e-11** under random boost+rotation, with the no-η negative control drifting O(1) (M5.18 checks 1/1b) | [m5_18_verification_note.md](m5_18_verification_note.md) |
+| Grids | axisym (ρ, z): **128×256** (P1 deep statics) and **64×128** (P2/P3/P4), h = 1, cell-centered ρ with mirror ghost; full-3D twin **48³** (P1 SB3 spot-check) | § 2 code map |
+| Seed | Fig. 9 biaxial hedgehog (his generator order Q = e^{φGz}e^{θGy}e^{ψGx}), spatial spectrum s(r)·(1, δ, 0), 3-equal core a = (1+δ)/3, core blend r_c = 4; M₀₀ = −sg | [m5_17 § 9 conformance](m5_17_methods_note.md) |
+| Descent | FIRE (dt0 0.02, dt_max 0.2, 1/w preconditioner, outer boundary pinned); P1 deep relax 48 000 iters with snapshots (0, 2k, 6k, 12k, 24k, 48k); P4 ladder dt0 = 0.02·min(1, 8/g) | § 2 code map |
+| Derivatives | complex-step gates on every gradient/HV (1e-15 class); FD cross-checks quoted per gate (§ 3) | § 3 |
 
 ## 2. Equation-to-code map (blob/main: frozen task files)
 

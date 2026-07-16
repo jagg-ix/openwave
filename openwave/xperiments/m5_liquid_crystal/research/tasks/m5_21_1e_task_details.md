@@ -63,3 +63,30 @@ Full auditable record (source extraction, conformance matrix, experiments, audit
 | Data | `m5_21_1e_constraint.json` · `m5_21_1e_toy.json` · `m5_21_1e_audit.json` · endpoint npz (w1000, iso) + run logs (all < 1 MB, none deleted) |
 | Plots / films | `m5_21_1e_constraint.png` · `m5_21_1e_toy.png` · `m5_21_1e_iso_film_basic/thermal.png` |
 | Checkpoint | [`../checkpoints/m5_21_1e_progress.md`](../checkpoints/m5_21_1e_progress.md) (fan-out synthesis + run log) |
+
+## TASK REVIEW (2026-07-16)
+
+**Task Duration:** 2:02 (from 13:36 to 15:38 EDT; includes the M5.21.1 close-out sweep at the front)
+**Usage Cap Triggered:** NO (ping parked unfired; two mid-run 529 server overloads resumed losslessly)
+
+**Results** (full tables in `## FINDINGS` above; the spec review is the auditable record):
+
+| Item | Verdict | Label |
+| --- | --- | --- |
+| 4×4-in-3D | confirmed since M5.8.1 (full-3D M5.8 era; exact axisym reduction + 3D spot-checks since M5.16; production full-3D); nothing current descends from the 1+1D toy | ✅ verified |
+| Spec conformance | kinetic conforms (ξ-commutator, M5.18-verified); the potential is an author-declared open choice (V4 = his email candidate; Eq 12 form, LdG, det-const hedge never implemented); paper branch = s = −1; production on the pre-4D spec | ✅ matrix (findings § 3) |
+| The M5.21.1 slide mechanism | amplitude-mode escape (94.6-99.97% of the force, audit-reproduced to 9 digits), the paper-anticipated channel; stiffness ladder arrests it monotonically (×1000 contained-through-window, virial 0.053 = not converged) | ✅ measured (audited) |
+| The hard-constraint limit | orbit-class statics fails by frozen-potential Derrick expansion (charge intact at r = 35-58, interior depleted; scaling law confirmed E_u ∝ 1/λ, V4 ∝ λ^3.05); audit catch adopted: iso endpoint stencil-null checkerboard | ✅ measured (audited, 1 catch) |
+| The synthesis | soft = dilution, hard = expansion; the stable window = the Faber virial balance u = 3V4 at finite size (the M5.16-measured class); missing piece = the balance, not a bare constraint | ✅ measured + 🔶 window existence open |
+| Toy regression | paper anchors reproduced to 3.4e-7/3.2e-6; in-family clock propelled; free problem has no continuum minimizer (ripple floor −81/19600 exactly) | ✅ measured (audited) |
+| Adversarial audit | 5 CONFIRMED / 3 QUALIFIED / 0 REFUTED; corrections adopted (§ 5a/5c/5d + § 8) | ✅ |
+
+**Issues / blockers**: audit agent interrupted twice by API 529 overloads (resumed); background-relaunched invocations dropped their mode argv (benign, deterministic; redundant run killed). No physics blockers.
+
+**Deviations from plan**: three (checkpoint deviations log): the small-core hatch hypothesis refuted by its own control; the argv-loss tooling quirk; the first phase_i film-call crash (API fixed, per-run merges added).
+
+**Action needed**: canonical + tracker + hunt + briefing sweeps (done at this close); successor candidates staged for the post-Duda replan (compact-stencil orbit descent · Eq-12 potential swap · virial-balanced statics search · his "3 leptons as minima among rotations" scan); outbound to the author prepared (user-gated, terminal-only).
+
+**Findings**: The stack has implemented the 4×4 tensor field in genuine 3D since M5.8.1; the real spec gap is the potential, which the author leaves open. The M5.21.1 stability negative is mechanistically explained and bracketed: soft potential = the paper-anticipated amplitude escape (containment arrives monotonically with stiffness), hard spectrum-pin = Derrick expansion of the frozen-potential remainder; the surviving stability window is a Faber-type virial balance at finite size, the class where M5.16 measured u = 3V4. The 1+1D toy shows the same family-vs-free-minimum structure at machine precision.
+
+**Research docs created / updated**: [`../findings/m5_21_1e_spec_review.md`](../findings/m5_21_1e_spec_review.md) (first), this task_details, scripts `m5_21_1e_{b_constraint,c_toy,audit_check}.py`, data `m5_21_1e_{constraint,toy,audit}.json` + npz, plots `m5_21_1e_{constraint,toy}.png` + iso films, the M5.21.1 close-out sweep docs (roadmap · canonical · tracker · particle hunt · briefing).
