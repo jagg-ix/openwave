@@ -1,6 +1,6 @@
 # M5.21.1: the electron hedgehog under the author's 2026-07-15 prescription (M5.21 phase 2)
 
-**Status**: 🚧 PLANNED (2026-07-16, from Duda's 2026-07-15 reply: [`m5_20_convo.md § 2026-07-15`](m5_20_convo.md)); awaiting user "go". This plan REPLACES the earlier M5.21.1 framing (free-EL true-L clock on the electron): his redirect prescribes **minimization-first** (3D statics → 4D extension by energy minimization), which sidesteps the ill-posed IVP measured at [M5.20.3](m5_20_3_task_details.md). The free-EL clock question survives inside phase P2 as the orbit-class read, not as raw time integration.
+**Status**: 🔶 EXECUTED 2026-07-16 (go 11:06 EDT); all phases P0-P4 measured, films both templates rendered, adversarial audit run; awaiting REVIEW. Findings below; full record: [`../findings/m5_21_1_method_note.md`](../findings/m5_21_1_method_note.md). This plan REPLACES the earlier M5.21.1 framing (free-EL true-L clock on the electron): his redirect prescribes **minimization-first** (3D statics → 4D extension by energy minimization), which sidesteps the ill-posed IVP measured at [M5.20.3](m5_20_3_task_details.md). The free-EL clock question survives inside phase P2 as the orbit-class read, not as raw time integration.
 
 **Lineage**: [M5.21](m5_21_task_details.md) (phase 1: snapshot instrument + the canonical-stack baseline: core rings ω ≈ 0.11-0.13, boost sector exactly 0.0, statics = a Q8 slide) · the M5.20 series kills that make minimization-first the honest route (M5.20.3 ill-posed IVP; M5.20.5 rigid-orbit level out) · [M5.17 phase D](m5_17_task_details.md) (the Fig. 9 ansatz transcription + conformance) · canonical [`../m5_theory_canonical.md`](../m5_theory_canonical.md) § 2 rows 4/4b.
 
@@ -76,3 +76,28 @@ Roadmap `Gated By`: **Duda's 2026-07-15 electron redirect (landed: this plan IS 
 ### Model + effort
 
 Fable 5 high for P0 (branch/vacuum re-enumeration) and P2 (the 4D minimization design); default for the mechanical gates + sweeps; independent agent for the audit (cardinal rule).
+
+## FINDINGS (2026-07-16)
+
+Full auditable record (equations first, equation-to-code map, gates, films embedded): [`../findings/m5_21_1_method_note.md`](../findings/m5_21_1_method_note.md). One-line per phase:
+
+| Phase | Headline | Status |
+| --- | --- | --- |
+| P0 the `(-g)^p` correction | Pinning exact + 4 disjoint vacuum branches per sign; **the pre-registered mirror-equivalence claim was REFUTED by its own gate**: odd-p cross terms make the sign a genuine statics-level knob (~1% in E, same-state gap +0.1296; s = +1 LOWER); anchors (q, r_half, core) sign-robust ≤ 2e-3; boost-texture sign sensitivity onsets at quartic order | ✅ measured |
+| P1 deep 3D statics | **NO convergence at toy (g, δ): the Q8 slide survives his regularization language as a SPREADING dilution** (E 21.5 → 8.57 over 48k iters, dE tail −5e-5/it, center pinned; r50/r90 8/32 → 15/51, core-ball frac 0.52 → 0.20, core spread 0.03 → 0.44, q → 0.92). His stability bar fires at toy parameters. C1 vortex 2-equalness fails at toy but the P4 law makes it exact in his physical limit; C3 light-vortex holds directionally (line energy falls to 1.8e-3/len) | ✅ measured |
+| P1 stability probes | The endpoint is a **SADDLE of the full 4x4 energy: every probed block-diagonal direction positive (+3.5e5), every time-mixing direction NEGATIVE (−0.4)**: the M5.18 indefiniteness lands at second order on the defect background. 3D spot-check: the slide continues in full 3D axisymmetrically (a_break flat), not an axisym artifact | ✅ measured |
+| P2 4D by minimization | **No localized rotating equilibrium in the rigid rotation class**: Ω = 0.05 stalls at rel residual 0.86 (a2x: cos ≤ +0.44, best-any-ω residual ≥ 0.90); Ω ≥ 0.1349 = catastrophic centrifugal instability, ~10 orders down into a deep FINITE well of grid-scale artifact states (audit-corrected: NOT unbounded; V4 ~ amp^8 closes the landscape), both signs. Boost Q2 crossings at χ ≈ 0.02-0.05 (an order closer than the loop): the quarantine is load-bearing. His "minimization → J" does NOT land through rigid orbits; the deferred Q24 least-action structure is the missing piece | ✅ measured |
+| P3 KG twist limit | **NOT KG-like at toy regime: a roton-like dispersion minimum at k ≈ 0.1 on BOTH grids** (R² of m² + c²k²: 0.69/0.17); canonical-metric gap ω ≈ 0.10 lands in the M5.21 ring band; caveat: sliding background (no converged toy background exists) | ✅ measured |
+| P4 (g, δ) ladder | Two extrapolating laws: **axis split ∝ δ^1.03 (R² 0.9998)** (his 2-equal regularization = exact in the physical limit, O(δ) in the toy regime) and **stiff mode ∝ g^2.99 (R² 0.999998)** (direct sims at g ~ 1e10 impossible: his "need practical approximations" confirmed as the scaling-law obligation). Core pins exactly by g = 32; confinement saturates at 8/27; twist gap is a soft-sector scale | ✅ measured |
+
+**The consolidated message back to the author (for the next outbound round, user-gated)**: his prescription ran end-to-end; the structure claims land asymptotically (2-equal vortex exact as δ → 0; 3-equal core pinned as g → ∞) but the toy-regime object is not a statics minimum (spreading slide) and is a saddle against time-mixing; rigid-rotation minimization cannot produce J (runaway measured); the twist sector carries his clock (gap in the ring band) but with a roton-like dip, not clean KG. Everything sharpens his deferred Q24 least-action elaboration as the missing structure.
+
+### Artifacts
+
+| Type | Files |
+| --- | --- |
+| Scripts | [`m5_21_1_a_spec.py`](../scripts/m5_21_1_a_spec.py) · [`m5_21_1_b_statics.py`](../scripts/m5_21_1_b_statics.py) · [`m5_21_1_c_4d.py`](../scripts/m5_21_1_c_4d.py) · [`m5_21_1_d_scaling.py`](../scripts/m5_21_1_d_scaling.py) · [`m5_21_1_audit_check.py`](../scripts/m5_21_1_audit_check.py) (the independent audit) |
+| Data | `m5_21_1_a_spec.json` · `m5_21_1_b_statics.json` · `m5_21_1_c_4d.json` · `m5_21_1_d_scaling.json` · `m5_21_1_audit.json` + state npz files (all < 1 MB, none deleted) |
+| Plots / films | both templates per the film standard: `m5_21_1_b_film_basic/thermal.png` (P1), `m5_21_1_c_film_basic/thermal.png` (P2 runaway = direct evidence), `m5_21_1_d_film_basic/thermal.png` (P4); `m5_21_1_a_spec.png` · `m5_21_1_b_profiles.png` · `m5_21_1_c_a2x.png` · `m5_21_1_c_kg.png` · `m5_21_1_d_scaling.png` |
+| Findings | [`../findings/m5_21_1_method_note.md`](../findings/m5_21_1_method_note.md) (equations first + code map + audit § 11) |
+| Checkpoint | [`../checkpoints/m5_21_1_progress.md`](../checkpoints/m5_21_1_progress.md) (run log + deviations) |
