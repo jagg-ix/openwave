@@ -86,6 +86,7 @@ complete.
 | Strong / weak | ⚠️ short-range running-coupling onset ✅; Cornell confinement + SU(2) chiral open |
 | Quarks · baryons · mesons · nuclei | 🚧 planned (15a composite-particles stage); nuclei are the most practical direction |
 | Orbital quantization | 🚧 a different level: the coupled pilot wave set up by the electron clock |
+| Verified-L minimization chain (2026-07-16) | ⚠️ the author's minimization-first electron chain ran end-to-end: his structure claims land asymptotically (axis split ∝ δ^1.03, core pinned by g = 32) but toy-parameter statics does not converge, the endpoint is a saddle against time-mixing, and rigid-rotation minimization cannot supply J; the dynamical (least-action) formulation is the open question |
 
 Deep dives: [`research/m5_theory_canonical.md`](research/m5_theory_canonical.md) (**the
 canonical working-recipe registry**: verified equations, locked parameters, recipes of
