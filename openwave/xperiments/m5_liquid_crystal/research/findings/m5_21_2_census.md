@@ -156,7 +156,19 @@ The schematic (illustration, not data; script [`../scripts/m5_21_2_b_topo_illust
 
 ![topology catalog: loop vs hedgehog vs charged ring](../plots/m5_21_2_topo_catalog.png)
 
+### 5d. The vortex-split measurement (his 2026-07-17 11:05 question, answered same day)
+
+His question: does the biaxial hedgehog's degree-1 topological vortex (in cross-section) split into two ½-vortices, and "how many, of what degree, in what angles"? Instrument: plaquette winding of the transverse (mid) eigenframe angle mod π on xy cross-section planes, with per-core gap-cleanliness flags (the churned-state winding anti-recipe respected); script [`../scripts/m5_21_2_d_vortex_split.py`](../scripts/m5_21_2_d_vortex_split.py), data [`../data/m5_21_2_split.json`](../data/m5_21_2_split.json), run on the regenerated fwd seed-A endpoint (regen verified bit-identical to the row of record: E 0.6254, u/3V 2.467, retention 0.981).
+
+**YES, the split is measured**: the seed carries ONE co-located degree-1 core at the axis (winding 2 half-units in one package); the relaxed endpoint carries **TWO clean ½-cores of the SAME sign** (1 half-unit each, summing to the seeded degree 1) at every sampled plane away from the melted center (z offsets 8, 12, 16): two parallel half-lines at ρ ≈ 1 voxel from the axis, azimuthal positions 180° and −90° (≈ 90° apart, ~1.4 voxels separation), consistent along z. Near the melted center (z offset 4) the winding field is a churned multi-core region whose NET winding still sums to the seeded degree. Honest limits: the separation is cell-scale at 8k iterations on a non-grid-converged instrument: the split EXISTS; its equilibrium separation and geometry await the [M5.21.2b](../tasks/m5_21_2b_task_details.md) converged instrument. This matches the standard biaxial-nematic instability (integer disclinations unstable to ½-pairs: Alexander et al. RMP 84, 497 (2012) § V, the non-abelian π₁ = Q₈ phase; the corpus also holds the 2017 biaxial-defect-structure paper), and his energy intuition ("1 → ½ + ½ should reduce energy") is what the clean-instrument descent did.
+
+![the vortex-split measurement: seed vs relaxed endpoint](../plots/m5_21_2_split.png)
+
 ## 6. Films (field-state prints: seed + evolution + endpoint per run)
+
+The TRUE-template compliance fix (the review catch) landed same day: [`../scripts/m5_21_2_e_film_adapter.py`](../scripts/m5_21_2_e_film_adapter.py) renders 3D states on the actual `m5_film.py` templates (y = 0 half-plane, 3×3 embedded with a display-constant time row, the TRUE 3D density through the `density_fn` hook). First compliant strip:
+
+![A fwd on the true basic template](../plots/m5_21_2_film_basic_A_pinned_fwd_template.png)
 
 Basic (eigenvalue maps + leading-eigenvector radial alignment) and thermal (log u / log V densities) strips per run, y = 0 meridional slice, adapted from the 4×4 templates to the 3×3 stack. The full set sits in [`../plots/`](../plots/) as `m5_21_2_film_{basic,thermal}_<run>.png`. The two decisive ones:
 

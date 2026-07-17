@@ -40,15 +40,18 @@ this round    M5.21.1e results round), answered 2026-07-17 03:57
               Prior round (Q24 deferral + the electron redirect,
               2026-07-15): tasks/m5_20_convo.md.
 
-11 OPEN       Q26 (the virial-balance target: unanswered in the
+12 OPEN       Q29 (NEW 2026-07-17: the charged ring as an electron
+              candidate, OUTBOUND in the checkpoint round), Q26
+              (the virial-balance target: unanswered in the
               2026-07-17 round; held, no re-ask spent), Q25
               residual (the potential form: author-open, the
-              comparison arm is ours; any det-constraint variant
-              needs the spectrum shifted off zero), Q24 (DEFERRED
-              BY AUTHOR: he owes the least-action / 4D-signature
-              elaboration, reaffirmed 2026-07-17; the 3D program is
-              NOT gated on it), Q22 (delta VALUE only),
-              Q20 partial (verdict-insensitive), Q17 (HELD);
+              comparison arm is ours = M5.21.2b, and M5.21.2 raised
+              the stakes to WELL-POSEDNESS; any det-constraint
+              variant needs the spectrum shifted off zero), Q24
+              (DEFERRED BY AUTHOR: he owes the least-action /
+              4D-signature elaboration, reaffirmed 2026-07-17; the
+              3D program is NOT gated on it), Q22 (delta VALUE
+              only), Q20 partial (verdict-insensitive), Q17 (HELD);
               self-determined / background: Q11, Q4, Q10, Q9, Q12.
               Group context (not a Qn): the loop = electron vs
               neutrino debate (Marc/Andras/Giorgio); the internal
@@ -65,6 +68,7 @@ this round    M5.21.1e results round), answered 2026-07-17 03:57
 
 | ID | Title | Question (one line) | Gates |
 | --- | --- | --- | --- |
+| [Q29](#q29-detail) 🚧 | The charged ring as an electron candidate | The THIRD defect type ([M5.21.2 § 9](tasks/m5_21_2_task_details.md)): the charged disclination ring (Alexander, Chen, Matsumoto & Kamien, RMP 84, 497 (2012) § IV.B: loops carry ODD hedgehog charge: the far sphere reads q = 1 indistinguishably from the point hedgehog). Has he considered it as the electron's core? Our first measurement: an instrument-limited TIE with the point hedgehog (−3.7% fwd / +23% 2h re-read). If plausible to him, the converged census treats it co-equal | the M5.21.2b census scope (point vs ring at conviction) |
 | [Q25](#q25-detail) 🔶 | The electron potential form | Which potential is intended for the electron statics: the Eq 12 eigenvalue penalty, the trace-target `Σ_p (Tr((Mξ)^p) − c_p)²` (which p range?), LdG, or one of these + the `det(M) = const` constraint (hard or penalty)? The paper calls this "a difficult open question requiring simulations" (FRAME p. 7/12) and [M5.21.1e](tasks/m5_21_1e_task_details.md) now discriminates: the amplitude escape closes monotonically with stiffness, the hard pin overshoots. **PARTIAL ANSWER 2026-07-17**: the det-constraint is problematized by the author himself (det = 0 on the spectrum (g,1,δ,0): it would only pin the last eigenvalue; "might require shifting the eigenspectrum from zero"; det(M) and det(M·η) both briefly checked Lorentz-invariant, evidence-not-resolution); the form itself REMAINS OPEN ("the details of potential remain open question", possibly effective from a deeper model) → the comparison arm is ours to run, self-determined | the next-run selection (potential-form comparison arm) |
 | [Q26](#q26-detail) 🚧 | The virial-balance target | Is the intended stable electron the virial-balanced state (u_curv = 3·V, the Faber Eq 48 analog; M5.16 measured that balance to 0.3-0.6% in the constrained class)? Should we search for it DIRECTLY (fixed-size / constrained-class minimization) rather than by free descent? **UNANSWERED in the 2026-07-17 reply** (the 3D-first directive supersedes); HELD, no re-ask spent; re-pose only if load-bearing after the 3D scan. Note: Faber himself is now cc'd on the thread | the virial-balance search task |
 | [Q27](#q27-detail) ✅ | The physical sign of g | In `(−g)^p`: which branch is physical (the paper reading = our s = −1, M_vac = diag(+g,1,δ,0)), or is the lower-energy branch (measured: s = +1, ~1% lower via odd-p core cross terms) selected by the theory? **ANSWERED-AS-OPEN 2026-07-17**: "I am not certain if g should be positive or negative" → the theory does not select; the branch-qualification policy ([M5.21.1 P0](tasks/m5_21_1_task_details.md)) is permanent; both signs co-equal (and moot in 3D, where g is absent) | regime-qualification of every quantitative claim |
@@ -498,3 +502,7 @@ Imported from `m6_ouroboros/research/archive/0b_model_gates.md` § "What M6 offe
 **The 3-lepton rotation scan.** Opened 2026-07-16 from his same-day message ("for electron, maybe 3 leptons as minima among rotations", re-confirming hedgehog + cylindrical symmetry): the FRAME p. 15 hypothesis (3 leptons "should form 3 local minima in the space of possible rotations of hedgehog ansatz, probably stabilized by the enforced topological vortices") made runnable. Proposed construction: the three axis-choice hedgehogs (which spatial eigenvalue points radially) + the continuous rotation family between them, scanned on the stiffened statics (and, pending Q25/Q26, on the sanctioned potential / virial-balanced instrument), reading whether three local minima appear with distinct energies (the lepton-hierarchy signature). The ask: confirm the construction + the target (g, δ) regime. OUTBOUND in the 2026-07-16 round; becomes the next-run task on his confirmation.
 
 **CONFIRMED + SHARPENED 2026-07-17** ([`tasks/m5_21_convo.md § 2026-07-17`](tasks/m5_21_convo.md)): the construction is 3D-FIRST (genuine 3×3 where the hedgehog is topologically protected; no time row, no g) with the three axis-permutation SEEDS, not primarily a continuous-rotation scan: minimize from diag(1, δ, 0) (the electron), then from the rotated (δ, 0, 1) and (0, 1, δ), "searching for local minima (e.g. just gradient descent, global should be electron), hopefully getting candidates for 3 leptons". His one flagged numerical risk: small box + δ = 0.3 can destroy the topological constraints via the boundary (reduce δ if it happens; his suggested value truncated in the email). Physical scales stay the later target (δ ~ 1e-10, g ~ 1e10, 4D); the 4D sequel uses the 3 minima as descent seeds ("hopefully getting field rotation for angular momentum, and tiny boosts"). RESOLVED into [M5.21.2](tasks/m5_21_2_task_details.md) (staged at the top of the Backlog, awaiting go; the series renumbered to run order same day: M5.21.2 3D scan · M5.21.3 4D sequel · M5.21.4 2-particle · M5.21.5 μ + g-factor).
+
+### Q29 detail
+
+**The charged ring as an electron candidate.** Opened 2026-07-17 at the M5.21.2 close (user directive at the checkpoint round). The third defect type in the catalog (vortex loop = chargeless/neutrino-side; hedgehog = point-cored q = 1; charged ring = a closed half-disclination cord in the SAME q = 1 winding sector, interior escaped: the far sphere, hence charge/Coulomb, cannot tell ring from point). Source: Alexander, Chen, Matsumoto & Kamien, Rev. Mod. Phys. 84, 497 (2012) ([arXiv:1107.1169](https://arxiv.org/abs/1107.1169)): § IV.B (loops classified by even/odd hedgehog charge on the sheathing torus), § V (biaxial π₂ = {1}: no absolutely-protected point defects in the biaxial phase); primary lineage Jänich 1987, Nakanishi/Hayashi/Mori 1988, Terentjev 1995 (Saturn ring). Our evidence: [M5.21.2](tasks/m5_21_2_task_details.md) measured the ring at an instrument-limited TIE with the point hedgehog (E lower by 3.7% on the fwd instrument, higher by 23% on the 2h re-read; more compact, r_half 6.7 vs 9.0, retention 0.975; [`findings/m5_21_2_census.md § 5c/§ 9`](findings/m5_21_2_census.md)); also consistent with the M5.16 Q8 off-origin melt and the particle-hunt synthesis nuance (point and ring = two core regimes of one charged object). The ask: has he already looked at the charged-ring type, and is it a viable electron-core candidate alongside the hedgehog? OUTBOUND in the 2026-07-17 checkpoint round; [M5.21.2b](tasks/m5_21_2b_task_details.md) I3 measures the converged verdict either way.
