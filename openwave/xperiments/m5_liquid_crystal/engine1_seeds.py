@@ -215,6 +215,93 @@ def seed_biaxial_hedgehog_M(
 
 
 @ti.kernel
+def seed_charged_ring_M(
+    tensor_field: ti.template(),  # type: ignore
+    cx: ti.i32,  # type: ignore
+    cy: ti.i32,  # type: ignore
+    cz: ti.i32,  # type: ignore
+    a_vox: ti.f32,  # type: ignore
+    cord_vox: ti.f32,  # type: ignore
+    rhoc_vox: ti.f32,  # type: ignore
+    delta: ti.f32,  # type: ignore
+):
+    """Seed the CHARGED DISCLINATION RING — the hedgehog's same-charge partner
+    (M5.21.2, third defect type; Alexander, Chen, Matsumoto & Kamien,
+    Rev. Mod. Phys. 84, 497 (2012) § IV.B: disclination loops carry odd
+    hedgehog charge — the far sphere reads q = 1 exactly like the point
+    hedgehog, but the core is a half-disclination cord of radius a in the
+    z = 0 plane and the interior is smoothly ESCAPED along +z).
+
+    Meridional director angle (single-valued in the tensor through the
+    half winding; branch cuts rotated so the DIRECTOR seam lies on the
+    minimal spanning disk, see below):
+        ψ(ρ, z) = ½·[atan2(−z, ρ − a) + atan2(−z, ρ + a)] + π/2
+        n̂ = sin ψ · ρ̂ + cos ψ · ẑ     (→ r̂ far away = the hedgehog far
+                                        field; → ±ẑ inside the ring)
+
+    ⚠️ DIRECTOR SEAM (representation, not physics): a half-integer
+    disclination ring is NON-ORIENTABLE around the cord, so any vector
+    director field must flip sign across SOME surface bounded by the
+    ring (the Dirac sheet). The atan2 cuts above place that seam on the
+    MINIMAL SPANNING DISK inside the ring (ρ < a, z = 0): the whole
+    exterior (far field, below-plane region) is seam-free. The tensor
+    M is continuous everywhere; only director-DERIVED diagnostics (EM
+    div/curl in engine3, div-colored glyphs) show the internal disk.
+    (First cut of this kernel used atan2(ρ−a, z), whose seam is a
+    half-infinite cylinder at ρ = a, z < 0 — the 2026-07-17 GGUI
+    below-plane artifact. Fixed same day.)
+    Frame (production biaxial convention, δ on e_Θ, 0 on the azimuth —
+    NOTE the M5.21.2 sandbox census used the rotated family, δ on the
+    azimuth; both are seeds of the same winding sector):
+        e_Φ = azimuth (melted over ρ_c near the z-axis, ⟂ n̂),
+        e_Θ = e_Φ × n̂,  D = (1, δ, 0) on (n̂, e_Θ, e_Φ).
+    Eigenvalue melt: isotropic at the ring CORD (distance
+    d = √((ρ−a)² + z²), smoothstep over cord_vox) — the cord is the only
+    singular locus; the origin/axis are regular (escaped interior).
+
+    Static viewing seed: spatial 3×3 embedded block-diag with g (embed4),
+    boost-decoupled, no clock tangent. Triple-buffer BC rule.
+    """
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    d_iso = (1.0 + delta) / 3.0
+    eps = ti.cast(1e-6, ti.f32)
+    for i, j, k in ti.ndrange(nx, ny, nz):
+        px = ti.cast(i - cx, ti.f32)
+        py = ti.cast(j - cy, ti.f32)
+        pz = ti.cast(k - cz, ti.f32)
+        rho = ti.sqrt(px * px + py * py)
+        ainv = 1.0 / ti.sqrt(rho * rho + eps)
+        rhohat = ti.Vector([px * ainv, py * ainv, 0.0])
+        # seam-on-disk branch choice (see docstring): cuts at z=0, rho<a
+        psi = (0.5 * (ti.atan2(-pz, rho - a_vox) + ti.atan2(-pz, rho + a_vox))
+               + 1.5707963267948966)
+        sp = ti.sin(psi)
+        cp = ti.cos(psi)
+        nvec = ti.Vector([sp * rhohat[0], sp * rhohat[1], cp])
+        azim = ti.Vector([-py * ainv, px * ainv, 0.0])
+        sdisc = ti.min(rho / rhoc_vox, 1.0)
+        shrink = sdisc * sdisc * (3.0 - 2.0 * sdisc)      # axis melt (house style)
+        ephi = azim * shrink
+        ephi = ephi - ephi.dot(nvec) * nvec               # ⟂ n̂ (no renorm → melts)
+        etheta = ephi.cross(nvec)
+        dc = ti.sqrt((rho - a_vox) * (rho - a_vox) + pz * pz)
+        sc = ti.min(dc / cord_vox, 1.0)
+        smelt = sc * sc * (3.0 - 2.0 * sc)                # cord melt smoothstep
+        d0 = d_iso + smelt * (1.0 - d_iso)
+        d1 = d_iso + smelt * (delta - d_iso)
+        d2 = d_iso + smelt * (0.0 - d_iso)
+        m_sp = (d0 * nvec.outer_product(nvec)
+                + d1 * etheta.outer_product(etheta)
+                + d2 * ephi.outer_product(ephi))
+        m = embed4(m_sp, tensor_field.lc_g)
+        tensor_field.M_am[i, j, k] = m
+        tensor_field.M_prev_am[i, j, k] = m
+        tensor_field.M_new_am[i, j, k] = m
+        tensor_field.director_nhat[i, j, k] = nvec
+        tensor_field.director_nhat_new[i, j, k] = nvec
+
+
+@ti.kernel
 def seed_dressed_hedgehog_M(
     tensor_field: ti.template(),  # type: ignore
     cx: ti.i32,  # type: ignore

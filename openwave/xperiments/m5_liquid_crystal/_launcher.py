@@ -701,6 +701,30 @@ def initialize_xperiment(state):
                 f"({cx},{cy},{cz}); r0={r0_vox:.1f}, ρc={rhoc_vox:.1f} voxels (no relax)"
             )
 
+        elif seed_mode == "charged_ring":
+            # M5.21.2: the CHARGED DISCLINATION RING — the hedgehog's same-charge
+            # partner (Alexander et al., RMP 84, 497 (2012) § IV.B: loops carry odd
+            # hedgehog charge). Half-disclination cord of radius a in z = 0, escaped
+            # interior, hedgehog far field. STATIC VIEWING seed (no 4D activation,
+            # no relax — constructed directly like the biaxial mode).
+            wf = state.tensor_field
+            center = topo.get("CENTER", [0.5, 0.5, 0.5])
+            cx = int(round(center[0] * (wf.nx - 1)))
+            cy = int(round(center[1] * (wf.ny - 1)))
+            cz = int(round(center[2] * (wf.nz - 1)))
+            a_vox = float(topo.get("A_FRACTION", 0.10) * max(wf.nx, wf.ny, wf.nz))
+            cord_vox = float(topo.get("CORD_VOXELS", 3.0))
+            rhoc_vox = float(topo.get("RHOC_VOXELS", 3.0))
+            biaxial_delta = float(topo.get("BIAXIAL_DELTA", 0.3))
+            seeds.seed_charged_ring_M(
+                wf, cx, cy, cz, a_vox, cord_vox, rhoc_vox, biaxial_delta
+            )
+            print(
+                f"[M5.21.2] seeded charged ring a={a_vox:.1f} voxels at ({cx},{cy},{cz}); "
+                f"cord melt={cord_vox:.1f}, axis ρc={rhoc_vox:.1f}, δ={biaxial_delta} "
+                f"(static view, no relax)"
+            )
+
         elif seed_mode == "dressed_hedgehog":
             # M5.8.2c — the BOOST-DRESSED biaxial hedgehog (the 2b-1 ground state):
             # biaxial frame + melt, dressed with exp(b*·w(r)·B₁) mixing e_Θ with the
