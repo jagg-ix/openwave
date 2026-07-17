@@ -5,9 +5,9 @@
 > manifest is the tracked record; obtain the papers from their original venues / authors.
 > Our own research notes (`.md`) and code remain tracked.
 
-Total: 57 local-only documents (as of 2026-07-12). The Golubich/Faber SU(2)-soliton sources shared by Dr. R. Golubich 2026-07-02 (see [`../research/tasks/m5_4g_convo_2026.07.02.md`](../research/tasks/m5_4g_convo_2026.07.02.md)) are the `golubich_faber_su2/*.tex` files; the same dipole paper is also present as a PDF (`DR14235.pdf`), so the Faber & Golubich 2026 work maps to two local files (one Bibliography entry, two Local corpus rows).
+Total: 58 local-only documents (as of 2026-07-17). The Golubich/Faber SU(2)-soliton sources shared by Dr. R. Golubich 2026-07-02 (see [`../research/tasks/m5_4g_convo_2026.07.02.md`](../research/tasks/m5_4g_convo_2026.07.02.md)) are the `golubich_faber_su2/*.tex` files; the same dipole paper is also present as a PDF (`DR14235.pdf`), so the Faber & Golubich 2026 work maps to two local files (one Bibliography entry, two Local corpus rows).
 
-Entries are ordered by year (ascending; undated last); the Bibliography is the readable list, and the "Local corpus" appendix preserves the gitignored-file inventory (path + size). The Bibliography has 56 works; the Local corpus has 57 files.
+Entries are ordered by year (ascending; undated last); the Bibliography is the readable list, and the "Local corpus" appendix preserves the gitignored-file inventory (path + size). The Bibliography has 57 works; the Local corpus has 58 files.
 
 ## Bibliography
 
@@ -33,6 +33,7 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Fort et al. | 2010 | Path-memory induced quantization of classical orbits | PNAS; [DOI 10.1073/pnas.1007386107](https://doi.org/10.1073/pnas.1007386107) |
 | Pucci et al. | 2011 | Mutual adaptation of a Faraday instability pattern with its flexible boundaries in floating fluid drops | Phys. Rev. Lett.; [DOI 10.1103/PhysRevLett.106.024503](https://doi.org/10.1103/PhysRevLett.106.024503) |
 | n/a | 2012 | Anisotropy in the annihilation dynamics of umbilic defects in nematic liquid crystals | Soft Matter (?); n/a |
+| Alexander, Chen, Matsumoto & Kamien | 2012 | Colloquium: Disclination loops, point defects, and all that in nematic liquid crystals | Rev. Mod. Phys. 84, 497; [DOI 10.1103/RevModPhys.84.497](https://doi.org/10.1103/RevModPhys.84.497); [arXiv:1107.1169](https://arxiv.org/abs/1107.1169); added 2026-07-17 at M5.21.2: THE SOURCE for the third defect type (the charged disclination ring: § IV.B torus classification, loops carry even/odd hedgehog charge; § V biaxial π₂ = {1}); see [`../research/findings/m5_21_2_census.md`](../research/findings/m5_21_2_census.md) |
 | n/a | 2013 | Imaging liquid crystal defects | n/a |
 | n/a | 2013 | Interparticle force between different types of nematic colloids | Soft Matter (?); n/a |
 | n/a | 2014 | Measurement of interparticle force between nematic colloids | n/a |
@@ -94,6 +95,7 @@ Entries are ordered by year (ascending; undated last); the Bibliography is the r
 | Fort et al. (2010) | `path-memory-induced-quantization-of-classical-orbits.pdf` | 3.2 MB |
 | Pucci et al. (2011) | `pilot_wave/PhysRevLett.106.024503.pdf` | 553 KB |
 | n/a (2012) | `liquid_crystal_defects/2012 Anisotropy in the annihilation dynamics of umbilic defects in nematic liquid crystals.pdf` | 1.1 MB |
+| Alexander et al. (2012) | `liquid_crystal_defects/2012 Disclination loops, point defects, and all that in nematic liquid crystals.pdf` | 1.0 MB |
 | n/a (2013) | `liquid_crystal_defects/2013 Imaging liquid crystal defects.pdf` | 2.3 MB |
 | n/a (2013) | `liquid_crystal_defects/2013 Interparticle force between different types of nematic colloids.pdf` | 759 KB |
 | n/a (2014) | `liquid_crystal_defects/2014 Measurement of interparticle force between nematic colloids.pdf` | 415 KB |

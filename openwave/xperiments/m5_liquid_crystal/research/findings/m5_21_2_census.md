@@ -1,6 +1,6 @@
 # M5.21.2: the 3D 3-lepton axis-permutation scan (census record)
 
-**Status**: 🚧 IN PROGRESS 2026-07-17 (P0 gates ✅, P1 ladder ✅, P2 census running). Task: [`../tasks/m5_21_2_task_details.md`](../tasks/m5_21_2_task_details.md). Prescription: Duda 2026-07-17 ([`../tasks/m5_21_convo.md § 2026-07-17`](../tasks/m5_21_convo.md)): "first focus on 3D case, where the hedgehog is topologically protected"; minimize from the biaxial hedgehog diag(1, δ, 0) and the rotated (δ, 0, 1) / (0, 1, δ), "searching for local minima (e.g. just gradient descent, global should be electron), hopefully getting candidates for 3 leptons". Method-note standard ([`../../../../../dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)): equations first, every term mapped to code, gates next to results.
+**Status**: ✅ RUN COMPLETE + AUDITED 2026-07-17 (P0 gates ✅, P1 ladder ✅, P2 census 2h DEMOTED + fwd census of record ✅, P3 ring arm ✅, audit 8/8 CONFIRMED § 8). Task: [`../tasks/m5_21_2_task_details.md`](../tasks/m5_21_2_task_details.md). Prescription: Duda 2026-07-17 ([`../tasks/m5_21_convo.md § 2026-07-17`](../tasks/m5_21_convo.md)): "first focus on 3D case, where the hedgehog is topologically protected"; minimize from the biaxial hedgehog diag(1, δ, 0) and the rotated (δ, 0, 1) / (0, 1, δ), "searching for local minima (e.g. just gradient descent, global should be electron), hopefully getting candidates for 3 leptons". Method-note standard ([`../../../../../dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md)): equations first, every term mapped to code, gates next to results.
 
 ## 1. The 3D functional (equations first)
 
@@ -99,7 +99,9 @@ Seed A, 800-iteration probes, N ∈ {32, 48, 64} × δ ∈ {0.3, 0.1, 0.03} × B
 
 ## 5. P2 + P3: the census (3 axis-permutation seeds + the charged ring)
 
-**The deep-run table (24k iterations, N = 48, δ = 0.3; all `max_iter` stops, still relaxing slowly: these are characterized endpoints, NOT converged minima):**
+### 5a. The first (2h-stencil) deep census: DEMOTED to instrument artifact
+
+**The deep-run table (24k iterations, N = 48, δ = 0.3, the 2h central-difference stencil; all `max_iter` stops). ⚠️ DEMOTED (same day, § 5b): these endpoints are dominated by the stencil's odd-even null mode; the E values and the A < C < B ordering are properties of the artifact states, not of the continuum functional. Kept for the record:**
 
 | Run | E_end | E_u | E_V | u/3V | r_half | retention (8-16) | Verdict |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -109,22 +111,66 @@ Seed A, 800-iteration probes, N ∈ {32, 48, 64} × δ ∈ {0.3, 0.1, 0.03} × B
 | A free | 0.024 | 0.004 | 0.020 | 0.07 | 12.8 | 0.62 | DRAINED: the 800-iter survival was transient; by 24k the winding left through the free boundary |
 | R ring / A ×100 stiffness | 🚧 running | | | | | | |
 
-**Two headline reads:**
+What survives from this table: the free-boundary DRAIN (E → 0 in every stencil reading: the winding left the box; his small-box warning realized on deep time even at N = 48) and the far-field topology reads (the smooth region: A-pinned alignment 0.99+, vacuum spectrum at r > 25). What does NOT survive: the interior structure, the E values, the ordering, and the u/3V reads.
 
-1. **The 3-level ordering exists, with the electron lowest**: E_A < E_C < E_B (3.72 < 5.60 < 17.37), three distinct energy levels from the three rotation seeds: the qualitative FRAME p. 15 lepton signature, measured (with the honest caveat that these are non-converged endpoints; the ORDERING is the robust read, the values are not final).
-2. **Topology holds, size does not (at toy wscale)**: the A-pinned overlap profile shows a near-perfect hedgehog far field (alignment 0.99+, vacuum spectrum at r > 25: the winding is intact, exactly his topological-protection claim) around a MELTED, INFLATED core (alignment 0.32-0.65 and slightly negative min eigenvalue inside r ≲ 15; r_half 19.3; u/3V = 3.0 = the state still wants to expand). Derrick decodes it: λ* = (E_u/3E_V)^(1/4) ≈ 1.3 at the endpoint and the balance size at wscale = 7.24e-4 exceeds the box, so the object inflates against the pinned wall instead of converging. The deep free-boundary run drains entirely: at 24k iterations even N = 48 is a "small box" in his sense (the 800-iter ladder survival was a transient; the N = 64 rungs were probe-depth only, flagged for the successor).
+Boundary caveat for the audit: the single-cell `vmax` locus reads on pinned runs sit at the shell (pin-vs-relaxed mismatch); the shell-averaged `shell_peak_r` is the physical read.
 
-The stiffness arm (wscale ×100, shrinking the Derrick size by 100^(1/4) ≈ 3.2) is running as the pre-registered fallback: does a compact virial-balanced electron form when the balance size fits the box?
+### 5b. THE CHECKERBOARD CATCH (self-caught from our own film, before the audit)
 
-Boundary caveat for the audit: the single-cell `vmax` locus reads on pinned runs sit at the shell (pin-vs-relaxed mismatch); the shell-averaged `shell_peak_r` (2.9 for A/B, 1.0 for C) is the physical read. The P3 ring arm (user amendment mid-run): the charged disclination ring in seed A's exact winding sector (half-disclination ring core, radius a = 4, escaped interior; the meridional-angle construction `seed_ring` in the script), pinned at the working point. Discriminator: E_ring vs E_A endpoints, testing the [`../m5_particle_hunt.md`](../m5_particle_hunt.md) synthesis nuance (hedgehog and small charged ring = same topological sector) and the M5.16 Q8 off-origin melt.
+The A-pinned basic film (below, § 6) develops interior single-cell checkerboard from it ~2000. The compact-stencil re-read ([`../scripts/m5_21_2_c_stencil_check.py`](../scripts/m5_21_2_c_stencil_check.py), data [`../data/m5_21_2_stencil.json`](../data/m5_21_2_stencil.json)):
+
+| Endpoint | E_u (2h) | E_u (fwd 1h) | ratio | sawtooth ‖D_fwd‖/‖D_2h‖ |
+| --- | --- | --- | --- | --- |
+| seed A (baseline) | 17.63 | 22.21 | 1.26 | 1.02 |
+| A pinned 24k | 3.35 | 35104 | 10478 | 3.51 |
+| B pinned 24k | 16.83 | 67564 | 4014 | 3.00 |
+| C pinned 24k | 5.50 | 18146 | 3299 | 2.39 |
+| A free 24k | 0.004 | 6494 | 1.65e6 (beyond the pinned range; audit-noted) | 2.07 (milder; audit-noted) |
+
+The 2h central-difference curvature stencil is BLIND to odd-even alternation (its null mode), so the deep descent monotonically pumps structure into it: the measured E falls while the true (compact-stencil) curvature explodes. This generalizes the [M5.21.1e](m5_21_1e_spec_review.md) anti-recipe from projected descents to ANY deep descent on this functional over the 2h stencil with a weak pointwise potential. (The M5.21.1 4D free-FIRE endpoint measured CLEAN there, sawtooth 1.07, so the 4D-era conclusions are not automatically contaminated; a retro-check is still queued for the successor.)
+
+**The fix, applied same-day**: a compact forward-difference mode (`STENCIL=fwd`) with its exact adjoint, re-gated from scratch (complex-step 2.1e-15, SO(3) 2.2e-16, vacuum 0). The census RE-RAN on the fixed instrument: § 5c.
+
+### 5c. The fwd-stencil census (the instrument of record for this task)
+
+8k iterations each, N = 48, δ = 0.3, pinned; all `max_iter` stops (still relaxing; endpoint characterizations, not converged minima). Sawtooth ratios 1.21-1.36 (vs seed 1.02): NO checkerboard; the films (§ 6) stay clean and compact.
+
+| Run | E (fwd) | E_u (fwd) | E_V | u/3V | r_half | retention | E_u re-read under 2h |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| A pinned (electron) | 0.6254 | 0.551 | 0.0744 | 2.47 | 9.0 | 0.981 | 54.6 |
+| R ring pinned | **0.6025** | 0.527 | 0.0753 | 2.34 | 6.7 | 0.975 | 67.2 |
+| C pinned | 8.402 | 8.324 | 0.0779 | 35.6 | 10.2 | 0.996 | 89.3 |
+| B pinned | 34.05 | 33.87 | 0.1791 | 63.1 | 13.4 | 0.992 | 236.9 |
+| A wscale ×100 | 1.224 | 0.788 | 0.4359 | 0.60 | 6.8 | 0.981 | 71.8 |
+
+**The four reads of record:**
+
+1. ✅ **"Global should be electron", measured (with the audit's sharpening)**: the three rotation seeds hold three DISTINCT levels with the electron family lowest, A < C < B, and the ordering is CROSS-INSTRUMENT ROBUST (fwd margins ×13/×4; 2h re-read margins 1.64×/2.65×; it held even in the demoted 2h census). The FRAME p. 15 lepton-hierarchy signature at the qualitative level, with the audit's honest caveat: it orders lattice-contaminated energies, not established continuum minima (see the instrument finding).
+2. 🔶 **The ring is competitive with the point hedgehog, verdict INSTRUMENT-LIMITED**: under the fwd reading the ring is 3.7% LOWER (0.6025 vs 0.6254) and more compact (r_half 6.7 vs 9.0, cord-locus shell peak at r ≈ 2.9); under the 2h re-read it is 23% higher. No stencil-robust winner: the honest verdict is a TIE at current rigor, with the ring staying a live co-candidate for the electron core (the third-type § 9 test delivered exactly this bracket).
+3. ✅ **The frame structure holds on the clean instrument**: retentions 0.975-0.996 (stencil-free observable) against 0.55-0.74 in the artifact census: the apparent unwinding was largely the artifact.
+4. 🔶 **The virial bracket**: base wscale sits ABOVE balance (u/3V = 2.47, still expansion-driven) and ×100 wscale BELOW it (0.60), consistent with a finite balanced size existing between the two stiffnesses (neither run converged; the bracket is the measured fact).
+
+**THE INSTRUMENT FINDING (method-level, feeds Q25)**: the fwd endpoints read ×7-128 MORE curvature under the 2h stencil than under their own (A: 54.6 vs 0.551), while the 2h endpoints exploded under fwd (§ 5b), and the audit's subsample probe (§ 8 C6) showed the coarse-sampled fwd endpoints roughly reproduce the 2h readings: the period-2 structure is genuinely there, cheap only to the fine instrument. Each discretization's descent hides curvature in that stencil's blind directions, and the two instruments do not agree on absolute energies anywhere in the deep regime: at toy parameters the quartic commutator functional shows NO stencil-consistent minimizer within reach. The natural suspect is the continuum functional's own soft directions (aligned-gradient perturbations with [W, W] = 0 cost zero curvature at leading order), which discretization turns into stencil-specific escapes. ⚠️ Interpretation is hypothesis-level; the ×10-100 disagreement numbers are measured. This sharpens Q25 concretely: the sanctioned term set may need the missing ingredient (the det-constraint, the Eq 12 eigenvalue form, or an additional gradient term) before the 3D statics has a well-posed minimum to find. The P3 ring arm (user amendment mid-run): the charged disclination ring in seed A's exact winding sector (half-disclination ring core, radius a = 4, escaped interior; the meridional-angle construction `seed_ring` in the script), pinned at the working point. Discriminator: E_ring vs E_A endpoints, testing the [`../m5_particle_hunt.md`](../m5_particle_hunt.md) synthesis nuance (hedgehog and small charged ring = same topological sector) and the M5.16 Q8 off-origin melt.
 
 The schematic (illustration, not data; script [`../scripts/m5_21_2_b_topo_illustration.py`](../scripts/m5_21_2_b_topo_illustration.py)): the three objects side by side, with the Toulouse-Kleman placement of the charged ring (locally the s = 1, d = 1 line cell as a closed cord; globally the s = 2, d = 0 erizo cell, far sphere q = 1). Note the loop/ring inside-out duality in the equatorial cuts: it is WHY one is chargeless and the other charged.
 
 ![topology catalog: loop vs hedgehog vs charged ring](../plots/m5_21_2_topo_catalog.png)
 
-## 6. Films
+## 6. Films (field-state prints: seed + evolution + endpoint per run)
 
-🚧 (basic + thermal strips per run, y = 0 meridional slice, adapted from the 4×4 templates to the 3×3 stack.)
+Basic (eigenvalue maps + leading-eigenvector radial alignment) and thermal (log u / log V densities) strips per run, y = 0 meridional slice, adapted from the 4×4 templates to the 3×3 stack. The full set sits in [`../plots/`](../plots/) as `m5_21_2_film_{basic,thermal}_<run>.png`. The two decisive ones:
+
+The 2h A-pinned film: the checkerboard develops from it ~2000 (the § 5b catch is VISIBLE here: this frame is the evidence the demotion was self-caught):
+
+![2h A pinned film: the checkerboard artifact](../plots/m5_21_2_film_basic_A_pinned.png)
+
+The fwd ring film: compact, clean, localized through 8k iterations (the two cord dots in the meridional slice; the escaped-interior pocket in the alignment row; the far field stays radial):
+
+![fwd ring film: compact and clean](../plots/m5_21_2_film_basic_R_pinned_fwd.png)
+
+The six-panel summary (ladder heatmaps, census bars, E traces, virial, profiles):
+
+![the six-panel summary](../plots/m5_21_2_panel.png)
 
 ## 7. Not computed (this task)
 
@@ -135,6 +181,40 @@ The schematic (illustration, not data; script [`../scripts/m5_21_2_b_topo_illust
 | Physical scales (δ ~ 1e-10, g ~ 1e10) | scaling ladders are the vehicle (the M5.21.1 P4 pattern); not re-run here |
 | Lattice topological degree (integer q) | the frame-overlap retention + profiles are the primary observable (director sign ambiguity makes naive degree sums fragile); the winding is enforced/tested via the BC arms instead |
 
-## 8. Audit
+## 8. Audit (independent adversarial, 2026-07-17)
 
-🚧 (independent adversarial audit before the review; verdicts land here.)
+Independent agent, own implementations (moveaxis stencils, trace-identity cross-check of the commutator norm at 4.2e-11, eigenvalue-route potential at 2.0e-7). Script [`../scripts/m5_21_2_audit_check.py`](../scripts/m5_21_2_audit_check.py), data [`../data/m5_21_2_audit.json`](../data/m5_21_2_audit.json). **8/8 CONFIRMED**, with reporting-range corrections adopted below:
+
+| Claim | Verdict | The audit's key numbers |
+| --- | --- | --- |
+| C1 gates (both stencils) | ✅ CONFIRMED | complex-step 5.2e-15 / 8.3e-15; SO(3) 2.0e-16 / 5.3e-16; negative controls 3.7% / 4.4%; energy matches bit-exact |
+| C2 the checkerboard demotion | ✅ CONFIRMED (ranges corrected) | pinned ratios 3.3e3-1.05e4, sawtooth 2.39-3.51; A_free is MORE extreme in ratio (1.65e6) and milder in sawtooth (2.07) than the first-draft ranges |
+| C3 fwd ordering A < C < B | ✅ CONFIRMED (wording corrected) | holds under both stencils; margins ×13/×4 under fwd, but only 1.64×/2.65× under the 2h re-read: the ordering is stencil-robust yet it orders lattice-contaminated energies, not established continuum minima |
+| C4 ring instrument-limited | ✅ CONFIRMED | −3.66% (fwd) vs +23.2% (2h re-read), opposite signs, both max_iter: no stencil-robust winner |
+| C5 retentions | ✅ CONFIRMED | 0.98116 / 0.97494 / 0.69617, matching to ~1e-10 with independent eigh code |
+| C6 stencil inconsistency | ✅ CONFIRMED + STRENGTHENED | cross-stencil factors ×7-128 (corrected from "×10-100"); **the audit's subsample probe: coarse-sampling (factor 2, both parities) the fwd endpoints roughly REPRODUCES the 2h re-readings (A coarse 49.3/34.8 vs 2h 54.6) while the smooth seed control tracks at 0.77-0.86: the period-2 structure is real and cheap only to the fine fwd instrument; the states are NOT grid-converged continuum fields** |
+| C7 the virial bracket | ✅ CONFIRMED | 0.602 < 1 < 2.467 |
+| C8 ladder consistency | ✅ CONFIRMED | retention strictly monotone in N at every (δ, BC); zero contradicting rows; flag: the ladder E_end column inherits the demoted 2h stencil (the retention column is eigenvector-based, less exposed) |
+
+Corrections adopted into §§ 5b/5c wording: the range quotes and the margins caveat above.
+
+## 9. The THIRD defect type: the charged ring (source + what we tested)
+
+Until this task the hunt worked with TWO topological particle candidates: the **vortex loop** (the neutrino-side object: closed disclination cord, uniform far field, q = 0) and the **hedgehog** (the electron candidate: point core, radial far winding, q = 1). This task added a third, opened mid-run at the user's direction: the **charged disclination ring**, a closed cord in the SAME far-field winding sector as the hedgehog (an enclosing sphere reads q = 1, indistinguishably from the point hedgehog) with the core singularity spread along a circle and the interior smoothly escaped.
+
+**The source** (obtained + read first-hand 2026-07-17, filed at [`../../theory/liquid_crystal_defects/`](../../theory/_CITATIONS.md) in the citations manifest): G. P. Alexander, B. G. Chen, E. A. Matsumoto, R. D. Kamien, *Colloquium: Disclination loops, point defects, and all that in nematic liquid crystals*, Rev. Mod. Phys. 84, 497 (2012), [arXiv:1107.1169](https://arxiv.org/abs/1107.1169). The load-bearing content:
+
+| Where | What it establishes |
+| --- | --- |
+| § IV.B (measuring with tori) | The classification of disclination loops by the texture on the sheathing torus: loops carry EVEN or ODD hedgehog charge; our charged ring = the odd (q = 1) class |
+| § IV.A (maneuver X) | Dragging a hedgehog around a disclination flips d → −d (the π₁ action on π₂): the sign ambiguity behind our choice of the alignment observable over naive degree sums (§ 7) |
+| § V (biaxial nematics and the odd hedgehog) | π₂ = {1} for the strict biaxial phase: NO absolutely-protected point defects when all three eigenvalues are distinct, which is Duda's (1, δ, 0) vacuum. The rigorous form of "the hedgehog's protection here is energetic + boundary-fed, not homotopy-absolute": exactly what the P1 ladder and the deep free-boundary drain measure |
+| Primary lineage | Jänich 1987; Nakanishi, Hayashi & Mori 1988 (the loop classification); Terentjev 1995 (the Saturn-ring charged loop as a physical object) |
+
+**Why it matters for the electron hunt**: the ring is the ONE same-charge alternative to the hedgehog in the sanctioned term set (the topology catalog scan behind this: hopfions are chargeless, torons need unsanctioned chiral terms, higher windings are not leptons), and the [`../m5_particle_hunt.md`](../m5_particle_hunt.md) synthesis nuance (point hedgehog and small charged ring = two core-regimes of one charged object; the M5.16 Q8 off-origin melt) already pointed at it from our own data.
+
+**The construction we test** (`seed_ring` in [`../scripts/m5_21_2_a_scan3d.py`](../scripts/m5_21_2_a_scan3d.py)): meridional director angle ψ = ½[arg(ζ − ia) + arg(ζ + ia)], ζ = z + iρ, ring radius a = 4: ψ → θ far away (seed A's exact far field, boundary values within 0.9%), ψ = 0 inside (escaped interior along +z), a half winding around the cord (single-valued in the tensor), δ kept on the azimuth. Schematic + Toulouse-Kleman placement: the catalog figure in § 5 (locally the s = 1, d = 1 line cell; globally the s = 2, d = 0 erizo cell).
+
+**The tests run**: seed verified (far spectrum (0, δ, 1) exact; potential-excess locus on the a = 4 circle; hedgehog-frame overlap 0.999 at the far shell); first pinned descent at the working point STOPPED with the § 5b checkerboard catch (2h instrument demoted before it could mislead the comparison); re-run on the fwd stencil in the § 5c census of record. The discriminator is E_ring vs E_hedgehog in the same winding sector, same box, same boundary class: if the ring lands lower, the model's electron ground state is ring-cored and the loop-vs-hedgehog group debate collapses into one object with two core regimes. **The verdict this task could reach**: an instrument-limited TIE (−3.7% fwd vs +23% 2h re-read, § 5c/§ 8 C4); the ring stays a live co-candidate pending the next-rigor instrument.
+
+**The launcher viewing xperiment** (user-requested, same day): "Charged Ring (static)" (`xparameters/_topo_charged_ring.py`, `seed_charged_ring_M` in `engine1_seeds.py`, static 3×3-embedded seed, boots PAUSED, viewing only). One GGUI catch, user-reported and fixed same day: the DIRECTOR (vector) representation of a half-integer ring is non-orientable around the cord, so a sign-flip seam surface is unavoidable in director-DERIVED views (EM div/curl, div-colored glyphs); the first branch-cut choice hung that seam on a half-infinite cylinder below the ring (the reported below-plane artifact). Fixed by rotating the atan2 branch cuts so the seam sits on the MINIMAL SPANNING DISK inside the ring (the standard Dirac-sheet choice). Verified: all 410 high-`|div n̂|` voxels on the disk, zero below-plane; far radial alignment 0.9993; the TENSOR field is float32-exactly mirror-symmetric under the proper conjugation S M(−z) S (3e-7). Lesson recorded: a naive component-wise mirror comparison of a tensor field false-alarms on the sign-flipping off-diagonals; conjugate by the mirror operator.

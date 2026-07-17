@@ -177,12 +177,17 @@ def core_locus(M, delta):
 
 # ================= energy + gradient =================
 def d_ax(f, ax):
-    """central difference interior, one-sided edges (h = 1)."""
-    out = np.empty_like(f)
+    """derivative channel: 2h central (interior) + one-sided edges, or
+    compact forward differences under STENCIL == "fwd" (h = 1)."""
+    out = np.empty_like(f) if STENCIL == "2h" else np.zeros_like(f)
     sl = [slice(None)] * f.ndim
 
     def at(i):
         s = list(sl); s[ax] = i; return tuple(s)
+    if STENCIL == "fwd":
+        out[at(slice(0, -1))] = (f[at(slice(1, None))]
+                                 - f[at(slice(0, -1))])
+        return out
     out[at(slice(1, -1))] = (f[at(slice(2, None))]
                              - f[at(slice(0, -2))]) * 0.5
     out[at(0)] = f[at(1)] - f[at(0)]
@@ -197,6 +202,10 @@ def d_ax_adj(g, ax):
 
     def at(i):
         s = list(sl); s[ax] = i; return tuple(s)
+    if STENCIL == "fwd":
+        out[at(slice(1, None))] += g[at(slice(0, -1))]
+        out[at(slice(0, -1))] -= g[at(slice(0, -1))]
+        return out
     out[at(slice(2, None))] += g[at(slice(1, -1))] * 0.5
     out[at(slice(0, -2))] -= g[at(slice(1, -1))] * 0.5
     out[at(1)] += g[at(0)]
@@ -520,7 +529,8 @@ def ladder(combo=None):
 
 
 # ================= P2 the 3-seed census =================
-def scan(which, n=48, delta=DELTA0, bc="pinned", max_iter=24000,
+def scan(which, n=48, delta=DELTA0, bc="pinned",
+         max_iter=int(os.environ.get("M5212_MAXIT", "24000")),
          a_ring=4.0):
     tag = f"S{which} n{n} d{delta} {bc}"
     M0 = seed_ring(n, delta, a=a_ring) if which == "R" else \
