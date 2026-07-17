@@ -1,25 +1,16 @@
-# M5.21.3: the μ + g-factor closure under the verified L (the 4-observable electron)
+# M5.21.3: the 4D sequel: field rotation from the 3D minima (J + tiny boosts)
 
-**Status**: 🚧 PLANNED STUB (2026-07-16, created at the electron-hunt scorecard sync: [`../m5_particle_hunt.md § ELECTRON HUNT`](../m5_particle_hunt.md) coverage map; the g ≈ 2 row was the one non-validated row no task covered). Finalize at PLAN when M5.21.1's endpoint is known; awaiting M5.21.1 + user "go".
-
-**Lineage**: [M5.21.1](m5_21_1_task_details.md) (supplies the converged verified-L state this task measures on) · the canonical-era baseline: g = 1.97 at 24³ via the K = 4/α bridge, box ladder [1.97, 2.22] bracketing 2.0023, #219 ([`../findings/m5_8_2za_findings.md`](../findings/m5_8_2za_findings.md), [`../scripts/m5_8_2za_g_factor.py`](../scripts/m5_8_2za_g_factor.py)) · the μ channel mechanism: clock tilt/precession, pure twist EM-silent, EID-C ([`../scripts/m5_8_2r_electron_id.py`](../scripts/m5_8_2r_electron_id.py)) · the e_scale anchor: c₂ = αħc/64π locked at M5.16 ([`../findings/m5_16_report.md`](../findings/m5_16_report.md)).
+**Status**: 🚧 PLANNED STUB (2026-07-17, split out of the 3D-scan scope at the run-order renumber; [`m5_21_convo.md § 2026-07-17`](m5_21_convo.md)). His prescription verbatim: "So later we can go to 4D, preferably using such 3 local energy minima as starting points of gradient descent - hopefully getting field rotation for angular momentum, and tiny boosts." Full PLAN at go.
 
 ## Scope (stub level)
 
-| Step | Content | Kill / survive (pre-registered at PLAN) |
+| Piece | Content | Notes |
 | --- | --- | --- |
-| G1 | Re-establish the μ channel (clock tilt/precession) on the M5.21.1 converged 4D state: verified L, not the canonical stack | channel present/absent measured either way |
-| G2 | The μ box-convergence ladder (the #219 caveat: μ was not box-converged) | monotone ladder or the honest divergence record |
-| G3 | Replace the structurally-motivated K = 4/α bridge with the locked Coulomb e_scale (c₂ = αħc/64π, M5.16) for a first-principles g read | the bridge either derives or stays flagged as the residual assumption |
-| G4 | Verdict: g vs 2.0023 + the 4-observable electron (mass, charge, μ, J) closed under the verified L | closure, or the measured characterization of the gap |
+| The stack | Re-add the time row: 4×4, η = diag(−1,1,1,1), vacuum diag(−sg, 1, δ, 0), BOTH sign branches (Q27 answered-as-open: theory does not select) | The audited M5.21.1 machinery is the base; the 3D → 4D lift is the new piece |
+| Seeds | The 3 local minima from the [M5.21.2](m5_21_2_task_details.md) census, lifted to 4D | His "preferably using such 3 local energy minima as starting points" |
+| The read | Does FIELD rotation emerge from 4D minimization, carrying angular momentum + tiny boosts? | Rigid rotation is already killed both hunts (M5.20.5 loop + [M5.21.1 P2](m5_21_1_task_details.md) hedgehog); field rotation is the surviving route |
+| The known hazard | The 4D signature: the M5.18/M5.21.1 indefiniteness (time-mixing saddle directions at second order) | HIS open item ("Difficulties come in 4D with signature - I will think about it"); fold his elaboration when it lands, the task is NOT gated on it |
 
-**Pre-registered contingency**: if M5.21.1 ends WITHOUT a converged verified-L clock state, this task re-plans on the best measured state (partials labeled 🔶) or holds, user's call at that review.
+Series rules: both film templates on any film output; independent adversarial audit before the review; method-note-grade record if the result goes back to the author.
 
-## Records + gating
-
-| Item | Content |
-| --- | --- |
-| Destinations | scripts `../scripts/m5_21_3_*.py` · data/plots `m5_21_3_*` (film standard, both templates where states evolve) · findings `../findings/m5_21_3_method_note.md` · checkpoint at go |
-| Standards | method note (equations first, code map) + independent adversarial audit (cardinal rule) |
-| Scorecard | closes the electron-hunt g ≈ 2 row ([`../m5_particle_hunt.md`](../m5_particle_hunt.md)); MODELS.md's μ + spin row updates in the post-program sweep (user 2026-07-16: MODELS.md stays as-is until the particle-hunt program completes) |
-| Gated By | **M5.21.1** (needs its converged state) + user "go" |
+**Gated by**: [M5.21.2](m5_21_2_task_details.md) (needs its minima) + user "go".

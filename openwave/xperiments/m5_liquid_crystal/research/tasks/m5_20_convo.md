@@ -250,3 +250,7 @@ Verbatim core:
 | Tracker | Q24 → 🔶 DEFERRED-BY-AUTHOR (detail updated); no new Qn opened (his corrections are directives to implement, his two data questions are tasks, not asks) |
 | User decision (2026-07-16) | **Electron-first: the M5.21 series is the program now.** M5.20.6 archived (loop-side reserve, not relevant while the loop hunt is parked); M5.20.7 (neutrino aging) created but parked AFTER the M5.21 series; all Duda 2026-07-15 content folded into the M5.21 plans; both film-strip templates (basic + thermal) on every M5.21-series run |
 | Next | [M5.21.1](m5_21_1_task_details.md) finalized at PLAN, awaiting user "go" |
+
+## Thread continuation
+
+The electron-hedgehog rounds (M5.21 series, from the 2026-07-16 Q25-Q28 outbound onward) continue in [`m5_21_convo.md`](m5_21_convo.md).

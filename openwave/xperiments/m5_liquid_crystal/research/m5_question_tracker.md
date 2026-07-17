@@ -17,35 +17,37 @@
 ## Active Questions Count
 
 ```text
-4 OUTBOUND    Q25-Q28 (the electron-hedgehog round, prepared
-              2026-07-16 at the M5.21.1/M5.21.1e close; user sending):
-              Q25 the potential form (+ det-constraint), Q26 the
-              virial-balance target, Q27 the sign of g, Q28 the
-              3-lepton rotation-scan confirmation (his 2026-07-16
-              suggestion). One email, method-note-grade context
-              (m5_21_1_method_note.md + m5_21_1e_spec_review.md).
+ANSWERED      Q25-Q28 round: sent 2026-07-16 evening (the M5.21.1 +
+this round    M5.21.1e results round), answered 2026-07-17 03:57
+              with the cc BROADENED (Manfried Faber, Samo, Jaka now
+              on-thread). THE DIRECTIVE: 3D FIRST (genuine 3x3,
+              hedgehog topologically protected; watch small-box
+              boundary effects at delta = 0.3, reduce delta if they
+              bite). Q28 CONFIRMED + sharpened (three
+              axis-permutation seeds diag(1,delta,0) / (delta,0,1)
+              / (0,1,delta) -> gradient descent -> local minima;
+              "global should be electron") -> M5.21.2 staged (the
+              series renumbered same day to run order); Q27
+              answered-as-open (sign of g not fixed by theory;
+              branch-qualification permanent); Q25 partial
+              (det(M)=const problematized: det = 0 on the spectrum,
+              needs an eigenspectrum shift; the form itself REMAINS
+              author-open, ours to discriminate); Q26 unanswered
+              (held, no re-ask spent). The 4D sequel staged: the 3
+              minima as 4D descent seeds -> field rotation J + tiny
+              boosts; "difficulties come in 4D with signature - I
+              will think about it" (tasks/m5_21_convo.md).
+              Prior round (Q24 deferral + the electron redirect,
+              2026-07-15): tasks/m5_20_convo.md.
 
-ANSWERED      Q24 round 1: sent 2026-07-14 19:22 EDT, answered
-this round    2026-07-15 04:25 (group-cc'd, Filip Blaschke newly
-              on-thread, coauthorship floated): the least-action BVP
-              question DEFERRED ("I think about it - can elaborate,
-              but generally it seems quite difficult"; msg 2:
-              "numerically it doesn't seem practical (?)") and the
-              program REDIRECTED to the ELECTRON HEDGEHOG with a
-              full prescription (3D minimize -> 4D minimize ->
-              angular momentum + gravitational mass -> KG twists)
-              + two spec corrections ((-g)^p targets, sign of g
-              open; physical scales delta ~ 1e-10, g ~ 1e10) + one
-              data request (neutrino aging vs experiments).
-              Routing (user 2026-07-16, electron-first): M5.20.6
-              ARCHIVED unrun, M5.21.1 planned with every correction
-              folded (awaiting go), M5.20.7 parked after the M5.21
-              series (tasks/m5_20_convo.md).
-
-13 OPEN       Q25-Q28 (the outbound round above), Q24 (DEFERRED BY
-              AUTHOR: he owes the least-action elaboration; no
-              further ask spent; the electron
-              program is NOT gated on it), Q22 (delta VALUE only),
+11 OPEN       Q26 (the virial-balance target: unanswered in the
+              2026-07-17 round; held, no re-ask spent), Q25
+              residual (the potential form: author-open, the
+              comparison arm is ours; any det-constraint variant
+              needs the spectrum shifted off zero), Q24 (DEFERRED
+              BY AUTHOR: he owes the least-action / 4D-signature
+              elaboration, reaffirmed 2026-07-17; the 3D program is
+              NOT gated on it), Q22 (delta VALUE only),
               Q20 partial (verdict-insensitive), Q17 (HELD);
               self-determined / background: Q11, Q4, Q10, Q9, Q12.
               Group context (not a Qn): the loop = electron vs
@@ -63,10 +65,10 @@ this round    2026-07-15 04:25 (group-cc'd, Filip Blaschke newly
 
 | ID | Title | Question (one line) | Gates |
 | --- | --- | --- | --- |
-| [Q25](#q25-detail) 🚧 | The electron potential form | Which potential is intended for the electron statics: the Eq 12 eigenvalue penalty, the trace-target `Σ_p (Tr((Mξ)^p) − c_p)²` (which p range?), LdG, or one of these + the `det(M) = const` constraint (hard or penalty)? The paper calls this "a difficult open question requiring simulations" (FRAME p. 7/12) and [M5.21.1e](tasks/m5_21_1e_task_details.md) now discriminates: the amplitude escape closes monotonically with stiffness, the hard pin overshoots | the next-run selection (potential-form comparison arm) |
-| [Q26](#q26-detail) 🚧 | The virial-balance target | Is the intended stable electron the virial-balanced state (u_curv = 3·V, the Faber Eq 48 analog; M5.16 measured that balance to 0.3-0.6% in the constrained class)? Should we search for it DIRECTLY (fixed-size / constrained-class minimization) rather than by free descent? | the virial-balance search task |
-| [Q27](#q27-detail) 🚧 | The physical sign of g | In `(−g)^p`: which branch is physical (the paper reading = our s = −1, M_vac = diag(+g,1,δ,0)), or is the lower-energy branch (measured: s = +1, ~1% lower via odd-p core cross terms) selected by the theory? | regime-qualification of every quantitative claim |
-| [Q28](#q28-detail) 🚧 | The 3-lepton rotation scan | His 2026-07-16 suggestion ("3 leptons as minima among rotations" = FRAME p. 15): confirm the construction (the three axis-choice hedgehogs + continuous rotations between them, scanned on the stiffened statics) and the target (g, δ) regime for the read | the next-run plan (the scan task) |
+| [Q25](#q25-detail) 🔶 | The electron potential form | Which potential is intended for the electron statics: the Eq 12 eigenvalue penalty, the trace-target `Σ_p (Tr((Mξ)^p) − c_p)²` (which p range?), LdG, or one of these + the `det(M) = const` constraint (hard or penalty)? The paper calls this "a difficult open question requiring simulations" (FRAME p. 7/12) and [M5.21.1e](tasks/m5_21_1e_task_details.md) now discriminates: the amplitude escape closes monotonically with stiffness, the hard pin overshoots. **PARTIAL ANSWER 2026-07-17**: the det-constraint is problematized by the author himself (det = 0 on the spectrum (g,1,δ,0): it would only pin the last eigenvalue; "might require shifting the eigenspectrum from zero"; det(M) and det(M·η) both briefly checked Lorentz-invariant, evidence-not-resolution); the form itself REMAINS OPEN ("the details of potential remain open question", possibly effective from a deeper model) → the comparison arm is ours to run, self-determined | the next-run selection (potential-form comparison arm) |
+| [Q26](#q26-detail) 🚧 | The virial-balance target | Is the intended stable electron the virial-balanced state (u_curv = 3·V, the Faber Eq 48 analog; M5.16 measured that balance to 0.3-0.6% in the constrained class)? Should we search for it DIRECTLY (fixed-size / constrained-class minimization) rather than by free descent? **UNANSWERED in the 2026-07-17 reply** (the 3D-first directive supersedes); HELD, no re-ask spent; re-pose only if load-bearing after the 3D scan. Note: Faber himself is now cc'd on the thread | the virial-balance search task |
+| [Q27](#q27-detail) ✅ | The physical sign of g | In `(−g)^p`: which branch is physical (the paper reading = our s = −1, M_vac = diag(+g,1,δ,0)), or is the lower-energy branch (measured: s = +1, ~1% lower via odd-p core cross terms) selected by the theory? **ANSWERED-AS-OPEN 2026-07-17**: "I am not certain if g should be positive or negative" → the theory does not select; the branch-qualification policy ([M5.21.1 P0](tasks/m5_21_1_task_details.md)) is permanent; both signs co-equal (and moot in 3D, where g is absent) | regime-qualification of every quantitative claim |
+| [Q28](#q28-detail) ✅ | The 3-lepton rotation scan | His 2026-07-16 suggestion ("3 leptons as minima among rotations" = FRAME p. 15): confirm the construction (the three axis-choice hedgehogs + continuous rotations between them, scanned on the stiffened statics) and the target (g, δ) regime for the read. **CONFIRMED + SHARPENED 2026-07-17**: 3D-first (genuine 3×3, no g); the three axis-permutation seeds diag(1,δ,0) / (δ,0,1) / (0,1,δ) → gradient descent → local-minima census, "global should be electron"; small-box boundary caveat (reduce δ if the topology breaks); the 4D sequel from the 3 minima → field rotation J + tiny boosts → [M5.21.2](tasks/m5_21_2_task_details.md) staged | the next-run plan ([M5.21.2](tasks/m5_21_2_task_details.md)) |
 | [Q24](#q24-detail) 🔶 | The dynamical formulation after the free-EL negative | M5.20.3 measured: the free-EL IVP of the purely-quartic L is ill-posed (roundoff-seeded boost-sector instability, rates 6-81/t; every regularization blows up in finite time, E dives to −∞: HIS pre-named branch), while q never unwinds and his (g, 1, a, a) core lands in statics (a = 0.85 δ/2). **[M5.20.4](tasks/m5_20_4_task_details.md) ELIMINATED the alternatives** (sanctioned-term fix + Dirac velocity route closed by measurement + lemma; free-period balance roots EXIST on boost-conjugated rotation orbits). **[M5.20.5](tasks/m5_20_5_task_details.md) then measured the RIGID level OUT on the loop (2026-07-14 evening, audited)**: the balance roots do not extend to extremal orbits: 18/18 solver runs fail, the kinetic gradient is anti-aligned/orthogonal to the static time-row force (no real ω can cancel), and the M5.20.4-audit γ = −1 escape candidate died at its own statics gate (loop statically unstable under L − s2, β-independent: that sub-ask is WITHDRAWN). The sharpened ask: confirm the time-periodic least-action BVP as THE formulation, and must the clock orbit be PROFILE-DYNAMIC (breathing, beyond rigid conjugation: the rigid ansatz cannot move energy between the time row and the spatial sectors)? **ASKED 2026-07-14 19:22; his 2026-07-15 reply DEFERS the BVP ("I think about it - can elaborate, but generally it seems quite difficult"; "numerically it doesn't seem practical (?)") and REDIRECTS to the electron hedgehog: the program follows the redirect ([M5.21.1](tasks/m5_21_1_task_details.md), user 2026-07-16); no further ask spent.** | the LOOP-side oscillation program only (parked with it; the electron program [M5.21.1](tasks/m5_21_1_task_details.md) is NOT gated on this) |
 | [Q20](#q20-detail) 🔶 | Curvature-term degeneracy at vortex cores | PARTIAL ANSWER 2026-07-10 (energy-sign framing: core potential positive, oscillation-gravity negative but smaller, per-length total positive); the Dirichlet-presence question AS ASKED unanswered. M5.20 runs BOTH functional variants (commutator-only + Dirichlet control) so no verdict hinges on it | M5.20 arm D; the gradient-term class (Q13 residual) |
 | [Q22](#q22-detail) 🔶 | Sector δ for the neutrino | REOPENED 2026-07-11: the 2026-07-10 park ("I don't know in this moment") is superseded by his structural directive on the M5.20 note: the topological vortex REQUIRES (1, δ, 0) with three DISTINCT eigenvalues (δ ≠ 0), two-equal only at the regularized core where it activates the potential. The VALUE + the winding pair stay unknown: both RE-ASKED 2026-07-11 (seed-round Q1 + Q2). **07-12 UPDATE**: no value given → the sweep ran {0.1, 0.3, 0.5}; **pairing half MEASURED (M5.20.1 ✅)**: the dynamics abandons the (1, δ) two-equal core in every run and holds the (δ, 0) equalization (genuine at δ ≥ 0.3, vacuum-confounded below; audit-tempered wording). OPEN residual: the δ VALUE only (sector calibration; the protection verdict is δ-insensitive across the sweep) | sector calibration (M5.9 lineage); [`tasks/m5_20_1_task_details.md`](tasks/m5_20_1_task_details.md) |
@@ -475,14 +477,22 @@ Imported from `m6_ouroboros/research/archive/0b_model_gates.md` § "What M6 offe
 
 **The electron potential form.** Opened 2026-07-16 at the [M5.21.1e](tasks/m5_21_1e_task_details.md) close ([`findings/m5_21_1e_spec_review.md`](findings/m5_21_1e_spec_review.md) § 2a/§ 4 S1-S2). The paper leaves the potential explicitly open (Eq 12 eigenvalue penalty "or e.g." trace form; Eq 13 LdG; the p. 8 + p. 12 `det(M) = const` volume hedge, "to prevent using only long axes which allow for low curvature"; "the choice of its details remains a difficult open question requiring simulations"). Our V4 trace-target (p = 1..4) is his 2026-07-05 email candidate, not a settled spec. M5.21.1e measured that the choice is load-bearing: the toy hedgehog dies through the amplitude channel exactly as the det-hedge anticipates, stiffness closes it monotonically, and an everywhere-hard pin overshoots (kills the λ³ compressor). The ask: which form + whether the det-constraint should be imposed (hard vs penalty), so the potential-form comparison arm runs the sanctioned candidate. OUTBOUND in the 2026-07-16 round.
 
+**PARTIAL ANSWER 2026-07-17** ([`tasks/m5_21_convo.md § 2026-07-17`](tasks/m5_21_convo.md)): the det-constraint is problematized by the author himself: for spectrum (g, 1, δ, 0) the determinant is ZERO, so `det(M) = const` "would just forbid last eigenvalue to be changed - this constraint might require shifting the eigenspectrum from zero"; on Lorentz invariance he briefly checked that "seems both det(M) and det(M.eta) are Lorentz invariant (?)" (a wedge-product caveat video linked; evidence-not-resolution per AI-hygiene). The form itself REMAINS OPEN BY AUTHOR: "the details of potential remain open question ... potentials are usually effective, so it might be derived from an even deeper model ... I have no idea where to search for it (?)". Residual routing: the potential-form comparison arm is OURS to run (self-determined discrimination); any det-constraint variant must first shift the spectrum off zero.
+
 ### Q26 detail
 
 **The virial-balance target.** Opened 2026-07-16 (same close; [`findings/m5_21_1e_spec_review.md`](findings/m5_21_1e_spec_review.md) § 5d). The three-arm synthesis brackets the stable object between the two failure modes: soft = amplitude dilution, hard = frozen-potential Derrick expansion; the surviving window is the virial balance u_curv = 3·V at finite size (the Faber Eq 48 mechanism; M5.16 measured exactly that balance, 0.3-0.6%, in the spherically-constrained class). The ask: is the intended electron the virial-balanced state, and should the search be DIRECT (fixed-size or constrained-class minimization) instead of free descent? A yes redefines the statics program's instrument. OUTBOUND in the 2026-07-16 round.
+
+**UNANSWERED in the 2026-07-17 reply** ([`tasks/m5_21_convo.md § 2026-07-17`](tasks/m5_21_convo.md)): the reply carries the 3D-first directive instead; the question is HELD with no re-ask spent (ask-economy). Re-pose only if it stays load-bearing after the [M5.21.2](tasks/m5_21_2_task_details.md) 3D scan. Channel note: Manfried Faber (whose Eq 48 mechanism this window is) is now cc'd on the thread and may comment directly.
 
 ### Q27 detail
 
 **The physical sign of g.** Opened 2026-07-16. His `(−g)^p` correction (2026-07-15, "we should just be open if sign of g is positive or negative") was gated at [M5.21.1 P0](tasks/m5_21_1_task_details.md): the pre-registered mirror-equivalence claim was refuted by its own gate: odd-p cross terms at the defect core make the sign a genuine ~1% statics knob; s = +1 (M_vac = diag(−g,1,δ,0)) is LOWER in energy; the PAPER reading (p. 12, Tr((Mξ)^p) = (−g)^p + ...) corresponds to s = −1 (M_vac = diag(+g,1,δ,0)); anchors (q, r_half, core) are sign-robust ≤ 2e-3. The ask: which branch is physical, or does the theory select the lower-energy branch? Until answered, quantitative claims are branch-qualified. OUTBOUND in the 2026-07-16 round.
 
+**ANSWERED-AS-OPEN 2026-07-17** ([`tasks/m5_21_convo.md § 2026-07-17`](tasks/m5_21_convo.md)): "I am not certain if g should be positive or negative". The theory does not select the branch; the branch-qualification policy from [M5.21.1 P0](tasks/m5_21_1_task_details.md) becomes PERMANENT (both signs co-equal, every quantitative 4D claim carries its branch). Moot for the 3D-first program, where g is absent (the vacuum is (1, δ, 0)).
+
 ### Q28 detail
 
 **The 3-lepton rotation scan.** Opened 2026-07-16 from his same-day message ("for electron, maybe 3 leptons as minima among rotations", re-confirming hedgehog + cylindrical symmetry): the FRAME p. 15 hypothesis (3 leptons "should form 3 local minima in the space of possible rotations of hedgehog ansatz, probably stabilized by the enforced topological vortices") made runnable. Proposed construction: the three axis-choice hedgehogs (which spatial eigenvalue points radially) + the continuous rotation family between them, scanned on the stiffened statics (and, pending Q25/Q26, on the sanctioned potential / virial-balanced instrument), reading whether three local minima appear with distinct energies (the lepton-hierarchy signature). The ask: confirm the construction + the target (g, δ) regime. OUTBOUND in the 2026-07-16 round; becomes the next-run task on his confirmation.
+
+**CONFIRMED + SHARPENED 2026-07-17** ([`tasks/m5_21_convo.md § 2026-07-17`](tasks/m5_21_convo.md)): the construction is 3D-FIRST (genuine 3×3 where the hedgehog is topologically protected; no time row, no g) with the three axis-permutation SEEDS, not primarily a continuous-rotation scan: minimize from diag(1, δ, 0) (the electron), then from the rotated (δ, 0, 1) and (0, 1, δ), "searching for local minima (e.g. just gradient descent, global should be electron), hopefully getting candidates for 3 leptons". His one flagged numerical risk: small box + δ = 0.3 can destroy the topological constraints via the boundary (reduce δ if it happens; his suggested value truncated in the email). Physical scales stay the later target (δ ~ 1e-10, g ~ 1e10, 4D); the 4D sequel uses the 3 minima as descent seeds ("hopefully getting field rotation for angular momentum, and tiny boosts"). RESOLVED into [M5.21.2](tasks/m5_21_2_task_details.md) (staged at the top of the Backlog, awaiting go; the series renumbered to run order same day: M5.21.2 3D scan · M5.21.3 4D sequel · M5.21.4 2-particle · M5.21.5 μ + g-factor).
