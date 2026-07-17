@@ -54,3 +54,20 @@
 | The Routhian-plot questions | At t = 0 the max eigenvalue is ~1 (asks whether the g = 8 temporal eigenvalue should dominate); with time it "quickly explodes - through deformations or temporal boosts to spatial?"; "What about split vortices?" | Answer in the outbound: those panels plot the SPATIAL max (the time row carries g = 8, excluded from the panel); the P2 explosion is SPATIAL centrifugal deformation (the boost sector was quarantined, χ ≈ 0.02-0.05, monitored, no temporal-boost leak); split-vortex rotation folds into the split program |
 | **THE DIRECTIVE** | "it is very complicated, we need smaller steps - maybe let's first understand 3D case and this split first" | ALIGNED: [M5.21.2b](m5_21_2b_task_details.md) (the well-posed 3D instrument) + the M5.21.2d split measurement = exactly the smaller-steps 3D program; presented in the outbound for his confirmation |
 | New ask registered | [Q29](../m5_question_tracker.md#q29-detail): the charged disclination ring (the third defect type, Alexander § IV.B odd-charge loops) as an electron candidate | OUTBOUND in this round (user directive) |
+
+## 2026-07-17 midday: the CHECKPOINT outbound SENT (the M5.21.2 package + the split answer)
+
+**Context**: sent by Rodrigo ~12:30 EDT, same day as his two messages (the 03:57 3D-first reply and the 11:05 split question). Structure per the standing voice separation: Rodrigo-voice opener + the FABLE VOICE technical block (terminal-drafted, paste-ready; not stored here per the outbound rule).
+
+| Item | Content |
+| --- | --- |
+| Link sent | [`findings/m5_21_2_census.md`](../findings/m5_21_2_census.md) (blob URL; the full audited record: equations, code map, gates, ladder, both censuses, the catch, the audit, the third type, the split) |
+| His split question | ANSWERED with the same-day measurement (§ 5d): YES, 1 → ½ + ½: seed = one degree-1 axis line; relaxed = two clean same-sign ½-lines (ρ ≈ 1 voxel, ≈ 90° apart, consistent along z; near-core churned, net winding preserved); cell-scale separation caveat; Alexander § V cited; his neutrino-side ½-line implication agreed |
+| The census package | the boundary ladder (his warning measured; δ = 0.3 fine at N ≥ 48), the 3-level ordering (electron lowest, cross-instrument robust, non-converged caveat) |
+| The instrument finding → Q25 | the checkerboard catch + the no-stencil-consistent-minimizer result (audited): the potential-form question reframed as WELL-POSEDNESS; his det-constraint (with spectrum shift), Eq 12 form, or an extra gradient term as the candidate missing ingredients |
+| His Routhian questions | answered: spatial max eigenvalue (g = 8 time row excluded); the explosion = spatial centrifugal deformation, boosts quarantined (few-percent, monitored); split-vortices-under-rotation folded into the split program |
+| Larmor | his suggestion ADOPTED as the 4D-stage acceptance observable ([M5.21.3](m5_21_3_task_details.md) PLAN) |
+| The ask | [Q29](../m5_question_tracker.md#q29-detail): the charged ring (Alexander § IV.B odd-charge loops, Terentjev Saturn-ring lineage) as an electron-core candidate: has he considered it, prefer/exclude? (our tie measurement quoted) |
+| Proposed next run | [M5.21.2b](m5_21_2b_task_details.md) presented (the well-posed instrument: stencil-symmetrized + ε-Dirichlet ε → 0 + refinement ladder; then the term-set comparison; then the converged census incl. the ring + the split geometry); asked for his regularization/term-set preference |
+| Attachments | `plots/m5_21_2_split.png` + `plots/m5_21_2_panel.png` |
+| Routing | **WAITING on his reply: it gates the next run** (user decision; no further work launched); Q29 status → OUTBOUND SENT |
