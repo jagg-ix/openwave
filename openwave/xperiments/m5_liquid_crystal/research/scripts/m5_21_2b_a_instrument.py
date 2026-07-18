@@ -607,7 +607,8 @@ def relax(cfg):
     np.savez_compressed(
         os.path.join(DATA, f"m5_21_2b_end_{tag}.npz"),
         M=M.astype(np.float32), delta=cfg["delta"], h=cfg["h"],
-        term=cfg["term"], eps=cfg["eps"], **snap_arrays)
+        term=cfg["term"], eps=cfg["eps"], maxit=cfg["maxit"],
+        **snap_arrays)
     with open(os.path.join(DATA, f"m5_21_2b_row_{tag}.json"),
               "w") as f:
         json.dump(row, f, indent=1)

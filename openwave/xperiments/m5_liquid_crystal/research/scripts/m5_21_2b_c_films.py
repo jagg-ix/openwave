@@ -75,12 +75,13 @@ def main(path, tag, seedkind="A"):
     seed = g["make_seed"](cfg)
     snap_its = sorted(int(k[len("M_it"):]) for k in Z.files
                       if k.startswith("M_it"))
+    end_it = int(sys.argv[4]) if len(sys.argv) > 4 else \
+        int(Z["maxit"]) if "maxit" in Z.files else cfg["maxit"]
     states3 = [{"it": 0, "t": 0.0, "M3": seed}]
     for it in snap_its:                     # the 7-shot film standard
         states3.append({"it": it, "t": float(it),
                         "M3": Z[f"M_it{it}"].astype(np.float64)})
-    states3.append({"it": cfg["maxit"], "t": float(cfg["maxit"]),
-                    "M3": M})
+    states3.append({"it": end_it, "t": float(end_it), "M3": M})
     dens = [dens3_slice(st["M3"], cfg) for st in states3]
     states = [{"it": st["it"], "t": st["t"],
                "M": to_axisym4(st["M3"])} for st in states3]
@@ -106,5 +107,6 @@ def main(path, tag, seedkind="A"):
 
 
 if __name__ == "__main__":
+    # argv: npz tag [seedkind] [end_it]
     main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else "run",
          sys.argv[3] if len(sys.argv) > 3 else "A")
