@@ -27,7 +27,7 @@
 
 ## 4. Results and findings (the staged column)
 
-The 21-cell coverage column is drafted in **[`preview_models.md`](../preview_models.md)**: **0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**, every partial carrying its named caveat. It is deliberately **staged, not yet published to [`MODELS.md`](../../../../../MODELS.md)**: the program still carries its own open theory question (Q14, the vacuum tachyon) and convention questions (Q15, Q12; Q10 resolved 2026-07-04 by the author, corrected figure 0.95 vs our 0.958) that move icons either way; **promotion comes after Phase 2, gated by the question tables below** (the M7.21 publication milestone, Phase 3). What the eight partials say, in three plots:
+The 21-cell coverage column was drafted at M7.7: **0 ✅ / 8 ⚠️ / 0 ❌ / 13 🚧**, every partial carrying its named caveat. It was deliberately **staged, not yet published to [`MODELS.md`](../../../../../MODELS.md)** at that point (published at M7.21, 2026-07-18): the program still carries its own open theory question (Q14, the vacuum tachyon) and convention questions (Q15, Q12; Q10 resolved 2026-07-04 by the author, corrected figure 0.95 vs our 0.958) that move icons either way; **promotion comes after Phase 2, gated by the question tables below** (the M7.21 publication milestone, Phase 3). What the eight partials say, in three plots:
 
 **The soliton exists and is grid-convergent.** Three helicity-carrying seeds relax to one Taylor-dressed family; the winner is localized (r50 = 3.4), approximately Beltrami in the core (`λ_eff ≈ −1` near-constant), dilation-stable (a measured constrained-Derrick interior minimum), with the J-condensate co-located; both zero-helicity parent seeds die, so helicity is measurably the guard:
 
@@ -89,4 +89,4 @@ After Phase 2: **M7.21 publishes the column to MODELS.md** for cross-model bench
 
 ---
 
-Cross-refs: briefing [`__M7_model_briefing.md`](../../__M7_model_briefing.md) · background [`m7_background.md`](../m7_background.md) · spec [`m7_theory_canonical.md`](../m7_theory_canonical.md) · column preview [`preview_models.md`](../preview_models.md) · tracker [`m7_question_tracker.md`](../m7_question_tracker.md) · roadmap [`m7_roadmap.md`](../m7_roadmap.md) · the milestone task [`m7_7_consolidation.md`](m7_7_consolidation.md).
+Cross-refs: briefing [`__M7_model_briefing.md`](../../__M7_model_briefing.md) · background [`m7_background.md`](../m7_background.md) · spec [`m7_theory_canonical.md`](../m7_theory_canonical.md) · published column [`MODELS.md`](../../../../../MODELS.md) · tracker [`m7_question_tracker.md`](../m7_question_tracker.md) · roadmap [`m7_roadmap.md`](../m7_roadmap.md) · the milestone task [`m7_7_consolidation.md`](m7_7_consolidation.md).
