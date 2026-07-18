@@ -71,3 +71,27 @@
 | Proposed next run | [M5.21.2b](m5_21_2b_task_details.md) presented (the well-posed instrument: stencil-symmetrized + ε-Dirichlet ε → 0 + refinement ladder; then the term-set comparison; then the converged census incl. the ring + the split geometry); asked for his regularization/term-set preference |
 | Attachments | `plots/m5_21_2_split.png` + `plots/m5_21_2_panel.png` |
 | Routing | **WAITING on his reply: it gates the next run** (user decision; no further work launched); Q29 status → OUTBOUND SENT |
+
+## 2026-07-17 14:16: his reply: the package LANDED ("looks great!") + the ring-radius question + the four-line ask
+
+**Context**: reply Thu 2026-07-17 14:16 EDT (~2h after the checkpoint outbound), group cc restored (models-of-particles + Andras, Giorgio, Marc, Samo, Michał). Opens "Thanks, looks great!" with the [census](../findings/m5_21_2_census.md) blob link quoted back. Closes "I will read/think and respond further": a fuller pass may follow, but the content below is already directive.
+
+**Decode/routing**:
+
+| Item | Decode | Route |
+| --- | --- | --- |
+| **Q29 ANSWERED-AS-OPEN: ring viable** | "It is indeed very interesting hypothesis, seems close to Marc, Andras, Giorgio approach?" (twice: also "maybe allowing to combine them?"); no reason to exclude offered | Q29 ✅ resolved as VIABLE-no-preference; the ring stays co-equal in the converged census ([M5.21.2b](m5_21_2b_task_details.md) I3); the Marc/Andras/Giorgio resemblance = a bridge worth naming in future group posts |
+| **THE RING-RADIUS QUESTION (his ask back)** | "The main question is what is radius of such charged ring? If it depends on delta, maybe you could extrapolate to delta ~ 10^-10?"; pointer to the electron-size arguments ([physics.SE 397022](https://physics.stackexchange.com/questions/397022)); "The biggest problem seems electron-positron scattering results - extrapolating to resting we get ~2fm scale, so the big question is if such charged ring could lead to such scattering results?" | NEW [Q30](../m5_question_tracker.md#q30-detail): measure a(δ) on the converged instrument across the δ-ladder, extrapolate, test against the ~2fm bound → the M5.21.2b ring arm |
+| **THE LEPTON TRIPLET ENDORSED** | "Great! So we have clear candidates for 3 leptons!" on our A < C < B ordering (qualitative caveat quoted back by him uncut) | The census ordering = the working lepton assignment; the converged re-verdict (2b I3) carries the quantitative burden |
+| The decay picture | "Muon, taon should decay to electron, releasing energy difference only as neutrinos - such decay seems quick field rotation, transferring energy to topological vortices - should create 2 fast vortex loops as neutrinos." | 4D-stage observable-of-interest (noted in the [M5.21.3](m5_21_3_task_details.md) stub); consistent with his 11:05 neutrino-side ½-line implication |
+| Mass anchoring + Koide | Tempting to anchor parameters on 1 : 206 : 3477, but "requires details of potential, tiny delta, and 4D case with dynamics, huge g"; "much more difficult than Koide formula, but maybe there is a connection (?)" | Far-gate ambition, recorded in the M5.21.3 stub; NOT a near-term arm (his own gating) |
+| **THE SPLIT: the four-line picture + the angle ask** | He had considered the biaxial split "in the past, but was too difficult for me to model, so for simplicity I have stayed with two 1 vortices. But indeed four 1/4 have more sense - what are the angles between them?" δ-dependence, "should be extrapolate to ~10^-10" | NEW [Q31](../m5_question_tracker.md#q31-detail): count the half-lines in BOTH hemispheres (our § 5d read covered z > 0 planes only: two ½-lines there; two more exiting below would make his FOUR), measure the angles, read the δ-trend → the M5.21.2b split arm. His "four 1/2" then "four 1/4" phrasing is ambiguous (likely four half-lines each carrying a quarter of the emanating structure); evidence-not-resolution, the measurement decides |
+| **1+1D toy RETIRED** | "There was mix with 1+1D toy model - let's forget about it, and focus on energy minimization in 3D, then using such minima as starting points for 4D - hopefully getting field dynamics, gravitational mass, with electron being global energy minimum for nonzero topological charge." | The Sine-Gordon lineage formally closed on his side; the 3D → 4D pipeline reaffirmed (matches the staged M5.21.2b → M5.21.3 order exactly) |
+| Regularization / term-set preference | NOT given (our direct ask in the outbound went unaddressed in this pass; "will respond further" may still cover it) | The 2b I1 self-determined order stands: (a) stencil-symmetrized, (b) ε-Dirichlet ε → 0, (c) refinement ladder |
+
+### Notes
+
+| Item | Content |
+| --- | --- |
+| Tracker | Q29 ✅ answered-as-open (viable, refined into Q30) · [Q30](../m5_question_tracker.md#q30-detail) + [Q31](../m5_question_tracker.md#q31-detail) NEW (his asks to US: measurement questions, ours to run); open count 12 → 13 |
+| Next | [M5.21.2b](m5_21_2b_task_details.md) is now DOUBLY confirmed as the next run (his "smaller steps, 3D first" 11:05 + this reply's ring-radius and split-angle asks both need the converged instrument first); Q30/Q31 folded into its arms; awaiting user "go" |
