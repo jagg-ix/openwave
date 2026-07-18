@@ -95,3 +95,19 @@
 | --- | --- |
 | Tracker | Q29 ✅ answered-as-open (viable, refined into Q30) · [Q30](../m5_question_tracker.md#q30-detail) + [Q31](../m5_question_tracker.md#q31-detail) NEW (his asks to US: measurement questions, ours to run); open count 12 → 13 |
 | Next | [M5.21.2b](m5_21_2b_task_details.md) is now DOUBLY confirmed as the next run (his "smaller steps, 3D first" 11:05 + this reply's ring-radius and split-angle asks both need the converged instrument first); Q30/Q31 folded into its arms; awaiting user "go" |
+
+## 2026-07-18 ~00:10: the M5.21.2b package SENT (the Q30/Q31 answers + the instrument fix)
+
+**Context**: sent by Rodrigo just after midnight EDT (lands his early morning, inside the comms window), ~10h after his 14:16 asks. Structure per the standing voice separation: Rodrigo-voice opener (overnight run, both defect types side by side, the ring-hedgehog surprise flagged up front, the 4D-vs-smaller-steps ask) + the FABLE VOICE technical block (terminal-drafted, not stored here per the outbound rule).
+
+| Item | Content |
+| --- | --- |
+| Link sent | [`findings/m5_21_2b_note.md`](../findings/m5_21_2b_note.md) (blob URL; the audited record: equations, code map, gates, I1-I5, films, 8/8 audit) |
+| The instrument fix | the well-posedness problem resolved constructively: stencil-symmetrized functional → genuine stationary minima, cross-read 1.10-1.14 (vs ×7-128); the single-sided control reproduces the failure on demand (×294/×386); the ε-family as certificate |
+| His potential question ([Q25](../m5_question_tracker.md#q25-detail)) | the Eq-12 eigenvalue-penalty form = the ONLY term set whose bare minimum is consistent AND virial-balanced (resid +0.034); trace-target needs the regularizer; det-with-shift never lands |
+| His ring-radius ask ([Q30](../m5_question_tracker.md#q30-detail) ✅) | ANSWERED with the surprise: the ring is not a separate object (basins merge, ΔE ≤ 0.04%); the radius is dynamically selected, 2.5/2.9/3.4 at δ = 0.3/0.2/0.1 (~δ^−0.2); no compact cord survives; the fm/2fm comparison held on the missing calibration anchor (honest) |
+| His split ask ([Q31](../m5_question_tracker.md#q31-detail) ✅) | ANSWERED band-clean: TWO +½ lines (not his four ¼), net +2 every plane BOTH hemispheres, braiding (pair azimuth 72° → 169° → 135° along z); the plaquette-method fragility disclosed (contour instrument replaces it, the two-line conclusion survives) |
+| The census | A < C < B with the heavier minima now certified stationary; ratios ~4.2 / ~16 with the lattice-contamination caveat (ordering robust, ratios not yet mass ratios) |
+| The asks back | (a) his call: 4D now (M5.21.3, Larmor = THE acceptance observable) vs one more 3D rung (δ ladder 0.05/0.03 for the extrapolations); (b) does the braided two-½-line core change his neutrino-side half-vortex construction? |
+| Attachments | `plots/m5_21_2b_panel.png` + `plots/m5_21_2b_split_c48_A_T2.png` |
+| Routing | **WAITING on his reply: it selects the next run** (4D vs δ-ladder extension); Q30 + Q31 ✅ closed by measurement (tracker updated at the M5.21.2b close); his "I will read/think and respond further" from 14:16 may merge into this reply |
