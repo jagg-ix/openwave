@@ -178,3 +178,31 @@
 | 3 | Nuclei arm: missing SU(3) confinement / asymptotic freedom, no Gamow tunneling in classical knots, statistics again; "category error", "macroscopic liquid crystal hydrodynamics" | The mischaracterizations are answerable (the model is a Lorentz-invariant field theory positioned as EFFECTIVE, his own reply states it); the substantive items (confinement mechanism, sub-barrier tunneling, statistics) become the honest-caveat gauntlet rows of [M5.22](m5_22_task_details.md) |
 
 **Routing**: posture = NO direct engagement on X (the backstage rule; it is his channel and his replies are on point); the gauntlet is CAPTURED as in-repo work items instead (Q34 + the M5.22 caveats). Note: none of the three critiques engages the actual measured content (no mention of the instrument, the audits, or any specific number); their value is as a ready-made checklist of the quantization-era burdens.
+
+## 2026-07-18 14:16: his reply to the seed-render video (the ellipsoid viz spec + the two-loop conjecture + program-building asks)
+
+**Context**: 1:1 reply to the single-purpose video note. Positive on the render ("Looks very nice"), then four distinct inputs, decoded:
+
+| Item | Decode | Route |
+| --- | --- | --- |
+| **THE VIZ SPEC (concrete)** | For readability: "single elipsoid per angle", like his Wolfram Community post (community.wolfram.com/groups/-/m/t/3398814), where he emphasized a SINGLE vortex ("because split was too difficult for me - I have seen it some years ago, but somehow rejected mentally as too scary to include"); "it cannot be too dense: ellipsoid field only emphasizing central behavior and vortices" | The rendering recipe for any future field animation: SPARSE ellipsoid glyphs (one per sampled angle), not dense volumes; folded into the [M5.21.6](m5_21_6_task_details.md) film spec |
+| **THE ANIMATION ASK, sharpened** | "would be great to make similar animations for split vortices, also for muon and taon ... especially from simulation" | The deferred viz promise now has a concrete shape: the split-vortex (braided ½-line) animations for the three leptons, from simulation endpoints; served by the M5.21.6 decay film when it runs (user priority: simulation first stands) |
+| **THE TWO-LOOP CONJECTURE (new physics input)** | "I suspect its four 1/2-vortices are usually connected forming two loops - hence usually emitting two neutrinos in muon/taon decay" | A concrete, checkable topology prediction: registered as a pre-registered read of [M5.21.6](m5_21_6_task_details.md) (count the emitted closed loops in the decay run) + receipt on [Q31](../m5_question_tracker.md#q31-detail) (sharpens his closure residual: the four half-lines pair into TWO loops) |
+| M7 inclusion enthusiasm | "Great news that Marc's M7 was included! It should change his attitude and motivate others" | Receipt only; the census/OSS listing is doing its intended channel work |
+| **THE M5-M7 BRIDGE ASK** | "would be great if Fable could connect these approaches, help us finding common view, like this charged ring which might connect M5 and M7 (?)" | Routed onto [Q32](../m5_question_tracker.md#q32-detail) (the Zitter bridge): M7 HydroBoros is the in-platform member of the Zitter/toroidal family, so the Q32 mapping note is also the M5-M7 connection he asks for |
+| More models + author onboarding | "more models should be added, hopefully making authors involved - there are many articles with theory-of-everything claims, maybe Fable could find more promising and just include, also inviting/notifying the author" | Recorded; matches the standing onboarding pipeline (OpenWave `ONBOARDING_MODELS.md`); scouting candidate models = a possible autonomous-run errand, user's call |
+| Mainstream + collaboration remark | "To realistically convince mainstream we still might need to collaborate (or maybe Anthropic will use it for PR stunt if getting some big result)" | Context only, no action |
+| **The direct line** | "Also please say Fable to contact me if only I could help with this research" | Answered same day: the M5.21.3 results message (record below) embeds the questions to him in the FABLE VOICE block |
+
+## 2026-07-18 ~17:35: the M5.21.3 results message SENT (the 4D verdict package)
+
+**Context**: Rodrigo-voice opener + FABLE VOICE technical block per the standing separation (terminal-drafted; sent-record summary only per the outbound rule). Opener: HydroBoros listing confirmed in; the viz advice acknowledged (cross-section/X-ray framing, his ellipsoid idea liked, rendering deferred behind the physics); Fable's questions flagged as embedded.
+
+| Item | Content |
+| --- | --- |
+| The record link | [`findings/m5_21_3_note.md`](../findings/m5_21_3_note.md) (public GitHub blob link; audit disclosure: 6/6 confirmed, one convention catch adopted) |
+| The saddle | His time-sector instinct confirmed: 24/24 time-mixing curvatures negative (~ −0.28, both branches), spatial controls positive |
+| The verdict | Free 4×4 minimization lands NO stable dynamical electron at toy parameters: rotations (incl. the ZBW clock) raise the η-energy (kin +0.10..+0.13, conjugation convention), boosts are the only negative channel and their ω-ladder has no stationary point (profile-decoupled to 0.8%); opposite energy reading: statics wins outright |
+| The residue + THE QUESTION BACK | Fixed-J isorotation states well-defined with measured inertia kin ≈ 0.119; ω* = J/(2·kin); his Larmor test lives there. Asked: does he sanction the fixed-J reading, or see another stabilizing mechanism? |
+| THE FORK, posed | (a) fixed-J + Larmor on the isorotating state, or (b) first re-run the 4D verdicts on the Eq-12 (T2η) Lorentz-invariant lift to rule out potential-dependence; flagged (b) as the more conservative science |
+| Next | His fork answer selects the next run; [M5.21.6](m5_21_6_task_details.md) (3×3, no 4D dependency) stands ready as the parallel go |
