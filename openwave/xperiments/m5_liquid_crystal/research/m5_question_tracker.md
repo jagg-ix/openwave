@@ -17,31 +17,42 @@
 ## Active Questions Count
 
 ```text
-ANSWERED      Q25-Q28 round: sent 2026-07-16 evening (the M5.21.1 +
-this round    M5.21.1e results round), answered 2026-07-17 03:57
-              with the cc BROADENED (Manfried Faber, Samo, Jaka now
-              on-thread). THE DIRECTIVE: 3D FIRST (genuine 3x3,
-              hedgehog topologically protected; watch small-box
-              boundary effects at delta = 0.3, reduce delta if they
-              bite). Q28 CONFIRMED + sharpened (three
-              axis-permutation seeds diag(1,delta,0) / (delta,0,1)
-              / (0,1,delta) -> gradient descent -> local minima;
-              "global should be electron") -> M5.21.2 staged (the
-              series renumbered same day to run order); Q27
-              answered-as-open (sign of g not fixed by theory;
-              branch-qualification permanent); Q25 partial
-              (det(M)=const problematized: det = 0 on the spectrum,
-              needs an eigenspectrum shift; the form itself REMAINS
-              author-open, ours to discriminate); Q26 unanswered
-              (held, no re-ask spent). The 4D sequel staged: the 3
-              minima as 4D descent seeds -> field rotation J + tiny
-              boosts; "difficulties come in 4D with signature - I
-              will think about it" (tasks/m5_21_convo.md).
-              Prior round (Q24 deferral + the electron redirect,
-              2026-07-15): tasks/m5_20_convo.md.
+ANSWERED      Q30 + Q31: his 14:16 asks, MEASURED same night by
+this round    M5.21.2b (audited 8/8) and sent in the 2026-07-18
+              package: Q30 the ring radius is dynamically selected
+              (2.5/2.9/3.4 at delta 0.3/0.2/0.1, ~delta^-0.2; the
+              basins merge: ring = hedgehog, one object); Q31 the
+              split is TWO braided +1/2 lines (not four), net +2
+              every plane both hemispheres; Q25 additionally
+              resolved CONSTRUCTIVELY (his Eq-12 eigenvalue form
+              measured as the well-posed potential). Awaiting his
+              reply.
+              Prior round: the CHECKPOINT round, sent 2026-07-17
+              ~12:30 (the M5.21.2 package + the split answer),
+              answered SAME DAY 14:16, group cc restored. "Thanks, looks great!"
+              (the census link quoted back). Q29 ANSWERED-AS-OPEN:
+              the charged ring is a "very interesting hypothesis",
+              resembles the Marc/Andras/Giorgio approach (maybe
+              combinable), not excluded; refined into HIS ask back
+              = Q30 (the ring RADIUS: a(delta) scaling,
+              extrapolate to delta ~ 1e-10, test vs the ~2fm e+e-
+              scattering bound). The lepton triplet ENDORSED
+              ("clear candidates for 3 leptons"); mu/tau decay
+              picture (quick field rotation -> 2 fast vortex loops
+              as neutrinos); Koide-connection speculation (his,
+              far-gated). The SPLIT: his four-line picture ("four
+              1/4 have more sense - what are the angles between
+              them?") = Q31 (count both hemispheres, angles,
+              delta-trend). 1+1D toy formally RETIRED ("let's
+              forget about it"); the 3D -> 4D pipeline reaffirmed.
+              No regularization / term-set preference given (the
+              2b I1 self-determined order stands). "I will
+              read/think and respond further" (tasks/
+              m5_21_convo.md § 2026-07-17 14:16).
+              Prior rounds same day: the 03:57 3D-first directive
+              + the 11:05 split question (same file).
 
-12 OPEN       Q29 (NEW 2026-07-17: the charged ring as an electron
-              candidate, OUTBOUND in the checkpoint round), Q26
+11 OPEN       Q26
               (the virial-balance target: unanswered in the
               2026-07-17 round; held, no re-ask spent), Q25
               residual (the potential form: author-open, the
@@ -68,7 +79,9 @@ this round    M5.21.1e results round), answered 2026-07-17 03:57
 
 | ID | Title | Question (one line) | Gates |
 | --- | --- | --- | --- |
-| [Q29](#q29-detail) 🚧 | The charged ring as an electron candidate | The THIRD defect type ([M5.21.2 § 9](tasks/m5_21_2_task_details.md)): the charged disclination ring (Alexander, Chen, Matsumoto & Kamien, RMP 84, 497 (2012) § IV.B: loops carry ODD hedgehog charge: the far sphere reads q = 1 indistinguishably from the point hedgehog). Has he considered it as the electron's core? Our first measurement: an instrument-limited TIE with the point hedgehog (−3.7% fwd / +23% 2h re-read). If plausible to him, the converged census treats it co-equal | the M5.21.2b census scope (point vs ring at conviction) |
+| [Q31](#q31-detail) ✅ | The split-line geometry: how many, what angles, δ-trend | His 2026-07-17 14:16 ask back on our 1 → ½ + ½ measurement: count the half-lines emanating from the relaxed hedgehog core in BOTH hemispheres (the § 5d read covered z > 0 planes only: two ½-lines there; his expectation is FOUR from the point core, "four 1/4 have more sense"), measure the angles between them, and read the δ-dependence with extrapolation toward δ ~ 1e-10 | the M5.21.2b split arm; the next Duda package |
+| [Q30](#q30-detail) ✅ | The charged-ring radius: a(δ) scaling vs the ~2fm bound | His 2026-07-17 14:16 ask back on Q29: what sets the relaxed ring radius? Measure a(δ) on the converged instrument across the δ-ladder, extrapolate toward δ ~ 1e-10, and test against the electron-size constraints (his pointer: e⁺e⁻ scattering extrapolated to rest gives a ~2fm scale: can a charged-ring core still scatter point-like?) | the M5.21.2b ring arm; the ring's electron-core viability |
+| [Q29](#q29-detail) ✅ | The charged ring as an electron candidate | The THIRD defect type ([M5.21.2 § 9](tasks/m5_21_2_task_details.md)): the charged disclination ring (Alexander, Chen, Matsumoto & Kamien, RMP 84, 497 (2012) § IV.B: loops carry ODD hedgehog charge: the far sphere reads q = 1 indistinguishably from the point hedgehog). Has he considered it as the electron's core? Our first measurement: an instrument-limited TIE with the point hedgehog (−3.7% fwd / +23% 2h re-read). **ANSWERED-AS-OPEN 2026-07-17 14:16**: "very interesting hypothesis", resembles the Marc/Andras/Giorgio approach (maybe combinable), NOT excluded; the ring stays co-equal in the converged census; his open follow-up = the radius question → [Q30](#q30-detail) | the M5.21.2b census scope (point vs ring at conviction) |
 | [Q25](#q25-detail) 🔶 | The electron potential form | Which potential is intended for the electron statics: the Eq 12 eigenvalue penalty, the trace-target `Σ_p (Tr((Mξ)^p) − c_p)²` (which p range?), LdG, or one of these + the `det(M) = const` constraint (hard or penalty)? The paper calls this "a difficult open question requiring simulations" (FRAME p. 7/12) and [M5.21.1e](tasks/m5_21_1e_task_details.md) now discriminates: the amplitude escape closes monotonically with stiffness, the hard pin overshoots. **PARTIAL ANSWER 2026-07-17**: the det-constraint is problematized by the author himself (det = 0 on the spectrum (g,1,δ,0): it would only pin the last eigenvalue; "might require shifting the eigenspectrum from zero"; det(M) and det(M·η) both briefly checked Lorentz-invariant, evidence-not-resolution); the form itself REMAINS OPEN ("the details of potential remain open question", possibly effective from a deeper model) → the comparison arm is ours to run, self-determined | the next-run selection (potential-form comparison arm) |
 | [Q26](#q26-detail) 🚧 | The virial-balance target | Is the intended stable electron the virial-balanced state (u_curv = 3·V, the Faber Eq 48 analog; M5.16 measured that balance to 0.3-0.6% in the constrained class)? Should we search for it DIRECTLY (fixed-size / constrained-class minimization) rather than by free descent? **UNANSWERED in the 2026-07-17 reply** (the 3D-first directive supersedes); HELD, no re-ask spent; re-pose only if load-bearing after the 3D scan. Note: Faber himself is now cc'd on the thread | the virial-balance search task |
 | [Q27](#q27-detail) ✅ | The physical sign of g | In `(−g)^p`: which branch is physical (the paper reading = our s = −1, M_vac = diag(+g,1,δ,0)), or is the lower-energy branch (measured: s = +1, ~1% lower via odd-p core cross terms) selected by the theory? **ANSWERED-AS-OPEN 2026-07-17**: "I am not certain if g should be positive or negative" → the theory does not select; the branch-qualification policy ([M5.21.1 P0](tasks/m5_21_1_task_details.md)) is permanent; both signs co-equal (and moot in 3D, where g is absent) | regime-qualification of every quantitative claim |
@@ -505,4 +518,18 @@ Imported from `m6_ouroboros/research/archive/0b_model_gates.md` § "What M6 offe
 
 ### Q29 detail
 
-**The charged ring as an electron candidate.** Opened 2026-07-17 at the M5.21.2 close (user directive at the checkpoint round). The third defect type in the catalog (vortex loop = chargeless/neutrino-side; hedgehog = point-cored q = 1; charged ring = a closed half-disclination cord in the SAME q = 1 winding sector, interior escaped: the far sphere, hence charge/Coulomb, cannot tell ring from point). Source: Alexander, Chen, Matsumoto & Kamien, Rev. Mod. Phys. 84, 497 (2012) ([arXiv:1107.1169](https://arxiv.org/abs/1107.1169)): § IV.B (loops classified by even/odd hedgehog charge on the sheathing torus), § V (biaxial π₂ = {1}: no absolutely-protected point defects in the biaxial phase); primary lineage Jänich 1987, Nakanishi/Hayashi/Mori 1988, Terentjev 1995 (Saturn ring). Our evidence: [M5.21.2](tasks/m5_21_2_task_details.md) measured the ring at an instrument-limited TIE with the point hedgehog (E lower by 3.7% on the fwd instrument, higher by 23% on the 2h re-read; more compact, r_half 6.7 vs 9.0, retention 0.975; [`findings/m5_21_2_census.md § 5c/§ 9`](findings/m5_21_2_census.md)); also consistent with the M5.16 Q8 off-origin melt and the particle-hunt synthesis nuance (point and ring = two core regimes of one charged object). The ask: has he already looked at the charged-ring type, and is it a viable electron-core candidate alongside the hedgehog? OUTBOUND in the 2026-07-17 checkpoint round; [M5.21.2b](tasks/m5_21_2b_task_details.md) I3 measures the converged verdict either way.
+**The charged ring as an electron candidate.** Opened 2026-07-17 at the M5.21.2 close (user directive at the checkpoint round). The third defect type in the catalog (vortex loop = chargeless/neutrino-side; hedgehog = point-cored q = 1; charged ring = a closed half-disclination cord in the SAME q = 1 winding sector, interior escaped: the far sphere, hence charge/Coulomb, cannot tell ring from point). Source: Alexander, Chen, Matsumoto & Kamien, Rev. Mod. Phys. 84, 497 (2012) ([arXiv:1107.1169](https://arxiv.org/abs/1107.1169)): § IV.B (loops classified by even/odd hedgehog charge on the sheathing torus), § V (biaxial π₂ = {1}: no absolutely-protected point defects in the biaxial phase); primary lineage Jänich 1987, Nakanishi/Hayashi/Mori 1988, Terentjev 1995 (Saturn ring). Our evidence: [M5.21.2](tasks/m5_21_2_task_details.md) measured the ring at an instrument-limited TIE with the point hedgehog (E lower by 3.7% on the fwd instrument, higher by 23% on the 2h re-read; more compact, r_half 6.7 vs 9.0, retention 0.975; [`findings/m5_21_2_census.md § 5c/§ 9`](findings/m5_21_2_census.md)); also consistent with the M5.16 Q8 off-origin melt and the particle-hunt synthesis nuance (point and ring = two core regimes of one charged object). The ask: has he already looked at the charged-ring type, and is it a viable electron-core candidate alongside the hedgehog? **OUTBOUND SENT 2026-07-17 ~12:30 EDT** in the checkpoint round ([`tasks/m5_21_convo.md § 2026-07-17 midday`](tasks/m5_21_convo.md)); his reply gates the next run; [M5.21.2b](tasks/m5_21_2b_task_details.md) I3 measures the converged verdict either way.
+
+**ANSWERED-AS-OPEN 2026-07-17 14:16** ([`tasks/m5_21_convo.md § 2026-07-17 14:16`](tasks/m5_21_convo.md)): "It is indeed very interesting hypothesis, seems close to Marc, Andras, Giorgio approach?" (and "maybe allowing to combine them?"). He offers no reason to exclude the ring; the point and ring stay co-equal candidates in the converged census. His follow-up question is the RADIUS: does a(δ) extrapolate to δ ~ 1e-10 compatibly with the electron-size constraints (his pointer: the ~2fm e⁺e⁻ scattering scale)? That refinement is registered as [Q30](#q30-detail) (ours to measure, the M5.21.2b ring arm).
+
+### Q30 detail
+
+**The charged-ring radius: a(δ) scaling vs the ~2fm scattering bound.** Opened 2026-07-17 14:16 from his reply to the Q29 ask ([`tasks/m5_21_convo.md § 2026-07-17 14:16`](tasks/m5_21_convo.md)): "The main question is what is radius of such charged ring? If it depends on delta, maybe you could extrapolate to delta ~ 10^-10?" His anchors: the electron-size argument survey ([physics.SE 397022](https://physics.stackexchange.com/questions/397022/experimental-boundaries-for-size-of-electron)) and "The biggest problem seems electron-positron scattering results - extrapolating to resting we get ~2fm scale, so the big question is if such charged ring could lead to such scattering results?" Status of our evidence: the M5.21.2 ring endpoint relaxed AT the seeded cord radius a = 4 voxels with r_half 6.7 (vs 9.0 for the point core), but that endpoint is not grid-converged (the instrument finding), so no a(δ) claim exists yet. The measurement: on the M5.21.2b converged instrument, relax the ring across the δ-ladder with a FREED radius (multiple seeded a values, watch where the relaxed cord settles), fit the a(δ) trend, extrapolate toward δ ~ 1e-10, and state the comparison against the ~2fm bound (with the honest caveat that lattice voxels → physical fm needs the scale anchors of [Q17](#q17-detail)). Consumer: the [M5.21.2b](tasks/m5_21_2b_task_details.md) ring arm; the answer headlines the next package.
+
+**ANSWERED 2026-07-17 night (M5.21.2b I4, audited; OUTBOUND SENT in the 2026-07-18 package)**: the radius is NOT a free parameter: every seeded cord radius (a = 3, 4.5, 6, and the point seed) anneals to ONE δ-selected transverse scale on the well-posed instrument: ρ_w ≈ 2.5 / 2.9 / 3.4 at δ = 0.3 / 0.2 / 0.1 (±1.5% across seedings at δ = 0.1), growing as δ falls (~δ^−0.2±0.1); no compact torus cord survives (the core is the braided ½-line pair, [Q31](#q31-detail)); the point and ring basins MERGE (ΔE ≤ 0.04%). The fm-scale / 2fm-bound comparison stays open on the [Q17](#q17-detail) anchor. Record: [`findings/m5_21_2b_note.md § 7`](findings/m5_21_2b_note.md).
+
+### Q31 detail
+
+**The split-line geometry: how many, of what degree, in what angles, δ-trend.** Opened 2026-07-17 14:16 from his reply to our § 5d split measurement ([`tasks/m5_21_convo.md § 2026-07-17 14:16`](tasks/m5_21_convo.md)): he had considered the biaxial split before ("was too difficult for me to model, so for simplicity I have stayed with two 1 vortices") and now asks the geometry directly: "But indeed four 1/4 have more sense - what are the angles between them?", with the δ-dependence and extrapolation toward δ ~ 1e-10. Reconciliation with our measurement: § 5d counted TWO clean same-sign ½-lines on the z > 0 cross-sections only (net degree 1 preserved); if two more half-lines exit the core on z < 0 (unmeasured), the total emanating from the point core is FOUR half-lines, which is his picture (the "four 1/2" vs "four 1/4" phrasing in his message is ambiguous, read as four half-lines each carrying a quarter of the emanating structure; evidence-not-resolution, the measurement decides). The measurement: on the M5.21.2b converged instrument, count the half-lines in BOTH hemispheres, extract the inter-line angles (azimuthal and polar), and read the (count, angles) trend across the δ-ladder with the extrapolation statement. Our current cell-scale-separation caveat (ρ ≈ 1 voxel at M5.21.2 depth) is exactly why this needs the converged instrument first. Consumer: the [M5.21.2b](tasks/m5_21_2b_task_details.md) split arm; the answer headlines the next package.
+
+**ANSWERED 2026-07-17 night (M5.21.2b I5, audited; OUTBOUND SENT in the 2026-07-18 package)**: **TWO +½ vortex lines, not four**, both hemispheres: every cross-section carries net +2 half-units (contour-verified at ρ ≥ 10, gaps 0.10-0.28), with two clean +½ cores near the core whose pair azimuth ROTATES along z (72° → 169° → 135°): the half-lines BRAID rather than holding fixed angles; the transverse scale grows as δ falls (the Q30 numbers). Measured band-clean on the T2 (eigenvalue-penalty) endpoints; the bare-T1 interiors are gap-collapsed tangles at δ = 0.3 (stated honestly). Method hardening folded: the M5.21.2d plaquette read is retro-flagged (axis branch ambiguity + band-crossing artifacts); the contour winding is the valid instrument. Record: [`findings/m5_21_2b_note.md § 8`](findings/m5_21_2b_note.md).

@@ -10,7 +10,9 @@
 | Seeds | The 3 local minima from the [M5.21.2](m5_21_2_task_details.md) census, lifted to 4D | His "preferably using such 3 local energy minima as starting points" |
 | The read | Does FIELD rotation emerge from 4D minimization, carrying angular momentum + tiny boosts? | Rigid rotation is already killed both hunts (M5.20.5 loop + [M5.21.1 P2](m5_21_1_task_details.md) hedgehog); field rotation is the surviving route |
 | The known hazard | The 4D signature: the M5.18/M5.21.1 indefiniteness (time-mixing saddle directions at second order) | HIS open item ("Difficulties come in 4D with signature - I will think about it"); fold his elaboration when it lands, the task is NOT gated on it |
+| THE ACCEPTANCE OBSERVABLE | Larmor precession (his 2026-07-17 11:05 suggestion, ADOPTED in the checkpoint outbound): the rotating 4D electron in an external bias should precess at the Larmor rate | Fold the concrete read design at PLAN |
+| 4D-stage observables-of-interest (his 14:16 reply) | The decay picture: μ/τ → e as "quick field rotation, transferring energy to topological vortices - should create 2 fast vortex loops as neutrinos" (consistent with the ½-line neutrino implication); mass anchoring on 1 : 206 : 3477 with a possible Koide-formula connection, HIS gating: "requires details of potential, tiny delta, and 4D case with dynamics, huge g" | Recorded ambitions, NOT near-term arms ([`m5_21_convo.md § 2026-07-17 14:16`](m5_21_convo.md)) |
 
 Series rules: both film templates on any film output; independent adversarial audit before the review; method-note-grade record if the result goes back to the author.
 
-**Gated by**: [M5.21.2](m5_21_2_task_details.md) (needs its minima) + user "go".
+**Gated by**: [M5.21.2b](m5_21_2b_task_details.md) (needs its CONVERGED minima; the M5.21.2 endpoints are not grid-converged) + user "go".
