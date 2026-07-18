@@ -48,7 +48,7 @@ The tube is thin (`r₀ ≈ 0.152 r_c` vs `R₀ ≈ 1.573 r_c`): resolving it ne
 
 ## 5. Stretch: the Bessel-envelope variant (first beyond-the-paper result)
 
-Fleury § 5.5 names the fix for the unphysical Heaviside mask: Bessel envelopes. Ceperley's rotating mode ([`../../theory/ceperley_rotating_waves.md`](../../theory/ceperley_rotating_waves.md) § 4, Eq 15) is the same phase structure with a `J_m(k_c r)` radial envelope. The stretch: replace the mask with the `J_1` envelope, re-integrate the four observables, report how the constraint solution shifts (does `U/m_ec²` move toward 1?). Cheap (same quadrature machinery), and it is M7's **first new result** beyond the published paper.
+Fleury § 5.5 names the fix for the unphysical Heaviside mask: Bessel envelopes. Ceperley's rotating mode ([`../../theory/ceperley_rotating_waves.md`](../../theory/_CITATIONS.md) § 4, Eq 15) is the same phase structure with a `J_m(k_c r)` radial envelope. The stretch: replace the mask with the `J_1` envelope, re-integrate the four observables, report how the constraint solution shifts (does `U/m_ec²` move toward 1?). Cheap (same quadrature machinery), and it is M7's **first new result** beyond the published paper.
 
 ## 6. Gates
 
@@ -145,4 +145,4 @@ As the paper states them: the mask is unphysical at the boundary (now quantified
 
 ---
 
-Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.2) · background [`../m7_background.md § 3`](../m7_background.md) (the Fleury model + targets) · conventions sources: FLDB Main + Appendix (corpus #1), [`../../theory/ceperley_rotating_waves.md`](../../theory/ceperley_rotating_waves.md) (Bessel stretch), [`../../theory/feynman_maxwell_equations.md`](../../theory/feynman_maxwell_equations.md) (the Maxwell baseline) · upstream [`m7_1_infra.md`](m7_1_infra.md) (lattice + units; minimizer NOT required) · downstream [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md) (the Fleury seed).
+Cross-refs: roadmap [`../m7_roadmap.md`](../m7_roadmap.md) (M7.2) · background [`../m7_background.md § 3`](../m7_background.md) (the Fleury model + targets) · conventions sources: FLDB Main + Appendix (corpus #1), [`../../theory/ceperley_rotating_waves.md`](../../theory/_CITATIONS.md) (Bessel stretch), [`../../theory/feynman_maxwell_equations.md`](../../theory/_CITATIONS.md) (the Maxwell baseline) · upstream [`m7_1_infra.md`](m7_1_infra.md) (lattice + units; minimizer NOT required) · downstream [`m7_4_charged_soliton.md`](m7_4_charged_soliton.md) (the Fleury seed).
