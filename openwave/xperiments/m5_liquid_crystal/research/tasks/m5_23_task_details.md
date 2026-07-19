@@ -77,6 +77,23 @@ The headless preview (the selftest's render of the 162-glyph shell around the bi
 
 The hedgehog signature is exactly the expected one: every shaft radial (the topological "hedgehog" made visible in one glance), the delta bars tangent on the shell. Live look: run the launcher (`python -m openwave.xperiments.m5_liquid_crystal._launcher` in the `openwave312` env) and check `Ellipsoids (1 /angle)`.
 
+## STAGE B FINDINGS (2026-07-19)
+
+The M·u eigen-ellipsoid MESH landed behind the `Mesh Surfaces` toggle (with a `Wireframe` sub-toggle for the readability A/B the maintainer asked to test):
+
+| Piece | Where | What landed |
+| --- | --- | --- |
+| UV-sphere template + static indices | `medium.py`: `populate_ellipsoid_template` + `populate_ellipsoid_mesh_indices` (both in-kernel, closed form per index, taichi-first) | 8 rings × 12 meridians + 2 poles = 98 verts / 192 triangles per glyph; one flat vertex/color/index pool spans all (center, direction) slots so ONE `scene.mesh` call renders the whole shell set; indices filled once |
+| The mesh kernel | `engine4_render.update_ellipsoid_mesh` | Same Fibonacci shell points + nearest-voxel sampling as Stage A; `vertex = p + (size/2)·((M_sp + 0.08·I) @ u)`, the m5_6_5b key simplification: NO eigendecomposition (semi-axes = eigenvalues along eigenvectors automatically); the 0.08 isotropic floor keeps the λ₃ = 0 flat disk 3D-visible; unused slots collapse to the origin |
+| GUI + dispatch | `_launcher.py` | `Mesh Surfaces` + `Wireframe` checkboxes inside the ellipsoid block; dispatch renders `scene.mesh(two_sided=True, show_wireframe=...)` in mesh mode, the Stage A lines otherwise; same Radius / Count / Size sliders drive both modes |
+| Machine gate | [`m5_23_ellipsoid_selftest.py`](../scripts/m5_23_ellipsoid_selftest.py) | **17/17 ALL GREEN** (the 13 Stage A checks + 4 mesh checks: template unit-sphere + poles, indices in-slot + distinct, vertex = p + s/2·(M_sp + floor·I)@u vs the numpy reference, collapse + finite) |
+
+The headless mesh preview (Lambert-shaded, the Stage B look on the biaxial hedgehog):
+
+![](../plots/m5_23_mesh_selftest.png)
+
+The arrangement reproduces the reference figure directly: individual eigen-ellipsoids fanned radially around the charge, one per angle, elongated along the local director; the thin profiles are the honest biaxial spectrum. What the static preview cannot show is the live payoff: under the 4D clock the delta axis sweep will rotate each ellipsoid's minor frame in place, the de Broglie clock animated.
+
 ### Course-correction round 1 (2026-07-19, after the maintainer's live look)
 
 | Feedback | Change |

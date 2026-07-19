@@ -175,6 +175,8 @@ class SimulationState:
         self.ELLIPSOID_RADIUS = 0.1  # shell radius, fraction of max grid dim
         self.ELLIPSOID_COUNT = 299  # shell glyph count (density; not-too-dense spec)
         self.ELLIPSOID_SIZE = 0.025  # glyph base length, normalized (scaled by lambda)
+        self.ELLIPSOID_MESH = False  # Stage B: shaded M·u ellipsoid surfaces (vs line frames)
+        self.ELLIPSOID_WIREFRAME = False  # mesh wireframe overlay (A/B readability test)
         self.FLUX_MESH_PLANES = [0.5, 0.5, 0.5]
         self.SHOW_FLUX_MESH = 0
         self.WARP_MESH = 300
@@ -248,6 +250,8 @@ class SimulationState:
         self.ELLIPSOID_RADIUS = ui.get("ELLIPSOID_RADIUS", 0.1)  # fraction of max grid dim
         self.ELLIPSOID_COUNT = ui.get("ELLIPSOID_COUNT", 299)  # shell glyph count
         self.ELLIPSOID_SIZE = ui.get("ELLIPSOID_SIZE", 0.025)  # glyph base length
+        self.ELLIPSOID_MESH = ui.get("ELLIPSOID_MESH", False)  # Stage B mesh surfaces
+        self.ELLIPSOID_WIREFRAME = ui.get("ELLIPSOID_WIREFRAME", False)  # wireframe A/B
         self.FLUX_MESH_PLANES = ui["FLUX_MESH_PLANES"]
         self.SHOW_FLUX_MESH = ui["SHOW_FLUX_MESH"]
         self.WARP_MESH = ui["WARP_MESH"]
@@ -436,6 +440,9 @@ def display_controls(state):
                 "Count", state.ELLIPSOID_COUNT, 32, medium.ELLIPSOID_MAX_DIRS
             )
             state.ELLIPSOID_SIZE = sub.slider_float("Size", state.ELLIPSOID_SIZE, 0.01, 0.15)
+            state.ELLIPSOID_MESH = sub.checkbox("Mesh Surfaces", state.ELLIPSOID_MESH)
+            if state.ELLIPSOID_MESH:
+                state.ELLIPSOID_WIREFRAME = sub.checkbox("Wireframe", state.ELLIPSOID_WIREFRAME)
         state.SHOW_GLYPHS = sub.slider_int("Glyph Planes", state.SHOW_GLYPHS, 0, 3)
         # VIZ.5 exclusivity: the vector-glyph select displays UNCHECKED while the
         # ellipsoid shell owns the screen (those states are not rendering), and
@@ -1153,28 +1160,42 @@ def render_elements(state):
         flux_mesh.render_flux_mesh(render.scene, state.tensor_field, state.SHOW_FLUX_MESH)
 
     # VIZ.5 (M5.23) — the "ellipsoid" viz: one eigenframe glyph per 3D angle on
-    # an S² shell around each defect center (the one-value-per-angle spec).
-    # Its own feature; while active it REPLACES all vector glyph viz (the plane
-    # glyphs below are suppressed — no visual pollution). Stage A: taichi lines
-    # (shaft n̂ ∝ λ₁ + delta bar ∝ λ₂); Stage B upgrades to the M·u mesh.
+    # an S² shell around each defect center (the one-value-per-angle spec), a
+    # FULL-3D view (not plane cross-sections). Its own feature; while active it
+    # REPLACES all vector glyph viz (the plane glyphs below are suppressed — no
+    # visual pollution). Two modes: Stage A taichi lines (shaft n̂ ∝ λ₁ + delta
+    # bar ∝ λ₂) or the Stage B M·u eigen-ellipsoid mesh (Mesh Surfaces toggle;
+    # Wireframe = the readability A/B).
     if state.SHOW_ELLIPSOID:
         wf = state.tensor_field
-        viz.update_ellipsoid_glyphs(
-            wf,
-            state.ELLIPSOID_RADIUS * wf.max_grid_size,
-            state.ELLIPSOID_SIZE,  # glyph base length (the GUI Size slider)
-            min(state.ELLIPSOID_COUNT, wf.ellipsoid_max_dirs),
-        )
-        render.scene.lines(
-            wf.ellipsoid_glyph_vertices,
-            per_vertex_color=wf.ellipsoid_glyph_colors,
-            width=2.0,
-        )
-        render.scene.lines(
-            wf.ellipsoid_delta_vertices,
-            per_vertex_color=wf.ellipsoid_delta_colors,
-            width=2.0,
-        )
+        ell_radius = state.ELLIPSOID_RADIUS * wf.max_grid_size
+        ell_count = min(state.ELLIPSOID_COUNT, wf.ellipsoid_max_dirs)
+        if state.ELLIPSOID_MESH:
+            viz.update_ellipsoid_mesh(wf, ell_radius, state.ELLIPSOID_SIZE, ell_count)
+            render.scene.mesh(
+                wf.ellipsoid_mesh_vertices,
+                indices=wf.ellipsoid_mesh_indices,
+                per_vertex_color=wf.ellipsoid_mesh_colors,
+                two_sided=True,
+                show_wireframe=state.ELLIPSOID_WIREFRAME,
+            )
+        else:
+            viz.update_ellipsoid_glyphs(
+                wf,
+                ell_radius,
+                state.ELLIPSOID_SIZE,  # glyph base length (the GUI Size slider)
+                ell_count,
+            )
+            render.scene.lines(
+                wf.ellipsoid_glyph_vertices,
+                per_vertex_color=wf.ellipsoid_glyph_colors,
+                width=2.0,
+            )
+            render.scene.lines(
+                wf.ellipsoid_delta_vertices,
+                per_vertex_color=wf.ellipsoid_delta_colors,
+                width=2.0,
+            )
 
     # M5.1 director-glyph overlay — line segments showing n̂ orientation,
     # signed-component RGB so opposite directions are visually opposite.

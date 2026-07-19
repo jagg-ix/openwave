@@ -215,6 +215,47 @@ check(
 )
 wf.ellipsoid_n_centers[None] = 1  # restore for the preview plot
 
+# ---- 6. STAGE B MESH (the M.u eigen-ellipsoid surfaces) ----
+tmpl = wf.ellipsoid_template.to_numpy().astype(np.float64)
+check(
+    "mesh template: unit sphere + poles",
+    np.allclose(np.linalg.norm(tmpl, axis=1), 1.0, atol=1e-6)
+    and np.allclose(tmpl[0], [0, 0, 1])
+    and np.allclose(tmpl[-1], [0, 0, -1]),
+)
+tv, tf = wf.ellipsoid_tverts, wf.ellipsoid_tfaces
+idxs = wf.ellipsoid_mesh_indices.to_numpy().reshape(-1, 3)
+n_slots = wf.ellipsoid_max_centers * wf.ellipsoid_max_dirs
+slot_of_face = np.repeat(np.arange(n_slots), tf)
+in_block = (idxs // tv == slot_of_face[:, None]).all()
+distinct = (
+    (idxs[:, 0] != idxs[:, 1]) & (idxs[:, 1] != idxs[:, 2]) & (idxs[:, 0] != idxs[:, 2])
+).all()
+check(
+    "mesh indices: in-slot blocks, 3 distinct verts per face",
+    bool(in_block and distinct and idxs.min() >= 0 and idxs.max() < n_slots * tv),
+)
+
+viz.update_ellipsoid_mesh(wf, R_VOX, BASE_LEN, N_ACTIVE)
+mesh_v = wf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
+M_np = wf.M_am.to_numpy().astype(np.float64)
+floor = viz._ELLIPSOID_MESH_FLOOR
+ok_mesh = True
+for d in range(0, N_ACTIVE, 17):  # sample every 17th direction
+    p = (np.array([cx, cy, cz], np.float64) + R_VOX * u_ref[d] + 0.5) / max_dim
+    i, j, k = ii[d], jj[d], kk[d]
+    m_sp = M_np[i, j, k][1:4, 1:4]
+    expect = p + 0.5 * BASE_LEN * (tmpl @ (m_sp + floor * np.eye(3)).T)
+    got = mesh_v[d * tv : (d + 1) * tv]
+    if not np.allclose(got, expect, atol=1e-5):
+        ok_mesh = False
+        break
+check("mesh geometry: vertex = p + s/2*(M_sp + floor*I)@u for sampled dirs", ok_mesh)
+check(
+    "mesh hygiene: slots beyond n_active collapsed + finite",
+    np.all(mesh_v[N_ACTIVE * tv :] == 0.0) and np.all(np.isfinite(mesh_v)),
+)
+
 # ----------------------------------------------------------------
 # Preview plot (Agg) — the shell at the default density
 # ----------------------------------------------------------------
@@ -240,6 +281,31 @@ os.makedirs(plot_dir, exist_ok=True)
 out = os.path.join(plot_dir, "m5_23_shell_selftest.png")
 fig.savefig(out, dpi=110, bbox_inches="tight")
 print(f"[plot] {out}")
+
+# Mesh preview: Lambert-shaded eigen-ellipsoid surfaces (Stage B look)
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection  # noqa: E402
+
+viz.update_ellipsoid_mesh(wf, R_VOX, 1.8 * BASE_LEN, N_ACTIVE)
+mesh_v = wf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
+tris = mesh_v[idxs[: N_ACTIVE * tf]]  # (n_faces, 3, 3) active block
+normals = np.cross(tris[:, 1] - tris[:, 0], tris[:, 2] - tris[:, 0])
+normals /= np.linalg.norm(normals, axis=1, keepdims=True) + 1e-15
+light = np.array([0.4, 0.3, 0.85])
+lam = 0.35 + 0.65 * np.abs(normals @ (light / np.linalg.norm(light)))
+face_rgb = np.clip(lam[:, None] * np.array([0.29, 0.64, 0.87]), 0, 1)
+fig2 = plt.figure(figsize=(9, 9))
+ax2 = fig2.add_subplot(111, projection="3d")
+ax2.add_collection3d(Poly3DCollection(tris, facecolors=face_rgb, edgecolors="none"))
+ax2.scatter(*center_n, color="k", s=18)
+ax2.set_xlim(lim), ax2.set_ylim(lim), ax2.set_zlim(lim)
+ax2.set_box_aspect((1, 1, 1))
+ax2.set_title(
+    f"M5.23 VIZ.5 Stage B mesh (M.u eigen-ellipsoids): biaxial hedgehog, "
+    f"{N_ACTIVE} ellipsoids, R={R_FRAC:.2f}"
+)
+out2 = os.path.join(plot_dir, "m5_23_mesh_selftest.png")
+fig2.savefig(out2, dpi=110, bbox_inches="tight")
+print(f"[plot] {out2}")
 
 n_pass = total[0] - len(fails)
 print(

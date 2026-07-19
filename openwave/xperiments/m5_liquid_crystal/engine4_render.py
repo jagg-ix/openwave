@@ -3,6 +3,7 @@ M5 ENGINE — RENDERING / VISUALIZATION (engine4_render)
 
 The viz stack — OpenWave's biggest differential as a simulator:
   - update_ellipsoid_glyphs    VIZ.5 S²-shell eigenframe glyphs (1 per 3D angle)
+  - update_ellipsoid_mesh      VIZ.5 Stage B: M·u eigen-ellipsoid surfaces
   - update_director_glyphs     director-orientation line glyphs
   - update_flux_mesh_values    3-plane scalar→color/warp mesh
   - sample_position_to_render  granule point-cloud
@@ -106,6 +107,81 @@ def update_ellipsoid_glyphs(
             tensor_field.ellipsoid_delta_vertices[idx + 1] = zero_v
             tensor_field.ellipsoid_delta_colors[idx + 0] = zero_v
             tensor_field.ellipsoid_delta_colors[idx + 1] = zero_v
+
+
+# VIZ.5 Stage B — isotropic visibility floor added to M before the M·u map:
+# the D = diag(1, δ, 0) family has λ₃ = 0, so the raw ellipsoid degenerates to
+# a flat disk; the floor lifts every semi-axis by this amount so the surface
+# stays 3D-visible (the m5_6_5b λ_min floor, point 4 of that de-risk).
+_ELLIPSOID_MESH_FLOOR = 0.08
+
+
+@ti.kernel
+def update_ellipsoid_mesh(
+    tensor_field: ti.template(),  # type: ignore
+    radius_vox: ti.f32,  # type: ignore
+    size: ti.f32,  # type: ignore
+    n_active: ti.i32,  # type: ignore
+):
+    """VIZ.5 (M5.23) — the "ellipsoid" viz, Stage B (taichi MESH): per shell
+    sample, the unit-sphere template maps through the local M to the shaded
+    eigen-ellipsoid surface — the same FULL-3D Fibonacci shell points and
+    nearest-voxel sampling as the Stage A lines, surface instead of frame.
+
+    The m5_6_5b key simplification: for symmetric M the image of the unit
+    sphere IS the ellipsoid with semi-axes = eigenvalues along eigenvectors,
+        vertex = p + (size/2) · ((M_sp + floor·I) @ u_template)
+    so NO per-glyph eigendecomposition. M_sp is the spatial [1:4,1:4] block of
+    the 4×4 substrate (the time axis stays out of the render); `size` matches
+    the Stage A shaft length (ellipsoid major diameter ≈ the line glyph).
+    Colors: flat director color for now (lighting conveys the shape; a
+    clock-phase palette is a later option). Slots beyond (n_centers, n_active)
+    collapse to the origin (zero-area triangles, invisible).
+    """
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    max_dim = ti.cast(tensor_field.max_grid_size, ti.f32)
+    n_centers = tensor_field.ellipsoid_n_centers[None]
+    zero_v = ti.Vector([0.0, 0.0, 0.0])
+    col = ti.Vector(
+        [_GLYPH_DIRECTOR_COLOR[0], _GLYPH_DIRECTOR_COLOR[1], _GLYPH_DIRECTOR_COLOR[2]]
+    )
+    for c, d, v in ti.ndrange(
+        tensor_field.ellipsoid_max_centers,
+        tensor_field.ellipsoid_max_dirs,
+        tensor_field.ellipsoid_tverts,
+    ):
+        base = (c * tensor_field.ellipsoid_max_dirs + d) * tensor_field.ellipsoid_tverts + v
+        if c < n_centers and d < n_active:
+            # same Fibonacci shell point as the Stage A lines
+            zf = 1.0 - 2.0 * (ti.cast(d, ti.f32) + 0.5) / ti.cast(n_active, ti.f32)
+            rho = ti.sqrt(ti.max(1.0 - zf * zf, 0.0))
+            phi = ti.cast(d, ti.f32) * _ELLIPSOID_GOLDEN_ANGLE
+            u = ti.Vector([rho * ti.cos(phi), rho * ti.sin(phi), zf])
+            ctr = tensor_field.ellipsoid_centers[c]
+            s = ctr + radius_vox * u
+            i = ti.min(ti.max(ti.cast(ti.round(s[0]), ti.i32), 0), nx - 1)
+            j = ti.min(ti.max(ti.cast(ti.round(s[1]), ti.i32), 0), ny - 1)
+            k = ti.min(ti.max(ti.cast(ti.round(s[2]), ti.i32), 0), nz - 1)
+            pos = ti.Vector(
+                [(s[0] + 0.5) / max_dim, (s[1] + 0.5) / max_dim, (s[2] + 0.5) / max_dim]
+            )
+            ut = tensor_field.ellipsoid_template[v]
+            m = tensor_field.M_am[i, j, k]
+            w = (
+                ti.Vector(
+                    [
+                        m[1, 1] * ut[0] + m[1, 2] * ut[1] + m[1, 3] * ut[2],
+                        m[2, 1] * ut[0] + m[2, 2] * ut[1] + m[2, 3] * ut[2],
+                        m[3, 1] * ut[0] + m[3, 2] * ut[1] + m[3, 3] * ut[2],
+                    ]
+                )
+                + _ELLIPSOID_MESH_FLOOR * ut
+            )
+            tensor_field.ellipsoid_mesh_vertices[base] = pos + 0.5 * size * w
+            tensor_field.ellipsoid_mesh_colors[base] = col
+        else:
+            tensor_field.ellipsoid_mesh_vertices[base] = zero_v
+            tensor_field.ellipsoid_mesh_colors[base] = zero_v
 
 
 # ================================================================

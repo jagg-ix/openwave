@@ -26,6 +26,8 @@ the ∇²/∇·/∇× operators, V_psi) entirely. The live substrate is:
     Coulomb machinery consume). See m5_4b_rendering_features.md.
 """
 
+import math
+
 import taichi as ti
 
 from openwave.common import colormap, constants, utils
@@ -48,14 +50,24 @@ MDIM = 4          # matrix substrate dimension (was 3)
 LC_G = 8.0        # time-axis (boost/gravity) eigenvalue g ≫ 1, constant in M5.8.1
 
 # VIZ.5 (M5.23) — the "ellipsoid" visualization: one eigenframe glyph per 3D
-# angle on an S² shell around each defect center (design + decisions:
-# research/tasks/m5_23_task_details.md). Buffer ceilings only — the live glyph
+# angle on an S² shell around each defect center — a FULL-3D view (unlike the
+# 3-plane flux-mesh cross-sections); design + decisions:
+# research/tasks/m5_23_task_details.md. Buffer ceilings only — the live glyph
 # count is the GUI density slider (capped at ELLIPSOID_MAX_DIRS, honoring the
 # not-too-dense readability spec), and directions are computed IN-KERNEL as a
 # Fibonacci-sphere lattice (taichi-native, no host-side table). Centers:
 # dipole configs use 2; headroom for small clusters.
 ELLIPSOID_MAX_DIRS = 642
 ELLIPSOID_MAX_CENTERS = 4
+# Stage B mesh template: a UV sphere generated in-kernel (closed form per
+# index — poles + LAT rings × LON meridians; faces = 2·LAT·LON triangles).
+# It is a per-glyph SURFACE template (pole clustering is irrelevant here,
+# unlike the Fibonacci SAMPLING lattice above); each shell sample maps it
+# through M·u to the local eigen-ellipsoid (the m5_6_5b geometry).
+ELLIPSOID_TEMPLATE_LAT = 8
+ELLIPSOID_TEMPLATE_LON = 12
+ELLIPSOID_TVERTS = ELLIPSOID_TEMPLATE_LAT * ELLIPSOID_TEMPLATE_LON + 2
+ELLIPSOID_TFACES = 2 * ELLIPSOID_TEMPLATE_LAT * ELLIPSOID_TEMPLATE_LON
 
 
 @ti.data_oriented
@@ -389,6 +401,26 @@ class TensorField:
         self.ellipsoid_centers = ti.Vector.field(3, ti.f32, ELLIPSOID_MAX_CENTERS)  # voxel coords
         self.ellipsoid_n_centers = ti.field(ti.i32, shape=())
 
+        # VIZ.5 Stage B — the M·u ellipsoid MESH: per shell sample the unit-sphere
+        # template maps through the local M (spatial block + a small isotropic
+        # visibility floor) to the eigen-ellipsoid surface — semi-axes = the
+        # eigenvalues along the eigenvectors, NO eigendecomposition needed
+        # (m5_6_5b key simplification). One flat vertex/color/index pool spans
+        # all (center, direction) slots so the launcher renders the whole shell
+        # set with ONE scene.mesh call; unused slots collapse to the origin
+        # (zero-area triangles, invisible). Indices are static (filled once);
+        # vertices + colors are rewritten per-frame by
+        # engine4_render.update_ellipsoid_mesh.
+        self.ellipsoid_tverts = ELLIPSOID_TVERTS
+        self.ellipsoid_tfaces = ELLIPSOID_TFACES
+        self.ellipsoid_template = ti.Vector.field(3, ti.f32, ELLIPSOID_TVERTS)
+        n_slots = ELLIPSOID_MAX_CENTERS * ELLIPSOID_MAX_DIRS
+        self.ellipsoid_mesh_vertices = ti.Vector.field(3, ti.f32, n_slots * ELLIPSOID_TVERTS)
+        self.ellipsoid_mesh_colors = ti.Vector.field(3, ti.f32, n_slots * ELLIPSOID_TVERTS)
+        self.ellipsoid_mesh_indices = ti.field(ti.i32, n_slots * ELLIPSOID_TFACES * 3)
+        self.populate_ellipsoid_template()
+        self.populate_ellipsoid_mesh_indices()
+
     def swap_matrix_buffers(self):
         """Cycle the matrix triple buffer after evolve_M (M5.5.4): M_prev ← M, M ← M_new.
 
@@ -397,6 +429,68 @@ class TensorField:
         """
         self.M_prev_am.copy_from(self.M_am)
         self.M_am.copy_from(self.M_new_am)
+
+    @ti.kernel
+    def populate_ellipsoid_template(self):
+        """VIZ.5 Stage B — fill the unit-sphere UV template (closed form per index,
+        taichi-native): vertex 0 = north pole, then LAT rings × LON meridians,
+        last vertex = south pole. Run once at init."""
+        lat, lon = ELLIPSOID_TEMPLATE_LAT, ELLIPSOID_TEMPLATE_LON
+        for v in range(ELLIPSOID_TVERTS):
+            if v == 0:
+                self.ellipsoid_template[v] = ti.Vector([0.0, 0.0, 1.0])
+            elif v == ELLIPSOID_TVERTS - 1:
+                self.ellipsoid_template[v] = ti.Vector([0.0, 0.0, -1.0])
+            else:
+                a = (v - 1) // lon  # ring index (0..LAT-1)
+                b = (v - 1) - a * lon  # meridian index (0..LON-1)
+                theta = math.pi * ti.cast(a + 1, ti.f32) / ti.cast(lat + 1, ti.f32)
+                phi = 2.0 * math.pi * ti.cast(b, ti.f32) / ti.cast(lon, ti.f32)
+                st = ti.sin(theta)
+                self.ellipsoid_template[v] = ti.Vector(
+                    [st * ti.cos(phi), st * ti.sin(phi), ti.cos(theta)]
+                )
+
+    @ti.kernel
+    def populate_ellipsoid_mesh_indices(self):
+        """VIZ.5 Stage B — static triangle indices for every (center, direction)
+        slot: top fan (pole ring), LAT-1 quad bands split into 2 triangles, bottom
+        fan. Face-local vertex ids offset by the slot's vertex block so the whole
+        pool renders as one mesh. Run once at init (two_sided render ⇒ winding
+        order is not load-bearing)."""
+        lat, lon = ELLIPSOID_TEMPLATE_LAT, ELLIPSOID_TEMPLATE_LON
+        n_slots = ELLIPSOID_MAX_CENTERS * ELLIPSOID_MAX_DIRS
+        for s, f in ti.ndrange(n_slots, ELLIPSOID_TFACES):
+            i0, i1, i2 = 0, 0, 0
+            if f < lon:  # top fan: north pole + ring 0
+                b = f
+                i0 = 0
+                i1 = 1 + b
+                i2 = 1 + ((b + 1) % lon)
+            elif f < lon + 2 * (lat - 1) * lon:  # quad bands between rings
+                q = (f - lon) // 2
+                t = (f - lon) - q * 2
+                a = q // lon
+                b = q - a * lon
+                p00 = 1 + a * lon + b
+                p01 = 1 + a * lon + ((b + 1) % lon)
+                p10 = 1 + (a + 1) * lon + b
+                p11 = 1 + (a + 1) * lon + ((b + 1) % lon)
+                if t == 0:
+                    i0, i1, i2 = p00, p10, p01
+                else:
+                    i0, i1, i2 = p01, p10, p11
+            else:  # bottom fan: south pole + last ring
+                b = f - lon - 2 * (lat - 1) * lon
+                ring = 1 + (lat - 1) * lon
+                i0 = ELLIPSOID_TVERTS - 1
+                i1 = ring + ((b + 1) % lon)
+                i2 = ring + b
+            base_v = s * ELLIPSOID_TVERTS
+            base_i = (s * ELLIPSOID_TFACES + f) * 3
+            self.ellipsoid_mesh_indices[base_i + 0] = base_v + i0
+            self.ellipsoid_mesh_indices[base_i + 1] = base_v + i1
+            self.ellipsoid_mesh_indices[base_i + 2] = base_v + i2
 
     @ti.kernel
     def populate_grid_lines(self):
