@@ -13,6 +13,11 @@
 | 3. Port | The gaps, taichi-first, each with a per-gap headless selftest (goal-loop gates) |
 | 4. Verify | Live launcher run on the standard configs; no regression in the certified views |
 
-**Related**: the [M5.8.3](m5_8_3_task_details.md) residual (4D production seeder + faithful-kinetic variant) sequences under this audit.
+**Merged scope (2026-07-19)**: the former [M5.8.3](m5_8_3_task_details.md) residual row folded in whole (maintainer call at the M5.23 review):
+
+| From M5.8.3 | Now an M5.24 scope item |
+| --- | --- |
+| 4D extension of the M5.6.5a production seeder | Part of step 3 (port), audited in step 1 like every other kernel |
+| The faithful-kinetic engine variant (the 5d diagnosis: frequency correction only) | Evaluated in the step-2 gap table; ported only if production-scale clock runs need it |
 
 **Gating**: user "go".

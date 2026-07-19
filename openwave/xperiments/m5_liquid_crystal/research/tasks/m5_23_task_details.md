@@ -115,7 +115,7 @@ The winding is directly visible: each ellipsoid's long axis follows the in-plane
 | Insight | Consequence |
 | --- | --- |
 | The author's "one value per 2D angle" vortex case is about REAL vortex structures: the two bipolar RODS visible in the author's electron-clock animation are the **disclination rods** along the spin axis (the escaped-core structure every biaxial seed carries; the maintainer's observation that Hamiltonian energy-density lines sit exactly on those rod sectors is the rod-core localization, the open [M5.8.8](m5_8_8_task_details.md) question is its energy test) | An informative per-2D-angle view must encircle an actual vortex CORD: small rings around the polar rods (with a z-scan), around the charged-ring cord (`_topo_charged_ring`), or around the future μ/τ split-vortex loops |
-| A generic equator ring around ẑ does not do that placement job; the sampler needs per-config cord geometry | The per-2D-angle sampler RETURNS with the configs that have real vortex content: the split-vortex animation arc ([`m5_23_convo.md`](m5_23_convo.md), rides [M5.21.6](m5_21_6_task_details.md)) and the rod study ([M5.8.8](m5_8_8_task_details.md)) |
+| A generic equator ring around ẑ does not do that placement job; the sampler needs per-config cord geometry | The per-2D-angle sampler RETURNS as **[M5.25](m5_25_task_details.md), the disclination-rod render (VIZ.6)**: rod-line ellipsoids + rod rings + the line tracer; the split-vortex animation arc ([`m5_23_convo.md`](m5_23_convo.md), rides [M5.21.6](m5_21_6_task_details.md)) and the rod study ([M5.8.8](m5_8_8_task_details.md)) build on it |
 
 ### Course-correction round 1 (2026-07-19, after the maintainer's live look)
 
