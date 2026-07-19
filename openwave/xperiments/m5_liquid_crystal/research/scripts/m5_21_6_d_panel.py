@@ -86,7 +86,7 @@ for t, c in (("A", "tab:green"), ("B", "tab:red"), ("C", "tab:blue")):
     ax[1, 1].plot([p[0] for p in pts], [p[1] for p in pts],
                   "o-", c=c, label=f"seed {t}")
 ax[1, 1].axhline(2, color="k", ls="--", lw=1,
-                 label="2 (the electron pair / his conjecture)")
+                 label="2 (the electron pair / the author's conjecture)")
 ax[1, 1].set_xlabel("FIRE iteration")
 ax[1, 1].set_ylabel("compact biaxial components (thr 0.09)")
 ax[1, 1].set_title("(d) topology bookkeeping: A holds 2, C -> 2, "
