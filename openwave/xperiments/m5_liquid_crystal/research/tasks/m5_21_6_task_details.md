@@ -1,6 +1,6 @@
 # M5.21.6: the 3D μ/τ decay film: perturbed heavy minima → rotation to the electron → vortex-loop release
 
-**Status**: 🔶 RUN COMPLETE + AUDITED 2026-07-18 (go 17:51 EDT; review pending user approval). From his autonomy goal list, goal (c) ([`m5_21_convo.md § 2026-07-18 morning`](m5_21_convo.md)). His picture: "maybe muon/taon decay is in reach, 3x3 might be sufficient: perturb initial minimum, what should lead to quick field rotation to global energy minimum of electron, which should give energy to attached vortices - releasing as fast vortex loops, interpreted as neutrinos." He flags the 3 minima + such decay simulations as worth a separate LC-topology article.
+**Status**: ✅ CLOSED 2026-07-18 (review approved 2026-07-19 morning; § TASK REVIEW below). From his autonomy goal list, goal (c) ([`m5_21_convo.md § 2026-07-18 morning`](m5_21_convo.md)). His picture: "maybe muon/taon decay is in reach, 3x3 might be sufficient: perturb initial minimum, what should lead to quick field rotation to global energy minimum of electron, which should give energy to attached vortices - releasing as fast vortex loops, interpreted as neutrinos." He flags the 3 minima + such decay simulations as worth a separate LC-topology article.
 
 ## TASK PLANNING (2026-07-18)
 
@@ -72,3 +72,26 @@ Kept: all rows/ladders/traces/gates/audit/loop JSONs, `m5_21_6_all.json`, the p3
 | 2 | K1 noise smoothed (Gaussian σ = 2) after the gate run exposed white-noise kicks as energetically violent (kicked E ≈ 1469 on E ≈ 6.6) | probe barrier-scale physics, not melt-and-reform |
 | 3 | zsh launch failure (unquoted $args not word-split) cost ~12 min | relaunched explicit; lesson logged |
 | 4 | Arena 2 endpoints are levels-at-equal-depth (max_iter 12000), not converged minima | stated on every read; the census drain caveat makes deeper free-arena runs a diminishing-returns grind |
+
+## TASK REVIEW (2026-07-19)
+
+Task Duration: 2:39 (from 17:51 to 20:30, 2026-07-18)
+Usage Cap Triggered: NO (the session ran through the 18:50 reset uninterrupted; the pre-armed 18:55 resume ping fired on schedule anyway and was re-parked idle)
+
+| Result | Status |
+| --- | --- |
+| New-code gates (kick symmetry exact, leapfrog O(dt²), sponge dissipative) | ✅ attempt 2/3 |
+| Pinned arena: lepton ordering on one scale A 5.318 < C 15.934 (f_tol) < B 55.600; 12/12 kicks return | ✅ |
+| Free arena: C decays to the electron (core spectrum + robust topology); B drains (kept separate) | ✅ / ⚠️ split verdict |
+| Released structure: ONE equatorial ring at descent grade (his two-loop conjecture: 1, not 2) | 🔶 partial support |
+| Dynamics arm: ledger closes to 3 decimals, 23% radiated, rotation-dominant (his mechanism) | ✅ |
+| Films (3 sequences, TRUE templates) + panel, embedded | ✅ |
+| Independent adversarial audit 24 checks: 21 CONFIRMED / 3 PARTIAL adopted / 0 refuted | ✅ |
+
+Issues: the 2b A-reference weight mismatch matters for any future cross-task energy comparison (audit catch, documented in note § 4); B drain-vs-decay needs N = 64 free to resolve; the loop-closure winding integral around the departing ring is a listed follow-up. Data > 1 MB deleted with regen commands documented (§ DATA CLEANUP).
+
+Action taken at close: roadmap row appended at the END of DONE; the results paragraph is staged for the next outbound (user chose to hold the 21.6 note pending the 2026-07-19 morning reply decode).
+
+**Findings**: In the honest free arena the μ-candidate C decays to the electron under plain descent, by his predicted rotation mechanism (dynamics-grade, energy ledger closed, 23% radiated), while the τ-candidate B drains rather than decays at this box size; the released-structure count is one equatorial ring against his conjectured two loops, with the descent-quenching caveat leaving the final count to a longer dynamics window.
+
+**Research docs created/updated**: [`m5_21_6_task_details.md`](m5_21_6_task_details.md) · [`../findings/m5_21_6_note.md`](../findings/m5_21_6_note.md) · [`../m5_roadmap.md`](../m5_roadmap.md) · scripts `m5_21_6_a_decay.py` / `m5_21_6_c_films.py` / `m5_21_6_d_panel.py` / `m5_21_6_audit_check.py` · data `m5_21_6_all.json` + gates/ladders/traces/loops/audit JSONs · plots panel + 5 films
