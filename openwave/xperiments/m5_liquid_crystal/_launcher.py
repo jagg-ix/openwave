@@ -182,7 +182,7 @@ class SimulationState:
         # shows shell + rods together).
         self.ELLIPSOID_SHELL = True
         self.ELLIPSOID_RODS = False
-        self.ELLIPSOID_RODRINGS = False
+        self.ELLIPSOID_RODRINGS = True
         self.FLUX_MESH_PLANES = [0.5, 0.5, 0.5]
         self.SHOW_FLUX_MESH = 0
         self.WARP_MESH = 300
@@ -258,7 +258,7 @@ class SimulationState:
         self.ELLIPSOID_SIZE = ui.get("ELLIPSOID_SIZE", 0.025)  # ellipsoid base size
         self.ELLIPSOID_SHELL = ui.get("ELLIPSOID_SHELL", True)  # S² shell sub-toggle
         self.ELLIPSOID_RODS = ui.get("ELLIPSOID_RODS", False)  # Stage D rod-line samples
-        self.ELLIPSOID_RODRINGS = ui.get("ELLIPSOID_RODRINGS", False)  # Stage D rod rings
+        self.ELLIPSOID_RODRINGS = ui.get("ELLIPSOID_RODRINGS", True)  # Stage D rod rings
         self.FLUX_MESH_PLANES = ui["FLUX_MESH_PLANES"]
         self.SHOW_FLUX_MESH = ui["SHOW_FLUX_MESH"]
         self.WARP_MESH = ui["WARP_MESH"]
@@ -343,6 +343,19 @@ class SimulationState:
         # validated ratio (headless was bounded at the derated dt all along).
         if self.TOPOLOGY_SEED is not None and self.TOPOLOGY_SEED.get("MODE") == "dressed_hedgehog":
             self.dt_rs *= float(self.TOPOLOGY_SEED.get("DT_SCALE_4D", 0.5))
+        # M5.24 — the canonical path caps dt_eff = c·dt at the certified τ-step
+        # (0.005, the full-3D twin's step, canonical § 3; the axisym stack's
+        # 0.02 sits at ω_stiff·dt = 1.57, too close to the leapfrog margin for
+        # the 3D f32 path — measured NaN at the M5.24 selftest try 1): the CFL
+        # above scales with dx but the V4 stiffness does NOT (the stiff g-mode
+        # ω ≈ 78 at g = 8, § 4 gap ladders, bounds dt_eff < 2/78 ≈ 0.026 in
+        # τ-units regardless of grid). Lives here, not in initialize_xperiment,
+        # for the same every-frame-wipe reason as the 4D derate above.
+        if self.TOPOLOGY_SEED is not None and (
+            str(self.TOPOLOGY_SEED.get("INTEGRATOR_4D", "")) == "canonical"
+        ):
+            dt_eta_cap = float(self.TOPOLOGY_SEED.get("DT_ETA_CAP", 0.005))
+            self.dt_rs = min(self.dt_rs, dt_eta_cap / self.c_amrs)
         self.cfl_factor = round((self.c_amrs * self.dt_rs / self.tensor_field.dx_am) ** 2, 7)
         # V(M) couplings for the matrix substrate. Only director-class (topology)
         # seeds use a potential, so gate on TOPOLOGY_SEED presence. (M5.8 ψ-retire:
@@ -688,6 +701,14 @@ def initialize_xperiment(state):
     # (M5.8 ψ-retire: the legacy TEST_SEED Gaussian/plane-wave seeding path was
     # removed with the Vector(3) ψ engine — all live xperiments use TOPOLOGY_SEED.)
 
+    # M5.24 — reset the 4D-integrator routing before seeding: these are set
+    # only by the dressed / canonical activations below, so an xperiment
+    # switch away from a 4D config would otherwise keep evolving on the
+    # previous integrator (a stale-state hazard the seed branches never
+    # cleared).
+    state.evolve_4d = False
+    state.integrator_4d = ""
+
     # Optional topology seed (M5.1+ vacuum / hedgehog xperiments)
     if state.TOPOLOGY_SEED is not None:
         topo = state.TOPOLOGY_SEED
@@ -893,6 +914,52 @@ def initialize_xperiment(state):
             relax_field(state, state.AUTO_RELAX_STEPS)
             print("[M5.1] auto-relax complete")
 
+        # M5.24 — the CANONICAL regularization-stack integrator (verified-L era
+        # port): activated by TOPOLOGY_SEED INTEGRATOR_4D = "canonical". Flips
+        # the seeded time axis to the covariant vacuum (M[0,0] = −g) and routes
+        # compute_propagation through the η-stack leapfrog + V4. Placed AFTER
+        # auto-relax (rebuild_M_from_director writes +g back — the flip must be
+        # the last touch on M). Intended for the BIAXIAL-family seeds, whose far
+        # field diag(1, δ, 0) IS the covariant vacuum spatial spectrum; on the
+        # uniaxial seeds (far field (1, δ, δ)) V4 charges the whole background.
+        if str(topo.get("INTEGRATOR_4D", "")) == "canonical":
+            if seed_mode == "dressed_hedgehog":
+                print(
+                    "[M5.24] INTEGRATOR_4D 'canonical' is unsupported on the dressed "
+                    "seed (boost-mixed time row is an era-specific object); keeping "
+                    "the era 4D path."
+                )
+            else:
+                if seed_mode not in ("biaxial_hedgehog", "charged_ring", "vacuum"):
+                    print(
+                        f"[M5.24] WARNING: canonical stack on seed mode {seed_mode!r}: "
+                        "the far field is not the covariant vacuum, V4 charges the "
+                        "background (biaxial-family seeds are the intended use)."
+                    )
+                pde.flip_time_axis(state.tensor_field)
+                state.evolve_4d = True
+                state.integrator_4d = "canonical"
+                state.eta_delta = float(topo.get("BIAXIAL_DELTA", state.tensor_field.lc_delta))
+                # ETA_DX (round 2): the grid spacing in the CANONICAL unit
+                # system. Set it to the research grid unit (1.5 = the
+                # m5_21_2b/3 h) to run the launcher as a research-twin; the
+                # physical dx_am fallback weakens the curvature ~100× against
+                # the dimensionless V4 (the unit-map finding, task_details).
+                state.eta_dx = float(topo.get("ETA_DX", state.tensor_field.dx_am))
+                # ETA_SUBSTEPS (round 2, viz speed): N physics steps per
+                # rendered frame at the CERTIFIED dt (dt itself cannot rise:
+                # the stiff-mode wall is 2/78 ≈ 0.026 τ, NaN measured at
+                # 0.02). N× visual speed, zero physics change.
+                state.eta_substeps = max(1, int(topo.get("ETA_SUBSTEPS", 8)))
+                print(
+                    f"[M5.24] CANONICAL stack ON: eta-curvature + V4 "
+                    f"(w = {pde.W1_SPECTRAL:.3e}, delta = {state.eta_delta}), "
+                    f"covariant vacuum M[0,0] = -g, dt_eff capped at "
+                    f"{float(topo.get('DT_ETA_CAP', 0.005))} tau, "
+                    f"dx_eta = {state.eta_dx:.3f}, substeps/frame = "
+                    f"{state.eta_substeps}"
+                )
+
         # VIZ.3: populate the derived eigenframe (director_nhat + director_mid +
         # eigenvalues) from the seeded M so a PAUSED boot renders the δ-clock-hand
         # glyph correctly before the first Evolve-PDE step. Cheap, runs once.
@@ -980,7 +1047,46 @@ def compute_propagation(state):
     is the M5.6 refinement. (The retired ψ leapfrog stays dormant; see engine2_pde.)
     """
     tf = state.tensor_field
-    if getattr(state, "evolve_4d", False) and getattr(state, "integrator_4d", "") == "constrained":
+    if getattr(state, "integrator_4d", "") == "canonical":
+        # M5.24 — the canonical regularization stack (the § 2 row 6 formulation
+        # of record): symmetrized two-branch η-flux + exact adjoint gather + V4
+        # force, τ-units (dt_eff = c·dt), dt capped by compute_timestep. The
+        # RUNNABLE regularization — never present its dynamics as the true-L
+        # evolution (the free-EL IVP is ill-posed, canonical § 2 row 1).
+        dt_eff = state.c_amrs * state.dt_rs
+        dx_eta = getattr(state, "eta_dx", tf.dx_am)
+        eta_delta = getattr(state, "eta_delta", tf.lc_delta)
+        # ETA_SUBSTEPS physics steps per rendered frame (viz speed at the
+        # certified dt). The last substep leaves its swap to the shared
+        # swap_matrix_buffers() below (all paths swap exactly once there).
+        n_sub = max(1, int(getattr(state, "eta_substeps", 1)))
+        for sub_ in range(n_sub):
+            pde.compute_eta_flux(tf, 0, dx_eta)
+            pde.evolve_M_eta_start(tf, dt_eff, dx_eta)
+            pde.compute_eta_flux(tf, 1, dx_eta)
+            pde.evolve_M_eta_finish(tf, dt_eff, dx_eta, tf.lc_g, eta_delta, pde.W1_SPECTRAL)
+            if sub_ < n_sub - 1:
+                tf.swap_matrix_buffers()
+        # Bounded-energy guard (same pattern as the constrained path): block-diag
+        # seeds live on an invariant manifold with positive energy, but f32
+        # roundoff slowly leaks into the time-row sector where the η-potential
+        # is INDEFINITE (canonical § 1: H unbounded below) — a long run can
+        # eventually grow there with E conserved. Auto-pause loudly instead of
+        # scrambling the render (the 2026-06-05 signed-GUI failure UX).
+        state.guard4d_frame = getattr(state, "guard4d_frame", 0) + 1
+        if state.guard4d_frame % 60 == 0:
+            m_max = float(abs(tf.M_am.to_numpy()).max())
+            if not (m_max < 50.0):  # catches NaN too
+                state.PAUSED = True
+                print(
+                    f"[M5.24 GUARD] max|M| = {m_max:.3e} at step "
+                    f"{state.guard4d_frame} — bounded-energy guard tripped, "
+                    f"AUTO-PAUSED (the indefinite time-row channel grew; "
+                    f"vacuum scale ~8, threshold 50)."
+                )
+    elif (
+        getattr(state, "evolve_4d", False) and getattr(state, "integrator_4d", "") == "constrained"
+    ):
         # M5.8.2c OPTION B — the Minkowski-SIGNED dynamics under the constrained
         # spectral-projection kernel (B-1-validated, sandbox_v8/m5_8_2cb). The
         # exact 2c-1 step order: flux(M, Ṁ_prev) → P += dt·force → global (α,3)
@@ -1052,17 +1158,31 @@ def compute_field_observables(state):
     # Replaces the dormant-ψ placeholder (uniform ¼λ) — resolves the M5.4 WAVE_MENU=4
     # carry-over. e_scale=1.0 (bare units; the physical-energy calibration is tied to a
     # reference mass scale → deferred to M5.9). Consumed by flux-mesh WAVE_MENU=4.
-    observables.compute_energyH_density_M(
-        state.tensor_field,
-        state.observables,
-        state.c_amrs,
-        state.dt_rs,
-        state.ldg_a,
-        state.ldg_b,
-        state.ldg_c,
-        state.ldg_v0,
-        1.0,
-    )
+    if getattr(state, "integrator_4d", "") == "canonical":
+        # M5.24 — the verified-L era H (canonical kinetic + η-curvature + V4);
+        # no v0 subtraction: the covariant vacuum is the exact zero.
+        observables.compute_energyH_density_eta(
+            state.tensor_field,
+            state.observables,
+            state.c_amrs * state.dt_rs,
+            getattr(state, "eta_dx", state.tensor_field.dx_am),
+            state.tensor_field.lc_g,
+            getattr(state, "eta_delta", state.tensor_field.lc_delta),
+            pde.W1_SPECTRAL,
+            1.0,
+        )
+    else:
+        observables.compute_energyH_density_M(
+            state.tensor_field,
+            state.observables,
+            state.c_amrs,
+            state.dt_rs,
+            state.ldg_a,
+            state.ldg_b,
+            state.ldg_c,
+            state.ldg_v0,
+            1.0,
+        )
 
     # PER-VOXEL FRANK ELASTIC ENERGY DENSITY (M5.1 task 5) ===============
     # F = (K/2)·|∇n̂|²  → observables.energyF_density_aJ.
@@ -1339,7 +1459,7 @@ def main():
     state = SimulationState()
 
     # Load xperiment from CLI argument or default
-    default_xperiment = selected_xperiment_arg or "_topo_dressed4d_signed"
+    default_xperiment = selected_xperiment_arg or "_topo_canonical4d"
     if default_xperiment not in xperiment_mgr.available_xperiments:
         print(f"Error: Xperiment '{default_xperiment}' not found!")
         return

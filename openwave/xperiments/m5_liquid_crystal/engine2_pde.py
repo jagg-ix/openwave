@@ -644,6 +644,16 @@ def evolve_M_4d(
 # → collapse; align 1.0 → 0.55 by 6000) — the f64-vs-f32 6000-step
 # scheme-vs-precision discrimination is the active investigation.
 #
+# STATUS (M5.24 audit, 2026-07-19): the canonical registry names this stack
+# the HISTORICAL PRECEDENT of the structural disease later proven at M5.20.3
+# (the η-null constraint + indefinite H; research m5_theory_canonical.md § 2:
+# "every cheap positive-inertia kinetic has slow growing modes — only the
+# faithful kinetic works"). Its refined research descendant (the true-L EL
+# solve) is DIAGNOSTICS-ONLY by verdict (§ 2 row 1: the free-EL IVP is
+# ill-posed). This mode is KEPT as the era 4D path for the dressed-seed
+# xperiments; the verified-L era production dynamics is the M5.24 CANONICAL
+# section below.
+#
 # UNITS + NORMALIZATION: these kernels run the 2c-1 natural convention
 # (c = 1, τ = c·t) — the caller passes dt_eff = c_amrs·dt_rs (am). Fluxes and
 # A both use the 2c-1 4× normalization (the production 8× leapfrog flux is 2×
@@ -901,6 +911,246 @@ def update_M_4d_constrained(tensor_field: ti.template(), dt_eff: ti.f32):  # typ
         tensor_field.M_new_am[i, j, k] = (
             tensor_field.M_am[i, j, k] + dt_eff * tensor_field.Md_am[i, j, k]
         )
+
+
+# ================================================================
+# M5.24 — THE CANONICAL REGULARIZATION STACK (verified-L era port)
+# ================================================================
+# The production port of the dynamics formulation of record (research
+# m5_theory_canonical.md § 2 row 6): canonical kinetic ½‖Ṁ‖²_F + the
+# η-signed curvature energy + the universal spectral potential V4,
+# integrated by the position-Verlet triple-buffer leapfrog. Ported from
+# the audited M5.21.3 instrument (research/scripts/m5_21_3_a_4d.py:
+# comm_eta / inner_eta / e_parts / exact grad; complex-step gated 5e-9,
+# SO(1,3) invariance 1e-9, vacuum ≡ 0, 3D block-diag regression 1e-12).
+#
+#   eta = diag(-1, 1, 1, 1)          [A, B]_eta = A·eta·B − B·eta·A
+#   <F, G>_eta = tr(eta·F·eta·Gᵀ)
+#   E_u = 4 Σ_{i<j} <F_ij, F_ij>_eta ,  F_ij = [A_i, A_j]_eta ,  A_i = ∂_i M
+#   V4  = w Σ_{p=1..4} (tr((M·eta)^p) − C_p)² ,  C_p = sg^p + 1 + δ^p
+#   vacuum: M_vac = diag(−sg, 1, δ, 0)  (time-time NEGATIVE; V4(M_vac) = 0 exact)
+#
+# STENCIL: the M5.21.2b symmetrized pair (½(fwd + bwd) with exact adjoints,
+# the well-posedness certificate) — NOT the 2h central diff of the older
+# paths (the deep-statics checkerboard anti-recipe). Two flux passes per
+# step (one per branch) reusing curv_flux_x/y/z; M_new_am doubles as the
+# force accumulator so no extra field is allocated.
+#
+# LABEL (canonical § 2 row 6): this stack is the RUNNABLE REGULARIZATION,
+# "fine for statics-adjacent dynamics questions and films" — exactly the
+# launcher's use class. It is NOT the true-L evolution (the free EL IVP is
+# ill-posed, § 2 row 1); never present its dynamics as the theory's own.
+#
+# UNITS: τ-units (c = 1) like the constrained path — the caller passes
+# dt_eff = c_amrs·dt_rs. dt cap: the V4 stiff g-mode (ω ≈ 78 at g = 8,
+# canonical § 4 gap ladders) bounds dt_eff < 2/78 ≈ 0.026; the certified
+# full-3D working step is dt_eff = 0.005 (the 3D twin, canonical § 3; the
+# axisym 0.02 is margin-critical in 3D f32 — the M5.24 selftest measured
+# NaN there), enforced by the launcher's compute_timestep cap, NOT here.
+
+W1_SPECTRAL = 7.24023879e-4  # the locked potential weight w (WSCALE, canonical § 4)
+
+
+@ti.func
+def eta_left(m):  # type: ignore
+    """eta·M for eta = diag(−1,1,1,1): row 0 negated."""
+    out = m
+    for c_ in ti.static(range(4)):
+        out[0, c_] = -m[0, c_]
+    return out
+
+
+@ti.func
+def eta_right(m):  # type: ignore
+    """M·eta for eta = diag(−1,1,1,1): column 0 negated."""
+    out = m
+    for r_ in ti.static(range(4)):
+        out[r_, 0] = -m[r_, 0]
+    return out
+
+
+@ti.func
+def comm_eta44(a, b):  # type: ignore
+    """[A, B]_eta = A·eta·B − B·eta·A (the M5.18 verified bracket)."""
+    return eta_right(a) @ b - eta_right(b) @ a
+
+
+@ti.func
+def inner_eta44(f, g_mat):  # type: ignore
+    """<F, G>_eta = tr(eta·F·eta·Gᵀ) = Σ_ab (eta·F·eta)_ab · G_ab."""
+    return (eta_left(eta_right(f)) * g_mat).sum()
+
+
+@ti.func
+def v4_of(m, sg: ti.f32, delta: ti.f32, w1: ti.f32):  # type: ignore
+    """The universal spectral potential V4 = w·Σ_{p=1..4} (tr((M·eta)^p) − C_p)².
+
+    C_p = sg^p + 1 + δ^p; exact zero on the covariant vacuum diag(−sg, 1, δ, 0)."""
+    me = eta_right(m)
+    p1 = me
+    p2 = me @ me
+    p3 = p2 @ me
+    p4 = p3 @ me
+    t1 = p1.trace()
+    t2 = p2.trace()
+    t3 = p3.trace()
+    t4 = p4.trace()
+    c1 = sg + 1.0 + delta
+    c2 = sg * sg + 1.0 + delta * delta
+    c3 = sg * sg * sg + 1.0 + delta * delta * delta
+    c4 = sg * sg * sg * sg + 1.0 + delta * delta * delta * delta
+    return w1 * (
+        (t1 - c1) ** 2 + (t2 - c2) ** 2 + (t3 - c3) ** 2 + (t4 - c4) ** 2
+    )
+
+
+@ti.func
+def dv4_of(m, sg: ti.f32, delta: ti.f32, w1: ti.f32):  # type: ignore
+    """∂V4/∂M (symmetrized): Σ_p 2w(t_p − C_p)·p·(eta·(M·eta)^(p−1))ᵀ — the exact
+    reference gradient (m5_21_3_a_4d.grad, complex-step gated)."""
+    me = eta_right(m)
+    p0 = ti.Matrix.identity(ti.f32, 4)
+    p1 = me
+    p2 = me @ me
+    p3 = p2 @ me
+    t1 = p1.trace()
+    t2 = p2.trace()
+    t3 = (p2 @ me).trace()
+    t4 = (p3 @ me).trace()
+    c1 = sg + 1.0 + delta
+    c2 = sg * sg + 1.0 + delta * delta
+    c3 = sg * sg * sg + 1.0 + delta * delta * delta
+    c4 = sg * sg * sg * sg + 1.0 + delta * delta * delta * delta
+    gv = (
+        (2.0 * w1 * (t1 - c1) * 1.0) * eta_left(p0).transpose()
+        + (2.0 * w1 * (t2 - c2) * 2.0) * eta_left(p1).transpose()
+        + (2.0 * w1 * (t3 - c3) * 3.0) * eta_left(p2).transpose()
+        + (2.0 * w1 * (t4 - c4) * 4.0) * eta_left(p3).transpose()
+    )
+    return 0.5 * (gv + gv.transpose())
+
+
+@ti.kernel
+def compute_eta_flux(tensor_field: ti.template(), branch: ti.i32, dx_eta: ti.f32):  # type: ignore
+    """Per-cell η-curvature flux dA_i = ∂E_u/∂A_i for one stencil branch
+    (0 = fwd, 1 = bwd) → curv_flux_x/y/z. From the reference grad():
+
+        F_ij = [A_i, A_j]_eta ,  WF = 8·eta·F·eta
+        dA_i += WF·(A_j·eta) − (eta·A_j)·WF     (A symmetric)
+        dA_j += (eta·A_i)·WF − WF·(A_i·eta)
+
+    A_i = one-sided ∂_i M (fwd/bwd), zero where the branch neighbor is
+    outside the grid (the reference d1 edge convention). Valid at every
+    cell; the evolve kernels apply the exact adjoint gather.
+
+    dx_eta (M5.24 round 2): the grid spacing in the CANONICAL unit system.
+    Pass the research grid unit (config ETA_DX, e.g. 1.5 = the m5_21_2b/3 h)
+    to run the launcher as a research-twin: the physical dx_am (~15.6 at 64³
+    over 1 fm) weakens the curvature term ~100× against the dimensionless V4
+    and distorts the dynamics balance. Default wiring falls back to dx_am."""
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    inv_dx = 1.0 / dx_eta
+    for i, j, k in ti.ndrange(nx, ny, nz):
+        m0 = tensor_field.M_am[i, j, k]
+        ax_ = ti.Matrix.zero(ti.f32, 4, 4)
+        ay_ = ti.Matrix.zero(ti.f32, 4, 4)
+        az_ = ti.Matrix.zero(ti.f32, 4, 4)
+        if branch == 0:  # fwd
+            if i <= nx - 2:
+                ax_ = (tensor_field.M_am[i + 1, j, k] - m0) * inv_dx
+            if j <= ny - 2:
+                ay_ = (tensor_field.M_am[i, j + 1, k] - m0) * inv_dx
+            if k <= nz - 2:
+                az_ = (tensor_field.M_am[i, j, k + 1] - m0) * inv_dx
+        else:  # bwd
+            if i >= 1:
+                ax_ = (m0 - tensor_field.M_am[i - 1, j, k]) * inv_dx
+            if j >= 1:
+                ay_ = (m0 - tensor_field.M_am[i, j - 1, k]) * inv_dx
+            if k >= 1:
+                az_ = (m0 - tensor_field.M_am[i, j, k - 1]) * inv_dx
+        fxy = comm_eta44(ax_, ay_)
+        fxz = comm_eta44(ax_, az_)
+        fyz = comm_eta44(ay_, az_)
+        wxy = 8.0 * eta_left(eta_right(fxy))
+        wxz = 8.0 * eta_left(eta_right(fxz))
+        wyz = 8.0 * eta_left(eta_right(fyz))
+        tensor_field.curv_flux_x[i, j, k] = (
+            wxy @ eta_right(ay_) - eta_left(ay_) @ wxy
+            + wxz @ eta_right(az_) - eta_left(az_) @ wxz
+        )
+        tensor_field.curv_flux_y[i, j, k] = (
+            eta_left(ax_) @ wxy - wxy @ eta_right(ax_)
+            + wyz @ eta_right(az_) - eta_left(az_) @ wyz
+        )
+        tensor_field.curv_flux_z[i, j, k] = (
+            eta_left(ax_) @ wxz - wxz @ eta_right(ax_)
+            + eta_left(ay_) @ wyz - wyz @ eta_right(ay_)
+        )
+
+
+@ti.kernel
+def evolve_M_eta_start(tensor_field: ti.template(), dt_eff: ti.f32, dx_eta: ti.f32):  # type: ignore
+    """Leapfrog step 1/2 (fwd branch): M_new = 2M − M_prev − dt²·½·adjᶠʷᵈ(flux).
+
+    adjᶠʷᵈ(g)[x] = (g[x−e_i] − g[x])/h per axis (exact adjoint of the fwd
+    difference; flux is zero on the invalid edge planes so the formula holds
+    on the whole interior). Boundary shell untouched (Dirichlet, the
+    triple-buffer BC rule — same pinning as the 3D twin, canonical § 3).
+    dx_eta = the canonical-unit grid spacing (must match compute_eta_flux)."""
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    inv_dx = 1.0 / dx_eta
+    dt2 = dt_eff * dt_eff
+    for i, j, k in ti.ndrange((1, nx - 1), (1, ny - 1), (1, nz - 1)):
+        g_fwd = (
+            (tensor_field.curv_flux_x[i - 1, j, k] - tensor_field.curv_flux_x[i, j, k])
+            + (tensor_field.curv_flux_y[i, j - 1, k] - tensor_field.curv_flux_y[i, j, k])
+            + (tensor_field.curv_flux_z[i, j, k - 1] - tensor_field.curv_flux_z[i, j, k])
+        ) * inv_dx
+        tensor_field.M_new_am[i, j, k] = (
+            2.0 * tensor_field.M_am[i, j, k]
+            - tensor_field.M_prev_am[i, j, k]
+            - dt2 * 0.5 * g_fwd
+        )
+
+
+@ti.kernel
+def evolve_M_eta_finish(
+    tensor_field: ti.template(),  # type: ignore
+    dt_eff: ti.f32,  # type: ignore
+    dx_eta: ti.f32,  # type: ignore
+    sg: ti.f32,  # type: ignore
+    delta: ti.f32,  # type: ignore
+    w1: ti.f32,  # type: ignore
+):
+    """Leapfrog step 2/2 (bwd branch + potential):
+    M_new −= dt²·(½·adjᵇʷᵈ(flux) + ∂V4/∂M).  adjᵇʷᵈ(g)[x] = (g[x] − g[x+e_i])/h.
+    Caller then swap_matrix_buffers() as usual. dx_eta = canonical-unit spacing."""
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    inv_dx = 1.0 / dx_eta
+    dt2 = dt_eff * dt_eff
+    for i, j, k in ti.ndrange((1, nx - 1), (1, ny - 1), (1, nz - 1)):
+        g_bwd = (
+            (tensor_field.curv_flux_x[i, j, k] - tensor_field.curv_flux_x[i + 1, j, k])
+            + (tensor_field.curv_flux_y[i, j, k] - tensor_field.curv_flux_y[i, j + 1, k])
+            + (tensor_field.curv_flux_z[i, j, k] - tensor_field.curv_flux_z[i, j, k + 1])
+        ) * inv_dx
+        force = 0.5 * g_bwd + dv4_of(tensor_field.M_am[i, j, k], sg, delta, w1)
+        tensor_field.M_new_am[i, j, k] = tensor_field.M_new_am[i, j, k] - dt2 * force
+
+
+@ti.kernel
+def flip_time_axis(tensor_field: ti.template()):  # type: ignore
+    """Negate the time-time entry M[0,0] on all three M buffers: converts the
+    block-diag seeder embed (+g, the plain-commutator era convention) to the
+    covariant vacuum diag(−g, 1, δ, 0) of the verified L (canonical § 1:
+    diag(+g, …) is NOT a vacuum — V4 ≈ 759 per cell at g = 8). Run once
+    post-seed on the canonical integrator path; block-diag seeds only (the
+    dressed seed's boost-mixed time row is a different, era-specific object)."""
+    for i, j, k in tensor_field.M_am:
+        tensor_field.M_am[i, j, k][0, 0] = -tensor_field.M_am[i, j, k][0, 0]
+        tensor_field.M_prev_am[i, j, k][0, 0] = -tensor_field.M_prev_am[i, j, k][0, 0]
+        tensor_field.M_new_am[i, j, k][0, 0] = -tensor_field.M_new_am[i, j, k][0, 0]
 
 
 # ================================================================
