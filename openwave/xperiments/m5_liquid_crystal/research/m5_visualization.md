@@ -70,3 +70,4 @@ Built and GV0-gated at [M5.21](tasks/m5_21_task_details.md) (`scripts/m5_21_a_sn
 | Plots embedded inline in task_details / findings (`![](path)`), never link-only | the images-inline rule (flow-level, 2026-07-03) |
 | Frequency claims on plots quote the FFT bin width; band language unless the peak is resolved by ≥ 3 bins | the M5.20.x G-SPECTRUM practice |
 | Trajectory plots drop the singular final snapshot (`fin[:-1]`) so scales stay readable; the singularity is reported in text | the M5.20.3 anatomy practice |
+| The "ellipsoid" viz (VIZ.5, launcher GGUI): one M·u eigen-ellipsoid per 3D angle on an S² shell per defect + the disclination rods / rod rings; mesh-only, taichi-first, one density knob; suppresses the plane glyphs while active | [M5.23](tasks/m5_23_task_details.md) (design decisions + amendments of record) |

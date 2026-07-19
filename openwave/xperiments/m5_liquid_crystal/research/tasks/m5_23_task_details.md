@@ -152,3 +152,25 @@ Deferred and now TRACKED as their own roadmap task, **[M5.25](m5_25_task_details
 | "no need for the wireframe view" | `ELLIPSOID_WIREFRAME` removed (state, GUI, dispatch); `scene.mesh` renders shaded-only |
 | "the mesh is a way better viz feature, keep only the taichi mesh" | The line-glyph path FULLY RETIRED: `update_ellipsoid_glyphs` kernel, the 4 shaft/delta line buffers, and the `Mesh Surfaces` toggle all removed; `SHOW_ELLIPSOID` now renders `update_ellipsoid_mesh` directly (mesh-only, no mode switch). The Stage A findings above stay as the historical record (its preview png kept; the selftest no longer regenerates it) |
 | Machine gate after the cut | Selftest rewritten mesh-only: **9/9 ALL GREEN** (template unit-sphere + centroid-at-origin, in-slot indices, shell centroids on R, Fibonacci set, the M·u map vs the numpy reference, hedgehog-radial physics, collapse + finite + density re-run, multi-center); launcher import OK |
+
+## TASK REVIEW (2026-07-19)
+
+**Task Duration:** 04:41 (from the 11:03 go to the 15:44 approval; six live course-correction rounds inside)
+**Usage Cap Triggered:** NO (resume pings armed per stage, parked at each finish; no cap fired)
+
+**Approved by the maintainer 2026-07-19 ~15:44 EDT.** Summary of record (details in the stage sections above):
+
+| Deliverable | Status |
+| --- | --- |
+| The "ellipsoid" visualization (VIZ.5), mesh-only: one M·u eigen-ellipsoid per 3D angle on an in-kernel Fibonacci S² shell per defect center; `Ellipsoids` + Radius / Count / Size GUI (own namespace); two-way exclusivity vs the vector-glyph group; per-defect shells | ✅ |
+| Stage D, the disclination-rod render: `Rods` (41 axis samples, the melted cores as needles) + `Rod Rings` (4 rows per pole at 1.28R / 1.60R / 1.92R / 2.24R, Count-driven azimuth density, rows offset one 0.32R gap off the shell), matching the reference electron-clock composition | ✅ |
+| Retired honestly along the way (records kept in the stage sections): the Stage A line glyphs, the wireframe A/B, the Stage C equatorial ring | ✅ |
+| The physics finding: the disclination-rod core is an exact **uniaxial escape** (λ₂ − λ₃ = 0.000 on the axis vs ≈ δ in the bulk); one refuted hypothesis en route (amplitude melt, killed by the gate); folded into the canonical § 4 anchors | ✅ measured |
+| Machine gate: `m5_23_ellipsoid_selftest.py` **14/14 ALL GREEN** at close (geometry, M·u reproduction, physics, hygiene, multi-center, rods, rings); taichi-first throughout (in-kernel Fibonacci + UV template + index pools, no host tables) | ✅ |
+| Follow-ups staged on the roadmap: [M5.24](m5_24_task_details.md) (production-engine catch-up, absorbs the former M5.8.3) → [M5.25](m5_25_task_details.md) (the disclination-line tracer on the measured λ₂−λ₃ criterion + the J/μ clock demo) | ✅ |
+
+**Model-doc sweep**: canonical [`m5_theory_canonical.md § 4`](../m5_theory_canonical.md) gained the rod-core uniaxial-escape anchor; [`m5_visualization.md`](../m5_visualization.md) gained the VIZ.5 standing row; the model briefing states nothing this review changes (skipped explicitly). SABER-side EXEC_SUMMARY / GOAL_TRACKER: unchanged (OpenWave-scoped rendering work, no SABER gate moved).
+
+**Findings:** The author's minimal render spec is fully live in the launcher: one value per 3D angle (the shell) and the vortex case done right (the rods + rings on the actual defect lines), composed exactly like the reference figure. The render also produced a measured substrate fact: the rod core's exact uniaxial escape, which is simultaneously why the rods look like rods and the detection criterion the future line tracer needs.
+
+**Research docs created / updated:** this record · [`m5_23_convo.md`](m5_23_convo.md) · [`m5_roadmap.md`](../m5_roadmap.md) (M5.23 → Done; M5.24 + M5.25 staged) · [`m5_theory_canonical.md`](../m5_theory_canonical.md) · [`m5_visualization.md`](../m5_visualization.md) · [`m5_23_ellipsoid_selftest.py`](../scripts/m5_23_ellipsoid_selftest.py) + plots (`m5_23_mesh_selftest.png`, `m5_23_rods_selftest.png`, `m5_23_shell_selftest.png` historical) · code: `medium.py`, `engine4_render.py`, `_launcher.py`
