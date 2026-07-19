@@ -239,3 +239,20 @@
 **Premise correction to carry into the reply**: he asks why our simulations "lead to infinites": M5.21.3 measured NO divergence: the ω-ladder is a shallow, bounded, non-runaway slope with no stationary point (the note § 6 decoupling), and the true divergence era (the M5.20.3 signature dive) was cured by the symmetrized instrument. What we lack is a TURNING POINT, not finiteness. His IR structure explains the gap cleanly: his kinetic term is IR-divergent at constant ω (∫ω²dr), forcing ω(r) decay, while our collective-generator kinetic was envelope-localized (IR-finite by construction): the two setups ask different ω questions.
 
 **Routing**: NEW task [M5.21.8](m5_21_8_task_details.md) staged (verify the notebook + convention bridge + lattice confrontation + the g-ladder scaling test of his critique); the baryon fallback → [M5.22](m5_22_task_details.md) **Phase 1** (the 3×3 vortex-knot toy census, article-flagged, un-gated by 4D; kept OUT of the M5.21 lepton series by scope, user decision 2026-07-19: it is the proton/neutron hunt, M5.22's program); the fork from our 2026-07-18 outbound is ANSWERED-BY-REDIRECT (neither (a) nor (b) picked; the analytical benchmark supplied instead; note his ansatz family is eigenvalue-pinned = the Eq-12 spirit, so the T2η lift gains sanction); tracker [Q35](../m5_question_tracker.md#q35-detail) NEW (negative-Hamiltonian-terms literature, ours to research); the held M5.21.6 note rides the next outbound with the M5.21.8 verification results.
+
+## 2026-07-19 ~13:00: the consolidated M5.21.8 + M5.21.6 results message SENT
+
+**Context**: Rodrigo-voice opener + FABLE VOICE block per the standing separation (terminal-drafted; sent-record summary per the outbound rule). Sent within the author's comms window. Carries BOTH held packages in one send (user decision: no conflation of sends).
+
+| Item | Content |
+| --- | --- |
+| Record links | [`findings/m5_21_8_note.md`](../findings/m5_21_8_note.md) (audit 7/7) + [`findings/m5_21_6_note.md`](../findings/m5_21_6_note.md) (audit 21/24 + 3 adopted) |
+| The bridge | The author's Hamiltonian = ½ × our η-trace exactly (generic identity): no convention dispute |
+| The m-sector | VERIFIED essentially exactly (0.009%); lattice twin minima track the 1/g law at 0.83× across g = 8-64; the toy-boost "rapidity-gigantic" point conceded as measured |
+| The ω-sector | Reported honestly: no finite nonzero ω anywhere in the author's own formulas (ω* = 0 or −∞, incl. (1e10, 1e-10)); lattice agrees (kin(m*) = +75.5); premise correction: our sims never produced infinities |
+| The escapes | Both measured load-bearing: the cone term negatively divergent (regularization not cosmetic); the constant-ω kinetic IR-extensive (the author's margin note made quantitative) |
+| The decay delivery | The held M5.21.6 results: C → electron (descent grade; rotation-dominant at dynamics grade; ledger closed, 23% radiated; ONE ring released vs the conjectured two); B drains at this box |
+| **THE FORK + RECOMMENDATION** | (a) regularized core profile (which radius dependence?) / (b) the ω(r)-profiled clock family / (c) fixed-J + the author's Larmor protocol; **recommendation = (c) first** (immediate physical acceptance observable, no new author-gated choices, matches the author's own "we should test Larmor precession" step) |
+| **The Q33 activation** | The specialist-contacts offer taken up: the three measured hard structures (stiff-mode scaling, core-vs-far-field mesh range, IR-extensive clock kinetic) named as the ready problem statement ([Q33](../m5_question_tracker.md#q33-detail) receipt updated) |
+| Scope decision reflected | NO baryon ask (user decision: the M5.21 electron-hunt series stays the focus; M5.22 Phase 1 waits) |
+| Next | The author's fork answer selects the next run; fixed-J + Larmor is the staged recommendation |
