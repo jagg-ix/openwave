@@ -76,8 +76,8 @@ ELLIPSOID_TFACES = 2 * ELLIPSOID_TEMPLATE_LAT * ELLIPSOID_TEMPLATE_LON
 # spanning ± the GUI Radius, RING_COUNT rings (heights ±0.35 / ±0.7 of that
 # half-length) × RING_AZ azimuths each.
 ELLIPSOID_ROD_N = 41
-ELLIPSOID_RING_COUNT = 8  # 4 rows per pole (the reference figure shows 4), heights ±0.6..±0.9 of the rod span
-ELLIPSOID_RING_AZ = 24
+ELLIPSOID_RING_COUNT = 8  # 4 rows per pole (the reference figure shows 4), on the outer rod sections
+ELLIPSOID_RING_AZ = 64  # CEILING azimuths per ring; the live count follows the GUI Count slider (~Count/12)
 ELLIPSOID_ROD_SLOTS = ELLIPSOID_ROD_N + ELLIPSOID_RING_COUNT * ELLIPSOID_RING_AZ
 
 

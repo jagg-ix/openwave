@@ -135,7 +135,7 @@ The combined view (translucent shell + cyan rod needles through the poles + the 
 
 Deferred and now TRACKED as their own roadmap task, **[M5.25](m5_25_task_details.md)** (gated by [M5.24](m5_24_task_details.md)): the general line tracer (detect the λ₂−λ₃ uniaxial-escape degeneracy per voxel + assemble lines, needed for dynamic / split-vortex states) and the J/μ twist demo on the certified 4D clock.
 
-**Ring-row amendment (same day, vs the reference gif)**: the reference shows FOUR ring rows per pole; `ELLIPSOID_RING_COUNT` raised 4 → 8 (rows at ±0.6 / ±0.7 / ±0.8 / ±0.9 of the rod span, all on the outer sections). Selftest re-verified 14/14 after the change.
+**Ring-row amendments (same day, vs the reference gif)**: the reference shows FOUR ring rows per pole; `ELLIPSOID_RING_COUNT` raised 4 → 8. Then three maintainer refinements: (1) row SPACING doubled to 0.32R gaps; (2) the whole stack OFFSET one row gap off the shell (the first row was touching it): rows now at **1.28R / 1.60R / 1.92R / 2.24R** per pole, expressed in shell-radius units (`_ROD_RING_H0` = 1.28, `_ROD_RING_STEP` = 0.32), `ELLIPSOID_ROD_SPAN` = 2.4 so the rod tip clears the outermost row; (3) the ring azimuth density FOLLOWS the `Count` slider (~Count/12: the default Count 299 reproduces the original 24-azimuth look; buffer ceiling 64), one density knob for shell and rings together. Selftest re-verified 14/14 after each change.
 
 ### Course-correction round 1 (2026-07-19, after the maintainer's live look)
 

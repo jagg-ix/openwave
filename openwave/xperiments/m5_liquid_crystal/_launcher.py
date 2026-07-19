@@ -1195,11 +1195,15 @@ def render_elements(state):
             # ring radius: a few voxels around the cord (fixed v1; the rod
             # core melt width is ~rhoc ≈ 3 voxels in the biaxial seeds)
             ring_r_vox = max(3.0, 0.04 * tf.max_grid_size)
+            # ring azimuth density follows the Count slider (~Count/12 keeps
+            # the default look; buffer ceiling ellipsoid_ring_az)
+            ring_az = min(max(state.ELLIPSOID_COUNT // 12, 8), tf.ellipsoid_ring_az)
             viz.update_rod_ellipsoids(
                 tf,
                 viz.ELLIPSOID_ROD_SPAN * ell_extent,  # rods protrude beyond the shell
                 ring_r_vox,
                 state.ELLIPSOID_SIZE,
+                ring_az,
                 1 if state.ELLIPSOID_RODS else 0,
                 1 if state.ELLIPSOID_RODRINGS else 0,
             )

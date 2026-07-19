@@ -125,7 +125,14 @@ def update_ellipsoid_mesh(
 # PROTRUDE beyond the shell and the rings sit on the protruding outer sections
 # (matching the reference electron-clock composition; also keeps the rings
 # clear of shell-ellipsoid occlusion). Consumed by the launcher dispatch.
-ELLIPSOID_ROD_SPAN = 1.6
+# 2.4 so the rod tip clears the outermost ring row (2.24R, below).
+ELLIPSOID_ROD_SPAN = 2.4
+# Ring-row heights in SHELL-RADIUS units: the innermost row sits ONE full row
+# gap off the shell (maintainer refinements 2026-07-19: gaps doubled to 0.32R,
+# then the stack offset off the shell) → rows at 1.28R / 1.60R / 1.92R / 2.24R
+# per pole.
+_ROD_RING_H0 = 1.28
+_ROD_RING_STEP = 0.32
 
 
 @ti.kernel
@@ -134,6 +141,7 @@ def update_rod_ellipsoids(
     half_len_vox: ti.f32,  # type: ignore
     ring_r_vox: ti.f32,  # type: ignore
     size: ti.f32,  # type: ignore
+    n_ring_az: ti.i32,  # type: ignore
     show_rods: ti.i32,  # type: ignore
     show_rings: ti.i32,  # type: ignore
 ):
@@ -148,11 +156,13 @@ def update_rod_ellipsoids(
         [−half_len_vox, +half_len_vox] (gated by `show_rods`; delta-cyan so the
         melted cores read apart from the shell); the degenerate / shrunken
         ellipsoid shapes ARE the rod-core melt made visible
-      - remaining slots: ROD RINGS, one ellipsoid per 2D angle on circles of
-        radius `ring_r_vox` AROUND the cord: FOUR rows per pole (the reference
-        figure's count) at heights ±0.6 / ±0.7 / ±0.8 / ±0.9 of the
-        half-length — the protruding OUTER rod sections, beyond the shell when
-        the launcher passes `ELLIPSOID_ROD_SPAN`× the shell radius (gated by
+      - remaining slots: ROD RINGS, `n_ring_az` ellipsoids per 2D angle (the
+        GUI Count slider drives the azimuth density, capped by the
+        ellipsoid_ring_az buffer ceiling) on circles of radius `ring_r_vox`
+        AROUND the cord: FOUR rows per pole (the reference figure's count) at
+        heights `_ROD_RING_H0 + _ROD_RING_STEP·row` in shell-radius units
+        (1.28R / 1.60R / 1.92R / 2.24R): the whole stack offset one row gap
+        OFF the shell, on the protruding outer rod sections (gated by
         `show_rings`; director light-blue) — the one-value-per-2D-angle vortex
         view placed on the actual defect line
 
@@ -163,7 +173,6 @@ def update_rod_ellipsoids(
     max_dim = ti.cast(tensor_field.max_grid_size, ti.f32)
     n_centers = tensor_field.ellipsoid_n_centers[None]
     rod_n = tensor_field.ellipsoid_rod_n
-    ring_az = tensor_field.ellipsoid_ring_az
     zero_v = ti.Vector([0.0, 0.0, 0.0])
     rod_col = ti.Vector([_GLYPH_ROD_COLOR[0], _GLYPH_ROD_COLOR[1], _GLYPH_ROD_COLOR[2]])
     ring_col = ti.Vector(
@@ -187,22 +196,23 @@ def update_rod_ellipsoids(
                         rod_n - 1, ti.f32
                     )
                     px, py, pz = ctr[0], ctr[1], ctr[2] + h
-            else:  # rod-ring sample
-                if show_rings == 1:
+            else:  # rod-ring sample (slot layout follows the LIVE azimuth count)
+                q = r - rod_n
+                ring_j = q // n_ring_az
+                az = q - ring_j * n_ring_az
+                if show_rings == 1 and ring_j < tensor_field.ellipsoid_ring_count:
                     active = 1
-                    q = r - rod_n
-                    ring_j = q // ring_az
-                    az = q - ring_j * ring_az
-                    # 4 rows per pole at ±0.9, ±0.8, ±0.7, ±0.6 of the
-                    # half-length (sign from j//4): the outer rod sections,
-                    # beyond the shell radius
-                    fr = (2.0 * ti.cast(ring_j // 4, ti.f32) - 1.0) * (
-                        0.9 - 0.1 * ti.cast(ring_j % 4, ti.f32)
+                    # 4 rows per pole at (H0 + STEP·row)·R, sign from j//4:
+                    # the stack starts one row gap off the shell (R derived
+                    # from the passed half-length via the span constant)
+                    r_shell = half_len_vox / ELLIPSOID_ROD_SPAN
+                    h = (2.0 * ti.cast(ring_j // 4, ti.f32) - 1.0) * (
+                        _ROD_RING_H0 + _ROD_RING_STEP * ti.cast(ring_j % 4, ti.f32)
                     )
-                    ang = 2.0 * math.pi * ti.cast(az, ti.f32) / ti.cast(ring_az, ti.f32)
+                    ang = 2.0 * math.pi * ti.cast(az, ti.f32) / ti.cast(n_ring_az, ti.f32)
                     px = ctr[0] + ring_r_vox * ti.cos(ang)
                     py = ctr[1] + ring_r_vox * ti.sin(ang)
-                    pz = ctr[2] + fr * half_len_vox
+                    pz = ctr[2] + h * r_shell
                     col = ring_col
         if active == 1:
             i = ti.min(ti.max(ti.cast(ti.round(px), ti.i32), 0), nx - 1)

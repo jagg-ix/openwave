@@ -69,7 +69,7 @@ pde.eigen_decompose(tf)
 tf.ellipsoid_centers[0] = [float(cx), float(cy), float(cz)]
 tf.ellipsoid_n_centers[None] = 1
 
-R_FRAC = 0.22
+R_FRAC = 0.18  # small enough that the 2.4R rod + 2.24R rings stay in-grid
 R_VOX = R_FRAC * tf.max_grid_size
 SIZE = 0.036
 N_ACTIVE = 162
@@ -202,11 +202,12 @@ check(
 tf.ellipsoid_n_centers[None] = 1  # restore for the rod section + preview plot
 
 # ---- 8. RODS (Stage D: the disclination-rod line samples) ----
-rod_n, ring_az = tf.ellipsoid_rod_n, tf.ellipsoid_ring_az
+rod_n = tf.ellipsoid_rod_n
+ring_az = min(max(N_ACTIVE // 12, 8), tf.ellipsoid_ring_az)  # mirrors the launcher's Count-driven density
 rod_slots = tf.ellipsoid_rod_slots
 RING_R = max(3.0, 0.04 * max_dim)  # mirrors the launcher's fixed v1 ring radius
 HL = viz.ELLIPSOID_ROD_SPAN * R_VOX  # rod half-length: rods protrude beyond the shell
-viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 1, 1)
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, ring_az, 1, 1)
 rv = tf.ellipsoid_rod_vertices.to_numpy().astype(np.float64)
 rod_cents = rv[: rod_n * tverts].reshape(rod_n, tverts, 3).mean(axis=1)
 h_ref = np.linspace(-HL, HL, rod_n)
@@ -247,11 +248,12 @@ check(
 )
 
 # ---- 9. ROD RINGS (per 2D angle around the cord) ----
-ring_block = rv[rod_n * tverts : rod_slots * tverts].reshape(-1, tverts, 3)
+n_ring_slots = tf.ellipsoid_ring_count * ring_az
+ring_block = rv[rod_n * tverts : (rod_n + n_ring_slots) * tverts].reshape(-1, tverts, 3)
 ring_cents = ring_block.mean(axis=1)
-fr_ref = np.array(
-    [-0.9, -0.8, -0.7, -0.6, 0.9, 0.8, 0.7, 0.6]
-)  # kernel height order (sign by j//4), 4 rows per pole on the outer sections
+h_rows_ref = np.array(
+    [-1.28, -1.60, -1.92, -2.24, 1.28, 1.60, 1.92, 2.24]
+)  # kernel row order (sign by j//4), SHELL-radius units: one row gap off the shell
 ok_rings = True
 for jr in range(tf.ellipsoid_ring_count):
     seg = ring_cents[jr * ring_az : (jr + 1) * ring_az]
@@ -261,7 +263,7 @@ for jr in range(tf.ellipsoid_ring_count):
             [
                 cx + RING_R * np.cos(ang),
                 cy + RING_R * np.sin(ang),
-                np.full(ring_az, cz + fr_ref[jr] * HL),
+                np.full(ring_az, cz + h_rows_ref[jr] * R_VOX),
             ],
             axis=1,
         )
@@ -271,9 +273,9 @@ for jr in range(tf.ellipsoid_ring_count):
         ok_rings = False
         break
 check("rings: centroids on circles around the cord at the fixed heights", ok_rings)
-viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 1, 0)  # rods only
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, ring_az, 1, 0)  # rods only
 rv2 = tf.ellipsoid_rod_vertices.to_numpy()
-viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 0, 1)  # rings only
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, ring_az, 0, 1)  # rings only
 rv3 = tf.ellipsoid_rod_vertices.to_numpy()
 check(
     "rings: toggle isolation (rods-only blanks rings and back)",
@@ -327,7 +329,7 @@ def _shaded(tris_arr, base_rgb):
 # electron-clock composition: hedgehog shell + the bipolar rod pair)
 viz.update_ellipsoid_mesh(tf, R_VOX, SIZE, N_ACTIVE)
 sh_v = tf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
-viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 1, 1)
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, ring_az, 1, 1)
 rd_v = tf.ellipsoid_rod_vertices.to_numpy().astype(np.float64)
 rod_idxs = tf.ellipsoid_rod_indices.to_numpy().reshape(-1, 3)
 sh_tris = sh_v[idxs[: N_ACTIVE * tfaces]]
@@ -353,7 +355,7 @@ ax3.set_xlim(lim3), ax3.set_ylim(lim3), ax3.set_zlim(lim3)
 ax3.set_box_aspect((1, 1, 1))
 ax3.set_title(
     f"M5.23 VIZ.5 Stage D: shell (translucent) + disclination rods (cyan) + rod rings\n"
-    f"biaxial hedgehog, R={R_FRAC:.2f}, rod span +-1.6R, rings OUTSIDE the shell (+-0.7 / +-0.9 of span)"
+    f"biaxial hedgehog, R={R_FRAC:.2f}, rod span +-2.4R, ring rows at 1.28R..2.24R (0.32R gaps)"
 )
 out3 = os.path.join(plot_dir, "m5_23_rods_selftest.png")
 fig3.savefig(out3, dpi=110, bbox_inches="tight")
