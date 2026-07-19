@@ -41,11 +41,11 @@ def update_ellipsoid_mesh(
     size: ti.f32,  # type: ignore
     n_active: ti.i32,  # type: ignore
 ):
-    """VIZ.5 (M5.23) — the "ellipsoid" viz, Stage B (taichi MESH): per shell
-    sample, the unit-sphere template maps through the local M to the shaded
-    eigen-ellipsoid surface — the same FULL-3D Fibonacci shell points and
-    nearest-voxel sampling as the whole VIZ.5 design (a full-3D view, not a
-    plane cross-section).
+    """VIZ.5 (M5.23) — the "ellipsoid" viz (taichi MESH): one sample per 3D
+    angle on the S² Fibonacci shell of radius `radius_vox` around each defect
+    center; at each sample the unit-sphere template maps through the local M to
+    the shaded eigen-ellipsoid surface — a FULL-3D view (not a plane
+    cross-section), nearest-voxel sampling.
 
     The m5_6_5b key simplification: for symmetric M the image of the unit
     sphere IS the ellipsoid with semi-axes = eigenvalues along eigenvectors,

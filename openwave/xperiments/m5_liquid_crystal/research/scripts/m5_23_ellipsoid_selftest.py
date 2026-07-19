@@ -196,6 +196,7 @@ check(
 )
 tf.ellipsoid_n_centers[None] = 1  # restore for the preview plot
 
+
 # ----------------------------------------------------------------
 # Preview plot (Agg) — Lambert-shaded eigen-ellipsoid shell
 # ----------------------------------------------------------------

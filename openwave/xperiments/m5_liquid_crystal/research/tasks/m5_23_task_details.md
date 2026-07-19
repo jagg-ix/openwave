@@ -1,14 +1,14 @@
 # M5.23, the angular-shell render: one glyph per 3D angle around the charge (VIZ.5)
 
-> Task detail doc for **M5.23** (RENDERING). Roadmap row: [`m5_roadmap.md § RENDERING TASKS`](../m5_roadmap.md). Feature ID: **VIZ.5** (next after the VIZ.3 glyph select and the VIZ.4 dipole placeholder). Origin: his 2026-07-18 19:44 viz spec ([`m5_21_convo.md § 2026-07-18 19:44`](m5_21_convo.md)), sharpened by his 2026-07-19 feedback (single ellipsoid per angle, the density warning, the split-vortex arc: [`m5_23_convo.md`](m5_23_convo.md)). Standing viz conventions: [`m5_visualization.md`](../m5_visualization.md).
+> Task detail doc for **M5.23** (RENDERING). Roadmap row: [`m5_roadmap.md § RENDERING TASKS`](../m5_roadmap.md). Feature ID: **VIZ.5** (next after the VIZ.3 glyph select and the VIZ.4 dipole placeholder). Origin: the author's 2026-07-18 19:44 viz spec ([`m5_21_convo.md § 2026-07-18 19:44`](m5_21_convo.md)), sharpened by the author's 2026-07-19 feedback (single ellipsoid per angle, the density warning, the split-vortex arc: [`m5_23_convo.md`](m5_23_convo.md)). Standing viz conventions: [`m5_visualization.md`](../m5_visualization.md).
 
 ## TASK PLANNING
 
-**The ask (his viz spec, verbatim)**: "for visualizations the most crucial is field situation around point-like charge, sufficient with one value per 3D angle. Also vortices, e.g. with one value per 2D angle."
+**The ask (the author's viz spec, verbatim)**: "for visualizations the most crucial is field situation around point-like charge, sufficient with one value per 3D angle. Also vortices, e.g. with one value per 2D angle."
 
 **Decode**: around a point defect the far field is asymptotically radius-free (the hedgehog is scale-free outside the core), so ONE sample per direction û on the sphere S² captures the whole field situation; around a disclination (vortex) line the field depends only on the azimuth, so one sample per 2D angle on a ring captures it. The render therefore moves from the current cross-section planes (the 3 flux-mesh planes the glyphs live on today) to a **complete 3D angular shell**: one glyph per direction û, sampled at `center + R·û`.
 
-Target look, his own electron-clock figure (ellipsoid glyphs fanned around the charge; the delta axis sweeping IS the de Broglie clock, which our `director_mid` clock-hand reproduces frame by frame):
+Target look, the author's own electron-clock figure (ellipsoid glyphs fanned around the charge; the delta axis sweeping IS the de Broglie clock, which our `director_mid` clock-hand reproduces frame by frame):
 
 ![](../images/clock.gif)
 
@@ -22,7 +22,7 @@ The per-sample glyph end-state, the triaxial eigen-ellipsoid (semi-axes = the sp
 | --- | --- | --- |
 | **A: the S² shell with eigenframe line glyphs** | The `SHOW_ELLIPSOID` feature (taichi LINES first): one line glyph per direction û on a Fibonacci-sphere lattice, at `center + R·û`; main axis along `director_nhat` scaled by λ₁, delta cross-bar along `director_mid` scaled by λ₂ (the third eigenvector n̂×mid is available for a λ₃ bar; near-zero in the D = diag(g, 1, δ, 0) family, so optional) | Follows the existing line-glyph pattern (`engine4_render.py`) on new shell buffers; directions computed in-kernel (taichi-native, see the design decisions); nearest-voxel sampling of the derived eigenframe fields |
 | **B: the ellipsoid mesh glyphs** | Each shell sample upgrades from a line frame to a shaded triaxial ellipsoid (the clock.gif look), rendered as one Taichi GGUI `scene.mesh` | The m5_6_5b KEY SIMPLIFICATION, already validated headless: a symmetric M maps the unit sphere to exactly the eigen-ellipsoid, `vertex = p + s·(M_spatial · u)` per template icosphere vertex u. NO per-glyph eigendecomposition. Includes the λ_min visibility floor (flat-disk protection) |
-| **C: the vortex ring (his second case, REINFORCED 2026-07-19)** | One glyph per 2D angle: N_φ samples on a circle of radius R around the disclination-line axis (ring / dipole-axis configs). His 2026-07-19 feedback names the follow-up arc beyond this task: split-vortex ANIMATIONS for μ/τ from simulation (rides [M5.21.6](m5_21_6_task_details.md); his two-loop / two-neutrino conjecture logged in [`m5_23_convo.md`](m5_23_convo.md)) | Same sampler with a circle instead of a sphere; the line axis comes from the seed config |
+| **C: the vortex ring (the author's second case, REINFORCED 2026-07-19)** | One glyph per 2D angle: N_φ samples on a circle of radius R around the disclination-line axis (ring / dipole-axis configs). The author's 2026-07-19 feedback names the follow-up arc beyond this task: split-vortex ANIMATIONS for μ/τ from simulation (rides [M5.21.6](m5_21_6_task_details.md); the author's two-loop / two-neutrino conjecture logged in [`m5_23_convo.md`](m5_23_convo.md)) | Same sampler with a circle instead of a sphere; the line axis comes from the seed config |
 
 ### Design decisions (from the 2026-07-19 planning round)
 
@@ -31,9 +31,9 @@ The per-sample glyph end-state, the triaxial eigen-ellipsoid (semi-axes = the sp
 | What "one value per angle" indexes | The glyph set is indexed by **direction** (solid angle û on S² around the defect), not by director angle; the value DISPLAYED at each direction is the local eigenframe (n̂, mid, λ₁, λ₂, λ₃) |
 | UI placement (AMENDED at go, 2026-07-19) | The shell is its OWN rendering feature with its OWN parameter namespace, the **"ellipsoid" visualization**: `SHOW_ELLIPSOID` checkbox placed above the glyph-select group, NOT a `GLYPH_VECTOR` state (that enum is tied to the flux-mesh planes). Options evolve under the same namespace: `ELLIPSOID_RADIUS` now, a glyph-vs-mesh toggle at Stage B, more as the feature grows. While active, ALL vector glyph viz (the plane glyphs, every `GLYPH_VECTOR` state) are suppressed so there is no visual pollution; the four existing states stay selectable when it is off, nothing is deleted |
 | Collection radius R | REQUIRED, and physically meaningful: the far field is radius-free (which is exactly why one-per-angle suffices) but the core region is not, so R is a GUI slider (fraction of universe edge), default a few core radii OUTSIDE the core; sliding R inward exposes the core-to-far-field transition |
-| The disclination line | NOT a competitor to the radius question: it is his SECOND case (vortices, one value per 2D angle) and becomes the Stage C ring sampler around the line axis |
+| The disclination line | NOT a competitor to the radius question: it is the author's SECOND case (vortices, one value per 2D angle) and becomes the Stage C ring sampler around the line axis |
 | Shell center | The seed's `centers_voxel` (defect centers are known per config); one shell per defect (the dipole configs get two) |
-| Direction set + density (AMENDED 2026-07-19) | Directions are a **Fibonacci-sphere lattice computed IN-KERNEL** (z uniform in (−1,1), azimuth stepping the golden angle): taichi-native per the production-code rule (below), uniform on S² at ANY count, no pole oversampling, no host-side table. Density is therefore a free GUI slider (`ELLIPSOID_GLYPHS`, 32 to 642), DEFAULT 162 per his density warning "for visibility it cannot be too dense" ([`m5_23_convo.md`](m5_23_convo.md)). The m5_6_5b icosphere remains the Stage B MESH template (verts + faces for the ellipsoid surface) |
+| Direction set + density (AMENDED 2026-07-19) | Directions are a **Fibonacci-sphere lattice computed IN-KERNEL** (z uniform in (−1,1), azimuth stepping the golden angle): taichi-native per the production-code rule (below), uniform on S² at ANY count, no pole oversampling, no host-side table. Density is therefore a free GUI slider (`ELLIPSOID_GLYPHS`, 32 to 642), DEFAULT 162 per the author's density warning "for visibility it cannot be too dense" ([`m5_23_convo.md`](m5_23_convo.md)). The m5_6_5b icosphere remains the Stage B MESH template (verts + faces for the ellipsoid surface) |
 | Production-code rule (maintainer, 2026-07-19) | Prioritize **taichi over numpy** in production code (engine / launcher per-frame paths); numpy stays fine in research scripts and one-time host-side setup where taichi buys nothing |
 | Sampling safety | Stage A samples the DERIVED fields (`director_nhat`, `director_mid`, `eigenvalues`) at the NEAREST voxel: interpolating n̂ across voxels is apolar-unsafe (n̂ and −n̂ are the same state, sign flips break averaging). Stage B may interpolate M itself trilinearly (M is smooth and sign-free) before applying M·u |
 | Eigenvalue display | The existing plane glyph draws n̂ at unit length with the delta bar scaled by the RATIO λ₂/λ₁; the shell glyph scales by the eigenvalues DIRECTLY (main ∝ λ₁, bar ∝ λ₂) so the spectrum itself is visible, matching the "display the matrix eigenvalues" intent and the ellipsoid semi-axes |
@@ -58,7 +58,7 @@ The per-sample glyph end-state, the triaxial eigen-ellipsoid (semi-axes = the sp
 
 **Gating**: user "go". Demo-tier, non-gating under headless-first (rendering gates nothing, NG-6 policy; same tier as M5.13).
 
-**Blindspot pass**: the open items are the flagged decisions above (slider reuse, direction count, per-defect shells vs primary defect only, Stage C split). One physics caveat to carry: a single-radius shell HIDES radial structure by construction; that is the point of the view (his "sufficient with one value per 3D angle"), but core-region studies must keep using the plane glyphs or slide R inward, and the task should note this in the launcher tooltip or the viz doc.
+**Blindspot pass**: the open items are the flagged decisions above (slider reuse, direction count, per-defect shells vs primary defect only, Stage C split). One physics caveat to carry: a single-radius shell HIDES radial structure by construction; that is the point of the view (the author's "sufficient with one value per 3D angle"), but core-region studies must keep using the plane glyphs or slide R inward, and the task should note this in the launcher tooltip or the viz doc.
 
 ## STAGE A FINDINGS (2026-07-19): SUPERSEDED same day (course-correction 2: the line-glyph variant retired, mesh-only; kept as the historical record)
 
@@ -68,7 +68,7 @@ Stage A landed as planned (plus the two go-time amendments: own feature namespac
 | --- | --- | --- |
 | Shell buffers | `medium.py` (VIZ.5 block after the moment glyph) | `ellipsoid_glyph_*` (shaft) + `ellipsoid_delta_*` (cross-bar) pairs sized 2 × 642 dirs × 4 centers; `ellipsoid_centers` pool + `ellipsoid_n_centers`; ceilings `ELLIPSOID_MAX_DIRS = 642`, `ELLIPSOID_MAX_CENTERS = 4` |
 | The kernel | `engine4_render.update_ellipsoid_glyphs` | In-kernel **Fibonacci-sphere** directions (taichi-native, no host table, uniform at any count); nearest-voxel sampling of the derived eigenframe (apolar-safe); shaft = n̂ scaled by λ₁, delta bar = `director_mid` scaled by λ₂ (eigenvalues directly, 0.12 visibility floor / 2.0 ceiling); unused slots zeroed |
-| GUI + dispatch | `_launcher.py` | `Ellipsoid (1 glyph/angle)` checkbox with `> Shell Radius` (0.02-0.5, default 0.15) + `> Shell Glyphs` (32-642, default 162 per his density warning); while ON the plane-glyph branch is suppressed (elif, no visual pollution); seed-time center fill (DEFECTS list → one shell per defect, else the config CENTER, stale-seed safe) |
+| GUI + dispatch | `_launcher.py` | `Ellipsoid (1 glyph/angle)` checkbox with `> Shell Radius` (0.02-0.5, default 0.15) + `> Shell Glyphs` (32-642, default 162 per the author's density warning); while ON the plane-glyph branch is suppressed (elif, no visual pollution); seed-time center fill (DEFECTS list → one shell per defect, else the config CENTER, stale-seed safe) |
 | Machine gate | [`m5_23_ellipsoid_selftest.py`](../scripts/m5_23_ellipsoid_selftest.py) | **13/13 ALL GREEN** on the biaxial hedgehog: shell geometry exact, Fibonacci set matches the closed form, shaft/bar lengths + orientations exact vs the eigenframe, shaft ⊥ bar, **hedgehog shell director 100% radial** (the physics read), tail slots zeroed, no NaNs, density re-run clean, two-center (dipole) shells correct |
 
 The headless preview (the selftest's render of the 162-glyph shell around the biaxial hedgehog; blue = director shaft, cyan = delta bar):
@@ -93,6 +93,29 @@ The headless mesh preview (Lambert-shaded, the Stage B look on the biaxial hedge
 ![](../plots/m5_23_mesh_selftest.png)
 
 The arrangement reproduces the reference figure directly: individual eigen-ellipsoids fanned radially around the charge, one per angle, elongated along the local director; the thin profiles are the honest biaxial spectrum. What the static preview cannot show is the live payoff: under the 4D clock the delta axis sweep will rotate each ellipsoid's minor frame in place, the de Broglie clock animated.
+
+## STAGE C FINDINGS (2026-07-19): the vortex ring, REMOVED at review the same day
+
+The author's second case ("Also vortices, e.g. with one value per 2D angle") landed as a sub-mode of the same mesh machinery:
+
+| Piece | What landed |
+| --- | --- |
+| Sampler | `update_ellipsoid_mesh` gained a `ring_mode` arg: 0 = the S² Fibonacci shell (per 3D angle), 1 = the VORTEX RING, a circle of radius R around the disclination axis (ẑ in every M5 seed) in each center's equatorial plane; everything downstream (M·u map, buffers, one `scene.mesh` call, per-defect centers) identical |
+| GUI | `Vortex Ring (1 /2D angle)` checkbox inside the ellipsoid block; `Radius` / `Count` / `Size` drive the ring exactly as they drive the shell (Count = azimuth count) |
+| Machine gate | Selftest now **13/13 ALL GREEN**: + ring centroids on the circle (max err 1.3e-07), coplanar at the equator, ring physics (hedgehog-equator director 100% radial in-plane), ring tail collapsed |
+
+The headless ring preview (48 azimuths around the biaxial hedgehog's disclination axis, dashed):
+
+![](../plots/m5_23_ring_selftest.png)
+
+The winding is directly visible: each ellipsoid's long axis follows the in-plane radial director, sweeping a full turn around the ring.
+
+**REMOVED at review (2026-07-19, maintainer call)**: on the configs we actually have, the equatorial ring adds no information beyond what the S² shell already shows (on the static hedgehog it reads as "radial directors on a circle"), so the feature was cut the same day it landed (`ring_mode` arg, GUI checkbox, selftest ring section all removed; this section + the preview above stay as the record). The reasoning, sharpened by the review discussion of the author's electron-clock figure:
+
+| Insight | Consequence |
+| --- | --- |
+| The author's "one value per 2D angle" vortex case is about REAL vortex structures: the two bipolar RODS visible in the author's electron-clock animation are the **disclination rods** along the spin axis (the escaped-core structure every biaxial seed carries; the maintainer's observation that Hamiltonian energy-density lines sit exactly on those rod sectors is the rod-core localization, the open [M5.8.8](m5_8_8_task_details.md) question is its energy test) | An informative per-2D-angle view must encircle an actual vortex CORD: small rings around the polar rods (with a z-scan), around the charged-ring cord (`_topo_charged_ring`), or around the future μ/τ split-vortex loops |
+| A generic equator ring around ẑ does not do that placement job; the sampler needs per-config cord geometry | The per-2D-angle sampler RETURNS with the configs that have real vortex content: the split-vortex animation arc ([`m5_23_convo.md`](m5_23_convo.md), rides [M5.21.6](m5_21_6_task_details.md)) and the rod study ([M5.8.8](m5_8_8_task_details.md)) |
 
 ### Course-correction round 1 (2026-07-19, after the maintainer's live look)
 
