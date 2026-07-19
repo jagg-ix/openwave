@@ -133,7 +133,9 @@ The combined view (translucent shell + cyan rod needles through the poles + the 
 
 ![](../plots/m5_23_rods_selftest.png)
 
-Deferred to the M5.24-era follow-up, as planned: the general line tracer (detect λ₂−λ₃ degeneracy per voxel + assemble lines, needed for dynamic / split-vortex states) and the J/μ twist demo on the certified 4D clock.
+Deferred and now TRACKED as their own roadmap task, **[M5.25](m5_25_task_details.md)** (gated by [M5.24](m5_24_task_details.md)): the general line tracer (detect the λ₂−λ₃ uniaxial-escape degeneracy per voxel + assemble lines, needed for dynamic / split-vortex states) and the J/μ twist demo on the certified 4D clock.
+
+**Ring-row amendment (same day, vs the reference gif)**: the reference shows FOUR ring rows per pole; `ELLIPSOID_RING_COUNT` raised 4 → 8 (rows at ±0.6 / ±0.7 / ±0.8 / ±0.9 of the rod span, all on the outer sections). Selftest re-verified 14/14 after the change.
 
 ### Course-correction round 1 (2026-07-19, after the maintainer's live look)
 

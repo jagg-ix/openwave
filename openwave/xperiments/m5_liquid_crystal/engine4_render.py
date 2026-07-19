@@ -149,7 +149,8 @@ def update_rod_ellipsoids(
         melted cores read apart from the shell); the degenerate / shrunken
         ellipsoid shapes ARE the rod-core melt made visible
       - remaining slots: ROD RINGS, one ellipsoid per 2D angle on circles of
-        radius `ring_r_vox` AROUND the cord at heights ±0.7 / ±0.9 of the
+        radius `ring_r_vox` AROUND the cord: FOUR rows per pole (the reference
+        figure's count) at heights ±0.6 / ±0.7 / ±0.8 / ±0.9 of the
         half-length — the protruding OUTER rod sections, beyond the shell when
         the launcher passes `ELLIPSOID_ROD_SPAN`× the shell radius (gated by
         `show_rings`; director light-blue) — the one-value-per-2D-angle vortex
@@ -192,10 +193,11 @@ def update_rod_ellipsoids(
                     q = r - rod_n
                     ring_j = q // ring_az
                     az = q - ring_j * ring_az
-                    # heights ±0.9, ±0.7 of the half-length (sign from j//2):
-                    # the outer rod sections, beyond the shell radius
-                    fr = (2.0 * ti.cast(ring_j // 2, ti.f32) - 1.0) * (
-                        0.9 - 0.2 * ti.cast(ring_j % 2, ti.f32)
+                    # 4 rows per pole at ±0.9, ±0.8, ±0.7, ±0.6 of the
+                    # half-length (sign from j//4): the outer rod sections,
+                    # beyond the shell radius
+                    fr = (2.0 * ti.cast(ring_j // 4, ti.f32) - 1.0) * (
+                        0.9 - 0.1 * ti.cast(ring_j % 4, ti.f32)
                     )
                     ang = 2.0 * math.pi * ti.cast(az, ti.f32) / ti.cast(ring_az, ti.f32)
                     px = ctr[0] + ring_r_vox * ti.cos(ang)

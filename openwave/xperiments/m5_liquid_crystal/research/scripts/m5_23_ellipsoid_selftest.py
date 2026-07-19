@@ -249,7 +249,9 @@ check(
 # ---- 9. ROD RINGS (per 2D angle around the cord) ----
 ring_block = rv[rod_n * tverts : rod_slots * tverts].reshape(-1, tverts, 3)
 ring_cents = ring_block.mean(axis=1)
-fr_ref = np.array([-0.9, -0.7, 0.9, 0.7])  # kernel height order (sign by j//2), outer sections
+fr_ref = np.array(
+    [-0.9, -0.8, -0.7, -0.6, 0.9, 0.8, 0.7, 0.6]
+)  # kernel height order (sign by j//4), 4 rows per pole on the outer sections
 ok_rings = True
 for jr in range(tf.ellipsoid_ring_count):
     seg = ring_cents[jr * ring_az : (jr + 1) * ring_az]
