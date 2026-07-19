@@ -166,6 +166,15 @@ class SimulationState:
         self.GLYPH_COLOR = (
             1  # glyph color — 0=single (COLOR_MEDIUM, see far field), 1=field gradient
         )
+        # VIZ.5 (M5.23) — the "ellipsoid" viz: one eigenframe glyph per 3D angle
+        # on an S² shell around each defect center. Its OWN feature namespace
+        # (not a GLYPH_VECTOR state); while ON it suppresses the plane glyphs
+        # (no visual pollution). Stage A = taichi lines; the glyph-vs-mesh
+        # option lands with Stage B.
+        self.SHOW_ELLIPSOID = False
+        self.ELLIPSOID_RADIUS = 0.1  # shell radius, fraction of max grid dim
+        self.ELLIPSOID_COUNT = 299  # shell glyph count (density; not-too-dense spec)
+        self.ELLIPSOID_SIZE = 0.025  # glyph base length, normalized (scaled by lambda)
         self.FLUX_MESH_PLANES = [0.5, 0.5, 0.5]
         self.SHOW_FLUX_MESH = 0
         self.WARP_MESH = 300
@@ -235,6 +244,10 @@ class SimulationState:
         self.GLYPH_VECTOR = ui.get("GLYPH_VECTOR", 0)  # 0=director 1=+delta 2=E 3=B
         self.GLYPH_SIZE = ui.get("GLYPH_SIZE", 0)  # 0=unit, 1=field magnitude
         self.GLYPH_COLOR = ui.get("GLYPH_COLOR", 1)  # 0=single, 1=field gradient
+        self.SHOW_ELLIPSOID = ui.get("SHOW_ELLIPSOID", False)  # VIZ.5 ellipsoid shell
+        self.ELLIPSOID_RADIUS = ui.get("ELLIPSOID_RADIUS", 0.1)  # fraction of max grid dim
+        self.ELLIPSOID_COUNT = ui.get("ELLIPSOID_COUNT", 299)  # shell glyph count
+        self.ELLIPSOID_SIZE = ui.get("ELLIPSOID_SIZE", 0.025)  # glyph base length
         self.FLUX_MESH_PLANES = ui["FLUX_MESH_PLANES"]
         self.SHOW_FLUX_MESH = ui["SHOW_FLUX_MESH"]
         self.WARP_MESH = ui["WARP_MESH"]
@@ -413,15 +426,39 @@ def display_controls(state):
     with render.gui.sub_window("CONTROLS", 0.00, 0.25, 0.16, 0.43) as sub:
         state.SHOW_AXIS = sub.checkbox(f"Axis (ticks: {state.TICK_SPACING})", state.SHOW_AXIS)
         state.SHOW_EDGES = sub.checkbox("Sim Universe Edges", state.SHOW_EDGES)
-        state.SHOW_GLYPHS = sub.slider_int("Glyphs", state.SHOW_GLYPHS, 0, 3)
-        if sub.checkbox("Director Vector", state.GLYPH_VECTOR == 0):
+        # VIZ.5 (M5.23) — the "ellipsoid" viz: S² shell, one eigenframe glyph per
+        # 3D angle around each defect center. Its own feature (options below);
+        # while ON it replaces the plane glyphs below (no visual pollution).
+        state.SHOW_ELLIPSOID = sub.checkbox("Ellipsoids (1 /angle)", state.SHOW_ELLIPSOID)
+        if state.SHOW_ELLIPSOID:
+            state.ELLIPSOID_RADIUS = sub.slider_float("Radius", state.ELLIPSOID_RADIUS, 0.02, 0.5)
+            state.ELLIPSOID_COUNT = sub.slider_int(
+                "Count", state.ELLIPSOID_COUNT, 32, medium.ELLIPSOID_MAX_DIRS
+            )
+            state.ELLIPSOID_SIZE = sub.slider_float("Size", state.ELLIPSOID_SIZE, 0.01, 0.15)
+        state.SHOW_GLYPHS = sub.slider_int("Glyph Planes", state.SHOW_GLYPHS, 0, 3)
+        # VIZ.5 exclusivity: the vector-glyph select displays UNCHECKED while the
+        # ellipsoid shell owns the screen (those states are not rendering), and
+        # clicking any of them hands the screen back (ellipsoid off) — the same
+        # rule the render dispatch enforces (ellipsoid replaces the plane glyphs).
+        if sub.checkbox("Director Vector", state.GLYPH_VECTOR == 0 and not state.SHOW_ELLIPSOID):
             state.GLYPH_VECTOR = 0
-        if sub.checkbox("Director + Delta Vectors", state.GLYPH_VECTOR == 1):
+            state.SHOW_ELLIPSOID = False
+        if sub.checkbox(
+            "Director + Delta Vectors", state.GLYPH_VECTOR == 1 and not state.SHOW_ELLIPSOID
+        ):
             state.GLYPH_VECTOR = 1
-        if sub.checkbox("Electric Field (divergence)", state.GLYPH_VECTOR == 2):
+            state.SHOW_ELLIPSOID = False
+        if sub.checkbox(
+            "Electric Field (divergence)", state.GLYPH_VECTOR == 2 and not state.SHOW_ELLIPSOID
+        ):
             state.GLYPH_VECTOR = 2
-        if sub.checkbox("Magnetic Field (curl)", state.GLYPH_VECTOR == 3):
+            state.SHOW_ELLIPSOID = False
+        if sub.checkbox(
+            "Magnetic Field (curl)", state.GLYPH_VECTOR == 3 and not state.SHOW_ELLIPSOID
+        ):
             state.GLYPH_VECTOR = 3
+            state.SHOW_ELLIPSOID = False
         # shaft length: unit (director, all glyphs visible) vs field magnitude (E: |∇·n̂| charge
         # density, B: ‖∇×n̂‖); color: single flat COLOR_MEDIUM (see far field) vs field gradient.
         if sub.checkbox("Glyph Size (unit/magnitude)", state.GLYPH_SIZE == 1):
@@ -432,7 +469,7 @@ def display_controls(state):
             state.GLYPH_COLOR = 1
         else:
             state.GLYPH_COLOR = 0
-        state.SHOW_FLUX_MESH = sub.slider_int("Flux Mesh", state.SHOW_FLUX_MESH, 0, 3)
+        state.SHOW_FLUX_MESH = sub.slider_int("Flux Mesh Planes", state.SHOW_FLUX_MESH, 0, 3)
         state.WARP_MESH = sub.slider_int("Warp Mesh", state.WARP_MESH, 0, 50)
         # VIZ.3 — 4-state glyph select (mutually exclusive checkboxes):
         #   0=Director Vector (principal axis n̂ only),
@@ -716,9 +753,7 @@ def initialize_xperiment(state):
             cord_vox = float(topo.get("CORD_VOXELS", 3.0))
             rhoc_vox = float(topo.get("RHOC_VOXELS", 3.0))
             biaxial_delta = float(topo.get("BIAXIAL_DELTA", 0.3))
-            seeds.seed_charged_ring_M(
-                wf, cx, cy, cz, a_vox, cord_vox, rhoc_vox, biaxial_delta
-            )
+            seeds.seed_charged_ring_M(wf, cx, cy, cz, a_vox, cord_vox, rhoc_vox, biaxial_delta)
             print(
                 f"[M5.21.2] seeded charged ring a={a_vox:.1f} voxels at ({cx},{cy},{cz}); "
                 f"cord melt={cord_vox:.1f}, axis ρc={rhoc_vox:.1f}, δ={biaxial_delta} "
@@ -846,6 +881,32 @@ def initialize_xperiment(state):
         # eigenvalues) from the seeded M so a PAUSED boot renders the δ-clock-hand
         # glyph correctly before the first Evolve-PDE step. Cheap, runs once.
         pde.eigen_decompose(state.tensor_field)
+
+    # VIZ.5 (M5.23) — ellipsoid-shell center(s), voxel coords: the seeded defect
+    # centers when a multi-defect DEFECTS list was pinned this seed, else the
+    # config CENTER (universe center for vacuum / no-seed configs). Consumed
+    # per-frame by engine4_render.update_ellipsoid_glyphs. Decided off the
+    # TOPOLOGY_SEED dict (not pin_centers presence) so a config switch never
+    # inherits stale centers from the previous seed.
+    wf_ell = state.tensor_field
+    topo_ell = state.TOPOLOGY_SEED or {}
+    if "DEFECTS" in topo_ell and state.pin_centers is not None and state.n_defects > 0:
+        n_ell = min(state.n_defects, wf_ell.ellipsoid_max_centers)
+        for c_ell in range(n_ell):
+            wf_ell.ellipsoid_centers[c_ell] = [
+                float(state.pin_centers[c_ell, 0]),
+                float(state.pin_centers[c_ell, 1]),
+                float(state.pin_centers[c_ell, 2]),
+            ]
+    else:
+        n_ell = 1
+        c_norm = topo_ell.get("CENTER", [0.5, 0.5, 0.5])
+        wf_ell.ellipsoid_centers[0] = [
+            c_norm[0] * (wf_ell.nx - 1),
+            c_norm[1] * (wf_ell.ny - 1),
+            c_norm[2] * (wf_ell.nz - 1),
+        ]
+    wf_ell.ellipsoid_n_centers[None] = n_ell
 
     if state.INSTRUMENTATION:
         print("\n" + "=" * 64)
@@ -1091,10 +1152,35 @@ def render_elements(state):
         )
         flux_mesh.render_flux_mesh(render.scene, state.tensor_field, state.SHOW_FLUX_MESH)
 
+    # VIZ.5 (M5.23) — the "ellipsoid" viz: one eigenframe glyph per 3D angle on
+    # an S² shell around each defect center (the one-value-per-angle spec).
+    # Its own feature; while active it REPLACES all vector glyph viz (the plane
+    # glyphs below are suppressed — no visual pollution). Stage A: taichi lines
+    # (shaft n̂ ∝ λ₁ + delta bar ∝ λ₂); Stage B upgrades to the M·u mesh.
+    if state.SHOW_ELLIPSOID:
+        wf = state.tensor_field
+        viz.update_ellipsoid_glyphs(
+            wf,
+            state.ELLIPSOID_RADIUS * wf.max_grid_size,
+            state.ELLIPSOID_SIZE,  # glyph base length (the GUI Size slider)
+            min(state.ELLIPSOID_COUNT, wf.ellipsoid_max_dirs),
+        )
+        render.scene.lines(
+            wf.ellipsoid_glyph_vertices,
+            per_vertex_color=wf.ellipsoid_glyph_colors,
+            width=2.0,
+        )
+        render.scene.lines(
+            wf.ellipsoid_delta_vertices,
+            per_vertex_color=wf.ellipsoid_delta_colors,
+            width=2.0,
+        )
+
     # M5.1 director-glyph overlay — line segments showing n̂ orientation,
     # signed-component RGB so opposite directions are visually opposite.
     # Renders on top of (or instead of) the flux mesh; fast (~768 segments).
-    if state.SHOW_GLYPHS > 0:
+    # Suppressed while the VIZ.5 ellipsoid shell is active (see above).
+    elif state.SHOW_GLYPHS > 0:
         glyph_length = 0.02  # ~2% of universe edge in normalized [0,1] coords
         # VIZ.3 — 4-state glyph select (GLYPH_VECTOR):
         #   0 = Director n̂ only (principal axis; apolar, agnostic to size/color)

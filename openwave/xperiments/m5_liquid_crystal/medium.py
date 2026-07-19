@@ -47,6 +47,16 @@ LC_DELTA = 0.5
 MDIM = 4          # matrix substrate dimension (was 3)
 LC_G = 8.0        # time-axis (boost/gravity) eigenvalue g ≫ 1, constant in M5.8.1
 
+# VIZ.5 (M5.23) — the "ellipsoid" visualization: one eigenframe glyph per 3D
+# angle on an S² shell around each defect center (design + decisions:
+# research/tasks/m5_23_task_details.md). Buffer ceilings only — the live glyph
+# count is the GUI density slider (capped at ELLIPSOID_MAX_DIRS, honoring the
+# not-too-dense readability spec), and directions are computed IN-KERNEL as a
+# Fibonacci-sphere lattice (taichi-native, no host-side table). Centers:
+# dipole configs use 2; headroom for small clusters.
+ELLIPSOID_MAX_DIRS = 642
+ELLIPSOID_MAX_CENTERS = 4
+
 
 @ti.data_oriented
 class TensorField:
@@ -357,6 +367,27 @@ class TensorField:
         # Static (set once by engine4_render.update_moment_glyph when DIPOLE_SAMPLE).
         self.moment_glyph_vertices = ti.Vector.field(3, ti.f32, 4)
         self.moment_glyph_colors = ti.Vector.field(3, ti.f32, 4)
+
+        # VIZ.5 (M5.23) — the "ellipsoid" viz: one eigenframe glyph per 3D angle
+        # on an S² shell of GUI radius R around each defect center. Stage A
+        # renders LINE glyphs: main shaft (n̂, length ∝ λ₁) in the *_glyph_*
+        # pair and the delta cross-bar (director_mid, length ∝ λ₂) in the
+        # *_delta_* pair — the same two-buffer split as the plane glyphs so the
+        # launcher renders each with one scene.lines call. Centers are filled at
+        # seed time by the launcher (voxel coords; count in ellipsoid_n_centers);
+        # the buffers are written per-frame by engine4_render.
+        # update_ellipsoid_glyphs, which zeroes unused slots (invisible). Stage B
+        # swaps the line frames for the M·u ellipsoid mesh (m5_6_5b geometry) on
+        # the same direction lattice.
+        self.ellipsoid_max_dirs = ELLIPSOID_MAX_DIRS
+        self.ellipsoid_max_centers = ELLIPSOID_MAX_CENTERS
+        n_ell = ELLIPSOID_MAX_CENTERS * ELLIPSOID_MAX_DIRS
+        self.ellipsoid_glyph_vertices = ti.Vector.field(3, ti.f32, 2 * n_ell)
+        self.ellipsoid_glyph_colors = ti.Vector.field(3, ti.f32, 2 * n_ell)
+        self.ellipsoid_delta_vertices = ti.Vector.field(3, ti.f32, 2 * n_ell)
+        self.ellipsoid_delta_colors = ti.Vector.field(3, ti.f32, 2 * n_ell)
+        self.ellipsoid_centers = ti.Vector.field(3, ti.f32, ELLIPSOID_MAX_CENTERS)  # voxel coords
+        self.ellipsoid_n_centers = ti.field(ti.i32, shape=())
 
     def swap_matrix_buffers(self):
         """Cycle the matrix triple buffer after evolve_M (M5.5.4): M_prev ← M, M ← M_new.

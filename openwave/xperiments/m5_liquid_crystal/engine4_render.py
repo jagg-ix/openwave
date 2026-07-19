@@ -2,9 +2,10 @@
 M5 ENGINE — RENDERING / VISUALIZATION (engine4_render)
 
 The viz stack — OpenWave's biggest differential as a simulator:
-  - sample_position_to_render  granule point-cloud
-  - update_flux_mesh_values    3-plane scalar→color/warp mesh
+  - update_ellipsoid_glyphs    VIZ.5 S²-shell eigenframe glyphs (1 per 3D angle)
   - update_director_glyphs     director-orientation line glyphs
+  - update_flux_mesh_values    3-plane scalar→color/warp mesh
+  - sample_position_to_render  granule point-cloud
 
 Reads pre-computed fields off tensor_field; no engine-func calls yet (M5.4 adds
 engine2_pde.eigen_decompose). Full repurposing plan in m5_4b_rendering_features.md.
@@ -15,6 +16,97 @@ import math
 import taichi as ti
 
 from openwave.common import colormap
+
+# ================================================================
+# ELLIPSOID RENDERING
+# ================================================================
+
+# VIZ.5 — Fibonacci-lattice azimuth step (the golden angle). Successive shell
+# directions advance by this angle while z sweeps (−1,1) uniformly → uniform S²
+# coverage at ANY glyph count (the in-kernel, taichi-native direction set).
+_ELLIPSOID_GOLDEN_ANGLE = math.pi * (3.0 - math.sqrt(5.0))
+
+
+@ti.kernel
+def update_ellipsoid_glyphs(
+    tensor_field: ti.template(),  # type: ignore
+    radius_vox: ti.f32,  # type: ignore
+    length: ti.f32,  # type: ignore
+    n_active: ti.i32,  # type: ignore
+):
+    """VIZ.5 (M5.23) — the "ellipsoid" viz, Stage A (taichi lines): one eigenframe
+    glyph per 3D angle û on an S² shell of `radius_vox` (voxel units) around each
+    seeded defect center (the one-value-per-angle render spec; design + decisions:
+    research/tasks/m5_23_task_details.md).
+
+    Directions: the Fibonacci-sphere lattice computed in-kernel per index
+    (z uniform in (−1,1), azimuth stepping `_ELLIPSOID_GOLDEN_ANGLE`) — uniform
+    on S² at any `n_active`, so glyph count is a free density knob (the GUI
+    slider; readability spec: not too dense, default 162).
+
+    Per direction the field is read at the NEAREST voxel of the shell point:
+    interpolating n̂ / director_mid across voxels is apolar-UNSAFE (n̂ ≡ −n̂ sign
+    flips break averaging); the Stage B mesh may interpolate M itself, which is
+    smooth. Main shaft = `director_nhat` scaled by λ₁; cross-bar =
+    `director_mid` scaled by λ₂ — the eigenvalues DIRECTLY (unlike the plane
+    glyph's λ₂/λ₁ ratio bar) so the spectrum itself is on screen: the line-frame
+    skeleton of the eigen-ellipsoid, and the bar's sweep around the shell is the
+    de Broglie clock made visible. Both segments centered (apolar, gauge-stable);
+    colors match the plane glyphs so the visual language carries over.
+
+    Slots beyond (n_centers, n_active) are zeroed (invisible). A large R around
+    an off-center defect can push shell points outside the grid: voxel indices
+    clamp, positions render outside the box (an honest R-too-big signal).
+    """
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    max_dim = ti.cast(tensor_field.max_grid_size, ti.f32)
+    n_centers = tensor_field.ellipsoid_n_centers[None]
+    zero_v = ti.Vector([0.0, 0.0, 0.0])
+    dcol = ti.Vector(
+        [_GLYPH_DIRECTOR_COLOR[0], _GLYPH_DIRECTOR_COLOR[1], _GLYPH_DIRECTOR_COLOR[2]]
+    )
+    dlt = ti.Vector([_GLYPH_DELTA_COLOR[0], _GLYPH_DELTA_COLOR[1], _GLYPH_DELTA_COLOR[2]])
+    for c, d in ti.ndrange(tensor_field.ellipsoid_max_centers, tensor_field.ellipsoid_max_dirs):
+        idx = (c * tensor_field.ellipsoid_max_dirs + d) * 2
+        if c < n_centers and d < n_active:
+            # Fibonacci-sphere direction d of n_active
+            zf = 1.0 - 2.0 * (ti.cast(d, ti.f32) + 0.5) / ti.cast(n_active, ti.f32)
+            rho = ti.sqrt(ti.max(1.0 - zf * zf, 0.0))
+            phi = ti.cast(d, ti.f32) * _ELLIPSOID_GOLDEN_ANGLE
+            u = ti.Vector([rho * ti.cos(phi), rho * ti.sin(phi), zf])
+            ctr = tensor_field.ellipsoid_centers[c]
+            s = ctr + radius_vox * u  # exact shell point, voxel coords
+            i = ti.min(ti.max(ti.cast(ti.round(s[0]), ti.i32), 0), nx - 1)
+            j = ti.min(ti.max(ti.cast(ti.round(s[1]), ti.i32), 0), ny - 1)
+            k = ti.min(ti.max(ti.cast(ti.round(s[2]), ti.i32), 0), nz - 1)
+            pos = ti.Vector(
+                [(s[0] + 0.5) / max_dim, (s[1] + 0.5) / max_dim, (s[2] + 0.5) / max_dim]
+            )
+            n_hat = tensor_field.director_nhat[i, j, k]
+            n_mid = tensor_field.director_mid[i, j, k]
+            evals = tensor_field.eigenvalues[i, j, k]
+            # λ-proportional lengths, clamped: 0.12 visibility floor (the plane
+            # glyph's convention), 2.0 sanity ceiling for amplitude excursions
+            shaft = length * ti.max(ti.min(evals[0], 2.0), 0.12)
+            dlen = length * ti.max(ti.min(evals[1], 2.0), 0.12)
+            tensor_field.ellipsoid_glyph_vertices[idx + 0] = pos - 0.5 * shaft * n_hat
+            tensor_field.ellipsoid_glyph_vertices[idx + 1] = pos + 0.5 * shaft * n_hat
+            tensor_field.ellipsoid_glyph_colors[idx + 0] = dcol
+            tensor_field.ellipsoid_glyph_colors[idx + 1] = dcol
+            tensor_field.ellipsoid_delta_vertices[idx + 0] = pos - 0.5 * dlen * n_mid
+            tensor_field.ellipsoid_delta_vertices[idx + 1] = pos + 0.5 * dlen * n_mid
+            tensor_field.ellipsoid_delta_colors[idx + 0] = dlt
+            tensor_field.ellipsoid_delta_colors[idx + 1] = dlt
+        else:
+            tensor_field.ellipsoid_glyph_vertices[idx + 0] = zero_v
+            tensor_field.ellipsoid_glyph_vertices[idx + 1] = zero_v
+            tensor_field.ellipsoid_glyph_colors[idx + 0] = zero_v
+            tensor_field.ellipsoid_glyph_colors[idx + 1] = zero_v
+            tensor_field.ellipsoid_delta_vertices[idx + 0] = zero_v
+            tensor_field.ellipsoid_delta_vertices[idx + 1] = zero_v
+            tensor_field.ellipsoid_delta_colors[idx + 0] = zero_v
+            tensor_field.ellipsoid_delta_colors[idx + 1] = zero_v
+
 
 # ================================================================
 # GLYPH RENDERING
@@ -665,7 +757,10 @@ def update_flux_mesh_values(
             )
             tensor_field.fluxmesh_xy_vertices[i, j][2] = (
                 energyH_value / H_max * 0.3 * warp_mesh / 300.0
-                + (tensor_field.flux_mesh_planes[2] * (tensor_field.nz / tensor_field.max_grid_size))
+                + (
+                    tensor_field.flux_mesh_planes[2]
+                    * (tensor_field.nz / tensor_field.max_grid_size)
+                )
             )
         elif wave_menu == 5:  # Frank elastic density on ironbow (defect-focused palette)
             F_max = observables.energyF_global_avg_aJ[None] * 4.0 + 1e-10
@@ -674,7 +769,10 @@ def update_flux_mesh_values(
             )
             tensor_field.fluxmesh_xy_vertices[i, j][2] = (
                 energyF_value / F_max * 0.3 * warp_mesh / 300.0
-                + (tensor_field.flux_mesh_planes[2] * (tensor_field.nz / tensor_field.max_grid_size))
+                + (
+                    tensor_field.flux_mesh_planes[2]
+                    * (tensor_field.nz / tensor_field.max_grid_size)
+                )
             )
         elif (
             wave_menu == 6
@@ -731,9 +829,12 @@ def update_flux_mesh_values(
             warp_amt = 0.3 * warp_mesh / 300.0 / curl_s
             tensor_field.fluxmesh_xy_vertices[i, j] = ti.Vector(
                 [
-                    (ti.cast(i, ti.f32) + 0.5) / tensor_field.max_grid_size + curl_vec[0] * warp_amt,
-                    (ti.cast(j, ti.f32) + 0.5) / tensor_field.max_grid_size + curl_vec[1] * warp_amt,
-                    tensor_field.flux_mesh_planes[2] * (tensor_field.nz / tensor_field.max_grid_size)
+                    (ti.cast(i, ti.f32) + 0.5) / tensor_field.max_grid_size
+                    + curl_vec[0] * warp_amt,
+                    (ti.cast(j, ti.f32) + 0.5) / tensor_field.max_grid_size
+                    + curl_vec[1] * warp_amt,
+                    tensor_field.flux_mesh_planes[2]
+                    * (tensor_field.nz / tensor_field.max_grid_size)
                     + curl_vec[2] * warp_amt,
                 ]
             )
@@ -783,7 +884,10 @@ def update_flux_mesh_values(
             )
             tensor_field.fluxmesh_xz_vertices[i, k][1] = (
                 energyH_value / H_max * 0.3 * warp_mesh / 300.0
-                + (tensor_field.flux_mesh_planes[1] * (tensor_field.ny / tensor_field.max_grid_size))
+                + (
+                    tensor_field.flux_mesh_planes[1]
+                    * (tensor_field.ny / tensor_field.max_grid_size)
+                )
             )
         elif wave_menu == 5:  # Frank elastic density on ironbow
             F_max = observables.energyF_global_avg_aJ[None] * 4.0 + 1e-10
@@ -792,7 +896,10 @@ def update_flux_mesh_values(
             )
             tensor_field.fluxmesh_xz_vertices[i, k][1] = (
                 energyF_value / F_max * 0.3 * warp_mesh / 300.0
-                + (tensor_field.flux_mesh_planes[1] * (tensor_field.ny / tensor_field.max_grid_size))
+                + (
+                    tensor_field.flux_mesh_planes[1]
+                    * (tensor_field.ny / tensor_field.max_grid_size)
+                )
             )
         elif (
             wave_menu == 6
@@ -842,10 +949,13 @@ def update_flux_mesh_values(
             warp_amt = 0.3 * warp_mesh / 300.0 / curl_s
             tensor_field.fluxmesh_xz_vertices[i, k] = ti.Vector(
                 [
-                    (ti.cast(i, ti.f32) + 0.5) / tensor_field.max_grid_size + curl_vec[0] * warp_amt,
-                    tensor_field.flux_mesh_planes[1] * (tensor_field.ny / tensor_field.max_grid_size)
+                    (ti.cast(i, ti.f32) + 0.5) / tensor_field.max_grid_size
+                    + curl_vec[0] * warp_amt,
+                    tensor_field.flux_mesh_planes[1]
+                    * (tensor_field.ny / tensor_field.max_grid_size)
                     + curl_vec[1] * warp_amt,
-                    (ti.cast(k, ti.f32) + 0.5) / tensor_field.max_grid_size + curl_vec[2] * warp_amt,
+                    (ti.cast(k, ti.f32) + 0.5) / tensor_field.max_grid_size
+                    + curl_vec[2] * warp_amt,
                 ]
             )
 
@@ -894,7 +1004,10 @@ def update_flux_mesh_values(
             )
             tensor_field.fluxmesh_yz_vertices[j, k][0] = (
                 energyH_value / H_max * 0.3 * warp_mesh / 300.0
-                + (tensor_field.flux_mesh_planes[0] * (tensor_field.nx / tensor_field.max_grid_size))
+                + (
+                    tensor_field.flux_mesh_planes[0]
+                    * (tensor_field.nx / tensor_field.max_grid_size)
+                )
             )
         elif wave_menu == 5:  # Frank elastic density on ironbow
             F_max = observables.energyF_global_avg_aJ[None] * 4.0 + 1e-10
@@ -903,7 +1016,10 @@ def update_flux_mesh_values(
             )
             tensor_field.fluxmesh_yz_vertices[j, k][0] = (
                 energyF_value / F_max * 0.3 * warp_mesh / 300.0
-                + (tensor_field.flux_mesh_planes[0] * (tensor_field.nx / tensor_field.max_grid_size))
+                + (
+                    tensor_field.flux_mesh_planes[0]
+                    * (tensor_field.nx / tensor_field.max_grid_size)
+                )
             )
         elif (
             wave_menu == 6
@@ -953,10 +1069,13 @@ def update_flux_mesh_values(
             warp_amt = 0.3 * warp_mesh / 300.0 / curl_s
             tensor_field.fluxmesh_yz_vertices[j, k] = ti.Vector(
                 [
-                    tensor_field.flux_mesh_planes[0] * (tensor_field.nx / tensor_field.max_grid_size)
+                    tensor_field.flux_mesh_planes[0]
+                    * (tensor_field.nx / tensor_field.max_grid_size)
                     + curl_vec[0] * warp_amt,
-                    (ti.cast(j, ti.f32) + 0.5) / tensor_field.max_grid_size + curl_vec[1] * warp_amt,
-                    (ti.cast(k, ti.f32) + 0.5) / tensor_field.max_grid_size + curl_vec[2] * warp_amt,
+                    (ti.cast(j, ti.f32) + 0.5) / tensor_field.max_grid_size
+                    + curl_vec[1] * warp_amt,
+                    (ti.cast(k, ti.f32) + 0.5) / tensor_field.max_grid_size
+                    + curl_vec[2] * warp_amt,
                 ]
             )
 
