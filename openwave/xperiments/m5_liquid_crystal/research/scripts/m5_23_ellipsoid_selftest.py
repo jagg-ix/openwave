@@ -52,24 +52,24 @@ from openwave.xperiments.m5_liquid_crystal.medium import TensorField  # noqa: E4
 UNIVERSE = [1.0e-15, 1.0e-15, 1.0e-15]  # arbitrary (geometry only)
 TARGET_VOXELS = 40**3
 
-wf = TensorField(UNIVERSE, TARGET_VOXELS)
-nx, ny, nz = wf.nx, wf.ny, wf.nz
+tf = TensorField(UNIVERSE, TARGET_VOXELS)
+nx, ny, nz = tf.nx, tf.ny, tf.nz
 cx, cy, cz = (nx - 1) // 2, (ny - 1) // 2, (nz - 1) // 2
-r0_vox = 0.10 * wf.max_grid_size
+r0_vox = 0.10 * tf.max_grid_size
 rhoc_vox = 3.0
 BIAX_DELTA = 0.3
-seeds.seed_biaxial_hedgehog_M(wf, cx, cy, cz, r0_vox, rhoc_vox, BIAX_DELTA)
-pde.eigen_decompose(wf)
+seeds.seed_biaxial_hedgehog_M(tf, cx, cy, cz, r0_vox, rhoc_vox, BIAX_DELTA)
+pde.eigen_decompose(tf)
 
-wf.ellipsoid_centers[0] = [float(cx), float(cy), float(cz)]
-wf.ellipsoid_n_centers[None] = 1
+tf.ellipsoid_centers[0] = [float(cx), float(cy), float(cz)]
+tf.ellipsoid_n_centers[None] = 1
 
 R_FRAC = 0.22
-R_VOX = R_FRAC * wf.max_grid_size
+R_VOX = R_FRAC * tf.max_grid_size
 SIZE = 0.036
 N_ACTIVE = 162
 
-max_dim = float(wf.max_grid_size)
+max_dim = float(tf.max_grid_size)
 center_n = (np.array([cx, cy, cz], np.float64) + 0.5) / max_dim  # normalized center
 fails = []
 total = [0]
@@ -91,7 +91,7 @@ phi = d_idx * np.pi * (3.0 - np.sqrt(5.0))
 u_ref = np.stack([rho * np.cos(phi), rho * np.sin(phi), zf], axis=1)
 
 # ---- 1. TEMPLATE ----
-tmpl = wf.ellipsoid_template.to_numpy().astype(np.float64)
+tmpl = tf.ellipsoid_template.to_numpy().astype(np.float64)
 check(
     "template: unit sphere + poles, centroid at origin",
     np.allclose(np.linalg.norm(tmpl, axis=1), 1.0, atol=1e-6)
@@ -101,23 +101,23 @@ check(
 )
 
 # ---- 2. INDICES ----
-tv, tf = wf.ellipsoid_tverts, wf.ellipsoid_tfaces
-idxs = wf.ellipsoid_mesh_indices.to_numpy().reshape(-1, 3)
-n_slots = wf.ellipsoid_max_centers * wf.ellipsoid_max_dirs
-slot_of_face = np.repeat(np.arange(n_slots), tf)
-in_block = (idxs // tv == slot_of_face[:, None]).all()
+tverts, tfaces = tf.ellipsoid_tverts, tf.ellipsoid_tfaces
+idxs = tf.ellipsoid_mesh_indices.to_numpy().reshape(-1, 3)
+n_slots = tf.ellipsoid_max_centers * tf.ellipsoid_max_dirs
+slot_of_face = np.repeat(np.arange(n_slots), tfaces)
+in_block = (idxs // tverts == slot_of_face[:, None]).all()
 distinct = (
     (idxs[:, 0] != idxs[:, 1]) & (idxs[:, 1] != idxs[:, 2]) & (idxs[:, 0] != idxs[:, 2])
 ).all()
 check(
     "indices: in-slot blocks, 3 distinct verts per face",
-    bool(in_block and distinct and idxs.min() >= 0 and idxs.max() < n_slots * tv),
+    bool(in_block and distinct and idxs.min() >= 0 and idxs.max() < n_slots * tverts),
 )
 
 # ---- 3. GEOMETRY (centroids on the shell, Fibonacci directions) ----
-viz.update_ellipsoid_mesh(wf, R_VOX, SIZE, N_ACTIVE)
-mesh_v = wf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
-cents = mesh_v[: N_ACTIVE * tv].reshape(N_ACTIVE, tv, 3).mean(axis=1)
+viz.update_ellipsoid_mesh(tf, R_VOX, SIZE, N_ACTIVE)
+mesh_v = tf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
+cents = mesh_v[: N_ACTIVE * tverts].reshape(N_ACTIVE, tverts, 3).mean(axis=1)
 r_norm = np.linalg.norm(cents - center_n, axis=1) * max_dim
 check(
     "geometry: ellipsoid centroids on the R-shell",
@@ -138,21 +138,21 @@ snap = np.clip(
     [nx - 1, ny - 1, nz - 1],
 )
 ii, jj, kk = snap[:, 0], snap[:, 1], snap[:, 2]
-M_np = wf.M_am.to_numpy().astype(np.float64)
+M_np = tf.M_am.to_numpy().astype(np.float64)
 floor = viz._ELLIPSOID_MESH_FLOOR
 ok_mesh = True
 for d in range(0, N_ACTIVE, 17):  # sample every 17th direction
     p = (np.array([cx, cy, cz], np.float64) + R_VOX * u_ref[d] + 0.5) / max_dim
     m_sp = M_np[ii[d], jj[d], kk[d]][1:4, 1:4]
     expect = p + 0.5 * SIZE * (tmpl @ (m_sp + floor * np.eye(3)).T)
-    got = mesh_v[d * tv : (d + 1) * tv]
+    got = mesh_v[d * tverts : (d + 1) * tverts]
     if not np.allclose(got, expect, atol=1e-5):
         ok_mesh = False
         break
 check("mesh map: vertex = p + s/2*(M_sp + floor*I)@u for sampled dirs", ok_mesh)
 
 # ---- 5. PHYSICS ----
-nhat = wf.director_nhat.to_numpy().astype(np.float64)
+nhat = tf.director_nhat.to_numpy().astype(np.float64)
 n_vox = nhat[ii, jj, kk]
 radial = np.abs(np.sum(u_ref * n_vox, axis=1))  # |u . n|, 1 = radial director
 frac_radial = float(np.mean(radial > 0.9))
@@ -166,27 +166,27 @@ check(
 # ---- 6. HYGIENE ----
 check(
     "hygiene: slots beyond n_active collapsed + finite",
-    np.all(mesh_v[N_ACTIVE * tv :] == 0.0) and np.all(np.isfinite(mesh_v)),
+    np.all(mesh_v[N_ACTIVE * tverts :] == 0.0) and np.all(np.isfinite(mesh_v)),
 )
 N2 = 642  # density re-run at the ceiling
-viz.update_ellipsoid_mesh(wf, R_VOX, SIZE, N2)
-v2 = wf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
-c2 = v2[: N2 * tv].reshape(N2, tv, 3).mean(axis=1)
+viz.update_ellipsoid_mesh(tf, R_VOX, SIZE, N2)
+v2 = tf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
+c2 = v2[: N2 * tverts].reshape(N2, tverts, 3).mean(axis=1)
 r2 = np.linalg.norm(c2 - center_n, axis=1) * max_dim
 check(
     "hygiene: density knob re-run (n=642) stays on shell",
-    np.allclose(r2, R_VOX, atol=1e-3) and np.all(v2[N2 * tv :] == 0.0),
+    np.allclose(r2, R_VOX, atol=1e-3) and np.all(v2[N2 * tverts :] == 0.0),
 )
 
 # ---- 7. MULTI-CENTER (the dipole case: one shell per defect) ----
 c2v = np.array([cx - 8, cy, cz], np.float64)
-wf.ellipsoid_centers[1] = [float(c2v[0]), float(c2v[1]), float(c2v[2])]
-wf.ellipsoid_n_centers[None] = 2
-viz.update_ellipsoid_mesh(wf, R_VOX, SIZE, N_ACTIVE)
-v3 = wf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
-blk = wf.ellipsoid_max_dirs * tv  # vertex block per center
-ca = v3[: N_ACTIVE * tv].reshape(N_ACTIVE, tv, 3).mean(axis=1)
-cb = v3[blk : blk + N_ACTIVE * tv].reshape(N_ACTIVE, tv, 3).mean(axis=1)
+tf.ellipsoid_centers[1] = [float(c2v[0]), float(c2v[1]), float(c2v[2])]
+tf.ellipsoid_n_centers[None] = 2
+viz.update_ellipsoid_mesh(tf, R_VOX, SIZE, N_ACTIVE)
+v3 = tf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
+blk = tf.ellipsoid_max_dirs * tverts  # vertex block per center
+ca = v3[: N_ACTIVE * tverts].reshape(N_ACTIVE, tverts, 3).mean(axis=1)
+cb = v3[blk : blk + N_ACTIVE * tverts].reshape(N_ACTIVE, tverts, 3).mean(axis=1)
 c2n = (c2v + 0.5) / max_dim
 ra = np.linalg.norm(ca - center_n, axis=1) * max_dim
 rb = np.linalg.norm(cb - c2n, axis=1) * max_dim
@@ -194,14 +194,14 @@ check(
     "multi-center: two shells, each on its own center",
     np.allclose(ra, R_VOX, atol=1e-3) and np.allclose(rb, R_VOX, atol=1e-3),
 )
-wf.ellipsoid_n_centers[None] = 1  # restore for the preview plot
+tf.ellipsoid_n_centers[None] = 1  # restore for the preview plot
 
 # ----------------------------------------------------------------
 # Preview plot (Agg) — Lambert-shaded eigen-ellipsoid shell
 # ----------------------------------------------------------------
-viz.update_ellipsoid_mesh(wf, R_VOX, SIZE, N_ACTIVE)
-mesh_v = wf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
-tris = mesh_v[idxs[: N_ACTIVE * tf]]  # (n_faces, 3, 3) active block
+viz.update_ellipsoid_mesh(tf, R_VOX, SIZE, N_ACTIVE)
+mesh_v = tf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
+tris = mesh_v[idxs[: N_ACTIVE * tfaces]]  # (n_faces, 3, 3) active block
 normals = np.cross(tris[:, 1] - tris[:, 0], tris[:, 2] - tris[:, 0])
 normals /= np.linalg.norm(normals, axis=1, keepdims=True) + 1e-15
 light = np.array([0.4, 0.3, 0.85])

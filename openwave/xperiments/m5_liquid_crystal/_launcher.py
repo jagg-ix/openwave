@@ -687,15 +687,15 @@ def initialize_xperiment(state):
             # convert to voxel coords and bundle into ti.fields for the kernel.
             defects = topo["DEFECTS"]  # list of {"CENTER": [x,y,z], "SIGN": ±1}
             n_defects = len(defects)
-            wf = state.tensor_field
+            tf = state.tensor_field
 
             centers_np = np.zeros((n_defects, 3), dtype=np.int32)
             signs_np = np.zeros(n_defects, dtype=np.int32)
             for d, defect in enumerate(defects):
                 cx_norm, cy_norm, cz_norm = defect["CENTER"]
-                centers_np[d, 0] = int(round(cx_norm * (wf.nx - 1)))
-                centers_np[d, 1] = int(round(cy_norm * (wf.ny - 1)))
-                centers_np[d, 2] = int(round(cz_norm * (wf.nz - 1)))
+                centers_np[d, 0] = int(round(cx_norm * (tf.nx - 1)))
+                centers_np[d, 1] = int(round(cy_norm * (tf.ny - 1)))
+                centers_np[d, 2] = int(round(cz_norm * (tf.nz - 1)))
                 signs_np[d] = int(defect["SIGN"])
 
             centers_field = ti.field(dtype=ti.i32, shape=(n_defects, 3))
@@ -706,10 +706,10 @@ def initialize_xperiment(state):
             # D/4 in voxel units — w_vac falloff radius for the vacuum blend.
             # Default from Exp 2 is one quarter of the largest grid extent.
             domain_quarter_fraction = topo.get("DOMAIN_QUARTER_FRACTION", 0.25)
-            domain_quarter_voxels = float(domain_quarter_fraction * max(wf.nx, wf.ny, wf.nz))
+            domain_quarter_voxels = float(domain_quarter_fraction * max(tf.nx, tf.ny, tf.nz))
 
             seeds.seed_hedgehog_M(
-                wf, centers_field, signs_field, domain_quarter_voxels, n_defects, wf.lc_delta
+                tf, centers_field, signs_field, domain_quarter_voxels, n_defects, tf.lc_delta
             )
             # Stash pin info for relaxation kernel (M5.1 task 6)
             state.pin_centers = centers_field
@@ -723,15 +723,15 @@ def initialize_xperiment(state):
         elif seed_mode == "biaxial_hedgehog":
             # M5.6.5a: a single BIAXIAL hedgehog M = O·D(s(r))·Oᵀ, D = diag(1, δ, 0)
             # (frame O=[r̂|e_Θ|e_Φ] + disclination smoothstep + radial eigenvalue melt).
-            wf = state.tensor_field
+            tf = state.tensor_field
             center = topo.get("CENTER", [0.5, 0.5, 0.5])
-            cx = int(round(center[0] * (wf.nx - 1)))
-            cy = int(round(center[1] * (wf.ny - 1)))
-            cz = int(round(center[2] * (wf.nz - 1)))
-            r0_vox = float(topo.get("R0_FRACTION", 0.06) * max(wf.nx, wf.ny, wf.nz))
+            cx = int(round(center[0] * (tf.nx - 1)))
+            cy = int(round(center[1] * (tf.ny - 1)))
+            cz = int(round(center[2] * (tf.nz - 1)))
+            r0_vox = float(topo.get("R0_FRACTION", 0.06) * max(tf.nx, tf.ny, tf.nz))
             rhoc_vox = float(topo.get("RHOC_VOXELS", 3.0))
             biaxial_delta = float(topo.get("BIAXIAL_DELTA", 0.3))
-            seeds.seed_biaxial_hedgehog_M(wf, cx, cy, cz, r0_vox, rhoc_vox, biaxial_delta)
+            seeds.seed_biaxial_hedgehog_M(tf, cx, cy, cz, r0_vox, rhoc_vox, biaxial_delta)
             # NO auto-relax: the biaxial M is constructed directly; relax_director_step would
             # rebuild M uniaxially from the director and destroy the biaxial structure.
             print(
@@ -745,16 +745,16 @@ def initialize_xperiment(state):
             # hedgehog charge). Half-disclination cord of radius a in z = 0, escaped
             # interior, hedgehog far field. STATIC VIEWING seed (no 4D activation,
             # no relax — constructed directly like the biaxial mode).
-            wf = state.tensor_field
+            tf = state.tensor_field
             center = topo.get("CENTER", [0.5, 0.5, 0.5])
-            cx = int(round(center[0] * (wf.nx - 1)))
-            cy = int(round(center[1] * (wf.ny - 1)))
-            cz = int(round(center[2] * (wf.nz - 1)))
-            a_vox = float(topo.get("A_FRACTION", 0.10) * max(wf.nx, wf.ny, wf.nz))
+            cx = int(round(center[0] * (tf.nx - 1)))
+            cy = int(round(center[1] * (tf.ny - 1)))
+            cz = int(round(center[2] * (tf.nz - 1)))
+            a_vox = float(topo.get("A_FRACTION", 0.10) * max(tf.nx, tf.ny, tf.nz))
             cord_vox = float(topo.get("CORD_VOXELS", 3.0))
             rhoc_vox = float(topo.get("RHOC_VOXELS", 3.0))
             biaxial_delta = float(topo.get("BIAXIAL_DELTA", 0.3))
-            seeds.seed_charged_ring_M(wf, cx, cy, cz, a_vox, cord_vox, rhoc_vox, biaxial_delta)
+            seeds.seed_charged_ring_M(tf, cx, cy, cz, a_vox, cord_vox, rhoc_vox, biaxial_delta)
             print(
                 f"[M5.21.2] seeded charged ring a={a_vox:.1f} voxels at ({cx},{cy},{cz}); "
                 f"cord melt={cord_vox:.1f}, axis ρc={rhoc_vox:.1f}, δ={biaxial_delta} "
@@ -766,26 +766,26 @@ def initialize_xperiment(state):
             # biaxial frame + melt, dressed with exp(b*·w(r)·B₁) mixing e_Θ with the
             # time axis. Activates the 4D Minkowski evolve path (signed flux on the
             # stable region; the time-freeze clamp replaced by the soft drift guard).
-            wf = state.tensor_field
+            tf = state.tensor_field
             center = topo.get("CENTER", [0.5, 0.5, 0.5])
-            cx = int(round(center[0] * (wf.nx - 1)))
-            cy = int(round(center[1] * (wf.ny - 1)))
-            cz = int(round(center[2] * (wf.nz - 1)))
-            r0_vox = float(topo.get("R0_FRACTION", 0.06) * max(wf.nx, wf.ny, wf.nz))
+            cx = int(round(center[0] * (tf.nx - 1)))
+            cy = int(round(center[1] * (tf.ny - 1)))
+            cz = int(round(center[2] * (tf.nz - 1)))
+            r0_vox = float(topo.get("R0_FRACTION", 0.06) * max(tf.nx, tf.ny, tf.nz))
             rhoc_vox = float(topo.get("RHOC_VOXELS", 3.0))
             biaxial_delta = float(topo.get("BIAXIAL_DELTA", 0.3))
             b_star = float(topo.get("B_STAR", 0.13))  # 2b-1 GEM-dip dressing
             rw_frac = float(topo.get("RW_FRACTION", 0.29))  # ~3.5/12 of the box (2b-1)
-            rw_vox = rw_frac * max(wf.nx, wf.ny, wf.nz)
+            rw_vox = rw_frac * max(tf.nx, tf.ny, tf.nz)
             kick = float(topo.get("CLOCK_KICK", 0.0))  # clock phase kick (rad)
             seeds.seed_dressed_hedgehog_M(
-                wf, cx, cy, cz, r0_vox, rhoc_vox, biaxial_delta, b_star, rw_vox, kick
+                tf, cx, cy, cz, r0_vox, rhoc_vox, biaxial_delta, b_star, rw_vox, kick
             )
-            pde.compute_stable_mask(wf)  # per-voxel ghost guard (once)
+            pde.compute_stable_mask(tf)  # per-voxel ghost guard (once)
             # smooth the mask (seed-time, numpy): the hard signed/Euclid seam at the
             # core pumped the field (2c-2 diagnosis) — a ~3-voxel transition kills
             # the constitutive shock; the flux kernel blends fractional masks.
-            mnp = wf.stable_mask.to_numpy()
+            mnp = tf.stable_mask.to_numpy()
             import numpy as _np
 
             sm = mnp.astype(_np.float32)
@@ -795,7 +795,7 @@ def initialize_xperiment(state):
                     q = p.copy()
                     q[1:-1] = 0.25 * (p[2:] + p[:-2] + 2.0 * p[1:-1])
                     sm = _np.swapaxes(q, 0, ax)
-            wf.stable_mask.from_numpy(sm)
+            tf.stable_mask.from_numpy(sm)
             # SIGNED_FLUX_4D (default OFF — the safe GUI v1): the Minkowski-signed
             # flux with cheap (diagonal) inertia has slow growing modes that every
             # heuristic only delays (2c-2: explodes @120/250/700 as fixes stack) —
@@ -805,8 +805,8 @@ def initialize_xperiment(state):
             # with the time-axis components still LIVE (dressing + drift guard +
             # dressed-V + inertia all active).
             if not bool(topo.get("SIGNED_FLUX_4D", False)):
-                wf.stable_mask.fill(0.0)
-            pde.compute_tstar(wf)  # V pins to the DRESSED seed
+                tf.stable_mask.fill(0.0)
+            pde.compute_tstar(tf)  # V pins to the DRESSED seed
             state.evolve_4d = True
             state.km_inertia_4d = float(topo.get("KM_INERTIA_4D", 30.0))
             # dt guard (2c seed e): the DT_SCALE_4D derate is applied INSIDE
@@ -821,16 +821,16 @@ def initialize_xperiment(state):
                 # act mask — Dirichlet at the seed (interior ∧ off-core ∧
                 # off-axis, the validated 2c-1 boundary treatment; the frozen
                 # core/axis is a documented caveat for the G-2c-1 design)
-                idx = _np.indices((wf.nx, wf.ny, wf.nz)).astype(_np.float32)
+                idx = _np.indices((tf.nx, tf.ny, tf.nz)).astype(_np.float32)
                 rxv, ryv, rzv = idx[0] - cx, idx[1] - cy, idx[2] - cz
                 r_vox = _np.sqrt(rxv**2 + ryv**2 + rzv**2)
                 rho_vox = _np.sqrt(rxv**2 + ryv**2)
-                act = _np.zeros((wf.nx, wf.ny, wf.nz), _np.float32)
+                act = _np.zeros((tf.nx, tf.ny, tf.nz), _np.float32)
                 act[2:-2, 2:-2, 2:-2] = 1.0
                 act *= (r_vox > 2.0 * rhoc_vox) * (rho_vox > rhoc_vox)
-                wf.act4d.from_numpy(act)
+                tf.act4d.from_numpy(act)
                 state.n_act_pl = float(
-                    act[wf.nx // 2].sum() + act[:, wf.ny // 2].sum() + act[:, :, wf.nz // 2].sum()
+                    act[tf.nx // 2].sum() + act[:, tf.ny // 2].sum() + act[:, :, tf.nz // 2].sum()
                 )
                 # the 10 orthonormal symmetric 4×4 basis matrices (Frobenius)
                 basis = _np.zeros((10, 4, 4), _np.float32)
@@ -841,12 +841,12 @@ def initialize_xperiment(state):
                     for c_ in range(a_ + 1, 4):
                         basis[bi, a_, c_] = basis[bi, c_, a_] = 1.0 / _np.sqrt(2.0)
                         bi += 1
-                wf.sym_basis.from_numpy(basis)
+                tf.sym_basis.from_numpy(basis)
                 # V at the 4×/τ-units convention: K·0.5/dx⁴ (c² cancels)
                 state.ldg_cc_4d = 0.5 * state.ldg_c / (state.c_amrs * state.c_amrs)
                 # P₀ = A(kick·M_ψ) — the 2c-1 velocity-kick semantics
                 # (dt-independent; kick=0 ⇒ P₀ = 0 exactly)
-                pde.init_P_4d(wf, kick)
+                pde.init_P_4d(tf, kick)
                 # Display hygiene: the seeder encodes the kick in M_prev at the
                 # legacy 1/dt semantics — the energyH view's ½‖(M−M_prev)/dt‖²
                 # boot-kinetic is then ~(1/DT_SCALE)² inflated, saturating the
@@ -854,7 +854,7 @@ def initialize_xperiment(state):
                 # The constrained dynamics never reads M_prev (the kick lives in
                 # P via init_P_4d) — sync it so the displayed velocity starts at
                 # 0 and tracks M − M_prev = dt_eff·Ṁ after each swap.
-                wf.M_prev_am.copy_from(wf.M_am)
+                tf.M_prev_am.copy_from(tf.M_am)
                 state.guard4d_frame = 0
                 dt_eff = state.c_amrs * state.dt_rs
                 print(
@@ -862,7 +862,7 @@ def initialize_xperiment(state):
                     f"{100.0 * act.mean():.1f}% of grid, dt_eff={dt_eff:.4f} am, "
                     f"V cc_4d={state.ldg_cc_4d:.3e}"
                 )
-            mask_np = wf.stable_mask.to_numpy()
+            mask_np = tf.stable_mask.to_numpy()
             print(
                 f"[M5.8.2c] seeded DRESSED hedgehog b*={b_star}, r_w={rw_vox:.1f} vox, "
                 f"kick={kick}; stable region {100.0 * mask_np.mean():.1f}% of grid; "
@@ -889,12 +889,12 @@ def initialize_xperiment(state):
     # per-frame by engine4_render.update_ellipsoid_mesh. Decided off the
     # TOPOLOGY_SEED dict (not pin_centers presence) so a config switch never
     # inherits stale centers from the previous seed.
-    wf_ell = state.tensor_field
+    tf_ell = state.tensor_field
     topo_ell = state.TOPOLOGY_SEED or {}
     if "DEFECTS" in topo_ell and state.pin_centers is not None and state.n_defects > 0:
-        n_ell = min(state.n_defects, wf_ell.ellipsoid_max_centers)
+        n_ell = min(state.n_defects, tf_ell.ellipsoid_max_centers)
         for c_ell in range(n_ell):
-            wf_ell.ellipsoid_centers[c_ell] = [
+            tf_ell.ellipsoid_centers[c_ell] = [
                 float(state.pin_centers[c_ell, 0]),
                 float(state.pin_centers[c_ell, 1]),
                 float(state.pin_centers[c_ell, 2]),
@@ -902,12 +902,12 @@ def initialize_xperiment(state):
     else:
         n_ell = 1
         c_norm = topo_ell.get("CENTER", [0.5, 0.5, 0.5])
-        wf_ell.ellipsoid_centers[0] = [
-            c_norm[0] * (wf_ell.nx - 1),
-            c_norm[1] * (wf_ell.ny - 1),
-            c_norm[2] * (wf_ell.nz - 1),
+        tf_ell.ellipsoid_centers[0] = [
+            c_norm[0] * (tf_ell.nx - 1),
+            c_norm[1] * (tf_ell.ny - 1),
+            c_norm[2] * (tf_ell.nz - 1),
         ]
-    wf_ell.ellipsoid_n_centers[None] = n_ell
+    tf_ell.ellipsoid_n_centers[None] = n_ell
 
     if state.INSTRUMENTATION:
         print("\n" + "=" * 64)
@@ -934,17 +934,17 @@ def relax_field(state, n_steps):
         # No defects → nothing to pin; gradient descent on a uniform field
         # has nothing to do (∇²n = 0 everywhere). Skip.
         return
-    wf = state.tensor_field
-    cfl_bound = (wf.dx_am**2) / 6.0  # τ < dx²/(2·dim·K) with dim=3, K=1
+    tf = state.tensor_field
+    cfl_bound = (tf.dx_am**2) / 6.0  # τ < dx²/(2·dim·K) with dim=3, K=1
     tau = 0.4 * cfl_bound
     for _ in range(n_steps):
-        pde.relax_director_step(wf, tau, state.pin_centers, state.pin_signs, state.n_defects)
+        pde.relax_director_step(tf, tau, state.pin_centers, state.pin_signs, state.n_defects)
         # M5.4: relaxation operates on director_nhat (the principal eigenvector of M).
         # Copy the relaxed director back. NOT a buffer swap — static update.
-        wf.director_nhat.copy_from(wf.director_nhat_new)
+        tf.director_nhat.copy_from(tf.director_nhat_new)
     # Rebuild M from the relaxed director so M_am, the ‖M−D‖/‖Ṁ‖ trackers, and the
     # flux-mesh orientation mode stay consistent with the relaxed director.
-    pde.rebuild_M_from_director(wf, wf.lc_delta)
+    pde.rebuild_M_from_director(tf, tf.lc_delta)
     # Refresh observables so dashboard + flux mesh reflect the relaxed field
     compute_field_observables(state)
 
@@ -964,29 +964,29 @@ def compute_propagation(state):
     free curvature dynamics; the faithful curvature kinetic (degenerate metric, O-DoF)
     is the M5.6 refinement. (The retired ψ leapfrog stays dormant; see engine2_pde.)
     """
-    wf = state.tensor_field
+    tf = state.tensor_field
     if getattr(state, "evolve_4d", False) and getattr(state, "integrator_4d", "") == "constrained":
         # M5.8.2c OPTION B — the Minkowski-SIGNED dynamics under the constrained
         # spectral-projection kernel (B-1-validated, sandbox_v8/m5_8_2cb). The
         # exact 2c-1 step order: flux(M, Ṁ_prev) → P += dt·force → global (α,3)
         # clamp → per-voxel solve (A-eig, keep, P-project, Ṁ = A⁺P) → M update.
         dt_eff = state.c_amrs * state.dt_rs
-        pde.flux_4d_constrained(wf)
-        pde.update_P_4d(wf, dt_eff, getattr(state, "ldg_cc_4d", 0.0))
-        pde.sample_p03_drift(wf)
+        pde.flux_4d_constrained(tf)
+        pde.update_P_4d(tf, dt_eff, getattr(state, "ldg_cc_4d", 0.0))
+        pde.sample_p03_drift(tf)
         n_pl = max(getattr(state, "n_act_pl", 0.0), 1.0)
         pde.apply_p03_clamp(
-            wf, wf.v03_sums[0] / n_pl, wf.v03_sums[1] / n_pl, wf.v03_sums[2] / n_pl
+            tf, tf.v03_sums[0] / n_pl, tf.v03_sums[1] / n_pl, tf.v03_sums[2] / n_pl
         )
-        pde.solve_constrained_4d(wf)
-        pde.update_M_4d_constrained(wf, dt_eff)
+        pde.solve_constrained_4d(tf)
+        pde.update_M_4d_constrained(tf, dt_eff)
         # GUARD (b) — the bounded-energy monitor (load-bearing, roadmap 2c):
         # every 60 steps pull M and auto-PAUSE on divergence — a NaN/blow-up
         # must stop the run with a loud message, not scramble the render at
         # 3 FPS (the 2026-06-05 signed-GUI failure UX).
         state.guard4d_frame = getattr(state, "guard4d_frame", 0) + 1
         if state.guard4d_frame % 60 == 0:
-            m_chk = wf.M_am.to_numpy()
+            m_chk = tf.M_am.to_numpy()
             m_max = float(abs(m_chk).max())
             if not (m_max < 50.0):  # catches NaN too (NaN comparisons are False)
                 state.PAUSED = True
@@ -999,12 +999,12 @@ def compute_propagation(state):
     elif getattr(state, "evolve_4d", False):
         # M5.8.2c — the 4D Minkowski path (dressed-hedgehog seed): signed flux on
         # the stable region + live time axis + the coherent-(α,3)-drift guard.
-        pde.compute_curvature_flux_4d(wf)
-        pde.sample_v03_drift(wf, state.dt_rs)
-        n_pl = float(wf.nx * wf.ny + wf.ny * wf.nz + wf.nx * wf.nz)
-        vm = [wf.v03_sums[a] / n_pl for a in range(3)]
+        pde.compute_curvature_flux_4d(tf)
+        pde.sample_v03_drift(tf, state.dt_rs)
+        n_pl = float(tf.nx * tf.ny + tf.ny * tf.nz + tf.nx * tf.nz)
+        vm = [tf.v03_sums[a] / n_pl for a in range(3)]
         pde.evolve_M_4d(
-            wf,
+            tf,
             state.c_amrs,
             state.dt_rs,
             state.ldg_c,
@@ -1014,10 +1014,10 @@ def compute_propagation(state):
             getattr(state, "km_inertia_4d", 30.0),
         )
     else:
-        pde.compute_curvature_flux(wf)
-        pde.evolve_M(wf, state.c_amrs, state.dt_rs, state.ldg_a, state.ldg_b, state.ldg_c)
-    wf.swap_matrix_buffers()
-    pde.eigen_decompose(wf)  # refresh director_nhat from the evolved M (for render + trackers)
+        pde.compute_curvature_flux(tf)
+        pde.evolve_M(tf, state.c_amrs, state.dt_rs, state.ldg_a, state.ldg_b, state.ldg_c)
+    tf.swap_matrix_buffers()
+    pde.eigen_decompose(tf)  # refresh director_nhat from the evolved M (for render + trackers)
 
 
 def compute_field_observables(state):
@@ -1064,12 +1064,12 @@ def compute_field_observables(state):
     # (M5.8). div (charge) is left as the real seeded splay for context. Same center-
     # voxel convention as the biaxial_hedgehog seed so the dipole sits on the defect.
     if state.DIPOLE_SAMPLE:
-        wf = state.tensor_field
-        cx = state.DIPOLE_CENTER[0] * (wf.nx - 1)
-        cy = state.DIPOLE_CENTER[1] * (wf.ny - 1)
-        cz = state.DIPOLE_CENTER[2] * (wf.nz - 1)
+        tf = state.tensor_field
+        cx = state.DIPOLE_CENTER[0] * (tf.nx - 1)
+        cy = state.DIPOLE_CENTER[1] * (tf.ny - 1)
+        cz = state.DIPOLE_CENTER[2] * (tf.nz - 1)
         observables.fill_dipole_sample_B(
-            wf, state.observables, state.DIPOLE_AXIS, cx, cy, cz, state.DIPOLE_R0_VOX, 1.0
+            tf, state.observables, state.DIPOLE_AXIS, cx, cy, cz, state.DIPOLE_R0_VOX, 1.0
         )
     observables.compute_director_em_scale(state.tensor_field, state.observables)
 
@@ -1115,12 +1115,12 @@ def _curl_projection(state):
     projection (radial=0, center unused). center is in voxel coords.
     """
     if state.DIPOLE_SAMPLE:
-        wf = state.tensor_field
+        tf = state.tensor_field
         return 1, ti.Vector(
             [
-                state.DIPOLE_CENTER[0] * (wf.nx - 1),
-                state.DIPOLE_CENTER[1] * (wf.ny - 1),
-                state.DIPOLE_CENTER[2] * (wf.nz - 1),
+                state.DIPOLE_CENTER[0] * (tf.nx - 1),
+                state.DIPOLE_CENTER[1] * (tf.ny - 1),
+                state.DIPOLE_CENTER[2] * (tf.nz - 1),
             ],
             dt=ti.f32,
         )
@@ -1159,17 +1159,17 @@ def render_elements(state):
     # active it REPLACES all vector glyph viz (the plane glyphs below are
     # suppressed — no visual pollution). Mesh-only since 2026-07-19.
     if state.SHOW_ELLIPSOID:
-        wf = state.tensor_field
+        tf = state.tensor_field
         viz.update_ellipsoid_mesh(
-            wf,
-            state.ELLIPSOID_RADIUS * wf.max_grid_size,
+            tf,
+            state.ELLIPSOID_RADIUS * tf.max_grid_size,
             state.ELLIPSOID_SIZE,  # ellipsoid base size (the GUI Size slider)
-            min(state.ELLIPSOID_COUNT, wf.ellipsoid_max_dirs),
+            min(state.ELLIPSOID_COUNT, tf.ellipsoid_max_dirs),
         )
         render.scene.mesh(
-            wf.ellipsoid_mesh_vertices,
-            indices=wf.ellipsoid_mesh_indices,
-            per_vertex_color=wf.ellipsoid_mesh_colors,
+            tf.ellipsoid_mesh_vertices,
+            indices=tf.ellipsoid_mesh_indices,
+            per_vertex_color=tf.ellipsoid_mesh_colors,
             two_sided=True,
         )
 
@@ -1246,21 +1246,21 @@ def render_elements(state):
     # Rendered independently of SHOW_GLYPHS so the moment is always visible alongside
     # the N/S-colored field. YELLOW + thick so it reads as the principal axis.
     if state.DIPOLE_SAMPLE:
-        wf = state.tensor_field
+        tf = state.tensor_field
         viz.update_moment_glyph(
-            wf,
+            tf,
             state.DIPOLE_AXIS,
-            state.DIPOLE_CENTER[0] * (wf.nx - 1),
-            state.DIPOLE_CENTER[1] * (wf.ny - 1),
-            state.DIPOLE_CENTER[2] * (wf.nz - 1),
+            state.DIPOLE_CENTER[0] * (tf.nx - 1),
+            state.DIPOLE_CENTER[1] * (tf.ny - 1),
+            state.DIPOLE_CENTER[2] * (tf.nz - 1),
             0.18,  # normalized length — larger than voxel glyphs (~0.02)
             ti.Vector(
                 [colormap.YELLOW[1][0], colormap.YELLOW[1][1], colormap.YELLOW[1][2]], dt=ti.f32
             ),
         )
         render.scene.lines(
-            wf.moment_glyph_vertices,
-            per_vertex_color=wf.moment_glyph_colors,
+            tf.moment_glyph_vertices,
+            per_vertex_color=tf.moment_glyph_colors,
             width=2.0,
         )
 

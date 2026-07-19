@@ -61,9 +61,7 @@ def update_ellipsoid_mesh(
     max_dim = ti.cast(tensor_field.max_grid_size, ti.f32)
     n_centers = tensor_field.ellipsoid_n_centers[None]
     zero_v = ti.Vector([0.0, 0.0, 0.0])
-    col = ti.Vector(
-        [_GLYPH_DIRECTOR_COLOR[0], _GLYPH_DIRECTOR_COLOR[1], _GLYPH_DIRECTOR_COLOR[2]]
-    )
+    col = ti.Vector([_GLYPH_DIRECTOR_COLOR[0], _GLYPH_DIRECTOR_COLOR[1], _GLYPH_DIRECTOR_COLOR[2]])
     for c, d, v in ti.ndrange(
         tensor_field.ellipsoid_max_centers,
         tensor_field.ellipsoid_max_dirs,
