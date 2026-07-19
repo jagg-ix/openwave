@@ -173,9 +173,16 @@ class SimulationState:
         # 2026-07-19 (the line-glyph and wireframe variants were retired after
         # the live A/B: mesh won).
         self.SHOW_ELLIPSOID = False
-        self.ELLIPSOID_RADIUS = 0.1  # shell radius, fraction of max grid dim
+        self.ELLIPSOID_RADIUS = 0.1  # shell radius / rod half-length, fraction of max grid dim
         self.ELLIPSOID_COUNT = 299  # shell ellipsoid count (density; not-too-dense spec)
         self.ELLIPSOID_SIZE = 0.025  # ellipsoid base size, normalized (scaled by lambda)
+        # Stage D sub-toggles: the S² shell, the disclination-rod line samples
+        # (the escaped-core pair along the spin axis), and the per-2D-angle
+        # rings around the rod cord. Combinable (the electron-clock figure
+        # shows shell + rods together).
+        self.ELLIPSOID_SHELL = True
+        self.ELLIPSOID_RODS = False
+        self.ELLIPSOID_RODRINGS = False
         self.FLUX_MESH_PLANES = [0.5, 0.5, 0.5]
         self.SHOW_FLUX_MESH = 0
         self.WARP_MESH = 300
@@ -249,6 +256,9 @@ class SimulationState:
         self.ELLIPSOID_RADIUS = ui.get("ELLIPSOID_RADIUS", 0.1)  # fraction of max grid dim
         self.ELLIPSOID_COUNT = ui.get("ELLIPSOID_COUNT", 299)  # shell glyph count
         self.ELLIPSOID_SIZE = ui.get("ELLIPSOID_SIZE", 0.025)  # ellipsoid base size
+        self.ELLIPSOID_SHELL = ui.get("ELLIPSOID_SHELL", True)  # S² shell sub-toggle
+        self.ELLIPSOID_RODS = ui.get("ELLIPSOID_RODS", False)  # Stage D rod-line samples
+        self.ELLIPSOID_RODRINGS = ui.get("ELLIPSOID_RODRINGS", False)  # Stage D rod rings
         self.FLUX_MESH_PLANES = ui["FLUX_MESH_PLANES"]
         self.SHOW_FLUX_MESH = ui["SHOW_FLUX_MESH"]
         self.WARP_MESH = ui["WARP_MESH"]
@@ -430,13 +440,18 @@ def display_controls(state):
         # VIZ.5 (M5.23) — the "ellipsoid" viz: S² shell, one eigenframe glyph per
         # 3D angle around each defect center. Its own feature (options below);
         # while ON it replaces the plane glyphs below (no visual pollution).
-        state.SHOW_ELLIPSOID = sub.checkbox("Ellipsoids (1 /angle)", state.SHOW_ELLIPSOID)
+        state.SHOW_ELLIPSOID = sub.checkbox("Ellipsoids", state.SHOW_ELLIPSOID)
         if state.SHOW_ELLIPSOID:
             state.ELLIPSOID_RADIUS = sub.slider_float("Radius", state.ELLIPSOID_RADIUS, 0.02, 0.5)
             state.ELLIPSOID_COUNT = sub.slider_int(
                 "Count", state.ELLIPSOID_COUNT, 32, medium.ELLIPSOID_MAX_DIRS
             )
             state.ELLIPSOID_SIZE = sub.slider_float("Size", state.ELLIPSOID_SIZE, 0.01, 0.15)
+            state.ELLIPSOID_SHELL = sub.checkbox("Shell (1 /3D-angle)", state.ELLIPSOID_SHELL)
+            state.ELLIPSOID_RODS = sub.checkbox("Rods (disclination)", state.ELLIPSOID_RODS)
+            state.ELLIPSOID_RODRINGS = sub.checkbox(
+                "Rod Rings (1 /2D-angle)", state.ELLIPSOID_RODRINGS
+            )
         state.SHOW_GLYPHS = sub.slider_int("Glyph Planes", state.SHOW_GLYPHS, 0, 3)
         # VIZ.5 exclusivity: the vector-glyph select displays UNCHECKED while the
         # ellipsoid shell owns the screen (those states are not rendering), and
@@ -1153,25 +1168,47 @@ def render_elements(state):
         )
         flux_mesh.render_flux_mesh(render.scene, state.tensor_field, state.SHOW_FLUX_MESH)
 
-    # VIZ.5 (M5.23) — the "ellipsoid" viz: one M·u eigen-ellipsoid surface per
-    # 3D angle on an S² shell around each defect center (the one-value-per-angle
-    # spec), a FULL-3D view (not plane cross-sections). Its own feature; while
-    # active it REPLACES all vector glyph viz (the plane glyphs below are
-    # suppressed — no visual pollution). Mesh-only since 2026-07-19.
+    # VIZ.5 (M5.23) — the "ellipsoid" viz: M·u eigen-ellipsoid surfaces, a
+    # FULL-3D view (not plane cross-sections). Sub-views, combinable: the S²
+    # shell (one per 3D angle around each defect center), the Stage D
+    # disclination RODS (line samples along the spin axis), and the ROD RINGS
+    # (one per 2D angle around the cord). Its own feature; while active it
+    # REPLACES all vector glyph viz (the plane glyphs below are suppressed — no
+    # visual pollution). Mesh-only since 2026-07-19.
     if state.SHOW_ELLIPSOID:
         tf = state.tensor_field
-        viz.update_ellipsoid_mesh(
-            tf,
-            state.ELLIPSOID_RADIUS * tf.max_grid_size,
-            state.ELLIPSOID_SIZE,  # ellipsoid base size (the GUI Size slider)
-            min(state.ELLIPSOID_COUNT, tf.ellipsoid_max_dirs),
-        )
-        render.scene.mesh(
-            tf.ellipsoid_mesh_vertices,
-            indices=tf.ellipsoid_mesh_indices,
-            per_vertex_color=tf.ellipsoid_mesh_colors,
-            two_sided=True,
-        )
+        ell_extent = state.ELLIPSOID_RADIUS * tf.max_grid_size  # shell R / rod half-length
+        if state.ELLIPSOID_SHELL:
+            viz.update_ellipsoid_mesh(
+                tf,
+                ell_extent,
+                state.ELLIPSOID_SIZE,  # ellipsoid base size (the GUI Size slider)
+                min(state.ELLIPSOID_COUNT, tf.ellipsoid_max_dirs),
+            )
+            render.scene.mesh(
+                tf.ellipsoid_mesh_vertices,
+                indices=tf.ellipsoid_mesh_indices,
+                per_vertex_color=tf.ellipsoid_mesh_colors,
+                two_sided=True,
+            )
+        if state.ELLIPSOID_RODS or state.ELLIPSOID_RODRINGS:
+            # ring radius: a few voxels around the cord (fixed v1; the rod
+            # core melt width is ~rhoc ≈ 3 voxels in the biaxial seeds)
+            ring_r_vox = max(3.0, 0.04 * tf.max_grid_size)
+            viz.update_rod_ellipsoids(
+                tf,
+                viz.ELLIPSOID_ROD_SPAN * ell_extent,  # rods protrude beyond the shell
+                ring_r_vox,
+                state.ELLIPSOID_SIZE,
+                1 if state.ELLIPSOID_RODS else 0,
+                1 if state.ELLIPSOID_RODRINGS else 0,
+            )
+            render.scene.mesh(
+                tf.ellipsoid_rod_vertices,
+                indices=tf.ellipsoid_rod_indices,
+                per_vertex_color=tf.ellipsoid_rod_colors,
+                two_sided=True,
+            )
 
     # M5.1 director-glyph overlay — line segments showing n̂ orientation,
     # signed-component RGB so opposite directions are visually opposite.

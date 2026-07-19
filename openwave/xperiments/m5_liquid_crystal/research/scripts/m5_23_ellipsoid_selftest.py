@@ -20,6 +20,11 @@ update_ellipsoid_mesh and machine-checks (design + decisions:
   6. HYGIENE    — slots beyond (n_centers, n_active) collapse to the origin,
                   no NaNs, the density knob re-runs cleanly at the 642 ceiling
   7. MULTI-CENTER — the dipole case: two shells, each centered on its defect
+  8. RODS (Stage D) — rod-line samples on the axis at uniform heights, the M.u
+                  map reproduced, and the PHYSICS read: the rod core ESCAPES TO
+                  UNIAXIAL (lam2 - lam3 collapses vs the shell's ~delta split)
+  9. ROD RINGS  — ring centroids on circles around the cord at the fixed
+                  heights; toggle isolation (rods-only blanks rings and back)
 
 Also renders a Lambert-shaded matplotlib preview of the ellipsoid shell
 (research/plots/m5_23_mesh_selftest.png).
@@ -194,7 +199,89 @@ check(
     "multi-center: two shells, each on its own center",
     np.allclose(ra, R_VOX, atol=1e-3) and np.allclose(rb, R_VOX, atol=1e-3),
 )
-tf.ellipsoid_n_centers[None] = 1  # restore for the preview plot
+tf.ellipsoid_n_centers[None] = 1  # restore for the rod section + preview plot
+
+# ---- 8. RODS (Stage D: the disclination-rod line samples) ----
+rod_n, ring_az = tf.ellipsoid_rod_n, tf.ellipsoid_ring_az
+rod_slots = tf.ellipsoid_rod_slots
+RING_R = max(3.0, 0.04 * max_dim)  # mirrors the launcher's fixed v1 ring radius
+HL = viz.ELLIPSOID_ROD_SPAN * R_VOX  # rod half-length: rods protrude beyond the shell
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 1, 1)
+rv = tf.ellipsoid_rod_vertices.to_numpy().astype(np.float64)
+rod_cents = rv[: rod_n * tverts].reshape(rod_n, tverts, 3).mean(axis=1)
+h_ref = np.linspace(-HL, HL, rod_n)
+exp_rod = (
+    np.stack([np.full(rod_n, cx), np.full(rod_n, cy), cz + h_ref], axis=1) + 0.5
+) / max_dim
+check(
+    "rods: line samples on the axis at uniform heights",
+    np.allclose(rod_cents, exp_rod, atol=1e-4),
+    f"max centroid err {np.abs(rod_cents - exp_rod).max():.2e}",
+)
+# M.u reproduction at a mid-rod slot
+d_rod = rod_n // 3
+pr = exp_rod[d_rod]
+snap_rod = np.clip(
+    np.round([cx, cy, cz + h_ref[d_rod]]).astype(int), 0, [nx - 1, ny - 1, nz - 1]
+)
+m_sp = M_np[snap_rod[0], snap_rod[1], snap_rod[2]][1:4, 1:4]
+expect = pr + 0.5 * SIZE * (tmpl @ (m_sp + floor * np.eye(3)).T)
+check(
+    "rods: M.u map reproduced at a rod slot",
+    np.allclose(rv[d_rod * tverts : (d_rod + 1) * tverts], expect, atol=1e-5),
+)
+# PHYSICS: the rod core ESCAPES TO UNIAXIAL — the biaxial split of the two
+# minor eigenvalues (lam2 - lam3 ~ delta in the bulk) collapses on the axis
+# where the seed's disclination smoothstep switches the biaxial part off.
+# (First try tested lam1 - lam2 "melt" and FAILED: the axis is MORE uniaxial,
+# not lower-amplitude — the correct core signature, and the natural detection
+# criterion for the future disclination-line tracer.)
+evals_np = tf.eigenvalues.to_numpy().astype(np.float64)
+rod_idx = np.clip(np.round(cz + h_ref).astype(int), 0, nz - 1)
+uni_rod = (evals_np[cx, cy, rod_idx, 1] - evals_np[cx, cy, rod_idx, 2]).mean()
+uni_shell = (evals_np[ii, jj, kk, 1] - evals_np[ii, jj, kk, 2]).mean()
+check(
+    "rods physics: rod core escapes to uniaxial (lam2-lam3 collapses)",
+    uni_rod < 0.5 * uni_shell,
+    f"rod mean lam2-lam3 = {uni_rod:.3f} vs shell {uni_shell:.3f}",
+)
+
+# ---- 9. ROD RINGS (per 2D angle around the cord) ----
+ring_block = rv[rod_n * tverts : rod_slots * tverts].reshape(-1, tverts, 3)
+ring_cents = ring_block.mean(axis=1)
+fr_ref = np.array([-0.9, -0.7, 0.9, 0.7])  # kernel height order (sign by j//2), outer sections
+ok_rings = True
+for jr in range(tf.ellipsoid_ring_count):
+    seg = ring_cents[jr * ring_az : (jr + 1) * ring_az]
+    ang = 2.0 * np.pi * np.arange(ring_az) / ring_az
+    expc = (
+        np.stack(
+            [
+                cx + RING_R * np.cos(ang),
+                cy + RING_R * np.sin(ang),
+                np.full(ring_az, cz + fr_ref[jr] * HL),
+            ],
+            axis=1,
+        )
+        + 0.5
+    ) / max_dim
+    if not np.allclose(seg, expc, atol=1e-4):
+        ok_rings = False
+        break
+check("rings: centroids on circles around the cord at the fixed heights", ok_rings)
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 1, 0)  # rods only
+rv2 = tf.ellipsoid_rod_vertices.to_numpy()
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 0, 1)  # rings only
+rv3 = tf.ellipsoid_rod_vertices.to_numpy()
+check(
+    "rings: toggle isolation (rods-only blanks rings and back)",
+    np.all(rv2[rod_n * tverts : rod_slots * tverts] == 0.0)
+    and bool(np.any(rv2[: rod_n * tverts] != 0.0))  # rods present in rods-only
+    and np.all(rv3[: rod_n * tverts] == 0.0)  # rods blank in rings-only
+    and bool(np.any(rv3[rod_n * tverts : rod_slots * tverts] != 0.0))
+    and np.all(np.isfinite(rv))
+    and np.all(rv[rod_slots * tverts :] == 0.0),  # inactive centers collapsed
+)
 
 
 # ----------------------------------------------------------------
@@ -224,6 +311,51 @@ os.makedirs(plot_dir, exist_ok=True)
 out = os.path.join(plot_dir, "m5_23_mesh_selftest.png")
 fig.savefig(out, dpi=110, bbox_inches="tight")
 print(f"[plot] {out}")
+
+
+def _shaded(tris_arr, base_rgb):
+    nrm = np.cross(tris_arr[:, 1] - tris_arr[:, 0], tris_arr[:, 2] - tris_arr[:, 0])
+    nrm /= np.linalg.norm(nrm, axis=1, keepdims=True) + 1e-15
+    lt = np.array([0.4, 0.3, 0.85])
+    lm = 0.35 + 0.65 * np.abs(nrm @ (lt / np.linalg.norm(lt)))
+    return np.clip(lm[:, None] * np.array(base_rgb), 0, 1)
+
+
+# Combined Stage D preview: shell + disclination rods + rod rings (the
+# electron-clock composition: hedgehog shell + the bipolar rod pair)
+viz.update_ellipsoid_mesh(tf, R_VOX, SIZE, N_ACTIVE)
+sh_v = tf.ellipsoid_mesh_vertices.to_numpy().astype(np.float64)
+viz.update_rod_ellipsoids(tf, HL, RING_R, SIZE, 1, 1)
+rd_v = tf.ellipsoid_rod_vertices.to_numpy().astype(np.float64)
+rod_idxs = tf.ellipsoid_rod_indices.to_numpy().reshape(-1, 3)
+sh_tris = sh_v[idxs[: N_ACTIVE * tfaces]]
+rod_tris_a = rd_v[rod_idxs[: rod_n * tfaces]]  # rod-line block (cyan)
+rod_tris_b = rd_v[rod_idxs[rod_n * tfaces : rod_slots * tfaces]]  # ring block
+fig3 = plt.figure(figsize=(9, 9))
+ax3 = fig3.add_subplot(111, projection="3d")
+ax3.add_collection3d(
+    Poly3DCollection(sh_tris, facecolors=_shaded(sh_tris, [0.29, 0.64, 0.87]),
+                     edgecolors="none", alpha=0.35)
+)
+ax3.add_collection3d(
+    Poly3DCollection(rod_tris_a, facecolors=_shaded(rod_tris_a, [0.0, 0.9, 0.9]),
+                     edgecolors="none")
+)
+ax3.add_collection3d(
+    Poly3DCollection(rod_tris_b, facecolors=_shaded(rod_tris_b, [0.29, 0.64, 0.87]),
+                     edgecolors="none")
+)
+ax3.scatter(*center_n, color="k", s=18)
+lim3 = (center_n[0] - 1.15 * viz.ELLIPSOID_ROD_SPAN * R_FRAC, center_n[0] + 1.15 * viz.ELLIPSOID_ROD_SPAN * R_FRAC)
+ax3.set_xlim(lim3), ax3.set_ylim(lim3), ax3.set_zlim(lim3)
+ax3.set_box_aspect((1, 1, 1))
+ax3.set_title(
+    f"M5.23 VIZ.5 Stage D: shell (translucent) + disclination rods (cyan) + rod rings\n"
+    f"biaxial hedgehog, R={R_FRAC:.2f}, rod span +-1.6R, rings OUTSIDE the shell (+-0.7 / +-0.9 of span)"
+)
+out3 = os.path.join(plot_dir, "m5_23_rods_selftest.png")
+fig3.savefig(out3, dpi=110, bbox_inches="tight")
+print(f"[plot] {out3}")
 
 n_pass = total[0] - len(fails)
 print(

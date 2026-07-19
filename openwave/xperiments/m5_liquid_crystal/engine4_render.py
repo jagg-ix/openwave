@@ -2,7 +2,8 @@
 M5 ENGINE — RENDERING / VISUALIZATION (engine4_render)
 
 The viz stack — OpenWave's biggest differential as a simulator:
-  - update_ellipsoid_mesh      VIZ.5 Stage B: M·u eigen-ellipsoid surfaces
+  - update_ellipsoid_mesh      VIZ.5: M·u eigen-ellipsoid shell (1 per 3D angle)
+  - update_rod_ellipsoids      VIZ.5 Stage D: disclination-rod line + ring samples
   - update_director_glyphs     director-orientation line glyphs
   - update_flux_mesh_values    3-plane scalar→color/warp mesh
   - sample_position_to_render  granule point-cloud
@@ -32,6 +33,35 @@ _ELLIPSOID_GOLDEN_ANGLE = math.pi * (3.0 - math.sqrt(5.0))
 # a flat disk; the floor lifts every semi-axis by this amount so the surface
 # stays 3D-visible (the m5_6_5b λ_min floor, point 4 of that de-risk).
 _ELLIPSOID_MESH_FLOOR = 0.08
+
+
+@ti.func
+def _ellipsoid_vertex(
+    tensor_field: ti.template(),  # type: ignore
+    i: ti.i32,  # type: ignore
+    j: ti.i32,  # type: ignore
+    k: ti.i32,  # type: ignore
+    v: ti.i32,  # type: ignore
+    pos: ti.types.vector(3, ti.f32),  # type: ignore
+    size: ti.f32,  # type: ignore
+):
+    """One eigen-ellipsoid surface vertex: template vertex `v` mapped through
+    the spatial block of M at voxel (i,j,k), the m5_6_5b M·u key simplification
+    (semi-axes = eigenvalues along eigenvectors, NO eigendecomposition), plus
+    the isotropic visibility floor. Shared by the shell and rod kernels."""
+    ut = tensor_field.ellipsoid_template[v]
+    m = tensor_field.M_am[i, j, k]
+    w = (
+        ti.Vector(
+            [
+                m[1, 1] * ut[0] + m[1, 2] * ut[1] + m[1, 3] * ut[2],
+                m[2, 1] * ut[0] + m[2, 2] * ut[1] + m[2, 3] * ut[2],
+                m[3, 1] * ut[0] + m[3, 2] * ut[1] + m[3, 3] * ut[2],
+            ]
+        )
+        + _ELLIPSOID_MESH_FLOOR * ut
+    )
+    return pos + 0.5 * size * w
 
 
 @ti.kernel
@@ -82,23 +112,108 @@ def update_ellipsoid_mesh(
             pos = ti.Vector(
                 [(s[0] + 0.5) / max_dim, (s[1] + 0.5) / max_dim, (s[2] + 0.5) / max_dim]
             )
-            ut = tensor_field.ellipsoid_template[v]
-            m = tensor_field.M_am[i, j, k]
-            w = (
-                ti.Vector(
-                    [
-                        m[1, 1] * ut[0] + m[1, 2] * ut[1] + m[1, 3] * ut[2],
-                        m[2, 1] * ut[0] + m[2, 2] * ut[1] + m[2, 3] * ut[2],
-                        m[3, 1] * ut[0] + m[3, 2] * ut[1] + m[3, 3] * ut[2],
-                    ]
-                )
-                + _ELLIPSOID_MESH_FLOOR * ut
+            tensor_field.ellipsoid_mesh_vertices[base] = _ellipsoid_vertex(
+                tensor_field, i, j, k, v, pos, size
             )
-            tensor_field.ellipsoid_mesh_vertices[base] = pos + 0.5 * size * w
             tensor_field.ellipsoid_mesh_colors[base] = col
         else:
             tensor_field.ellipsoid_mesh_vertices[base] = zero_v
             tensor_field.ellipsoid_mesh_colors[base] = zero_v
+
+
+# VIZ.5 Stage D — rod half-length as a multiple of the shell radius: the rods
+# PROTRUDE beyond the shell and the rings sit on the protruding outer sections
+# (matching the reference electron-clock composition; also keeps the rings
+# clear of shell-ellipsoid occlusion). Consumed by the launcher dispatch.
+ELLIPSOID_ROD_SPAN = 1.6
+
+
+@ti.kernel
+def update_rod_ellipsoids(
+    tensor_field: ti.template(),  # type: ignore
+    half_len_vox: ti.f32,  # type: ignore
+    ring_r_vox: ti.f32,  # type: ignore
+    size: ti.f32,  # type: ignore
+    show_rods: ti.i32,  # type: ignore
+    show_rings: ti.i32,  # type: ignore
+):
+    """VIZ.5 (M5.23) Stage D — the disclination-ROD render. The rods are the
+    line-defect pair along the spin axis (ẑ in every M5 seed): the hedgehog's
+    radial director cannot stay smooth once the clock/spin structure rides it
+    (the hairy-ball constraint), so the biaxial seeds construct an escaped,
+    eigenvalue-melted core column, and that axis IS the angular-momentum /
+    magnetic-dipole axis of the electron picture. Two arms, per (center, slot):
+
+      - slots [0, rod_n): ROD-LINE samples along the axis, heights uniform in
+        [−half_len_vox, +half_len_vox] (gated by `show_rods`; delta-cyan so the
+        melted cores read apart from the shell); the degenerate / shrunken
+        ellipsoid shapes ARE the rod-core melt made visible
+      - remaining slots: ROD RINGS, one ellipsoid per 2D angle on circles of
+        radius `ring_r_vox` AROUND the cord at heights ±0.7 / ±0.9 of the
+        half-length — the protruding OUTER rod sections, beyond the shell when
+        the launcher passes `ELLIPSOID_ROD_SPAN`× the shell radius (gated by
+        `show_rings`; director light-blue) — the one-value-per-2D-angle vortex
+        view placed on the actual defect line
+
+    Same nearest-voxel sampling + `_ellipsoid_vertex` M·u map as the shell;
+    inactive slots collapse to the origin (zero-area triangles, invisible).
+    """
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    max_dim = ti.cast(tensor_field.max_grid_size, ti.f32)
+    n_centers = tensor_field.ellipsoid_n_centers[None]
+    rod_n = tensor_field.ellipsoid_rod_n
+    ring_az = tensor_field.ellipsoid_ring_az
+    zero_v = ti.Vector([0.0, 0.0, 0.0])
+    rod_col = ti.Vector([_GLYPH_ROD_COLOR[0], _GLYPH_ROD_COLOR[1], _GLYPH_ROD_COLOR[2]])
+    ring_col = ti.Vector(
+        [_GLYPH_DIRECTOR_COLOR[0], _GLYPH_DIRECTOR_COLOR[1], _GLYPH_DIRECTOR_COLOR[2]]
+    )
+    for c, r, v in ti.ndrange(
+        tensor_field.ellipsoid_max_centers,
+        tensor_field.ellipsoid_rod_slots,
+        tensor_field.ellipsoid_tverts,
+    ):
+        base = (c * tensor_field.ellipsoid_rod_slots + r) * tensor_field.ellipsoid_tverts + v
+        active = 0
+        px, py, pz = 0.0, 0.0, 0.0
+        col = rod_col
+        if c < n_centers:
+            ctr = tensor_field.ellipsoid_centers[c]
+            if r < rod_n:  # rod-line sample
+                if show_rods == 1:
+                    active = 1
+                    h = -half_len_vox + 2.0 * half_len_vox * ti.cast(r, ti.f32) / ti.cast(
+                        rod_n - 1, ti.f32
+                    )
+                    px, py, pz = ctr[0], ctr[1], ctr[2] + h
+            else:  # rod-ring sample
+                if show_rings == 1:
+                    active = 1
+                    q = r - rod_n
+                    ring_j = q // ring_az
+                    az = q - ring_j * ring_az
+                    # heights ±0.9, ±0.7 of the half-length (sign from j//2):
+                    # the outer rod sections, beyond the shell radius
+                    fr = (2.0 * ti.cast(ring_j // 2, ti.f32) - 1.0) * (
+                        0.9 - 0.2 * ti.cast(ring_j % 2, ti.f32)
+                    )
+                    ang = 2.0 * math.pi * ti.cast(az, ti.f32) / ti.cast(ring_az, ti.f32)
+                    px = ctr[0] + ring_r_vox * ti.cos(ang)
+                    py = ctr[1] + ring_r_vox * ti.sin(ang)
+                    pz = ctr[2] + fr * half_len_vox
+                    col = ring_col
+        if active == 1:
+            i = ti.min(ti.max(ti.cast(ti.round(px), ti.i32), 0), nx - 1)
+            j = ti.min(ti.max(ti.cast(ti.round(py), ti.i32), 0), ny - 1)
+            k = ti.min(ti.max(ti.cast(ti.round(pz), ti.i32), 0), nz - 1)
+            pos = ti.Vector([(px + 0.5) / max_dim, (py + 0.5) / max_dim, (pz + 0.5) / max_dim])
+            tensor_field.ellipsoid_rod_vertices[base] = _ellipsoid_vertex(
+                tensor_field, i, j, k, v, pos, size
+            )
+            tensor_field.ellipsoid_rod_colors[base] = col
+        else:
+            tensor_field.ellipsoid_rod_vertices[base] = zero_v
+            tensor_field.ellipsoid_rod_colors[base] = zero_v
 
 
 # ================================================================
@@ -143,6 +258,7 @@ def update_ellipsoid_mesh(
 #     distinct from the director's light-blue so "single" no longer collides with it.
 _GLYPH_DIRECTOR_COLOR = colormap.COLOR_MEDIUM[1]  # light blue — n̂ principal axis (orientation)
 _GLYPH_DELTA_COLOR = colormap.COLOR_FIELD[1]  # cyan — δ cross-bar (ellipsoid minor axis)
+_GLYPH_ROD_COLOR = colormap.ORANGE[1]  # orange — rod ellipsoid (line samples along the spin axis)
 _GLYPH_E_COLOR = colormap.GREEN[1]  # green — E-field single-color
 _GLYPH_B_COLOR = colormap.ORANGE[1]  # orange — B-field single-color
 

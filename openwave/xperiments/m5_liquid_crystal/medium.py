@@ -69,6 +69,51 @@ ELLIPSOID_TEMPLATE_LON = 12
 ELLIPSOID_TVERTS = ELLIPSOID_TEMPLATE_LAT * ELLIPSOID_TEMPLATE_LON + 2
 ELLIPSOID_TFACES = 2 * ELLIPSOID_TEMPLATE_LAT * ELLIPSOID_TEMPLATE_LON
 
+# VIZ.5 Stage D — the disclination-rod render: ellipsoid samples ALONG the rod
+# axis (the ±z column through each center: the escaped-core disclination pair
+# every biaxial seed constructs) plus per-2D-angle RINGS around the cord at
+# fixed heights. Fixed v1 layout (course-correctable): ROD_N axis samples
+# spanning ± the GUI Radius, RING_COUNT rings (heights ±0.35 / ±0.7 of that
+# half-length) × RING_AZ azimuths each.
+ELLIPSOID_ROD_N = 41
+ELLIPSOID_RING_COUNT = 4
+ELLIPSOID_RING_AZ = 24
+ELLIPSOID_ROD_SLOTS = ELLIPSOID_ROD_N + ELLIPSOID_RING_COUNT * ELLIPSOID_RING_AZ
+
+
+@ti.func
+def _uv_face_locals(f: ti.i32):  # type: ignore
+    """Template-local vertex ids (i0, i1, i2) of UV-sphere face `f`: top fan,
+    then the quad bands split in two, then the bottom fan. Shared by the shell
+    and rod index kernels (two_sided render ⇒ winding order not load-bearing)."""
+    lat, lon = ELLIPSOID_TEMPLATE_LAT, ELLIPSOID_TEMPLATE_LON
+    i0, i1, i2 = 0, 0, 0
+    if f < lon:  # top fan: north pole + ring 0
+        b = f
+        i0 = 0
+        i1 = 1 + b
+        i2 = 1 + ((b + 1) % lon)
+    elif f < lon + 2 * (lat - 1) * lon:  # quad bands between rings
+        q = (f - lon) // 2
+        t = (f - lon) - q * 2
+        a = q // lon
+        b = q - a * lon
+        p00 = 1 + a * lon + b
+        p01 = 1 + a * lon + ((b + 1) % lon)
+        p10 = 1 + (a + 1) * lon + b
+        p11 = 1 + (a + 1) * lon + ((b + 1) % lon)
+        if t == 0:
+            i0, i1, i2 = p00, p10, p01
+        else:
+            i0, i1, i2 = p01, p10, p11
+    else:  # bottom fan: south pole + last ring
+        b = f - lon - 2 * (lat - 1) * lon
+        ring = 1 + (lat - 1) * lon
+        i0 = ELLIPSOID_TVERTS - 1
+        i1 = ring + ((b + 1) % lon)
+        i2 = ring + b
+    return ti.Vector([i0, i1, i2])
+
 
 @ti.data_oriented
 class TensorField:
@@ -411,6 +456,21 @@ class TensorField:
         self.populate_ellipsoid_template()
         self.populate_ellipsoid_mesh_indices()
 
+        # VIZ.5 Stage D — the ROD pool: rod-line + rod-ring ellipsoid slots per
+        # center (the disclination-rod render), same template + M·u map as the
+        # shell pool, rendered as ONE additional scene.mesh call. Indices are
+        # static (filled once); vertices + colors are rewritten per-frame by
+        # engine4_render.update_rod_ellipsoids (inactive slots collapse).
+        self.ellipsoid_rod_n = ELLIPSOID_ROD_N
+        self.ellipsoid_ring_count = ELLIPSOID_RING_COUNT
+        self.ellipsoid_ring_az = ELLIPSOID_RING_AZ
+        self.ellipsoid_rod_slots = ELLIPSOID_ROD_SLOTS
+        n_rod = ELLIPSOID_MAX_CENTERS * ELLIPSOID_ROD_SLOTS
+        self.ellipsoid_rod_vertices = ti.Vector.field(3, ti.f32, n_rod * ELLIPSOID_TVERTS)
+        self.ellipsoid_rod_colors = ti.Vector.field(3, ti.f32, n_rod * ELLIPSOID_TVERTS)
+        self.ellipsoid_rod_indices = ti.field(ti.i32, n_rod * ELLIPSOID_TFACES * 3)
+        self.populate_ellipsoid_rod_indices()
+
     def swap_matrix_buffers(self):
         """Cycle the matrix triple buffer after evolve_M (M5.5.4): M_prev ← M, M ← M_new.
 
@@ -444,43 +504,30 @@ class TensorField:
     @ti.kernel
     def populate_ellipsoid_mesh_indices(self):
         """VIZ.5 Stage B — static triangle indices for every (center, direction)
-        slot: top fan (pole ring), LAT-1 quad bands split into 2 triangles, bottom
-        fan. Face-local vertex ids offset by the slot's vertex block so the whole
-        pool renders as one mesh. Run once at init (two_sided render ⇒ winding
-        order is not load-bearing)."""
-        lat, lon = ELLIPSOID_TEMPLATE_LAT, ELLIPSOID_TEMPLATE_LON
+        slot of the SHELL pool: the shared `_uv_face_locals` layout, face-local
+        vertex ids offset by the slot's vertex block so the whole pool renders
+        as one mesh. Run once at init."""
         n_slots = ELLIPSOID_MAX_CENTERS * ELLIPSOID_MAX_DIRS
         for s, f in ti.ndrange(n_slots, ELLIPSOID_TFACES):
-            i0, i1, i2 = 0, 0, 0
-            if f < lon:  # top fan: north pole + ring 0
-                b = f
-                i0 = 0
-                i1 = 1 + b
-                i2 = 1 + ((b + 1) % lon)
-            elif f < lon + 2 * (lat - 1) * lon:  # quad bands between rings
-                q = (f - lon) // 2
-                t = (f - lon) - q * 2
-                a = q // lon
-                b = q - a * lon
-                p00 = 1 + a * lon + b
-                p01 = 1 + a * lon + ((b + 1) % lon)
-                p10 = 1 + (a + 1) * lon + b
-                p11 = 1 + (a + 1) * lon + ((b + 1) % lon)
-                if t == 0:
-                    i0, i1, i2 = p00, p10, p01
-                else:
-                    i0, i1, i2 = p01, p10, p11
-            else:  # bottom fan: south pole + last ring
-                b = f - lon - 2 * (lat - 1) * lon
-                ring = 1 + (lat - 1) * lon
-                i0 = ELLIPSOID_TVERTS - 1
-                i1 = ring + ((b + 1) % lon)
-                i2 = ring + b
+            loc = _uv_face_locals(f)
             base_v = s * ELLIPSOID_TVERTS
             base_i = (s * ELLIPSOID_TFACES + f) * 3
-            self.ellipsoid_mesh_indices[base_i + 0] = base_v + i0
-            self.ellipsoid_mesh_indices[base_i + 1] = base_v + i1
-            self.ellipsoid_mesh_indices[base_i + 2] = base_v + i2
+            self.ellipsoid_mesh_indices[base_i + 0] = base_v + loc[0]
+            self.ellipsoid_mesh_indices[base_i + 1] = base_v + loc[1]
+            self.ellipsoid_mesh_indices[base_i + 2] = base_v + loc[2]
+
+    @ti.kernel
+    def populate_ellipsoid_rod_indices(self):
+        """VIZ.5 Stage D — same static index layout for the ROD pool (rod-line +
+        rod-ring slots per center). Run once at init."""
+        n_slots = ELLIPSOID_MAX_CENTERS * ELLIPSOID_ROD_SLOTS
+        for s, f in ti.ndrange(n_slots, ELLIPSOID_TFACES):
+            loc = _uv_face_locals(f)
+            base_v = s * ELLIPSOID_TVERTS
+            base_i = (s * ELLIPSOID_TFACES + f) * 3
+            self.ellipsoid_rod_indices[base_i + 0] = base_v + loc[0]
+            self.ellipsoid_rod_indices[base_i + 1] = base_v + loc[1]
+            self.ellipsoid_rod_indices[base_i + 2] = base_v + loc[2]
 
     @ti.kernel
     def populate_grid_lines(self):
