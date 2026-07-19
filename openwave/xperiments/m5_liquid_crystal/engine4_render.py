@@ -2,7 +2,6 @@
 M5 ENGINE — RENDERING / VISUALIZATION (engine4_render)
 
 The viz stack — OpenWave's biggest differential as a simulator:
-  - update_ellipsoid_glyphs    VIZ.5 S²-shell eigenframe glyphs (1 per 3D angle)
   - update_ellipsoid_mesh      VIZ.5 Stage B: M·u eigen-ellipsoid surfaces
   - update_director_glyphs     director-orientation line glyphs
   - update_flux_mesh_values    3-plane scalar→color/warp mesh
@@ -28,87 +27,6 @@ from openwave.common import colormap
 _ELLIPSOID_GOLDEN_ANGLE = math.pi * (3.0 - math.sqrt(5.0))
 
 
-@ti.kernel
-def update_ellipsoid_glyphs(
-    tensor_field: ti.template(),  # type: ignore
-    radius_vox: ti.f32,  # type: ignore
-    length: ti.f32,  # type: ignore
-    n_active: ti.i32,  # type: ignore
-):
-    """VIZ.5 (M5.23) — the "ellipsoid" viz, Stage A (taichi lines): one eigenframe
-    glyph per 3D angle û on an S² shell of `radius_vox` (voxel units) around each
-    seeded defect center (the one-value-per-angle render spec; design + decisions:
-    research/tasks/m5_23_task_details.md).
-
-    Directions: the Fibonacci-sphere lattice computed in-kernel per index
-    (z uniform in (−1,1), azimuth stepping `_ELLIPSOID_GOLDEN_ANGLE`) — uniform
-    on S² at any `n_active`, so glyph count is a free density knob (the GUI
-    slider; readability spec: not too dense, default 162).
-
-    Per direction the field is read at the NEAREST voxel of the shell point:
-    interpolating n̂ / director_mid across voxels is apolar-UNSAFE (n̂ ≡ −n̂ sign
-    flips break averaging); the Stage B mesh may interpolate M itself, which is
-    smooth. Main shaft = `director_nhat` scaled by λ₁; cross-bar =
-    `director_mid` scaled by λ₂ — the eigenvalues DIRECTLY (unlike the plane
-    glyph's λ₂/λ₁ ratio bar) so the spectrum itself is on screen: the line-frame
-    skeleton of the eigen-ellipsoid, and the bar's sweep around the shell is the
-    de Broglie clock made visible. Both segments centered (apolar, gauge-stable);
-    colors match the plane glyphs so the visual language carries over.
-
-    Slots beyond (n_centers, n_active) are zeroed (invisible). A large R around
-    an off-center defect can push shell points outside the grid: voxel indices
-    clamp, positions render outside the box (an honest R-too-big signal).
-    """
-    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
-    max_dim = ti.cast(tensor_field.max_grid_size, ti.f32)
-    n_centers = tensor_field.ellipsoid_n_centers[None]
-    zero_v = ti.Vector([0.0, 0.0, 0.0])
-    dcol = ti.Vector(
-        [_GLYPH_DIRECTOR_COLOR[0], _GLYPH_DIRECTOR_COLOR[1], _GLYPH_DIRECTOR_COLOR[2]]
-    )
-    dlt = ti.Vector([_GLYPH_DELTA_COLOR[0], _GLYPH_DELTA_COLOR[1], _GLYPH_DELTA_COLOR[2]])
-    for c, d in ti.ndrange(tensor_field.ellipsoid_max_centers, tensor_field.ellipsoid_max_dirs):
-        idx = (c * tensor_field.ellipsoid_max_dirs + d) * 2
-        if c < n_centers and d < n_active:
-            # Fibonacci-sphere direction d of n_active
-            zf = 1.0 - 2.0 * (ti.cast(d, ti.f32) + 0.5) / ti.cast(n_active, ti.f32)
-            rho = ti.sqrt(ti.max(1.0 - zf * zf, 0.0))
-            phi = ti.cast(d, ti.f32) * _ELLIPSOID_GOLDEN_ANGLE
-            u = ti.Vector([rho * ti.cos(phi), rho * ti.sin(phi), zf])
-            ctr = tensor_field.ellipsoid_centers[c]
-            s = ctr + radius_vox * u  # exact shell point, voxel coords
-            i = ti.min(ti.max(ti.cast(ti.round(s[0]), ti.i32), 0), nx - 1)
-            j = ti.min(ti.max(ti.cast(ti.round(s[1]), ti.i32), 0), ny - 1)
-            k = ti.min(ti.max(ti.cast(ti.round(s[2]), ti.i32), 0), nz - 1)
-            pos = ti.Vector(
-                [(s[0] + 0.5) / max_dim, (s[1] + 0.5) / max_dim, (s[2] + 0.5) / max_dim]
-            )
-            n_hat = tensor_field.director_nhat[i, j, k]
-            n_mid = tensor_field.director_mid[i, j, k]
-            evals = tensor_field.eigenvalues[i, j, k]
-            # λ-proportional lengths, clamped: 0.12 visibility floor (the plane
-            # glyph's convention), 2.0 sanity ceiling for amplitude excursions
-            shaft = length * ti.max(ti.min(evals[0], 2.0), 0.12)
-            dlen = length * ti.max(ti.min(evals[1], 2.0), 0.12)
-            tensor_field.ellipsoid_glyph_vertices[idx + 0] = pos - 0.5 * shaft * n_hat
-            tensor_field.ellipsoid_glyph_vertices[idx + 1] = pos + 0.5 * shaft * n_hat
-            tensor_field.ellipsoid_glyph_colors[idx + 0] = dcol
-            tensor_field.ellipsoid_glyph_colors[idx + 1] = dcol
-            tensor_field.ellipsoid_delta_vertices[idx + 0] = pos - 0.5 * dlen * n_mid
-            tensor_field.ellipsoid_delta_vertices[idx + 1] = pos + 0.5 * dlen * n_mid
-            tensor_field.ellipsoid_delta_colors[idx + 0] = dlt
-            tensor_field.ellipsoid_delta_colors[idx + 1] = dlt
-        else:
-            tensor_field.ellipsoid_glyph_vertices[idx + 0] = zero_v
-            tensor_field.ellipsoid_glyph_vertices[idx + 1] = zero_v
-            tensor_field.ellipsoid_glyph_colors[idx + 0] = zero_v
-            tensor_field.ellipsoid_glyph_colors[idx + 1] = zero_v
-            tensor_field.ellipsoid_delta_vertices[idx + 0] = zero_v
-            tensor_field.ellipsoid_delta_vertices[idx + 1] = zero_v
-            tensor_field.ellipsoid_delta_colors[idx + 0] = zero_v
-            tensor_field.ellipsoid_delta_colors[idx + 1] = zero_v
-
-
 # VIZ.5 Stage B — isotropic visibility floor added to M before the M·u map:
 # the D = diag(1, δ, 0) family has λ₃ = 0, so the raw ellipsoid degenerates to
 # a flat disk; the floor lifts every semi-axis by this amount so the surface
@@ -126,14 +44,15 @@ def update_ellipsoid_mesh(
     """VIZ.5 (M5.23) — the "ellipsoid" viz, Stage B (taichi MESH): per shell
     sample, the unit-sphere template maps through the local M to the shaded
     eigen-ellipsoid surface — the same FULL-3D Fibonacci shell points and
-    nearest-voxel sampling as the Stage A lines, surface instead of frame.
+    nearest-voxel sampling as the whole VIZ.5 design (a full-3D view, not a
+    plane cross-section).
 
     The m5_6_5b key simplification: for symmetric M the image of the unit
     sphere IS the ellipsoid with semi-axes = eigenvalues along eigenvectors,
         vertex = p + (size/2) · ((M_sp + floor·I) @ u_template)
     so NO per-glyph eigendecomposition. M_sp is the spatial [1:4,1:4] block of
     the 4×4 substrate (the time axis stays out of the render); `size` matches
-    the Stage A shaft length (ellipsoid major diameter ≈ the line glyph).
+    the GUI Size slider (ellipsoid major diameter at vacuum λ₁ = 1).
     Colors: flat director color for now (lighting conveys the shape; a
     clock-phase palette is a later option). Slots beyond (n_centers, n_active)
     collapse to the origin (zero-area triangles, invisible).
@@ -152,7 +71,7 @@ def update_ellipsoid_mesh(
     ):
         base = (c * tensor_field.ellipsoid_max_dirs + d) * tensor_field.ellipsoid_tverts + v
         if c < n_centers and d < n_active:
-            # same Fibonacci shell point as the Stage A lines
+            # Fibonacci-sphere shell point, direction d of n_active
             zf = 1.0 - 2.0 * (ti.cast(d, ti.f32) + 0.5) / ti.cast(n_active, ti.f32)
             rho = ti.sqrt(ti.max(1.0 - zf * zf, 0.0))
             phi = ti.cast(d, ti.f32) * _ELLIPSOID_GOLDEN_ANGLE

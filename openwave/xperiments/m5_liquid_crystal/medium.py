@@ -380,24 +380,14 @@ class TensorField:
         self.moment_glyph_vertices = ti.Vector.field(3, ti.f32, 4)
         self.moment_glyph_colors = ti.Vector.field(3, ti.f32, 4)
 
-        # VIZ.5 (M5.23) — the "ellipsoid" viz: one eigenframe glyph per 3D angle
-        # on an S² shell of GUI radius R around each defect center. Stage A
-        # renders LINE glyphs: main shaft (n̂, length ∝ λ₁) in the *_glyph_*
-        # pair and the delta cross-bar (director_mid, length ∝ λ₂) in the
-        # *_delta_* pair — the same two-buffer split as the plane glyphs so the
-        # launcher renders each with one scene.lines call. Centers are filled at
-        # seed time by the launcher (voxel coords; count in ellipsoid_n_centers);
-        # the buffers are written per-frame by engine4_render.
-        # update_ellipsoid_glyphs, which zeroes unused slots (invisible). Stage B
-        # swaps the line frames for the M·u ellipsoid mesh (m5_6_5b geometry) on
-        # the same direction lattice.
+        # VIZ.5 (M5.23) — the "ellipsoid" viz: one eigen-ellipsoid per 3D angle
+        # on an S² shell of GUI radius R around each defect center (a FULL-3D
+        # view, not a plane cross-section). Centers are filled at seed time by
+        # the launcher (voxel coords; count in ellipsoid_n_centers). The line-
+        # glyph Stage A variant was retired 2026-07-19 (maintainer verdict:
+        # mesh is the better viz); the mesh buffers below are the feature.
         self.ellipsoid_max_dirs = ELLIPSOID_MAX_DIRS
         self.ellipsoid_max_centers = ELLIPSOID_MAX_CENTERS
-        n_ell = ELLIPSOID_MAX_CENTERS * ELLIPSOID_MAX_DIRS
-        self.ellipsoid_glyph_vertices = ti.Vector.field(3, ti.f32, 2 * n_ell)
-        self.ellipsoid_glyph_colors = ti.Vector.field(3, ti.f32, 2 * n_ell)
-        self.ellipsoid_delta_vertices = ti.Vector.field(3, ti.f32, 2 * n_ell)
-        self.ellipsoid_delta_colors = ti.Vector.field(3, ti.f32, 2 * n_ell)
         self.ellipsoid_centers = ti.Vector.field(3, ti.f32, ELLIPSOID_MAX_CENTERS)  # voxel coords
         self.ellipsoid_n_centers = ti.field(ti.i32, shape=())
 

@@ -60,7 +60,7 @@ The per-sample glyph end-state, the triaxial eigen-ellipsoid (semi-axes = the sp
 
 **Blindspot pass**: the open items are the flagged decisions above (slider reuse, direction count, per-defect shells vs primary defect only, Stage C split). One physics caveat to carry: a single-radius shell HIDES radial structure by construction; that is the point of the view (his "sufficient with one value per 3D angle"), but core-region studies must keep using the plane glyphs or slide R inward, and the task should note this in the launcher tooltip or the viz doc.
 
-## STAGE A FINDINGS (2026-07-19)
+## STAGE A FINDINGS (2026-07-19): SUPERSEDED same day (course-correction 2: the line-glyph variant retired, mesh-only; kept as the historical record)
 
 Stage A landed as planned (plus the two go-time amendments: own feature namespace; taichi-first directions). What is in the working tree:
 
@@ -100,4 +100,12 @@ The arrangement reproduces the reference figure directly: individual eigen-ellip
 | --- | --- |
 | Glyphs too small | New `ELLIPSOID_SIZE` GUI slider (`Size`, 0.01 to 0.15, default 0.05; the base length λ scales), replacing the hardcoded 0.02 |
 | Checkbox exclusivity both ways | The four `GLYPH_VECTOR` checkboxes display UNCHECKED while the ellipsoid shell is on (those states are not rendering), and clicking any of them turns the ellipsoid off: the UI now mirrors the rule the render dispatch already enforced |
-| Maintainer's own edits (kept) | `ELLIPSOID_COUNT` naming; labels `Ellipsoids (1 /angle)` / `Radius` / `Count` / `Glyph Planes` / `Flux Mesh Planes`; boot defaults R = 0.1, count = 299; docstring reorder in `engine4_render.py` |
+| Maintainer's own edits (kept) | `ELLIPSOID_COUNT` naming; labels `Ellipsoids (1 /angle)` / `Radius` / `Count` / `Glyph Planes` / `Flux Mesh Planes`; boot defaults R = 0.1, count = 299, size = 0.025; docstring reorder in `engine4_render.py` |
+
+### Course-correction round 2 (2026-07-19, after the mesh vs lines + wireframe A/B)
+
+| Verdict | Change |
+| --- | --- |
+| "no need for the wireframe view" | `ELLIPSOID_WIREFRAME` removed (state, GUI, dispatch); `scene.mesh` renders shaded-only |
+| "the mesh is a way better viz feature, keep only the taichi mesh" | The line-glyph path FULLY RETIRED: `update_ellipsoid_glyphs` kernel, the 4 shaft/delta line buffers, and the `Mesh Surfaces` toggle all removed; `SHOW_ELLIPSOID` now renders `update_ellipsoid_mesh` directly (mesh-only, no mode switch). The Stage A findings above stay as the historical record (its preview png kept; the selftest no longer regenerates it) |
+| Machine gate after the cut | Selftest rewritten mesh-only: **9/9 ALL GREEN** (template unit-sphere + centroid-at-origin, in-slot indices, shell centroids on R, Fibonacci set, the M·u map vs the numpy reference, hedgehog-radial physics, collapse + finite + density re-run, multi-center); launcher import OK |
