@@ -11,4 +11,8 @@
 | Read 2: the B discrimination | The τ-candidate B: drain vs true decay at the bigger box (B drained at N = 48; a box artifact is not excluded) | Decides whether the hierarchy's third level decays by the same rotation mechanism |
 | Read 3: the ring tie-breaker | The point-vs-charged-ring core discrimination re-run at next rigor (the M5.21.2 tie was instrument-limited: ring −3.7% under fwd vs +23% under the 2h re-read) | The one same-charge alternative in the sanctioned term set ([`m5_particle_hunt.md`](../m5_particle_hunt.md) core-TYPE row) |
 
-**Gated by**: the M5.21 series run order (after the fixed-J round, [M5.21.9](m5_21_9_task_details.md)) + user "go".
+**Rider (user decision 2026-07-20)**: [M5.21.12](m5_21_12_task_details.md) (the Q35 full literature read) runs in THIS task's quiet slots (desk-only sub-agent sweeps while the N = 64 compute runs): its verified bibliography upgrades the M5.21.9/M5.21.10 notes before the consolidated send, and it produces no separate author-facing report.
+
+**Reporting (user decision 2026-07-20)**: this task's note is one of the FOUR linked notes in the consolidated author send at the RENDERING UNLOCK milestone (21.9 + addendum, 21.10, 21.5, 21.4; packaging proposed at send time, grouped by concern: stability + spin / decay + neutrino count / films).
+
+**Gated by**: the M5.21 series run order (after the fixed-J round, [M5.21.9](m5_21_9_task_details.md) incl. its round-2 addendum) + user "go".

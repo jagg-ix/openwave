@@ -12,4 +12,14 @@
 | 2 | Launcher wiring on the canonical path (a fixed-J xperiment config; the RELAX → set-J → EVOLVE flow) |
 | 3 | Live verification: the stable rotating state on screen = the first honest ZBW δ-sweep (simulated dynamics only, per the standing no-display-only-kinematics directive, [`m5_visualization.md`](../m5_visualization.md)) |
 
-**Gating**: [M5.21.9](m5_21_9_task_details.md) (itself gated on the author's fork answer, sent 2026-07-19) + user "go". Feeds [M5.25](m5_25_task_details.md) (the J/μ twist demo arm rides this port).
+**Gating**: the RENDERING UNLOCK marker (physics through [M5.21.4](m5_21_task_details.md), user 2026-07-20) + [M5.21.9](m5_21_9_task_details.md) results + user "go". Feeds [M5.25](m5_25_task_details.md) (the J/μ twist demo arm rides this port).
+
+## Consumes from M5.21.9 (wired 2026-07-20 at the run close)
+
+| Input | Where it lives |
+| --- | --- |
+| The fixed-J states (three J rungs, all holding) | `research/data/m5_21_9_fixedj_om{0.2,0.5,1}_end.npz` (local, manifest-listed; regen `python3 m5_21_9_d_fixedj.py om=<v> maxit=1200 refresh=300`, ~6 min each). ω\* = J/(2kin) per state: the port's live clock spins at THESE measured rates, nothing display-only |
+| The certified 4×4 leapfrog | `m5_21_9_e_larmor.py leap()` (the M5.21.6 form lifted to 4×4: velocity masked every kick, implicit γ): E-conservation 2.2e-8 per 400 steps, dt = 0.02 certified post-audit (4× margin): the research reference the port's per-gap selftests run against |
+| The clock thermodynamics | dE/dJ = ω\* at ~1% ([`../findings/m5_21_9_note.md § 7`](../findings/m5_21_9_note.md)): the port's energy ledger must reproduce the Legendre closure as a selftest |
+| The Larmor round-2 protocol | The J-flip discriminator + the modeled-floor ±B pair ladder (note § 6): long windows are native here; whatever the M5.21.9 addendum leaves open of the linear read, this task inherits the measurement-grade ladder |
+| ⚠️ the kin-convention flag | 0.297 (probe variant, this run) vs 0.1206 (conjugation-tangent, adopted at M5.21.3; the stub's "kin ≈ 0.119" above is that convention): the port must PIN one convention in code and document it (audit CL9; absolute J and ħ/2 numbers depend on the factor 2.46) |

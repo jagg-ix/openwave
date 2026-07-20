@@ -144,10 +144,13 @@ def load_state(om_target=0.2):
     return M, cfg, rec
 
 
-def setup(eps, om_target=0.2, env=False, rev=False):
+def setup(eps, om_target=0.2, env=False, rev=False, jsign=1.0):
+    # jsign = -1 flips the CARRIED J (Mt(0) = -omega* a0): the audit's
+    # J-flip discriminator: a genuine Larmor rate is J-sign-even,
+    # the drift and relaxation channels flip with J
     M, cfg, rec = load_state(om_target)
     a0 = INS4.gen_catalog(cfg, M)["clock_local"]
-    om = rec["final"]["omega_star_final"]
+    om = jsign * rec["final"]["omega_star_final"]
     MB = m_background(cfg, eps, rev=rev)
     if env:
         # localized field: constant over the core (envelope ~ 1 for
@@ -185,9 +188,9 @@ def gates(steps=200, dt=0.02):
 
 
 def run(eps, steps=2000, dt=0.02, snap=50, om_target=0.2,
-        tag=None, env=False, rev=False):
+        tag=None, env=False, rev=False, jsign=1.0):
     M, Mt, cfg, free, gam, om = setup(eps, om_target, env=env,
-                                      rev=rev)
+                                      rev=rev, jsign=jsign)
     Bm = b_measured(cfg, eps)
     rows = []
     for k in range(steps + 1):
@@ -225,6 +228,7 @@ if __name__ == "__main__":
             snap=int(kw.get("snap", 50)),
             env=bool(int(kw.get("env", 0))),
             rev=bool(int(kw.get("rev", 0))),
+            jsign=float(kw.get("jsign", 1)),
             tag=kw.get("tag"))
     elif mode == "ladder":
         for eps in (0.0, 2e-3, 5e-3, 1e-2):
