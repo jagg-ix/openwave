@@ -57,7 +57,7 @@ if mc:
 # (b) the fixed-J family + Legendre
 rungs = []
 for f in sorted(glob.glob(os.path.join(DATA,
-                                       "m5_21_9_fixedj_om*.json"))):
+                                       "m5_21_9_fixedj_conj_om*.json"))):
     r = json.load(open(f))
     if "final" in r:
         J = r["start"]["J"]

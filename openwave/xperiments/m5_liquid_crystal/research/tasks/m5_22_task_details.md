@@ -23,3 +23,7 @@ His picture ([`../../theory/duda_2026-07-19_baryons_vortex_knots.png`](../../the
 | The skeptic gauntlet (pre-registered honest caveats) | From the 2026-07-18 X round ([`m5_21_convo.md`](m5_21_convo.md)): any vortex-knot nuclei claim must eventually answer (i) what plays SU(3) confinement / asymptotic freedom, (ii) sub-barrier fusion needs tunneling (the Gamow factor): classical knots deform, they do not tunnel, so either the quantized theory or an honest scope statement, (iii) nucleon statistics ([Q34](../m5_question_tracker.md#q34-detail)) | Applies to the claim language of BOTH phases; carried as the falsifier checklist, not buried |
 
 **Gated by**: Phase 1 = user "go" (parallel-safe with M5.21.8). Phase 2 = the M5.21 lepton program + [Q33](../m5_question_tracker.md#q33-detail) + user "go".
+
+## The author's public framing question (2026-07-20, captured)
+
+On the 2026-07-20 group thread ([`m5_21_convo.md § 2026-07-20 13:44`](m5_21_convo.md)) the author posed Phase 1's program to the group verbatim: "Then there are various size knots, and various size nuclei - is there correspondence between them? How does it look like?". The knots-nuclei correspondence is now a publicly seeded community question, which strengthens the article case for the Phase 1 toy census ("even toy simulations definitely deserving article") and gives the eventual note its opening frame.

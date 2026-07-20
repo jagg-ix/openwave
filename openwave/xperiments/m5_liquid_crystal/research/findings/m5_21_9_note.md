@@ -1,13 +1,16 @@
 # M5.21.9 method note: the fixed-J isorotation electron + the Larmor acceptance run
 
-**Status**: ✅ RUN COMPLETE + AUDITED 2026-07-20 (3 CONFIRMED, 6 NUANCE adopted, 0 refuted, § 10). Headline: the fixed-J electron EXISTS and HOLDS on the certified stack with its clock thermodynamics closing (dE/dJ = ω\* at ~1%); the Larmor instrument is certified and the ±B protocol runs, but the LINEAR (Larmor) read is UNRESOLVED this round (the audit showed the antisymmetric split carries a trajectory-divergence time signature, not a constant rate; two designed discriminators queued); the first RESOLVED field response is a clean QUADRATIC (ε²) drift slowdown; the author's δ < 0 family verifies at statics grade but does not survive free descent (boost channel, profile-independent). Task: [`../tasks/m5_21_9_task_details.md`](../tasks/m5_21_9_task_details.md). Pre-gate verify (the author's negative-δ suggestion): [`m5_21_9_negdelta_note.md`](m5_21_9_negdelta_note.md). Base instruments: the certified [M5.21.3](m5_21_3_note.md) 4D stack; the [M5.21.8](m5_21_8_note.md) dressed-family machinery; the [M5.21.6](m5_21_6_note.md) leapfrog pattern. Standard: [`METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md).
+**Status**: ✅ RUN + ROUND-2 ADDENDUM COMPLETE, AUDITED TWICE 2026-07-20 (round 1: 3 CONFIRMED / 6 NUANCE adopted / 0 refuted, § 10; round 2: 4/4 CONFIRMED, § 10b), the family of record re-based to the canonical conjugation tangent (§ 5). Headline: the fixed-J electron EXISTS and HOLDS on the certified stack (three J rungs + a t = 80 dynamics window) with its clock thermodynamics exact: dE/dJ = ω\* at 0.997 / 0.992 on the physical (conjugation) family, kin = 0.1206; the Larmor LINEAR read is closed as UNMEASURABLE in this instrument configuration (both discriminators run: the preparation-texture systematic dominates and the J-azimuth observable partially tracked a projected-out spectator; the ramp-on + body-frame redesign is documented, with a newly found nonzero static torque channel b = 5.98e-4 on the physical tangent); the first RESOLVED field response is a clean QUADRATIC (ε²) clock-drift slowdown; the author's δ < 0 family verifies at statics grade but does not survive free descent (boost channel, profile-independent). Task: [`../tasks/m5_21_9_task_details.md`](../tasks/m5_21_9_task_details.md). Pre-gate verify (the author's negative-δ suggestion): [`m5_21_9_negdelta_note.md`](m5_21_9_negdelta_note.md). Base instruments: the certified [M5.21.3](m5_21_3_note.md) 4D stack; the [M5.21.8](m5_21_8_note.md) dressed-family machinery; the [M5.21.6](m5_21_6_note.md) leapfrog pattern. Standard: [`METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md).
 
 ## 1. Equations first
 
 The two-stack consensus (M5.21.3 + M5.21.8, conceded by the author 2026-07-19: "I see you are right") is that free minimization gives ω\* = 0 or −∞, never a finite clock. The construction here carries the clock as a CONSTRAINT, the standard isorotating-soliton route:
 
 ```text
-E_kin = omega^2 * kin(M; a0),     a0 = the clock flow (clock_local, unit Frobenius)
+E_kin = omega^2 * kin(M; a0),     a0 = the clock flow: the CONJUGATION tangent
+                                  w [W, M] (W = rotation about the local leading
+                                  eigenvector; unit Frobenius): the canonical
+                                  convention (kin = 0.1206)
 J     = dE_kin/domega = 2 omega kin          (the conserved isorotation charge)
 E(J; M) = E_stat(M) + J^2 / (4 kin(M))       (fixed-J energy; Legendre of fixed-omega)
 omega* = J / (2 kin)                          (the clock rate the state carries)
@@ -34,7 +37,7 @@ observable: J_k(t) = <M_t, a_rot_k>  (k = x, y, z);  Omega = d(phi_xy)/dt vs B_m
 | δ < 0 lattice rung + profile test + dressed-family fixed-J | [`m5_21_9_c_lattice.py`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_21_9_c_lattice.py) |
 | The fixed-J build on the certified state | [`m5_21_9_d_fixedj.py`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_21_9_d_fixedj.py) |
 | The Larmor instrument (gates + ladder) | [`m5_21_9_e_larmor.py`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_21_9_e_larmor.py) |
-| Data | `data/m5_21_9_lat_*.json`, `data/m5_21_9_fixedj_om*.json` (+ endpoint npz, local), `data/m5_21_9_larmor_*.json` |
+| Data | `data/m5_21_9_lat_*.json`, `data/m5_21_9_fixedj_conj_om*.json` (the family of record) + `m5_21_9_fixedj_om*.json` (the probe-convention consistency record) (+ endpoint npz, local), `data/m5_21_9_larmor_*.json` |
 
 ## 3. P0: the δ < 0 lattice rung (the author's suggestion on the grid)
 
@@ -51,15 +54,21 @@ The one author-gated regularization left (fork (a): "which radius dependence?") 
 
 ## 5. P2: the fixed-J electron EXISTS and HOLDS on the certified state
 
-Arena decision (deviation logged at run time): the build lives on the certified M5.21.3 s = −1 endpoint (V4 fires off-spectrum there; the boosted family is V4-flat and collapses). Clock inertia measured on `clock_local` (unit-Frobenius PROBE convention): kin = 0.297. ⚠️ CONVENTION FLAG (audit CL9, author-facing): the M5.21.3 audit had adopted the CONJUGATION-tangent value (0.1206) as the quotable inertia; this run's constraint machinery uses the probe variant (0.297). All RATIOS, holds, and the Legendre closure are convention-internal and unaffected, but any ABSOLUTE J, γ, or ħ/2 calibration inherits a factor 2.46 between conventions until one is pinned with the author. J set via the ω target: J = 2·kin·ω.
+Arena decision (deviation logged at run time): the build lives on the certified M5.21.3 s = −1 endpoint (V4 fires off-spectrum there; the boosted family is V4-flat and collapses).
+
+**The convention catch and re-base (2026-07-20, self-caught at the doc sweep)**: the first pass used `gen_catalog`'s flow, which is the ANTISYMMETRIC probe tangent that the canonical's own anti-recipe table already rules out for physical inertia ("exits the configuration space"; kin_probe = 0.297 vs the adopted conjugation value 0.1206, the audit's CL9 flag). The family was therefore RERUN on the CONJUGATION tangent a0 = w·[W, M] (symmetric, in-space, kin0 = 0.12055 = the canonical value): the family of record below. The probe-family JSONs stay on disk as the internal-consistency record (its Legendre also closed, confirming the closure is structure-not-convention). Consequence for the dynamics runs (§ 6): their Mt(0) used the probe flow, whose antisymmetric part the integrator's sym4 projection silently removed: the J-azimuth observable partially tracked a spectator component: a SECOND root cause of the Larmor-read failure, folded into the redesign. J set via the ω target: J = 2·kin·ω.
+
+The family of record (conjugation tangent, 1200 iterations each):
 
 | Rung | Result |
 | --- | --- |
-| ω = 0.2 (E_rot = 0.012, 0.2% of E_u) | HOLDS trivially: rel_move 2.9e-5, ω\*_final = 0.19923 (the full-depth rerun; the first-pass 0.1998 was the 300-iteration snapshot), core spectrum unchanged [0.026, 0.283, 0.993, 8.000] |
-| ω = 1.0 (E_rot = 0.297, 6% of E_u) | HOLDS with the textbook isorotating-soliton response: kin dresses UP 0.2970 → 0.3037 (the state spreads slightly to cheapen rotation), ω\* self-adjusts 1.0 → 0.978, E_u +0.005 / E_v −0.05, core intact, FIRE converging (fmax 9.3e-3 → 8.5e-3 over 1200 iterations) |
-| ω = 0.5 (the Legendre rung) | HOLDS, same pattern: kin 0.2993, ω\*_final = 0.4961, rel_move 1.2e-4, core intact. Consistency disclosure: the ω = 0.2 rung was RERUN at the full 1200 iterations (its first pass stopped at 300 on a stop-string bug, leaving it at a different convergence depth, which contaminated the first Legendre difference at ratio 0.32; the rerun restored family consistency) |
+| ω = 0.2 (J = 0.0482) | HOLDS: rel_move 1.18e-4, ω\*_final = 0.19923, kin_final 0.12101, core spectrum [0.0259, 0.2828, 0.9937, 8.000] |
+| ω = 0.5 (J = 0.1205) | HOLDS: rel_move 1.18e-4, ω\*_final = 0.49655, kin_final 0.12139, core intact |
+| ω = 1.0 (J = 0.2411) | HOLDS with the textbook isorotating-soliton response: kin dresses UP 0.12055 → 0.12275 (the state spreads slightly to cheapen rotation), ω\* self-adjusts 1.0 → 0.98204, core intact |
 
-Statics-grade Larmor input measured en route: the axial-twist linear response b = 0 EXACTLY at the symmetric state (twist_read), so no static torque read exists: the acceptance observable must be dynamical, as built in § 6.
+(Probe-family consistency record, first pass: the same hold pattern at kin 0.297-0.304 with its own Legendre closure 0.996/0.989; one disclosure carried from it: the ω = 0.2 rung needed a full-depth rerun after a stop-string bug left it at 300 iterations, which had contaminated the first Legendre difference at ratio 0.32.)
+
+Statics-grade Larmor input measured en route: on the PROBE flow the axial-twist linear response is b = 0 exactly; on the CONJUGATION tangent it is NONZERO (b = 5.98e-4): a static torque channel exists on the physical flow after all, a candidate statics-grade element for the round-3 Larmor instrument alongside the ramp-on redesign.
 
 ## 6. P3: the Larmor read
 
@@ -79,10 +88,12 @@ Instrument gates (try cap 3, pre-registered): tries 1 and 2 FAILED (49.8% / 12.5
 
 The Legendre identity dE/dJ = ω\* is the machine-checkable clock consistency on the fixed-J family (the conjugate-variable read: the clock rate IS the energy cost of angular momentum). Three rungs at equal convergence depth (1200 iterations each):
 
-| Interval | dE/dJ (finite difference) | ω\*_mid (measured) | ratio |
+| Interval (the conjugation family of record) | dE/dJ (finite difference) | ω\*_mid (measured) | ratio |
 | --- | --- | --- | --- |
-| J: 0.119 → 0.297 (ω 0.20 → 0.50) | 0.3462 | 0.3477 | **0.996** |
-| J: 0.297 → 0.594 (ω 0.50 → 0.98) | 0.7288 | 0.7370 | **0.989** |
+| J: 0.0482 → 0.1205 (ω 0.199 → 0.497) | 0.34686 | 0.34789 | **0.997** |
+| J: 0.1205 → 0.2411 (ω 0.497 → 0.982) | 0.73333 | 0.73930 | **0.992** |
+
+(The probe family independently closes at 0.996 / 0.989: the conjugacy is a property of the constrained-family STRUCTURE, not of the tangent convention.)
 
 The constructed family behaves as an exact thermodynamic clock family: E(J) = E_stat + J²/(4kin) with its own measured conjugacy closing to ~1%. This is the verified-L clock re-read at the family level: on the certified stack, the clock rate the electron carries is exactly the derivative of its energy with respect to its spin charge.
 
@@ -102,6 +113,22 @@ The fixed-J construction is the STANDARD route to rotating solitons in the liter
 Synthesis for the outbound: our measured ω\* = 0 / −∞ dichotomy is precisely what the Ostrogradsky language predicts for an indefinite sector, and the constraint-carried clock is what Coleman-through-Radu-Volkov prescribe; the author's "maybe enforced if numerical problems remain" is, in the literature's terms, the correct and standard construction, not a fallback.
 
 ![panel](../plots/m5_21_9_panel.png)
+
+## 6b. ROUND 2 (the addendum, 2026-07-20 afternoon): the discriminators run, the linear read closed as unmeasurable here
+
+User-directed addendum before closeout. Instruments upgraded first: the dt = 0.02 step certified on our leapfrog (drift 1.69e-7 per 400 steps), unlocking 8× windows.
+
+| Read | Result |
+| --- | --- |
+| The J-flip discriminator (the audit's proposal) | RETIRED AS A DISCRIMINATOR by its own result, and the round-2 audit sharpened it to machine precision: Ω identical to 1.6e-13 relative, E row-by-row to 1.8e-15, φ_flip = φ + π to 3.3e-16, J_flip = −J to 3.5e-18: the flipped run IS the same trajectory under an exact symmetry map, zero independent information on the precession sign |
+| The modeled-floor ± pair ladder (ε = 0.02, 0.03 pairs + control; 4000 steps, dt = 0.02, t = 80) | DECISIVE on the pre-registered rule, branch (b): all FOUR field runs go non-finite by t ≈ 10-12 (audit sharpening: two are corrupted BEFORE the NaN, so usable field-on data ends at t ≤ 8-10: with a field on the arena has a finite lifetime; round 1's "stable" window simply ended at t = 10), and on the surviving prefix the pair difference Δφ(t) ACCELERATES with split-half slope ratios 34× (ε = 0.02) and 40× (ε = 0.03): the texture-preparation divergence signature, not a constant rate. Audit attack on the alternative: a constant-rate-plus-noise model FAILS (quadratic beats linear at F = 24.9 / 21.0 vs F_crit 7.71; the fitted linear terms are wrong-signed and miss the 2.25× B ratio) |
+| The bonus hold read | The ε = 0 control ran the FULL t = 80 finite (E 6.74 → 5.54, sponge bleed of the initial transient only): the fixed-J state's first LONG dynamics-grade hold: the core survives 80 time units of free evolution |
+| **The round-2 verdict** | The Larmor LINEAR read is UNMEASURABLE in this instrument configuration (instant-on boundary/envelope-fed background + J-azimuth tracking): the dominant systematic is the preparation-texture divergence, and it grows faster than any candidate rate at every accessible field strength. Try budget spent (raw → enveloped → ± pairs → J-flip → long-window ladder); stopped per the goal-loop discipline |
+| The designed round-3 instrument (documented, not run) | Kill the artifact at its root: ADIABATIC RAMP-ON of the field (both ± runs start from the IDENTICAL fieldless state; ε(t) rises smoothly over ~5 time units) + a body-frame read (track the core-spectrum axis rather than the J azimuth). Natural home: the [M5.26](../tasks/m5_26_task_details.md) production port, where long ramped runs are native |
+
+One more audit-supplied fact worth its own line: the FIELDLESS control's azimuth drift (9.30e-4) EXCEEDS the round-1 candidate "signal" (8.249e-4): every single-run linear read in this observable was background-dominated even at B = 0.
+
+Audit (round 2, light refits): § 10b.
 
 ## 9. Not computed
 
@@ -130,3 +157,14 @@ Auditor: independent agent, own fits + own 4x4 arithmetic + own leapfrog + own d
 | CL9 kin convention | 🔶 NUANCE adopted | 0.297 (probe) vs the M5.21.3-adopted 0.1206 (conjugation): a factor 2.46 into any ABSOLUTE calibration, flagged author-facing (§ 5); ratios unaffected |
 
 Audit extras adopted throughout: the sub-cycle caveat (total phase advance ~9e-3 rad: window choice moves Ω ~4×), the replica-proves-determinism-not-F-mediation precision, and the J-flip discriminator as the cheapest next test.
+
+### 10b. Round-2 audit (light, independent refits of the saved rows): 4/4 CONFIRMED
+
+Script: [`m5_21_9_c_audit_r2.py`](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_21_9_c_audit_r2.py); verdicts: `data/m5_21_9_audit_r2.json`.
+
+| Claim | Verdict | Detail |
+| --- | --- | --- |
+| R1 field-run death vs control survival | ✅ + 2 sharpenings | finite-row counts match; two field runs corrupt BEFORE the NaN (usable data t ≤ 8-10); the control's E decline oscillates (16/40 upticks, max +0.116), a trend not a monotone |
+| R2 the accelerating pair difference | ✅ | split-half ratios 34.01× / 39.68× reproduced independently |
+| R3 the J-flip symmetry image | ✅ STRONGER | machine-precision identity (1.6e-13 / 1.8e-15 / 3.3e-16 / 3.5e-18): the same trajectory under a symmetry map |
+| R4 the final verdict survives attack | ✅ | constant-rate-plus-noise fails the F-test (24.9 / 21.0 vs 7.71); wrong-signed linear terms; the B-ratio check misses; plus the new fact: the fieldless drift exceeds the round-1 candidate signal |

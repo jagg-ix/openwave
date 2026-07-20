@@ -54,10 +54,31 @@ def spec_core(M, cfg):
     return [float(x) for x in lam]
 
 
-def build(om_target, maxit=1500, refresh=300, tagbase="p1_s-1"):
+def a0_conj(cfg, M):
+    """the CONJUGATION-tangent clock flow (the canonical convention,
+    m5_theory_canonical § 6 anti-recipe row: the physical inertia is
+    the conjugation value; gen_catalog's GM - MG^T probe flow is
+    antisymmetric and exits the symmetric configuration space):
+    a0 = w [W, M] with W = rotation about the local leading spatial
+    eigenvector, unit Frobenius norm."""
+    w = INS4.envelope(cfg)[..., None, None]
+    lam, V = np.linalg.eigh(M[..., 1:4, 1:4])
+    vhat = V[..., :, 2]
+    W = np.zeros(vhat.shape[:-1] + (4, 4))
+    n1, n2, n3 = vhat[..., 0], vhat[..., 1], vhat[..., 2]
+    W[..., 1, 2], W[..., 1, 3] = -n3, n2
+    W[..., 2, 1], W[..., 2, 3] = n3, -n1
+    W[..., 3, 1], W[..., 3, 2] = -n2, n1
+    A = w * (W @ M - M @ W)
+    return A / max(np.sqrt(np.sum(A * A)), 1e-300)
+
+
+def build(om_target, maxit=1500, refresh=300, tagbase="p1_s-1",
+          conv="conj"):
     M, cfg = INS4.load_p1(tagbase)
     free = ~INS4.pin_shell(cfg["n"], cfg["h"])
-    a0 = INS4.gen_catalog(cfg, M)["clock_local"]
+    a0 = a0_conj(cfg, M) if conv == "conj" else \
+        INS4.gen_catalog(cfg, M)["clock_local"]
     kin0 = INS4.kin_of(M, a0, cfg)
     J = 2.0 * kin0 * om_target
     e0 = INS4.e_parts(M, cfg)
@@ -77,7 +98,8 @@ def build(om_target, maxit=1500, refresh=300, tagbase="p1_s-1"):
     hist, stop = [], "maxit"
     try:
         for outer in range(0, maxit, refresh):
-            a0 = INS4.gen_catalog(cfg, M)["clock_local"]
+            a0 = a0_conj(cfg, M) if conv == "conj" else \
+                INS4.gen_catalog(cfg, M)["clock_local"]
             kin = INS4.kin_of(M, a0, cfg)
             if kin <= 0:
                 stop = f"kin_nonpositive({kin:.4g})"
@@ -107,7 +129,8 @@ def build(om_target, maxit=1500, refresh=300, tagbase="p1_s-1"):
 
     out = {"start": start, "hist": hist, "stop": stop}
     if np.isfinite(np.sum(M)):
-        a0f = INS4.gen_catalog(cfg, M)["clock_local"]
+        a0f = a0_conj(cfg, M) if conv == "conj" else \
+            INS4.gen_catalog(cfg, M)["clock_local"]
         kinf = INS4.kin_of(M, a0f, cfg)
         ef = INS4.e_parts(M, cfg)
         twf = INS4.twist_read(M, a0f, cfg)
@@ -123,11 +146,13 @@ def build(om_target, maxit=1500, refresh=300, tagbase="p1_s-1"):
                 / np.sqrt(np.sum(INS4.load_p1(tagbase)[0] ** 2)))}
         print("final", out["final"], flush=True)
         np.savez_compressed(
-            os.path.join(DATA, f"m5_21_9_fixedj_om{om_target:g}"
-                         "_end.npz"), M=M.astype(np.float32))
+            os.path.join(DATA, f"m5_21_9_fixedj_{conv}_om"
+                         f"{om_target:g}_end.npz"),
+            M=M.astype(np.float32))
     os.makedirs(DATA, exist_ok=True)
     with open(os.path.join(DATA,
-                           f"m5_21_9_fixedj_om{om_target:g}.json"),
+                           f"m5_21_9_fixedj_{conv}_om"
+                           f"{om_target:g}.json"),
               "w") as f:
         json.dump(out, f, indent=1)
     print("saved", f"fixedj_om{om_target:g}", flush=True)
@@ -141,4 +166,5 @@ if __name__ == "__main__":
                        if len(sys.argv) > 1 and "=" in sys.argv[1]
                        else 0.2)),
           maxit=int(kw.get("maxit", 1500)),
-          refresh=int(kw.get("refresh", 300)))
+          refresh=int(kw.get("refresh", 300)),
+          conv=kw.get("conv", "conj"))
