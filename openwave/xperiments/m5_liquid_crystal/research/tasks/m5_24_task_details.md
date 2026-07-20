@@ -143,6 +143,40 @@ Trigger: the user's live-demo verdict at the round-1 review ("the demo works" + 
 
 Round-3 backlog: G8 statics-relaxer catch-up (FIRE frozen-time-row + the stencil-symmetrized functional, the census-grade-states enabler), optional sponge for long live runs, and any live-demo feedback from the substeps/dx configuration.
 
+## ROUND 3 FINDINGS (2026-07-19, go 20:02)
+
+Trigger: the user's round-2 live verdict (the animation works at 64 substeps; the sloshing/shape-melt diagnosis was accepted as known physics) → "go round 3": the relaxer + sponge arc, with the M5.21.9 → M5.25 staging left untouched.
+
+### What landed
+
+| Piece | Content |
+| --- | --- |
+| G8: the canonical FIRE relaxer | `fire_relax_canonical` (engine2, single source: launcher + selftest call the same function): FIRE on the SAME pinned-interior η + V4 gradient the dynamics uses, TIME ROW + COL FROZEN (the canonical § 5.2 frozen-time-row recipe; dt0 = 0.005, dt_max = 0.05, standard FIRE constants). Velocity lives in the free `Md_am`; force extracted from the dt = 1 two-pass (no new matrix field); Metal-safe two-stage reductions (per-z-slice partials in the new small `fire_partials` field, the M5.0h contention lesson). The § 5.2 `1/w` precondition is NOT ported (convergence accelerator only) |
+| The RELAX button + config | `RELAX (FIRE canonical)` in the sim menu (canonical path, paused; 500-iter chunks per press, prints the residual trajectory) + `CANON_RELAX_ITERS` for seed-time relax (default 0) |
+| The boundary sponge | `apply_eta_sponge` (engine2): damped-Verlet correction `M_new ← (M_new + a·M_prev)/(1 + a)`, `a = ½γ(x)dt`, `γ = γmax·q²` quadratic ramp (the canonical § 5.3 pattern), in-kernel distance (no extra field); `γmax = 0` is an EXACT no-op. Config `ETA_SPONGE_GAMMA` (demo: 0.5) + `ETA_SPONGE_WIDTH` (10). The research exact-dissipation LEDGER is not ported (demo device, noted in the docstring) |
+
+### Round-3 gates (selftest now 14 checks)
+
+| Check | Result |
+| --- | --- |
+| FIRE relax on the amp-0.2 bump (400 iters) | ✅ E 23.0089 → 0.0010, force RMS 2.82e-2 → 1.16e-5 (÷2400), boundary vacuum + block-diag sector intact |
+| Sponge γ = 0 no-op | ✅ max diff 0.0 exactly (try-1 failure was a TEST bug: `bump_field(rng)` draws fresh randoms per call, so the two compared runs used different fields; fixed by reusing one array) |
+| Sponge dissipation | ✅ 20.6% dissipated over 1500 steps at γ = 1.0 vs the 5e-4 conservation floor (unambiguous; the try-1 threshold was mis-predicted: γq² at the bump's sponge depth gives a few %/τ, exactly what was then measured) |
+| All round-1/2 gates | ✅ unchanged green (14/14 total) |
+| Launcher smoke (63³, 64 substeps, sponge on) | ✅ RELAX chunk on the real hedgehog: residual ×8 down in 60 iters with the winding HELD (guarded read q = 0.996 ± 0.000 after relax, topology intact); 320-substep frame loop bounded; routing reset on switch still green |
+
+### Live-demo recipe (what the user can now do)
+
+| Step | Effect |
+| --- | --- |
+| Boot `_topo_canonical4d` (PAUSED) | the raw seed, energy view from the true-zero floor |
+| Press `RELAX (FIRE canonical)` a few times | drains the seed's transient (the round-2 sloshing) toward a near-stationary state, watching the force RMS fall in the console; topology holds |
+| Press `>> EVOLVE PDE >>` | dynamics from the relaxed state: the residual motion is genuine physics (breathing mode), not seed shock; the sponge (γ 0.5) absorbs outgoing radiation instead of reflecting it back (the t ≈ 12 caveat) |
+
+The clean spinning-electron animation (the δ-axis sweep) remains gated on the fixed-J physics as staged: [M5.21.9](m5_21_9_task_details.md) → [M5.25](m5_25_task_details.md) (untouched this round, per the user's directive).
+
+Round-4+ backlog: the sponge energy ledger (if live runs ever need the dissipated-energy bookkeeping), the launcher unit-map follow-through on other paths, and any census-grade relax targets (deep relaxes stay research-side; the launcher FIRE is demo-grade conditioning, chunked + interruptible).
+
 ## TASK REVIEW (2026-07-19, round 1)
 
 **Task Duration:** 00:25 (from the 15:50 go to the 16:15 review post)

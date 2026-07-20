@@ -1139,6 +1139,162 @@ def evolve_M_eta_finish(
         tensor_field.M_new_am[i, j, k] = tensor_field.M_new_am[i, j, k] - dt2 * force
 
 
+# ---- M5.24 round 3: the FIRE statics relaxer (G8) + the sponge ----------
+# FIRE on the SAME pinned-interior η + V4 gradient the dynamics uses (the
+# two-pass kernels above), with the TIME ROW + COLUMN FROZEN (incl. [0,0]):
+# the canonical § 5.2 frozen-time-row recipe, the bounded statics sector
+# (the 3×3 instrument of record is exactly this sector on block-diag data).
+# Parameters per the recipe: dt0 = 0.005, dt_max = 0.05, 500-iter chunks.
+# The 1/w precondition of the loop recipe is NOT ported (convergence
+# accelerator only; noted in the task_details).
+
+FIRE_DT0 = 0.005  # canonical § 5.2 (frozen-time-row FIRE)
+FIRE_DT_MAX = 0.05
+FIRE_F_INC = 1.1
+FIRE_F_DEC = 0.5
+FIRE_ALPHA0 = 0.1
+FIRE_F_ALPHA = 0.99
+FIRE_NDELAY = 5
+
+
+@ti.func
+def _fire_force_at(tensor_field: ti.template(), i: ti.i32, j: ti.i32, k: ti.i32):  # type: ignore
+    """FIRE force F = −∂E/∂M = M_new − M (the dt = 1, Ṁ = 0 two-pass extract),
+    with the time row/col zeroed (frozen-time-row sector)."""
+    f = tensor_field.M_new_am[i, j, k] - tensor_field.M_am[i, j, k]
+    for a_ in ti.static(range(4)):
+        f[0, a_] = 0.0
+        f[a_, 0] = 0.0
+    return f
+
+
+@ti.kernel
+def fire_partials_k(tensor_field: ti.template()):  # type: ignore
+    """Per-z-slice partial sums over the interior: (Σ F·V, Σ F·F, Σ V·V) →
+    fire_partials[0..2, k]. Reads the force from the M_new/M pair (run the
+    two-pass with dt = 1 and M_prev = M first) and V from Md_am."""
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    for k in ti.ndrange((1, nz - 1)):
+        s_fv = 0.0
+        s_ff = 0.0
+        s_vv = 0.0
+        for i in range(1, nx - 1):
+            for j in range(1, ny - 1):
+                f = _fire_force_at(tensor_field, i, j, k)
+                v = tensor_field.Md_am[i, j, k]
+                s_fv += (f * v).sum()
+                s_ff += (f * f).sum()
+                s_vv += (v * v).sum()
+        tensor_field.fire_partials[0, k] = s_fv
+        tensor_field.fire_partials[1, k] = s_ff
+        tensor_field.fire_partials[2, k] = s_vv
+
+
+@ti.kernel
+def fire_update_k(
+    tensor_field: ti.template(),  # type: ignore
+    dtf: ti.f32,  # type: ignore
+    alpha: ti.f32,  # type: ignore
+    vmix: ti.f32,  # type: ignore
+    vreset: ti.i32,  # type: ignore
+):
+    """One FIRE step on the interior (boundary pinned): velocity mixing
+    V ← (1−α)V + vmix·F (vmix = α·|V|/|F| host-computed), Euler kick
+    V += dtf·F, drift M += dtf·V. V lives in Md_am (free outside the
+    constrained path). Time row/col frozen throughout."""
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    for i, j, k in ti.ndrange((1, nx - 1), (1, ny - 1), (1, nz - 1)):
+        f = _fire_force_at(tensor_field, i, j, k)
+        v = tensor_field.Md_am[i, j, k]
+        if vreset == 1:
+            v = ti.Matrix.zero(ti.f32, 4, 4)
+        else:
+            v = (1.0 - alpha) * v + vmix * f
+        v = v + dtf * f
+        for a_ in ti.static(range(4)):
+            v[0, a_] = 0.0
+            v[a_, 0] = 0.0
+        tensor_field.Md_am[i, j, k] = v
+        tensor_field.M_am[i, j, k] = tensor_field.M_am[i, j, k] + dtf * v
+
+
+def fire_relax_canonical(tensor_field, dx_eta, sg, delta, w1, n_iters):
+    """Host FIRE loop (single source: launcher + selftest both call this).
+    Relaxes M toward a stationary state of the pinned-interior η + V4 energy
+    on the frozen-time-row sector. Returns dict(f_rms0, f_rms1, iters,
+    dt_final). Numpy is used ONLY for the (3, nz) partial-array sums + the
+    FIRE scalars (taichi-first: all field work is in the kernels).
+
+    Anti-recipe guards carried: dt capped at FIRE_DT_MAX = 0.05 (the frozen
+    sector's cap; free-4D would need 0.02); the sym stencil is already the
+    functional (no 2h deep-statics funnel, canonical § 6)."""
+    import numpy as np
+
+    tensor_field.Md_am.fill(0.0)
+    dtf, alpha, npos = FIRE_DT0, FIRE_ALPHA0, 0
+    f_rms0 = f_rms1 = 0.0
+    n_int = max((tensor_field.nx - 2) * (tensor_field.ny - 2) * (tensor_field.nz - 2), 1)
+    for it in range(n_iters):
+        tensor_field.M_prev_am.copy_from(tensor_field.M_am)
+        compute_eta_flux(tensor_field, 0, dx_eta)
+        evolve_M_eta_start(tensor_field, 1.0, dx_eta)
+        compute_eta_flux(tensor_field, 1, dx_eta)
+        evolve_M_eta_finish(tensor_field, 1.0, dx_eta, sg, delta, w1)
+        fire_partials_k(tensor_field)
+        p = tensor_field.fire_partials.to_numpy()
+        fv, ff, vv = float(p[0].sum()), float(p[1].sum()), float(p[2].sum())
+        f_rms1 = (ff / (16.0 * n_int)) ** 0.5
+        if it == 0:
+            f_rms0 = f_rms1
+        vreset = 0
+        if fv > 0.0:
+            npos += 1
+            if npos > FIRE_NDELAY:
+                dtf = min(dtf * FIRE_F_INC, FIRE_DT_MAX)
+                alpha *= FIRE_F_ALPHA
+        else:
+            npos = 0
+            dtf *= FIRE_F_DEC
+            alpha = FIRE_ALPHA0
+            vreset = 1
+        vmix = alpha * (vv / ff) ** 0.5 if (ff > 0.0 and vreset == 0) else 0.0
+        fire_update_k(tensor_field, dtf, alpha, vmix, vreset)
+    # static finalize: all three buffers equal (Ṁ = 0 for a subsequent evolve)
+    tensor_field.M_prev_am.copy_from(tensor_field.M_am)
+    tensor_field.M_new_am.copy_from(tensor_field.M_am)
+    return {"f_rms0": f_rms0, "f_rms1": f_rms1, "iters": n_iters, "dt_final": dtf}
+
+
+@ti.kernel
+def apply_eta_sponge(
+    tensor_field: ti.template(),  # type: ignore
+    dt_eff: ti.f32,  # type: ignore
+    gamma_max: ti.f32,  # type: ignore
+    width_cells: ti.f32,  # type: ignore
+):
+    """Boundary sponge for the canonical path (canonical § 5.3 pattern:
+    quadratic ramp, γmax): damped-Verlet correction of the already-forced
+    M_new:  M_new ← (M_new + a·M_prev)/(1 + a),  a = ½·γ(x)·dt,
+    γ(x) = γmax·q², q = 1 − d/width (d = cell distance to the nearest face).
+    γmax = 0 is an exact no-op. Kills the pinned-box reflection re-agitation
+    (the t ≈ 12 caveat, canonical § 3) for long live runs; the research
+    exact-dissipation LEDGER is not ported (demo device, noted honestly)."""
+    nx, ny, nz = tensor_field.nx, tensor_field.ny, tensor_field.nz
+    for i, j, k in ti.ndrange((1, nx - 1), (1, ny - 1), (1, nz - 1)):
+        d = ti.cast(i, ti.f32)
+        d = ti.min(d, ti.cast(nx - 1 - i, ti.f32))
+        d = ti.min(d, ti.cast(j, ti.f32))
+        d = ti.min(d, ti.cast(ny - 1 - j, ti.f32))
+        d = ti.min(d, ti.cast(k, ti.f32))
+        d = ti.min(d, ti.cast(nz - 1 - k, ti.f32))
+        if d < width_cells:
+            q = 1.0 - d / width_cells
+            a = 0.5 * gamma_max * q * q * dt_eff
+            tensor_field.M_new_am[i, j, k] = (
+                tensor_field.M_new_am[i, j, k] + a * tensor_field.M_prev_am[i, j, k]
+            ) * (1.0 / (1.0 + a))
+
+
 @ti.kernel
 def flip_time_axis(tensor_field: ti.template()):  # type: ignore
     """Negate the time-time entry M[0,0] on all three M buffers: converts the

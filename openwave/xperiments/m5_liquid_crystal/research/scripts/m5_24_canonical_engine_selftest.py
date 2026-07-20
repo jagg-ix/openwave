@@ -345,6 +345,70 @@ e3 *= H3
 rel = abs(u_t - e3) / max(abs(e3), 1e-12)
 check("block-diag u_eta == plain 3D read", rel < 1e-4, f"eta {u_t:.6f} vs 3D {e3:.6f} rel {rel:.2e}")
 
+# ---- 12. FIRE relaxer (round 3, G8) ------------------------------
+# The production FIRE (frozen-time-row sector, canonical § 5.2 recipe
+# parameters) must monotonically drain the bump's energy and reduce the
+# force residual, keep the boundary vacuum pinned, and stay block-diag.
+Mb2 = bump_field(rng, spatial_only=True, amp=0.2)
+load_M(Mb2)
+e_before = taichi_energy_total()
+stats = pde.fire_relax_canonical(tf, DX, G_T, DELTA, W1, 400)
+e_after = taichi_energy_total()
+m_rel = tf.M_am.to_numpy().astype(np.float64)
+bdry_ok = np.allclose(m_rel[0], VAC, atol=1e-5) and np.allclose(m_rel[-1], VAC, atol=1e-5)
+blockdiag_ok = np.abs(m_rel[..., 0, 1:]).max() < 1e-6 and abs(m_rel[..., 0, 0].max() + G_T) < 1e-4
+check(
+    "FIRE relax: E + residual drop, boundary + sector intact",
+    (
+        e_after < 0.5 * e_before
+        and stats["f_rms1"] < 0.2 * stats["f_rms0"]
+        and np.isfinite(m_rel).all()
+        and bdry_ok
+        and blockdiag_ok
+    ),
+    f"E {e_before:.4f} -> {e_after:.4f}, f_rms {stats['f_rms0']:.3e} -> {stats['f_rms1']:.3e}",
+)
+
+# ---- 13. sponge (round 3) ----------------------------------------
+# (a) gamma = 0 is an exact no-op (SAME bump array both runs — bump_field
+# advances the rng, a fresh call is a different field: the try-1 test bug);
+# (b) damping mechanics: γq² at the bump's sponge depth (d ≈ 5, width 8:
+# q ≈ 0.375 → γ_eff ≈ γ·0.14) predicts a few-% decay per τ, so the gate
+# runs γ_test = 1.0 for 1500 steps (7.5 τ) and discriminates against the
+# gate-7 conservation floor (5e-4): a >25% drop is unambiguous dissipation.
+Mb3 = bump_field(rng, spatial_only=True, amp=0.2)
+load_M(Mb3)
+step_once(DT)
+m_ref = tf.M_am.to_numpy().copy()
+load_M(Mb3)
+pde.compute_eta_flux(tf, 0, DX)
+pde.evolve_M_eta_start(tf, DT, DX)
+pde.compute_eta_flux(tf, 1, DX)
+pde.evolve_M_eta_finish(tf, DT, DX, G_T, DELTA, W1)
+pde.apply_eta_sponge(tf, DT, 0.0, 8.0)  # gamma = 0
+tf.swap_matrix_buffers()
+noop = np.abs(tf.M_am.to_numpy() - m_ref).max()
+check("sponge gamma = 0 is an exact no-op", noop == 0.0, f"max diff {noop:.1e}")
+
+load_M(Mb3)
+e_sp0 = None
+for step in range(1500):
+    pde.compute_eta_flux(tf, 0, DX)
+    pde.evolve_M_eta_start(tf, DT, DX)
+    pde.compute_eta_flux(tf, 1, DX)
+    pde.evolve_M_eta_finish(tf, DT, DX, G_T, DELTA, W1)
+    pde.apply_eta_sponge(tf, DT, 1.0, 8.0)
+    tf.swap_matrix_buffers()
+    if step == 0:
+        e_sp0 = taichi_energy_total(DT)
+e_sp1 = taichi_energy_total(DT)
+check(
+    "sponge dissipates (gamma 1.0, 1500 steps) vs the 5e-4 conservation floor",
+    e_sp1 < 0.85 * e_sp0 and np.isfinite(tf.M_am.to_numpy()).all(),
+    f"E {e_sp0:.4f} -> {e_sp1:.4f} ({100.0 * (1 - e_sp1 / e_sp0):.1f}% dissipated; "
+    f"measured 20.6% at calibration, gate > 15%, floor 0.05%)",
+)
+
 # ---- 9. flip_time_axis ------------------------------------------
 Mp = np.zeros((N, N, N, 4, 4))
 Mp[:] = np.diag([+G_T, 1.0, DELTA, 0.0])

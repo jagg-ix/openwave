@@ -266,6 +266,11 @@ class TensorField:
         self.curv_flux_y = ti.Matrix.field(MDIM, MDIM, dtype=ti.f32, shape=self.grid_size)
         self.curv_flux_z = ti.Matrix.field(MDIM, MDIM, dtype=ti.f32, shape=self.grid_size)
 
+        # M5.24 round 3 — FIRE-relaxer per-z-slice partial sums (F·V, F·F, V·V);
+        # a two-stage Metal-safe reduction (63 slice threads, no full-grid
+        # atomics — the M5.0h contention lesson). Host sums the (3, nz) array.
+        self.fire_partials = ti.field(dtype=ti.f32, shape=(3, self.nz))
+
         # M5.8.2c — 4D Minkowski evolution support (flag-gated; OFF unless the
         # xperiment seeds a DRESSED hedgehog). stable_mask (1.0 = Minkowski-signed
         # flux, 0.0 = Euclidean fallback) is the per-voxel ghost guard: the signed

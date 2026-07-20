@@ -53,6 +53,9 @@ TOPOLOGY_SEED = {
     "DT_ETA_CAP": 0.005,  # certified full-3D τ-step (canonical § 3)
     "ETA_DX": 1.5,  # research grid unit (m5_21_2b/3 h): 63³ box = research-twin geometry
     "ETA_SUBSTEPS": 64,  # physics steps per rendered frame (viz speed; dt itself is walled)
+    "ETA_SPONGE_GAMMA": 0.5,  # boundary damping γmax (0 = off): absorbs radiation instead of reflecting
+    "ETA_SPONGE_WIDTH": 10.0,  # sponge ramp width, cells
+    "CANON_RELAX_ITERS": 0,  # seed-time FIRE iters (the RELAX button runs 500-iter chunks live)
 }
 
 

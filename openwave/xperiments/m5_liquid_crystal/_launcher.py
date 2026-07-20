@@ -507,6 +507,12 @@ def display_controls(state):
         # Greek δ is spelled "Delta" — GGUI cannot render Greek glyphs.
         state.SHOW_GRANULES = sub.checkbox("Show Granule Motion", state.SHOW_GRANULES)
         state.SIM_SPEED = sub.slider_float("Speed", state.SIM_SPEED, 0.5, 1.0)
+        # M5.24 round 3 — the canonical FIRE relaxer (G8): relax the seeded
+        # state toward a stationary configuration of the SAME eta + V4 energy
+        # before evolving (500-iter chunks per press, the § 5.2 recipe cadence).
+        if getattr(state, "integrator_4d", "") == "canonical" and state.PAUSED:
+            if sub.button("RELAX (FIRE canonical)"):
+                relax_field_canonical(state, 500)
         if state.PAUSED:
             if sub.button(">> EVOLVE PDE >>"):
                 state.PAUSED = False
@@ -951,14 +957,25 @@ def initialize_xperiment(state):
                 # the stiff-mode wall is 2/78 ≈ 0.026 τ, NaN measured at
                 # 0.02). N× visual speed, zero physics change.
                 state.eta_substeps = max(1, int(topo.get("ETA_SUBSTEPS", 8)))
+                # ETA_SPONGE_* (round 3): boundary sponge for long live runs
+                # (kills the pinned-box reflection re-agitation, the t ≈ 12
+                # caveat). GAMMA 0 = off (exact no-op).
+                state.eta_sponge_gamma = float(topo.get("ETA_SPONGE_GAMMA", 0.0))
+                state.eta_sponge_width = float(topo.get("ETA_SPONGE_WIDTH", 10.0))
+                # CANON_RELAX_ITERS (round 3): optional seed-time FIRE relax
+                # (the RELAX button runs chunks interactively either way).
+                canon_relax = int(topo.get("CANON_RELAX_ITERS", 0))
                 print(
                     f"[M5.24] CANONICAL stack ON: eta-curvature + V4 "
                     f"(w = {pde.W1_SPECTRAL:.3e}, delta = {state.eta_delta}), "
                     f"covariant vacuum M[0,0] = -g, dt_eff capped at "
                     f"{float(topo.get('DT_ETA_CAP', 0.005))} tau, "
                     f"dx_eta = {state.eta_dx:.3f}, substeps/frame = "
-                    f"{state.eta_substeps}"
+                    f"{state.eta_substeps}, sponge gamma = "
+                    f"{state.eta_sponge_gamma} (width {state.eta_sponge_width})"
                 )
+                if canon_relax > 0:
+                    relax_field_canonical(state, canon_relax)
 
         # VIZ.3: populate the derived eigenframe (director_nhat + director_mid +
         # eigenvalues) from the seeded M so a PAUSED boot renders the δ-clock-hand
@@ -1031,6 +1048,32 @@ def relax_field(state, n_steps):
     compute_field_observables(state)
 
 
+def relax_field_canonical(state, n_iters):
+    """M5.24 round 3 (G8) — FIRE-relax the current state under the canonical
+    η + V4 energy (frozen-time-row sector, pinned boundary): the production
+    port of the canonical § 5.2 statics recipe, single-sourced in
+    engine2_pde.fire_relax_canonical (the selftest gates the same function).
+    Refreshes the derived fields + observables so the render shows the
+    relaxed state immediately."""
+    tf = state.tensor_field
+    stats = pde.fire_relax_canonical(
+        tf,
+        getattr(state, "eta_dx", tf.dx_am),
+        tf.lc_g,
+        getattr(state, "eta_delta", tf.lc_delta),
+        pde.W1_SPECTRAL,
+        int(n_iters),
+    )
+    pde.eigen_decompose(tf)
+    compute_field_observables(state)
+    print(
+        f"[M5.24 RELAX] {stats['iters']} FIRE iters: force RMS "
+        f"{stats['f_rms0']:.3e} -> {stats['f_rms1']:.3e} "
+        f"(dt_final {stats['dt_final']:.4f}); press again to continue "
+        f"relaxing, or EVOLVE to run dynamics from here."
+    )
+
+
 def compute_propagation(state):
     """Per-step field evolution — M5.5.4: the Eq.18 matrix-action leapfrog ("Evolve PDE").
 
@@ -1060,11 +1103,17 @@ def compute_propagation(state):
         # certified dt). The last substep leaves its swap to the shared
         # swap_matrix_buffers() below (all paths swap exactly once there).
         n_sub = max(1, int(getattr(state, "eta_substeps", 1)))
+        sp_gamma = float(getattr(state, "eta_sponge_gamma", 0.0))
+        sp_width = float(getattr(state, "eta_sponge_width", 10.0))
         for sub_ in range(n_sub):
             pde.compute_eta_flux(tf, 0, dx_eta)
             pde.evolve_M_eta_start(tf, dt_eff, dx_eta)
             pde.compute_eta_flux(tf, 1, dx_eta)
             pde.evolve_M_eta_finish(tf, dt_eff, dx_eta, tf.lc_g, eta_delta, pde.W1_SPECTRAL)
+            if sp_gamma > 0.0:
+                # round-3 boundary sponge: absorbs outgoing radiation instead
+                # of reflecting it back onto the core (the t ≈ 12 caveat)
+                pde.apply_eta_sponge(tf, dt_eff, sp_gamma, sp_width)
             if sub_ < n_sub - 1:
                 tf.swap_matrix_buffers()
         # Bounded-energy guard (same pattern as the constrained path): block-diag
