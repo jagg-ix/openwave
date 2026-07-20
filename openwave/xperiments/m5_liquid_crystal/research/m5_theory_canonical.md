@@ -130,7 +130,7 @@ Historical precedent worth knowing: the M5.8-era stack (pre-verified-L) ALREADY 
 
 | Recipe | Settings that work | Source |
 | --- | --- | --- |
-| Frozen-time-row FIRE (the bounded sector) | `fire_relax` with free4 mask + `1/w` precondition, dt0 0.005, dt_max 0.05, tol 1e-9, 500-iter chunks; ring/q/core logged per chunk | [m5_20_3 § 5b](findings/m5_20_3_method_note.md) |
+| Frozen-time-row FIRE (the bounded sector) | `fire_relax` with free4 mask + `1/w` precondition, dt0 0.005, dt_max 0.05, tol 1e-9, 500-iter chunks; ring/q/core logged per chunk. PRODUCTION PORT (M5.24 round 3): the launcher's RELAX button runs `fire_relax_canonical` (taichi f32, the same recipe minus the `1/w` precondition; gated: bump E 23.0 → 0.001, residual ÷2400, hedgehog winding HELD q = 0.996 through relax) | [m5_20_3 § 5b](findings/m5_20_3_method_note.md), [m5_24 round 3](tasks/m5_24_task_details.md) |
 | ⚠️ Free-4D relaxation | FIRE adaptive dt MUST stay under the stiff-mode bound `2/√λ_max ≈ 0.0256`: use **dt_max 0.02**, or monotone GD / L-BFGS (the dt_max 0.05 dive was an integrator artifact, RETRACTED at audit) | [m5_20_3 § 8 C8](findings/m5_20_3_method_note.md) |
 | Spherically-constrained radial solve | the calibration class (exact chain rule dE/ds_k): the unconstrained spherical hedgehog is a SADDLE (§ 6) | [m5_16](findings/m5_16_report.md) |
 | Convergence certificate | gradient falls ~6 decades monotone; Derrick virial `E_curv = 3E_pot` to 0.3-0.6%; h-refinement last step ≤ 0.01% | [m5_16 method](findings/m5_16_report.md) |

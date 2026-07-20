@@ -1,6 +1,6 @@
 # M5.24, production-engine catch-up (audit + port the M5.x-era physics)
 
-> 🔶 IN PROGRESS (go 2026-07-19 15:50 EDT). Roadmap row: [`m5_roadmap.md § IN PROGRESS`](../m5_roadmap.md). Checkpoint: [`../checkpoints/m5_24_progress.md`](../checkpoints/m5_24_progress.md).
+> ✅ CLOSED COMPLETE + APPROVED 2026-07-19 (go 15:50, closed ~21:05 EDT; three rounds + close-out). Roadmap row: [`m5_roadmap.md § DONE`](../m5_roadmap.md). The remaining round-4 scope (the fixed-J port) was RE-HOMED at close to [M5.26](m5_26_task_details.md) (gated on [M5.21.9](m5_21_9_task_details.md), which gates on the author's fork answer). Checkpoint: [`../checkpoints/m5_24_progress.md`](../checkpoints/m5_24_progress.md).
 
 ## TASK PLANNING
 
@@ -176,6 +176,27 @@ Trigger: the user's round-2 live verdict (the animation works at 64 substeps; th
 The clean spinning-electron animation (the δ-axis sweep) remains gated on the fixed-J physics as staged: [M5.21.9](m5_21_9_task_details.md) → [M5.25](m5_25_task_details.md) (untouched this round, per the user's directive).
 
 Round-4+ backlog: the sponge energy ledger (if live runs ever need the dissipated-energy bookkeeping), the launcher unit-map follow-through on other paths, and any census-grade relax targets (deep relaxes stay research-side; the launcher FIRE is demo-grade conditioning, chunked + interruptible).
+
+## TASK REVIEW (2026-07-19, close-out)
+
+**Task Duration:** 05:15 wall (from the 15:50 go to the ~21:05 close; active segments: round 1 00:25, round 2 00:07, round 3 00:07, close-out ~00:10; the user live-tested the demo between rounds)
+**Usage Cap Triggered:** NO (all rounds; the 7:30pm window rolled once mid-task, the re-armed ping never fired)
+
+**Results**: the three rounds above (each with its own findings section + review record). Consolidated: (1) ✅ the full production audit + the routed gap table G1-G12, every canonical-registry recipe row dispositioned, the merged M5.8.3 scope closed (seeder arm partially delivered via the canonical path; faithful-kinetic arm superseded by the § 2 verdict chain); (2) ✅ THE CANONICAL STACK in production (η-bracket curvature + universal spectral V4, symmetrized stencil, covariant vacuum, verified-H view, dt capped at the certified full-3D step), gated against the audited M5.21.3 reference; (3) ✅ the viz levers (ETA_SUBSTEPS, ETA_DX research-unit map), the centered conservation ledger + the measured f32 cooling floor, the guarded winding instrument; (4) ✅ the FIRE relaxer (frozen-time-row recipe, topology-holding: q = 0.996 after relax) + the boundary sponge. Selftest ALL 14 GREEN; the launcher is now a live research-twin of the M5.21-era instrument.
+
+**Issues / blockers**: none open. The measured characteristics carried honestly: the f32 numerical-cooling floor (amplitude-independent ~1e-2/1000 steps), the pinned-shell energy frame (the Dirichlet mismatch layer, normal), and the indefinite time-row channel (guarded by auto-pause).
+
+**Deviations from plan**: the round-1 conservation gate consumed its 3-try goal-loop cap and was surfaced rather than tuned (resolved at round 2 with the mechanism measured); the dt cap moved 0.02 → 0.005 on measurement; otherwise per plan.
+
+**Action needed**: the user runs git (message proposed at close). Next in the chain: [M5.21.9](m5_21_9_task_details.md) (author-gated) → [M5.26](m5_26_task_details.md) (the fixed-J port) → [M5.25](m5_25_task_details.md).
+
+**Standing directive recorded (user, 2026-07-19, at the round-3 review)**: NO display-only kinematics in the launcher: rendered motion must always come from simulated dynamics ("we need simulation fidelity; animation is easy; we need to be running on top of real physics always"). Codified in [`m5_visualization.md § Other visualization conventions`](../m5_visualization.md).
+
+**Model-doc sweep (close-out)**: canonical § 5.3 (round 1, dt annotation) + § 5.2 (this close: the FIRE production-port pointer); the model briefing gained the production-launcher implementation-status row (the launcher now carries the verified-L stack); [`m5_particle_hunt.md`](../m5_particle_hunt.md) checked and explicitly SKIPPED (M5.24 is infrastructure: no hunt observable moved; its M5.21.9 staging rows are already current).
+
+**Findings**: The launcher's production physics has been brought from three pre-verified-L era stacks to the canonical formulation of record, end to end: audit → routed gap table → the η + V4 canonical integrator → viz/unit levers → FIRE relax + sponge, all machine-gated against the audited research reference (ALL 14 GREEN) with three measured by-products (the dimension-split certified dt, the f32 cooling floor, the production reproduction of the indefinite-channel physics). The live demo now faithfully shows the true physics of the verified L, including its measured instabilities; the stable-ZBW animation is correctly blocked on the fixed-J physics (M5.21.9), not on rendering.
+
+**Research docs created / updated**: this doc (audit + gap table + three rounds + reviews) · [`../scripts/m5_24_canonical_engine_selftest.py`](../scripts/m5_24_canonical_engine_selftest.py) (14 gates) · production `engine2_pde.py` / `engine3_observables.py` / `medium.py` / `_launcher.py` / `xparameters/_topo_canonical4d.py` · [`../m5_theory_canonical.md`](../m5_theory_canonical.md) (§ 5.2 + § 5.3 annotations) · [`../../__M5_model_briefing.md`](../../__M5_model_briefing.md) (implementation-status row) · [`../m5_visualization.md`](../m5_visualization.md) (the no-display-only-kinematics convention) · [`m5_26_task_details.md`](m5_26_task_details.md) (the re-homed round 4) · [`../m5_roadmap.md`](../m5_roadmap.md)
 
 ## TASK REVIEW (2026-07-19, round 1)
 
