@@ -23,3 +23,7 @@
 | The clock thermodynamics | dE/dJ = ω\* at ~1% ([`../findings/m5_21_9_note.md § 7`](../findings/m5_21_9_note.md)): the port's energy ledger must reproduce the Legendre closure as a selftest |
 | The Larmor round-2 protocol | The J-flip discriminator + the modeled-floor ±B pair ladder (note § 6): long windows are native here; whatever the M5.21.9 addendum leaves open of the linear read, this task inherits the measurement-grade ladder |
 | ⚠️ the kin-convention flag | 0.297 (probe variant, this run) vs 0.1206 (conjugation-tangent, adopted at M5.21.3; the stub's "kin ≈ 0.119" above is that convention): the port must PIN one convention in code and document it (audit CL9; absolute J and ħ/2 numbers depend on the factor 2.46) |
+
+## Round 3 carries Q36 (wired 2026-07-21)
+
+The author's reply to the 21.9 note poses the quadratic-effect origin question ([Q36](../m5_question_tracker.md#q36-detail); [`m5_21_convo.md § 2026-07-21 03:30`](m5_21_convo.md)): the measured instant-on systematic (ours) vs a formulation-truncation effect ("3x3 formulation (4x4 might change)") vs a genuine quadratic coupling ("they might search experimentally"). Round 3 (adiabatic ramp-on + body-frame read) is the discriminator for the first; its design should also record which functional terms the port's field coupling carries, so the truncation hypothesis is answerable by inspection rather than a new run.
