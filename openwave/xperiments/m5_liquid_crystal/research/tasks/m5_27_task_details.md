@@ -1,10 +1,15 @@
 # M5.27: the background-scalar time sector (the staged 4×4), entrainment pilot
 
-**Status**: 🚧 PROPOSED 2026-07-21, **pending author go**. Staged in the roadmap Backlog above the RENDERING UNLOCK marker for visibility; it does NOT hold the rendering block (M5.26 → M5.25 run on user "go" regardless). Roadmap: [`m5_roadmap.md § BACKLOG`](../m5_roadmap.md). Offered as the THIRD branch of the fork left open at the [M5.21.3](m5_21_3_task_details.md) close (the fixed-J reading vs the T2η potential lift vs this), proposed to the author in the M5.21-series close round.
+**Status**: 🚧 PROPOSED 2026-07-21, **pending author go**. Staged in the roadmap Backlog above the RENDERING UNLOCK marker for visibility; it does NOT hold the rendering block (M5.26 → M5.25 run on user "go" regardless). Roadmap: [`m5_roadmap.md § BACKLOG`](../m5_roadmap.md). Offered as the THIRD branch of the fork left open at the [M5.21.3](m5_21_3_task_details.md) close (the fixed-J reading vs the T2η potential lift vs this), proposed to the author in the M5.21-series close round (sent 2026-07-21 17:06 EDT; [convo record](m5_21_convo.md)).
 
 ## 1. WHY NOW: the M5.21-series close diagnosis
 
-The M5.21 electron series closed with a diagnostic pattern. Everything static-topological closes ✅ (charge quantization, spin-½, the annihilation ledgers, the lepton census), and everything that needs the TIME sector fails to close (free-clock existence, μ, g, force-law dynamics). The Lagrangian has been frozen since the verified-L era by design; M5.17 → M5.21.4 was instrument-building, audits, and honest re-grading on a fixed L. The record now points at exactly one missing organ: the time sector.
+The M5.21 electron series closed with a diagnostic pattern.
+
+- Everything static-topological closes ✅ (charge quantization, spin-½, the annihilation ledgers, the lepton census),
+- and everything that needs the TIME sector fails to close ❌  (free-clock existence, μ, g, force-law dynamics).
+
+The Lagrangian has been frozen since the verified-L era by design; M5.17 → M5.21.4 was instrument-building, audits, and honest re-grading on a fixed L. The record now points at exactly one missing organ: the time sector.
 
 | Task | Headline outcome | Model-evolution read |
 | --- | --- | --- |
