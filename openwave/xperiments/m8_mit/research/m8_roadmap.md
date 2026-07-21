@@ -8,7 +8,9 @@
 > Lagrangian candidates, simulation engineering, and grading standards. The spec of
 > record: [`m8_theory_canonical.md`](m8_theory_canonical.md) (FIRST READ; canonical
 > when docs disagree). Rationale and gap map: [`m8_background.md`](m8_background.md);
-> cross-model reading map: [`m8_platform_pointers.md`](m8_platform_pointers.md).
+> cross-model reading map: [`m8_platform_pointers.md`](m8_platform_pointers.md). AI
+> agents bootstrap via [`m8_agent_orientation.md`](m8_agent_orientation.md) ("read the
+> m8_agent_orientation.md"), then run tasks with "go task m8.<n>".
 >
 > **Mode of work.** Research mode FIRST: headless scripts + research notes + plots, no
 > GUI (the suggested per-task layout: `tasks/m8_<id>_task_details.md`, scripts / data /

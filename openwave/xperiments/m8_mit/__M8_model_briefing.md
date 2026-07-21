@@ -141,7 +141,10 @@ documentation, not orthodoxy. Start here: [`../../../MODELS.md`](../../../MODELS
 
 ## Rich Context for Deep Reader
 
-This is top-level orientation content. For additional context: the spec of record in
+This is top-level orientation content. **AI agents working for the author start at
+[`research/m8_agent_orientation.md`](research/m8_agent_orientation.md)** (the
+one-prompt bootstrap: reading list, task template, workflow suggestion, completion
+protocol). For additional context: the spec of record in
 [`research/m8_theory_canonical.md`](research/m8_theory_canonical.md) (canonical when
 docs disagree), the gap map and program rationale in
 [`research/m8_background.md`](research/m8_background.md), the cross-model pointer map
