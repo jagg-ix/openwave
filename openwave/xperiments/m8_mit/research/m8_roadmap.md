@@ -1,0 +1,67 @@
+# M8 / MIT, ROADMAP (scaffold era)
+
+> **Scaffold baseline (2026-07-21).** The M8 column was scaffolded by the maintainers
+> from the author's onboarding proposal
+> ([discussion #312](https://github.com/openwave-labs/openwave/discussions/312)). The
+> program is a **field-dynamics collaboration**: MIT supplies the arena (S³/2I + the
+> Möbius edge) and the target spectrum (the McKay ladder); the platform supplies
+> Lagrangian candidates, simulation engineering, and grading standards. The spec of
+> record: [`m8_theory_canonical.md`](m8_theory_canonical.md) (FIRST READ; canonical
+> when docs disagree). Rationale and gap map: [`m8_background.md`](m8_background.md);
+> cross-model reading map: [`m8_platform_pointers.md`](m8_platform_pointers.md).
+>
+> **Mode of work.** Research mode FIRST: headless scripts + research notes + plots, no
+> GUI (the suggested per-task layout: `tasks/m8_<id>_task_details.md`, scripts / data /
+> plots under `research/` with `m8_<id>_` prefixes). The 3D rendering port (M5-style
+> interactive launcher) is a LATER stage, gated on field dynamics validating
+> in-platform: M8.7 below, pointers in
+> [`m8_platform_pointers.md § 7`](m8_platform_pointers.md).
+>
+> **Standing rules (platform-standard, from day one):** pre-register gates and
+> conventions BEFORE each run; no calibrated conventions (derive and pre-register, or
+> record as a fit with its search space); honest negatives are results; substantive
+> claims get an adversarial audit ([`AI_HYGIENE.md`](../../../../AI_HYGIENE.md) § 1);
+> author-facing reports follow
+> [`dev_docs/METHOD_NOTE.md`](../../../../dev_docs/METHOD_NOTE.md) (equations first +
+> equation-to-code map). Ownership is marked per task: the author drives the column;
+> maintainer-run tasks are labeled.
+
+## IN PROGRESS
+
+| TaskID | Title | Description | Gated By |
+| --- | --- | --- | --- |
+| (none yet) | | M8.1 is teed up as the first run | |
+
+## BACKLOG
+
+| TaskID | Title | Description | Owner | Gated By |
+| --- | --- | --- | --- | --- |
+| M8.1 | THE CERTIFICATION GATE: independent eigensolve of the twisted Möbius Laplacian | Discretize the twisted (anti-periodic) Laplacian on the conic Möbius band and eigensolve numerically: confirm or refute the first positive eigenvalue `2/R²` and its stability across the cone's self-adjoint extensions. Run per [`ONBOARDING_MODELS.md § 6`](../../../../ONBOARDING_MODELS.md) independence: implemented by an agent that has NOT read the author's derivation, script + number, not a verdict. Either outcome is a result and informs everything downstream (Λ = 3/R² rides this eigenvalue via the Gauss-Codazzi 3/2) | maintainers | (none) |
+| M8.2 | Pre-registration lock for the field-dynamics program | Fix BEFORE any Lagrangian run: the target observables (McKay slot structure, gap ratios, generation count, NOT the 24-entry numeric table, per [`m8_background.md § 3`](m8_background.md)), the success criteria (ladder proportionality without per-slot tuning), the Lagrangian families in scope, and the no-search rule (all outcomes reported, nothing tuned toward published values) | author + maintainers | M8.1 |
+| M8.3 | Mass-formula reproducer script | `m = μ_Λ · C_geom · (√Ω)^(dist/30) · T²` with every constant (McKay distance, Reidemeister torsion, C_geom weight) recomputed from its own definition, never quoted; PDG comparison; residuals reported at the ledger's weight. Grades the analytic sector the way the platform scores EWT's analytic masses | author | (none) |
+| M8.4 | Lagrangian-family survey on S³/2I | The central question: can a nonlinear field equation on S³/2I have topological-defect or standing-wave solutions whose energies realize the McKay slot structure? Candidates drawn from the platform's columns (M5 Landau-de Gennes + Frank, M4 nonlinear scalar/vector wave, M7 two-vector; pointer map § 2), written on the compact quotient with the background clock; includes the Derrick analysis on a compact arena (the scaling argument changes: R sets a scale) and the anti-periodic (double-cover) sector | author, platform support | M8.2, M8.5 |
+| M8.5 | Quotient-manifold simulation engineering | The real infrastructure work: simulate on S³/2I via (a) a 2I-equivariant grid on S³ (identification maps) or (b) a spectral method in 2I-symmetric harmonics (the basis IS the representation theory). Prototype both far enough to pick one; document trade-offs (pointer map § 6) | author, platform support | M8.2 |
+| M8.6 | The McKay-distance rule vs M5's measured lepton hierarchy | Bounded cross-check, no simulation needed: does the McKay-distance rule reproduce M5's measured eigenvalue hierarchy (1 : 5.9 : 15.1, the open "hierarchy origin" of the M5 lepton row) and/or the physical mass ratios? Pre-registered mapping BEFORE computing; either outcome closes a live question in TWO columns | joint | (none) |
+
+## LATER (gated)
+
+| TaskID | Title | Description | Gate |
+| --- | --- | --- | --- |
+| M8.7 | The 3D rendering port | Port the M5-style interactive stack (per-model `_launcher.py` + `engine1-4` split + the shared GGUI rendering in `openwave/i_o/`) so the validated S³/2I dynamics runs as a live demo. Do NOT start this before the gate: rendering an unvalidated dynamics showcases nothing. Porting instructions for AI agents: [`m8_platform_pointers.md § 7`](m8_platform_pointers.md) | field dynamics validated in-platform (an M8.4-lineage result with an audited method note) |
+
+## STATUS AT A GLANCE (2026-07-21)
+
+| Question | Answer |
+| --- | --- |
+| Where is M8? | Scaffold merged; 21 🚧 in [`MODELS.md`](../../../../MODELS.md); M8.1 (the certification gate, maintainer-run) is the first run; the author onboards via [`CONTRIBUTING.md`](../../../../CONTRIBUTING.md) (fork → branch → PR, DCO) |
+| What kind of column is it? | The platform's first top-down structural model: strong on the origin of the numbers (representation theory on S³/2I), absent on dynamics. The M8 program exists to supply the dynamics half |
+| What decides the program? | M8.1 certifies the arena's headline eigenvalue; M8.4 is the decisive science (does ANY reasonable Lagrangian on S³/2I realize the McKay slot structure?); M8.6 pays off in both the M8 and M5 columns regardless of sign |
+| Evidence discipline | The author's own claim ledger is adopted as the grading baseline (structural results = the core; the numeric mass table = low weight, capped by the author's own pre-registered nulls); platform standards (pre-registration, adversarial audit, method notes) apply from day one |
+
+## DONE
+
+> Newly done tasks APPEND at the end.
+
+| TaskID | Title | Description | Completed |
+| --- | --- | --- | --- |
+| (scaffold) | The M8 column scaffold | Onboarding evaluation (provenance + § 1 / § 4 / § 5.1 checks) passed; [`__M8_model_briefing.md`](../__M8_model_briefing.md) + [`m8_background.md`](m8_background.md) + [`m8_platform_pointers.md`](m8_platform_pointers.md) + [`../theory/_CITATIONS.md`](../theory/_CITATIONS.md) written; MODELS.md column added at 21 🚧 | 2026-07-21 |

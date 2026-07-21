@@ -2,8 +2,6 @@
 
 Modeled on the M5 hunt page ([`../../m5_liquid_crystal/research/m5_particle_hunt.md`](../../m5_liquid_crystal/research/m5_particle_hunt.md)): the SHAPE (a localized time-periodic two-field soliton, the chaoiton) is what the record contains; the particle NAME riding each shape is a hypothesis that keeps its "possibly" until the anchors survive re-derivation. M6's grading problem differs from M5's: most M5 anchors are our own in-platform measurements, while most M6 anchors are the author's published claims whose provenance the refresh has now mapped ([`m6_theory_canonical.md § 4`](m6_theory_canonical.md)). Scores below therefore carry a PROVENANCE grade alongside the status icon.
 
-![the ouroboros chaoiton](images/ouroboros_icon.jpg)
-
 **The v4 caveat that hangs over this whole page**: the current published spec (Ouroboros+Eli+Fable v4, 2026-07-20) is a scalar-field recast whose particle sector is SILENT: none of the identifications below is restated in it, none is retracted ([`m6_theory_canonical.md § 1`](m6_theory_canonical.md), OQ1). Until the two-theories fork is resolved (roadmap M6.7), every row below is graded against the two-vector spec lineage (v11-class) it was claimed under.
 
 ## The chaoiton catalog (identification hypotheses, by particle)

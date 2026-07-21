@@ -10,6 +10,8 @@
 > [`MODELS.md`](../../../MODELS.md) (M7.21, 2026-07-18), entered as the 3rd column
 > (order M5 · M6 · M7 · M4) at 0 ✅ / 8 ⚠️ / 13 🚧.
 
+![M7_hero](research/images/hydroboros_icon.jpg)
+
 ## Identity
 
 | Field | Value |

@@ -6,6 +6,8 @@
 > electron-soliton search is the live open work. It shares the "EWT (M4)"
 > [`MODELS.md`](../../../MODELS.md) column with M3.
 
+![M1_hero](../../../images/x_amplitude.png)
+
 ## Identity
 
 | Field | Value |
