@@ -101,7 +101,7 @@ The frameworks escape Derrick's theorem three different ways (standing-wave inte
 | Model | Briefing | Deep dive |
 | --- | --- | --- |
 | Liquid Crystal (M5) | [`__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [`m5_summary_report.md`](openwave/xperiments/m5_liquid_crystal/research/archive/m5_summary_report.md): the results-of-record; [`m5_roadmap.md`](openwave/xperiments/m5_liquid_crystal/research/m5_roadmap.md): full program; [`m5_question_tracker.md`](openwave/xperiments/m5_liquid_crystal/research/m5_question_tracker.md): emergence catalog + open questions |
-| Ouroboros (M6) | [`__M6_model_briefing.md`](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/archive/0d_canonical.md): canonical numerical specification |
+| Ouroboros (M6) | [`__M6_model_briefing.md`](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [`m6_theory_canonical.md`](openwave/xperiments/m6_ouroboros/research/m6_theory_canonical.md): specs of record + provenance ledger (refreshed 2026-07-20); [`m6_roadmap.md`](openwave/xperiments/m6_ouroboros/research/m6_roadmap.md): the refresh validation program (M6.1+); [`m6_particle_hunt.md`](openwave/xperiments/m6_ouroboros/research/m6_particle_hunt.md): identification scorecards; [`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/archive/0d_canonical.md): archive-era numerical specification |
 | HydroBoros (M7) | [`__M7_model_briefing.md`](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md) | [`m7_theory_canonical.md`](openwave/xperiments/m7_hydroboros/research/m7_theory_canonical.md): canonical spec (equations first); [`m7_roadmap.md`](openwave/xperiments/m7_hydroboros/research/m7_roadmap.md): full program; [`m7_question_tracker.md`](openwave/xperiments/m7_hydroboros/research/m7_question_tracker.md): open questions (Q1-Q14) |
 | EWT (M4) | [`__M4_model_briefing.md`](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [`0_STATUS.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_STATUS.md): targets, achieved, honest blockers |
 
@@ -118,11 +118,11 @@ The one-page model briefings summarize what each model brings (identity, profile
 
 **How (the standard open-source flow; full setup in [`CONTRIBUTING.md`](CONTRIBUTING.md)):**
 
-1. For a new model, **open an issue or discussion first** to propose it — so a maintainer can add your column and point you at the evaluation criteria.
+1. For a new model, **open an issue or discussion first** to propose it, so a maintainer can add your column and point you at the evaluation criteria.
 2. **Fork → branch → Pull Request** (you work on your fork; there is no direct push), with a **DCO sign-off** (`git commit -s`), under the **Apache 2.0** license.
 3. A maintainer reviews and merges the PR.
 
-**Is there moderation?** Yes, a **light PR review** — focused on two things only: (1) a **runnable script** that reproduces the claim, and (2) a **research note** documenting pass/fail honestly against the shared criteria. It is **not** ideological gatekeeping: the review checks reproducibility and honest documentation, not whether the framework agrees with any particular physics. See [`CONTRIBUTING.md`](CONTRIBUTING.md) (setup, PR flow, DCO) and [`SYS_ARCH.md`](SYS_ARCH.md) (repo structure).
+**Is there moderation?** Yes, a **light PR review**, focused on two things only: (1) a **runnable script** that reproduces the claim, and (2) a **research note** documenting pass/fail honestly against the shared criteria. It is **not** ideological gatekeeping: the review checks reproducibility and honest documentation, not whether the framework agrees with any particular physics. See [`CONTRIBUTING.md`](CONTRIBUTING.md) (setup, PR flow, DCO) and [`SYS_ARCH.md`](SYS_ARCH.md) (repo structure).
 
 **New to this?** [`ONBOARDING_MODELS.md`](ONBOARDING_MODELS.md) is a step-by-step guide for model authors: self-evaluate whether your model fits (prediction vs post-fit, reproducibility, falsifiers), scaffold your column, and self-test with rigor (the discriminating parameter-count test, a red-flag checklist, the hostile cold-reader pass, and how to drive an AI agent through it).
 
