@@ -16,18 +16,6 @@ OpenWave serves as a repository of **emergent science with concrete numerical va
 
 > The goal of the OpenWave effort is to build working models on an open-source platform that anyone can use for applied research, with different models hosted in the same computational environment, supporting new tech development from emergent science.
 
-## Validation status legend
-
-| Icon | Meaning |
-| --- | --- |
-| ✅ | validated in-platform (runnable reproduction exists) |
-| ⚠️ | partial, or validated with documented caveats |
-| ❌ | tested and failed, or honest negative on record |
-| 🔶 | in progress |
-| 🚧 | planned, not yet tested in-platform |
-
-A ❌ is a result, not an embarrassment: documented negatives (with the scripts that produced them) are part of the platform's value.
-
 ## COVERAGE MATRIX (Phenomenological Coverage)
 
 Models:
@@ -35,12 +23,25 @@ Models:
 - **[M4 - EWT](openwave/xperiments/m4_ewt/__M4_model_briefing.md)** (Energy Wave Theory, Jeff Yee, built on Milo Wolff and Gabriel LaFreniere pioneer work).
 - **[M5 - LC](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md)** (Liquid-Crystal topological defects, Jarek Duda, with Manfried Faber inputs);
 - **[M6 - Ouroboros](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md)** (Chaoiton framework, Paul Werbos);
-- **[M7 - HydroBoros](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md)** (Toroidal-Beltrami electron, Marc Fleury's toroidal electron fused with Paul Werbos's Ouroboros);
+- **[M7 - HydroBoros](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md)** (Toroidal-Beltrami, Marc Fleury's toroidal electron fused with Paul Werbos's Ouroboros);
 - **[M8 - MIT](openwave/xperiments/m8_mit/__M8_model_briefing.md)** (Mode Identity Theory, Blake Shatto top-down model, spectral geometry + representation theory)
 
-**Column order:** models are sequenced by their validated + partial count (✅ + ⚠️ in the [Summary count](#summary-count) below), highest first; ties break toward more ✅ (validated), then fewer ❌ (honest negatives): M5 (16), M7 (8, 0 ❌), M4 (8, 3 ❌), M6 (6, after the 2026-07-20 M6.2 decision-gate close of its electron sector), M8 (1, first validated sector: the M8.1 certification gate passed 2026-07-21). The order updates as validations land.
-
 Every file reference is an active link to the file in this repository (under `openwave/xperiments/`). Rows are grouped by domain: particles, forces, waves + quantum emergence.
+
+A ❌ is a result, not an embarrassment: documented negatives (with the scripts that produced them) are part of the platform's value.
+
+### Summary Count
+
+| Status | [Liquid Crystal (M5)](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [HydroBoros (M7)](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md) | [EWT (M4)](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [Ouroboros (M6)](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [MIT (M8)](openwave/xperiments/m8_mit/__M8_model_briefing.md) |
+| --- | --- | --- | --- | --- | --- |
+| ✅ validated in-platform | 9 | 0 | 0 | 3 | 0 |
+| ⚠️ partial / with caveats | 7 | 8 | 8 | 3 | 1 |
+| ❌ honest negative | 0 | 0 | 3 | 3 | 0 |
+| 🔶 in progress | 0 | 0 | 0 | 0 | 0 |
+| 🚧 planned / not yet | 5 | 13 | 10 | 12 | 20 |
+| **Total criteria** | **21** | **21** | **21** | **21** | **21** |
+
+**Column order:** models are sequenced by their validated + partial count (✅ + ⚠️), highest first; ties break toward more ✅ (validated), then fewer ❌ (honest negatives). The order updates as validations land.
 
 ## PARTICLES (full spectrum)
 
@@ -81,17 +82,6 @@ Every file reference is an active link to the file in this repository (under `op
 | EM waves (Maxwell) | ✅ [validated in-platform]<br>Maxwell recovered by two independent routes: the hydrodynamic dictionary (abelian) and Faber's curvature R = Γ×Γ; tilt modes propagate at c, with the divergence/curl (electric/magnetic) decomposition of each defect's outgoing wave<br>[`m5_6_4a_hydro_em.py`](openwave/xperiments/m5_liquid_crystal/research/scripts/m5_6_4a_hydro_em.py), [`m5_6_4b_faber_curvature_em.py`](openwave/xperiments/m5_liquid_crystal/research/scripts/m5_6_4b_faber_curvature_em.py) | ⚠️ [partially validated]<br>A_μ is the Maxwell four-potential by construction, and the coupled vacuum's band structure is MEASURED (growth rate 0.785 vs analytic 0.786): a propagating KG branch plus an unconditional long-wavelength tachyonic band (det M(0) = −1): the truncation's vacuum is not pure Maxwell, the honest open theory question (Q14)<br>[`m7_5_clock_stability.py`](openwave/xperiments/m7_hydroboros/research/scripts/m7_5_clock_stability.py) | ⚠️ [partially validated]<br>Scalar wave propagation only (no polarization structure)<br>[`research/`](openwave/xperiments/m3_wolff_lafreniere/research/)<br>→ open issue: [#203](https://github.com/openwave-labs/openwave/issues/203) | ✅ [validated in-platform]<br>A_μ is the electromagnetic four-potential by construction; delocalized J-field wave modes coexist with solitons<br>[`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/archive/0d_canonical.md) | 🚧 [not yet tested]<br>No field model of radiation (photon massless at the edge-only layer level, a structural label)<br>(none yet) |
 | Quantum wave equation (Klein-Gordon) | ✅ [validated in-platform]<br>Klein-Gordon emerges from the biaxial twist with GEOMETRIC mass (minimal coupling to the hedgehog connection; the explicit mass term cancels, core regularization generates it)<br>[`m5_6_1_kg_operator_check.py`](openwave/xperiments/m5_liquid_crystal/research/scripts/m5_6_1_kg_operator_check.py), [`m5_6_1b_twist_evolution.py`](openwave/xperiments/m5_liquid_crystal/research/scripts/m5_6_1b_twist_evolution.py) | ⚠️ [partially validated]<br>Both transverse fluctuation branches are exact KG dispersions ω² = k² + m_eff² with m_eff² = (1+√5)/2 (upper) and −(√5−1)/2 (the tachyonic band), lattice-anchored via the measured rate; the collective-coordinate (phase/twist) KG remains open<br>[`m7_6_observables.md`](openwave/xperiments/m7_hydroboros/research/tasks/m7_6_observables.md) | ⚠️ [partially validated]<br>The scalar wave equation is the postulated substrate, not an emergent result<br>[`0_WAVE_EQUATION.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_WAVE_EQUATION.md)<br>→ open issue: [#203](https://github.com/openwave-labs/openwave/issues/203) | 🚧 [not yet tested]<br>QM not derived; the classical field carries the e^{iωt} ansatz, quantum behavior is outside current scope<br>(none yet) | 🚧 [not yet tested]<br>No native field equation exists; supplying one on S³/2I is the M8 program's central goal (the M8.4 Lagrangian-family survey)<br>[`m8_background.md`](openwave/xperiments/m8_mit/research/m8_background.md) |
 | Orbital quantization (atomic structure) | 🚧 [not yet tested]<br>With the electron clock established, coupled pilot waves give orbit quantization as the coupled wave's standing-wave resonance (the hydrodynamic-quantum-analogs route; KG-around-hedgehog, arXiv:2108.07896 Fig. 9; Perrard et al., Nat. Commun. ncomms4219); EM Coulomb + de Broglie quantization, cross-mass-class binding deferred to 15a. Electron-trajectory precedents (pilot-wave hydrodynamic analogs + the classical free-fall picture) gathered in [`theory/pilot_wave/`](openwave/xperiments/m5_liquid_crystal/theory/pilot_wave/)<br>[`m5_15a_composite_particles.md`](openwave/xperiments/m5_liquid_crystal/research/tasks/m5_15a_composite_particles.md) | 🚧 [not yet tested]<br>M7.22 target<br>(none yet) | ⚠️ [partially validated]<br>Standing-wave lock-in demonstrated: same-phase wave centers sit in energy wells at λ separation; selectivity fragile under perturbation<br>[`0_STATUS.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_STATUS.md) | 🚧 [not yet tested]<br>Not addressed<br>(none yet) | 🚧 [not yet tested]<br>Not addressed<br>(none yet) |
-
-### Summary Count
-
-| Status | [Liquid Crystal (M5)](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [HydroBoros (M7)](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md) | [EWT (M4)](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [Ouroboros (M6)](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [MIT (M8)](openwave/xperiments/m8_mit/__M8_model_briefing.md) |
-| --- | --- | --- | --- | --- | --- |
-| ✅ validated in-platform | 9 | 0 | 0 | 3 | 0 |
-| ⚠️ partial / with caveats | 7 | 8 | 8 | 3 | 1 |
-| ❌ honest negative | 0 | 0 | 3 | 3 | 0 |
-| 🔶 in progress | 0 | 0 | 0 | 0 | 0 |
-| 🚧 planned / not yet | 5 | 13 | 10 | 12 | 20 |
-| **Total criteria** | **21** | **21** | **21** | **21** | **21** |
 
 ## Reading the table
 
