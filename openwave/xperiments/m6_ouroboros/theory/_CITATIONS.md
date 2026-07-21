@@ -1,10 +1,12 @@
-# m6_ouroboros , theory/zenodo citations (the author's Zenodo corpus)
+# m6_ouroboros , theory citations (the author's Zenodo corpus)
 
 > **These documents are NOT in git.** Third-party copyrighted author publications, kept
 > **local only** and gitignored (OpenWave is a public repo). This manifest is the tracked
 > record; every item is openly available from Zenodo at the DOI listed below.
 
 Total: 33 local-only files across 29 Zenodo records (harvested 2026-07-20).
+
+> **This is the current M6 corpus**, held at `theory/` root. The older author-shared drafts that predate this harvest were moved to [`archive/_CITATIONS.md`](archive/_CITATIONS.md) on 2026-07-20; where the two overlap, the Zenodo record listed here is canonical.
 
 **Provenance**: Zenodo API query `metadata.creators.person_or_org.name:"Werbos, Paul"`, default (latest-version) filter. Verified latest-only: the same query with `all_versions=1` reports 65 records against these 29, so each entry here is the newest version of its concept. Every file was md5-verified against the Zenodo checksum on download (33/33 matched).
 

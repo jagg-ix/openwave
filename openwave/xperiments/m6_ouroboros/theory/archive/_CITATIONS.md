@@ -1,4 +1,4 @@
-# m6_ouroboros , theory citations
+# m6_ouroboros , theory/archive citations (superseded author drafts)
 
 > **These documents are NOT in git.** This folder holds third-party copyrighted research
 > papers / author docs, kept **local only** and gitignored (OpenWave is a public repo). This
@@ -7,7 +7,7 @@
 
 Total: 31 local-only documents (as of 2026-07-03).
 
-> **Subfolders carry their own manifests.** [`zenodo/_CITATIONS.md`](../zenodo/_CITATIONS.md): the author's full Zenodo corpus, 33 files across 29 records, harvested 2026-07-20 (latest version of each concept, every file md5-verified, real DOIs). That harvest is the current-state source for the M6 refresh; the loose files listed below are the older author-shared drafts and predate it, so where the two overlap the Zenodo record is canonical.
+> **This folder is the superseded corpus.** The current M6 corpus is the author's full Zenodo harvest, now at `theory/` root: [`../_CITATIONS.md`](../_CITATIONS.md), 33 files across 29 records, harvested 2026-07-20 (latest version of each concept, every file md5-verified, real DOIs). The files listed below are the older author-shared drafts and predate that harvest, so where the two overlap the Zenodo record is canonical.
 
 Citation keys are stable `AuthorYear` handles; this corpus is dominated by author-shared working documents (Werbos et al., mostly .docx/.pdf drafts) with no journal DOI, marked `author doc`; any genuinely published items get a verified DOI/arXiv.
 
