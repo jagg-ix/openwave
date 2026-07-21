@@ -104,7 +104,7 @@ canonical § 4 ledger). [M6.2](research/m6_roadmap.md) is the decision gate.
 
 | Next | What lands |
 | --- | --- |
-| [M6.1](research/m6_roadmap.md) spec certification gate (small) | the v11 validation target frozen into one convention sheet; v4 characterized for the record (what is checkable in a day + the unspecified C[φ] documented) |
+| ✅ [M6.1](research/tasks/m6_1_task_details.md) spec certification gate (DONE 2026-07-20) | the v11 spec certified: [convention sheet](research/m6_1_v11_convention_sheet.md) with the FIXED-vs-GAP pre-registration checklist; v4 characterized script-backed (EL unclosable, boundedness verified, A-linearity generic); four print-level v11 defects ledgered (canonical § 4); adversarial audit 9/10 CONFIRMED ([method note](research/m6_1_method_note.md)) |
 | [M6.2](research/m6_roadmap.md) THE DECISION GATE | H/Q under pre-registered conventions, no search: the electron cell re-earned (program continues) or honestly closed (M6 returns to hold on its DM sector + M7 lineage) |
 | [M6.3](research/m6_roadmap.md) charge quantization in-platform | Q_CS computed on the converged chaoiton: ⚠️ → ✅ or the honest negative (rides M6.2 branch (a)) |
 | [M6.4](research/m6_roadmap.md) stability census + ω-selection | the GF scan rerun + reconciled; any discreteness mechanism, or the clean bound (valuable on either M6.2 branch) |
