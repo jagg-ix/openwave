@@ -79,8 +79,53 @@ claims; if the numbers land somewhere else, that IS the result (the M6 lesson).
 
 ## DEVIATIONS LOG
 
-(none yet)
+(none: the pre-registered protocol ran unmodified; the only correction of the run,
+AF-1, was an audit finding about the solver's summary wording, dispositioned in the
+method note § 5)
 
 ## FINDINGS
 
-(pending execution)
+Full record with plots and the audit: [`../findings/m8_1_method_note.md`](../findings/m8_1_method_note.md).
+
+| ID | Finding |
+| --- | --- |
+| F1 | THE GATE PASSES. C1 + C2 ✅: the first positive eigenvalue is 2/R² across the narrow band and α₀(α₀+1)/R² beyond, confirmed by two mutually independent blind implementations (weighted FEM + Frobenius series vs Chebyshev collocation + Riccati shooting) agreeing to ≤ 1.4e-8, inside stated error bars, including two W points the solver never ran |
+| F2 | C3 ✅ in the strongest possible form: the extension-stability threshold was BISECTED BLIND to δ₀* = 0.7357588823, equal to the author's claimed 2R/e = 0.7357588823 to 1e-12. Neither agent ever saw the constant |
+| F3 | C4 ✅: Friedrichs bottom is exactly 0 (the discontinuous ± zero mode, residual 1e-13); the bridging family carries exactly one negative defect state at every δ₀, and the blind-extrapolated coefficient C0 = −1.2609470067 equals the claimed −4e^(−2γ) to 10 digits |
+| F4 | C5 ✅: all six spec-fidelity audit checks passed; one defect found and dispositioned (AF-1: the solver's summary stated the stability onset at its grid point 1.3895 instead of the true transition; its number tables were correct throughout) |
+| F5 | Independent structural corroboration: the auditor, blind, re-derived the exact sector ladder λ = (m_n + j)(m_n + j + 1), the same Legendre structure the author's proof uses, with seam parity dropping out of the eigenvalues, exactly as the paper's §-structure implies |
+| F6 | Consequence for the column: the MIT arena's headline operator statement (Theorems 1.1 + 1.2 of the first-eigenvalue paper) is now VERIFIED IN-PLATFORM at 10-digit precision. This clears the author's own "awaiting independent verification" block and satisfies the M8.2 gating condition. The Λ = 3/R² inference (Gauss-Codazzi step, the R-problem) remains a separate, untested chain link |
+
+Artifacts: `scripts/m8_1_eigensolve.py`, `m8_1_eigensolve_xcheck.py`,
+`m8_1_audit_eigensolve.py`, `m8_1_plots.py`; `data/m8_1_{spectrum,delta_scan,xcheck,audit}.json`;
+`plots/m8_1_{lambda1_vs_W,delta_scan,convergence}.png` (embedded in the method note).
+
+## TASK REVIEW (2026-07-21)
+
+`Task Duration: 01:07 (from 12:54 to 14:01 EDT)`
+`Usage Cap Triggered: NO`
+
+| Item | Outcome |
+| --- | --- |
+| C1 narrow-band 2/R² | ✅ CONFIRMED exact (two blind implementations, 1.3e-10 agreement; audit closed-form covers all W ≤ πR/2; new blind W = 0.45) |
+| C2 wide branch + crossing | ✅ CONFIRMED to every digit (new blind W = 2.0 → 1.4022484374 vs 1.4022484385) |
+| C3 stability threshold | ✅ CONFIRMED strongest form: δ₀* bisected blind = 0.7357588823 = 2R/e (1e-12) |
+| C4 bottom structure | ✅ CONFIRMED: zero mode exact; one bound state; C0 = −1.2609470067 = −4e^(−2γ) (10 digits, blind) |
+| C5 spec fidelity | ✅ audit 6/6; AF-1 (solver summary threshold wording = grid granularity) dispositioned in the method note § 5 |
+
+Issues: AF-1 only (reporting wording, not numerics). Deviations: none.
+
+**Findings**: The MIT arena's headline operator statement (Theorems 1.1 + 1.2 of the
+first-eigenvalue paper) survived a fully blind, two-agent, adversarially audited
+verification at 10-digit precision, with the theory's structural constants (2/R²,
+2R/e, −4e^(−2γ)) re-derived by agents that never saw them. The M8 certification gate
+PASSES, clearing the author's verification block, satisfying the M8.2 gating
+condition, and flipping the column's first MODELS.md cell (gravity 🚧 → ⚠️).
+
+**Research docs created/updated**:
+[`m8_1_task_details.md`](m8_1_task_details.md) (this doc),
+[`../findings/m8_1_method_note.md`](../findings/m8_1_method_note.md),
+[`../m8_theory_canonical.md`](../m8_theory_canonical.md) (§ 3 flips),
+[`../m8_roadmap.md`](../m8_roadmap.md) (M8.1 → Done),
+[`../../__M8_model_briefing.md`](../../__M8_model_briefing.md) (status + roadmap + help-wanted rows),
+[`MODELS.md`](../../../../../MODELS.md) (gravity cell ⚠️, counts 1 ⚠️ / 20 🚧).

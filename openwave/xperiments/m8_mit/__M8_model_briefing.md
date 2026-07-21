@@ -16,9 +16,10 @@
 > the content below is adapted from the briefing the author submitted there. The
 > author owns the science; the platform supplies the arena, the standards, and the
 > cross-model pointers ([`research/m8_platform_pointers.md`](research/m8_platform_pointers.md)).
-> No sector has run in-platform yet: MIT's existing results are analytic or externally
-> computed, and three of them are pre-registered documented negatives the author
-> reports as results. The MODELS.md column starts at 21 🚧 accordingly. Work runs
+> The first sector is now VALIDATED in-platform: M8.1 (2026-07-21) verified the
+> twisted-Möbius first-eigenvalue theorem at 10-digit precision, blind and audited.
+> MIT's other results remain analytic or externally computed, and three of them are
+> pre-registered documented negatives the author reports as results. Work runs
 > headless (scripts + research notes) first; the 3D rendering port is a later stage,
 > gated on field dynamics validating in-platform
 > ([`research/m8_roadmap.md`](research/m8_roadmap.md) M8.7).
@@ -98,7 +99,7 @@ documented negative is a result.
 
 | Sector | Status |
 | --- | --- |
-| Λ = first-positive eigenvalue 2/R² (twisted Möbius Laplacian) | 🚧 planned in-platform, THE FIRST GATE (M8.1, maintainer-run). Analytic result exists (bedrock paper) but awaits independent verification; the OpenWave validation is a direct numerical eigensolve of the discretized twisted Laplacian, run per [`ONBOARDING_MODELS.md`](../../../ONBOARDING_MODELS.md) § 6 independence (script and number, by an agent that has not read the derivation) |
+| Λ = first-positive eigenvalue 2/R² (twisted Möbius Laplacian) | ✅ VERIFIED in-platform (M8.1, 2026-07-21): blind two-agent eigensolve per [`ONBOARDING_MODELS.md`](../../../ONBOARDING_MODELS.md) § 6, adversarially audited (6/6 fidelity checks); 2/R², the α₀(α₀+1)/R² wide branch, the 2R/e stability threshold and the −4e^(−2γ)/δ₀² defect state all confirmed at 10-digit precision by agents that never saw the claimed values. The Λ = 3/R² inference (Gauss-Codazzi step + the R-problem) remains open ([`research/findings/m8_1_method_note.md`](research/findings/m8_1_method_note.md)) |
 | Fermion mass spectrum (24 entries) | 🚧 planned in-platform / analytic-only today. Reproducible as a script from recomputed constants (M8.3), the same category the platform scores EWT's masses under ("from analytic equations, not in-sim dynamics"). Residuals listed above; evidence graded at the ledger's own weight (the torsion null caps the ×3 hit-rate claim) |
 | Yang-Mills mass gap 4/R² on S³/2I | 🚧 planned in-platform. Analytic (the coexact-gap bedrock paper) |
 | Charge / color quantization | 🚧 planned in-platform. Structural in MIT (2I stabilizers); not run in the engine |
@@ -113,7 +114,7 @@ Full program with gates and ownership: [`research/m8_roadmap.md`](research/m8_ro
 
 | Task | What lands |
 | --- | --- |
-| M8.1 | THE CERTIFICATION GATE (maintainer-run): independent eigensolve of the twisted Möbius Laplacian, confirming or refuting the first positive eigenvalue 2/R² and its extension-stability |
+| M8.1 | ✅ DONE (2026-07-21): the certification gate PASSED: independent blind eigensolve + adversarial audit confirmed 2/R², the wide branch, the 2R/e threshold and the defect-state asymptotic at 10-digit precision ([`research/findings/m8_1_method_note.md`](research/findings/m8_1_method_note.md)) |
 | M8.2 | Pre-registration lock for the field-dynamics program (targets + success criteria BEFORE any run) |
 | M8.3 | Mass-formula reproducer: every constant recomputed from its definition, assembly scripted |
 | M8.4 | Lagrangian-family survey on S³/2I (candidates drawn from M4/M5/M7; Derrick analysis on a compact arena) |
@@ -129,7 +130,7 @@ M8.1 adopted by the maintainers:
 | Contribution | What it would settle |
 | --- | --- |
 | A field dynamics | the central gap: a Lagrangian whose defect or standing-wave spectrum on S³/2I matches the McKay-distance mass ladder. MIT supplies the target structure; it needs the equation of motion |
-| Independent recompute of 2/R² | adopted as M8.1 (maintainer-run), in the § 6 reproducer / independent-recomputer sense: script and number, not a verdict |
+| Independent recompute of 2/R² | ✅ delivered as M8.1 (2026-07-21): script and number, blind and audited; the author's verification block is cleared |
 | Adversarial parameter count | a hostile § 4 pass on the mass and coupling sectors. The author's ledger already runs one and expects the freedom to be non-trivial; an independent counter is welcome to check it |
 
 Flow: open an issue or discussion → fork → branch → PR with a DCO sign-off
