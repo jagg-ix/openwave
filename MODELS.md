@@ -35,8 +35,8 @@ Models:
 - **M4 - EWT** (Energy Wave Theory, Jeff Yee, built on Milo Wolff and Gabriel LaFreniere pioneer work).
 - **M5 - LC** (Liquid-Crystal topological defects, Jarek Duda, with Manfried Faber inputs);
 - **M6 - Ouroboros** (Chaoiton framework, Paul Werbos);
-- **M7 - HydroBoros** (full-3D toroidal-Beltrami electron, fusing Marc Fleury's toroidal-EM electron with Paul Werbos's Ouroboros self-confinement);
-- **M8 - MIT** (Mode Identity Theory, Blake Shatto): the platform's first top-down structural model (spectral geometry + representation theory on S³/2I), onboarded 2026-07-21 via [discussion #312](https://github.com/openwave-labs/openwave/discussions/312); scaffold stage, no in-platform runs yet.
+- **M7 - HydroBoros** (toroidal-Beltrami electron, Marc Fleury's toroidal-EM electron fused with Paul Werbos's Ouroboros self-confinement);
+- **M8 - MIT** (Mode Identity Theory, Blake Shatto): top-down structural model (spectral geometry + representation theory on S³/2I)
 
 **Column order:** models are sequenced by their validated + partial count (✅ + ⚠️ in the [Summary count](#summary-count) below), highest first; ties break toward more ✅ (validated), then fewer ❌ (honest negatives): M5 (16), M7 (8, 0 ❌), M4 (8, 3 ❌), M6 (6, after the 2026-07-20 M6.2 decision-gate close of its electron sector), M8 (1, first validated sector: the M8.1 certification gate passed 2026-07-21). The order updates as validations land.
 
