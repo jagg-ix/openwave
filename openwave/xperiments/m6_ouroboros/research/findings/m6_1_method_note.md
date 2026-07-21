@@ -1,6 +1,6 @@
 # M6.1 method note: the spec certification gate
 
-> Task [M6.1](tasks/m6_1_task_details.md), 2026-07-20. Standard: [`dev_docs/METHOD_NOTE.md`](../../../../dev_docs/METHOD_NOTE.md) (equations first, equation-to-code map, results after methods, not-computed list, adversarial audit). Subject records: **LoE v11** (Zenodo [20357670](https://zenodo.org/records/20357670), the frozen validation spec) and **Ouroboros+Eli+Fable v4** (Zenodo [21447590](https://zenodo.org/records/21447590), the current published spec). Everything here characterizes the specs AS PRINTED; no BVP is solved and no benchmark number is reproduced or contested numerically in this task (that is M6.2).
+> Task [M6.1](../tasks/m6_1_task_details.md), 2026-07-20. Standard: [`dev_docs/METHOD_NOTE.md`](../../../../../dev_docs/METHOD_NOTE.md) (equations first, equation-to-code map, results after methods, not-computed list, adversarial audit). Subject records: **LoE v11** (Zenodo [20357670](https://zenodo.org/records/20357670), the frozen validation spec) and **Ouroboros+Eli+Fable v4** (Zenodo [21447590](https://zenodo.org/records/21447590), the current published spec). Everything here characterizes the specs AS PRINTED; no BVP is solved and no benchmark number is reproduced or contested numerically in this task (that is M6.2).
 
 ## 1. The equations under examination
 
@@ -48,7 +48,7 @@ Physical constants: `e_nat = √(4πα)`, `α⁻¹ = 137.035999`, `m_e = 0.511 M
 | V7 | in-medium tadpole minimum | `:173` | [V7](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m6_ouroboros/research/scripts/m6_1_v4_characterization.py#L173-L182) |
 | V8 | `ℏc/m` range table | `:183` | [V8](https://github.com/openwave-labs/openwave/blob/main/openwave/xperiments/m6_ouroboros/research/scripts/m6_1_v4_characterization.py#L183-L188) |
 
-Outputs: [`data/m6_1_v11_conventions.json`](data/m6_1_v11_conventions.json) · [`data/m6_1_v4_characterization.json`](data/m6_1_v4_characterization.json) · [`plots/m6_1_v4_veff_range.png`](plots/m6_1_v4_veff_range.png).
+Outputs: [`data/m6_1_v11_conventions.json`](../data/m6_1_v11_conventions.json) · [`data/m6_1_v4_characterization.json`](../data/m6_1_v4_characterization.json) · [`plots/m6_1_v4_veff_range.png`](../plots/m6_1_v4_veff_range.png).
 
 ## 3. Results, arm (a): the v11 certification (C1-C6)
 
@@ -61,7 +61,7 @@ Outputs: [`data/m6_1_v11_conventions.json`](data/m6_1_v11_conventions.json) · [
 | C5 | `r̂ × ∇φ(r) ≡ 0` symbolically: the printed § 5.1 production ansatz is vacuous as written | ✅ measured |
 | C6 | The printed EL pair is the EL system of `−¼F² − ¼G² + J·A − g(J·J)²` under **mostly-plus signature (−,+,+,+)**, not of the printed `ℒ` under either signature; rescaling cannot repair it (the −4g in (2.2) pins the scale); v11 states no signature | ✅ measured |
 
-Consequences are encoded in the convention sheet ([`m6_1_v11_convention_sheet.md`](m6_1_v11_convention_sheet.md)): dynamics-of-record = the EL pair; `ℒ_ref` carries the ¼'s; signature, H functional, Q definition, and ansatz are pre-registration GAPs for M6.2.
+Consequences are encoded in the convention sheet ([`m6_1_v11_convention_sheet.md`](../m6_1_v11_convention_sheet.md)): dynamics-of-record = the EL pair; `ℒ_ref` carries the ¼'s; signature, H functional, Q definition, and ansatz are pre-registration GAPs for M6.2.
 
 ## 4. Results, arm (b): the v4 characterization (V1-V8)
 
@@ -76,7 +76,7 @@ Consequences are encoded in the convention sheet ([`m6_1_v11_convention_sheet.md
 | V7 | The `φ` in `E_int ≈ gφA` is fixed by nothing in the paper; the self-consistent in-medium minimum is `φ_min = −(6gρ/λ)^{1/3}` (≈ −34 MeV at λ = 1 with the July g_J), λ unpinned | ✅ measured |
 | V8 | Mass migration: 0.460 MeV ↔ 429.0 fm (v4) · 0.618 MeV ↔ 319.3 fm (v11 mediator) · 1.033 MeV ↔ 191.0 fm (July 5/8) | ✅ measured |
 
-![v4 effective potential and Yukawa-vs-1/r deviation](plots/m6_1_v4_veff_range.png)
+![v4 effective potential and Yukawa-vs-1/r deviation](../plots/m6_1_v4_veff_range.png)
 
 ## 5. Not computed (explicitly out of this task's scope)
 
@@ -91,7 +91,7 @@ Consequences are encoded in the convention sheet ([`m6_1_v11_convention_sheet.md
 
 ## 6. Adversarial audit
 
-Independent refutation agent, own derivations and scripts (no reuse of the task's code; hand covariant computation cross-checked by its own full-4D sympy Euler operator with NO gauge fixing; own integration profiles; own CODATA arithmetic), per the AI_HYGIENE cardinal rule. Audit scripts preserved: [`scripts/m6_1_audit_a1_el.py`](scripts/m6_1_audit_a1_el.py), [`scripts/m6_1_audit_a2_ansatz.py`](scripts/m6_1_audit_a2_ansatz.py), [`scripts/m6_1_audit_a6_a7.py`](scripts/m6_1_audit_a6_a7.py), [`scripts/m6_1_audit_numeric.py`](scripts/m6_1_audit_numeric.py).
+Independent refutation agent, own derivations and scripts (no reuse of the task's code; hand covariant computation cross-checked by its own full-4D sympy Euler operator with NO gauge fixing; own integration profiles; own CODATA arithmetic), per the AI_HYGIENE cardinal rule. Audit scripts preserved: [`scripts/m6_1_audit_a1_el.py`](../scripts/m6_1_audit_a1_el.py), [`scripts/m6_1_audit_a2_ansatz.py`](../scripts/m6_1_audit_a2_ansatz.py), [`scripts/m6_1_audit_a6_a7.py`](../scripts/m6_1_audit_a6_a7.py), [`scripts/m6_1_audit_numeric.py`](../scripts/m6_1_audit_numeric.py).
 
 | Claim | Verdict | Auditor's independent evidence (condensed) |
 | --- | --- | --- |
@@ -115,4 +115,4 @@ Overturn scan: negative (no metric signature statement anywhere in v11; no print
 
 ## 7. Cross-links
 
-Task details: [`tasks/m6_1_task_details.md`](tasks/m6_1_task_details.md) · convention sheet: [`m6_1_v11_convention_sheet.md`](m6_1_v11_convention_sheet.md) · scripts: [`scripts/m6_1_v11_conventions_check.py`](scripts/m6_1_v11_conventions_check.py), [`scripts/m6_1_v4_characterization.py`](scripts/m6_1_v4_characterization.py) · data: [`data/m6_1_v11_conventions.json`](data/m6_1_v11_conventions.json), [`data/m6_1_v4_characterization.json`](data/m6_1_v4_characterization.json) · plot: [`plots/m6_1_v4_veff_range.png`](plots/m6_1_v4_veff_range.png) · canonical: [`m6_theory_canonical.md`](m6_theory_canonical.md) · roadmap: [`m6_roadmap.md`](m6_roadmap.md).
+Task details: [`tasks/m6_1_task_details.md`](../tasks/m6_1_task_details.md) · convention sheet: [`m6_1_v11_convention_sheet.md`](../m6_1_v11_convention_sheet.md) · scripts: [`scripts/m6_1_v11_conventions_check.py`](../scripts/m6_1_v11_conventions_check.py), [`scripts/m6_1_v4_characterization.py`](../scripts/m6_1_v4_characterization.py) · data: [`data/m6_1_v11_conventions.json`](../data/m6_1_v11_conventions.json), [`data/m6_1_v4_characterization.json`](../data/m6_1_v4_characterization.json) · plot: [`plots/m6_1_v4_veff_range.png`](../plots/m6_1_v4_veff_range.png) · canonical: [`m6_theory_canonical.md`](../m6_theory_canonical.md) · roadmap: [`m6_roadmap.md`](../m6_roadmap.md).

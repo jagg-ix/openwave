@@ -1,6 +1,6 @@
 # The v11 convention sheet: the frozen spec M6 validates against
 
-> **Produced by task [M6.1](tasks/m6_1_task_details.md) (2026-07-20).** Pins the M6 validation spec to **LoE v11, Zenodo [20357670](https://zenodo.org/records/20357670)** (2026-05-23), the record the archive era validated against and the M7 3D program carries, per the roadmap's pre-analysis decision ([`m6_roadmap.md`](m6_roadmap.md)). Every convention a later task needs is classified **FIXED-BY-PAPER** (with the section cite) or **GAP** (the paper does not fix it; the consuming task must DERIVE and pre-register it before running, selection-to-match-targets prohibited per the canonical § 6 rules). Machine checks behind every claim here: [`scripts/m6_1_v11_conventions_check.py`](scripts/m6_1_v11_conventions_check.py) → [`data/m6_1_v11_conventions.json`](data/m6_1_v11_conventions.json); method note: [`m6_1_method_note.md`](m6_1_method_note.md).
+> **Produced by task [M6.1](tasks/m6_1_task_details.md) (2026-07-20).** Pins the M6 validation spec to **LoE v11, Zenodo [20357670](https://zenodo.org/records/20357670)** (2026-05-23), the record the archive era validated against and the M7 3D program carries, per the roadmap's pre-analysis decision ([`m6_roadmap.md`](m6_roadmap.md)). Every convention a later task needs is classified **FIXED-BY-PAPER** (with the section cite) or **GAP** (the paper does not fix it; the consuming task must DERIVE and pre-register it before running, selection-to-match-targets prohibited per the canonical § 6 rules). Machine checks behind every claim here: [`scripts/m6_1_v11_conventions_check.py`](scripts/m6_1_v11_conventions_check.py) → [`data/m6_1_v11_conventions.json`](data/m6_1_v11_conventions.json); method note: [`m6_1_method_note.md`](findings/m6_1_method_note.md).
 
 ## 1. The spec as printed (v11, verbatim anchors)
 
@@ -60,7 +60,7 @@ Script-verified label inconsistencies inside v11 itself:
 | Q_CS prefactor | ✅ FIXED (as printed) | `1/(4π²)` (§ 4); consumers do NOT re-derive it silently; if a derivation disagrees, that is a reportable result |
 | Targets | ✅ FIXED | physical 1.6875 (derivation in § 3 above); 1.6969 comparison-only |
 | Physical scale | 🔶 PARTIAL | procedure fixed (§ 8 Step 3) but not reproducible from printed numbers (needs H_code = 0.4946, unprinted); re-derive alongside |
-| Coupling mass scale μ² | ⚠️ GAP (implicit) | dimensionally, `[J] = 1` (forced by G²) makes the J·A term dim 2 and (2.1) `□A = J` dim-inconsistent; both hold only with an implicit `μ² = 1` in code units (audit finding AF2, [method note § 6](m6_1_method_note.md)); any physical-units mapping must state μ, and v11 § 7.1's "[g] = −4" (the superrenormalizability power-counting input) follows from no consistent assignment of the printed ℒ |
+| Coupling mass scale μ² | ⚠️ GAP (implicit) | dimensionally, `[J] = 1` (forced by G²) makes the J·A term dim 2 and (2.1) `□A = J` dim-inconsistent; both hold only with an implicit `μ² = 1` in code units (audit finding AF2, [method note § 6](findings/m6_1_method_note.md)); any physical-units mapping must state μ, and v11 § 7.1's "[g] = −4" (the superrenormalizability power-counting input) follows from no consistent assignment of the printed ℒ |
 | Boundary conditions / solver | ❌ GAP | nothing printed; pre-register |
 
 ## 5. Notation-drift resolution (across the record, resolved to v11)
@@ -76,4 +76,4 @@ Script-verified label inconsistencies inside v11 itself:
 
 ## 6. Cross-links
 
-Task: [`tasks/m6_1_task_details.md`](tasks/m6_1_task_details.md) · script: [`scripts/m6_1_v11_conventions_check.py`](scripts/m6_1_v11_conventions_check.py) · data: [`data/m6_1_v11_conventions.json`](data/m6_1_v11_conventions.json) · method note: [`m6_1_method_note.md`](m6_1_method_note.md) · canonical: [`m6_theory_canonical.md`](m6_theory_canonical.md) (§ 2 version lineage, § 4 provenance ledger, § 6 consumption rules) · roadmap: [`m6_roadmap.md`](m6_roadmap.md) (M6.2 pre-registers against § 4 of this sheet).
+Task: [`tasks/m6_1_task_details.md`](tasks/m6_1_task_details.md) · script: [`scripts/m6_1_v11_conventions_check.py`](scripts/m6_1_v11_conventions_check.py) · data: [`data/m6_1_v11_conventions.json`](data/m6_1_v11_conventions.json) · method note: [`m6_1_method_note.md`](findings/m6_1_method_note.md) · canonical: [`m6_theory_canonical.md`](m6_theory_canonical.md) (§ 2 version lineage, § 4 provenance ledger, § 6 consumption rules) · roadmap: [`m6_roadmap.md`](m6_roadmap.md) (M6.2 pre-registers against § 4 of this sheet).

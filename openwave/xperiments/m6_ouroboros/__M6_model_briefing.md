@@ -30,7 +30,7 @@
 | Particle | chaoiton = localized time-periodic soliton; charge = mutual Chern-Simons linking Q_CS (= Hopf invariant) in the two-vector era |
 | Derrick escape | time-periodicity / oscillation (the "third escape"): genuine and in-platform |
 | EM | `A_μ` IS the EM 4-potential; Maxwell exact in the J→0 linear limit (two-vector era; v4's scalar has no EM sector) |
-| Electron benchmark | H/Q: publicly downgraded by the author's July 8 record to a WINDOW-DEFINED internal quantity (code-to-code reproduction 4.7e-5, M7); the full provenance ledger is the canonical § 4; clean re-derivation = M6.2 |
+| Electron benchmark | **CLOSED (M6.2 decision gate, 2026-07-20, branch (b))**: the pre-registered no-search re-derivation found the published H/Q = 1.689 to be a code artifact (H not the spec's energy, Q no Noether charge, ODE = the z20274505 mass-term variant) evaluated on a provably non-localized state at one integration window; full record [`research/findings/m6_2_method_note.md`](research/findings/m6_2_method_note.md), ledger canonical § 4 |
 | DM candidate | neutral chaoiton m_χ = 0.460 MeV + mediator m_J = 0.6184 MeV parameter-free (in-platform, archive era); v4 promotes 0.460 MeV to the fundamental field mass |
 | Free parameters | two-vector era: 3 claimed (g, λ, ω), with ω scan-fitted per lepton and no discreteness mechanism (the standing open question); v4: m_φ, λ, g plus the unspecified constraint C[φ] |
 | Formal artifacts | Lean 4: theorem STATEMENTS formalized; the existence proof is `sorry`-discharged and the formalized ODE differs from the integrated one (canonical § 4); the June GF-stability script is the corpus's most reproducible artifact |
@@ -41,7 +41,7 @@
 
 | Attribute | M6 |
 | --- | --- |
-| Parameter economy | "3 parameters" is the era claim; the refresh's corpus read documents scan-fitted ω per lepton, a recalibrated g (1.0625 → 1.0000 with the harmonics silently moving), and fit-grade conventions behind the benchmark: the honest count awaits M6.2's pre-registered re-derivation ([`research/m6_theory_canonical.md § 4`](research/m6_theory_canonical.md)) |
+| Parameter economy | "3 parameters" is the era claim; the refresh's corpus read documented scan-fitted ω per lepton, a recalibrated g (1.0625 → 1.0000 with the harmonics silently moving), and fit-grade conventions behind the benchmark, and M6.2 then closed the question: the benchmark number is not derivable from the published Lagrangian under any parameter count ([`research/m6_theory_canonical.md § 4`](research/m6_theory_canonical.md)) |
 | Formal artifacts | Lean 4 statements + the attached `chaoiton_gf_verification.py` scan (319/360 radial-GF-stable); our independent numerical reproduction of the canonical neutral profile ([`research/archive/0d_canonical.md`](research/archive/0d_canonical.md)) |
 | Self-correction record | The record contains genuine public corrections: the July 5 retraction notice (LLM-generated placeholder numbers), the July 8 Test 1 walk-back, the in-era artifact retractions (23-solution and 1,208-solution claims). The refresh treats this as the working norm: claims are graded by what survives independent rerun |
 | Falsifiable near-term tests | v4's A-linear vs A² six-domain suite; DAMA per-bin amplitude table; solar-wind modulation (sidereal split); sub-MeV searches; the A-scaling sensor discriminator (R = 1.125 nuclear vs 1.108 EM) from the author's detection-disclosure record |
@@ -69,21 +69,23 @@ for static configurations while the solutions are time-periodic.
 
 ## Implementation Status
 
-9 of 21 [`MODELS.md`](../../../MODELS.md) criteria carried (4 ✅, 5 ⚠️), 0 ❌, 12 🚧, ALL
-earned in the archive era against the two-vector May 2026 spec. The refresh may move
-cells in both directions: M6.2/M6.3 re-derive the electron-sector cells under
-pre-registered conventions, and a failed re-derivation downgrades the cell as a
-deliverable. Nothing from the July-era theory (+Eli, v4) is validated in-platform yet.
+After the 2026-07-20 refresh day: 3 ✅ / 3 ⚠️ / 3 ❌ / 12 🚧 on the 21
+[`MODELS.md`](../../../MODELS.md) criteria. The three honest negatives (electron mass,
+lepton spectrum, pion) were earned by the M6.2 decision gate's pre-registered no-search
+re-derivation, exactly the "cells move in both directions" contract; the three ✅
+(neutral-sector stability, DM candidate, Maxwell-by-construction) are archive-era,
+two-vector results and stand. Nothing from the July-era theory (+Eli, v4) is validated
+in-platform.
 
 | Sector | Status |
 | --- | --- |
-| Particle stability | ✅ era: nodeless neutral BVP ground state (K₁ tail); oscillation as the genuine Derrick escape; census caveats (radial-only GF, 62/319/62 count) → M6.4 |
+| Particle stability | ✅ era (neutral sector): nodeless neutral BVP ground state (K₁ tail); oscillation as the genuine Derrick escape; the CHARGED calibration state is proven non-localized (M6.2 audit); census caveats (radial-only GF, 62/319/62 count) → M6.4 |
 | Dark-matter candidate | ✅ era: m_χ = 0.460 MeV, parameter-free m_J (our strongest M6 result); the phenomenology chain above it (suppression factors, modulation inference) is unverified → M6.6 |
 | Maxwell EM | ✅ era: `A_μ` is the 4-potential by construction (two-vector spec; absent from v4) |
-| Electron rest mass | ✅ era, provenance-qualified: the H/Q chain is the canonical § 4 ledger (target drift; July 8 window-defined downgrade) → M6.2 re-derivation decides the cell |
-| Charge quantization | ⚠️ Lean-stated + claimed; static-proof vs time-periodic gap; never computed in-platform → M6.3 |
-| de Broglie clock | ⚠️ built into the ansatz, not emergent |
-| Lepton spectrum | ⚠️ scan-fitted ω, no selection mechanism (the standing open question) → M6.4b |
+| Electron rest mass | ❌ M6.2 (2026-07-20): the benchmark H/Q is a code artifact on a non-localized state; honest negative of record ([`research/findings/m6_2_method_note.md`](research/findings/m6_2_method_note.md)) |
+| Charge quantization | ⚠️ Lean-stated + claimed; static-proof vs time-periodic gap; never computed in-platform; M6.3 parked after branch (b) |
+| de Broglie clock | ⚠️ built into the ansatz, not emergent; the Q in L = ωQ is a coded convention (no internal U(1) exists, M6.2) |
+| Lepton spectrum | ❌ the ω ladder rides the invalidated H/Q machinery and the non-localized charged-state family (M6.2); the discreteness question stays probeable → M6.4b |
 | Magnetic moment + spin | the published g-factor match is the identity L = ωQ with ω chosen (v11's own footnote concedes this); honest status: not independently evidenced |
 | Nuclear sector (v4's stake) | 🚧 the six-domain A-linear program is public-notebook grade, unaudited; the Sawada anomaly is described three inconsistent ways across the record → M6.5 |
 | Quarks · baryons · weak · gravity · KG · orbitals | 🚧 not addressed (gravity explicitly out of scope "prior to gravity"; a Carmeli 5D embedding is asserted without equations) |
@@ -100,14 +102,15 @@ record).
 The pre-analysis decision (recorded in [`research/m6_roadmap.md`](research/m6_roadmap.md)):
 the program CLOSES THE LEDGER ON THE FROZEN two-vector v11 spec rather than tracking the
 July-era moving target (three theory versions in 18 days; the drift evidence is the
-canonical § 4 ledger). [M6.2](research/m6_roadmap.md) is the decision gate.
+canonical § 4 ledger). [M6.2](research/m6_roadmap.md), the decision gate, ran the same
+day and landed **branch (b)**: the electron sector closed honestly.
 
 | Next | What lands |
 | --- | --- |
-| ✅ [M6.1](research/tasks/m6_1_task_details.md) spec certification gate (DONE 2026-07-20) | the v11 spec certified: [convention sheet](research/m6_1_v11_convention_sheet.md) with the FIXED-vs-GAP pre-registration checklist; v4 characterized script-backed (EL unclosable, boundedness verified, A-linearity generic); four print-level v11 defects ledgered (canonical § 4); adversarial audit 9/10 CONFIRMED ([method note](research/m6_1_method_note.md)) |
-| [M6.2](research/m6_roadmap.md) THE DECISION GATE | H/Q under pre-registered conventions, no search: the electron cell re-earned (program continues) or honestly closed (M6 returns to hold on its DM sector + M7 lineage) |
-| [M6.3](research/m6_roadmap.md) charge quantization in-platform | Q_CS computed on the converged chaoiton: ⚠️ → ✅ or the honest negative (rides M6.2 branch (a)) |
-| [M6.4](research/m6_roadmap.md) stability census + ω-selection | the GF scan rerun + reconciled; any discreteness mechanism, or the clean bound (valuable on either M6.2 branch) |
+| ✅ [M6.1](research/tasks/m6_1_task_details.md) spec certification gate (DONE 2026-07-20) | the v11 spec certified: [convention sheet](research/m6_1_v11_convention_sheet.md) with the FIXED-vs-GAP pre-registration checklist; v4 characterized script-backed (EL unclosable, boundedness verified, A-linearity generic); four print-level v11 defects ledgered (canonical § 4); adversarial audit 9/10 CONFIRMED ([method note](research/findings/m6_1_method_note.md)) |
+| ✅ [M6.2](research/tasks/m6_2_task_details.md) THE DECISION GATE (DONE 2026-07-20, branch (b)) | pre-registered no-search H/Q re-derivation, audited 8/8: the derived pairing gives 0.1429 vs the claimed 1.689; the state is provably non-localized and the number window-defined; electron sector closed as three honest negatives ([method note](research/findings/m6_2_method_note.md)) |
+| PARKED: [M6.3](research/m6_roadmap.md) charge quantization in-platform | gating condition (M6.2 branch (a)) unmet; parked with the July-era programs |
+| 🚧 NEXT: [M6.4](research/m6_roadmap.md) stability census + ω-selection | the GF scan rerun + reconciled; any discreteness mechanism, or the clean bound (branch-independent by design) |
 | PARKED: [M6.5](research/m6_roadmap.md) / [M6.6](research/m6_roadmap.md) | the July-era nuclear + DM fitting programs, parked until the author freezes a spec (reopening condition in the roadmap); M6.6's solar-wind arm is spec-independent and can be pulled forward alone |
 | OPTIONAL: [M6.7](research/m6_roadmap.md) the two-theories fork | only if continued engagement with the author is wanted |
 
@@ -122,7 +125,7 @@ roadmap's re-derivations. A documented *negative* counts as much as a positive.
 
 | You can contribute | How |
 | --- | --- |
-| The pre-registered H/Q re-derivation | derive the Q_CS normalization + H functional from the v11 spec, state conventions BEFORE running, report what falls out (M6.2's core) |
+| Refute the M6.2 close | the decision gate's derivation chain, numbers, and audit are fully published ([`research/findings/m6_2_method_note.md`](research/findings/m6_2_method_note.md)): find a convention under which the published H/Q IS derivable from the published Lagrangian, or a bound charged state the far-field analysis missed |
 | An ω-discreteness mechanism | find what selects the lepton ω values, or bound the term sets that cannot (M6.4b) |
 | A nuclear-domain audit | rerun any of v4's six A-linear domains from the named datasets with stated metrics (M6.5) |
 | The solar-wind protocol | execute P1-P3 from [`research/ai_analysis/2026-07-11_1630_dm_solar_wind_review.md`](research/ai_analysis/2026-07-11_1630_dm_solar_wind_review.md) on public OMNI/L1 data (M6.6b) |

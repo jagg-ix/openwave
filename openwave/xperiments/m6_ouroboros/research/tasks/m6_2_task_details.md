@@ -31,7 +31,7 @@
 | 5 | The derived H/Q could land near NO published value: tempting to "fix" conventions post hoc | the pre-registration lock + the no-search rule exist precisely for this; deviations log records any post-lock change with its reason (none is expected) |
 | 6 | 2D-cylindrical vs 3D-spherical reduction ambiguity (the code says "cylindrical/toroidal") | pinned to the production vector Laplacian + r dr measure verbatim; noted as a reduction-convention row in the prereg |
 
-**Research body**: [`../m6_2_preregistration.md`](../m6_2_preregistration.md) (the lock) · [`../m6_2_method_note.md`](../m6_2_method_note.md) (results + audit) · scripts [`../scripts/m6_2_derive_functionals.py`](../scripts/m6_2_derive_functionals.py), [`../scripts/m6_2_hq_decision.py`](../scripts/m6_2_hq_decision.py) · data `../data/m6_2_*.json` · plots `../plots/m6_2_*.png` (profiles + term decomposition; field-state prints per the simulation rule: seeded state + solved state).
+**Research body**: [`../m6_2_preregistration.md`](../m6_2_preregistration.md) (the lock) · [`../m6_2_method_note.md`](../findings/m6_2_method_note.md) (results + audit) · scripts [`../scripts/m6_2_derive_functionals.py`](../scripts/m6_2_derive_functionals.py), [`../scripts/m6_2_hq_decision.py`](../scripts/m6_2_hq_decision.py) · data `../data/m6_2_*.json` · plots `../plots/m6_2_*.png` (profiles + term decomposition; field-state prints per the simulation rule: seeded state + solved state).
 
 **Sub-experiments / order**: D1 → D2 → D3 (symbolic, one script) → prereg doc LOCKED → N1 → N2 (numeric script) → plots → audit → method note → review. Checkpoint after each.
 
@@ -39,7 +39,7 @@
 
 ## FINDINGS (2026-07-20)
 
-**Full record**: [`../m6_2_method_note.md`](../m6_2_method_note.md) (equations, map, results, audit) · lock: [`../m6_2_preregistration.md`](../m6_2_preregistration.md).
+**Full record**: [`../m6_2_method_note.md`](../findings/m6_2_method_note.md) (equations, map, results, audit) · lock: [`../m6_2_preregistration.md`](../m6_2_preregistration.md).
 
 **VERDICT: branch (b), by the pre-registered rule, redundantly confirmed.**
 
@@ -54,4 +54,30 @@
 
 **What branch (b) means (per the roadmap row, sync at REVIEW)**: the electron-sector cells close honestly; M6 holds on the DM sector (in-platform, archive era) + the M7 lineage; M6.3 does not open; M6.4 remains optionally live. The published H/Q chain's status: a self-consistent code artifact (its own H, its own Q, its own window) with no derivation path from the published Lagrangian, and window-unstable even on its own terms.
 
-**Deviations from plan**: (1) the r_max sensitivity diagnostic was added post-gate (not in PLAN; triggered by the N1 profile's visible node + rising tail; clearly labeled post-gate, gate number untouched). (2) None otherwise; the lock held: no functional, convention, or parameter changed after `m6_2_preregistration.md` was written.
+**Adversarial audit** (full record [`../m6_2_method_note.md § 6`](../findings/m6_2_method_note.md); scripts preserved as [`../scripts/m6_2_audit_symbolic.py`](../scripts/m6_2_audit_symbolic.py) + [`../scripts/m6_2_audit_numeric.py`](../scripts/m6_2_audit_numeric.py)): **8/8 CONFIRMED, B1/B4/B8 strengthened**, including the analytic non-localization proof (far-field eigenvalues −0.382, −2.618 both negative → no bound state exists at ω = λ = 1 for ANY amplitudes; a decaying channel needs ω < 0.786) and the process check (prereg mtime 10:55:31pm precedes the first gate data 10:56:24pm; the prereg's printed "11:05pm" is a drafting error, file left untouched to preserve the mtime witness). Auditor discovery AF3: the production ODE is the exact time reduction of the z20274505-class MASS-TERM Lagrangian (λ as J mass coupling, mostly-minus), not of v11's multiplier spec: the benchmark validates a different Lagrangian than the paper citing it.
+
+**Deviations from plan**: (1) the r_max sensitivity diagnostic was added post-gate (not in PLAN; triggered by the N1 profile's visible node + rising tail; clearly labeled post-gate, gate number untouched). (2) The prereg's printed lock time reads 11:05pm vs the authoritative 10:55:31pm mtime (drafting error, recorded here rather than edited, preserving the witness). (3) None otherwise; the lock held: no functional, convention, or parameter changed after `m6_2_preregistration.md` was written.
+
+## TASK REVIEW (2026-07-20)
+
+**Task Duration:** 00:23 (from 10:47pm to 11:10pm)
+**Usage Cap Triggered:** NO
+
+**Results**
+
+| # | Result | Status |
+| --- | --- | --- |
+| 1 | THE DECISION GATE: **branch (b)**. Derived pairing H_d/Q_d = 0.1429, gap 91.5% vs 1.6875 (rule: > 5% fails); config certificate passed first (coded H/Q = 1.688971 = v11's own point to 0.002%) | ✅ measured |
+| 2 | Derivation, before any number: no internal U(1) (audit: uniqueness proof over all constant generators); coded H not the spec's energy under any convention; production ODE matches no reading of v11's printed theory | ✅ measured |
+| 3 | The calibration state is NOT a bound state: H, Q grow with the window, H/Q drifts 16%; audit upgraded to an analytic proof (far-field eigenvalues −0.382/−2.618, no decaying channel at ω = λ = 1 for any amplitudes; decay needs ω < 0.786). The 0.09% match exists only at r_max = 12, a window no paper states | ✅ measured |
+| 4 | Audit AF3: the production ODE (λβ term included) = exact time reduction of the z20274505-class MASS-TERM Lagrangian, not v11's multiplier spec | ✅ measured |
+| 5 | M6.1 C4 closed: H_p = 0.4956 → R_phys = 191.4 fm | ✅ measured |
+| 6 | Audit 8/8 CONFIRMED (own integrators, 6-digit agreement; process integrity verified by mtimes) | ✅ measured |
+
+**Issues / blockers**: none. **Deviations from plan**: see the log above (3 entries, minor).
+
+**Action needed** (approved at review, all applied): M6.2 → Done; M6.3 PARKED (gating condition unmet); branch-(b) sync executed: MODELS.md (electron mass, lepton spectrum, pion cells → ❌; charge/clock/stability cells annotated; summary counts 3/3/3/12; column re-sorted M5, M7, M4, M6 per the ordering rule), hunt page (catalog + scorecard + closing), briefing (profile, status, roadmap, help-wanted), canonical (§ 3 annotated, § 4 two new ledger rows, OQ4 resolved). Method notes relocated to `research/findings/`. Next: M6.4 behind user "go".
+
+**Findings**: The M6 decision gate closed on branch (b), redundantly: the published electron benchmark H/Q = 1.689 is a code artifact three times over (its H is not the spec's energy, its Q is no Noether charge, its ODE implements a different Lagrangian than the paper cites), and the state it is evaluated on is provably not a bound state, making the headline number an integration-window artifact, the 1D root of the author's own July 8 "window-defined" concession. M6's durable record stays the in-platform neutral-chaoiton DM sector and the M7 lineage.
+
+**Research docs created / updated**: this task_details · [`../m6_2_preregistration.md`](../m6_2_preregistration.md) (the lock) · [`../findings/m6_2_method_note.md`](../findings/m6_2_method_note.md) · scripts [`../scripts/m6_2_derive_functionals.py`](../scripts/m6_2_derive_functionals.py), [`../scripts/m6_2_hq_decision.py`](../scripts/m6_2_hq_decision.py), [`../scripts/m6_2_rmax_sensitivity.py`](../scripts/m6_2_rmax_sensitivity.py), audit [`../scripts/m6_2_audit_symbolic.py`](../scripts/m6_2_audit_symbolic.py) + [`../scripts/m6_2_audit_numeric.py`](../scripts/m6_2_audit_numeric.py) · data [`../data/m6_2_derivation.json`](../data/m6_2_derivation.json), [`../data/m6_2_hq_decision.json`](../data/m6_2_hq_decision.json), [`../data/m6_2_rmax_sensitivity.json`](../data/m6_2_rmax_sensitivity.json) · plots [`../plots/m6_2_profiles.png`](../plots/m6_2_profiles.png), [`../plots/m6_2_term_decomposition.png`](../plots/m6_2_term_decomposition.png), [`../plots/m6_2_rmax_sensitivity.png`](../plots/m6_2_rmax_sensitivity.png) · synced at review: [`MODELS.md`](../../../../../MODELS.md), [`../m6_particle_hunt.md`](../m6_particle_hunt.md), [`../../__M6_model_briefing.md`](../../__M6_model_briefing.md), [`../m6_theory_canonical.md`](../m6_theory_canonical.md), [`../m6_roadmap.md`](../m6_roadmap.md)
