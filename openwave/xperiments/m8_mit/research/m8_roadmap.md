@@ -1,4 +1,4 @@
-# M8 / MIT, ROADMAP (scaffold era)
+# M8 / MIT, ROADMAP
 
 > **Scaffold baseline (2026-07-21).** The M8 column was scaffolded by the maintainers
 > from the author's onboarding proposal
