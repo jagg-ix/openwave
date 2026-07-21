@@ -79,13 +79,13 @@ in-platform.
 
 | Sector | Status |
 | --- | --- |
-| Particle stability | ✅ era (neutral sector): nodeless neutral BVP ground state (K₁ tail); oscillation as the genuine Derrick escape; the CHARGED calibration state is proven non-localized (M6.2 audit); census caveats (radial-only GF, 62/319/62 count) → M6.4 |
+| Particle stability | ✅ era (neutral sector): nodeless neutral BVP ground state (K₁ tail); oscillation as the genuine Derrick escape; the CHARGED sector is closed: no localized state at the calibration point (M6.2) nor anywhere in the localization window (M6.4), and the published census evidence is dead (62/319/62 irreproducible or imposed-by-construction; radial-only gap closed within the reduction) |
 | Dark-matter candidate | ✅ era: m_χ = 0.460 MeV, parameter-free m_J (our strongest M6 result); the phenomenology chain above it (suppression factors, modulation inference) is unverified → M6.6 |
 | Maxwell EM | ✅ era: `A_μ` is the 4-potential by construction (two-vector spec; absent from v4) |
 | Electron rest mass | ❌ M6.2 (2026-07-20): the benchmark H/Q is a code artifact on a non-localized state; honest negative of record ([`research/findings/m6_2_method_note.md`](research/findings/m6_2_method_note.md)) |
 | Charge quantization | ⚠️ Lean-stated + claimed; static-proof vs time-periodic gap; never computed in-platform; M6.3 parked after branch (b) |
 | de Broglie clock | ⚠️ built into the ansatz, not emergent; the Q in L = ωQ is a coded convention (no internal U(1) exists, M6.2) |
-| Lepton spectrum | ❌ the ω ladder rides the invalidated H/Q machinery and the non-localized charged-state family (M6.2); the discreteness question stays probeable → M6.4b |
+| Lepton spectrum | ❌ the ω ladder rides the invalidated H/Q machinery and the non-localized charged-state family (M6.2); the discreteness question is CLOSED negative (M6.4): no localized state exists for a mechanism to select, every ladder ω sits above every window, and the system the ladder was computed in cannot select by construction |
 | Magnetic moment + spin | the published g-factor match is the identity L = ωQ with ω chosen (v11's own footnote concedes this); honest status: not independently evidenced |
 | Nuclear sector (v4's stake) | 🚧 the six-domain A-linear program is public-notebook grade, unaudited; the Sawada anomaly is described three inconsistent ways across the record → M6.5 |
 | Quarks · baryons · weak · gravity · KG · orbitals | 🚧 not addressed (gravity explicitly out of scope "prior to gravity"; a Carmeli 5D embedding is asserted without equations) |
@@ -110,7 +110,7 @@ day and landed **branch (b)**: the electron sector closed honestly.
 | ✅ [M6.1](research/tasks/m6_1_task_details.md) spec certification gate (DONE 2026-07-20) | the v11 spec certified: [convention sheet](research/m6_1_v11_convention_sheet.md) with the FIXED-vs-GAP pre-registration checklist; v4 characterized script-backed (EL unclosable, boundedness verified, A-linearity generic); four print-level v11 defects ledgered (canonical § 4); adversarial audit 9/10 CONFIRMED ([method note](research/findings/m6_1_method_note.md)) |
 | ✅ [M6.2](research/tasks/m6_2_task_details.md) THE DECISION GATE (DONE 2026-07-20, branch (b)) | pre-registered no-search H/Q re-derivation, audited 8/8: the derived pairing gives 0.1429 vs the claimed 1.689; the state is provably non-localized and the number window-defined; electron sector closed as three honest negatives ([method note](research/findings/m6_2_method_note.md)) |
 | PARKED: [M6.3](research/m6_roadmap.md) charge quantization in-platform | gating condition (M6.2 branch (a)) unmet; parked with the July-era programs |
-| 🚧 NEXT: [M6.4](research/m6_roadmap.md) stability census + ω-selection | the GF scan rerun + reconciled; any discreteness mechanism, or the clean bound (branch-independent by design) |
+| ✅ [M6.4](research/tasks/m6_4_task_details.md) stability census + ω-selection (2026-07-21) | all three published counts fail reproduction (May 0/1280; June 318/360 only under imposed-tail backgrounds, window-defined; July = a citation of the dead May count); the record's numerics do not implement its own Lean theorem; OQ3 closed negative: no localized charged-sector state at any ω. Adversarial audit 9/10 CONFIRMED + 1 PARTIAL. The decidable core is exhausted; M6 returns to hold (DM sector + M7 lineage = the durable legacy) |
 | PARKED: [M6.5](research/m6_roadmap.md) / [M6.6](research/m6_roadmap.md) | the July-era nuclear + DM fitting programs, parked until the author freezes a spec (reopening condition in the roadmap); M6.6's solar-wind arm is spec-independent and can be pulled forward alone |
 | OPTIONAL: [M6.7](research/m6_roadmap.md) the two-theories fork | only if continued engagement with the author is wanted |
 
@@ -126,7 +126,7 @@ roadmap's re-derivations. A documented *negative* counts as much as a positive.
 | You can contribute | How |
 | --- | --- |
 | Refute the M6.2 close | the decision gate's derivation chain, numbers, and audit are fully published ([`research/findings/m6_2_method_note.md`](research/findings/m6_2_method_note.md)): find a convention under which the published H/Q IS derivable from the published Lagrangian, or a bound charged state the far-field analysis missed |
-| An ω-discreteness mechanism | find what selects the lepton ω values, or bound the term sets that cannot (M6.4b) |
+| Refute the M6.4 close | the census rerun, the ODE comparison, and the existence scans are fully published with the audit ([`research/findings/m6_4_method_note.md`](research/findings/m6_4_method_note.md)): reproduce any published stability count under a faithful reading of its record, find a localized charged-sector state in the frozen system's window, or exhibit a discreteness mechanism the term set supports |
 | A nuclear-domain audit | rerun any of v4's six A-linear domains from the named datasets with stated metrics (M6.5) |
 | The solar-wind protocol | execute P1-P3 from [`research/ai_analysis/2026-07-11_1630_dm_solar_wind_review.md`](research/ai_analysis/2026-07-11_1630_dm_solar_wind_review.md) on public OMNI/L1 data (M6.6b) |
 | A full-3D validation | M7's program; see its roadmap |
