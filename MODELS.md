@@ -32,11 +32,11 @@ A ❌ is a result, not an embarrassment: documented negatives (with the scripts 
 
 Models:
 
-- **M4 - EWT** (Energy Wave Theory, Jeff Yee, built on Milo Wolff and Gabriel LaFreniere pioneer work).
-- **M5 - LC** (Liquid-Crystal topological defects, Jarek Duda, with Manfried Faber inputs);
-- **M6 - Ouroboros** (Chaoiton framework, Paul Werbos);
-- **M7 - HydroBoros** (toroidal-Beltrami electron, Marc Fleury's toroidal-EM electron fused with Paul Werbos's Ouroboros self-confinement);
-- **M8 - MIT** (Mode Identity Theory, Blake Shatto): top-down structural model (spectral geometry + representation theory on S³/2I)
+- **[M4 - EWT](openwave/xperiments/m4_ewt/__M4_model_briefing.md)** (Energy Wave Theory, Jeff Yee, built on Milo Wolff and Gabriel LaFreniere pioneer work).
+- **[M5 - LC](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md)** (Liquid-Crystal topological defects, Jarek Duda, with Manfried Faber inputs);
+- **[M6 - Ouroboros](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md)** (Chaoiton framework, Paul Werbos);
+- **[M7 - HydroBoros](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md)** (toroidal-Beltrami electron, Marc Fleury's toroidal electron fused with Paul Werbos's Ouroboros);
+- **[M8 - MIT](openwave/xperiments/m8_mit/__M8_model_briefing.md)** (Mode Identity Theory, Blake Shatto top-down model, spectral geometry + representation theory)
 
 **Column order:** models are sequenced by their validated + partial count (✅ + ⚠️ in the [Summary count](#summary-count) below), highest first; ties break toward more ✅ (validated), then fewer ❌ (honest negatives): M5 (16), M7 (8, 0 ❌), M4 (8, 3 ❌), M6 (6, after the 2026-07-20 M6.2 decision-gate close of its electron sector), M8 (1, first validated sector: the M8.1 certification gate passed 2026-07-21). The order updates as validations land.
 
@@ -84,7 +84,7 @@ Every file reference is an active link to the file in this repository (under `op
 
 ### Summary Count
 
-| Status | Liquid Crystal (M5) | HydroBoros (M7) | EWT (M4) | Ouroboros (M6) | MIT (M8) |
+| Status | [Liquid Crystal (M5)](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [HydroBoros (M7)](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md) | [EWT (M4)](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [Ouroboros (M6)](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [MIT (M8)](openwave/xperiments/m8_mit/__M8_model_briefing.md) |
 | --- | --- | --- | --- | --- | --- |
 | ✅ validated in-platform | 8 | 0 | 0 | 3 | 0 |
 | ⚠️ partial / with caveats | 8 | 8 | 8 | 3 | 1 |
@@ -99,13 +99,13 @@ The frameworks escape Derrick's theorem three different ways (standing-wave inte
 
 ## Per-model results of record
 
-| Model | Briefing | Deep dive |
-| --- | --- | --- |
-| Liquid Crystal (M5) | [`__M5_model_briefing.md`](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [`m5_summary_report.md`](openwave/xperiments/m5_liquid_crystal/research/archive/m5_summary_report.md): the results-of-record; [`m5_roadmap.md`](openwave/xperiments/m5_liquid_crystal/research/m5_roadmap.md): full program; [`m5_question_tracker.md`](openwave/xperiments/m5_liquid_crystal/research/m5_question_tracker.md): emergence catalog + open questions |
-| Ouroboros (M6) | [`__M6_model_briefing.md`](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [`m6_theory_canonical.md`](openwave/xperiments/m6_ouroboros/research/m6_theory_canonical.md): specs of record + provenance ledger (refreshed 2026-07-20); [`m6_roadmap.md`](openwave/xperiments/m6_ouroboros/research/m6_roadmap.md): the refresh validation program (M6.1+); [`m6_particle_hunt.md`](openwave/xperiments/m6_ouroboros/research/m6_particle_hunt.md): identification scorecards; [`findings/m6_1_method_note.md`](openwave/xperiments/m6_ouroboros/research/findings/m6_1_method_note.md) + [`findings/m6_2_method_note.md`](openwave/xperiments/m6_ouroboros/research/findings/m6_2_method_note.md): the spec certification + the decision gate (2026-07-20); [`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/archive/0d_canonical.md): archive-era numerical specification |
-| HydroBoros (M7) | [`__M7_model_briefing.md`](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md) | [`m7_theory_canonical.md`](openwave/xperiments/m7_hydroboros/research/m7_theory_canonical.md): canonical spec (equations first); [`m7_roadmap.md`](openwave/xperiments/m7_hydroboros/research/m7_roadmap.md): full program; [`m7_question_tracker.md`](openwave/xperiments/m7_hydroboros/research/m7_question_tracker.md): open questions (Q1-Q14) |
-| EWT (M4) | [`__M4_model_briefing.md`](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [`0_STATUS.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_STATUS.md): targets, achieved, honest blockers |
-| MIT (M8) | [`__M8_model_briefing.md`](openwave/xperiments/m8_mit/__M8_model_briefing.md) | [`m8_theory_canonical.md`](openwave/xperiments/m8_mit/research/m8_theory_canonical.md): the spec of record (transcribed at scaffold, pre-verification); [`m8_background.md`](openwave/xperiments/m8_mit/research/m8_background.md): the gap map + onboarding evaluation of record; [`m8_roadmap.md`](openwave/xperiments/m8_mit/research/m8_roadmap.md): the program (M8.1 certification gate first); [`m8_platform_pointers.md`](openwave/xperiments/m8_mit/research/m8_platform_pointers.md): the cross-model reading map written for the author's AI agents |
+| Model | Deep dive |
+| --- | --- |
+| [(M4) EWT](openwave/xperiments/m4_ewt/__M4_model_briefing.md) | [`0_STATUS.md`](openwave/xperiments/m3_wolff_lafreniere/research/0_STATUS.md): targets, achieved, honest blockers |
+| [(M5) Liquid_Crystal](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md) | [`m5_summary_report.md`](openwave/xperiments/m5_liquid_crystal/research/archive/m5_summary_report.md): the results-of-record; [`m5_roadmap.md`](openwave/xperiments/m5_liquid_crystal/research/m5_roadmap.md): full program; [`m5_question_tracker.md`](openwave/xperiments/m5_liquid_crystal/research/m5_question_tracker.md): emergence catalog + open questions |
+| [(M6) Ouroboros](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md) | [`m6_theory_canonical.md`](openwave/xperiments/m6_ouroboros/research/m6_theory_canonical.md): specs of record + provenance ledger (refreshed 2026-07-20); [`m6_roadmap.md`](openwave/xperiments/m6_ouroboros/research/m6_roadmap.md): the refresh validation program (M6.1+); [`m6_particle_hunt.md`](openwave/xperiments/m6_ouroboros/research/m6_particle_hunt.md): identification scorecards; [`findings/m6_1_method_note.md`](openwave/xperiments/m6_ouroboros/research/findings/m6_1_method_note.md) + [`findings/m6_2_method_note.md`](openwave/xperiments/m6_ouroboros/research/findings/m6_2_method_note.md): the spec certification + the decision gate (2026-07-20); [`0d_canonical.md`](openwave/xperiments/m6_ouroboros/research/archive/0d_canonical.md): archive-era numerical specification |
+| [(M7) HydroBoros](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md) | [`m7_theory_canonical.md`](openwave/xperiments/m7_hydroboros/research/m7_theory_canonical.md): canonical spec (equations first); [`m7_roadmap.md`](openwave/xperiments/m7_hydroboros/research/m7_roadmap.md): full program; [`m7_question_tracker.md`](openwave/xperiments/m7_hydroboros/research/m7_question_tracker.md): open questions (Q1-Q14) |
+| [(M8) MIT](openwave/xperiments/m8_mit/__M8_model_briefing.md) | [`m8_theory_canonical.md`](openwave/xperiments/m8_mit/research/m8_theory_canonical.md): the spec of record (transcribed at scaffold, pre-verification); [`m8_background.md`](openwave/xperiments/m8_mit/research/m8_background.md): the gap map + onboarding evaluation of record; [`m8_roadmap.md`](openwave/xperiments/m8_mit/research/m8_roadmap.md): the program (M8.1 certification gate first); [`m8_platform_pointers.md`](openwave/xperiments/m8_mit/research/m8_platform_pointers.md): the cross-model reading map written for the author's AI agents |
 
 The one-page model briefings summarize what each model brings (identity, profile, per-particle field configurations, status, roadmap, contribution invite). Beyond the five scored columns above: [`M3 Wolff-LaFreniere`](openwave/xperiments/m3_wolff_lafreniere/__M3_model_briefing.md) (the scalar engine behind the EWT record), and the wave-physics library [`M1 Granule Motion`](openwave/xperiments/m1_granule_motion/__M1_model_briefing.md) + [`M2 Free Wave`](openwave/xperiments/m2_free_wave/__M2_model_briefing.md).
 
