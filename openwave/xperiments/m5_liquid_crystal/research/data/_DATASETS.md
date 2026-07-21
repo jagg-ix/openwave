@@ -1,10 +1,10 @@
 # Local-only datasets manifest
 
-> AUTO-GENERATED, do not hand-edit the table: `python3 ~/Documents/source_code/XRODZ/dotfiles/claude_projects/NEPTUNYA-SABER/scripts/gen_datasets_manifest.py data --write`
+> AUTO-GENERATED, do not hand-edit the table: `python3 ~/Documents/source_code/XRODZ/dotfiles/claude_projects/NEPTUNYA-SABER/scripts/gen_datasets_manifest.py ../data --write`
 
 Heavy binary arrays in this folder are **local-only**: gitignored, never deleted (policy 2026-07-20, which supersedes the earlier "delete raw data > 1 MB" rule). They stay on the working machine so later tasks can consume them directly, and they stay OUT of the repo so clones stay light. What IS tracked in git and readable on GitHub: the summary `.json` / `.csv` / `.txt` in this same folder, the plots, and the scripts that rebuild everything here.
 
-**Inventory**: 242 local-only files, 542.38 MB, in 34 task groups.
+**Inventory**: 262 local-only files, 609.92 MB, in 35 task groups.
 
 | Task group | Files | Size | Producing script(s) | Record (regen commands + context) |
 | --- | --- | --- | --- | --- |
@@ -16,13 +16,14 @@ Heavy binary arrays in this folder are **local-only**: gitignored, never deleted
 | `m5_20_3` | 11 | 3.09 MB | [`m5_20_3_a_constraint.py`](../scripts/m5_20_3_a_constraint.py) · [`m5_20_3_audit_check.py`](../scripts/m5_20_3_audit_check.py) · [`m5_20_3_b_triage.py`](../scripts/m5_20_3_b_triage.py) (+3 more) | [`m5_20_3_task_details.md`](../tasks/m5_20_3_task_details.md) |
 | `m5_20_4` | 3 | 1.16 MB | [`m5_20_4_a_bvp.py`](../scripts/m5_20_4_a_bvp.py) · [`m5_20_4_audit_check.py`](../scripts/m5_20_4_audit_check.py) · [`m5_20_4_b_dirac.py`](../scripts/m5_20_4_b_dirac.py) (+2 more) | [`m5_20_4_task_details.md`](../tasks/m5_20_4_task_details.md) |
 | `m5_20_5` | 5 | 2.68 MB | [`m5_20_5_a_orbit.py`](../scripts/m5_20_5_a_orbit.py) · [`m5_20_5_audit_check.py`](../scripts/m5_20_5_audit_check.py) · [`m5_20_5_b_escape.py`](../scripts/m5_20_5_b_escape.py) (+1 more) | [`m5_20_5_task_details.md`](../tasks/m5_20_5_task_details.md) |
-| `m5_21` | 1 | 0.79 MB | [`m5_21_10_a_decay64.py`](../scripts/m5_21_10_a_decay64.py) · [`m5_21_10_b_ring.py`](../scripts/m5_21_10_b_ring.py) · [`m5_21_10_c_panel.py`](../scripts/m5_21_10_c_panel.py) (+52 more) | [`m5_21_task_details.md`](../tasks/m5_21_task_details.md) |
+| `m5_21` | 1 | 0.79 MB | [`m5_21_10_a_decay64.py`](../scripts/m5_21_10_a_decay64.py) · [`m5_21_10_b_ring.py`](../scripts/m5_21_10_b_ring.py) · [`m5_21_10_c_panel.py`](../scripts/m5_21_10_c_panel.py) (+57 more) | [`m5_21_task_details.md`](../tasks/m5_21_task_details.md) |
 | `m5_21_1` | 8 | 3.88 MB | [`m5_21_10_a_decay64.py`](../scripts/m5_21_10_a_decay64.py) · [`m5_21_10_b_ring.py`](../scripts/m5_21_10_b_ring.py) · [`m5_21_10_c_panel.py`](../scripts/m5_21_10_c_panel.py) (+9 more) | [`m5_21_1_task_details.md`](../tasks/m5_21_1_task_details.md) |
 | `m5_21_10` | 3 | 293.47 MB | [`m5_21_10_a_decay64.py`](../scripts/m5_21_10_a_decay64.py) · [`m5_21_10_b_ring.py`](../scripts/m5_21_10_b_ring.py) · [`m5_21_10_c_panel.py`](../scripts/m5_21_10_c_panel.py) (+1 more) | [`m5_21_10_task_details.md`](../tasks/m5_21_10_task_details.md) |
 | `m5_21_1e` | 2 | 0.37 MB | [`m5_21_1e_audit_check.py`](../scripts/m5_21_1e_audit_check.py) · [`m5_21_1e_b_constraint.py`](../scripts/m5_21_1e_b_constraint.py) · [`m5_21_1e_c_toy.py`](../scripts/m5_21_1e_c_toy.py) | [`m5_21_1e_task_details.md`](../tasks/m5_21_1e_task_details.md) |
 | `m5_21_2` | 4 | 6.78 MB | [`m5_21_2_a_scan3d.py`](../scripts/m5_21_2_a_scan3d.py) · [`m5_21_2_audit_check.py`](../scripts/m5_21_2_audit_check.py) · [`m5_21_2_b_topo_illustration.py`](../scripts/m5_21_2_b_topo_illustration.py) (+8 more) | [`m5_21_2_task_details.md`](../tasks/m5_21_2_task_details.md) |
 | `m5_21_2b` | 14 | 9.40 MB | [`m5_21_2b_a_instrument.py`](../scripts/m5_21_2b_a_instrument.py) · [`m5_21_2b_audit_check.py`](../scripts/m5_21_2b_audit_check.py) · [`m5_21_2b_b_split.py`](../scripts/m5_21_2b_b_split.py) (+2 more) | [`m5_21_2b_task_details.md`](../tasks/m5_21_2b_task_details.md) |
 | `m5_21_3` | 5 | 4.21 MB | [`m5_21_3_a_4d.py`](../scripts/m5_21_3_a_4d.py) · [`m5_21_3_audit_check.py`](../scripts/m5_21_3_audit_check.py) · [`m5_21_3_c_films.py`](../scripts/m5_21_3_c_films.py) (+3 more) | [`m5_21_3_task_details.md`](../tasks/m5_21_3_task_details.md) |
+| `m5_21_4` | 20 | 67.54 MB | [`m5_21_4_a_pair.py`](../scripts/m5_21_4_a_pair.py) · [`m5_21_4_audit_check.py`](../scripts/m5_21_4_audit_check.py) · [`m5_21_4_c_films.py`](../scripts/m5_21_4_c_films.py) (+2 more) | [`m5_21_4_task_details.md`](../tasks/m5_21_4_task_details.md) |
 | `m5_21_5` | 3 | 3.13 MB | [`m5_21_5_a_mu.py`](../scripts/m5_21_5_a_mu.py) · [`m5_21_5_b_ladder.py`](../scripts/m5_21_5_b_ladder.py) · [`m5_21_5_c_bridge.py`](../scripts/m5_21_5_c_bridge.py) (+2 more) | [`m5_21_5_task_details.md`](../tasks/m5_21_5_task_details.md) |
 | `m5_21_6` | 20 | 176.28 MB | [`m5_21_6_a_decay.py`](../scripts/m5_21_6_a_decay.py) · [`m5_21_6_audit_check.py`](../scripts/m5_21_6_audit_check.py) · [`m5_21_6_c_films.py`](../scripts/m5_21_6_c_films.py) (+1 more) | [`m5_21_6_task_details.md`](../tasks/m5_21_6_task_details.md) |
 | `m5_21_9` | 8 | 7.18 MB | [`m5_21_9_a_audit.py`](../scripts/m5_21_9_a_audit.py) · [`m5_21_9_a_negdelta.py`](../scripts/m5_21_9_a_negdelta.py) · [`m5_21_9_b_audit.py`](../scripts/m5_21_9_b_audit.py) (+6 more) | [`m5_21_9_task_details.md`](../tasks/m5_21_9_task_details.md) |
