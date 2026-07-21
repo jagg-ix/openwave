@@ -35,20 +35,22 @@ The economy argument in one line: promoting M to a 4×4 spacetime tensor adds ~4
 
 Pre-registered outcomes (all three are results): (a) an intrinsic mode locks to the background = ENTRAIN confirmed; (b) oscillation exists only while driven, with measured drive power = replace-like, the ledger flags it; (c) no coupling = null.
 
-## 4. THE BACKGROUND ENERGY LEDGER: adopt the classical form, import no calibrated constants
+## 4. THE BACKGROUND ENERGY LEDGER (declared)
 
-The candidate ledger form for the background field is the classical energy density of an oscillating medium, `E/V = ρ(fA)²` (½ρω²A² up to convention factors), textbook wave mechanics. The platform hosts this same form as [M4](../../../m4_ewt/__M4_model_briefing.md)'s fundamental postulate ([`equations.py`](../../../../common/equations.py) `compute_energy_wave_equation`); if M5's factored time sector converges on the same energetics, that is cross-model triangulation of exactly the kind [`MODELS.md`](../../../../../MODELS.md) exists to record.
+The background field's energy is booked with the classical energy density of an oscillating medium: `E/V = ½ρω²A²` (equivalently `ρ(fA)²` up to convention factors), quadratic in both amplitude and frequency. This is declared, not derived: it is the textbook harmonic form (acoustics, elasticity, cavity modes), and the pilot's job is to measure what the coupled system does with it, not to justify it.
 
-| Candidate import | Verdict |
+| Reference anchor | Role in the ledger |
 | --- | --- |
-| `E = ρV(fA)²` (the fundamental form) | ✅ ADOPT as the background energy bookkeeping: classical, model-independent |
-| The K⁵/K⁷/K³¹ ladders, shell and orbital factors (`Oe`, `glambda`, `gp`) | ❌ do NOT import: calibrated phenomenological constants, which the M4 column's own honest record grades as analytic-not-dynamical; importing them would violate the no-calibrated-conventions rule |
-| `EWAVE_LENGTH` / `EWAVE_AMPLITUDE` constants | ❌ M4-calibrated physical values; M5.27 runs in M5 program units |
-| `compute_natural_frequency` (spring-mass toolkit) | ✅ fine; it is the entrainment-analysis toolkit |
+| Classical oscillating-medium energy density (Rayleigh; ½ρω²A² per mode) | The bookkeeping form itself; standard for any harmonic background |
+| de Broglie's internal clock (1924): `m₀c² = hν₀` | The target identification the pilot tests: rest energy ↔ lock frequency, mass = coupling strength to the background mode; the column's ZBW clock re-reads are the measured side of the same identification |
+| Planck-Einstein `E = ħω` | The quantum limit the entrained ledger must stay consistent with when the realistic-parameter bridge is crossed ([Q33](../m5_question_tracker.md#q33-detail) lineage); not used at toy parameters |
+| Adler injection-locking power relation | The drive-power instrument: zero average power at lock, nonzero off-lock; the § 3 regime discriminator is read directly off this ledger line |
+
+Discipline: all quantities in M5 program units; no physical constants enter the pilot; the three new knobs (κ, A, ω̄) come pre-registered with search spaces (§ 6), nothing tuned per observable.
 
 ## 5. CHANCES BY SECTOR (pre-run assessment)
 
-The structural reason the import is attractive: each side's validated strength covers the other's recorded negative. M5's open sectors (free-clock existence, hierarchy origin, the 4×4 route, gravity) are exactly where a background wave has known mechanisms; the background-only route's recorded negatives in-platform (charge imposed by hand, fragile lock-in, per the M4 column) are exactly what M5's topology already closed ✅.
+The structural reason the import is attractive: each side's validated strength covers the other's recorded negative. M5's open sectors (free-clock existence, hierarchy origin, the 4×4 route, gravity) are exactly where a background wave has known mechanisms.
 
 | Sector | What the background brings | Known-physics anchor | Chance |
 | --- | --- | --- | --- |
@@ -69,7 +71,6 @@ The structural reason the import is attractive: each side's validated strength c
 | Energy bookkeeping | If defects draw stability from the background, the background is an energy reservoir; drive input vs soliton energy must be booked honestly or "stability" is just pumping |
 | Replace vs entrain | Decided upfront (§ 3): ENTRAIN. An undecided hybrid would double-count the clock energy |
 | Parameter growth | κ, A, ω̄ are new knobs; platform standards apply (derive or pre-register with search spaces, nothing tuned per observable) |
-| The background-only record | The in-platform M4 column shows where the naive background-only construction fails; the import must inherit topology's charge, not a hand-imposed sign |
 
 ## 7. ANTICIPATED OBJECTIONS (named upfront, answers on record)
 
@@ -78,7 +79,7 @@ The structural reason the import is attractive: each side's validated strength c
 | "This abandons the selected 4×4 route" | No: it is a STAGED 4×4 (the time-time entry first, the 0-row later) and the third branch of the fork the author left open at the M5.21.3 close, motivated by the author's own results (the saddle + the notebook divergences) |
 | Preferred frame | Named in § 6, boost test pre-registered; de Broglie's 1924 phase-wave construction is the anchor for covariance emerging from a boosted oscillation |
 | "Another field, another knob" | The § 2 economy row + § 6 parameter discipline: κ, A, ω̄ pre-registered, no per-observable tuning |
-| "This imports another model's theory" | The mechanism anchors (de Broglie, injection locking, Kapitza stabilization) are model-independent classical oscillator physics; the energy form is textbook. The M4 convergence, if it appears, is platform triangulation, not adoption (§ 4) |
+| "This imports oscillation theory" | The mechanism anchors (de Broglie, injection locking, Kapitza stabilization) are model-independent classical oscillator physics; the energy form is textbook. The convergence, if it appears, is platform triangulation, not adoption (§ 4) |
 
 ## 8. RELATION TO THE PROGRAM + SEQUENCING
 
