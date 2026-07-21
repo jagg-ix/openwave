@@ -22,7 +22,7 @@
 | The certified 4×4 leapfrog | `m5_21_9_e_larmor.py leap()` (the M5.21.6 form lifted to 4×4: velocity masked every kick, implicit γ): E-conservation 2.2e-8 per 400 steps, dt = 0.02 certified post-audit (4× margin): the research reference the port's per-gap selftests run against |
 | The clock thermodynamics | dE/dJ = ω\* at ~1% ([`../findings/m5_21_9_note.md § 7`](../findings/m5_21_9_note.md)): the port's energy ledger must reproduce the Legendre closure as a selftest |
 | The Larmor round-2 protocol | The J-flip discriminator + the modeled-floor ±B pair ladder (note § 6): long windows are native here; whatever the M5.21.9 addendum leaves open of the linear read, this task inherits the measurement-grade ladder |
-| ⚠️ the kin-convention flag | 0.297 (probe variant, this run) vs 0.1206 (conjugation-tangent, adopted at M5.21.3; the stub's "kin ≈ 0.119" above is that convention): the port must PIN one convention in code and document it (audit CL9; absolute J and ħ/2 numbers depend on the factor 2.46) |
+| ⚠️ the kin-convention flag | 0.297 (probe variant, this run) vs 0.1206 (conjugation-tangent, adopted at M5.21.3; the stub's "kin ≈ 0.119" above is that convention): the port must PIN one convention in code and document it (audit CL9; absolute J and ħ/2 numbers depend on the factor 2.46). **QUANTIFIED at [M5.21.5](m5_21_5_task_details.md) (2026-07-21)**: the m5_21_9 carried J (unit-Frobenius flow parametrization, 0.048 at the ω\* = 0.2 rung) is NOT the physical angular momentum; the PHYSICAL-RATE S_env(twist) = 37.2 on the same state (ratio 771). The port pins the physical-rate convention ([`../findings/m5_21_5_note.md § 5`](../findings/m5_21_5_note.md)) for any g or ħ/2 statement |
 
 ## Round 3 carries Q36 (wired 2026-07-21)
 
