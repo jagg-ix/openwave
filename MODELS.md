@@ -35,7 +35,7 @@ Models:
 - **[M4 - EWT](openwave/xperiments/m4_ewt/__M4_model_briefing.md)** (Energy Wave Theory, Jeff Yee, built on Milo Wolff and Gabriel LaFreniere pioneer work).
 - **[M5 - LC](openwave/xperiments/m5_liquid_crystal/__M5_model_briefing.md)** (Liquid-Crystal topological defects, Jarek Duda, with Manfried Faber inputs);
 - **[M6 - Ouroboros](openwave/xperiments/m6_ouroboros/__M6_model_briefing.md)** (Chaoiton framework, Paul Werbos);
-- **[M7 - HydroBoros](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md)** (toroidal-Beltrami electron, Marc Fleury's toroidal electron fused with Paul Werbos's Ouroboros);
+- **[M7 - HydroBoros](openwave/xperiments/m7_hydroboros/__M7_model_briefing.md)** (Toroidal-Beltrami electron, Marc Fleury's toroidal electron fused with Paul Werbos's Ouroboros);
 - **[M8 - MIT](openwave/xperiments/m8_mit/__M8_model_briefing.md)** (Mode Identity Theory, Blake Shatto top-down model, spectral geometry + representation theory)
 
 **Column order:** models are sequenced by their validated + partial count (✅ + ⚠️ in the [Summary count](#summary-count) below), highest first; ties break toward more ✅ (validated), then fewer ❌ (honest negatives): M5 (16), M7 (8, 0 ❌), M4 (8, 3 ❌), M6 (6, after the 2026-07-20 M6.2 decision-gate close of its electron sector), M8 (1, first validated sector: the M8.1 certification gate passed 2026-07-21). The order updates as validations land.
