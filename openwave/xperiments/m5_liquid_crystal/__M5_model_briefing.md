@@ -6,6 +6,8 @@
 > forces plus gravity emerge from the geometry of the same field. It is OpenWave's
 > most-validated model (16 of 21 [`MODELS.md`](../../../MODELS.md) cells).
 
+![M5_hero](research/images/clock.gif)
+
 ## Identity
 
 | Field | Value |

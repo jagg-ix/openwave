@@ -9,6 +9,8 @@
 > new validation program ([`research/m6_roadmap.md`](research/m6_roadmap.md), M6.1+) will
 > re-earn or re-grade every cell at M5-series rigor.
 
+![M6_hero](research/images/ouroboros_icon.jpg)
+
 ## Identity
 
 | Field | Value |
