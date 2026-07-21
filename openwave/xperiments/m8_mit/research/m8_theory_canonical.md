@@ -35,7 +35,7 @@
 
 | Result | Statement | Record | Platform status |
 | --- | --- | --- | --- |
-| First positive eigenvalue | the twisted Laplacian on the conic Möbius band has first positive eigenvalue `λ₁ = 2/R²`, stable across the cone's self-adjoint extensions | SSRN 6968741 (author registry) | 🚧 THE M8.1 GATE: independent eigensolve, not yet run |
+| First positive eigenvalue | the twisted Laplacian on the conic Möbius band has first positive eigenvalue `λ₁ = 2/R²`, stable across the cone's self-adjoint extensions | SSRN 6968741 (author registry); operator statement: [first-eigenvalue.md](https://github.com/dmobius3/mode-identity-theory/blob/main/files/framework/files/bedrock/files/first-eigenvalue.md) (author repo, shared on #312, 2026-07-21) | 🚧 THE M8.1 GATE: independent eigensolve, not yet run |
 | Λ from the edge mode | `Λ = 3/R²`, the eigenvalue `2/R²` carried by the Gauss-Codazzi factor 3/2 (3 = Ricci trace derived, 1/2 imported from GR) | Λ ground-mode paper [10.5281/zenodo.18307314](https://doi.org/10.5281/zenodo.18307314) | 🚧 rides M8.1 + the R-problem |
 | Coexact spectral gap | Yang-Mills-sector mass gap `4/R²` on S³/2I from McKay distance for flat bundles | SSRN 6968698 (author registry); YM paper [10.5281/zenodo.18463584](https://doi.org/10.5281/zenodo.18463584) | 🚧 eigensolve planned after M8.1 |
 | Galois pair | the affine rho-index conversion and the E8-filling Galois pair on the Poincaré homology sphere | SSRN 7129118 (author registry) | 🚧 has an author-side test script (`galois-pair.test.py`); not yet reproduced here |

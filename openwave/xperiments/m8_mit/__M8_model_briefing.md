@@ -23,7 +23,7 @@
 > gated on field dynamics validating in-platform
 > ([`research/m8_roadmap.md`](research/m8_roadmap.md) M8.7).
 
-![M8_hero](research/images/blueprint.png)
+![Möbius manifold topological universe blueprint, by Blake Shatto (asset from the author's mode-identity-theory repo, MIT license)](research/images/blueprint.png)
 
 ## Identity
 
