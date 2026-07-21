@@ -7,7 +7,7 @@
 
 Total: 31 local-only documents (as of 2026-07-03).
 
-> **Subfolders carry their own manifests.** [`zenodo/_CITATIONS.md`](zenodo/_CITATIONS.md): the author's full Zenodo corpus, 33 files across 29 records, harvested 2026-07-20 (latest version of each concept, every file md5-verified, real DOIs). That harvest is the current-state source for the M6 refresh; the loose files listed below are the older author-shared drafts and predate it, so where the two overlap the Zenodo record is canonical.
+> **Subfolders carry their own manifests.** [`zenodo/_CITATIONS.md`](../zenodo/_CITATIONS.md): the author's full Zenodo corpus, 33 files across 29 records, harvested 2026-07-20 (latest version of each concept, every file md5-verified, real DOIs). That harvest is the current-state source for the M6 refresh; the loose files listed below are the older author-shared drafts and predate it, so where the two overlap the Zenodo record is canonical.
 
 Citation keys are stable `AuthorYear` handles; this corpus is dominated by author-shared working documents (Werbos et al., mostly .docx/.pdf drafts) with no journal DOI, marked `author doc`; any genuinely published items get a verified DOI/arXiv.
 
