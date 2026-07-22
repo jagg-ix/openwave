@@ -17,7 +17,6 @@ OpenWave investigates, in one integrated simulator, four primary domains: **matt
 | Reference | Purpose |
 | --- | --- |
 | `README.md` | Full description, scope, scientific position, installation |
-| `WELCOME.md` | Quick intro |
 | `SYS_ARCH.md` | Module structure and system architecture |
 
 ### Theoretical Advisors and Candidate Frameworks
