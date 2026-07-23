@@ -1,0 +1,23 @@
+{
+  "schema": "openwave.m9.two-body-force-result.v1",
+  "task": "M9.30",
+  "probe_separation": 3.0,
+  "electric": {
+    "like_force": 0.1094650374268415,
+    "opposite_force": -0.1094650374268415,
+    "numeric_derivative_force": 0.10946503754466486,
+    "exact_force": 0.1094650374268415,
+    "asymptotic_log_slope": -1.9975186592743708
+  },
+  "magnetic": {
+    "parallel_axial_force": -0.017720412594915618,
+    "antiparallel_axial_force": 0.017720412594915618,
+    "numeric_derivative_force": -0.017720412657466073,
+    "exact_force": -0.017720412594915618,
+    "asymptotic_log_slope": -3.992655771740474
+  },
+  "combined_action_reaction_error": 0.0,
+  "field_observable_kernel": true,
+  "emergent_particle_interaction_established": false,
+  "passed": true
+}
