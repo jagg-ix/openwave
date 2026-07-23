@@ -2,10 +2,10 @@
 
 > **What M9 brings.** M9.1--M9.6 establish the formal interface, scalar controls,
 > information clock, scalar localization family, scaling ledger, and scalar-carrier
-> boundary. M9.7a validates a localized two-component nonlinear Dirac carrier in
-> 1+1D. M9.7b1 now qualifies a self-consistent three-dimensional electrostatic
-> Maxwell sector sourced by a regular spherical spinor density. The coupled 3D
-> Dirac--Maxwell stationary problem remains open.
+> boundary. M9.7a validates a localized nonlinear Dirac carrier in 1+1D. M9.7b1
+> qualifies the spherical electrostatic Maxwell sector. M9.7b2 now closes a
+> self-consistent stationary 3D radial spinor--electrostatic branch. Time-dependent
+> Maxwell/spinor stability and physical particle identity remain open.
 
 ## Identity
 
@@ -14,64 +14,65 @@
 | Model ID | M9 |
 | Name | CAT/EPT Entropic Particle Dynamics |
 | Author | Jorge A. Garcia |
-| Lineage | Complex Action Theory / Entropic Proper Time; entropic dynamics; nonlinear scalar and spinor solitary waves; electrostatic Maxwell constraints; Compton/de Broglie internal clocks |
+| Lineage | Complex Action Theory / Entropic Proper Time; entropic dynamics; nonlinear scalar and spinor solitary waves; stationary electrostatic Maxwell--Dirac systems |
 | Formal source | `jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, commit `f6e2b37571086e5ef6de40f77439a5eab468f71f` |
-| In-repo | `formal_contract.py`, `free_solver.py`, `entropic_clock.py`, `localized_particle.py`, `soliton_observables.py`, `carrier_audit.py`, `spinor_carrier.py`, `electrostatic_gauge_3d.py`, and M9.1--M9.7b1 research records |
+| In-repo | `formal_contract.py`, scalar and spinor control/localization modules, `electrostatic_gauge_3d.py`, `dirac_electrostatic_3d.py`, and M9.1--M9.7b2 research records |
 
 ## Model profile
 
 | Attribute | M9 status |
 | --- | --- |
-| Scalar carrier | One-component complex scalar with an exact neutral 1+1D bright-soliton family |
-| Spinor replacement | Two-component 1+1D Soler carrier; exact localized profile passes M9.7a |
-| 3D gauge source | Regular spherical four-spinor density ansatz with upper s-wave and lower p-wave radial amplitudes |
-| Electrostatic field | Self-consistent spherical Gauss-law solution with Coulomb exterior tail and field energy |
-| Vacuum | Zero-field asymptotic state; radial field uses `phi(infinity)=0` and analytic exterior tail |
-| Entropic clock | Scalar/spinor density maps remain positive; the radial gate uses shell probabilities and a reflecting doubly-stochastic channel. Channel depth is not physical time |
-| Local gauge interface | Background pure-gauge covariance is validated in M9.7a; M9.7b1 adds a source-responsive electrostatic field |
-| Signed charge | Dimensionless `q=+1` and `q=-1` reverse field, potential, and boundary flux while preserving density and field energy |
-| Electric charge | Not physically calibrated; no electron-charge unit or Standard Model assignment |
-| Spin | Spinor representation exists in 1+1D; no solved 3D angular-momentum state or fermionic statistics layer |
-| 3D localization | The M9.7b1 density is a frozen regular source ansatz, not a coupled Dirac stationary solution |
-| Remaining choices | Coupled 3D spinor equation, self-consistent back-reaction, magnetic/time-dependent Maxwell fields, physical units, charge calibration, statistics, and irreversible CAT/EPT back-reaction |
+| Scalar carrier | One-component complex scalar with exact neutral 1+1D bright-soliton family |
+| 1+1D spinor carrier | Exact two-component Soler solitary wave passing M9.7a |
+| 3D spinor ansatz | Spherical four-spinor `exp(-i omega t)(v chi, i u sigma.rhat chi)^T` |
+| Coupled 3D dynamics | Stationary radial Soler attraction plus self-consistent electrostatic potential |
+| Frozen M9.7b2 inputs | `m=epsilon0=q=N=1`, `lambda=64` |
+| Stationary frequency | `omega=0.9914633829359464`, inside the mass gap |
+| Localization scale | `R_rms=5.8792323633`; fraction inside `r<=16` is `0.98942404` |
+| Electrostatic field | Spinor density sources `Q` and `phi`; the potential feeds back into the same Dirac equations |
+| Signed sectors | `q -> -q` reverses `Q`, `phi`, and flux while preserving the stationary spinor and field energy |
+| Entropic clock | Shell probability proportional to `(v^2+u^2) Delta V`; reflecting channel ledger closes |
+| Electric charge | Dimensionless source label only; no physical charge-unit calibration |
+| Spin | 3D spinor representation is used; fermionic quantization/statistics and measured spin observables remain absent |
+| Stability | Stationary BVP branch and local initial-guess basin validated; no time-dependent orbital-stability result |
+| CAT/EPT relation | Density and information interfaces are preserved; `lambda=64` and electrostatic dynamics are selected real-sector inputs, not derived from `S_I` |
 
 ## Field configurations
 
 | Candidate | Configuration | Status |
 | --- | --- | --- |
 | Neutral scalar candidate | Bright scalar soliton in 1+1D | Validated mathematical candidate |
-| Spinor candidate | Two-component Soler solitary wave in 1+1D | Validated replacement-carrier prerequisite |
-| 3D electrostatic source | Regular spherical spinor density plus self-consistent Coulomb field | Gauge-sector qualification only |
-| Electron | No coupled 3D gauge-spinor stationary state, physical charge unit, magnetic moment, or statistics layer | Not established |
-| Positron | Dimensionless opposite source sign exists; no calibrated antiparticle sector or pair dynamics | Not established |
-| Photon / radiation | No Maxwell wave evolution or magnetic field | Not established |
+| 1+1D spinor candidate | Two-component Soler solitary wave | Validated replacement-carrier prerequisite |
+| 3D stationary spinor candidate | Normalized spherical Soler spinor with electrostatic back-reaction | Validated selected-model stationary solution |
+| Electron | No physical mass/charge calibration, magnetic moment, statistics, or experimental identification | Not established |
+| Opposite source sector | Algebraic `q=-1` branch with reversed potential and flux | Dimensionless sector, not positron identification |
+| Photon / radiation | No transverse Maxwell-wave or magnetic dynamics | Not established |
 
 ## Implementation status
 
 | Sector | Status |
 | --- | --- |
-| M9.1 formal contract | Complete |
-| M9.2 free scalar solver | Complete |
-| M9.3 coarse-graining clock | Complete |
-| M9.4 scalar localization | Complete |
-| M9.5 scalar scaling | Complete |
-| M9.6 scalar carrier audit | Complete |
-| M9.7a spinor qualification | Complete; exact 1+1D profile, convergence, conservation, perturbation, background-gauge, and clock gates pass |
-| M9.7b1 electrostatic Maxwell gate | Complete; Gauss law, boundary flux, field energy, signed sectors, convergence, window, perturbation-response, and radial-clock gates pass |
-| Finest M9.7b1 result | Gauss residual `4.01e-16`; flux error `1.11e-16`; field-energy error `2.19e-5`; central-potential error `4.20e-5` |
-| Coupled 3D stationary spinor--electrostatic solve | Open M9.7b2 |
-| Interactive launcher | Deferred until coupled 3D dynamics and gauge evolution pass |
+| M9.1--M9.6 | Complete scalar/formal/clock/carrier program |
+| M9.7a | Complete 1+1D nonlinear spinor qualification |
+| M9.7b1 | Complete 3D electrostatic source-and-field qualification |
+| M9.7b2 | Complete coupled stationary radial spinor--electrostatic solve |
+| Finest stationary residual | Spinor `2.83e-7`; Gauss relative `3.01e-6`; potential `3.69e-9` |
+| Energy closure | Field/source mismatch `4.52e-10`; eigenvalue identity `5.72e-8` |
+| Refinement | Spinor, density, and frequency observed orders approximately `3.96` |
+| Window study | Frequency spread `7.38e-6`; central-potential spread `3.57e-5`; RMS-radius spread `2.32e-3` |
+| Time-dependent 3D evolution | Open M9.7b3 |
+| Interactive launcher | Deferred until M9.7b3 closes |
 
 ## Roadmap
 
 See [`research/m9_roadmap.md`](research/m9_roadmap.md). The next target is
-M9.7b2: a bounded self-consistent stationary radial Dirac--electrostatic solve.
-M9.7b1 supplies the gauge solver and ledgers but does not preselect a successful
-coupled spinor profile.
+M9.7b3: evolve the converged stationary branch with dynamical gauge degrees of
+freedom and close conservation, Gauss, radiation-flux, convergence, and
+perturbation ledgers.
 
 ## Help wanted
 
-Useful independent contributions are a derivation and audit of the radial 3D
-Dirac conventions, an independent coupled Maxwell--Dirac/Soler BVP solver, a
-bounded negative-result search, or a formal bridge for spinor current and Gauss
-law in entropic-physlib.
+Useful independent contributions are an independent radial BVP implementation, a
+hostile audit of the `lambda=64` branch selection, a time-dependent spherical
+Maxwell--Dirac/Soler solver, or a formal spinor-current/Gauss-law bridge in
+entropic-physlib.
