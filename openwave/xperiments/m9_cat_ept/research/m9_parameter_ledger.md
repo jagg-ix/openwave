@@ -11,96 +11,92 @@
 | Imaginary action | `S_I = hbar tau_ent` |
 | Weight modulus | `|W| = exp(-tau_ent)` |
 
-## Fixed selected-model inputs
+## Selected model inputs through M9.7b3
 
 | Choice | Value | Classification |
 | --- | --- | --- |
-| Scalar localization survey | `kappa in {0,+2,-2}` | M9.4 bounded choice |
-| 1+1D spinor equation | Cubic Soler / massive Gross--Neveu form | M9.7a selected input |
+| Scalar localization survey | `kappa in {0,+2,-2}` | Bounded scalar choice |
+| 1+1D spinor equation | Cubic Soler form | Selected model |
 | 3D radial spinor | `(v chi, i u sigma.rhat chi)^T` | Representation convention |
-| 3D effective mass | `M=m-lambda(v^2-u^2)` | Selected Soler interaction |
-| 3D parameters | `m=epsilon0=q=N=1`, `lambda=64` | Dimensionless inputs |
-| Stationary branch method | Charge continuation `{0,1/4,1/2,3/4,1}` | Numerical branch construction |
-| Radial boundary | Regular origin plus Coulomb/exponential finite-window tail | Boundary convention |
-| Dynamic radial grid | Exact shell volumes with second-order weighted-adjoint derivative pair | M9.7b3 discretization |
-| Dynamic kinetic step | Weighted-unitary Crank--Nicolson | Numerical method |
-| Dynamic local step | Exact nonlinear/electrostatic phase rotation | Numerical method |
-| Gauge evolution | Longitudinal Poisson projection after every local half-step | Constrained spherical gauge model |
-| Frozen perturbation | 2% opposite amplitude and 2% opposite component phase | M9.7b3 input |
-| Dynamic refinement | `R=40`, `t=5`, cells `{256,512,1024}`, `dt=0.1 dr` | Scored gate |
-| Long-time run | `R=40`, 512 cells, `t=20` | Scored finite-time gate |
-| Dynamic window study | `R={30,40,50}` at fixed radial spacing | Scored gate |
-| Radial clock | Reflecting symmetric nearest-neighbor channel, 64 depths | Information input |
+| Radial effective mass | `M=m-lambda(v^2-u^2)` | Selected Soler interaction |
+| Radial parameters | `m=epsilon0=q=N=1`, `lambda=64` | Dimensionless inputs |
+| Spherical gauge evolution | Poisson projection after local substeps | Constrained model |
+| Radial perturbation | 2% opposite amplitude and phase | Frozen dynamic input |
+
+## M9.7c selected inputs
+
+| Choice | Value | Classification |
+| --- | --- | --- |
+| Gauge geometry | Planar `A_y(x,t), E_y(x,t), B_z(x,t)` | Bounded transverse reduction |
+| Maxwell equation | `A_t=-E`, `E_t=-A_xx-J-sigma E` | Hyperbolic gauge model |
+| Matter sector | Opposite-charge local two-spinor pair | Neutral current model |
+| Matter Hamiltonian | `H_s=m sigma_z-s q A sigma_y` | Selected local Dirac coupling |
+| Mass | `m=1` | Dimensionless input |
+| Charge magnitude | `q=0.35` | Dimensionless input |
+| Polarization angle | `0.45` | Frozen spinor perturbation |
+| Matter envelope width | `2.5` | Frozen localization input |
+| Total matter norm | `1` | Normalization input |
+| Gauge seed | amplitude `0.01`, width `4` | Frozen gauge perturbation |
+| Time integrator | RK4 | Numerical method |
+| Spatial operator | Periodic second-order finite difference | Numerical method |
+| Absorber | Edge conductivity `sigma(x)` | Boundary model |
+
+## M9.7c scored studies
+
+| Study | Frozen values |
+| --- | --- |
+| Vacuum refinement | `L=60`, `t=12`, points `{256,512,1024}`, `dt=0.2 dx` |
+| Coupled refinement | `L=60`, `t=18`, points `{256,512,1024}`, `dt=0.18 dx` |
+| Long run | `L=60`, 1024 points, `t=80` |
+| Absorber study | `L={50,60,70}`, `t=75`, fixed spacing |
+| Probe radius | `20` |
 
 ## Selection transparency
 
-A non-scoring exploratory BVP continuation selected the normalized `lambda=64`
-branch and solver tolerances before M9.7b2. M9.7b3 inherits that selected branch.
-The dynamic perturbation, refinement, time horizons, conservation thresholds, and
-window study were frozen before the scored dynamic run.
-
-Consequently:
-
-- `lambda=64` is not a CAT/EPT derivation or physical prediction;
-- the positive dynamic result applies to the selected dimensionless branch;
-- the time-dependent result is finite-time numerical evidence, not an orbital
-  stability theorem.
+Exploratory runs were used to correct the `sigma_y` sign convention and to select
+absorber durations and the central-field fraction threshold. The committed task
+file records the final equations, inputs, studies, and gates. M9.7c is therefore
+not described as blind preregistration.
 
 ## Result classification
 
 | Result | Evidential classification |
 | --- | --- |
-| M9.7b2 normalized branch | Coupled stationary BVP result |
-| Weighted-unitary norm conservation | Discrete numerical identity |
-| Dynamic energy drift below `3.3e-7` across refinement | Numerical conservation result |
-| Dynamic Gauss residual below `4e-14` | Poisson-projected longitudinal constraint result |
-| Dynamic self-convergence near order 2 | Time-evolution solver validation |
-| `t=20` fidelity `0.999892` | Finite-time localization evidence |
-| Matter boundary current below `5.5e-7` | Window-contamination diagnostic |
-| Electromagnetic Poynting flux `0` | Symmetry-enforced negative in spherical electrostatics |
-| Radial KL contraction | Data-processing result for the reflecting channel |
-| Magnitude `q=1` | Arbitrary dimensionless normalization, not measured charge |
+| Vacuum orders near `2` | Transverse wave-solver validation |
+| Coupled orders `1.98383`, `1.95569` | Coupled solver convergence |
+| Zero signed charge without projection | Exact neutral-pair symmetry result |
+| Corrected-energy drift `5.14e-7` | Finite-time conservation result |
+| Nonzero emitted energy | Poynting/radiation result for bounded reduction |
+| Long-run absorbed energy `4.90e-4` | Conductivity-boundary accounting result |
+| Absorber spread `0.0042613` | Window/absorber robustness result |
+| `q=0.35` | Arbitrary dimensionless coupling, not measured charge |
+
+## Current conditional statement
+
+> Given the selected neutral local spinor pair, planar transverse Maxwell reduction,
+> dimensionless parameters, finite-difference/RK4 solver, gauge seed, absorber, and
+> time windows, the model supports nonzero transverse Poynting emission, preserves
+> zero signed charge without Gauss projection, closes matter/field/absorber energy,
+> and converges under resolution and absorber-window studies.
+
+This statement does not assign an electron, positron, photon, or Standard Model
+identity.
 
 ## Open structural choices
 
 | Choice | Status |
 | --- | --- |
-| Derivation of scalar or Soler interaction from CAT/EPT | Open |
-| Transverse/non-spherical Maxwell degrees | Open M9.7c |
-| Magnetic self-field and radiative Poynting flux | Open M9.7c |
-| Absorbing boundary and emitted-energy balance | Open M9.7c |
+| Full spatial Maxwell--Dirac transport | Open future extension |
+| Charged localized non-spherical solution | Open |
 | Non-spherical orbital stability | Open |
-| Physical units for length, time, energy, mass, and charge | Open |
-| Electron-charge normalization and Standard Model identity | Absent |
+| Physical units and charge calibration | Open |
 | Fermionic quantization and statistics | Open |
-| Physical phase-clock interpretation | Open |
+| Derivation of selected interactions from CAT/EPT | Open |
 | Irreversible back-reaction from `S_I` | Open |
-
-## Calibration targets
-
-No experimental particle value has been used. Electron mass, electric charge,
-magnetic moment, Compton frequency, and radius are neither inputs nor outputs.
-
-A later physical unit map must state which measured quantity fixes each scale.
-Reusing the same value as an output will count as calibration, not prediction.
-
-## Current prediction status
-
-There is still no particle-physics prediction. The strongest conditional dynamic
-statement is:
-
-> Given the selected dimensionless spherical Soler--electrostatic equations,
-> `m=epsilon0=q=N=1`, `lambda=64`, the converged M9.7b2 branch, and the frozen
-> M9.7b3 numerical method and perturbation, the state remains localized through
-> `t=20` while norm, total energy, longitudinal Gauss law, window, refinement, and
-> radial-information ledgers remain within their declared gates.
-
-This statement does not assign an electron, positron, or photon identity.
 
 ## Parameter-count audit
 
-M9.7b3 removes the prior absence of time evolution in the spherical sector but
-retains the selected strong coupling, normalization, representation, electrostatic
-projection, reflecting boundary, perturbation, and time-window choices. Physical
-interpretation still requires unit, charge, statistics, and clock maps. M9 is not
-a zero-parameter particle model.
+M9.7c adds a planar reduction, neutral-pair construction, local spinor Hamiltonian,
+polarization angle, envelope, gauge seed, probe position, absorber shape, and time
+windows. These are selected modeling inputs. M9 remains a multi-parameter research
+model rather than a zero-parameter particle prediction.
