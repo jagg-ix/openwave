@@ -97,8 +97,7 @@ def scalar_energy(state: ComplexArray, dx: float, coupling: float = -2.0) -> flo
 
 def spinor_density_embedding(state: ComplexArray) -> NDArray[np.complex128]:
     """Embed ``psi`` as ``(psi, 0)`` so Psi-dagger Psi equals |psi|^2."""
-    zeros = np.zeros_like(state)
-    return np.stack((state, zeros), axis=-1)
+    return np.stack((state, np.zeros_like(state)), axis=-1)
 
 
 def spinor_density(spinor: NDArray[np.complex128]) -> RealArray:
@@ -107,20 +106,23 @@ def spinor_density(spinor: NDArray[np.complex128]) -> RealArray:
     return np.asarray(np.sum(np.abs(spinor) ** 2, axis=1), dtype=np.float64)
 
 
-def _sample_state() -> tuple[RealArray, ComplexArray, float]:
+def _sample_state() -> tuple[RealArray, ComplexArray, float, float]:
     points = 2048
     half_width = 20.0
-    dx = 2.0 * half_width / points
+    domain_length = 2.0 * half_width
+    dx = domain_length / points
     x = -half_width + dx * np.arange(points, dtype=np.float64)
+    phase_wave_number = 2.0 * math.pi * 4.0 / domain_length
+    local_phase_wave_number = 2.0 * math.pi * 8.0 / domain_length
     base = 1.0 / (math.sqrt(2.0) * np.cosh(x))
-    state = np.asarray(base * np.exp(0.7j * x), dtype=np.complex128)
-    return x, state, dx
+    state = np.asarray(base * np.exp(1j * phase_wave_number * x), dtype=np.complex128)
+    return x, state, dx, local_phase_wave_number
 
 
 def audit_scalar_carrier() -> dict[str, Any]:
-    x, state, dx = _sample_state()
+    x, state, dx, local_wave_number = _sample_state()
     global_phase = global_phase_transform(state, 0.73)
-    local_phase = local_phase_transform(x, state, 1.25)
+    local_phase = local_phase_transform(x, state, local_wave_number)
     conjugate = conjugate_state(state)
 
     norm = discrete_norm(state, dx)
