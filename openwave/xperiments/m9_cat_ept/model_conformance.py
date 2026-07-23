@@ -1,3 +1,4 @@
+
 """README/MODELS-aligned CAT/EPT conformance profile."""
 from __future__ import annotations
 from dataclasses import asdict, dataclass
@@ -17,10 +18,32 @@ class Criterion:
     finding: str
 
 CRITERIA: tuple[Criterion, ...] = (
-    Criterion("charge_quantization","particles","Charge quantization","not_yet",(),"No emergent topological or dynamical quantization law has been implemented."),
-    Criterion("electron_rest_energy","particles","Electron rest energy (mass)","not_yet",(),"Mass remains a model parameter; no localized CAT/EPT rest-energy solution is accepted."),
-    Criterion("de_broglie_clock","particles","de Broglie clock (Zitterbewegung)","partial",("openwave/xperiments/m9_cat_ept/imaginary_action_backreaction.py","openwave/xperiments/m9_cat_ept/entropic_integrator.py"),"A monotone entropic clock exists, but it is not identified with Zitterbewegung or physical time."),
-    Criterion("particle_stability","particles","Particle stability (Derrick escape)","negative",("openwave/xperiments/m9_cat_ept/spatial_3d_localization_decision.py","openwave/xperiments/m9_cat_ept/research/findings/m9_14_method_note.md"),"The strongest bounded 3D member fails the frozen long-horizon localization gate."),
+    Criterion(
+        "charge_quantization","particles","Charge quantization","partial",
+        ("openwave/xperiments/m9_cat_ept/topological_charge.py",
+         "openwave/xperiments/m9_cat_ept/research/findings/m9_26_method_note.md"),
+        "Integer winding is derived from the complex field and is robust, but the sector is seeded and is not identified with elementary electric charge."
+    ),
+    Criterion(
+        "electron_rest_energy","particles","Electron rest energy (mass)","partial",
+        ("openwave/xperiments/m9_cat_ept/scale_selection.py",
+         "openwave/xperiments/m9_cat_ept/research/findings/m9_27_method_note.md"),
+        "A selected topological ansatz has an interior dimensionless scale minimum, but no physical mass or full CAT/EPT particle is established."
+    ),
+    Criterion(
+        "de_broglie_clock","particles","de Broglie clock (Zitterbewegung)","partial",
+        ("openwave/xperiments/m9_cat_ept/imaginary_action_backreaction.py",
+         "openwave/xperiments/m9_cat_ept/entropic_integrator.py"),
+        "A monotone entropic clock exists, but it is not identified with Zitterbewegung or physical time."
+    ),
+    Criterion(
+        "particle_stability","particles","Particle stability (Derrick escape)","negative",
+        ("openwave/xperiments/m9_cat_ept/localized_state_search.py",
+         "openwave/xperiments/m9_cat_ept/spatial_3d_localization_decision.py",
+         "openwave/xperiments/m9_cat_ept/research/findings/m9_14_method_note.md",
+         "openwave/xperiments/m9_cat_ept/research/findings/m9_25_method_note.md"),
+        "A constrained 1D localized family exists, but the strongest bounded 3D member fails the frozen long-horizon localization gate."
+    ),
     Criterion("magnetic_moment_spin","particles","Magnetic moment and spin J","not_yet",(),"Spinor transport and magnetic fields are controls, not an emergent particle moment or spin."),
     Criterion("spin_half_statistics","particles","Spin-1/2 statistics (720-degree return)","not_yet",(),"No field-level double-cover return or exchange-statistics simulation exists."),
     Criterion("antimatter_annihilation","particles","Antimatter and annihilation","not_yet",(),"Opposite charge labels are transported, but annihilation is not modeled."),
@@ -29,12 +52,26 @@ CRITERIA: tuple[Criterion, ...] = (
     Criterion("quarks","particles","Quarks","not_yet",(),"No fractional-charge or color-sector model exists."),
     Criterion("baryons","particles","Baryons (p, n)","not_yet",(),"No three-body composite sector exists."),
     Criterion("mesons","particles","Mesons (pi, K)","not_yet",(),"No bound particle-antiparticle composite sector exists."),
-    Criterion("electric_force","forces","Electric force (Coulomb 1/r)","partial",("openwave/xperiments/m9_cat_ept/spatial_3d_maxwell_dirac.py","openwave/xperiments/m9_cat_ept/research/findings/m9_13_method_note.md"),"Gauss and transport ledgers exist, but no force law between stable emergent charges is established."),
-    Criterion("magnetic_force","forces","Magnetic force","partial",("openwave/xperiments/m9_cat_ept/spatial_3d_maxwell_dirac.py",),"Magnetic and Poynting fields are simulated; a particle-level magnetic interaction is not."),
+    Criterion(
+        "electric_force","forces","Electric force (Coulomb 1/r)","partial",
+        ("openwave/xperiments/m9_cat_ept/spatial_3d_maxwell_dirac.py",
+         "openwave/xperiments/m9_cat_ept/research/findings/m9_13_method_note.md"),
+        "Gauss and transport ledgers exist, but no force law between stable emergent charges is established."
+    ),
+    Criterion(
+        "magnetic_force","forces","Magnetic force","partial",
+        ("openwave/xperiments/m9_cat_ept/spatial_3d_maxwell_dirac.py",),
+        "Magnetic and Poynting fields are simulated; a particle-level magnetic interaction is not."
+    ),
     Criterion("strong_force","forces","Strong force / confinement","not_yet",(),"No confinement or string-tension sector exists."),
     Criterion("weak_force","forces","Weak force","not_yet",(),"No chiral transition or decay sector exists."),
     Criterion("gravity","forces","Gravity","not_yet",(),"Geometry appears in the theory manifest, but dynamical metric back-reaction is pending."),
-    Criterion("em_waves","waves","EM waves (Maxwell)","partial",("openwave/xperiments/m9_cat_ept/spatial_3d_controls.py","openwave/xperiments/m9_cat_ept/research/data/m9_12_spatial_3d_controls_result.json"),"Vacuum Maxwell propagation is qualified as a control, not derived as an emergent CAT/EPT result."),
+    Criterion(
+        "em_waves","waves","EM waves (Maxwell)","partial",
+        ("openwave/xperiments/m9_cat_ept/spatial_3d_controls.py",
+         "openwave/xperiments/m9_cat_ept/research/data/m9_12_spatial_3d_controls_result.json"),
+        "Vacuum Maxwell propagation is qualified as a control, not derived as an emergent CAT/EPT result."
+    ),
     Criterion("klein_gordon","waves","Quantum wave equation (Klein-Gordon)","not_yet",(),"No CAT/EPT reduction to a Klein-Gordon field equation is implemented."),
     Criterion("orbital_quantization","waves","Orbital quantization (atomic structure)","not_yet",(),"No bound-state or standing-wave orbital ladder is implemented."),
 )
