@@ -1,63 +1,26 @@
 # M9 CAT/EPT roadmap
 
-M9 is complete through bounded two-dimensional transported Maxwell--Dirac
-dynamics. All sectors remain selected dimensionless field models rather than
-physical particle identifications.
+M9 is complete through a bounded two-dimensional localization and radiative
+stability decision. The decision gate passes, but no stable two-dimensional
+particle candidate is accepted.
 
 | Task | Deliverable | Status / gate |
 | --- | --- | --- |
-| M9.1--M9.6 | Formal, scalar, clock, scaling, and carrier audit | DONE |
-| M9.7a | Bounded 1+1D nonlinear Dirac/Soler qualification | DONE |
-| M9.7b1--M9.7b3 | Spherical electrostatic stationary and dynamic program | DONE |
-| M9.7c | Bounded transverse Maxwell--spinor radiation | DONE |
-| M9.8 | Shared instrumentation, launcher, and renderer | DONE |
+| M9.1--M9.8 | Formal, scalar, spinor, gauge, radiation, and instrumentation program | DONE |
 | M9.9 | Spatially transported planar Maxwell--Dirac qualification | DONE |
-| M9.10 | Two-dimensional transported Maxwell--Dirac qualification | DONE; all gates passed |
-| M9.11 | Two-dimensional localization and radiative-stability decision | NEXT |
+| M9.10 | Two-dimensional transported Maxwell--Dirac qualification | DONE |
+| M9.11 | Two-dimensional localization/radiative-stability decision | DONE; negative particle decision |
+| M9.12 | Three-dimensional transported Maxwell--Dirac program | NEXT |
 
-## Accumulated program
+## Accumulated transport program
 
-M9.1--M9.8 establish the pinned CAT/EPT density/information interfaces, validated
-scalar and spinor controls, a spherical stationary spinor branch, constrained
-radial dynamics, bounded transverse radiation, and shared claim-aware
-instrumentation.
+M9.9 establishes one-dimensional spatial Dirac transport with longitudinal and
+transverse gauge fields. M9.10 extends the reduction to two transported spatial
+coordinates with `E_x`, `E_y`, magnetic curl, non-axis-aligned motion, Poynting
+transport, conductivity absorption, induced absorber charge, refinement, and
+domain-shape studies.
 
-M9.9 adds one-dimensional spatial Dirac transport with longitudinal and transverse
-gauge fields. The opposite-charge packets cross while norm, energy, net charge,
-final Gauss, magnetic, and emitted-energy ledgers remain within their frozen gates.
-
-## M9.10 two-dimensional transport
-
-The bounded 2+1D reduction is
-
-```text
-i psi_s,t = [sigma_x(-i d_x-s q A_x)
-             + sigma_y(-i d_y-s q A_y)
-             + m sigma_z] psi_s
-s in {+1,-1}
-
-A_x,t = -E_x
-A_y,t = -E_y
-E_x,t = d_y B_z - J_x - sigma E_x
-E_y,t = -d_x B_z - J_y - sigma E_y
-B_z = d_x A_y - d_y A_x.
-```
-
-The absorber-induced charge obeys `rho_abs,t=-div(sigma E)`, allowing the Gauss
-ledger to include matter plus absorber charge without a projection step.
-
-Frozen inputs:
-
-```text
-m = 1
-q = 0.20
-packet width = 2.2
-centers = (-5,-2), (5,2)
-momenta = (0.95,0.35), (-0.95,-0.2275)
-gauge seed amplitude = 0.006.
-```
-
-Scored results:
+M9.10 key result:
 
 ```text
 transported-spinor order = 8.18686
@@ -68,18 +31,56 @@ max net charge = 5.51630e-11
 packet separation = 10.77033 -> 1.03495
 transport angle = 0.38051 -> 1.34895
 emitted energy = 1.12278e-5
-absorbed energy = 4.42916e-5
 max magnetic field = 0.00770611.
 ```
 
-The domain-shape study gives relative spreads `2.49e-5` for final separation and
-`0.03147` for emitted energy.
+## M9.11 localization decision
 
-The high smooth-benchmark order is not claimed as universal accuracy. M9.10
-establishes bounded 2D transport, not stable localization or particle identity.
+The bounded nonlinear family is
 
-## Next gate: M9.11
+```text
+lambda in {0,2,4,8}
+M_s = m - lambda psi_s^dagger sigma_z psi_s.
+```
 
-M9.11 must run a bounded two-dimensional nonlinear-coupling survey and decide
-whether any member remains localized under fixed perturbation and a longer
-radiative horizon. It must return an explicit negative if no member survives.
+At `t=8`, increasing the selected coupling reduces spreading:
+
+```text
+free maximum RMS ratio = 1.52762639
+lambda=8 maximum RMS ratio = 1.40072364
+spreading improvement = 0.12690276
+lambda=8 minimum peak ratio = 0.85486943
+lambda=8 minimum core fraction = 0.95543175.
+```
+
+The fixed perturbation survives the finite-time gate:
+
+```text
+maximum RMS ratio = 1.34175227
+minimum peak ratio = 0.88188286
+minimum core fraction = 0.95992433.
+```
+
+The same strongest member fails the `t=12` long-time gate:
+
+```text
+maximum RMS ratio = 1.73615505
+minimum peak ratio = 0.67364906
+minimum core fraction = 0.92050318.
+```
+
+Decision:
+
+> `lambda=8` is a finite-time reduced-spreading candidate, but it fails the
+> long-time localization gate; no stable two-dimensional particle candidate is
+> accepted.
+
+All nine decision-procedure gates pass, including norm, corrected energy, final
+Gauss, radiation, perturbation, and explicit particle-rejection checks.
+
+## Next gate: M9.12
+
+M9.12 must treat three-dimensional transport as a new research program rather than
+an automatic particle promotion. It must define a bounded 3D representation,
+Maxwell constraints, magnetic curl, boundary/energy ledgers, refinement controls,
+and an honest localization or dispersal decision before any physical calibration.

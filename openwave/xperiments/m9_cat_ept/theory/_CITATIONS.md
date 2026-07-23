@@ -14,44 +14,40 @@
 | J. Cuevas-Maraver et al. | 2017 | Solitary waves in the Nonlinear Dirac Equation | arXiv:1707.01946 |
 | M. J. Esteban, V. Georgiev, E. Sere | 1996 | Stationary solutions of the Maxwell-Dirac and the Klein-Gordon-Dirac equations | Calculus of Variations and PDE 4, 265--281; DOI 10.1007/BF01254347 |
 | C. Radford | 2001 | The Stationary Maxwell-Dirac Equations | arXiv:math-ph/0112037 |
-| A. G. Lisi | 1994/1995 | A Solution of the Maxwell-Dirac Equations in 3+1 Dimensions | arXiv:hep-th/9410244; Journal of Physics A 28, 5385 |
 | P. d'Avenia, G. Siciliano | 2021 | A normalized solitary wave solution of the Maxwell-Dirac equations | Annales de l'Institut Henri Poincare C 38, 1681; DOI 10.1016/j.anihpc.2020.12.006 |
 | K. S. Yee | 1966 | Numerical solution of initial boundary value problems involving Maxwell's equations in isotropic media | IEEE Transactions on Antennas and Propagation 14, 302--307 |
 | Jorge A. Garcia | 2026 | Entropic Physlib formal development | `jagg-ix/entropic-physlib-private`, pinned commit in `../formal/entropic_spine_contract.json` |
 
-## M9.7a provenance
+## Lower-dimensional program
 
-The 1+1D spinor model follows the nonlinear Dirac/Soler and massive Gross--Neveu
-literature. OpenWave's convergence, perturbation, gauge-interface, and information
-gates are repository-specific.
+The nonlinear Dirac/Soler and stationary Maxwell--Dirac literature motivates the
+equation classes used by M9.7a--M9.7b. OpenWave's selected couplings, continuation,
+discretizations, perturbations, and numerical results are repository-specific.
 
-## M9.7b provenance
-
-The stationary Maxwell--Dirac literature establishes localized stationary
-configurations as a meaningful mathematical target. OpenWave's `lambda=64`
-radial branch and finite-time results are selected repository-specific
-constructions rather than reproductions of one published profile.
-
-## M9.7c provenance
-
-Finite-difference Maxwell literature motivates the transverse wave benchmark and
-energy/Poynting accounting. M9.7c uses a repository-specific potential formulation,
-RK4 integration, neutral-pair current, and conductivity absorber.
-
-## M9.9 provenance
-
-M9.9 combines the standard 1+1D Dirac Hamiltonian with a temporal-gauge planar
-Maxwell reduction. Its packet construction, parameters, discretization, absorber,
-and gates are OpenWave-specific.
+Finite-difference Maxwell literature motivates the wave, energy, Gauss, and
+Poynting diagnostics used by M9.7c and M9.9. Those tasks use selected potential
+formulations, RK4 evolution, packet data, and absorbers rather than reproducing a
+single published computation.
 
 ## M9.10 provenance
 
 M9.10 extends the selected temporal-gauge reduction to two transported spatial
 coordinates using spectral differentiation, RK4 integration, a spectral Poisson
 initial field, and conductivity damping with induced-charge accounting. The cited
-Maxwell--Dirac and numerical-Maxwell literature motivates the equation class and
-conservation diagnostics but does not validate the selected packets, parameters,
-benchmark order, numerical results, CAT/EPT interpretation, or particle identity.
+literature motivates the equation class and conservation diagnostics but does not
+validate the selected packets, parameters, benchmark order, numerical results,
+CAT/EPT interpretation, or particle identity.
+
+## M9.11 provenance
+
+The M9.11 effective-mass family follows the general Soler-type nonlinear spinor
+idea. The specific bounded set `lambda={0,2,4,8}`, Gaussian packet collision,
+localization metrics, perturbation factors, grid sizes, time horizons, thresholds,
+and negative particle decision are OpenWave-specific.
+
+The cited solitary-wave literature does not imply that the selected 2D transported
+packets should be stable. M9.11 explicitly tests and rejects that stronger claim at
+the frozen long-time horizon.
 
 ## Local corpus
 

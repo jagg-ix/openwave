@@ -1,0 +1,92 @@
+{
+  "acceptance": {
+    "bounded_family_completed": true,
+    "energy_ledgers_close": true,
+    "finite_time_candidate_identified": true,
+    "fixed_perturbation_survives": true,
+    "gauss_ledgers_close": true,
+    "long_time_particle_claim_rejected": true,
+    "norm_ledgers_close": true,
+    "radiation_recorded": true,
+    "strongest_member_reduces_spreading": true
+  },
+  "accepted_particle_candidate": false,
+  "classification": {
+    "does_not_establish": [
+      "a stable localized charged particle",
+      "orbital or asymptotic stability",
+      "electron identity, calibrated units, or fermionic quantization",
+      "unique CAT/EPT selection of lambda=8"
+    ],
+    "establishes": [
+      "a bounded four-member nonlinear coupling survey",
+      "finite-time reduced spreading for the strongest selected member",
+      "fixed-perturbation survival through the finite-time gate",
+      "long-time dispersal of the strongest member",
+      "norm, energy, Gauss, and radiation ledgers for every member"
+    ]
+  },
+  "decision": "lambda=8 is a finite-time reduced-spreading candidate at t=8, but it fails the t=12 long-time localization gate; no stable two-dimensional particle candidate is accepted.",
+  "finite_time_reduced_spreading_candidate": 8.0,
+  "fixed_perturbation": {
+    "maximum_rms_ratio": 1.3417522679186762,
+    "minimum_core_fraction": 0.9599243307686279,
+    "minimum_peak_ratio": 0.8818828574573416
+  },
+  "ledger_maxima": {
+    "energy_drift": 2.0907018935746082e-07,
+    "final_gauss_relative": 0.0034051990733074944,
+    "norm_drift": 1.8349481956114744e-07
+  },
+  "long_time": {
+    "maximum_rms_ratio": 1.7361550529221679,
+    "minimum_core_fraction": 0.920503178864705,
+    "minimum_peak_ratio": 0.6736490574322909
+  },
+  "passed": true,
+  "schema": "openwave.m9.planar-2d-localization-summary.v1",
+  "spreading_improvement": 0.12690275721862032,
+  "survey": [
+    {
+      "emitted_energy": 1.0527831469079217e-05,
+      "final_gauss_relative": 6.801024282935247e-05,
+      "max_energy_drift": 2.0907018935746082e-07,
+      "max_norm_drift": 1.8349481956114744e-07,
+      "maximum_rms_ratio": 1.527626393028705,
+      "minimum_core_fraction": 0.9428856062362779,
+      "minimum_peak_ratio": 0.545524364690693,
+      "soler_coupling": 0.0
+    },
+    {
+      "emitted_energy": 1.0815153751568532e-05,
+      "final_gauss_relative": 6.856474248162238e-05,
+      "max_energy_drift": 1.9234694386962077e-07,
+      "max_norm_drift": 1.7111986083673258e-07,
+      "maximum_rms_ratio": 1.4937997375274914,
+      "minimum_core_fraction": 0.9466510458701043,
+      "minimum_peak_ratio": 0.6058071660279304,
+      "soler_coupling": 2.0
+    },
+    {
+      "emitted_energy": 1.1084661921668216e-05,
+      "final_gauss_relative": 0.0003427860063792993,
+      "max_energy_drift": 1.7843160526977996e-07,
+      "max_norm_drift": 1.6067875585612512e-07,
+      "maximum_rms_ratio": 1.4611701228541576,
+      "minimum_core_fraction": 0.95162930153876,
+      "minimum_peak_ratio": 0.6766444178255859,
+      "soler_coupling": 4.0
+    },
+    {
+      "emitted_energy": 1.1565295363674801e-05,
+      "final_gauss_relative": 0.0034051990733074944,
+      "max_energy_drift": 1.58186845083941e-07,
+      "max_norm_drift": 1.4508196444218413e-07,
+      "maximum_rms_ratio": 1.4007236358100847,
+      "minimum_core_fraction": 0.9554317489798017,
+      "minimum_peak_ratio": 0.8548694348987403,
+      "soler_coupling": 8.0
+    }
+  ],
+  "task": "M9.11"
+}

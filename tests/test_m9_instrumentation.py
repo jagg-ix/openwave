@@ -24,7 +24,7 @@ def _write_ledgers(root: Path) -> None:
     }
     radial = {
         "passed": True,
-        "acceptance": {"a": True, "b": True},
+        "acceptance": {"a": True},
         "long_time_run": {
             "phase_metrics": {"fidelity": 0.999},
             "max_norm_drift": 1e-14,
@@ -46,7 +46,7 @@ def _write_ledgers(root: Path) -> None:
     }
     transported = {
         "passed": True,
-        "acceptance": {"a": True, "b": True},
+        "acceptance": {"a": True},
         "refinement": {"observed_order": 1.9},
         "long_run": {
             "max_norm_drift": 1e-9,
@@ -58,7 +58,7 @@ def _write_ledgers(root: Path) -> None:
     }
     planar = {
         "passed": True,
-        "acceptance": {"a": True, "b": True},
+        "acceptance": {"a": True},
         "refinement": {"observed_order": 4.0},
         "long_run": {
             "max_norm_drift": 1e-9,
@@ -70,29 +70,45 @@ def _write_ledgers(root: Path) -> None:
             },
         },
     }
+    decision = {
+        "passed": True,
+        "acceptance": {"a": True},
+        "spreading_improvement": 0.12,
+        "finite_time_reduced_spreading_candidate": 8.0,
+        "survey": [
+            {"maximum_rms_ratio": 1.52},
+            {"maximum_rms_ratio": 1.49},
+            {"maximum_rms_ratio": 1.46},
+            {"maximum_rms_ratio": 1.40},
+        ],
+        "fixed_perturbation": {"maximum_rms_ratio": 1.34},
+        "long_time": {"maximum_rms_ratio": 1.74},
+        "accepted_particle_candidate": False,
+    }
     values = {
         "m9_5_soliton_observable_result.json": scalar,
         "m9_7b3_dirac_electrostatic_dynamics_result.json": radial,
         "m9_7c_transverse_maxwell_spinor_result.json": transverse,
         "m9_9_transported_maxwell_dirac_result.json": transported,
         "m9_10_planar_2d_maxwell_dirac_result.json": planar,
+        "m9_11_planar_2d_localization_result.json": decision,
     }
     for name, payload in values.items():
         (root / name).write_text(json.dumps(payload), encoding="utf-8")
 
 
 def test_manifest_defines_validated_non_particle_presets() -> None:
-    presets = load_presets()
-    names = {preset.name for preset in presets}
+    names = {preset.name for preset in load_presets()}
     assert {
         "scalar-observables",
         "radial-dynamics",
         "transverse-radiation",
         "transported-maxwell-dirac",
         "planar-2d-maxwell-dirac",
+        "planar-2d-localization-decision",
     }.issubset(names)
-    assert all(preset.does_not_establish for preset in presets)
-    assert all("electron" not in preset.name for preset in presets)
+    assert all(preset.does_not_establish for preset in load_presets())
+    assert all("electron" not in preset.name for preset in load_presets())
 
 
 def test_path_resolution_supports_mappings_and_sequences() -> None:
@@ -103,7 +119,7 @@ def test_path_resolution_supports_mappings_and_sequences() -> None:
 def test_build_panels_from_ledgers(tmp_path: Path) -> None:
     _write_ledgers(tmp_path)
     panels = build_panels(data_root=tmp_path)
-    assert len(panels) == 5
+    assert len(panels) == 6
     assert all(panel.passed for panel in panels)
     assert all(panel.acceptance_passed == panel.acceptance_total for panel in panels)
 
@@ -124,7 +140,7 @@ def test_export_writes_json_and_png(tmp_path: Path) -> None:
     panels = build_panels(data_root=ledger_root)
     result = export_bundle(panels, tmp_path / "export")
     assert Path(result["json"]).is_file()
-    assert len(result["images"]) == 5
+    assert len(result["images"]) == 6
     assert all(Path(path).is_file() for path in result["images"])
 
 
@@ -143,6 +159,6 @@ def test_launcher_lists_presets(capsys) -> None:
     assert main(["--list"]) == 0
     output = capsys.readouterr().out
     assert "scalar-observables" in output
-    assert "transverse-radiation" in output
     assert "transported-maxwell-dirac" in output
     assert "planar-2d-maxwell-dirac" in output
+    assert "planar-2d-localization-decision" in output
