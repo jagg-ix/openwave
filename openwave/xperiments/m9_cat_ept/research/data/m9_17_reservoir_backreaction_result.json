@@ -1,0 +1,57 @@
+{
+  "schema": "openwave.m9.reservoir-backreaction-result.v1",
+  "task": "M9.17",
+  "model": "selected 1+1D Dirac sink with local probability/charge reservoir",
+  "refinement": {
+    "observed_order": 3.9228613129473033,
+    "points": [64, 128, 256]
+  },
+  "long_run": {
+    "points": 256,
+    "final_time": 6.0,
+    "dt": 0.009375,
+    "steps": 640,
+    "final_matter_probability": 0.4050779330998114,
+    "final_reservoir_probability": 0.5949220671512564,
+    "final_extended_probability": 1.0000000002510678,
+    "max_extended_probability_error": 2.510678331901772e-10,
+    "max_extended_charge_error": 1.0017436901689492e-11,
+    "maximum_continuity_residual": 4.176352562390573e-10,
+    "final_tau_ent": 0.45183790149021746,
+    "minimum_reservoir_density": 0.0,
+    "matter_probability_monotone": true,
+    "reservoir_probability_monotone": true,
+    "tau_ent_monotone": true
+  },
+  "zero_loss": {
+    "matter_probability_drift": 6.813420938556192e-10,
+    "reservoir_probability": 0.0,
+    "tau_ent": 3.40671047043993e-10
+  },
+  "acceptance": {
+    "spatial_solution_converges": true,
+    "extended_probability_closes": true,
+    "extended_charge_closes": true,
+    "local_continuity_closes": true,
+    "reservoir_nonnegative": true,
+    "matter_probability_contracts": true,
+    "reservoir_accumulates": true,
+    "operational_tau_monotone": true,
+    "zero_loss_reduces_to_closed_transport": true
+  },
+  "passed": true,
+  "classification": {
+    "establishes": [
+      "spatial Dirac transport with a positive local sink",
+      "extended matter-plus-reservoir probability and charge closure",
+      "local continuity and a monotone operational matter-loss clock",
+      "the zero-loss closed-transport limit"
+    ],
+    "does_not_establish": [
+      "a microscopic reservoir Hamiltonian or thermodynamic bath",
+      "that the operational matter-loss clock is physical time",
+      "Maxwell back-reaction from the reservoir",
+      "particle localization or physical calibration"
+    ]
+  }
+}
