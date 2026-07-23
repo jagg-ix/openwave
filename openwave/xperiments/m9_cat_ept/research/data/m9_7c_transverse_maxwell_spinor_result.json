@@ -1,0 +1,362 @@
+{
+  "absorber_study": {
+    "emitted_relative_spread": 0.004261325637312473,
+    "records": [
+      {
+        "absorbed_energy": 0.00046540219377949745,
+        "absorber_fraction": 0.18,
+        "absorber_strength": 0.4,
+        "corrected_energy_relative_drift": 1.3722651051280652e-06,
+        "emitted_energy": 0.0005918202528367549,
+        "final_central_fraction": 0.4935410404506354,
+        "final_field_energy": 0.0003478034869083316,
+        "half_width": 50.0,
+        "points": 854
+      },
+      {
+        "absorbed_energy": 0.00048199177086928613,
+        "absorber_fraction": 0.2,
+        "absorber_strength": 0.45,
+        "corrected_energy_relative_drift": 1.4428504473175091e-06,
+        "emitted_energy": 0.0005942192590974982,
+        "final_central_fraction": 0.5184939185938019,
+        "final_field_energy": 0.00033114456569352795,
+        "half_width": 60.0,
+        "points": 1024
+      },
+      {
+        "absorbed_energy": 0.00045646542288532303,
+        "absorber_fraction": 0.22,
+        "absorber_strength": 0.5,
+        "corrected_energy_relative_drift": 1.4417695000277651e-06,
+        "emitted_energy": 0.0005943491915122142,
+        "final_central_fraction": 0.4812012429088063,
+        "final_field_energy": 0.0003566765058088657,
+        "half_width": 70.0,
+        "points": 1196
+      }
+    ]
+  },
+  "acceptance": {
+    "absorber_removes_radiation": true,
+    "absorber_study_stable": true,
+    "coupled_convergent": true,
+    "dynamic_gauss_without_projection": true,
+    "energy_balance_closes": true,
+    "long_time_energy_balance": true,
+    "nonzero_radiation": true,
+    "pair_norm_preserved": true,
+    "radiation_leaves_core": true,
+    "vacuum_second_order": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "full spatial Maxwell--Dirac evolution",
+      "a localized charged single-particle solution",
+      "electron identity, calibrated charge, or fermionic quantization",
+      "three-dimensional non-spherical orbital stability",
+      "unique CAT/EPT derivation of the transverse reduction"
+    ],
+    "establishes": [
+      "a non-spherical transverse Maxwell mode with E_y and B_z",
+      "self-consistent two-way exchange with a neutral spinor-current pair",
+      "dynamic zero-charge Gauss closure without Poisson projection",
+      "nonzero-capable Poynting flux and absorber energy accounting",
+      "resolution and absorber-window convergence for the bounded reduction"
+    ]
+  },
+  "coupled_refinement": {
+    "observed_orders": {
+      "a": 1.9838278800867204,
+      "e": 1.9556850886794874
+    },
+    "successive_differences": {
+      "a": [
+        0.0069539655928850305,
+        0.0017580889301443796
+      ],
+      "e": [
+        0.05346337832920611,
+        0.013782770491645129
+      ]
+    },
+    "summaries": [
+      {
+        "absorbed_energy": 3.0152217014480548e-55,
+        "corrected_energy_relative_drift": 8.301190056926886e-06,
+        "dt": 0.08411214953271028,
+        "emitted_energy": 3.469640444260721e-05,
+        "final": {
+          "absorbed_energy": 3.0152217014480548e-55,
+          "corrected_energy": 0.900457547382124,
+          "current_l2": 0.06051782813104266,
+          "emitted_energy": 3.469640444260721e-05,
+          "field_energy": 0.0005462550552079444,
+          "field_energy_central_fraction": 0.0955478274497099,
+          "left_poynting": -2.109069930298176e-05,
+          "matter_energy": 0.8999112923269161,
+          "max_charge_density": 0.0,
+          "max_field": 0.008894722130452249,
+          "pair_norm_error": 0.0,
+          "right_poynting": 2.109069930298182e-05,
+          "time": 18.0,
+          "total_energy": 0.900457547382124
+        },
+        "grid": {
+          "absorber_fraction": 0.2,
+          "absorber_strength": 0.45,
+          "dt_over_dx": 0.18,
+          "final_time": 18.0,
+          "half_width": 60.0,
+          "points": 256,
+          "samples": 73
+        },
+        "initial": {
+          "absorbed_energy": 0.0,
+          "corrected_energy": 0.9004625555900291,
+          "current_l2": 0.0,
+          "emitted_energy": 0.0,
+          "field_energy": 1.5453237351936383e-05,
+          "field_energy_central_fraction": 0.9999864260206823,
+          "left_poynting": 0.0,
+          "matter_energy": 0.9004471023526771,
+          "max_charge_density": 0.0,
+          "max_field": 0.0021246812273806813,
+          "pair_norm_error": 0.0,
+          "right_poynting": -0.0,
+          "time": 0.0,
+          "total_energy": 0.9004625555900291
+        },
+        "max_charge_density": 0.0,
+        "max_pair_norm_error": 0.0,
+        "max_probe_poynting_magnitude": 2.109069930298182e-05,
+        "parameters": {
+          "envelope_width": 2.5,
+          "gauge_charge": 0.35,
+          "gauge_seed_amplitude": 0.01,
+          "gauge_seed_width": 4.0,
+          "mass": 1.0,
+          "matter_norm": 1.0,
+          "polarization_angle": 0.45
+        },
+        "steps": 214
+      },
+      {
+        "absorbed_energy": 1.787010883110544e-59,
+        "corrected_energy_relative_drift": 2.0564125320122757e-06,
+        "dt": 0.04215456674473068,
+        "emitted_energy": 4.62938568456328e-05,
+        "final": {
+          "absorbed_energy": 1.787010883110544e-59,
+          "corrected_energy": 0.9004616323553439,
+          "current_l2": 0.06051891443648803,
+          "emitted_energy": 4.62938568456328e-05,
+          "field_energy": 0.0005511869789570855,
+          "field_energy_central_fraction": 0.09769300855917018,
+          "left_poynting": -2.886113087895982e-05,
+          "matter_energy": 0.8999104453763869,
+          "max_charge_density": 0.0,
+          "max_field": 0.009146129957676276,
+          "pair_norm_error": 0.0,
+          "right_poynting": 2.8861130878959804e-05,
+          "time": 18.0,
+          "total_energy": 0.9004616323553439
+        },
+        "grid": {
+          "absorber_fraction": 0.2,
+          "absorber_strength": 0.45,
+          "dt_over_dx": 0.18,
+          "final_time": 18.0,
+          "half_width": 60.0,
+          "points": 512,
+          "samples": 73
+        },
+        "initial": {
+          "absorbed_energy": 0.0,
+          "corrected_energy": 0.9004627151158819,
+          "current_l2": 0.0,
+          "emitted_energy": 0.0,
+          "field_energy": 1.5612763205081618e-05,
+          "field_energy_central_fraction": 0.9999827886586637,
+          "left_poynting": 0.0,
+          "matter_energy": 0.9004471023526769,
+          "max_charge_density": 0.0,
+          "max_field": 0.002139411147897043,
+          "pair_norm_error": 0.0,
+          "right_poynting": -0.0,
+          "time": 0.0,
+          "total_energy": 0.9004627151158819
+        },
+        "max_charge_density": 0.0,
+        "max_pair_norm_error": 0.0,
+        "max_probe_poynting_magnitude": 2.886113087895982e-05,
+        "parameters": {
+          "envelope_width": 2.5,
+          "gauge_charge": 0.35,
+          "gauge_seed_amplitude": 0.01,
+          "gauge_seed_width": 4.0,
+          "mass": 1.0,
+          "matter_norm": 1.0,
+          "polarization_angle": 0.45
+        },
+        "steps": 427
+      },
+      {
+        "absorbed_energy": 8.256045325314303e-61,
+        "corrected_energy_relative_drift": 5.141281923754329e-07,
+        "dt": 0.02107728337236534,
+        "emitted_energy": 3.995897366598927e-05,
+        "final": {
+          "absorbed_energy": 8.256045325314303e-61,
+          "corrected_energy": 0.9004624885001928,
+          "current_l2": 0.060519196330481737,
+          "emitted_energy": 3.995897366598927e-05,
+          "field_energy": 0.0005524881755353277,
+          "field_energy_central_fraction": 0.09896185404196586,
+          "left_poynting": -2.5729094894011777e-05,
+          "matter_energy": 0.8999100003246575,
+          "max_charge_density": 0.0,
+          "max_field": 0.009210048915645986,
+          "pair_norm_error": 0.0,
+          "right_poynting": 2.5729094894011588e-05,
+          "time": 18.0,
+          "total_energy": 0.9004624885001928
+        },
+        "grid": {
+          "absorber_fraction": 0.2,
+          "absorber_strength": 0.45,
+          "dt_over_dx": 0.18,
+          "final_time": 18.0,
+          "half_width": 60.0,
+          "points": 1024,
+          "samples": 73
+        },
+        "initial": {
+          "absorbed_energy": 0.0,
+          "corrected_energy": 0.9004627553404824,
+          "current_l2": 0.0,
+          "emitted_energy": 0.0,
+          "field_energy": 1.565298780543982e-05,
+          "field_energy_central_fraction": 0.9999852142934793,
+          "left_poynting": 0.0,
+          "matter_energy": 0.9004471023526769,
+          "max_charge_density": 0.0,
+          "max_field": 0.00214310801650555,
+          "pair_norm_error": 0.0,
+          "right_poynting": -0.0,
+          "time": 0.0,
+          "total_energy": 0.9004627553404824
+        },
+        "max_charge_density": 0.0,
+        "max_pair_norm_error": 0.0,
+        "max_probe_poynting_magnitude": 2.5729094894011777e-05,
+        "parameters": {
+          "envelope_width": 2.5,
+          "gauge_charge": 0.35,
+          "gauge_seed_amplitude": 0.01,
+          "gauge_seed_width": 4.0,
+          "mass": 1.0,
+          "matter_norm": 1.0,
+          "polarization_angle": 0.45
+        },
+        "steps": 854
+      }
+    ]
+  },
+  "long_run": {
+    "absorbed_energy": 0.0004898857145932091,
+    "corrected_energy_relative_drift": 1.7781131290953207e-06,
+    "dt": 0.021091484313208543,
+    "emitted_energy": 0.0006151381968368361,
+    "final": {
+      "absorbed_energy": 0.0004898857145932091,
+      "corrected_energy": 0.9004611542158348,
+      "current_l2": 0.0372875472657764,
+      "emitted_energy": 0.0006151381968368361,
+      "field_energy": 0.0006025946071482415,
+      "field_energy_central_fraction": 0.6954352263219007,
+      "left_poynting": -4.692675390699122e-06,
+      "matter_energy": 0.8993686738940934,
+      "max_charge_density": 0.0,
+      "max_field": 0.014725859383256622,
+      "pair_norm_error": 0.0,
+      "right_poynting": 4.69267539070044e-06,
+      "time": 80.0,
+      "total_energy": 0.8999712685012417
+    },
+    "grid": {
+      "absorber_fraction": 0.2,
+      "absorber_strength": 0.45,
+      "dt_over_dx": 0.18,
+      "final_time": 80.0,
+      "half_width": 60.0,
+      "points": 1024,
+      "samples": 161
+    },
+    "initial": {
+      "absorbed_energy": 0.0,
+      "corrected_energy": 0.9004627553404824,
+      "current_l2": 0.0,
+      "emitted_energy": 0.0,
+      "field_energy": 1.565298780543982e-05,
+      "field_energy_central_fraction": 0.9999852142934793,
+      "left_poynting": 0.0,
+      "matter_energy": 0.9004471023526769,
+      "max_charge_density": 0.0,
+      "max_field": 0.00214310801650555,
+      "pair_norm_error": 0.0,
+      "right_poynting": -0.0,
+      "time": 0.0,
+      "total_energy": 0.9004627553404824
+    },
+    "max_charge_density": 0.0,
+    "max_pair_norm_error": 0.0,
+    "max_probe_poynting_magnitude": 8.37946122032677e-05,
+    "parameters": {
+      "envelope_width": 2.5,
+      "gauge_charge": 0.35,
+      "gauge_seed_amplitude": 0.01,
+      "gauge_seed_width": 4.0,
+      "mass": 1.0,
+      "matter_norm": 1.0,
+      "polarization_angle": 0.45
+    },
+    "steps": 3793
+  },
+  "model": "neutral transverse spinor-current pair plus planar Maxwell mode",
+  "passed": true,
+  "schema": "openwave.m9.transverse-maxwell-spinor-result.v1",
+  "task": "M9.7c",
+  "vacuum_refinement": {
+    "observed_orders": {
+      "a": [
+        1.9990698507324383,
+        1.9998852707771606
+      ],
+      "e": [
+        1.9934706200498908,
+        1.9985861472910051
+      ]
+    },
+    "records": [
+      {
+        "a_relative_l2": 0.015796632359300226,
+        "e_relative_l2": 0.04154546549022694,
+        "energy_relative_drift": 4.636383968735377e-05,
+        "points": 256
+      },
+      {
+        "a_relative_l2": 0.003951705052836088,
+        "e_relative_l2": 0.010433479743679277,
+        "energy_relative_drift": 2.91007152902732e-06,
+        "points": 512
+      },
+      {
+        "a_relative_l2": 0.000988004830415608,
+        "e_relative_l2": 0.0026109274123424673,
+        "energy_relative_drift": 1.8197992518655208e-07,
+        "points": 1024
+      }
+    ]
+  }
+}

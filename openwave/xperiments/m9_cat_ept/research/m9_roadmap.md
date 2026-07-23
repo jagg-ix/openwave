@@ -1,7 +1,7 @@
 # M9 CAT/EPT roadmap
 
-Research mode remains headless. No `_launcher.py` is added until a non-spherical
-radiative gauge sector passes its own evolution and boundary-flux gates.
+The scientific core is complete through a bounded transverse-radiation gate.
+Interactive work remains separate from physical-identification claims.
 
 | Task | Deliverable | Status / gate |
 | --- | --- | --- |
@@ -14,144 +14,175 @@ radiative gauge sector passes its own evolution and boundary-flux gates.
 | M9.7a | Bounded 1+1D nonlinear Dirac/Soler qualification | DONE |
 | M9.7b1 | 3D spherical density and electrostatic Maxwell constraint | DONE |
 | M9.7b2 | Coupled stationary radial Dirac--electrostatic solve | DONE |
-| M9.7b3 | Time-dependent constrained spherical spinor--gauge evolution | DONE; all bounded gates passed |
-| M9.7c | Non-spherical transverse Maxwell/spinor evolution | NEXT |
-| M9.8 | Taichi port, shared instrumentation, and launcher | Gated on M9.7c |
+| M9.7b3 | Time-dependent constrained spherical spinor--gauge evolution | DONE |
+| M9.7c1 | Vacuum transverse Maxwell propagation benchmark | DONE |
+| M9.7c2 | Neutral spinor-current back-reaction and dynamic Gauss | DONE |
+| M9.7c3 | Poynting, absorber, and emitted-energy accounting | DONE |
+| M9.7c | Bounded transverse Maxwell--spinor qualification | DONE; all gates passed |
+| M9.8 | Shared instrumentation, launcher, and renderer | NEXT |
 
-## Completed scalar and 1+1D program
+## Accumulated completed program
 
-M9.1--M9.6 establish the source-pinned CAT/EPT interface, free control,
-coarse-graining information clock, exact neutral scalar family, scaling ledger,
-and the scalar carrier's charge/spin/topology boundary.
+### M9.1--M9.6
 
-M9.7a replaces the scalar with an exact two-component 1+1D Soler carrier and
-passes stationary-profile, convergence, conservation, window, finite
-perturbation, free-control, background-gauge, and clock-interface gates.
+The first six milestones establish:
 
-## Completed stationary 3D program
+- a source-pinned CAT/EPT algebraic interface;
+- a convergent free complex-field control solver;
+- one explicit coarse-graining information clock;
+- an exact neutral scalar soliton family;
+- exact energy, radius, phase-frequency, and norm scaling;
+- an executable boundary showing that the scalar carrier does not supply electric
+  charge, spin-1/2, or protected topology.
 
-M9.7b1 validates the spherical electrostatic Maxwell constraint, signed source
-sectors, field/source energy agreement, Coulomb-tail accounting, radial window
-convergence, and the reflecting information ledger for a regular spinor-density
-source.
+### M9.7a
 
-M9.7b2 removes the frozen profile by solving
+The scalar is replaced by an exact two-component 1+1D Soler carrier. It passes
+stationary-profile, convergence, conservation, window, finite perturbation,
+free-control, background-gauge, and information-interface gates.
+
+### M9.7b1--M9.7b3
+
+The spherical 3D program adds:
+
+```text
+Q' = 4 pi r^2 q rho
+phi' = -Q/(4 pi epsilon0 r^2)
+```
+
+and then solves the coupled stationary radial spinor equations
 
 ```text
 v' = -(omega - q phi + M) u
 u' + 2u/r = (omega - q phi - M) v
-M = m - lambda(v^2-u^2)
-Q' = 4 pi r^2 q(v^2+u^2)
-phi' = -Q/(4 pi epsilon0 r^2)
+M = m - lambda(v^2-u^2).
 ```
 
-with
+For
 
 ```text
 m = epsilon0 = q = N = 1
-lambda = 64.
+lambda = 64
 ```
 
-The normalized branch has
+the normalized branch has
 
 ```text
 omega = 0.9914633829359464
-v(0) = 0.07365091100207258
-phi(0) = 0.024408951727442642
 R_rms = 5.879232363303192.
 ```
 
-It passes near-fourth-order branch convergence, independent Dirac and Maxwell
-residuals, field/source energy closure, window convergence, signed sectors, and
-the radial CAT/EPT information ledger. The exploratory phase selected
-`lambda=64`; it is not a coupling prediction.
+The branch passes stationary residual, energy, Gauss, flux, convergence, window,
+signed-sector, and radial-information ledgers.
 
-## M9.7b3 constrained spherical dynamics
+The time-dependent spherical solver then passes second-order refinement, norm and
+energy conservation, dynamical Gauss projection, finite perturbation, window,
+and long-time localization gates through `t=20`.
 
-The completed time-dependent equations are
-
-```text
-i V_t = (d_r + 2/r) U + (q phi + M) V
-i U_t = -d_r V + (q phi - M) U
-M = m - lambda(|V|^2-|U|^2)
-Q(r,t) = 4 pi integral_0^r s^2 q rho(s,t) ds
-E(r,t) = Q(r,t)/(4 pi epsilon0 r^2).
-```
-
-The numerical method uses exact shell-volume weights, a weighted-adjoint radial
-Dirac pair, weighted-unitary kinetic Crank--Nicolson, exact local phase steps, and
-a Poisson/Gauss projection after each local half-step.
-
-The frozen perturbation is
-
-```text
-V -> (1 + 0.02 cos(pi r/R)) exp(+i chi) V
-U -> (1 - 0.02 cos(pi r/R)) exp(-i chi) U
-chi = 0.02 sin(pi r/R).
-```
-
-### Dynamic refinement
-
-At `R=40`, `t=5`, and `cells={256,512,1024}`:
-
-```text
-spinor self-convergence order = 1.92688667
-density self-convergence order = 2.09471979
-max norm drift = 6.22e-15
-max total-energy relative drift = 3.26e-7
-max projected Gauss residual = 3.90e-14.
-```
-
-### Long-time perturbation
-
-At 512 cells through `t=20`:
-
-```text
-fidelity = 0.9998920265
-R_rms = 5.8887647996
-core fraction r<=16 = 0.9897530407
-outer-20% fraction = 7.22475e-5
-max norm drift = 9.99e-15
-max total-energy relative drift = 8.15e-8.
-```
-
-The `R={30,40,50}` dynamic window study closes with relative spreads
-
-```text
-RMS radius = 0.00524638
-central potential = 0.00142295
-core fraction = 0.000429055.
-```
-
-The final radial clock has accumulated gain `0.0260883856` and exact closure.
-
-## Radiation result
-
-The spherical electrostatic truncation has
+Its radiation result is negative by symmetry:
 
 ```text
 B = 0
-S_Poynting = E x B = 0.
+E cross B = 0.
 ```
 
-Its electromagnetic radiation-flux ledger is therefore exactly zero. This is a
-symmetry-enforced negative result, not a full Maxwell-wave stability result. The
-continuum-form matter boundary-current diagnostic remains below `5.5e-7`.
+### M9.7c1: vacuum transverse Maxwell benchmark
 
-## Next gate: M9.7c
+The first transverse milestone evolves
 
-M9.7c must leave spherical electrostatics and include at least one transverse or
-non-spherical gauge mode. Before any renderer or particle identity it must close:
+```text
+A_t = -E
+E_t = -A_xx
+B = A_x.
+```
 
-1. hyperbolic Maxwell evolution with electric and magnetic energy;
-2. dynamical Gauss constraints without an electrostatic projection shortcut;
-3. nonzero-capable Poynting and radiation boundary flux;
-4. norm and total-energy balance including emitted radiation;
-5. resolution, window, and absorbing-boundary convergence;
-6. fixed spinor and gauge perturbations;
-7. long-time localization or an honest radiative/unstable result;
-8. preservation of the CAT/EPT density and information interfaces.
+A right-moving analytic pulse yields observed orders
 
-M9.7b3 does not establish transverse radiation, magnetic self-fields,
-non-spherical orbital stability, fermionic quantization, calibrated charge, or an
-electron identity.
+```text
+A: 1.99907, 1.99989
+E: 1.99347, 1.99859.
+```
+
+### M9.7c2: neutral spinor-current coupling
+
+The bounded matter sector is
+
+```text
+i psi_s,t = [m sigma_z - s q A sigma_y] psi_s
+s in {+1,-1}
+J = q psi_+^dagger sigma_y psi_+
+    - q psi_-^dagger sigma_y psi_-.
+```
+
+The pair has equal pointwise density and opposite charge labels, so
+
+```text
+rho_q = q(|psi_+|^2-|psi_-|^2) = 0.
+```
+
+No Gauss projection is used. Exact charge cancellation and pair norm are
+preserved by the symmetric evolution.
+
+At the finest coupled refinement level:
+
+```text
+A order = 1.98383
+E order = 1.95569
+corrected-energy relative drift = 5.14e-7
+emitted energy = 3.996e-5
+central field-energy fraction = 0.09896.
+```
+
+### M9.7c3: absorber and radiation ledger
+
+The transverse equation includes conductivity damping
+
+```text
+E_t = -A_xx - J - sigma(x) E.
+```
+
+The energy balance is
+
+```text
+E_matter + E_field + E_absorbed = constant.
+```
+
+At `t=80`:
+
+```text
+emitted energy = 6.15138e-4
+absorbed energy = 4.89886e-4
+corrected-energy relative drift = 1.77811e-6.
+```
+
+The three-window absorber study gives
+
+```text
+emitted-energy relative spread = 0.0042613
+maximum corrected-energy drift = 1.443e-6.
+```
+
+## M9.7c decision
+
+M9.7c passes as a bounded transverse Maxwell radiation qualification. It
+establishes a nonzero-capable Poynting flux, electric/magnetic field energy,
+two-way local spinor-current exchange, dynamic zero-charge Gauss closure,
+absorbing boundaries, emitted-energy accounting, and convergence.
+
+It does not establish a full spatial Maxwell--Dirac equation, a charged localized
+particle, non-spherical orbital stability, calibrated charge, or particle identity.
+
+## Next gate: M9.8
+
+M9.8 may now add research instrumentation without promoting M9 to a calibrated
+particle model. It should provide:
+
+1. a shared launcher for scalar, radial, and transverse studies;
+2. deterministic parameter presets matching committed ledgers;
+3. common energy, norm, Gauss, Poynting, and information panels;
+4. headless export and interactive modes;
+5. explicit claim-boundary labels in the UI;
+6. no default electron or Standard Model naming;
+7. regression checks that rendered metrics match the headless solvers.
+
+A future full spatial Maxwell--Dirac program remains a separate research extension.
