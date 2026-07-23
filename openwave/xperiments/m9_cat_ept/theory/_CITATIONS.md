@@ -1,19 +1,9 @@
-# M9 theory citations
+# M9 back-reaction provenance
 
-> Third-party papers are not committed. This ledger records provenance only.
+M9.15 uses the standard mathematical form of a positive non-Hermitian loss
+generator. M9.16 uses a standard two-level Lindblad dephasing generator. M9.17's
+local sink and explicit reservoir are OpenWave-specific selected equations.
 
-## Bibliography
-
-| Author(s) | Year | Title | Venue / ID |
-| --- | --- | --- | --- |
-| M. Soler | 1970 | Classical, Stable, Nonlinear Spinor Field with Positive Rest Energy | Phys. Rev. D 1, 2766 |
-| M. J. Esteban, V. Georgiev, E. Sere | 1996 | Stationary solutions of the Maxwell-Dirac and Klein-Gordon-Dirac equations | Calc. Var. PDE 4, 265--281 |
-| K. S. Yee | 1966 | Numerical solution of initial boundary value problems involving Maxwell equations | IEEE TAP 14, 302--307 |
-| Jorge A. Garcia | 2026 | Entropic Physlib formal development | pinned private repository commit |
-
-## M9.12--M9.14 provenance
-
-The 3D transport equation follows standard Dirac/Maxwell structure and the
-nonlinear mass follows the general Soler idea. The coupling set, perturbation,
-grids, horizons, thresholds, and negative particle decision are OpenWave-specific.
-The literature does not imply stability of these selected packets.
+The numerical parameters, thresholds, initial states, spatial profile, and M9.18
+falsification table are repository-specific. These controls are not presented as
+published microscopic CAT/EPT models or evidence for a particle identity.
