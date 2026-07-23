@@ -1,0 +1,45 @@
+{
+  "acceptance": {
+    "aligned_nonoverlapping_layout": true,
+    "balance_observable_closes": true,
+    "generated_source_is_deterministic": true,
+    "malformed_state_rejected": true,
+    "manifest_compiles": true,
+    "numpy_device_parity": true,
+    "plan_fingerprint_is_deterministic": true,
+    "unsupported_ir_rejected": true
+  },
+  "buffer_slices": [
+    {"alignment": 64, "dtype": "complex128", "field": "psi", "offset_bytes": 0, "shape": [64], "size_bytes": 1024},
+    {"alignment": 64, "dtype": "float64", "field": "metric", "offset_bytes": 1024, "shape": [64], "size_bytes": 512},
+    {"alignment": 64, "dtype": "float64", "field": "entropy", "offset_bytes": 1536, "shape": [64], "size_bytes": 512},
+    {"alignment": 64, "dtype": "float64", "field": "reservoir", "offset_bytes": 2048, "shape": [64], "size_bytes": 512},
+    {"alignment": 64, "dtype": "float64", "field": "observable", "offset_bytes": 2560, "shape": [4], "size_bytes": 32}
+  ],
+  "classification": {
+    "does_not_establish": [
+      "hardware GPU execution",
+      "performance speedup",
+      "Taichi or CUDA kernel compilation on every platform",
+      "numerical equivalence for arbitrary theory kernels"
+    ],
+    "establishes": [
+      "manifest-to-device buffer compilation",
+      "deterministic aligned memory layouts",
+      "validated kernel intermediate representation",
+      "generated accelerator source contract",
+      "flat-buffer/reference parity and balance ledgers"
+    ]
+  },
+  "final_observable": [0.9904459328972159, 0.009554067102784012, 0.0048, 0.0016084558823529407],
+  "generated_source": "# generated accelerator source for cat-ept-accelerator-reference@1.0\n# backend contract: one index per lattice element\nfield psi: complex128[64] role=dynamic\nfield metric: float64[64] role=dynamic\nfield entropy: float64[64] role=ledger\nfield reservoir: float64[64] role=ledger\nfield observable: float64[4] role=observable\nkernel metric_source op=metric_source reads=psi writes=metric params=geometry_coupling\nkernel phase_step op=phase_step reads=psi,metric writes=psi params=dt,omega\nkernel loss_transfer op=loss_transfer reads=psi,reservoir,entropy writes=psi,reservoir,entropy params=dt,loss_rate\nkernel observe op=observe reads=psi,metric,entropy,reservoir writes=observable params=\n",
+  "hardware_gpu_executed": false,
+  "manifest_fingerprint": "5a1b2e72f8312019b7a972413e5a2cd9f1d5ebb9a52e6de16cea21d226db37b0",
+  "parity_max_error": {"entropy": 0.0, "metric": 0.0, "observable": 0.0, "psi": 0.0, "reservoir": 0.0},
+  "passed": true,
+  "plan_fingerprint": "3f20d96e6521cf630705014b5ed82629434c0a2cfaa615bb2244468e49c0240d",
+  "schema": "openwave.m9.gpu-adapter-result.v1",
+  "taichi_runtime_available": false,
+  "task": "M9.38",
+  "total_bytes": 2624
+}
