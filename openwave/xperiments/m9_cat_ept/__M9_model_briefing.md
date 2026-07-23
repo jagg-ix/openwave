@@ -1,102 +1,59 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-> **What M9 brings.** M9 contains a source-pinned CAT/EPT interface, verified
-> scalar and spinor controls, localized scalar and spinor candidates, a coupled
-> spherical spinor--electrostatic branch, constrained radial dynamics, transverse
-> Maxwell radiation, shared instrumentation, and a bounded spatially transported
-> planar Maxwell--Dirac reduction.
+> **What M9 brings.** M9 contains source-pinned CAT/EPT density and information
+> interfaces, validated scalar and spinor controls, a coupled spherical
+> spinor--electrostatic branch, constrained radial dynamics, transverse radiation,
+> shared instrumentation, and bounded one- and two-dimensional Maxwell--Dirac
+> transport.
 
-## Identity
+## Model status
 
-| Field | Value |
+| Sector | Current result |
 | --- | --- |
-| Model ID | M9 |
-| Name | CAT/EPT Entropic Particle Dynamics |
-| Author | Jorge A. Garcia |
-| Formal source | `jagg-ix/entropic-physlib-private`, `entropic-physlib-linear-full@f6e2b37571086e5ef6de40f77439a5eab468f71f` |
-| Instrumentation | Shared scalar, radial, transverse, and transported-planar presets with explicit claim boundaries |
+| Scalar | Exact neutral 1+1D bright-soliton family and scaling ledger |
+| 1+1D spinor | Exact two-component Soler solitary wave |
+| Spherical 3D | Normalized stationary Soler spinor with electrostatic back-reaction |
+| Radial dynamics | Finite-time localization with longitudinal Gauss projection |
+| Transverse radiation | Nonzero Poynting flux and absorber-energy accounting |
+| M9.9 transport | Opposite-charge packets transported in one spatial coordinate |
+| M9.10 transport | Opposite-charge packets transported in two spatial coordinates |
+| Instrumentation | Deterministic presets, common panels, JSON/PNG export, launcher |
+| Physical identity | No calibrated electron, positron, photon, or Standard Model assignment |
 
-## Accumulated model profile
+## M9.10 result
 
-| Attribute | M9 status |
-| --- | --- |
-| Scalar carrier | Exact neutral 1+1D bright-soliton family |
-| 1+1D spinor carrier | Exact two-component Soler solitary wave |
-| 3D stationary carrier | Normalized spherical Soler spinor with electrostatic back-reaction |
-| Spherical dynamics | Finite-time radial Dirac evolution with longitudinal Gauss projection |
-| Transverse radiation | Bounded planar `A_y,E_y,B_z` mode with nonzero Poynting flux and absorber accounting |
-| Spatial transport | Opposite-charge 1+1D Dirac packets coupled to longitudinal and transverse gauge fields |
-| Dynamic Gauss | Initial discrete closure and monitored evolution without projection in M9.9 |
-| Electric charge | Dimensionless labels only; no physical calibration |
-| Spin/statistics | Classical spinor representations only; no fermionic quantization |
-| Particle identity | Electron, positron, photon, and Standard Model assignments remain unestablished |
-
-## Key validated results
-
-### Stationary and spherical dynamic branch
-
-For the selected radial model
+The selected 2+1D temporal-gauge model evolves
 
 ```text
-m = epsilon0 = q = N = 1
-lambda = 64
-omega = 0.9914633829359464
-R_rms = 5.879232363303192.
+i psi_s,t = [sigma_x(-i d_x-s q A_x)
+             + sigma_y(-i d_y-s q A_y)
+             + m sigma_z] psi_s.
 ```
 
-At `t=20`, fidelity is `0.9998920265`, norm drift is `9.99e-15`, and
-relative total-energy drift is `8.15e-8`.
-
-### Bounded transverse radiation
-
-M9.7c reaches approximately second-order field convergence, nonzero emitted
-Poynting energy, and corrected-energy closure with a conductivity absorber. At
-`t=80`:
+Its Maxwell sector contains `E_x`, `E_y`, and
+`B_z=d_x A_y-d_y A_x`. The conductivity absorber carries an induced-charge ledger
+so Gauss continuity remains explicit.
 
 ```text
-emitted energy = 6.15138e-4
-absorbed energy = 4.89886e-4
-corrected-energy relative drift = 1.77811e-6.
+transported-spinor order = 8.18686
+long-run norm drift = 5.73621e-9
+corrected-energy drift = 6.53843e-9
+final Gauss residual = 1.49202e-8 absolute, 1.71900e-5 relative
+max net charge = 5.51630e-11
+packet separation = 10.77033 -> 1.03495
+transport angle = 0.38051 -> 1.34895
+emitted energy = 1.12278e-5
+max magnetic field = 0.00770611.
 ```
 
-### Spatially transported planar dynamics
-
-M9.9 evolves
-
-```text
-i psi_s,t = [sigma_x(-i d_x - s q A_x)
-             + m sigma_z - s q A_y sigma_y] psi_s
-```
-
-with longitudinal and transverse Maxwell equations. Results:
-
-```text
-transported-spinor order = 1.89918
-long-run norm drift = 6.02e-10
-corrected-energy drift = 1.073e-6
-final Gauss residual = 2.754e-4 absolute, 0.02264 relative
-max net charge = 1.04e-16
-packet separation: 16 -> -2.21328
-emitted energy = 2.84143e-5.
-```
-
-The packets cross. This is a transport result, not a localized-particle result.
-
-## Implementation status
-
-| Sector | Status |
-| --- | --- |
-| M9.1--M9.6 | Complete formal/scalar/clock/carrier program |
-| M9.7a | Complete 1+1D nonlinear spinor qualification |
-| M9.7b1--M9.7b3 | Complete spherical electrostatic stationary and dynamic program |
-| M9.7c | Complete bounded transverse-radiation qualification |
-| M9.8 | Complete shared instrumentation, renderer, and launcher |
-| M9.9 | Complete transported planar Maxwell--Dirac qualification |
-| M9.10 | Next: two-dimensional transported Maxwell--Dirac qualification |
+All nine M9.10 gates pass, including refinement and domain-shape robustness.
 
 ## Claim boundary
 
-M9.9 is a bounded 1+1D classical field reduction. It does not establish a stable
-localized charged particle, full 2D/3D Maxwell--Dirac dynamics, calibrated units,
-fermionic quantization, Standard Model identity, or unique CAT/EPT derivation of
-the selected equations.
+M9.10 establishes a bounded classical 2+1D transport calculation. It does not
+establish a stable localized charged particle, full 3D Maxwell--Dirac dynamics,
+physical units, charge calibration, fermionic quantization, Standard Model
+identity, or a unique CAT/EPT derivation of the selected equations.
+
+The next target is M9.11: a bounded nonlinear localization and radiative-stability
+decision gate with an explicit negative result if no member survives.
