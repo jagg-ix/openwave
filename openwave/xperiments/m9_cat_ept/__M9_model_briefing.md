@@ -1,11 +1,10 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-> **What M9 brings.** A formal-to-numerical program in which a complex field state
-> is reconstructed from an entropic probability density and phase. M9.1 pins the
-> Lean-to-Python contract, M9.2 certifies the free complex-field control, M9.3
-> fixes an explicit coarse-graining clock, and M9.4 finds a convergent neutral
-> 1+1D bright soliton in the first bounded nonlinear family. The soliton is a
-> mathematical particle candidate, not yet an electron or a 3D matter model.
+> **What M9 brings.** M9.1 pins the Lean-to-Python contract, M9.2 certifies the
+> free complex-field control, M9.3 fixes an explicit coarse-graining clock, and
+> M9.4 validates a neutral 1+1D bright soliton in the first bounded nonlinear
+> family. M9.5 now characterizes its exact scaling, radius, energy, and phase
+> frequency without converting a dimensionless identity into a mass prediction.
 
 ## Identity
 
@@ -16,62 +15,58 @@
 | Author | Jorge A. Garcia |
 | Lineage | Complex Action Theory / Entropic Proper Time; Caticha-style entropic dynamics; Madelung reconstruction; Compton/de Broglie internal clocks |
 | Formal source | `jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, commit `f6e2b37571086e5ef6de40f77439a5eab468f71f` |
-| In-repo | `formal_contract.py`, `free_solver.py`, `entropic_clock.py`, `localized_particle.py`, and the M9.1--M9.4 research records |
+| In-repo | `formal_contract.py`, `free_solver.py`, `entropic_clock.py`, `localized_particle.py`, `soliton_scaling.py`, and M9.1--M9.5 research records |
 
 ## Model profile
 
 | Attribute | M9 status |
 | --- | --- |
-| Candidate state carrier | Complex scalar state `psi(x,t)` with `rho = |psi|^2` and phase/current potential `Phi` |
-| Vacuum | Zero-field asymptotic state for the localized line solution; represented on a wide periodic box with exponentially small tails |
-| Dynamics | Certified free Schrödinger control plus the bounded cubic family `i psi_t = -1/2 psi_xx + kappa |psi|^2 psi`; the cubic term is selected, not derived from CAT/EPT |
-| Particle | Accepted mathematical candidate: `psi = sech(x)/sqrt(2) exp(i t/2)` at `kappa = -2`, neutral and localized in 1+1 dimensions |
-| Entropic clock | Fixed cell map `p_i proportional to dx |psi_i|^2`; accumulated clock is KL information discarded by a declared doubly stochastic channel. Channel depth is not physical time |
-| Imaginary action | `S_I = hbar tau_ent` at the formal weighting layer; no local imaginary potential is inserted into the evolution |
-| Complex weight | Formal modulus `|W| = exp(-tau_ent)` |
-| Internal clocks | Formal Compton/de Broglie/Zitterbewegung identities; the soliton phase frequency is measured next and has no physical mass interpretation yet |
-| Charge | Absent. No topological or Noether electric charge is implemented |
-| Spin | Absent. The scalar carrier supplies no spin-1/2 statistics |
-| Derrick escape | In 1D the focusing cubic nonlinearity balances dispersion; this does not prove a 3D Derrick escape |
-| EM / gravity | Formal source bridges exist, but the accepted candidate has no particle-level EM or gravitational coupling |
-| Remaining structural choices | Derivation or replacement of the cubic term, 3D carrier, physical unit map, charge/spin structure, and any irreversible back-reaction |
-| Next decisive falsifier | Failure of a declared 3D extension or failure to derive a localization functional independently of the target soliton |
+| Carrier | One-component complex scalar `psi(x,t)` with `rho = |psi|^2` |
+| Vacuum | Zero-field asymptotic state represented on a wide periodic box with exponentially small tails |
+| Dynamics | Free control plus selected focusing cubic `i psi_t = -1/2 psi_xx - g |psi|^2 psi`; the interaction is not derived from CAT/EPT |
+| Localized family | `eta = gN/2`, `psi = eta/sqrt(g) sech(eta x) exp(i eta^2 t/2)` |
+| Reference candidate | `g=2`, `N=1`: amplitude `1/sqrt(2)`, phase frequency `1/2`, energy `-1/6`, RMS radius `pi/(2sqrt(3))` |
+| Entropic clock | Cell probabilities `p_i proportional to dx |psi_i|^2`; accumulated clock is KL information discarded by a fixed channel. Channel depth is not physical time |
+| Phase clock | `omega_phase = eta^2/2`; a dimensionless family property, not a physical Compton or Zitterbewegung frequency |
+| Conditional clock bridge | Compton identification gives `R_rms/lambda_C = pi/sqrt(24)`; ZBW identification gives `pi/sqrt(48)`. Both are assumptions, not mass predictions |
+| Charge | Absent. No gauge field, Gauss flux, or opposite-charge sector |
+| Spin | Absent. The scalar carrier supplies no intrinsic spin-1/2 representation |
+| Dimensional scope | Exact and numerically verified in 1+1 dimensions; no 3D Derrick result |
+| Remaining choices | Derivation/replacement of the cubic term, physical units, charged spinor carrier, 3D dynamics, irreversible back-reaction |
 
-## Field configuration of particles
+## Field configurations
 
-| Particle | Configuration | Topological vortex? |
+| Particle | Configuration | Status |
 | --- | --- | --- |
-| Neutral M9 candidate | Bright scalar soliton `sech(x)/sqrt(2) exp(i t/2)` in 1+1D | No |
-| Electron | Not established; no charge or spin carrier | Not established |
-| Positron | Not established | Not established |
-| Free Gaussian packet | Certified dispersive control state; not a particle | No |
-| Photon / radiation | Not established | No |
+| Neutral M9 candidate | Bright scalar soliton in 1+1D | Validated mathematical candidate |
+| Electron | No charge or spin carrier | Not established |
+| Positron | No opposite-charge sector | Not established |
+| Free Gaussian packet | Dispersive control state | Not a particle |
+| Photon / radiation | No vector/gauge carrier | Not established |
 
 ## Implementation status
 
 | Sector | Status |
 | --- | --- |
-| Formal equation-to-code contract | M9.1 complete; pinned theorem paths, hypotheses, and limitations |
-| Free field evolution | M9.2 complete; norm and discrete energy conserved, with phase, density, and current converging at approximately second order |
-| Coarse-graining clock | M9.3 complete; fixed probability map and Markov channel, remaining KL contracts and accumulated gain grows along channel depth |
-| Physical-time arrow | Not established; the M9.3 result is data processing, not unitary-time monotonicity |
-| Localized candidate | M9.4 complete: focusing `kappa=-2` candidate passes convergence, stationary residual, tail, window, conservation, and perturbation gates |
-| Negative controls | The identical seed disperses for free `kappa=0` and defocusing `kappa=+2` evolution |
-| Finest candidate result | Fidelity `1.0`; density L1 `1.41e-8`; energy drift `7.00e-13`; core probability `0.999913`; edge probability `1.32e-12` |
-| Physical particle identity | Open; candidate is neutral, scalar, 1+1D, and uncalibrated |
-| Particle clock and scale | M9.5 next: phase frequency, energy, radius, scaling family, and explicit Compton-clock non-identification or bridge |
-| Charge and spin | Gated on a new carrier, not inferred from the scalar soliton |
-| Interactive Taichi launcher | Deferred until a validated 3D dynamics exists |
+| M9.1 formal contract | Complete |
+| M9.2 free solver | Complete; approximately second-order phase, density, and current convergence |
+| M9.3 coarse-graining clock | Complete; remaining KL contracts and accumulated discarded information grows along channel depth |
+| M9.4 localization | Complete; focusing candidate passes convergence, residual, tail, window, conservation, and perturbation gates; controls disperse |
+| M9.5 scaling family | Complete; nine `(g,N)` members verify exact norm, energy, radius, phase, and scaling identities |
+| Scale invariant | `omega_phase R_rms^2 = pi^2/24` |
+| Energy identity | `E/(mu N) = 1/3` |
+| Physical particle identity | Open; no absolute mass or length scale is predicted |
+| Charge/spin audit | M9.6 next; must state the scalar no-go and replacement-carrier requirements |
+| Interactive launcher | Deferred until validated 3D dynamics exists |
 
 ## Roadmap
 
-See [`research/m9_roadmap.md`](research/m9_roadmap.md). M9.1--M9.4 are
-complete. M9.5 must characterize the accepted soliton without converting its
-dimensionless phase frequency into a particle mass by definition.
+See [`research/m9_roadmap.md`](research/m9_roadmap.md). M9.6 is the next
+reviewable target: an explicit scalar charge/spin no-go plus a staged gauge-spinor
+replacement contract that preserves the CAT/EPT density and clock interfaces.
 
 ## Help wanted
 
-Useful independent contributions are an alternate solver reproduction, a hostile
-review of the M9.4 tolerance and perturbation budgets, a derivation of the
-nonlinear functional from an information principle, or a bounded 3D extension
-that can fail honestly.
+Useful independent contributions are a derivation of the nonlinear functional,
+a hostile audit of the clock-unit bridge, a charged spinor carrier design, or a
+bounded 3D extension with explicit failure criteria.
