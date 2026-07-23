@@ -1,29 +1,22 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 is a dimensionless simulation model inside OpenWave. It contains real-Hamiltonian,
-Maxwell, Dirac, transport, irreversible-interface, theory-manifest, integration,
-cross-theory qualification, localization, topological-observable, and scale-selection
-controls.
+M9 is a dimensionless simulation model inside OpenWave. It includes localization, topological charge, scale selection, separated clock channels, Pauli spin/magnetic controls, double-cover kinematics, and regularized two-body force kernels.
 
 ## Current decisions
 
-- A constrained one-dimensional localized family is accepted as a reference sector.
-- No stable three-dimensional particle candidate is accepted.
-- Integer winding is field-derived, but it is not identified with electric charge.
-- A selected topological ansatz has an interior dimensionless scale, but no physical mass is established.
-- No unique back-reaction interface is selected.
-- No operational monotone is identified as physical time.
-- No particle identity or calibrated-unit claim is promoted.
+- A constrained 1D localized family exists; no stable 3D particle is accepted.
+- Integer winding is field-derived; electric-charge identity is open.
+- An ansatz selects a dimensionless scale; physical mass is open.
+- Reversible phase is an intrinsic-clock candidate; no physical-time identity is accepted.
+- Spin and magnetic moment are field controls; exchange statistics and an emergent g factor remain open.
+- Electric and dipole kernels recover asymptotic laws; no force between stable CAT/EPT particles is established.
 
 ## Comparison status
 
-The complete M9 criterion profile is [`MODELS_M9.md`](../../../MODELS_M9.md).
-Every non-planned status has repository evidence. The profile records six partial
-criteria, one honest negative, thirteen not-yet criteria, and the 20-versus-21
-criterion discrepancy in the root comparison documentation.
+[`MODELS_M9.md`](../../../MODELS_M9.md) records eight partial criteria, one honest negative, and eleven not-yet criteria.
 
 ## Next critical targets
 
-1. M9.28 intrinsic-clock reduction: separate entropic arrow from bounded internal phase.
-2. M9.29 spin, magnetic moment, and double-cover field observables.
-3. M9.30 two-body electric and magnetic force laws using field-derived sectors.
+1. M9.31 capture, annihilation, and radiation balance.
+2. M9.32 orbital or standing-wave quantization.
+3. M9.33 composite-state infrastructure.
