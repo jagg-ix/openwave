@@ -1,0 +1,28 @@
+{
+  "acceptance": {
+    "entropic_clock_monotone": true,
+    "extended_balance_closes": true,
+    "matter_contracts": true,
+    "reservoir_accumulates": true,
+    "reversible_irreversible_split_explicit": true,
+    "strang_second_order": true,
+    "zero_loss_unitary": true
+  },
+  "final": {
+    "entropic_clock": 0.40685825145110627,
+    "extended_balance": 0.9999999999999747,
+    "matter_norm": 0.443207818403645,
+    "reservoir": 0.5567921815963297,
+    "time": 4.0
+  },
+  "maximum_balance_error": 2.5757174171303632e-14,
+  "passed": true,
+  "refinement": {
+    "dts": [0.2, 0.1, 0.05],
+    "errors": [0.00017003240613025334, 4.248180245331297e-05, 1.0618809077710347e-05],
+    "orders": [2.000892848459548, 2.0002230054469456]
+  },
+  "schema": "openwave.m9.entropic-integrator-result.v1",
+  "task": "M9.20-simcore",
+  "zero_loss_norm_drift": 3.730349362740526e-14
+}
