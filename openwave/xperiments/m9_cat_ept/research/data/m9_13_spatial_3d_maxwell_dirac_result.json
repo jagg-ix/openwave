@@ -1,0 +1,65 @@
+{
+  "acceptance": {
+    "coupled_refinement_converges": true,
+    "domain_shape_stable": true,
+    "dynamic_gauss_closes": true,
+    "energy_balance_closes": true,
+    "magnetic_field_nonzero": true,
+    "net_charge_neutral": true,
+    "norm_conserved": true,
+    "packets_transport": true,
+    "radiation_recorded": true,
+    "three_axis_motion": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "a stable localized charged particle",
+      "orbital or asymptotic stability",
+      "physical calibration or fermionic quantization"
+    ],
+    "establishes": [
+      "coupled transport of four-component Dirac packets in three dimensions",
+      "three-component electric and magnetic Maxwell back-reaction",
+      "dynamic Gauss, absorber-charge, Poynting, and energy ledgers",
+      "bounded refinement and domain-shape checks"
+    ]
+  },
+  "domain_shape_study": {
+    "records": [
+      {"emitted_energy": 0.0, "final_separation": 8.309564185343536, "half_widths": [12.0,10.5,9.0], "max_energy_drift": 5.4465746615333726e-08, "max_gauss_relative": 0.13952084392972267, "shape": [16,14,12]},
+      {"emitted_energy": 5.155872103936311e-10, "final_separation": 8.309568617179961, "half_widths": [12.0,12.0,10.5], "max_energy_drift": 5.4465960076906396e-08, "max_gauss_relative": 0.1395208769258856, "shape": [16,16,14]},
+      {"emitted_energy": 1.576765617474821e-09, "final_separation": 8.309568657933884, "half_widths": [12.0,13.5,12.0], "max_energy_drift": 5.446605301057419e-08, "max_gauss_relative": 0.13952088963202267, "shape": [16,18,16]}
+    ],
+    "relative_spreads": {"emitted_energy": 2.260754873375429, "final_separation": 5.38245887571061e-07}
+  },
+  "long_run": {
+    "absorbed_energy": 1.1177035477607124e-06,
+    "direction_change": 0.031426224531497425,
+    "dt": 0.04716981132075472,
+    "emitted_energy": 8.307496805289025e-09,
+    "final_gauss_absolute": 0.00035731563000241116,
+    "final_gauss_relative": 0.1900603057182603,
+    "final_separation": 7.636035440053492,
+    "grid": {"absorber_fraction":0.18,"absorber_strength":0.25,"dt_over_spacing":0.04,"final_time":2.5,"half_width_x":12.0,"half_width_y":12.0,"half_width_z":12.0,"points_x":20,"points_y":20,"points_z":20,"samples":31},
+    "initial_separation": 8.674675771229396,
+    "max_corrected_energy_relative_drift": 4.7912679578630276e-08,
+    "max_magnetic_field": 0.000818026907992661,
+    "max_net_total_charge": 4.715009982447782e-11,
+    "max_norm_drift": 4.5647473134735606e-08,
+    "parameters": {"gauge_charge":0.15,"gauge_seed_amplitude":0.004,"gauge_seed_width":3.5,"mass":1.0,"momentum_x":0.8,"momentum_y":0.25,"momentum_z":0.15,"offset_x":4.0,"offset_y":1.5,"offset_z":0.75,"packet_width":1.8,"soler_coupling":0.0,"total_norm":1.0},
+    "steps": 53
+  },
+  "model": "bounded 3+1D opposite-charge Maxwell-Dirac transport",
+  "passed": true,
+  "refinement": {
+    "observed_order": 1.2557275955758989,
+    "records": [
+      {"dt":0.08333333333333333,"emitted_energy":0.0,"final_gauss_absolute":0.00011361480573932915,"final_gauss_relative":0.09527972757913039,"final_separation":8.758848642161507,"max_energy_drift":5.7157637253300857e-08,"max_norm_drift":5.619680898405477e-08,"points":10},
+      {"dt":0.045454545454545456,"emitted_energy":8.316677010688216e-09,"final_gauss_absolute":8.885595469748523e-05,"final_gauss_relative":0.04719517250336543,"final_separation":8.335724834940054,"max_energy_drift":7.96832287375965e-09,"max_norm_drift":7.58691476310247e-09,"points":20},
+      {"dt":0.023809523809523808,"emitted_energy":3.6430348563764914e-08,"final_gauss_absolute":3.366042886060526e-05,"final_gauss_relative":0.017178049363363007,"final_separation":8.141711633562478,"max_energy_drift":6.451333929486844e-10,"max_norm_drift":5.734043240224196e-10,"points":40}
+    ],
+    "successive_spinor_l2_differences": [0.24765658476581978,0.10371419646677148]
+  },
+  "schema": "openwave.m9.spatial-3d-maxwell-dirac-result.v1",
+  "task": "M9.13"
+}

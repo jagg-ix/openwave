@@ -11,8 +11,6 @@
 | K. S. Yee | 1966 | Numerical solution of initial boundary value problems involving Maxwell equations | IEEE TAP 14, 302--307 |
 | Jorge A. Garcia | 2026 | Entropic Physlib formal development | pinned private repository commit |
 
-## M9.12 provenance
+## M9.12--M9.13 provenance
 
-The Dirac representation, centered derivative, RK4 control, exact discrete free
-propagator, and vacuum wave benchmark are repository-specific numerical controls.
-They do not validate CAT/EPT interpretation or particle identity.
+Standard Dirac and Maxwell equations motivate the bounded 3D reduction. The packet data, centered differences, absorber, coarse grids, thresholds, and numerical results are OpenWave-specific and are not reproductions of a cited computation.

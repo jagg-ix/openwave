@@ -1,13 +1,17 @@
 # M9 CAT/EPT canonical specification
 
-The pinned CAT/EPT identities define density, information, imaginary action, and
-weight interfaces but do not select a particle equation.
+## M9.12 controls
 
-## M9.12
+The four-component Dirac representation and free/vacuum controls pass.
 
-The standard four-component matrices obey the Clifford algebra. The free equation
-`i psi_t=[alpha.(-iD)+beta m]psi` is compared with its exact discrete Fourier
-propagator, and a transverse vacuum Maxwell wave is compared with its analytic
-translation. All control gates pass.
+## M9.13 coupled 3D reduction
 
-No coupled 3D or particle claim follows.
+```text
+i psi_s,t = [alpha.(-i grad-s q A)+beta m]psi_s
+A_t=-E
+E_t=curl B-J-sigma E
+B=curl A
+rho_abs,t=-div(sigma E).
+```
+
+The bounded run passes refinement, norm, corrected energy, final absolute/relative Gauss, charge, transport, magnetic, radiation, and domain gates. The relative Gauss defect `0.190060` is retained as a coarse-grid limitation.
