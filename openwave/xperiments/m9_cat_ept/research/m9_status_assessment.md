@@ -1,4 +1,4 @@
-# CAT/EPT status after M9.39
+# CAT/EPT status after M9.45
 
 ## Executive assessment
 
@@ -18,10 +18,10 @@ The distinction is essential:
 | Status | Count |
 | --- | ---: |
 | Fully validated in-platform | 0 |
-| Partial / bounded controls | 13 |
+| Partial / bounded controls | 18 |
 | Honest negative | 2 |
-| Not yet addressed | 5 |
-| Total explicit criteria | 20 |
+| Not yet addressed | 1 |
+| Total explicit criteria | 21 |
 
 The honest negatives are central rather than cosmetic: the current 3D program
 has no self-bound stable particle, and the current simple lepton-hierarchy laws
@@ -82,3 +82,17 @@ theory. The decisive next bottleneck remains a converged three-dimensional
 full-PDE self-bound localized state whose charge, energy, clock, spin,
 interactions, and geometry all arise from one canonical model. Current simple
 lepton hierarchy laws also require replacement by a predictive mechanism.
+
+
+## M9.40--M9.42 update
+
+Reduced confinement and weak/chiral sectors now exist, and the gravity sector includes universality-of-free-fall, redshift, tidal, and accelerated-frame controls. These additions improve infrastructure breadth but do not close QCD, electroweak theory, or general relativity.
+
+
+## M9.43--M9.45 update
+
+The explicit comparison matrix now contains all 21 intended criteria. Maxwell,
+Klein--Gordon, thermal diffusion, and a neutral fixed-charge variational sector
+have executable controls. This materially improves completeness of the simulator,
+but not physical validation: zero criteria are fully validated, and the neutral
+candidate has not passed a full-PDE or dynamical-stability test.
