@@ -1,0 +1,34 @@
+{
+  "acceptance": {
+    "all_declared_laws_pass": true,
+    "deterministic_replay": true,
+    "parameter_sweep_ordered": true,
+    "sensitivity_nonzero": true,
+    "shared_scenario_frozen": true,
+    "simulation_only": true,
+    "theories_are_distinguishable": true
+  },
+  "pairwise_distances": {
+    "cat-ept-rate-0.12::cat-ept-rate-0.20": 0.16676981625111734,
+    "reversible-control::cat-ept-rate-0.12": 0.49782518050608615,
+    "reversible-control::cat-ept-rate-0.20": 0.5537181600301307
+  },
+  "parameter_sweep_final_matter": {
+    "0.0": 1.0,
+    "0.05": 0.6065306597126334,
+    "0.12": 0.3011942119122021,
+    "0.2": 0.1353352832366127,
+    "0.35": 0.0301973834223185
+  },
+  "passed": true,
+  "scenario": {
+    "fingerprint": "f279576692f079736c5f2a913cc34fb3eb5878998b8e26248666fa7548521dac",
+    "name": "shared-entropic-decay",
+    "observables": ["matter", "reservoir", "clock", "phase"],
+    "time_points": 51
+  },
+  "schema": "openwave.m9.simulation-qualification-result.v1",
+  "sensitivity": 17.77058835042511,
+  "task": "M9.21-simcore",
+  "trace_fingerprint": "d5e0caec16106a8a257f9895f6ed58f7034ed659716d5531bf75532f48508bfb"
+}
