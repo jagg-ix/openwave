@@ -1,9 +1,4 @@
-"""
-M9 / CAT-EPT Entropic Particle Dynamics.
+"""M9 CAT/EPT research models, including qualified 3D Dirac/Maxwell controls.
 
-The package contains source-pinned formal interfaces, scalar and spinor controls,
-spherical electrostatic dynamics, transverse radiation, one- and two-dimensional
-Maxwell--Dirac transport, a two-dimensional localization decision, and shared
-research instrumentation. These are selected dimensionless field models, not
-calibrated particle identities.
+These are selected dimensionless field models, not calibrated particle identities.
 """
