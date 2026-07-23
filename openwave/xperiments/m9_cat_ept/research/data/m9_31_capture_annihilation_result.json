@@ -1,0 +1,70 @@
+{
+  "acceptance": {
+    "full_energy_ledger_closes": true,
+    "opposite_sector_annihilates": true,
+    "opposite_sector_captures": true,
+    "radiation_accumulates": true,
+    "radiation_is_monotone": true,
+    "same_sector_does_not_annihilate": true,
+    "same_sector_does_not_capture": true,
+    "timestep_converges": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "annihilation from the full CAT/EPT field PDE",
+      "physical photons or cross sections",
+      "a stable three-dimensional particle-antiparticle pair",
+      "physical units or couplings"
+    ],
+    "establishes": [
+      "reduced opposite-sector capture",
+      "overlap-triggered annihilation",
+      "mechanical-plus-rest-energy transfer into radiation",
+      "same-sector no-annihilation control"
+    ]
+  },
+  "opposite_sector": {
+    "charge_product": -1.0,
+    "config": {
+      "annihilation_rate": 2.4,
+      "capture_radius": 0.75,
+      "coupling": 1.0,
+      "damping": 0.12,
+      "dt": 0.0025,
+      "final_time": 30.0,
+      "initial_sector_mass": 1.0,
+      "initial_separation": 5.0,
+      "initial_velocity": -0.05,
+      "overlap_width": 0.55,
+      "reduced_mass": 0.5,
+      "softening": 0.25
+    },
+    "final_energy": 1.8008745428261799,
+    "final_radiation": 5.714702718992622,
+    "final_sector_mass": 1.0619727115302069e-18,
+    "first_capture_time": 10.6675,
+    "initial_energy": 1.800874532224431,
+    "maximum_energy_error": 2.996882253469835e-08,
+    "minimum_abs_separation": 7.061386074714779e-06,
+    "radiation_monotone": true
+  },
+  "passed": true,
+  "refinement": {
+    "dts": [0.01, 0.005, 0.0025],
+    "final_radiation": [5.714692020281926, 5.71470256384489, 5.714702718992622],
+    "final_sector_mass": [1.0619458782115113e-18, 1.0619721452847652e-18, 1.0619727115302069e-18],
+    "mass_successive_differences": [2.6267073253875124e-23, 5.66245441681015e-25],
+    "radiation_successive_differences": [1.0543562964038244e-05, 1.5514773199498677e-07]
+  },
+  "same_sector_control": {
+    "charge_product": 1.0,
+    "final_radiation": 0.09351139313193714,
+    "final_sector_mass": 1.0,
+    "first_capture_time": null,
+    "maximum_energy_error": 8.881784197001252e-16,
+    "minimum_abs_separation": 5.0,
+    "radiation_monotone": true
+  },
+  "schema": "openwave.m9.capture-annihilation-result.v1",
+  "task": "M9.31"
+}
