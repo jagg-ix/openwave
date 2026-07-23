@@ -1,0 +1,25 @@
+{
+  "schema": "openwave.m9.intrinsic-clock-result.v1",
+  "task": "M9.28",
+  "recovered_internal_frequency": 1.699999999999999,
+  "recovered_mean_loss_slope": 0.10440991825928565,
+  "entropy_rate_variation": 0.24178499872048137,
+  "geometry_rate_variation": 0.03943125886263423,
+  "entropy_vs_phase_affine_residual": 0.02807236327027357,
+  "geometry_vs_phase_affine_residual": 0.003052996524685905,
+  "final": {
+    "coordinate_time": 10.0,
+    "internal_phase": 17.0,
+    "entropic_clock": 1.1448517445807687,
+    "geometry_clock": 9.457203433785534
+  },
+  "zero_channel_controls": {
+    "zero_loss_entropy_span": 4.440892098500626e-16,
+    "zero_loss_phase_span": 17.0,
+    "zero_frequency_phase_span": 8.326672684688674e-17,
+    "zero_frequency_entropy_span": 1.1448517445807687
+  },
+  "intrinsic_clock_candidate": "reversible_internal_phase",
+  "physical_time_identified": false,
+  "passed": true
+}
