@@ -1,12 +1,10 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-> **What M9 brings.** M9.1--M9.6 establish the formal interface, scalar controls,
-> information clock, scalar localization family, scaling ledger, and scalar-carrier
-> boundary. M9.7a validates a localized nonlinear Dirac carrier in 1+1D. M9.7b1
-> qualifies the spherical electrostatic Maxwell sector, M9.7b2 solves a coupled
-> stationary 3D radial spinor branch, and M9.7b3 now validates finite-time
-> constrained spherical spinor--electrostatic dynamics. Transverse Maxwell
-> radiation and physical particle identity remain open.
+> **What M9 brings.** M9 now contains a source-pinned CAT/EPT interface, verified
+> scalar and spinor control models, a localized 1+1D nonlinear spinor, a coupled
+> stationary 3D radial spinor--electrostatic branch, constrained spherical time
+> evolution, and a bounded transverse Maxwell radiation sector with spinor-current
+> back-reaction.
 
 ## Identity
 
@@ -15,69 +13,109 @@
 | Model ID | M9 |
 | Name | CAT/EPT Entropic Particle Dynamics |
 | Author | Jorge A. Garcia |
-| Lineage | Complex Action Theory / Entropic Proper Time; entropic dynamics; nonlinear scalar and spinor solitary waves; stationary and constrained-dynamic electrostatic Maxwell--Dirac systems |
-| Formal source | `jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, commit `f6e2b37571086e5ef6de40f77439a5eab468f71f` |
-| In-repo | Formal/clock/scalar modules, `spinor_carrier.py`, `electrostatic_gauge_3d.py`, `dirac_electrostatic_3d.py`, `dirac_electrostatic_dynamics_3d.py`, and M9.1--M9.7b3 research records |
+| Formal source | `jagg-ix/entropic-physlib-private`, `entropic-physlib-linear-full@f6e2b37571086e5ef6de40f77439a5eab468f71f` |
+| In-repo | Formal, scalar, spinor, electrostatic, radial-dynamic, and transverse-radiation modules plus M9.1--M9.7c research records |
 
-## Model profile
+## Accumulated model profile
 
 | Attribute | M9 status |
 | --- | --- |
-| Scalar carrier | One-component complex scalar with exact neutral 1+1D bright-soliton family |
-| 1+1D spinor carrier | Exact two-component Soler solitary wave passing M9.7a |
-| 3D spinor ansatz | Spherical four-spinor `exp(-i omega t)(v chi, i u sigma.rhat chi)^T` |
-| Selected 3D model | Soler scalar attraction plus longitudinal electrostatic self-field |
-| Frozen inputs | `m=epsilon0=q=N=1`, `lambda=64` |
-| Stationary branch | `omega=0.9914633829359464`, `R_rms=5.8792323633` |
-| Time-dependent branch | Weighted-unitary radial Dirac evolution with Poisson projection at each local substep |
-| Frozen perturbation | 2% opposite amplitude modulation plus 2% opposite component phase |
-| Long-time result | At `t=20`, fidelity `0.99989203`, core `0.98975304`, outer fraction `7.22e-5` |
-| Conservation | Norm drift below `1e-14`; total-energy relative drift below `8.2e-8` in the long run |
-| Dynamic Gauss law | Constraint projected after every local half-step; sampled residual below `2e-14` |
-| Entropic clock | Shell probability proportional to `rho Delta V`; reflecting radial channel remains closed |
-| Signed sectors | `q -> -q` reverses potential and flux while preserving the selected spinor density and field energy |
-| Electric charge | Dimensionless source label only; no physical charge-unit calibration |
-| Spin | Classical 3D spinor representation; no fermionic quantization/statistics or measured spin observable |
-| Radiation | Spherical electrostatic sector has `B=0` and exactly zero Poynting flux; transverse radiation remains absent |
-| CAT/EPT relation | Density/information interfaces are preserved; `lambda=64` and gauge dynamics are selected real-sector inputs, not derived from `S_I` |
+| Scalar carrier | Exact neutral 1+1D bright-soliton family |
+| 1+1D spinor carrier | Exact two-component Soler solitary wave |
+| 3D stationary carrier | Normalized spherical Soler spinor with electrostatic back-reaction |
+| Spherical dynamics | Finite-time weighted-unitary radial Dirac evolution with Poisson/Gauss projection |
+| Transverse gauge sector | Planar `A_y,E_y,B_z` Maxwell mode with nonzero-capable Poynting flux |
+| Transverse matter sector | Neutral charge-conjugate local spinor pair coupled through `J_y` |
+| Dynamic Gauss result | Pointwise zero signed charge preserved without projection in M9.7c |
+| Radiation result | Nonzero emitted Poynting energy and conductivity-absorber accounting |
+| Entropic clock | Density-to-probability interfaces remain valid in scalar, spinor, and radial sectors |
+| Electric charge | Dimensionless labels only; no physical calibration |
+| Spin/statistics | Classical spinor representations only; no fermionic quantization |
+| Particle identity | Electron, positron, photon, and Standard Model assignments remain unestablished |
 
-## Field configurations
+## Key validated results
 
-| Candidate | Configuration | Status |
-| --- | --- | --- |
-| Neutral scalar candidate | Bright scalar soliton in 1+1D | Validated mathematical candidate |
-| 1+1D spinor candidate | Two-component Soler solitary wave | Validated replacement-carrier prerequisite |
-| 3D stationary candidate | Normalized spherical Soler spinor with electrostatic back-reaction | Validated selected-model stationary solution |
-| 3D dynamic candidate | Same branch under frozen finite perturbation through `t=20` | Finite-time constrained spherical stability evidence |
-| Electron | No physical mass/charge calibration, magnetic moment, statistics, or experimental identification | Not established |
-| Opposite source sector | Algebraic `q=-1` branch with reversed potential and flux | Dimensionless sector, not positron identity |
-| Photon / radiation | No transverse Maxwell or magnetic mode | Honest negative in current symmetry sector |
+### Stationary radial branch
+
+For
+
+```text
+m = epsilon0 = q = N = 1
+lambda = 64
+```
+
+the normalized radial branch has
+
+```text
+omega = 0.9914633829359464
+R_rms = 5.879232363303192.
+```
+
+### Constrained spherical dynamics
+
+At `t=20`:
+
+```text
+fidelity = 0.9998920265
+core fraction r<=16 = 0.9897530407
+norm drift = 9.99e-15
+total-energy relative drift = 8.15e-8.
+```
+
+### Transverse Maxwell milestone
+
+The bounded M9.7c reduction uses
+
+```text
+A_t = -E
+E_t = -A_xx - J - sigma E
+B = A_x
+J = q psi_+^dagger sigma_y psi_+
+    - q psi_-^dagger sigma_y psi_-.
+```
+
+At the finest coupled refinement level:
+
+```text
+A order = 1.98383
+E order = 1.95569
+max signed charge density = 0
+corrected-energy relative drift = 5.14e-7
+emitted energy = 3.996e-5.
+```
+
+At `t=80`:
+
+```text
+emitted energy = 6.15138e-4
+absorbed energy = 4.89886e-4
+corrected-energy relative drift = 1.77811e-6.
+```
 
 ## Implementation status
 
 | Sector | Status |
 | --- | --- |
-| M9.1--M9.6 | Complete scalar/formal/clock/carrier program |
+| M9.1--M9.6 | Complete formal/scalar/clock/carrier program |
 | M9.7a | Complete 1+1D nonlinear spinor qualification |
 | M9.7b1 | Complete 3D electrostatic source-and-field qualification |
-| M9.7b2 | Complete coupled stationary radial spinor--electrostatic solve |
-| M9.7b3 | Complete constrained spherical time evolution, perturbation, conservation, Gauss, refinement, window, boundary-current, and clock gates |
-| Dynamic refinement | Spinor order `1.92689`; density order `2.09472` |
-| Long-time conservation | Norm drift `9.99e-15`; total-energy relative drift `8.15e-8` |
-| Long-time localization | Fidelity `0.99989203`; core `0.98975304`; outer fraction `7.22e-5` |
-| Radiation ledger | Electromagnetic Poynting flux exactly zero by spherical electrostatic symmetry |
-| Non-spherical radiative gauge evolution | Open M9.7c |
-| Interactive launcher | Deferred until M9.7c closes |
+| M9.7b2 | Complete coupled stationary radial spinor solve |
+| M9.7b3 | Complete constrained spherical time evolution |
+| M9.7c1 | Complete vacuum transverse Maxwell benchmark |
+| M9.7c2 | Complete neutral spinor-current back-reaction gate |
+| M9.7c3 | Complete Poynting, absorber, and emitted-energy gate |
+| M9.8 | Next: research instrumentation and launcher |
+
+## Claim boundary
+
+M9.7c is a bounded planar transverse reduction. It does not contain spatial
+transport of the spinor envelope and is not a full non-spherical Maxwell--Dirac
+solution. Physical units, charge calibration, particle identity, magnetic moment,
+fermionic statistics, and CAT/EPT derivation of the selected interactions remain
+open.
 
 ## Roadmap
 
-See [`research/m9_roadmap.md`](research/m9_roadmap.md). The next target is
-M9.7c: a non-spherical or transverse Maxwell/spinor evolution with electric,
-magnetic, Poynting, absorbing-boundary, and radiation-energy ledgers.
-
-## Help wanted
-
-Useful independent contributions are an independent weighted radial evolution
-solver, a hostile audit of the reflecting boundary and Poisson projection, a
-non-spherical Maxwell--Dirac/Soler implementation, or a formal
-spinor-current/Gauss-law bridge in entropic-physlib.
+See [`research/m9_roadmap.md`](research/m9_roadmap.md). The next implementation
+milestone is M9.8: common instrumentation, deterministic launcher controls, and
+visualization for the already validated scalar, radial, and transverse sectors.
