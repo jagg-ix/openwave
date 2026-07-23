@@ -25,13 +25,14 @@ These targets do not establish full-PDE particles, physical atoms, mesons, or ba
 | M9.34 | Geometry/metric back-reaction plugin | COMPLETE; WEAK-FIELD CONTROL |
 | M9.35 | Multi-domain coupling graph and dependency scheduler | COMPLETE |
 | M9.36 | Adaptive refinement and propagated error budgets | COMPLETE |
-| M9.37 | Three-dimensional minimizer/BVP and continuation | NEXT |
-| M9.38 | GPU manifest adapter | PLANNED |
+| M9.37 | Three-dimensional minimizer/BVP and continuation | COMPLETE; TRAP-BOUND REFERENCE |
+| M9.38 | GPU manifest adapter | COMPLETE; HARDWARE EXECUTION OPEN |
 
 ## Phase E — spectrum and force sectors
 
-M9.39 lepton hierarchy; M9.40 confinement; M9.41 weak/chiral transitions;
-M9.42 gravity/equivalence principle.
+M9.39 lepton hierarchy is COMPLETE with an honest negative for current simple
+candidate laws. M9.40 confinement is NEXT; M9.41 weak/chiral transitions and
+M9.42 gravity/equivalence principle remain planned.
 
 ## Phase F — waves, thermal, cosmology
 
