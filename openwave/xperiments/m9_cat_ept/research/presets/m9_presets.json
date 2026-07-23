@@ -1,0 +1,73 @@
+{
+  "schema": "openwave.m9.instrumentation-presets.v1",
+  "presets": [
+    {
+      "name": "scalar-observables",
+      "title": "M9.5 Scalar Soliton Observable Ledger",
+      "sector": "scalar",
+      "task": "M9.5",
+      "ledger": "m9_5_soliton_observable_result.json",
+      "runner": "openwave.xperiments.m9_cat_ept.soliton_observables:run_observable_study",
+      "metrics": [
+        {"key": "norm_error", "label": "Maximum norm error", "path": "maximum_errors.norm_relative"},
+        {"key": "energy_error", "label": "Maximum energy error", "path": "maximum_errors.energy_relative"},
+        {"key": "rms_radius", "label": "Reference RMS radius", "path": "reference_member.rms_radius"},
+        {"key": "phase_frequency", "label": "Reference phase frequency", "path": "reference_member.phase_frequency"}
+      ],
+      "establishes": [
+        "exact dimensionless scalar-soliton scaling identities",
+        "numerical quadrature and stationary-residual closure"
+      ],
+      "does_not_establish": [
+        "physical mass, length, or time calibration",
+        "electric charge, spin-1/2, or particle identity"
+      ]
+    },
+    {
+      "name": "radial-dynamics",
+      "title": "M9.7b3 Constrained Spherical Spinor Dynamics",
+      "sector": "radial",
+      "task": "M9.7b3",
+      "ledger": "m9_7b3_dirac_electrostatic_dynamics_result.json",
+      "runner": "openwave.xperiments.m9_cat_ept.dirac_electrostatic_dynamics_3d:run_dynamic_study",
+      "metrics": [
+        {"key": "fidelity", "label": "Long-time fidelity", "path": "long_time_run.phase_metrics.fidelity"},
+        {"key": "norm_drift", "label": "Maximum norm drift", "path": "long_time_run.max_norm_drift"},
+        {"key": "energy_drift", "label": "Maximum total-energy drift", "path": "long_time_run.max_total_energy_relative_drift"},
+        {"key": "gauss_residual", "label": "Maximum Gauss residual", "path": "long_time_run.max_gauss_residual_relative"},
+        {"key": "core_fraction", "label": "Final core fraction", "path": "long_time_run.final.core_fraction_r16"}
+      ],
+      "establishes": [
+        "finite-time constrained spherical spinor-electrostatic evolution",
+        "norm, energy, Gauss, convergence, window, and information ledgers"
+      ],
+      "does_not_establish": [
+        "transverse Maxwell radiation or magnetic self-fields",
+        "electron identity, calibrated charge, or fermionic quantization"
+      ]
+    },
+    {
+      "name": "transverse-radiation",
+      "title": "M9.7c Transverse Maxwell-Spinor Radiation Ledger",
+      "sector": "transverse",
+      "task": "M9.7c",
+      "ledger": "m9_7c_transverse_maxwell_spinor_result.json",
+      "runner": "openwave.xperiments.m9_cat_ept.transverse_maxwell_spinor:run_transverse_study",
+      "metrics": [
+        {"key": "emitted_energy", "label": "Long-run emitted energy", "path": "long_run.emitted_energy"},
+        {"key": "absorbed_energy", "label": "Long-run absorbed energy", "path": "long_run.absorbed_energy"},
+        {"key": "energy_drift", "label": "Corrected-energy drift", "path": "long_run.corrected_energy_relative_drift"},
+        {"key": "max_charge", "label": "Maximum signed charge density", "path": "long_run.max_charge_density"},
+        {"key": "central_fraction", "label": "Final central field-energy fraction", "path": "long_run.final.field_energy_central_fraction"}
+      ],
+      "establishes": [
+        "a bounded transverse electric and magnetic radiation mode",
+        "nonzero Poynting flux, absorber accounting, and neutral spinor-current back-reaction"
+      ],
+      "does_not_establish": [
+        "full spatial Maxwell-Dirac evolution or spinor transport",
+        "charged particle identity, calibrated units, or non-spherical orbital stability"
+      ]
+    }
+  ]
+}
