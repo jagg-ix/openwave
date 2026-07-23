@@ -1,0 +1,124 @@
+{
+  "acceptance": {
+    "imaginary_action_identity_closes": true,
+    "norm_monotone": true,
+    "positive_nonuniform_loss_is_contracting": true,
+    "rk4_converges_fourth_order": true,
+    "scalar_loss_positive": true,
+    "tau_ent_monotone": true,
+    "weight_modulus_identity_closes": true,
+    "zero_loss_reduces_to_unitary": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "that Nature uses the selected non-Hermitian generator",
+      "a trace-preserving open-system evolution",
+      "a unique physical-time operator or particle identity",
+      "derivation of gamma from CAT/EPT"
+    ],
+    "establishes": [
+      "a positive scalar imaginary-action amplitude-loss control",
+      "tau_ent=-1/2 log norm and |W|=exp(-tau_ent) for that control",
+      "fourth-order numerical convergence and the zero-loss unitary limit",
+      "contractivity for a selected positive nonuniform loss matrix"
+    ]
+  },
+  "finest": {
+    "dt": 0.025,
+    "final_exact_norm": 0.1826835240527346,
+    "final_exact_tau_ent": 0.8500000000000001,
+    "final_norm": 0.18268352539059196,
+    "final_tau_ent": 0.8499999963383198,
+    "max_norm_error": 1.584765596529536e-09,
+    "max_tau_error": 3.6616802923106206e-09,
+    "norm_monotone": true,
+    "state_error_l2": 1.7419099531385975e-09,
+    "steps": 200,
+    "tau_monotone": true,
+    "weight_identity_error": 1.1102230246251565e-16
+  },
+  "model": "selected positive non-Hermitian two-level control",
+  "nonuniform_loss": {
+    "final_normalized_sigma_z": 0.8299563279209751,
+    "initial_normalized_sigma_z": 0.4000000000000001,
+    "maximum_norm_derivative": -0.06924607264701337,
+    "minimum_gamma_eigenvalue": 0.08,
+    "minimum_norm_derivative": -0.244,
+    "norm_monotone": true,
+    "normalized_sigma_z_change": 0.429956327920975
+  },
+  "parameters": {
+    "final_time": 5.0,
+    "gamma": 0.17,
+    "mixing": 0.35,
+    "omega": 1.3
+  },
+  "passed": true,
+  "refinement": {
+    "errors": [
+      7.312545853162471e-06,
+      4.506709263640438e-07,
+      2.796918023609185e-08
+    ],
+    "observed_orders": [
+      4.020227478824826,
+      4.010164507249549
+    ],
+    "records": [
+      {
+        "dt": 0.2,
+        "final_exact_norm": 0.1826835240527346,
+        "final_exact_tau_ent": 0.8500000000000001,
+        "final_norm": 0.1826888126839975,
+        "final_tau_ent": 0.8499855253648635,
+        "max_norm_error": 6.2634306256525996e-06,
+        "max_tau_error": 1.4474635136596525e-05,
+        "norm_monotone": true,
+        "state_error_l2": 7.312545853162471e-06,
+        "steps": 25,
+        "tau_monotone": true,
+        "weight_identity_error": 1.1102230246251565e-16
+      },
+      {
+        "dt": 0.1,
+        "final_exact_norm": 0.1826835240527346,
+        "final_exact_tau_ent": 0.8500000000000001,
+        "final_norm": 0.1826838620125065,
+        "final_tau_ent": 0.8499990750138497,
+        "max_norm_error": 4.0029401182639646e-07,
+        "max_tau_error": 9.249861503413115e-07,
+        "norm_monotone": true,
+        "state_error_l2": 4.506709263640438e-07,
+        "steps": 50,
+        "tau_monotone": true,
+        "weight_identity_error": 1.1102230246251565e-16
+      },
+      {
+        "dt": 0.05,
+        "final_exact_norm": 0.1826835240527346,
+        "final_exact_tau_ent": 0.8500000000000001,
+        "final_norm": 0.18268354537017162,
+        "final_tau_ent": 0.8499999416547391,
+        "max_norm_error": 2.524929343383775e-08,
+        "max_tau_error": 5.834526095593873e-08,
+        "norm_monotone": true,
+        "state_error_l2": 2.796918023609185e-08,
+        "steps": 100,
+        "tau_monotone": true,
+        "weight_identity_error": 1.1102230246251565e-16
+      }
+    ],
+    "requested_dts": [
+      0.2,
+      0.1,
+      0.05
+    ]
+  },
+  "schema": "openwave.m9.imaginary-action-result.v1",
+  "task": "M9.15",
+  "zero_loss": {
+    "norm_drift": 1.0977574405046653e-10,
+    "state_error_l2": 3.568934221758784e-09,
+    "tau_ent": 5.488787202824594e-11
+  }
+}
