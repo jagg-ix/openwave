@@ -9,9 +9,9 @@ three-dimensional dynamics exists.
 | M9.2 | Free complex-field solver and exact Gaussian benchmark | DONE |
 | M9.3 | Fixed field-to-probability map and coarse-graining clocks | DONE |
 | M9.4 | Bounded nonlinear family and localization decision gate | DONE; focusing candidate passed |
-| M9.5 | Exact energy, radius, phase-frequency, and scaling family ledger | DONE; all nine family checks passed |
-| M9.6 | Scalar charge/spin no-go and replacement-carrier contract | NEXT |
-| M9.7 | Three-dimensional dynamics, then Taichi port and launcher | Gated on a validated 3D carrier |
+| M9.5 | Exact energy, radius, phase-frequency, and scaling family ledger | DONE; nine-case executable ledger |
+| M9.6 | Scalar charge/spin/topology audit and replacement-carrier contract | DONE; current-carrier limits closed |
+| M9.7 | Replacement-carrier localization in 3D, then Taichi port and launcher | Gated on a validated non-scalar carrier |
 
 ## Completed results
 
@@ -47,11 +47,11 @@ E = -eta^3/(3g) = -g^2 N^3/24,
 R_rms = pi/(2 sqrt(3) eta).
 ```
 
-Nine products `g in {1,2,4}`, `N in {0.5,1,2}` verify the formulas. Maximum
-relative quadrature errors are `2.56e-14` for norm, `7.57e-14` for energy, and
-`4.19e-12` for RMS radius. The stationary residual is below `2.8e-16` relative.
+Nine products `g in {1,2,4}`, `N in {0.5,1,2}` verify the formulas. The
+implemented enclosed-probability check uses the fraction of total norm, not
+absolute enclosed norm, so all `N` values share the same `tanh(eta R)` law.
 
-The fitted norm exponents are
+The norm exponents are
 
 ```text
 eta ~ N^1,
@@ -60,28 +60,45 @@ omega_phase ~ N^2,
 R_rms ~ N^-1.
 ```
 
-Two scale-invariant identities close exactly:
+Two scale-invariant identities close:
 
 ```text
 omega_phase R_rms^2 = pi^2/24,
 E/(mu N) = 1/3.
 ```
 
-The optional Compton and Zitterbewegung bridges are conditional unit-map
-identifications. Neither supplies a mass prediction.
+The optional Compton and Zitterbewegung bridges remain conditional unit-map
+identifications and do not supply a mass prediction.
 
-See [`findings/m9_5_method_note.md`](findings/m9_5_method_note.md).
+### M9.6 scalar-carrier boundary
 
-## Next gate: M9.6
+The executable audit proves the following for the current carrier and profile:
 
-M9.6 must make the present carrier limitations executable:
+1. global phase preserves density, norm, phase current, and scalar energy;
+2. conjugation preserves norm/energy and reverses phase current, but does not
+   create an opposite electric-charge sector;
+3. a local phase changes ordinary-gradient energy because no gauge connection
+   exists;
+4. `s psi`, `s in [0,1]`, contracts the profile continuously to zero vacuum;
+5. scalar intrinsic rotations return `+1` at `2pi`, unlike a spinor double cover;
+6. no Maxwell source, Gauss flux, charge unit, spinor representation, or
+   topological boundary class is present.
 
-1. global phase leaves scalar density and energy unchanged;
-2. conjugation leaves norm and energy unchanged and only reverses current;
-3. the localized profile contracts continuously to the zero vacuum;
-4. intrinsic scalar rotations return with `+1` after `2pi`, unlike spin-1/2;
-5. no local gauge connection, Gauss-law flux, or opposite-charge sector exists.
-
-It must then specify a staged replacement carrier that preserves `psi-dagger psi`
-and the entropic-clock interface without claiming that the replacement already
+The staged spinor embedding `Psi=(psi,0)` preserves
+`Psi-dagger Psi=|psi|^2`, so the normalized-density entropic-clock interface can
+survive a carrier replacement. This does not establish that the replacement
 localizes.
+
+See [`findings/m9_6_method_note.md`](findings/m9_6_method_note.md).
+
+## Next gate: replacement-carrier localization
+
+The next scientific program must choose one bounded route before running:
+
+- locally gauge-coupled scalar for charged spin-0 matter;
+- Dirac/Weyl spinor plus local gauge field for spin-1/2 charge;
+- multi-component topological order parameter for winding/defect sectors.
+
+For any route, the acceptance gate must re-establish localization, conservation,
+window independence, perturbation stability, and the entropic-clock density map.
+No interactive renderer is justified before that gate passes.

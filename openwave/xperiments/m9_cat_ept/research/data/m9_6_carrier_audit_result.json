@@ -1,0 +1,70 @@
+{
+  "schema": "openwave.m9.scalar-carrier-audit.v2",
+  "model": "M9-CAT-EPT",
+  "carrier": "single complex scalar field in 1+1 dimensions",
+  "capabilities": {
+    "global_u1_phase_symmetry": true,
+    "local_u1_gauge_symmetry": false,
+    "electric_charge_derivation": false,
+    "opposite_electric_charge_sector": false,
+    "intrinsic_spin_half_representation": false,
+    "topological_charge_certificate": false
+  },
+  "checks": {
+    "global_phase_norm": 1.1102230246251565e-16,
+    "global_phase_energy": 0.0,
+    "conjugation_norm": 0.0,
+    "conjugation_energy": 7.632783294297951e-17,
+    "conjugation_current_reversal": 3.1598612615368893e-12,
+    "local_phase_energy_change": 1.5791367041742974,
+    "contraction_zero_norm": 0.0,
+    "contraction_endpoint_distance": 0.0,
+    "scalar_2pi_distance_from_plus_one": 0.0,
+    "spinor_2pi_distance_from_minus_one": 1.2246467991473532e-16,
+    "spinor_4pi_distance_from_plus_one": 2.4492935982947064e-16,
+    "spinor_density_embedding": 0.0
+  },
+  "truncation_note": "The 1e-11 current-reversal tolerance is set by the exponentially small sech tail on a periodic spectral grid.",
+  "representation_checks": {
+    "scalar_2pi": [1.0, 0.0],
+    "scalar_4pi": [1.0, 0.0],
+    "spinor_reference_2pi": [-1.0, 0.0],
+    "spinor_reference_4pi": [1.0, 0.0]
+  },
+  "replacement_routes": [
+    {
+      "carrier": "locally gauge-coupled complex scalar",
+      "preserves": ["density |psi|^2", "normalized-density entropic clock"]
+    },
+    {
+      "carrier": "Dirac or Weyl spinor with local U(1)",
+      "preserves": ["density Psi-dagger Psi", "normalized-density entropic clock"]
+    },
+    {
+      "carrier": "multi-component topological order parameter",
+      "preserves": ["positive density functional", "coarse-graining interface"]
+    }
+  ],
+  "acceptance": {
+    "global_phase_invariance": true,
+    "conjugation_invariance_and_current_reversal": true,
+    "local_gauge_gap_detected": true,
+    "continuous_vacuum_contraction": true,
+    "scalar_spin_zero": true,
+    "spinor_reference_double_cover": true,
+    "replacement_preserves_density_interface": true,
+    "electric_charge_not_overclaimed": true,
+    "topological_charge_not_overclaimed": true
+  },
+  "passed": true,
+  "classification": {
+    "positive_result": "global U(1) norm symmetry is present",
+    "negative_results": [
+      "conjugation is not an opposite electric-charge sector",
+      "electric charge is not derived",
+      "spin-1/2 is not represented",
+      "the current profile has no protected topological sector"
+    ],
+    "scope": "current-carrier audit, not a theorem about every scalar extension"
+  }
+}
