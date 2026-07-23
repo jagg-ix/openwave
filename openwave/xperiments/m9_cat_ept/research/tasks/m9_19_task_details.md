@@ -1,29 +1,14 @@
-# M9.19 task: physical calibration and identifiability contract
+# M9.19 task: simulation-theory plugin contract
 
-## Question
+Replace acquisition-oriented infrastructure with a dimensionless theory manifest that every new theory must provide before shared OpenWave solvers can execute it.
 
-What independent SI anchors and detector calibrations are required before the
-M9 back-reaction rates can be interpreted physically?
+Required declarations:
 
-## Contract
+- dynamic, auxiliary, constraint, and ledger fields;
+- bounded parameters and defaults;
+- reversible, irreversible, source, and constraint evolution terms;
+- observables and reductions;
+- invariant, monotone, balance, and constraint laws;
+- deterministic versioned serialization and fingerprinting.
 
-The contract requires:
-
-- a physical time-scale anchor in seconds with uncertainty and provenance;
-- trace-channel detection efficiency;
-- coherence/purity estimator efficiency;
-- reservoir-capture efficiency;
-- mechanism-blind acquisition times.
-
-The synthetic reference values are `T0=2.5e-6 s`, trace efficiency `0.91`,
-coherence efficiency `0.88`, and reservoir efficiency `0.84`. They are test
-fixtures, not measured apparatus values.
-
-## Gates
-
-- schema and SI-unit validation;
-- invalid/missing anchors rejected;
-- unanchored rate/time-scale Jacobian rank is one for two parameters;
-- an independent time anchor restores local rank two;
-- exact synthetic rate roundtrip for all three interfaces;
-- `physical_calibration_completed=false` remains explicit.
+The CAT/EPT reference manifest explicitly declares matter, gauge/geometry, entropy, reservoir, and constraint sectors. No physical-data acquisition interface is allowed.

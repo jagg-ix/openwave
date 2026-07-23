@@ -1,0 +1,52 @@
+{
+  "acceptance": {
+    "constraint_sector_declared": true,
+    "deterministic_fingerprint": true,
+    "irreversible_sector_declared": true,
+    "manifest_valid": true,
+    "registry_roundtrip": true,
+    "reversible_sector_declared": true,
+    "simulation_only_scope": true
+  },
+  "manifest": {
+    "evolution_terms": [
+      {"description":"","kind":"reversible","name":"hamiltonian_flow","reads":["psi","gauge"],"writes":["psi"]},
+      {"description":"","kind":"irreversible","name":"imaginary_action_flow","reads":["psi","entropy"],"writes":["psi","entropy","reservoir"]},
+      {"description":"","kind":"source","name":"field_backreaction","reads":["psi","gauge"],"writes":["gauge"]},
+      {"description":"","kind":"constraint","name":"constraint_update","reads":["psi","gauge"],"writes":["constraint"]}
+    ],
+    "fields": [
+      {"description":"","dtype":"complex128","name":"psi","role":"dynamic","shape":[-1]},
+      {"description":"","dtype":"float64","name":"gauge","role":"dynamic","shape":[-1]},
+      {"description":"","dtype":"float64","name":"entropy","role":"ledger","shape":[]},
+      {"description":"","dtype":"float64","name":"reservoir","role":"ledger","shape":[]},
+      {"description":"","dtype":"float64","name":"constraint","role":"constraint","shape":[-1]}
+    ],
+    "laws": [
+      {"description":"","direction":"constant","kind":"balance","name":"extended_balance","observable":"total_balance","tolerance":1e-09},
+      {"description":"","direction":"nondecreasing","kind":"monotone","name":"entropy_arrow","observable":"entropic_clock","tolerance":1e-12},
+      {"description":"","direction":"zero","kind":"constraint","name":"gauss_closure","observable":"constraint_residual","tolerance":1e-08}
+    ],
+    "metadata": {"physical_identity":null,"requires_data_acquisition":false,"scope":"dimensionless simulation contract"},
+    "name":"cat-ept-reference",
+    "observables": [
+      {"description":"","name":"matter_norm","reads":["psi"],"reduction":"integral_abs2"},
+      {"description":"","name":"total_balance","reads":["psi","reservoir"],"reduction":"norm_plus_reservoir"},
+      {"description":"","name":"entropic_clock","reads":["entropy"],"reduction":"identity"},
+      {"description":"","name":"constraint_residual","reads":["constraint"],"reduction":"max_abs"},
+      {"description":"","name":"field_energy","reads":["gauge"],"reduction":"quadratic_energy"}
+    ],
+    "parameters": [
+      {"bounds":[1e-12,1e12],"default":1.0,"description":"","name":"hbar"},
+      {"bounds":[0.0,1e12],"default":1.0,"description":"","name":"mass"},
+      {"bounds":[0.0,1e6],"default":0.0,"description":"","name":"irreversible_rate"},
+      {"bounds":[0.0,1e6],"default":0.0,"description":"","name":"backreaction_strength"}
+    ],
+    "version":"1.0"
+  },
+  "passed":true,
+  "registered":["cat-ept-reference@1.0"],
+  "schema":"openwave.m9.theory-contract-result.v1",
+  "task":"M9.19-simcore",
+  "validation":{"field_count":5,"has_constraint_sector":true,"has_irreversible_sector":true,"has_reversible_sector":true,"law_count":3,"observable_count":5,"parameter_count":4,"term_count":4,"valid":true}
+}

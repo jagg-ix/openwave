@@ -1,13 +1,7 @@
-# M9.19 method note: calibration is structurally underdetermined without an anchor
+# M9.19 finding: theory registration is explicit and simulation-only
 
-The amplitude-loss trace depends on the ratio of dimensionless rate to physical
-time scale. Its Jacobian with respect to log-rate and log-time-scale therefore has
-rank one. Adding an independent time-anchor row restores rank two with condition
-number `2.51411`.
+The CAT/EPT reference manifest validates with five fields, four parameters, four evolution terms, five observables, and three laws. Reversible, irreversible, source, and constraint sectors are represented separately.
 
-The synthetic roundtrip recovers the three dimensionless rates with maximum error
-`5.55112e-17`. The displayed per-second values (`68000`, `92000`, and `48000`)
-are consequences of the synthetic `2.5 microsecond` fixture and are not physical
-measurements.
+The canonical manifest fingerprint is deterministic, registry roundtrips close, duplicate versions are rejected, and unknown state references or invalid parameter bounds fail before execution.
 
-Focused validation: `9 passed`. No CI workflow was run or inspected.
+Focused validation: `8 passed`. No CI workflow was run or inspected.

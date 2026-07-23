@@ -1,13 +1,15 @@
-# M9 CAT/EPT roadmap
+# M9 CAT/EPT simulation roadmap
 
 | Task | Deliverable | Status |
 | --- | --- | --- |
-| M9.1--M9.18 | Formal, field, back-reaction, and falsification program | DONE |
-| M9.19 | Physical calibration and identifiability contract | DONE; physical calibration remains open |
-| M9.20 | Noisy open-set discrimination benchmark | DONE; synthetic only |
-| M9.21 | Preregistered experimental discriminant and power gate | DONE; no apparatus data |
-| M9.22 | Apparatus-specific calibration data ingestion and blinded analysis | NEXT |
+| M9.1--M9.18 | Formal, field, transport, localization, and back-reaction program | DONE |
+| M9.19 | Versioned simulation-theory plugin contract | DONE |
+| M9.20 | Reversible/irreversible operator-splitting engine | DONE |
+| M9.21 | Cross-theory simulation qualification and regression harness | DONE |
+| M9.22 | Geometry/metric back-reaction plugin interface | NEXT |
+| M9.23 | Multi-domain coupling graph and dependency scheduler | PLANNED |
+| M9.24 | Adaptive refinement and error-budget propagation | PLANNED |
 
-M9.19--M9.21 define the contract, synthetic discrimination benchmark, and
-fixed-sample protocol. They do not select a physical mechanism or identify
-physical time.
+OpenWave remains simulation software. Apparatus acquisition, detector calibration, shot planning, and blinded experimental workflows are out of scope.
+
+A new theory must introduce executable state, parameter, evolution, observable, law, provenance, and regression contracts before it is treated as an OpenWave model.
