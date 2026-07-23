@@ -1,0 +1,60 @@
+{
+  "schema": "openwave.m9.soliton-observable-summary.v1",
+  "model": "M9-CAT-EPT",
+  "equation": "i psi_t = -1/2 psi_xx - g |psi|^2 psi",
+  "cases": {
+    "couplings": [1.0, 2.0, 4.0],
+    "norms": [0.5, 1.0, 2.0],
+    "count": 9
+  },
+  "quadrature": {
+    "scaled_half_width": 16.0,
+    "points": 8193
+  },
+  "maximum_errors": {
+    "norm_relative": 2.55351295663786e-14,
+    "energy_relative": 7.610578833805448e-14,
+    "rms_radius_relative": 4.183200382858589e-12,
+    "stationary_residual_relative_l2": 3.131336764818077e-16,
+    "enclosed_probability_90": 0.0006617024720364517,
+    "enclosed_probability_99": 0.000042350206137964364,
+    "frequency_radius_invariant": 0.0,
+    "energy_mu_norm_relation": 0.0
+  },
+  "scaling_exponents": {
+    "eta_vs_norm": 1.0,
+    "phase_frequency_vs_norm": 2.0,
+    "absolute_energy_vs_norm": 3.0,
+    "rms_radius_vs_norm": -1.0
+  },
+  "reference_member": {
+    "coupling": 2.0,
+    "norm": 1.0,
+    "eta": 1.0,
+    "amplitude": 0.7071067811865476,
+    "chemical_potential": -0.5,
+    "phase_frequency": 0.5,
+    "energy": -0.16666666666666666,
+    "rms_radius": 0.9068996821171089
+  },
+  "acceptance": {
+    "norm_quadrature": true,
+    "energy_quadrature": true,
+    "radius_quadrature": true,
+    "stationary_residual": true,
+    "enclosed_probability": true,
+    "frequency_radius_invariant": true,
+    "energy_mu_norm_relation": true,
+    "scaling_exponents": true
+  },
+  "passed": true,
+  "scope": {
+    "establishes": "Exact dimensionless scaling identities and their numerical quadrature checks.",
+    "does_not_establish": [
+      "a physical mass, length, or time calibration",
+      "an electron identity",
+      "independent predictions of radius, energy, and frequency",
+      "unique CAT/EPT selection of the cubic interaction"
+    ]
+  }
+}
