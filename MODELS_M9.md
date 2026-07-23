@@ -1,42 +1,44 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-This is the script-backed M9 conformance profile for the shared OpenWave criteria. The canonical source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
+This is the script-backed M9 conformance profile for the shared OpenWave criteria.
+The canonical source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
 
 ## Summary
 
 | Status | Count |
 | --- | ---: |
 | ✅ validated in-platform | 0 |
-| ⚠️ partial / with caveats | 8 |
+| ⚠️ partial / with caveats | 12 |
 | ❌ honest negative | 1 |
-| 🚧 planned / not yet | 11 |
+| 🚧 planned / not yet | 7 |
 | **Explicit criteria** | **20** |
 
-`MODELS.md` reports 21 criteria while the visible matrix contains 20 rows: 12 particle, 5 force, and 3 waves/quantum-emergence. M9 records the missing explicit target as **heat / thermal sector**.
+`MODELS.md` reports 21 criteria while the visible matrix contains 20 rows. The
+missing explicit target remains **heat / thermal sector**.
 
 ## Particles
 
 | Criterion | Status |
 | --- | --- |
-| Charge quantization | ⚠️ Integer field winding; electric identification open |
+| Charge quantization | ⚠️ Integer field winding; electric identity open |
 | Electron rest energy | ⚠️ Interior dimensionless scale; physical mass open |
-| de Broglie clock | ⚠️ Reversible phase, entropy, and geometry clocks separated; physical-time identity open |
+| de Broglie clock | ⚠️ Clock channels separated; physical-time identity open |
 | Particle stability | ❌ 1D family exists; no stable 3D candidate |
-| Magnetic moment and spin | ⚠️ Pauli-current field control; emergent electron g factor open |
-| Spin-1/2 statistics | ⚠️ 2π sign reversal and 4π return; exchange statistics open |
-| Antimatter and annihilation | 🚧 Not yet |
+| Magnetic moment and spin | ⚠️ Pauli-current field control; emergent g factor open |
+| Spin-1/2 statistics | ⚠️ 2π sign reversal and 4π return; exchange open |
+| Antimatter and annihilation | ⚠️ Reduced capture/annihilation/radiation ledger; full PDE open |
 | Lepton mass spectrum | 🚧 Not yet |
 | Dark matter candidate | 🚧 Not yet |
 | Quarks | 🚧 Not yet |
-| Baryons | 🚧 Not yet |
-| Mesons | 🚧 Not yet |
+| Baryons | ⚠️ Charged-triplet graph control; physical baryon open |
+| Mesons | ⚠️ Neutral-pair graph control; physical meson open |
 
 ## Forces
 
 | Criterion | Status |
 | --- | --- |
-| Electric force | ⚠️ Regularized kernel recovers r^-2 force; stable-particle interaction open |
-| Magnetic force | ⚠️ Regularized dipole kernel recovers r^-4 force; particle interaction open |
+| Electric force | ⚠️ Regularized r^-2 kernel; stable-particle interaction open |
+| Magnetic force | ⚠️ Regularized r^-4 dipole kernel; particle interaction open |
 | Strong force | 🚧 Not yet |
 | Weak force | 🚧 Not yet |
 | Gravity | 🚧 Metric back-reaction pending |
@@ -47,6 +49,9 @@ This is the script-backed M9 conformance profile for the shared OpenWave criteri
 | --- | --- |
 | EM waves | ⚠️ Maxwell propagation control |
 | Klein-Gordon | 🚧 Not yet |
-| Orbital quantization | 🚧 Not yet |
+| Orbital quantization | ⚠️ Converged radial bound-mode ladder; native CAT/EPT atom open |
 
-A partial status records bounded simulation evidence, not a completed physical derivation. No stable 3D particle, physical mass, elementary-charge identity, exchange-statistics result, emergent particle force law, unique back-reaction, or physical-time identity is accepted.
+Partial status records bounded simulation evidence, not a completed physical
+derivation. No stable 3D particle, physical mass, elementary-charge identity,
+exchange result, full-PDE annihilation, physical hadron, unique back-reaction,
+or physical-time identity is accepted.
