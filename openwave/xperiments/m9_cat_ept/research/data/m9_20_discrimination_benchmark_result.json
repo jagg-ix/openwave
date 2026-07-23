@@ -1,0 +1,115 @@
+{
+  "acceptance": {
+    "all_full_panel_margins_positive": true,
+    "full_panel_accuracy_high": true,
+    "no_mechanism_selected_from_synthetic_data": true,
+    "noise_sensitivity_monotone": true,
+    "out_of_family_case_rejected": true,
+    "trace_only_ambiguity_exposed": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "performance on experimental apparatus data",
+      "correctness of the assumed Gaussian noise model",
+      "which mechanism is physically realized",
+      "physical calibration or particle identity"
+    ],
+    "establishes": [
+      "high synthetic discrimination with trace, purity, and reservoir observables",
+      "structural trace-only ambiguity between two rate-rescaled mechanisms",
+      "open-set rejection of one out-of-family signature",
+      "a deterministic held-out fitting benchmark"
+    ]
+  },
+  "config": {
+    "noise_sigma": 0.015,
+    "rate_interval": [
+      0.05,
+      0.35
+    ],
+    "rate_points": 241,
+    "time_points": 21,
+    "trials_per_mechanism": 40
+  },
+  "full_panel": {
+    "accuracy": 1.0,
+    "confusion": {
+      "explicit_reservoir": {
+        "explicit_reservoir": 40,
+        "imaginary_action": 0,
+        "lindblad_dephasing": 0,
+        "out_of_family": 0
+      },
+      "imaginary_action": {
+        "explicit_reservoir": 0,
+        "imaginary_action": 40,
+        "lindblad_dephasing": 0,
+        "out_of_family": 0
+      },
+      "lindblad_dephasing": {
+        "explicit_reservoir": 0,
+        "imaginary_action": 0,
+        "lindblad_dephasing": 40,
+        "out_of_family": 0
+      }
+    },
+    "median_validation_margin": 0.05318485139330732,
+    "minimum_validation_margin": 0.02366035476751519,
+    "trials": 120
+  },
+  "noise_sensitivity": [
+    {
+      "accuracy": 1.0,
+      "noise_sigma": 0.005
+    },
+    {
+      "accuracy": 1.0,
+      "noise_sigma": 0.015
+    },
+    {
+      "accuracy": 1.0,
+      "noise_sigma": 0.03
+    }
+  ],
+  "open_set": {
+    "best_normalized_validation_rss": 0.03925503559202944,
+    "classification": {
+      "best_in_family": "lindblad_dephasing",
+      "fits": {
+        "explicit_reservoir": {
+          "best_rate": 0.06125,
+          "normalized_validation_rss": 0.061158210156538176,
+          "train_rss": 1.9473289566605285,
+          "validation_rss": 1.8347463046961452
+        },
+        "imaginary_action": {
+          "best_rate": 0.05,
+          "normalized_validation_rss": 0.06374850774878484,
+          "train_rss": 2.042328969879924,
+          "validation_rss": 1.912455232463545
+        },
+        "lindblad_dephasing": {
+          "best_rate": 0.16375,
+          "normalized_validation_rss": 0.03925503559202944,
+          "train_rss": 1.3195494289794467,
+          "validation_rss": 1.1776510677608831
+        }
+      },
+      "predicted": "out_of_family",
+      "rejected": true,
+      "runner_up": "explicit_reservoir",
+      "validation_margin": 0.021903174564508736
+    },
+    "rejected": true
+  },
+  "passed": true,
+  "schema": "openwave.m9.discrimination-benchmark-result.v1",
+  "selected_physical_mechanism": null,
+  "task": "M9.20",
+  "trace_only": {
+    "amplitude_rate": 0.12,
+    "equivalent_reservoir_rate": 0.24,
+    "maximum_trace_difference": 1.1102230246251565e-16,
+    "structurally_identifiable_from_trace_only": false
+  }
+}
