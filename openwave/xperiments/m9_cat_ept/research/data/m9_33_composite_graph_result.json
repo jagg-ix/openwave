@@ -1,0 +1,72 @@
+{
+  "acceptance": {
+    "both_templates_bind": true,
+    "canonical_fingerprints_are_permutation_invariant": true,
+    "charged_triplet_charge_closes": true,
+    "graphs_are_connected_and_valid": true,
+    "local_minima_are_stable": true,
+    "neutral_pair_charge_closes": true,
+    "relaxation_is_energy_monotone": true,
+    "residual_forces_are_small": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "physical mesons or baryons",
+      "quark color or fractional-charge dynamics",
+      "composites emerging from the full CAT/EPT PDE",
+      "physical masses, radii, or decay channels"
+    ],
+    "establishes": [
+      "versioned constituent-and-bond graph schema",
+      "charge, spin, and rest-energy ledgers",
+      "energy-monotone relaxation",
+      "binding and dissociation thresholds",
+      "neutral-pair and charged-triplet templates"
+    ]
+  },
+  "passed": true,
+  "permutation_fingerprints": {
+    "pair": true,
+    "triplet": true
+  },
+  "schema": "openwave.m9.composite-graph-result.v1",
+  "task": "M9.33",
+  "templates": {
+    "charged_triplet": {
+      "binding_energy": -2.25025286452222,
+      "bond_count": 3,
+      "constituent_count": 3,
+      "dissociation_threshold": 2.25025286452222,
+      "energy_monotone": true,
+      "final_energy": 0.7497471354777798,
+      "fingerprint": "456f8f170acb28bc0fcb9644447ed56d6bc738cf76345e738a648f60d5db7bc5",
+      "force_norm": 1.8434800271527894e-09,
+      "initial_energy": 2.1520794270928607,
+      "local_stability": {
+        "maximum_energy_increase": 2.0393511541705323e-06,
+        "minimum_energy_increase": 7.51310589963694e-07
+      },
+      "name": "charged-triplet-control",
+      "pair_distances": [1.3746478491467444, 1.3260504684347272, 1.3260504684138343],
+      "rest_energy": 3.0,
+      "total_charge": 1.0,
+      "total_spin_z": 0.5
+    },
+    "neutral_pair": {
+      "binding_energy": -0.8955544147892831,
+      "bond_count": 1,
+      "constituent_count": 2,
+      "dissociation_threshold": 0.8955544147892831,
+      "energy_monotone": true,
+      "final_energy": 1.104445585210717,
+      "fingerprint": "0d728f1548031045557b6195bee91bde3e26ce71e0fd107563d8de1ca5f0835a",
+      "force_norm": 1.4684180205891013e-09,
+      "initial_energy": 1.7025751350461382,
+      "name": "neutral-pair-control",
+      "pair_distances": [1.229749582105912],
+      "rest_energy": 2.0,
+      "total_charge": 0.0,
+      "total_spin_z": 0.0
+    }
+  }
+}

@@ -8,6 +8,6 @@ def test_summary_mismatch_is_explicit():
     r=validate_profile(); assert r["documented_summary_total"]==21 and r["matrix_total_mismatch"]==1
 def test_thermal_gap_is_named(): assert validate_profile()["missing_explicit_criterion"]=="heat_or_thermal_sector"
 def test_fingerprint_is_deterministic(): assert fingerprint()==fingerprint() and len(fingerprint())==64
-def test_m9_28_30_counts(): assert validate_profile()["status_counts"]=={"validated":0,"partial":8,"negative":1,"not_yet":11}
+def test_m9_31_33_counts(): assert validate_profile()["status_counts"]=={"validated":0,"partial":12,"negative":1,"not_yet":7}
 def test_full_study_passes():
     r=run_conformance_study(); assert r["passed"] and all(r["acceptance"].values())
