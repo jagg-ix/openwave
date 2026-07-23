@@ -1,0 +1,112 @@
+{
+  "schema": "openwave.m9.localization-result.v1",
+  "model": "M9-CAT-EPT",
+  "equation": "i psi_t = -1/2 psi_xx + kappa |psi|^2 psi",
+  "frozen_family": {
+    "free": 0.0,
+    "defocusing": 2.0,
+    "focusing": -2.0
+  },
+  "seed": "normalized sech(x), identical across family",
+  "candidate": "kappa=-2 bright soliton psi=sech(x)/sqrt(2) exp(i t/2)",
+  "passed": true,
+  "observed_orders": {
+    "phase_aligned_l2": [
+      1.9954494737579975,
+      1.930856892925778
+    ],
+    "density_l1": [
+      2.000107827118765,
+      2.0021909081503404
+    ]
+  },
+  "finest_candidate": {
+    "points": 1024,
+    "half_width": 20.0,
+    "dx": 0.0390625,
+    "dt": 0.000390625,
+    "steps": 5120,
+    "initial_norm": 1.0,
+    "final_norm": 1.0000000000013995,
+    "norm_drift": 1.3995471448424723e-12,
+    "initial_energy": -0.16666666666666669,
+    "final_energy": -0.16666666666736632,
+    "energy_drift": 6.99634794543158e-13,
+    "phase_aligned_l2_error": 1.191897635956458e-08,
+    "density_l1_error": 1.4063482062480909e-08,
+    "fidelity": 1.0,
+    "phase_error": -1.936838273096408e-08,
+    "stationary_residual": 2.1283575588245837e-08,
+    "variance_ratio": 1.0000000233088666,
+    "peak_ratio": 0.9999999870730145,
+    "core_probability_r5": 0.9999127046437123,
+    "edge_probability": 1.3200192181401603e-12
+  },
+  "controls": {
+    "free": {
+      "variance_ratio": 2.6211389382742425,
+      "peak_ratio": 0.514789235102191,
+      "density_l1_error": 0.5532646576714284
+    },
+    "defocusing": {
+      "variance_ratio": 4.577296986020377,
+      "peak_ratio": 0.3604065015238776,
+      "density_l1_error": 0.826143540002085
+    }
+  },
+  "window_test": [
+    {
+      "half_width": 16.0,
+      "final_variance": 0.8224670825004878,
+      "final_peak": 0.49999998040149857
+    },
+    {
+      "half_width": 20.0,
+      "final_variance": 0.8224670825031664,
+      "final_peak": 0.4999999834138055
+    },
+    {
+      "half_width": 24.0,
+      "final_variance": 0.8224670825036424,
+      "final_peak": 0.49999998339288815
+    }
+  ],
+  "perturbation": {
+    "modulation": "1 + 0.05 cos(x/2)",
+    "final_time": 5.0,
+    "core_probability_r5": 0.9998977087481886,
+    "edge_probability": 2.2648919000470636e-08,
+    "variance_ratio": 1.0500304662988709,
+    "fidelity": 0.9999499891724656
+  },
+  "acceptance": {
+    "candidate_norm_conserved": true,
+    "candidate_energy_conserved": true,
+    "candidate_stationary_residual": true,
+    "candidate_converges_second_order": true,
+    "candidate_fidelity": true,
+    "candidate_localized": true,
+    "candidate_shape_stable": true,
+    "window_independent": true,
+    "perturbation_survives": true,
+    "free_control_disperses": true,
+    "defocusing_control_disperses": true
+  },
+  "classification": {
+    "result": "localized mathematical candidate",
+    "dimension": "1+1",
+    "charge": "none",
+    "spin": "none",
+    "physical_identity": "unassigned"
+  },
+  "scope": {
+    "does_not_establish": [
+      "electron identity",
+      "three-dimensional stability",
+      "charge",
+      "spin",
+      "mass prediction",
+      "CAT/EPT uniqueness of the cubic term"
+    ]
+  }
+}

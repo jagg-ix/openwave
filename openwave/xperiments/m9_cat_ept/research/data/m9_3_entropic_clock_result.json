@@ -1,0 +1,64 @@
+{
+  "schema": "openwave.m9.entropic-clock-result.v1",
+  "model": "M9-CAT-EPT",
+  "passed": true,
+  "field_to_probability": "p_i = dx |psi_i|^2 / sum_j dx |psi_j|^2",
+  "coarse_graining": "(Kp)_i = 1/4 p_{i-1} + 1/2 p_i + 1/4 p_{i+1}, periodic",
+  "channel": {
+    "left": 0.25,
+    "center": 0.5,
+    "right": 0.25,
+    "steps": 64,
+    "gamma": 1.0
+  },
+  "solver": {
+    "points": 512,
+    "half_width": 20.0,
+    "final_time": 2.0,
+    "dt_over_dx": 0.1
+  },
+  "snapshots": {
+    "initial": {
+      "initial_remaining_disequilibrium": 2.2699409209092636,
+      "terminal_remaining_disequilibrium": 2.1807370958000822,
+      "terminal_accumulated_gain": 0.08920382510918134,
+      "terminal_total_correlation": 3.0191416837934293,
+      "max_ledger_closure_error": 0.0,
+      "remaining_nonincreasing": true,
+      "gain_nondecreasing": true,
+      "correlation_nonnegative": true
+    },
+    "final": {
+      "initial_remaining_disequilibrium": 1.927254515809368,
+      "terminal_remaining_disequilibrium": 1.880318699773817,
+      "terminal_accumulated_gain": 0.04693581603555086,
+      "terminal_total_correlation": 3.318984667539946,
+      "max_ledger_closure_error": 0.0,
+      "remaining_nonincreasing": true,
+      "gain_nondecreasing": true,
+      "correlation_nonnegative": true
+    }
+  },
+  "acceptance": {
+    "channel_preserves_uniform": true,
+    "initial_remaining_contracts": true,
+    "final_remaining_contracts": true,
+    "initial_gain_accumulates": true,
+    "final_gain_accumulates": true,
+    "initial_correlation_nonnegative": true,
+    "final_correlation_nonnegative": true,
+    "initial_ledger_closes": true,
+    "final_ledger_closes": true,
+    "initial_terminal_gain_positive": true,
+    "final_terminal_gain_positive": true
+  },
+  "scope": {
+    "establishes": "Data-processing clocks along a fixed coarse-graining depth for two unitary snapshots.",
+    "does_not_establish": [
+      "monotonicity in physical time",
+      "irreversible back-reaction",
+      "particle localization",
+      "a unique coarse-graining map"
+    ]
+  }
+}

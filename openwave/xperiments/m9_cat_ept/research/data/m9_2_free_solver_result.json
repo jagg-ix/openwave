@@ -1,0 +1,125 @@
+{
+  "acceptance": {
+    "discrete_energy_conserved": true,
+    "discrete_norm_conserved": true,
+    "finest_current_relative_l2_below_1e-2": true,
+    "finest_density_l1_below_1e-2": true,
+    "finest_energy_relative_error_below_5e-3": true,
+    "finest_fidelity_above_0_9999": true,
+    "finest_phase_error_below_1e-2": true,
+    "packet_does_not_reach_periodic_edge": true,
+    "second_order_current_convergence": true,
+    "second_order_density_convergence": true,
+    "second_order_phase_convergence": true
+  },
+  "common_config": {
+    "dt_over_dx": 0.1,
+    "final_time": 2.0,
+    "half_width": 20.0
+  },
+  "equation": "i hbar d_t psi = -(hbar^2 / 2m) d_xx psi",
+  "levels": [
+    {
+      "continuum_energy_relative_error": 0.027688201582195583,
+      "current_relative_l2_error": 0.1133894872864892,
+      "density_l1_error": 0.09349217708757386,
+      "direct_l2_error": 0.10994185291061898,
+      "discrete_energy_drift": 3.774758283725532e-15,
+      "dt": 0.03125,
+      "dx": 0.3125,
+      "edge_probability": 2.5543958024574087e-26,
+      "exact_continuum_energy": 1.25,
+      "final_discrete_energy": 1.2153897480222555,
+      "final_norm": 0.999999999999997,
+      "initial_discrete_energy": 1.2153897480222593,
+      "initial_norm": 0.9999999999999998,
+      "mean_position_error": 0.14556857450290006,
+      "norm_drift": 2.7755575615628914e-15,
+      "overlap_fidelity": 0.9927479020826124,
+      "overlap_phase_error": 0.06958052998296467,
+      "phase_aligned_l2_error": 0.08523669422124411,
+      "points": 128,
+      "steps": 64,
+      "variance_error": 0.2244264411003427
+    },
+    {
+      "continuum_energy_relative_error": 0.0069946341318740226,
+      "current_relative_l2_error": 0.028167797003028978,
+      "density_l1_error": 0.02301703457067019,
+      "direct_l2_error": 0.02806642455003195,
+      "discrete_energy_drift": 1.7763568394002505e-15,
+      "dt": 0.015625,
+      "dx": 0.15625,
+      "edge_probability": 1.0701323023150566e-26,
+      "exact_continuum_energy": 1.25,
+      "final_discrete_energy": 1.2412567073351575,
+      "final_norm": 0.9999999999999984,
+      "initial_discrete_energy": 1.2412567073351592,
+      "initial_norm": 0.9999999999999999,
+      "mean_position_error": 0.0369604275452593,
+      "norm_drift": 1.4432899320127035e-15,
+      "overlap_fidelity": 0.9995242504505891,
+      "overlap_phase_error": 0.01766353236454903,
+      "phase_aligned_l2_error": 0.02181298116449946,
+      "points": 256,
+      "steps": 128,
+      "variance_error": 0.060721841405035004
+    },
+    {
+      "continuum_energy_relative_error": 0.0017532326642601959,
+      "current_relative_l2_error": 0.0070201677038404225,
+      "density_l1_error": 0.005724108993550841,
+      "direct_l2_error": 0.007046740779866803,
+      "discrete_energy_drift": 9.14823772291129e-14,
+      "dt": 0.0078125,
+      "dx": 0.078125,
+      "edge_probability": 1.1976857519277587e-26,
+      "exact_continuum_energy": 1.25,
+      "final_discrete_energy": 1.2478084591696748,
+      "final_norm": 0.9999999999999261,
+      "initial_discrete_energy": 1.2478084591697662,
+      "initial_norm": 1.0,
+      "mean_position_error": 0.00927621916003174,
+      "norm_drift": 7.394085344003543e-14,
+      "overlap_fidelity": 0.9999699647290953,
+      "overlap_phase_error": 0.004429603360709804,
+      "phase_aligned_l2_error": 0.005480464983666077,
+      "points": 512,
+      "steps": 256,
+      "variance_error": 0.015484856881274212
+    }
+  ],
+  "method": "periodic second-order finite differences + Crank--Nicolson",
+  "model": "M9-CAT-EPT",
+  "observed_orders": {
+    "current_relative_l2": [
+      2.0091682490747886,
+      2.0044693348736553
+    ],
+    "density_l1": [
+      2.022143679278261,
+      2.0075789259721177
+    ],
+    "phase_aligned_l2": [
+      1.9662876858677234,
+      1.9928167482794896
+    ]
+  },
+  "packet": {
+    "center": -4.0,
+    "hbar": 1.0,
+    "mass": 1.0,
+    "sigma": 1.0,
+    "wave_number": 1.5
+  },
+  "passed": true,
+  "scope": {
+    "does_not_establish": [
+      "a localized stationary particle",
+      "a nonlinear CAT/EPT dynamics",
+      "a monotone entropic clock",
+      "charge, spin, mass prediction, or experimental agreement"
+    ],
+    "establishes": "Second-order convergence to the analytic free Gaussian packet, with discrete norm and energy conservation for the tested solver."
+  }
+}
