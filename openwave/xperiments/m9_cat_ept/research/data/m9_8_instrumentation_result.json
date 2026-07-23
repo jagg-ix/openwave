@@ -1,0 +1,60 @@
+{
+  "schema": "openwave.m9.instrumentation-result.v1",
+  "task": "M9.8",
+  "presets": ["scalar-observables", "radial-dynamics", "transverse-radiation"],
+  "panels": [
+    {
+      "preset": "scalar-observables",
+      "task": "M9.5",
+      "sector": "scalar",
+      "passed": true,
+      "acceptance": {"passed": 8, "total": 8},
+      "metrics": {
+        "Maximum norm error": 2.55351295663786e-14,
+        "Maximum energy error": 7.610578833805448e-14,
+        "Reference RMS radius": 0.9068996821171089,
+        "Reference phase frequency": 0.5
+      }
+    },
+    {
+      "preset": "radial-dynamics",
+      "task": "M9.7b3",
+      "sector": "radial",
+      "passed": true,
+      "acceptance": {"passed": 11, "total": 11},
+      "metrics": {
+        "Long-time fidelity": 0.9998920265453656,
+        "Maximum norm drift": 9.992007221626409e-15,
+        "Maximum total-energy drift": 8.145059677879615e-08,
+        "Maximum Gauss residual": 1.959338034174014e-14,
+        "Final core fraction": 0.9897530406637218
+      }
+    },
+    {
+      "preset": "transverse-radiation",
+      "task": "M9.7c",
+      "sector": "transverse",
+      "passed": true,
+      "acceptance": {"passed": 10, "total": 10},
+      "metrics": {
+        "Long-run emitted energy": 0.0006151381968368361,
+        "Long-run absorbed energy": 0.0004898857145932091,
+        "Corrected-energy drift": 1.7781131290953207e-06,
+        "Maximum signed charge density": 0.0,
+        "Final central field-energy fraction": 0.6954352263219007
+      }
+    }
+  ],
+  "acceptance": {
+    "three_validated_sectors": true,
+    "all_ledgers_pass": true,
+    "all_acceptance_panels_nonempty": true,
+    "claim_boundaries_present": true,
+    "no_particle_identity_default": true,
+    "metric_paths_resolve": true,
+    "headless_json_export": true,
+    "headless_png_export": true,
+    "launcher_discoverable": true
+  },
+  "passed": true
+}
