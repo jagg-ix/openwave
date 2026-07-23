@@ -1,0 +1,75 @@
+{
+  "acceptance": {
+    "bounded_family_completed": true,
+    "energy_ledgers_close": true,
+    "final_gauss_ledgers_close": true,
+    "finite_time_candidate_identified": true,
+    "fixed_perturbation_survives": true,
+    "long_time_particle_claim_decided": true,
+    "norm_ledgers_close": true,
+    "radiation_recorded": true,
+    "strongest_member_reduces_spreading": true
+  },
+  "accepted_particle_candidate": false,
+  "classification": {
+    "does_not_establish": [
+      "orbital or asymptotic stability",
+      "a calibrated particle identity",
+      "fermionic quantization or unique CAT/EPT coupling selection"
+    ],
+    "establishes": [
+      "a bounded three-dimensional nonlinear localization survey",
+      "a fixed perturbation and long-horizon radiation decision",
+      "an explicit positive or negative particle decision"
+    ]
+  },
+  "decision": "lambda=8 is the strongest finite-time 3D member, but it fails the frozen long-time localization gate; no stable three-dimensional particle candidate is accepted.",
+  "finite_time_candidate": true,
+  "global_ledgers": {
+    "max_corrected_energy_relative_drift": 1.360559758249451e-07,
+    "max_final_gauss_absolute": 0.0007550321382926643,
+    "max_final_gauss_relative": 0.4857308218577192,
+    "max_norm_drift": 1.319004514499511e-07
+  },
+  "long_time": {
+    "emitted_energy": 5.5501283436974355e-06,
+    "final_gauss_absolute": 0.0007550321382926643,
+    "final_gauss_relative": 0.4857308218577192,
+    "max_energy_drift": 8.49354193381983e-08,
+    "max_norm_drift": 8.320535749284375e-08,
+    "maximum_rms_ratio": 1.252966789038945,
+    "minimum_core_fraction": 0.976937679877199,
+    "minimum_peak_ratio": 0.7656989449631783,
+    "soler_coupling": null
+  },
+  "passed": true,
+  "perturbation": {
+    "emitted_energy": 1.561567624469137e-08,
+    "final_gauss_absolute": 0.00039807664243446573,
+    "final_gauss_relative": 0.2606993802399434,
+    "max_energy_drift": 5.117378246120304e-08,
+    "max_norm_drift": 5.009195214178419e-08,
+    "maximum_rms_ratio": 1.1049690131136223,
+    "minimum_core_fraction": 0.9952957448742284,
+    "minimum_peak_ratio": 0.8631406866615436,
+    "perturbation": {
+      "gauge_seed_factor": 1.1,
+      "momentum_z_factor": 1.05,
+      "packet_width_factor": 1.05
+    },
+    "soler_coupling": null
+  },
+  "schema": "openwave.m9.spatial-3d-localization-result.v1",
+  "selected_coupling": 8.0,
+  "spreading_improvement": 0.0034027785854380266,
+  "survey": {
+    "couplings": [0.0, 2.0, 4.0, 8.0],
+    "records": [
+      {"emitted_energy":1.5833281473803438e-09,"final_gauss_absolute":0.00048508885208682336,"final_gauss_relative":0.3190644427082369,"max_energy_drift":1.360559758249451e-07,"max_norm_drift":1.319004514499511e-07,"maximum_rms_ratio":1.10212568116917,"minimum_core_fraction":0.9936349346331614,"minimum_peak_ratio":0.8388917866902215,"soler_coupling":0.0},
+      {"emitted_energy":1.5823965023859942e-09,"final_gauss_absolute":0.0004950580313520405,"final_gauss_relative":0.32320141360136334,"max_energy_drift":1.303342944568131e-07,"max_norm_drift":1.271843484973445e-07,"maximum_rms_ratio":1.1012625127295879,"minimum_core_fraction":0.9936246739803231,"minimum_peak_ratio":0.8450887775051593,"soler_coupling":2.0},
+      {"emitted_energy":1.5814677288013166e-09,"final_gauss_absolute":0.0005055021521186832,"final_gauss_relative":0.32755950623977087,"max_energy_drift":1.2499452672581437e-07,"max_norm_drift":1.2275661542826555e-07,"maximum_rms_ratio":1.1004065806690058,"minimum_core_fraction":0.9936144040395912,"minimum_peak_ratio":0.8513785351079687,"soler_coupling":4.0},
+      {"emitted_energy":1.579618809496335e-09,"final_gauss_absolute":0.0005254572806581368,"final_gauss_relative":0.33545103518669817,"max_energy_drift":1.1540090504922541e-07,"max_norm_drift":1.1471427885378915e-07,"maximum_rms_ratio":1.098722902583732,"minimum_core_fraction":0.9934563520928998,"minimum_peak_ratio":0.8641318836950289,"soler_coupling":8.0}
+    ]
+  },
+  "task": "M9.14"
+}
