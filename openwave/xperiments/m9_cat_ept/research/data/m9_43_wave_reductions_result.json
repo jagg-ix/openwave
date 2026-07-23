@@ -1,0 +1,76 @@
+{
+  "acceptance": {
+    "kg_energy_conserved": true,
+    "massive_dispersion_relation_closes": true,
+    "massless_kg_matches_maxwell_component": true,
+    "maxwell_energy_conserved": true,
+    "resolution_bridge_is_stable": true,
+    "right_moving_maxwell_speed_closes": true,
+    "transverse_constraint_is_exact": true,
+    "zero_mass_reduction_is_regular": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "electromagnetism or scalar particles emerging from full CAT/EPT",
+      "gauge quantization or photons",
+      "interacting Klein--Gordon dynamics",
+      "physical units or couplings"
+    ],
+    "establishes": [
+      "shared periodic spectral wave infrastructure",
+      "transverse Maxwell reduction",
+      "massive Klein--Gordon reduction",
+      "massless Maxwell/Klein--Gordon component bridge",
+      "dispersion, energy, speed, and resolution controls"
+    ]
+  },
+  "config": {
+    "final_time": 5.0,
+    "length": 6.283185307179586,
+    "mass": 0.7,
+    "points": 256,
+    "samples": 101,
+    "wave_speed": 1.0
+  },
+  "klein_gordon": {
+    "dispersion": {
+      "expected_frequency": 3.0805843601498726,
+      "measured_frequency": 3.080584349258111,
+      "relative_error": 3.5356154681736436e-09,
+      "wave_number": 3.0
+    },
+    "initial_energy": 1.4180263826476596,
+    "maximum_energy_drift": 4.440892098500626e-16
+  },
+  "massless_bridge": {
+    "final_field_error": 1.6653345369377348e-16,
+    "maximum_field_error": 2.220446049250313e-16
+  },
+  "maxwell": {
+    "initial_energy": 0.6203588478169305,
+    "maximum_energy_drift": 2.220446049250313e-16,
+    "translation": {
+      "expected_distance": 5.0,
+      "maximum_translation_error": 0.0
+    },
+    "transverse_constraint_residual": 0.0
+  },
+  "passed": true,
+  "resolution": {
+    "bridge_errors": [
+      2.220446049250313e-16,
+      2.7755575615628914e-16,
+      2.220446049250313e-16,
+      3.3306690738754696e-16
+    ],
+    "maximum_error": 3.3306690738754696e-16,
+    "points": [
+      64,
+      128,
+      256,
+      512
+    ]
+  },
+  "schema": "openwave.m9.wave-reduction-result.v1",
+  "task": "M9.43"
+}
