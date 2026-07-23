@@ -53,6 +53,7 @@ include = ["openwave", "openwave.*"]
 openwave = [
     "README.md",
     "LICENSE",
+    "xperiments/m9_cat_ept/formal/*.json",
 ]
 
 [tool.black]

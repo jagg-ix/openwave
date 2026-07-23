@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 0.3699999999999998,
+      "expected": 0.37,
+      "name": "born_rule",
+      "passed": true,
+      "tolerance": 1e-12
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 7.2,
+      "expected": 7.2,
+      "name": "zitterbewegung_rest_eq_two_compton",
+      "passed": true,
+      "tolerance": 1e-12
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 3.0,
+      "expected": 3.0,
+      "name": "compton_wavelength_mul_frequency",
+      "passed": true,
+      "tolerance": 1e-12
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 3.125,
+      "expected": 3.125,
+      "name": "quantum_coupling",
+      "passed": true,
+      "tolerance": 1e-12
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.3276660869369878,
+      "expected": 0.3276660869369878,
+      "name": "entropic_clock_eq_imaginary_action_div",
+      "passed": true,
+      "tolerance": 1e-12
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.7206035984916562,
+      "expected": 0.7206035984916562,
+      "name": "correlation_weight_norm",
+      "passed": true,
+      "tolerance": 1e-12
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "name": "independent_total_correlation",
+      "passed": true,
+      "tolerance": 1e-12
+    }
+  ],
+  "formal_source": {
+    "branch": "entropic-physlib-linear-full",
+    "commit": "f6e2b37571086e5ef6de40f77439a5eab468f71f",
+    "export_date": "2026-07-22",
+    "lean_version": "4.29.1",
+    "repository": "jagg-ix/entropic-physlib-private",
+    "visibility_at_export": "private"
+  },
+  "model": "M9-CAT-EPT",
+  "passed": true,
+  "properties": {
+    "correlated_total_correlation_nonnegative": true,
+    "correlation_weight_contractive": true,
+    "entropic_clock_nonnegative": true
+  },
+  "schema": "openwave.m9.conformance-result.v1",
+  "scope": {
+    "does_not_establish": [
+      "existence of a localized particle",
+      "stability of a particle under real-time evolution",
+      "electric charge quantization",
+      "spin or fermionic statistics",
+      "a local imaginary potential or non-unitary equation of motion",
+      "a particle mass prediction"
+    ],
+    "establishes": "A version-pinned equation-to-code mapping and deterministic numerical conformance checks."
+  }
+}
