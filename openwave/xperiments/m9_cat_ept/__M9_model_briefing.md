@@ -1,11 +1,15 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 now includes bounded coupled three-dimensional transport of opposite-charge four-spinors with three-component electric and magnetic fields.
+M9 now contains representation controls, coupled three-dimensional transport, and
+an explicit three-dimensional nonlinear localization decision.
 
-## M9.13
+## M9.14 decision
 
-The coupled run closes norm and corrected energy below `5e-8`, records a final absolute Gauss defect `3.57316e-4`, reduces packet separation by about 12%, and records nonzero magnetic and Poynting diagnostics.
+`lambda=8` is the strongest finite-time member and survives the fixed perturbation,
+but at the long horizon its RMS radius grows by 25.3% and its peak falls to 76.6%.
+No stable three-dimensional particle candidate is accepted.
 
 ## Boundary
 
-This is a coarse finite-time transport qualification, not a stable particle or asymptotic-constraint theorem.
+No orbital/asymptotic stability, physical calibration, fermionic quantization, or
+unique CAT/EPT coupling derivation is established.

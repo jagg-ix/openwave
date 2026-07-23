@@ -1,4 +1,4 @@
-"""M9 CAT/EPT research models, including bounded coupled 3D Maxwell--Dirac transport.
+"""M9 CAT/EPT research models, including a negative 3D localization decision.
 
 These are selected dimensionless field models, not calibrated particle identities.
 """

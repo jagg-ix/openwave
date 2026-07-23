@@ -1,17 +1,15 @@
 # M9 CAT/EPT canonical specification
 
-## M9.12 controls
+## Three-dimensional program
 
-The four-component Dirac representation and free/vacuum controls pass.
+M9.12 validates the four-component representation and free/vacuum controls. M9.13
+validates bounded coupled 3D transport with electric, magnetic, absorber-charge,
+energy, Gauss, Poynting, refinement, and domain ledgers.
 
-## M9.13 coupled 3D reduction
+M9.14 adds `M_s=m-lambda psi_s^dagger beta psi_s`, `lambda={0,2,4,8}`. The
+`lambda=8` member gives finite-time RMS ratio `1.09872290` and perturbed ratio
+`1.10496901`, but the long-horizon ratio is `1.25296679` with peak `0.76569894`.
 
-```text
-i psi_s,t = [alpha.(-i grad-s q A)+beta m]psi_s
-A_t=-E
-E_t=curl B-J-sigma E
-B=curl A
-rho_abs,t=-div(sigma E).
-```
-
-The bounded run passes refinement, norm, corrected energy, final absolute/relative Gauss, charge, transport, magnetic, radiation, and domain gates. The relative Gauss defect `0.190060` is retained as a coarse-grid limitation.
+Canonical decision: no stable three-dimensional particle candidate is accepted.
+The next target is an explicit, separately qualified CAT/EPT imaginary-action
+back-reaction; it cannot be inferred from the real-Hamiltonian studies.
