@@ -2,63 +2,83 @@
 
 ## Decision
 
-The current M9 field supports a global `U(1)` phase symmetry and conserved scalar
-norm. It does not currently derive electric charge, spin-1/2, or a topological
-charge sector.
+The current M9 field has a global `U(1)` phase symmetry and conserved scalar norm.
+It does not derive electric charge, an opposite electric-charge sector, spin-1/2,
+or a protected topological sector.
 
 ## Global versus local phase
 
-For constant `alpha`,
+A constant phase leaves density, norm, phase current, and scalar energy unchanged.
+The executable errors are `1.11e-16` for norm and `0` for energy.
+
+A periodic position-dependent phase leaves norm unchanged but changes the
+ordinary-gradient energy by `1.5791`. A local gauge symmetry therefore requires a
+covariant derivative and gauge potential, neither of which exists in the current
+carrier.
+
+The scalar norm may be interpreted as a conserved global number. It must not be
+relabeled as electric charge without a gauge source equation, Gauss-law flux, and
+physical charge normalization.
+
+## Conjugation is not opposite electric charge
+
+Complex conjugation preserves norm and energy to roundoff and reverses the phase
+current. The maximum current-reversal residual is `3.16e-12`; its `1e-11` gate is
+set by the exponentially small `sech` tail on the periodic spectral grid.
+
+This gives a reversed phase-flow state, not a positron or opposite electric-charge
+sector: no gauge field, Gauss-law sign, or electric charge label exists.
+
+## Continuous contraction and topology
+
+The explicit path
 
 ```text
-psi -> exp(i alpha) psi
+psi_s = s psi,  0 <= s <= 1
 ```
 
-leaves `|psi|^2`, the norm, and the scalar Hamiltonian unchanged. This supports a
-conserved global number.
+connects the localized profile continuously to the zero vacuum. Norm follows
+`s^2`, and the scalar energy remains finite and continuous along the path. The
+current profile therefore has no protected topological sector under the declared
+carrier and boundary data.
 
-For position-dependent `alpha(x)`, the ordinary derivative transforms with an
-extra gradient term. The executable check applies `exp(i kx)` to a localized
-state: the norm stays fixed, while the ordinary-gradient kinetic energy changes.
-A local gauge symmetry therefore requires a gauge potential and covariant
-derivative; neither exists in the current M9 carrier.
-
-Consequently, the conserved scalar norm must not be relabeled as electric charge
-without a Maxwell/gauge source equation and a physical charge normalization.
+This is not a theorem about every multi-component scalar extension. A nontrivial
+target manifold and boundary class could support winding in a replacement model.
 
 ## Spin representation
 
-The current field transforms in the trivial intrinsic scalar representation:
+The intrinsic scalar factor is
 
 ```text
-D_scalar(theta) = 1.
+D_scalar(theta) = 1,
 ```
 
-It is unchanged at both `2pi` and `4pi`. By contrast, the reference spinor factor
+so the field returns with `+1` after both `2pi` and `4pi`. The reference spinor
+factor `exp(-i theta/2)` is `-1` at `2pi` and returns only at `4pi`. The current
+carrier therefore represents spin 0, not spin-1/2.
+
+## Density-preserving replacement contract
+
+The staged spinor embedding
 
 ```text
-D_spinor(theta) = exp(-i theta/2)
+Psi = (psi, 0)
 ```
 
-is `-1` at `2pi` and returns to `+1` only at `4pi`. M9 therefore does not contain
-the representation structure needed for spin-1/2.
+satisfies `Psi-dagger Psi = |psi|^2` exactly. It therefore preserves the normalized
+density and coarse-graining interface already used by the entropic clock.
 
-## Topology
-
-The accepted `sech` profile has no declared target manifold, compactified boundary
-class, or winding-number computation. This is an absent certificate, not a proof
-that every multi-component scalar or order-parameter extension is topologically
-trivial.
-
-## Replacement routes
-
-| Carrier | Supplies | Does not settle by itself |
+| Carrier | Supplies | Still open |
 | --- | --- | --- |
-| Locally gauge-coupled complex scalar | Local `U(1)`, gauge current, charged spin-0 matter | Spin-1/2, charge-unit calibration |
-| Dirac/Weyl spinor plus local `U(1)` | Double-cover spin-1/2 and fermionic gauge current | Localization, quantization/statistics implementation, CAT/EPT coupling |
-| Multi-component topological order parameter | Winding and defect sectors may become available | Identification of winding with electric charge or spin |
+| Locally gauge-coupled scalar | Local `U(1)`, gauge current, charged spin-0 matter | Gauge dynamics, charge units, spin-1/2 |
+| Dirac/Weyl spinor plus local `U(1)` | Double cover, fermionic current, gauge charge carrier | Localization, statistics layer, CAT/EPT action coupling |
+| Multi-component topological order parameter | Possible winding and defects | Target manifold, boundary class, physical invariant map |
+
+None of these replacement carriers is claimed to localize before a new numerical
+gate is run.
 
 ## Scope
 
-M9.6 is a carrier audit. It does not add a gauge field, spinor, topological target,
-quantized statistics, or a Standard Model identity.
+M9.6 is an executable carrier audit. It does not add a gauge field, spinor dynamics,
+topological target, quantized statistics, electric charge, or a Standard Model
+identity.
