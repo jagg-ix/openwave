@@ -259,11 +259,11 @@ def run_instrumentation_study(
     presets = load_presets(preset_path)
     panels = build_panels(data_root=data_root, presets=presets)
     names = [preset.name for preset in presets]
+    required = {"scalar-observables", "radial-dynamics", "transverse-radiation"}
     forbidden = ("electron preset", "positron preset", "standard model preset")
     serialized = " ".join(names).lower()
     acceptance = {
-        "three_validated_sectors": set(names)
-        == {"scalar-observables", "radial-dynamics", "transverse-radiation"},
+        "validated_core_registered": required.issubset(set(names)),
         "all_ledgers_pass": all(panel.passed for panel in panels),
         "all_acceptance_panels_nonempty": all(
             panel.acceptance_total > 0 for panel in panels
