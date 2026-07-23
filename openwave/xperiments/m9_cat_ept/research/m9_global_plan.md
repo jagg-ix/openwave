@@ -13,33 +13,49 @@ keeps OpenWave simulation-only and requires runnable evidence for every status.
 
 ## Phase B — particle foundation
 
-| Target | Deliverable | Gate |
+| Target | Deliverable | State / gate |
 | --- | --- | --- |
-| M9.25 | CAT/EPT-native localized-state search | Separate existence from stability |
-| M9.26 | Emergent charge/topological observable | Charge cannot be an imposed source label |
-| M9.27 | Rest-energy functional and scale selection | Mass cannot remain a free input |
-| M9.28 | Intrinsic clock reduction | Separate entropy arrow from ZBW phase |
-| M9.29 | Spin, magnetic moment, and double-cover tests | Must be field observables |
+| M9.25 | CAT/EPT-native localized-state search | COMPLETE: partial 1D family; 3D particle remains negative |
+| M9.26 | Field-derived charge/topological observable | COMPLETE: integer winding; electric-charge bridge open |
+| M9.27 | Rest-energy functional and scale selection | COMPLETE: dimensionless ansatz scale; physical mass open |
+| M9.28 | Intrinsic clock reduction | NEXT: separate entropy arrow from ZBW phase |
+| M9.29 | Spin, magnetic moment, and double-cover tests | PLANNED: field observables required |
 
 ## Phase C — interactions and bound states
 
-M9.30 two-body electric/magnetic laws; M9.31 annihilation/radiation; M9.32 orbital
-quantization; M9.33 composite states.
+| Target | Deliverable |
+| --- | --- |
+| M9.30 | Two-body electric and magnetic laws |
+| M9.31 | Opposite-sector capture, annihilation, and radiation ledger |
+| M9.32 | Orbital / standing-wave quantization |
+| M9.33 | Composite-state graph for mesons, baryons, and nuclei |
 
 ## Phase D — geometry and numerical infrastructure
 
-M9.34 metric back-reaction; M9.35 multi-domain scheduler; M9.36 adaptive error
-budgets; M9.37 3D static minimizer/BVP; M9.38 GPU manifest adapter.
+| Target | Deliverable |
+| --- | --- |
+| M9.34 | Metric or geometry back-reaction plugin |
+| M9.35 | Multi-domain coupling graph and dependency scheduler |
+| M9.36 | Adaptive refinement and propagated error budgets |
+| M9.37 | Three-dimensional static minimizer, BVP, and continuation |
+| M9.38 | GPU adapter generated from theory manifests |
 
 ## Phase E — spectrum and force sectors
 
-M9.39 lepton hierarchy; M9.40 strong/confinement; M9.41 weak/chiral transitions;
-M9.42 gravity/equivalence-principle suite.
+| Target | Deliverable |
+| --- | --- |
+| M9.39 | Lepton-family hierarchy and parameter-selection audit |
+| M9.40 | Strong-force or confinement sector |
+| M9.41 | Weak/chiral transition sector |
+| M9.42 | Gravity and equivalence-principle suite |
 
 ## Phase F — waves, thermal, and cosmological sectors
 
-M9.43 CAT/EPT-native Maxwell/Klein-Gordon reductions; M9.44 heat/thermal criterion;
-M9.45 neutral localized-state and dark-sector survey.
+| Target | Deliverable |
+| --- | --- |
+| M9.43 | CAT/EPT-native Maxwell and Klein-Gordon reductions |
+| M9.44 | Heat/thermal criterion missing from current MODELS.md matrix |
+| M9.45 | Neutral localized-state and dark-sector survey |
 
 Every target must provide a deterministic runner, result ledger, focused tests,
 convergence/domain checks where applicable, explicit assumptions, and an honest

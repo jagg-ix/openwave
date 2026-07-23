@@ -1,0 +1,133 @@
+{
+  "acceptance": {
+    "both_scale_directions_relax": true,
+    "derrick_boundary_controls_pass": true,
+    "energy_quadrature_agrees": true,
+    "interior_minimum_found": true,
+    "no_physical_mass_or_particle_promoted": true,
+    "numerical_scan_matches_analytic_scale": true,
+    "positive_curvature": true,
+    "radial_quadrature_converges": true,
+    "stationary_derivative_closes": true
+  },
+  "accepted_three_dimensional_particle": false,
+  "analytic_energy_at_selected_scale": 22.61946710584651,
+  "analytic_selected_scale": 0.9999999999999999,
+  "classification": {
+    "does_not_establish": [
+      "the full CAT/EPT energy functional",
+      "a stable three-dimensional particle",
+      "a physical rest mass or unit conversion",
+      "that the selected baby-Skyrme ansatz is Nature's particle sector"
+    ],
+    "establishes": [
+      "an interior scale minimum for the selected topological ansatz",
+      "Derrick balance between quartic and potential energy sectors",
+      "convergent radial quadrature and dissipative scale relaxation",
+      "failure of scale selection when either balancing sector is removed"
+    ]
+  },
+  "curvature_at_selected_scale": 40.212385965949366,
+  "derivative_at_selected_scale": 5.329070518200751e-15,
+  "derrick_controls": {
+    "no_potential_minimum_at_upper_boundary": true,
+    "no_potential_selected_scale": null,
+    "no_skyrme_minimum_at_lower_boundary": true,
+    "no_skyrme_selected_scale": null
+  },
+  "model": "degree-one baby-Skyrme radial ansatz",
+  "parameters": {
+    "mobility": 0.12,
+    "potential_strength": 0.4,
+    "radial_extent_factor": 40.0,
+    "radial_points": 6001,
+    "relaxation_dt": 0.02,
+    "relaxation_time": 30.0,
+    "scale_max": 2.2,
+    "scale_min": 0.45,
+    "scan_points": 141,
+    "skyrme_strength": 0.6
+  },
+  "passed": true,
+  "physical_rest_mass_established": false,
+  "relaxation_from_large_scale": {
+    "energy_nonincreasing": true,
+    "final_energy": 22.61946710584651,
+    "final_scale": 1.000000000000001,
+    "initial_energy": 28.83238509498871,
+    "initial_scale": 1.7
+  },
+  "relaxation_from_small_scale": {
+    "energy_nonincreasing": true,
+    "final_energy": 22.61946710584651,
+    "final_scale": 0.9999999999999994,
+    "initial_energy": 28.33856199878153,
+    "initial_scale": 0.6
+  },
+  "resolution": {
+    "absolute_errors": [
+      0.049388866864841674,
+      0.020649181618100698,
+      0.013407628391568949,
+      0.011593675815699811
+    ],
+    "exact_energy": 22.61946710584651,
+    "observed_orders": [
+      1.9886731852371944,
+      1.9971624329080144
+    ],
+    "records": [
+      {
+        "potential_unweighted": 12.543713204217891,
+        "potential_weighted": 5.017485281687157,
+        "radial_points": 751,
+        "sigma": 12.543713204217894,
+        "skyrme_unweighted": 8.34813292179436,
+        "skyrme_weighted": 5.008879753076616,
+        "total": 22.57007823898167
+      },
+      {
+        "potential_unweighted": 12.554803509330174,
+        "potential_weighted": 5.02192140373207,
+        "radial_points": 1501,
+        "sigma": 12.554803509330174,
+        "skyrme_unweighted": 8.37015501861028,
+        "skyrme_weighted": 5.0220930111661675,
+        "total": 22.59881792422841
+      },
+      {
+        "potential_unweighted": 12.557591029866064,
+        "potential_weighted": 5.023036411946426,
+        "radial_points": 3001,
+        "sigma": 12.557591029866064,
+        "skyrme_unweighted": 8.375720059404088,
+        "skyrme_weighted": 5.025432035642453,
+        "total": 22.60605947745494
+      },
+      {
+        "potential_unweighted": 12.558288848612493,
+        "potential_weighted": 5.023315539444997,
+        "radial_points": 6001,
+        "sigma": 12.558288848612495,
+        "skyrme_unweighted": 8.37711506995553,
+        "skyrme_weighted": 5.026269041973317,
+        "total": 22.60787343003081
+      }
+    ],
+    "successive_differences": [
+      0.028739685246740976,
+      0.0072415532265317495,
+      0.0018139525758691377
+    ]
+  },
+  "scan": {
+    "analytic_selected_scale": 0.9999999999999999,
+    "maximum_relative_energy_error": 0.0006270396663225717,
+    "minimum_index": 44,
+    "minimum_is_interior": true,
+    "numerical_minimum_scale": 1.0000000000000002
+  },
+  "schema": "openwave.m9.scale-selection-result.v1",
+  "selected_dimensionless_scale": true,
+  "task": "M9.27"
+}
