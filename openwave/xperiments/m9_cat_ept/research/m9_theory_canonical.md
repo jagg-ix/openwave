@@ -17,29 +17,23 @@ omega_C = mc^2/hbar,
 omega_Z(0) = 2 omega_C.
 ```
 
-These identities do not select a particle equation, interaction, carrier, or unit
-map.
+These identities do not select a particle equation, interaction, carrier, gauge
+action, or unit map.
 
-## 2. Shared probability and clock interface
+## 2. Shared density and clock interface
 
-M9 maps any accepted carrier to normalized cell probability through its positive
-density:
+Accepted carriers map to normalized probability through a positive density:
 
 ```text
 scalar: rho = |psi|^2
 spinor: rho = Psi^dagger Psi
-p_i = dx rho_i / sum_j dx rho_j.
+Cartesian cell: p_i proportional to Delta V_i rho_i
+radial shell: p_i proportional to Delta V_shell,i rho_i.
 ```
 
-M9.3 then applies
-
-```text
-(Kp)_i = 1/4 p_{i-1} + 1/2 p_i + 1/4 p_{i+1}.
-```
-
-Remaining KL disequilibrium contracts and accumulated discarded information grows
-along channel depth. This is a data-processing order, not monotonicity of unitary
-physical time.
+M9.3 uses a doubly-stochastic channel to distinguish remaining KL
+disequilibrium, accumulated discarded information, and one-step total
+correlation. Channel depth is a data-processing order, not physical time.
 
 ## 3. Scalar carrier record
 
@@ -47,39 +41,33 @@ The scalar branch uses
 
 ```text
 i psi_t = -1/2 psi_xx - g |psi|^2 psi,
-g > 0.
+g > 0,
 ```
 
-For norm `N`,
+with norm-`N` family
 
 ```text
 eta = gN/2,
-psi(x,t) = eta/sqrt(g) sech(eta x) exp(i eta^2 t/2),
+psi = eta/sqrt(g) sech(eta x) exp(i eta^2 t/2),
 mu = -eta^2/2,
 omega_phase = eta^2/2,
 E = -eta^3/(3g),
 R_rms = pi/(2 sqrt(3) eta).
 ```
 
-M9.4--M9.5 verify localization, perturbation stability under the declared finite
-test, exact scaling, and the identities
+M9.4--M9.5 validate localization, finite perturbation survival, scaling, and
 
 ```text
 omega_phase R_rms^2 = pi^2/24,
 E/(mu N) = 1/3.
 ```
 
-M9.6 establishes the scalar carrier boundary:
+M9.6 records that the scalar carrier has global `U(1)` norm but does not itself
+supply local gauge charge, spin-1/2, or a protected topological sector.
 
-- global `U(1)` norm exists;
-- no local gauge connection or electric-charge sector exists;
-- intrinsic rotations are scalar, not spinorial;
-- the profile contracts continuously to the zero vacuum and has no declared
-  protected winding sector.
+## 4. M9.7a nonlinear spinor carrier
 
-## 4. Spinor replacement carrier
-
-M9.7a selects the bounded prerequisite equation
+The bounded 1+1D prerequisite is
 
 ```text
 i d_t Psi = -i alpha d_x Psi
@@ -87,124 +75,169 @@ i d_t Psi = -i alpha d_x Psi
 alpha = -sigma_2,
 beta = sigma_3,
 m = 1,
-lambda = 1.
+lambda = 1,
+omega = 0.8.
 ```
 
-The accepted solitary wave has frequency
+Its exact two-component Soler solitary wave passes stationary-residual,
+second-order convergence, conservation, window, finite perturbation, free-control,
+background pure-gauge, and entropic-clock gates.
+
+At the finest grid:
 
 ```text
-omega = 0.8,
-kappa = sqrt(m^2 - omega^2) = 0.6,
-Psi(x,t) = Phi_omega(x) exp(-i omega t),
-Phi_omega = (v,u)^T,
-```
-
-with
-
-```text
-D(x) = m + omega cosh(2 kappa x),
-v(x) = sqrt(2(m-omega)/lambda)
-       (m+omega) cosh(kappa x) / D(x),
-u(x) = sqrt(2(m+omega)/lambda)
-       (m-omega) sinh(kappa x) / D(x).
-```
-
-The upper component is even and the lower component is odd. The analytic
-stationary residual closes at `1.96e-16` relative.
-
-### 4.1 Numerical evolution
-
-The implementation uses periodic Fourier differentiation and second-order Strang
-splitting:
-
-- exact kinetic Dirac step in Fourier space;
-- exact pointwise nonlinear mass step;
-- refinement `N = 512, 1024, 2048` on `[-30,30)`;
-- `dt = 0.05 dx`, final time `t=2`.
-
-Both spinor and density errors converge at approximately second order. At the
-finest level:
-
-```text
-phase-aligned spinor L2 = 1.53398e-7,
+spinor L2 error = 1.53398e-7,
 density relative L1 = 8.72859e-8,
 fidelity = 0.9999999999999846,
 norm drift = 1.69198e-13,
 model-energy drift = 1.03695e-13.
 ```
 
-### 4.2 Localization decision
-
-The exact nonlinear spinor remains localized and window independent. A fixed 2%
-component-opposite modulation evolved to `t=10` retains
-
-```text
-core fraction = 0.999789865,
-edge fraction = 3.13715e-11,
-variance ratio = 1.01115,
-fidelity = 0.99994829.
-```
-
-The identical initial spinor under the free massive-Dirac equation reaches
-
-```text
-variance ratio = 4.27772,
-peak ratio = 0.40838.
-```
-
-Thus localization is supplied by the selected nonlinear spinor model rather than
-the initial profile alone.
-
-### 4.3 Local gauge interface
-
-M9.7a implements the background-covariant transformation
+The background transformation
 
 ```text
 Psi' = exp(i q chi) Psi,
-A_x' = A_x + d_x chi,
-(-i d_x - q A_x) Psi -> exp(i q chi)(-i d_x - q A_x)Psi.
+A_x' = A_x + d_x chi
 ```
 
-For the frozen periodic pure gauge, density, norm, and covariant model energy are
-invariant to binary64 precision. This is an interface test only. `A_mu` is not a
-dynamical field, there is no Maxwell energy, and `q=1` is not an electric-charge
-calibration.
+closes the covariant-energy interface, but M9.7a has no Maxwell field equation or
+field energy.
 
-### 4.4 Spin status
+## 5. M9.7b1 three-dimensional electrostatic gauge sector
 
-The carrier is a two-component Dirac spinor in 1+1 dimensions. This supplies a
-non-scalar representation and component structure. It does not yet establish a
-3D spin angular-momentum observable, fermionic anticommutation/statistics, or an
-electron identity.
+### 5.1 Regular spherical source ansatz
 
-## 5. Real and imaginary action sectors
+M9.7b1 freezes a regular spherical four-spinor density represented by upper
+s-wave and lower p-wave radial amplitudes:
 
-- the scalar and Soler interactions are explicit real-Hamiltonian model choices;
-- neither interaction is derived from the pinned CAT/EPT imaginary-action layer;
-- `S_I` and `|W|` remain formal weighting observables;
+```text
+F(r) = A exp(-r/a),
+G(r) = A eta (r/a) exp(-r/a),
+rho(r) = F(r)^2 + G(r)^2,
+a = 1,
+eta = 1/2.
+```
+
+`A` is fixed by
+
+```text
+4 pi integral_0^infinity r^2 rho(r) dr = 1.
+```
+
+The ansatz is a positive spinor-density carrier and Maxwell source. It is not a
+solution of the 3D Dirac stationary equation.
+
+### 5.2 Electrostatic Maxwell constraint
+
+For signed dimensionless source normalization `q`, the solver enforces
+
+```text
+Q(r) = 4 pi integral_0^r s^2 q rho(s) ds,
+E(r) = Q(r)/(4 pi epsilon0 r^2),
+phi(infinity) = 0.
+```
+
+The total field energy includes the exterior Coulomb tail:
+
+```text
+U_E = epsilon0/2 integral_0^R 4 pi r^2 E(r)^2 dr
+      + Q(R)^2/(8 pi epsilon0 R).
+```
+
+An independent ledger evaluates
+
+```text
+U_source = 1/2 integral rho_q phi d^3x.
+```
+
+For the frozen ansatz, exact references are
+
+```text
+raw norm = pi a^3 (1 + 3 eta^2),
+phi(0) = q(2 + 3 eta^2)/(8 pi epsilon0 a(1 + 3 eta^2)),
+U_E = q^2/(8 pi epsilon0 a)
+      * (837 eta^4 + 672 eta^2 + 160)
+      / (256(1 + 3 eta^2)^2).
+```
+
+### 5.3 Numerical result
+
+The 256/512/1024-shell refinement yields observed orders
+
+```text
+field energy: 2.00123, 2.00029
+central potential: 1.94259, 1.97060.
+```
+
+At 1024 shells:
+
+```text
+Gauss shell residual = 4.01e-16,
+boundary-flux error = 1.11e-16,
+field-energy relative error = 2.185e-5,
+central-potential relative error = 4.199e-5,
+source/field energy relative difference = 3.128e-6.
+```
+
+The density has core fraction `0.99981907` inside `r<=8a` and outer-20% fraction
+`7.04e-8`.
+
+### 5.4 Signed sectors and perturbation
+
+Changing `q` from `+1` to `-1` reverses `E`, `phi`, and boundary flux while
+preserving number density and field energy. This is a dimensionless signed source
+sector, not an electron-charge calibration.
+
+A fixed 2% opposite modulation of `F` and `G` gives
+
+```text
+field-energy ratio = 1.009983,
+central-potential ratio = 1.011529,
+core fraction = 0.99981957,
+outer-20% fraction = 7.03e-8.
+```
+
+This is source-to-field response, not time-dependent spinor stability.
+
+### 5.5 Radial information interface
+
+Radial shell probabilities use `p_i proportional to rho_i Delta V_i`. A
+reflecting symmetric nearest-neighbor channel replaces the periodic channel
+because the radial interval has an origin and an outer boundary. Base and
+perturbed ledgers both show nonincreasing remaining KL, nondecreasing accumulated
+gain, nonnegative one-step correlation, and exact ledger closure.
+
+## 6. Real and imaginary action sectors
+
+- scalar and Soler interactions remain explicit real-Hamiltonian model choices;
+- the M9.7b1 electrostatic field is a source-responsive Maxwell constraint;
+- none of these terms is derived from the pinned CAT/EPT imaginary-action layer;
+- `S_I` and `|W|` remain weighting observables;
 - no local imaginary potential or irreversible back-reaction is inferred.
 
-## 6. Evidential status
+## 7. Evidential status
 
 Established:
 
 - source-pinned CAT/EPT algebraic interfaces;
-- convergent scalar and spinor control/evolution solvers;
-- one explicit coarse-graining information clock;
+- convergent scalar and 1+1D spinor evolution solvers;
+- one Cartesian/periodic and one radial/reflecting information-clock interface;
 - localized neutral 1+1D scalar and spinor mathematical candidates;
-- a background local-`U(1)` covariant spinor interface;
-- preservation of the normalized-density clock under the spinor replacement.
+- a background local-`U(1)` spinor interface;
+- a 3D regular spinor-density source with self-consistent electrostatic field;
+- signed dimensionless flux, Gauss-law, boundary, and field-energy ledgers.
 
 Not established:
 
-- three-dimensional spinor localization;
-- a dynamical Maxwell or other gauge field;
-- signed, calibrated electric charge or Gauss-law flux;
+- a coupled 3D Dirac stationary solution;
+- dynamical Maxwell waves or magnetic fields;
+- dynamical 3D localization and perturbation stability;
+- calibrated electric charge or electron/positron identity;
 - fermionic quantization and statistics;
-- electron, positron, photon, or other Standard Model identity;
 - physical mass or absolute unit calibration;
-- necessity of either selected nonlinear interaction;
+- necessity of the selected scalar, Soler, or radial ansatz;
 - irreversible physical-time evolution from the imaginary action.
 
-The next canonical gate is M9.7b: a bounded 3D spinor-plus-dynamical-gauge family
-with localization, Gauss-law, convergence, boundary, and perturbation ledgers.
+The next canonical gate is M9.7b2: a bounded self-consistent stationary radial
+Dirac--electrostatic system in which the spinor profile and potential determine
+one another.

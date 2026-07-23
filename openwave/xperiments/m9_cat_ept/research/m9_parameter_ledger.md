@@ -16,59 +16,69 @@
 | Choice | Value | Classification |
 | --- | --- | --- |
 | Free scalar control | `i psi_t = -1/2 psi_xx` | Certified control |
-| Probability map | `p_i proportional to dx rho_i` | Shared M9.3 input |
-| Coarse-graining channel | periodic `(1/4,1/2,1/4)` | M9.3 input |
+| Shared density map | cell/shell probability proportional to `rho Delta V` | Interface input |
 | Scalar localization survey | `kappa in {0,+2,-2}` | M9.4 bounded choice |
 | Accepted scalar branch | focusing `g=2`, norm `N=1` | Selected model input |
-| Spinor equation | cubic 1+1D Soler / massive Gross-Neveu form | M9.7a selected model input |
-| Dirac representation | `alpha=-sigma_2`, `beta=sigma_3` | Convention |
+| 1+1D spinor equation | cubic Soler / massive Gross--Neveu form | M9.7a selected input |
+| 1+1D representation | `alpha=-sigma_2`, `beta=sigma_3` | Convention |
 | Spinor parameters | `m=1`, `lambda=1`, `omega=0.8` | Frozen dimensionless inputs |
-| Gauge-interface parameter | `q=1` | Dimensionless covariance-test input, not electric calibration |
-| Spinor boundary approximation | wide periodic box, exponentially small tails | Numerical input |
+| Background gauge parameter | `q=1` | M9.7a covariance-test input, not electric calibration |
+| M9.7b1 radial amplitudes | `F=A exp(-r/a)`, `G=A eta(r/a)exp(-r/a)` | Frozen source ansatz |
+| M9.7b1 radial parameters | `a=1`, `eta=1/2`, `epsilon0=1` | Dimensionless inputs |
+| Signed electrostatic sectors | `q in {+1,-1}` | Frozen gauge-source labels |
+| Radial Maxwell equation | spherical Gauss-law/Poisson constraint | M9.7b1 gauge-sector model |
+| Radial boundaries | regular origin, `phi(infinity)=0`, analytic exterior Coulomb tail | Boundary convention |
+| Radial clock channel | reflecting symmetric nearest-neighbor, 64 depths | M9.7b1 information input |
 
-## Exact scalar-family identities
+## Exact M9.7b1 reference identities
 
-For arbitrary positive scalar `g,N`:
+For arbitrary positive `a`, nonnegative `eta`, signed `q`, and positive
+`epsilon0`:
 
 ```text
-eta = gN/2,
-omega_phase = eta^2/2,
-E = -g^2 N^3/24,
-R_rms = pi/(2 sqrt(3) eta).
+N_raw = pi a^3 (1 + 3 eta^2),
+phi(0) = q(2 + 3 eta^2)/(8 pi epsilon0 a(1 + 3 eta^2)),
+U_E = q^2/(8 pi epsilon0 a)
+      * (837 eta^4 + 672 eta^2 + 160)
+      / (256(1 + 3 eta^2)^2).
 ```
 
-These are deductions from the selected scalar equation, not independent physical
-predictions.
+These are deductions for the selected radial ansatz. They are not independent
+particle predictions.
 
-## M9.7a spinor result classification
+## Result classification
 
 | Result | Evidential classification |
 | --- | --- |
-| Exact Soler profile at `m=1,lambda=1,omega=0.8` | Selected-model identity |
-| Approximately second-order numerical return | Solver validation |
-| Norm and model-energy conservation | Numerical conservation result |
-| Fixed finite-time perturbation survival | Stability evidence, not a proof |
-| Free-Dirac control dispersal | Discriminating numerical control |
-| Pure-gauge covariance | Background-connection interface check |
-| `rho=Psi^dagger Psi` clock compatibility | Interface preservation |
-| `q=1` | Arbitrary dimensionless normalization; not measured electric charge |
+| 1+1D exact Soler profile | Selected-model identity |
+| M9.7a convergence/conservation | Solver validation |
+| M9.7a finite perturbation survival | Stability evidence, not proof |
+| M9.7a pure-gauge covariance | Background-connection interface |
+| M9.7b1 shellwise Gauss law and boundary flux | Finite-volume gauge validation |
+| M9.7b1 field/source energy agreement | Independent numerical ledger |
+| `q=+1` versus `q=-1` field reversal | Dimensionless signed source result |
+| M9.7b1 2% source modulation | Static source-response test, not dynamical stability |
+| Radial KL contraction | Data-processing result for the reflecting channel |
+| `q=1` magnitude | Arbitrary dimensionless normalization; not measured electric charge |
 
 ## Open structural choices
 
 | Choice | Status |
 | --- | --- |
 | Derivation of scalar or Soler interaction from CAT/EPT | Open |
-| Three-dimensional spinor carrier and localization mechanism | Open |
-| Dynamical Maxwell/gauge action and self-field | Open |
-| Physical units for length, time, energy, and mass | Open |
-| Electric charge normalization and sign sectors | Open |
-| 3D spin observable and fermionic statistics | Open |
+| Coupled 3D radial Dirac equations and representation conventions | Open M9.7b2 |
+| Self-consistent spinor response to the electrostatic potential | Open M9.7b2 |
+| Bounded frequency/coupling family for the coupled solve | Open; must be frozen before runs |
+| Maxwell wave evolution and magnetic sector | Open M9.7b3 |
+| Physical units for length, time, energy, mass, and charge | Open |
+| Electron-charge normalization and Standard Model identity | Absent |
+| 3D angular momentum and fermionic statistics | Open |
 | Choice of physical phase-clock interpretation | Open |
 | Irreversible back-reaction from `S_I` | Open |
 
 ## Calibration targets
 
-No experimental particle value has been used. The electron mass, electric charge,
+No experimental particle value has been used. Electron mass, electric charge,
 magnetic moment, Compton frequency, and radius are neither inputs nor outputs.
 
 A later physical unit map must state which measured quantity fixes each scale.
@@ -79,20 +89,20 @@ Reusing the same value as an output will count as calibration, not prediction.
 There is still no particle-physics prediction. The strongest completed statements
 are conditional model results:
 
-> Given the selected dimensionless scalar equation, its exact bright-soliton
-> family has the verified M9.5 scaling.
+> Given the selected dimensionless Soler equation and frequency, the exact 1+1D
+> spinor profile passes the M9.7a localization and interface gates.
 
-> Given the selected dimensionless Soler equation and frozen frequency, the exact
-> two-component 1+1D profile passes the M9.7a localization, convergence,
-> perturbation, background-gauge, and density-clock gates.
+> Given the selected regular spherical spinor-density ansatz, the electrostatic
+> Maxwell constraint passes the M9.7b1 Gauss-law, flux, energy, signed-sector,
+> convergence, window, perturbation-response, and radial-clock gates.
 
-Neither statement assigns a Standard Model identity.
+Neither statement assigns an electron, positron, or photon identity.
 
 ## Parameter-count audit
 
-The scalar output depends on selecting a focusing interaction and coupling. The
-spinor output additionally fixes a nonlinear Dirac interaction, mass parameter,
-frequency, representation convention, and gauge-interface normalization. Physical
-interpretation still requires unit, charge, and clock maps. The current freedom is
-not smaller than the number of physical observables that could be claimed. M9 is
-not a zero-parameter particle model.
+M9.7b1 adds a radial profile shape, lower-component ratio, length scale, gauge
+normalization, electrostatic units, and boundary convention. The profile is not
+solved from the coupled Dirac equation. Physical interpretation still requires
+unit, charge, and clock maps. The current freedom is not smaller than the number
+of physical observables that could be claimed; M9 is not a zero-parameter
+particle model.
