@@ -1,17 +1,11 @@
-"""M9.5 exact scaling and observable ledger for the 1D bright soliton.
+"""M9.5 exact observable ledger for the selected 1D bright-soliton family.
 
-The selected equation is
+For ``i psi_t = -psi_xx/2 - g |psi|^2 psi`` with ``g,N > 0``:
 
-    i psi_t = -1/2 psi_xx - g |psi|^2 psi,  g > 0.
-
-For conserved scalar norm ``N > 0`` the exact family is
-
-    eta = g N / 2,
-    phi(x) = eta / sqrt(g) sech(eta x),
-    psi(x,t) = phi(x) exp(i eta^2 t / 2).
-
-All observables below are correlated identities of this selected dimensionless
-model. They are not independent particle predictions or an absolute unit map.
+``eta = gN/2``, ``phi = eta/sqrt(g) sech(eta x)``, and
+``psi = phi exp(i eta^2 t/2)``. The resulting radius, energy, and frequency
+are correlated identities of this dimensionless model, not independent physical
+predictions.
 """
 
 from __future__ import annotations
@@ -103,8 +97,7 @@ def sech(values: RealArray) -> RealArray:
 
 def profile(x: RealArray, parameters: SolitonParameters) -> ComplexArray:
     return np.asarray(
-        parameters.amplitude * sech(parameters.eta * x),
-        dtype=np.complex128,
+        parameters.amplitude * sech(parameters.eta * x), dtype=np.complex128
     )
 
 
@@ -116,24 +109,18 @@ def state(x: RealArray, time: float, parameters: SolitonParameters) -> ComplexAr
 
 
 def first_derivative(x: RealArray, parameters: SolitonParameters) -> RealArray:
-    scaled = parameters.eta * x
+    z = parameters.eta * x
     return np.asarray(
-        -parameters.amplitude
-        * parameters.eta
-        * sech(scaled)
-        * np.tanh(scaled),
+        -parameters.amplitude * parameters.eta * sech(z) * np.tanh(z),
         dtype=np.float64,
     )
 
 
 def second_derivative(x: RealArray, parameters: SolitonParameters) -> RealArray:
-    scaled = parameters.eta * x
-    base = sech(scaled)
+    z = parameters.eta * x
+    base = sech(z)
     return np.asarray(
-        parameters.amplitude
-        * parameters.eta**2
-        * base
-        * (1.0 - 2.0 * base**2),
+        parameters.amplitude * parameters.eta**2 * base * (1.0 - 2.0 * base**2),
         dtype=np.float64,
     )
 
@@ -163,46 +150,39 @@ def numerical_ledger(
     if points < 1001 or points % 2 == 0:
         raise ValueError("points must be an odd integer at least 1001")
 
-    half_width = scaled_half_width / parameters.eta
-    x = np.linspace(-half_width, half_width, points, dtype=np.float64)
+    limit = scaled_half_width / parameters.eta
+    x = np.linspace(-limit, limit, points, dtype=np.float64)
     phi = np.real(profile(x, parameters))
     derivative = first_derivative(x, parameters)
     density = phi**2
-    numerical_norm = float(np.trapezoid(density, x))
-    numerical_energy = float(
+    norm = float(np.trapezoid(density, x))
+    energy = float(
         np.trapezoid(
-            0.5 * derivative**2
-            - 0.5 * parameters.coupling * phi**4,
-            x,
+            0.5 * derivative**2 - 0.5 * parameters.coupling * phi**4, x
         )
     )
-    variance = float(np.trapezoid(x**2 * density, x) / numerical_norm)
-    numerical_radius = math.sqrt(variance)
-
+    radius = math.sqrt(float(np.trapezoid(x**2 * density, x) / norm))
     residual = stationary_residual(x, parameters)
     residual_l2 = math.sqrt(float(np.trapezoid(residual**2, x)))
     residual_scale = abs(parameters.chemical_potential) * math.sqrt(parameters.norm)
 
     enclosed: dict[float, float] = {}
     for probability in (0.90, 0.99):
-        radius = parameters.radius_for_probability(probability)
-        mask = np.abs(x) <= radius
-        enclosed[probability] = float(np.trapezoid(density[mask], x[mask]))
+        mask = np.abs(x) <= parameters.radius_for_probability(probability)
+        enclosed[probability] = float(np.trapezoid(density[mask], x[mask]) / norm)
 
     invariant = parameters.phase_frequency * parameters.rms_radius**2
-    invariant_target = math.pi**2 / 24.0
     energy_relation = parameters.energy / (
         parameters.chemical_potential * parameters.norm
     )
-
     return NumericalLedger(
         coupling=parameters.coupling,
         requested_norm=parameters.norm,
         eta=parameters.eta,
         amplitude=parameters.amplitude,
-        numerical_norm=numerical_norm,
-        numerical_energy=numerical_energy,
-        numerical_rms_radius=numerical_radius,
+        numerical_norm=norm,
+        numerical_energy=energy,
+        numerical_rms_radius=radius,
         stationary_residual_relative_l2=residual_l2 / residual_scale,
         enclosed_probability_90=enclosed[0.90],
         enclosed_probability_99=enclosed[0.99],
@@ -210,18 +190,18 @@ def numerical_ledger(
         analytic_rms_radius=parameters.rms_radius,
         phase_frequency=parameters.phase_frequency,
         chemical_potential=parameters.chemical_potential,
-        norm_relative_error=_relative_error(numerical_norm, parameters.norm),
-        energy_relative_error=_relative_error(numerical_energy, parameters.energy),
-        radius_relative_error=_relative_error(numerical_radius, parameters.rms_radius),
+        norm_relative_error=_relative_error(norm, parameters.norm),
+        energy_relative_error=_relative_error(energy, parameters.energy),
+        radius_relative_error=_relative_error(radius, parameters.rms_radius),
         enclosed_probability_90_error=abs(enclosed[0.90] - 0.90),
         enclosed_probability_99_error=abs(enclosed[0.99] - 0.99),
-        frequency_radius_invariant_error=abs(invariant - invariant_target),
+        frequency_radius_invariant_error=abs(invariant - math.pi**2 / 24.0),
         energy_mu_norm_relation_error=abs(energy_relation - 1.0 / 3.0),
     )
 
 
-def _scaling_exponent(first: float, second: float, norm_ratio: float) -> float:
-    return math.log(second / first) / math.log(norm_ratio)
+def _exponent(first: float, second: float, ratio: float) -> float:
+    return math.log(second / first) / math.log(ratio)
 
 
 def run_observable_study(
@@ -229,79 +209,56 @@ def run_observable_study(
     norms: Sequence[float] = (0.5, 1.0, 2.0),
 ) -> dict[str, Any]:
     ledgers = [
-        numerical_ledger(SolitonParameters(coupling=coupling, norm=norm))
-        for coupling in couplings
+        numerical_ledger(SolitonParameters(coupling=g, norm=norm))
+        for g in couplings
         for norm in norms
     ]
-
-    exponents: dict[str, list[float]] = {
-        "eta": [],
-        "phase_frequency": [],
-        "absolute_energy": [],
-        "rms_radius": [],
-    }
-    for coupling in couplings:
-        low = SolitonParameters(coupling=coupling, norm=norms[0])
-        high = SolitonParameters(coupling=coupling, norm=norms[-1])
-        norm_ratio = high.norm / low.norm
-        exponents["eta"].append(
-            _scaling_exponent(low.eta, high.eta, norm_ratio)
-        )
+    exponents = {name: [] for name in (
+        "eta", "phase_frequency", "absolute_energy", "rms_radius"
+    )}
+    for g in couplings:
+        low = SolitonParameters(g, norms[0])
+        high = SolitonParameters(g, norms[-1])
+        ratio = high.norm / low.norm
+        exponents["eta"].append(_exponent(low.eta, high.eta, ratio))
         exponents["phase_frequency"].append(
-            _scaling_exponent(
-                low.phase_frequency,
-                high.phase_frequency,
-                norm_ratio,
-            )
+            _exponent(low.phase_frequency, high.phase_frequency, ratio)
         )
         exponents["absolute_energy"].append(
-            _scaling_exponent(abs(low.energy), abs(high.energy), norm_ratio)
+            _exponent(abs(low.energy), abs(high.energy), ratio)
         )
         exponents["rms_radius"].append(
-            _scaling_exponent(low.rms_radius, high.rms_radius, norm_ratio)
+            _exponent(low.rms_radius, high.rms_radius, ratio)
         )
-
-    exponent_targets = {
+    targets = {
         "eta": 1.0,
         "phase_frequency": 2.0,
         "absolute_energy": 3.0,
         "rms_radius": -1.0,
     }
     acceptance = {
-        "norm_quadrature": max(item.norm_relative_error for item in ledgers)
-        <= 1.0e-10,
-        "energy_quadrature": max(item.energy_relative_error for item in ledgers)
-        <= 1.0e-10,
-        "radius_quadrature": max(item.radius_relative_error for item in ledgers)
-        <= 1.0e-10,
+        "norm_quadrature": max(x.norm_relative_error for x in ledgers) <= 1e-10,
+        "energy_quadrature": max(x.energy_relative_error for x in ledgers) <= 1e-10,
+        "radius_quadrature": max(x.radius_relative_error for x in ledgers) <= 1e-10,
         "stationary_residual": max(
-            item.stationary_residual_relative_l2 for item in ledgers
-        )
-        <= 1.0e-12,
+            x.stationary_residual_relative_l2 for x in ledgers
+        ) <= 1e-12,
         "enclosed_probability": max(
-            max(
-                item.enclosed_probability_90_error,
-                item.enclosed_probability_99_error,
-            )
-            for item in ledgers
-        )
-        <= 2.0e-3,
+            max(x.enclosed_probability_90_error, x.enclosed_probability_99_error)
+            for x in ledgers
+        ) <= 2e-3,
         "frequency_radius_invariant": max(
-            item.frequency_radius_invariant_error for item in ledgers
-        )
-        <= 1.0e-12,
+            x.frequency_radius_invariant_error for x in ledgers
+        ) <= 1e-12,
         "energy_mu_norm_relation": max(
-            item.energy_mu_norm_relation_error for item in ledgers
-        )
-        <= 1.0e-12,
+            x.energy_mu_norm_relation_error for x in ledgers
+        ) <= 1e-12,
         "scaling_exponents": max(
-            abs(value - exponent_targets[name])
+            abs(value - targets[name])
             for name, values in exponents.items()
             for value in values
-        )
-        <= 1.0e-12,
+        ) <= 1e-12,
     }
-
     return {
         "schema": "openwave.m9.soliton-observable-ledger.v2",
         "model": "M9-CAT-EPT",
@@ -316,13 +273,10 @@ def run_observable_study(
             "density_fwhm": "2 acosh(sqrt(2))/eta",
             "enclosed_probability": "tanh(eta R)",
         },
-        "quadrature": {
-            "scaled_half_width": 16.0,
-            "points": 8193,
-        },
-        "cases": [asdict(ledger) for ledger in ledgers],
+        "quadrature": {"scaled_half_width": 16.0, "points": 8193},
+        "cases": [asdict(item) for item in ledgers],
         "scaling_exponents": exponents,
-        "scaling_targets": exponent_targets,
+        "scaling_targets": targets,
         "acceptance": acceptance,
         "passed": all(acceptance.values()),
         "clock_bridge": {
