@@ -1,8 +1,8 @@
 # M9 CAT/EPT canonical specification
 
-This document is the scaffold-stage specification of record. It separates exact
-formal identities, numerical definitions, physical identifications, and open
-model choices.
+This document is the specification of record. It separates exact formal
+identities, numerical definitions, physical identifications, and open model
+choices.
 
 ## 1. Exact imported identities
 
@@ -28,16 +28,34 @@ in `../formal/entropic_spine_contract.json`.
 
 ## 2. Numerical state carrier
 
-The preferred first dynamical carrier is a complex scalar lattice field
+The dynamical carrier is a complex scalar lattice field
 
 ```text
-psi : space x entropic-time -> Complex
-rho = |psi|^2
+psi : space x evolution-parameter -> Complex
+rho = |psi|^2.
 ```
 
-rather than direct evolution of `rho` and `Phi`. Direct Madelung variables contain
-`log rho` and `grad(rho)/rho`, which are singular at nodes. A density floor may be
-used for diagnostics but must not silently enter the physical evolution.
+Direct Madelung variables contain `log rho` and `grad(rho)/rho`, which are
+singular at nodes. A density floor may be used for diagnostics but must not
+silently enter the physical evolution.
+
+### 2.1 Certified free control dynamics
+
+M9.2 fixes the linear control equation
+
+```text
+i hbar d_t psi = -(hbar^2 / 2m) d_xx psi
+```
+
+and implements a periodic second-order finite-difference Laplacian with a
+Crank--Nicolson update. Against the exact infinite-line Gaussian packet, phase,
+density and current converge at approximately second order over
+`N = 128, 256, 512`. The method conserves the norm and the energy of its own
+discrete Hamiltonian to roundoff.
+
+This equation is the control solver, not the final CAT/EPT particle dynamics.
+Its Gaussian solution spreads and therefore supplies no localized particle.
+The nonlinear real-action sector remains an open, preregistered M9.4 choice.
 
 ## 3. Entropic clock
 
@@ -51,11 +69,22 @@ tables. It does not prove that `tau_ent(t)` is monotone for an arbitrary PDE.
 Monotonicity requires the corresponding Liouville and reduced-entropy hypotheses,
 or a concrete data-processing theorem for the implemented channel.
 
+M9.3 must distinguish at least three quantities:
+
+- total correlation generated between declared subsystems;
+- remaining relative-entropy disequilibrium, which contracts under an accepted
+  coarse-graining channel;
+- accumulated clock gain, defined from the loss of remaining disequilibrium.
+
+They are not interchangeable clocks and need not have the same monotonicity under
+free unitary evolution.
+
 ## 4. Real and imaginary action sectors
 
-At scaffold stage:
+At the current stage:
 
-- the real-action/Hamiltonian functional that could localize a particle is open;
+- the free real Hamiltonian is certified as a numerical control;
+- the nonlinear real-action functional that could localize a particle is open;
 - `S_I = hbar tau_ent` is measured as an observable;
 - `|W| = exp(-tau_ent)` is a formal state/path weight;
 - no local equation `i hbar d_t psi = (H_R - i V_I) psi` is inferred.
@@ -80,7 +109,7 @@ Failure is an honest negative result.
 
 ## 6. Explicit nonclaims
 
-The scaffold does not establish:
+The completed M9.1--M9.2 stack does not establish:
 
 - a particle solution;
 - an electron identification;
