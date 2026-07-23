@@ -1,0 +1,22 @@
+{
+  "acceptance": {
+    "benchmark_is_normalized": true,
+    "exact_fit_is_perturbation_sensitive": true,
+    "geometric_law_fails_predictive_gate": true,
+    "m927_requires_generation_specific_knobs": true,
+    "predictive_hierarchy_not_selected": true,
+    "quadratic_extrapolation_turns_over": true,
+    "quadratic_has_zero_residual_dof": true,
+    "quadratic_interpolates_exactly": true
+  },
+  "benchmark": {"labels":["e","mu","tau"],"masses_mev":[0.51099895069,105.6583755,1776.86],"normalized":[1.0,206.76828270846718,3477.228275323682]},
+  "classification":{"does_not_establish":["a CAT/EPT lepton spectrum","a new charged lepton","physical mass prediction","that no possible CAT/EPT hierarchy law can succeed"],"establishes":["deterministic hierarchy model-comparison audit","leave-one-out rejection of a geometric generation law","zero-degree-of-freedom diagnosis for exact quadratic interpolation","generation-specific knob audit for the M9.27 scale law"]},
+  "decision":{"classification":"honest negative for current candidate laws","exact_interpolation_is_prediction":false,"physical_mass_spectrum_established":false,"predictive_lepton_hierarchy_selected":false},
+  "geometric_fit":{"log_ratio":4.076995391403778,"log_rms_error":0.5914256993107653,"log_scale":0.41820112255063735,"maximum_multiplicative_error":2.308048229523029,"multiplicative_errors":[1.5192261943249348,2.308048229523029,1.519226194324937],"parameter_count":2,"prediction":[1.5192261943249348,89.58577210979556,5282.696279519061],"ratio":58.968027568536534,"residual_dof":1},
+  "leave_one_out":{"maximum_factor":12.295172864435795,"median_factor":12.295172864435784,"multiplicative_error_factors":[12.295172864435784,3.5064473280566735,12.295172864435795],"predictions":[12.295172864435784,58.968027568536534,42753.12273420861]},
+  "log_quadratic_fit":{"design_condition_number":13.91246245985133,"extrapolation":[4756.065697197797,529.0879231603393,4.787107861084473,0.0035227671528955838],"extrapolation_generation":[3.0,4.0,5.0,6.0],"maximum_relative_error":8.881784197001252e-16,"monotone_beyond_observed":false,"parameter_count":3,"parameters":[0.0,6.586202126707605,-1.2546033676519137],"prediction":[1.0,206.76828270846718,3477.2282753236846],"residual_dof":0,"turnover_generation":2.624814461894115},
+  "m9_27_effective_parameter_audit":{"effective_q_per_generation":[0.4898979485566356,227.30218199658142,3832.2333747387543],"electron_reference_energy":22.61946710584651,"independent_parameter_count":3,"shared_geometric_q":{"maximum_multiplicative_error":3.0028488922786414,"predicted_normalized_masses":[1.327807638796377,68.85737182451626,6041.50799437737],"q0":0.8512306005335999,"ratio":88.44497509456544},"target_dimensionless_energies":[22.61946710584651,4676.988369256545,78653.05059320341]},
+  "passed": true,
+  "perturbation_audit":{"maximum_prediction":4770.362478315675,"minimum_prediction":4741.811763547217,"next_generation_predictions":[4756.065697197771,4756.065697197788,4770.362478315675,4741.825989010969,4741.811763547217,4770.348167242514],"relative_input_perturbation":0.001,"relative_prediction_span":0.006002993006015263},
+  "schema":"openwave.m9.lepton-hierarchy-audit.v1","task":"M9.39"
+}
