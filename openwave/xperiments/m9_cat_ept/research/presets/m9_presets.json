@@ -116,6 +116,30 @@
         "a stable localized charged particle or full three-dimensional dynamics",
         "electron identity, calibrated units, or fermionic quantization"
       ]
+    },
+    {
+      "name": "planar-2d-localization-decision",
+      "title": "M9.11 Two-Dimensional Localization Decision",
+      "sector": "localization-decision-2d",
+      "task": "M9.11",
+      "ledger": "m9_11_planar_2d_localization_result.json",
+      "runner": "openwave.xperiments.m9_cat_ept.planar_2d_localization_decision:run_localization_decision",
+      "metrics": [
+        {"key": "improvement", "label": "Spreading improvement", "path": "spreading_improvement"},
+        {"key": "candidate", "label": "Finite-time candidate lambda", "path": "finite_time_reduced_spreading_candidate"},
+        {"key": "finite_rms", "label": "Finite-time RMS ratio", "path": "survey.3.maximum_rms_ratio"},
+        {"key": "perturbed_rms", "label": "Perturbed RMS ratio", "path": "fixed_perturbation.maximum_rms_ratio"},
+        {"key": "long_rms", "label": "Long-time RMS ratio", "path": "long_time.maximum_rms_ratio"},
+        {"key": "accepted", "label": "Accepted particle candidate", "path": "accepted_particle_candidate"}
+      ],
+      "establishes": [
+        "a bounded nonlinear localization survey and finite-time reduced-spreading candidate",
+        "fixed-perturbation survival and explicit long-time particle rejection"
+      ],
+      "does_not_establish": [
+        "a stable localized charged particle or orbital stability",
+        "electron identity, calibrated units, or unique CAT/EPT selection of lambda=8"
+      ]
     }
   ]
 }
