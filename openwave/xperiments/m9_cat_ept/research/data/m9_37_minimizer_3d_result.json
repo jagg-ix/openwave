@@ -1,0 +1,113 @@
+{
+  "acceptance": {
+    "continuation_path_converges": true,
+    "noninteracting_ground_state_recovered": true,
+    "normalization_closes": true,
+    "repulsive_branch_energy_orders": true,
+    "repulsive_branch_expands": true,
+    "resolution_stabilizes": true,
+    "trapped_state_is_localized": true,
+    "untrapped_control_is_not_self_bound": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "a self-bound CAT/EPT particle",
+      "full gauge, spinor, entropy, and geometry coupling",
+      "topological charge or physical mass",
+      "long-horizon real-time stability"
+    ],
+    "establishes": [
+      "three-dimensional normalized variational minimization",
+      "stationary projected-Euler-Lagrange residuals",
+      "continuation in nonlinear coupling",
+      "resolution and boundary diagnostics",
+      "explicit untrapped non-self-bound control"
+    ]
+  },
+  "continuation": {
+    "branches": [
+      {
+        "accepted_steps": 1,
+        "boundary_fraction": 2.363545742653785e-11,
+        "center_density": 0.17958712217709605,
+        "center_of_mass_norm": 2.609207792936715e-15,
+        "chemical_potential": 1.4999999999999951,
+        "coupling": 0.0,
+        "energy": 1.4999999999999951,
+        "norm": 1.0,
+        "peak_density": 0.17958712217709605,
+        "projected_residual_l2": 7.986189022520634e-08,
+        "rms_radius": 1.2247448713915883
+      },
+      {
+        "accepted_steps": 213,
+        "boundary_fraction": 2.6321622945670363e-11,
+        "center_density": 0.17334482273700622,
+        "center_of_mass_norm": 7.671211386960948e-15,
+        "chemical_potential": 1.5310938649442152,
+        "coupling": 0.5,
+        "energy": 1.5156537734265934,
+        "norm": 1.0000000000000002,
+        "peak_density": 0.17334482273700622,
+        "projected_residual_l2": 2.645816844635639e-07,
+        "rms_radius": 1.2342501785850284
+      },
+      {
+        "accepted_steps": 229,
+        "boundary_fraction": 2.8914831123349542e-11,
+        "center_density": 0.16762357498511976,
+        "center_of_mass_norm": 9.146798172474748e-15,
+        "chemical_potential": 1.5609715081482434,
+        "coupling": 1.0,
+        "energy": 1.5308912793119793,
+        "norm": 1.0000000000000002,
+        "peak_density": 0.16762357498511976,
+        "projected_residual_l2": 2.1934870379561672e-07,
+        "rms_radius": 1.2433547987545535
+      },
+      {
+        "accepted_steps": 229,
+        "boundary_fraction": 3.402606300886249e-11,
+        "center_density": 0.15748547711167407,
+        "center_of_mass_norm": 5.1048435441086965e-15,
+        "chemical_potential": 1.6175354717097314,
+        "coupling": 2.0,
+        "energy": 1.5602384801090126,
+        "norm": 1.0,
+        "peak_density": 0.15748547711167407,
+        "projected_residual_l2": 2.802481735146179e-07,
+        "rms_radius": 1.2605104956219153
+      }
+    ],
+    "couplings": [0.0, 0.5, 1.0, 2.0]
+  },
+  "noninteracting_reference": {
+    "absolute_error": 4.884981308350689e-15,
+    "analytic_energy": 1.5,
+    "analytic_rms_radius": 1.224744871391589,
+    "energy": 1.4999999999999951,
+    "rms_error": 6.661338147750939e-16,
+    "rms_radius": 1.2247448713915883
+  },
+  "passed": true,
+  "resolution": {
+    "energy": [1.530902080782, 1.530891181411233, 1.5308912793119935],
+    "energy_successive_differences": [1.0899370767036842e-05, 9.790076060944841e-08],
+    "points": [16, 20, 24],
+    "radius_successive_differences": [5.4832915835856255e-05, 3.50383454694736e-07],
+    "rms_radius": [1.2434092477450998, 1.243354414829264, 1.2433547652127186]
+  },
+  "schema": "openwave.m9.minimizer-continuation-result.v1",
+  "task": "M9.37",
+  "untrapped_control": {
+    "boundary_fraction": 0.48184791091340307,
+    "center_density": 0.0006893175288372723,
+    "center_of_mass_norm": 0.4073563928371497,
+    "chemical_potential": 0.0007653195493336998,
+    "energy": 0.0004744186238027732,
+    "norm": 1.0,
+    "peak_density": 0.0006893175288372723,
+    "projected_residual_l2": 0.006495903002912697,
+    "rms_radius": 5.900306754382004
+  }
+}
