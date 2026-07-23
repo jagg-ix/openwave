@@ -1,16 +1,16 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-This is the script-backed M9 conformance profile for the shared OpenWave criteria.
-The canonical source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
+This is the script-backed M9 conformance profile. The canonical source is
+`openwave/xperiments/m9_cat_ept/model_conformance.py`.
 
 ## Summary
 
 | Status | Count |
 | --- | ---: |
 | ✅ validated in-platform | 0 |
-| ⚠️ partial / with caveats | 13 |
+| ⚠️ partial / with caveats | 15 |
 | ❌ honest negative | 2 |
-| 🚧 planned / not yet | 5 |
+| 🚧 planned / not yet | 3 |
 | **Explicit criteria** | **20** |
 
 `MODELS.md` reports 21 criteria while the visible matrix contains 20 rows. The
@@ -27,9 +27,9 @@ missing explicit target remains **heat / thermal sector**.
 | Magnetic moment and spin | ⚠️ Pauli-current field control; emergent g factor open |
 | Spin-1/2 statistics | ⚠️ 2π sign reversal and 4π return; exchange open |
 | Antimatter and annihilation | ⚠️ Reduced capture/annihilation/radiation ledger; full PDE open |
-| Lepton mass spectrum | ❌ Current simple hierarchy laws fail prediction; exact interpolation is non-predictive |
+| Lepton mass spectrum | ❌ Current simple hierarchy laws fail prediction |
 | Dark matter candidate | 🚧 Not yet |
-| Quarks | 🚧 Not yet |
+| Quarks | 🚧 No dynamical color/quark sector yet |
 | Baryons | ⚠️ Charged-triplet graph control; physical baryon open |
 | Mesons | ⚠️ Neutral-pair graph control; physical meson open |
 
@@ -39,9 +39,9 @@ missing explicit target remains **heat / thermal sector**.
 | --- | --- |
 | Electric force | ⚠️ Regularized r^-2 kernel; stable-particle interaction open |
 | Magnetic force | ⚠️ Regularized r^-4 dipole kernel; particle interaction open |
-| Strong force | 🚧 Not yet |
-| Weak force | 🚧 Not yet |
-| Gravity | ⚠️ Screened weak-field scalar control; Einstein gravity open |
+| Strong force | ⚠️ Cornell/flux-tube and string-breaking control; QCD open |
+| Weak force | ⚠️ Left-selective transition/decay control; electroweak theory open |
+| Gravity | ⚠️ Weak-field metric, universality, redshift, tidal, and accelerated-frame controls; GR open |
 
 ## Waves and quantum emergence
 
@@ -52,8 +52,6 @@ missing explicit target remains **heat / thermal sector**.
 | Orbital quantization | ⚠️ Converged radial bound-mode ladder; native CAT/EPT atom open |
 
 Partial status records bounded simulation evidence, not a completed physical
-derivation. The two honest negatives are the current 3D self-binding/stability
-program and the current lepton-hierarchy candidate laws. No stable self-bound 3D
-particle, physical mass, elementary-charge identity, exchange result, full-PDE
-annihilation, physical hadron, Einstein-gravity result, unique back-reaction, or
-physical-time identity is accepted.
+derivation. The two honest negatives remain self-bound 3D stability and the
+current lepton-hierarchy candidate laws. QCD, electroweak theory, and general
+relativity are not established by the reduced controls.
