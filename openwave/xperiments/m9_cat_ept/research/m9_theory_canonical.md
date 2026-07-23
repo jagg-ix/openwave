@@ -1,15 +1,23 @@
 # M9 CAT/EPT canonical specification
 
-## Three-dimensional program
+## Back-reaction interfaces
 
-M9.12 validates the four-component representation and free/vacuum controls. M9.13
-validates bounded coupled 3D transport with electric, magnetic, absorber-charge,
-energy, Gauss, Poynting, refinement, and domain ledgers.
+M9.15 selects `d psi/dt=(-i H_R-Gamma)psi`; for `Gamma=gamma I` it establishes
+`tau_ent=-1/2 log ||psi||^2` and `|W|=exp(-tau_ent)`.
 
-M9.14 adds `M_s=m-lambda psi_s^dagger beta psi_s`, `lambda={0,2,4,8}`. The
-`lambda=8` member gives finite-time RMS ratio `1.09872290` and perturbed ratio
-`1.10496901`, but the long-horizon ratio is `1.25296679` with peak `0.76569894`.
+M9.16 selects the trace-preserving channel
+`d rho/dt=-i[H,rho]+gamma(sigma_z rho sigma_z-rho)`.
 
-Canonical decision: no stable three-dimensional particle candidate is accepted.
-The next target is an explicit, separately qualified CAT/EPT imaginary-action
-back-reaction; it cannot be inferred from the real-Hamiltonian studies.
+M9.17 selects spatial matter-to-reservoir transfer
+`d psi_s/dt=-sigma_x d_x psi_s-i m sigma_z psi_s-(kappa g/2)psi_s`,
+`d r_s/dt=kappa g |psi_s|^2`.
+
+## Canonical decision
+
+The interfaces predict different accessible trace, normalized purity, and
+reservoir-transfer signatures. Their operational monotones are not a unique clock.
+
+```text
+unique_backreaction_selected=false
+physical_time_identified=false.
+```
