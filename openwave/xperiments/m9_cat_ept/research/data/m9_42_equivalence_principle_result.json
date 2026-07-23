@@ -1,0 +1,19 @@
+{
+  "task": "M9.42",
+  "passed": true,
+  "universal_trajectory_difference": 0.0,
+  "violation_trajectory_difference": 0.09717070095715208,
+  "eotvos_universal": 0.0,
+  "eotvos_violation_control": 0.01980198019801985,
+  "maximum_energy_drift": 2.475071329832712e-08,
+  "clock_redshift": {
+    "weak_error": 0.00020898727113996887,
+    "tau_low": 10.0,
+    "tau_high": 10.2058398727114
+  },
+  "uniform_field_equivalence_error": 2.853273173286652e-14,
+  "tidal_error": 6.938893903907228e-18,
+  "refinement_orders": [2.000003192357166, 2.000000857771211],
+  "all_acceptance_gates": true,
+  "general_relativity_established": false
+}
