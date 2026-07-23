@@ -44,22 +44,37 @@ def _write_ledgers(root: Path) -> None:
             "final": {"field_energy_central_fraction": 0.6},
         },
     }
+    transported = {
+        "passed": True,
+        "acceptance": {"a": True, "b": True},
+        "refinement": {"observed_order": 1.9},
+        "long_run": {
+            "max_norm_drift": 1e-9,
+            "max_corrected_energy_relative_drift": 1e-6,
+            "emitted_energy": 2e-5,
+            "final": {"gauss_residual_relative": 0.02},
+        },
+        "transport": {"final_separation": -2.0},
+    }
     values = {
         "m9_5_soliton_observable_result.json": scalar,
         "m9_7b3_dirac_electrostatic_dynamics_result.json": radial,
         "m9_7c_transverse_maxwell_spinor_result.json": transverse,
+        "m9_9_transported_maxwell_dirac_result.json": transported,
     }
     for name, payload in values.items():
         (root / name).write_text(json.dumps(payload), encoding="utf-8")
 
 
-def test_manifest_defines_three_non_particle_presets() -> None:
+def test_manifest_defines_validated_non_particle_presets() -> None:
     presets = load_presets()
-    assert {preset.name for preset in presets} == {
+    names = {preset.name for preset in presets}
+    assert {
         "scalar-observables",
         "radial-dynamics",
         "transverse-radiation",
-    }
+        "transported-maxwell-dirac",
+    }.issubset(names)
     assert all(preset.does_not_establish for preset in presets)
     assert all("electron" not in preset.name for preset in presets)
 
@@ -72,7 +87,7 @@ def test_path_resolution_supports_mappings_and_sequences() -> None:
 def test_build_panels_from_ledgers(tmp_path: Path) -> None:
     _write_ledgers(tmp_path)
     panels = build_panels(data_root=tmp_path)
-    assert len(panels) == 3
+    assert len(panels) == 4
     assert all(panel.passed for panel in panels)
     assert all(panel.acceptance_passed == panel.acceptance_total for panel in panels)
 
@@ -93,7 +108,7 @@ def test_export_writes_json_and_png(tmp_path: Path) -> None:
     panels = build_panels(data_root=ledger_root)
     result = export_bundle(panels, tmp_path / "export")
     assert Path(result["json"]).is_file()
-    assert len(result["images"]) == 3
+    assert len(result["images"]) == 4
     assert all(Path(path).is_file() for path in result["images"])
 
 
@@ -113,3 +128,4 @@ def test_launcher_lists_presets(capsys) -> None:
     output = capsys.readouterr().out
     assert "scalar-observables" in output
     assert "transverse-radiation" in output
+    assert "transported-maxwell-dirac" in output
