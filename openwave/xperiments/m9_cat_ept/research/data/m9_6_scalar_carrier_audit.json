@@ -1,0 +1,75 @@
+{
+  "carrier": {
+    "cat_ept_positive_density": true,
+    "complex_components": 1,
+    "gauss_law_flux": false,
+    "intrinsic_spin_half": false,
+    "local_u1_connection": false,
+    "name": "one-component nonrelativistic complex scalar NLS",
+    "opposite_charge_sector": false,
+    "spin_representation": "trivial scalar representation",
+    "target_contains_zero_and_is_contractible": true,
+    "two_pi_character_real": 1.0
+  },
+  "checks": {
+    "conjugation_density_invariant": true,
+    "conjugation_energy_invariant": true,
+    "conjugation_norm_invariant": true,
+    "conjugation_reverses_current": true,
+    "contraction_norm_scales_quadratically": true,
+    "current_carrier_lacks_intrinsic_spin_half": true,
+    "current_carrier_lacks_signed_gauss_charge": true,
+    "global_phase_density_invariant": true,
+    "global_phase_energy_invariant": true,
+    "global_phase_norm_invariant": true,
+    "replacement_target_meets_charge_spin_requirements": true,
+    "scalar_configuration_contracts_to_zero": true,
+    "scalar_two_pi_returns_identity": true,
+    "spinor_reference_four_pi_returns_identity": true,
+    "spinor_reference_two_pi_changes_sign": true
+  },
+  "conclusions": {
+    "localized_profile_has_no_protected_winding": "Because the carrier includes the zero vacuum, H_s=(1-s)psi contracts the localized profile continuously to zero.",
+    "norm_is_not_signed_electric_charge": "The scalar norm is nonnegative and unchanged by conjugation; no Gauss flux or opposite-charge sector is present.",
+    "scalar_has_no_intrinsic_spin_half": "The intrinsic scalar rotation character is +1 at 2pi. Orbital angular momentum in a future higher-dimensional scalar field would not change this."
+  },
+  "contraction_witness": {
+    "end_norm": 0.0,
+    "mid_norm_ratio": 0.25,
+    "start_error": 0.0
+  },
+  "invariance_errors": {
+    "conjugate_density": 0.0,
+    "conjugate_energy": 0.0,
+    "conjugate_norm": 0.0,
+    "current_reversal": 0.0,
+    "phase_density": 2.7755575615628914e-16,
+    "phase_energy": 5.551115123125783e-17,
+    "phase_norm": 0.0
+  },
+  "model": "M9-CAT-EPT",
+  "passed": true,
+  "rotation_characters": {
+    "scalar_2pi": [1.0, 0.0],
+    "scalar_4pi": [1.0, 0.0],
+    "spinor_reference_2pi": [-1.0, -1.2246467991473532e-16],
+    "spinor_reference_4pi": [1.0, 2.4492935982947064e-16]
+  },
+  "sample": {
+    "energy": 0.07831617517389944,
+    "half_width": 16.0,
+    "norm": 0.9999999999999745,
+    "points": 4096,
+    "wave_number": 0.7
+  },
+  "schema": "openwave.m9.scalar-carrier-audit.v1",
+  "scope": {
+    "applies_to": "the current one-component nonrelativistic M9 NLS carrier",
+    "does_not_claim": [
+      "that every complex scalar field theory lacks a signed Noether charge",
+      "that scalar fields cannot carry orbital angular momentum",
+      "that the proposed Dirac-U1 carrier automatically localizes",
+      "that a replacement carrier is already implemented"
+    ]
+  }
+}
