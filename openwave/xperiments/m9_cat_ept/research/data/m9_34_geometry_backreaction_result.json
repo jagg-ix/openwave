@@ -1,0 +1,21 @@
+{
+  "acceptance": {
+    "constraint_closes": true,
+    "functional_is_nonincreasing": true,
+    "proper_time_probe_is_positive_and_nontrivial": true,
+    "relaxation_reaches_spectral_target": true,
+    "resolution_stabilizes": true,
+    "translation_covariance": true,
+    "weak_field_is_linear_in_coupling": true,
+    "zero_coupling_is_flat": true
+  },
+  "classification": {
+    "does_not_establish": ["Einstein field equations", "a tensor metric or gauge-complete gravity theory", "physical Newton coupling or units", "equivalence principle or gravitational radiation"],
+    "establishes": ["versioned matter-to-geometry source interface", "screened weak-field metric constraint", "energy-monotone metric relaxation", "lapse, conformal-scale, and proper-time probes", "zero-coupling, linearity, translation, and resolution controls"]
+  },
+  "config": {"coupling": 0.35, "lapse_coupling": 0.6, "length": 20.0, "points": 256, "relaxation_time": 16.0, "samples": 81, "screening_mass": 0.8, "source_width": 1.1},
+  "final": {"center_proper_time": 9.44753216905037, "constraint_l2": 1.7165111936763622e-07, "far_proper_time": 10.16409537621467, "lapse_max": 1.016409537621467, "lapse_min": 0.9447532169050371, "metric_l2_to_target": 2.3236737619403404e-07, "metric_max": 0.09471921954203173, "metric_min": -0.027127260246946075, "translation_error": 2.7755575615628914e-17},
+  "passed": true,
+  "resolution": {"center_metric": [0.0947195498731514, 0.0947195498731514, 0.0947195498731514, 0.09471954987315137], "constraint_l2": [1.9366328053438468e-16, 1.9232416231299494e-15, 5.524214588942712e-15, 2.179076383385225e-14], "points": [64,128,256,512], "successive_differences": [0.0,0.0,2.7755575615628914e-17]},
+  "schema": "openwave.m9.geometry-backreaction-result.v1", "source": {"contrast_mean": 8.673617379884035e-19, "integral": 1.0}, "task": "M9.34"
+}
