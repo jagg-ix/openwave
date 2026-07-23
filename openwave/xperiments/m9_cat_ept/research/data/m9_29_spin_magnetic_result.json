@@ -1,0 +1,28 @@
+{
+  "schema": "openwave.m9.spin-magnetic-result.v1",
+  "task": "M9.29",
+  "observables": {
+    "norm": 1.0,
+    "spin_z": 0.5,
+    "magnetic_moment_z": 0.49999996834888877,
+    "orbital_z": 0.0,
+    "total_j_z": 0.5,
+    "expected_pauli_moment": 0.5
+  },
+  "spin_down_observables": {
+    "norm": 1.0,
+    "spin_z": -0.5,
+    "magnetic_moment_z": -0.49999996834888877,
+    "orbital_z": 0.0,
+    "total_j_z": -0.5,
+    "expected_pauli_moment": -0.5
+  },
+  "double_cover": {
+    "two_pi_to_minus_state_error": 1.2246467991473485e-16,
+    "four_pi_return_error": 2.449293598294697e-16,
+    "two_pi_bilinear_spin_error": 0.0
+  },
+  "field_observable_control": true,
+  "fermionic_exchange_statistics_established": false,
+  "passed": true
+}
