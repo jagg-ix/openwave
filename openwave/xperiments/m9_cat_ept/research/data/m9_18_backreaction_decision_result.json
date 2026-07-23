@@ -1,0 +1,49 @@
+{
+  "schema": "openwave.m9.backreaction-decision-result.v1",
+  "task": "M9.18",
+  "component_tasks": ["M9.15", "M9.16", "M9.17"],
+  "signatures": {
+    "imaginary_action": {
+      "matter_trace": 0.18268352539059196,
+      "normalized_purity": 1.0,
+      "operational_tau": 0.8499999963383198
+    },
+    "lindblad_dephasing": {
+      "matter_trace": 1.0,
+      "trace_error": 2.220446049250313e-16,
+      "normalized_purity": 0.5564764542234188,
+      "coherence_l1": 0.15150217307628738,
+      "operational_tau": 0.9199999853310463
+    },
+    "explicit_reservoir": {
+      "matter_trace": 0.4050779330998114,
+      "reservoir_transfer": 0.5949220671512564,
+      "extended_trace": 1.0000000002510678,
+      "extended_trace_error": 2.510678331901772e-10,
+      "operational_tau": 0.45183790149021746
+    }
+  },
+  "discrimination": {
+    "amplitude_vs_lindblad_trace_margin": 0.817316474609408,
+    "amplitude_vs_lindblad_purity_margin": 0.44352354577658115,
+    "reservoir_transfer_margin": 0.5949220671512564,
+    "amplitude_vs_reservoir_tau_difference": 0.39816209484810233,
+    "lindblad_vs_reservoir_tau_difference": 0.46816208384082886,
+    "amplitude_vs_lindblad_tau_difference": 0.06999998899272653
+  },
+  "unique_backreaction_selected": false,
+  "physical_time_identified": false,
+  "decision": "The selected imaginary-action, Lindblad, and explicit-reservoir interfaces are operationally distinguishable. Monotonicity alone does not select one mechanism or identify physical time.",
+  "acceptance": {
+    "all_component_studies_pass": true,
+    "amplitude_loss_has_trace_signature": true,
+    "dephasing_has_purity_signature": true,
+    "reservoir_transfer_is_explicit": true,
+    "operational_clocks_are_not_numerically_identical": true,
+    "zero_coupling_limits_close": true,
+    "falsification_table_complete": true,
+    "no_unique_backreaction_promoted": true,
+    "no_physical_time_identity_promoted": true
+  },
+  "passed": true
+}

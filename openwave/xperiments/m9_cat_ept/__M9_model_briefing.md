@@ -1,15 +1,20 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 now contains representation controls, coupled three-dimensional transport, and
-an explicit three-dimensional nonlinear localization decision.
+M9 now contains closed real-Hamiltonian controls, bounded field transport and
+localization decisions, a selected imaginary-action amplitude-loss control, a
+trace-preserving Lindblad information-loss control, a spatial reservoir ledger,
+and an explicit comparison decision.
 
-## M9.14 decision
+## Current decision
 
-`lambda=8` is the strongest finite-time member and survives the fixed perturbation,
-but at the long horizon its RMS radius grows by 25.3% and its peak falls to 76.6%.
-No stable three-dimensional particle candidate is accepted.
+- amplitude loss decreases accessible norm while normalized purity remains one;
+- dephasing preserves trace while purity/coherence decrease;
+- explicit reservoir transfer decreases matter norm while extended probability closes.
+
+No unique back-reaction or physical-time identity is accepted.
 
 ## Boundary
 
-No orbital/asymptotic stability, physical calibration, fermionic quantization, or
-unique CAT/EPT coupling derivation is established.
+No microscopic rate, reservoir, physical calibration, particle identity, or
+experimental agreement is established. M9.19 must define calibrated observables
+and discriminants before physical interpretation is promoted.

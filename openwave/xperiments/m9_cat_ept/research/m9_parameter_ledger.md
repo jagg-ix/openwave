@@ -1,13 +1,11 @@
 # M9 input, calibration, and prediction ledger
 
-## M9.12--M9.14 selected inputs
+| Task | Inputs | Classification |
+| --- | --- | --- |
+| M9.15 | `omega=1.3`, mixing `0.35`, `gamma=0.17` | selected non-Hermitian control |
+| M9.16 | `omega=1.1`, dephasing `gamma=0.23` | selected Lindblad control |
+| M9.17 | `m=1`, `kappa=0.12`, charge label `0.3` | selected spatial sink/reservoir |
+| M9.18 | fixed endpoint-signature comparison | decision procedure |
 
-The 3D transport uses `m=1`, `q=0.15`, width `1.8`, offsets `(4,1.5,0.75)`,
-selected momenta, centered differences, RK4, and a conductivity absorber.
-
-M9.14 adds the bounded family `lambda={0,2,4,8}`, a `16^3,t=3` survey, a
-`20^3,t=3` fixed perturbation, and a `20^3,t=5` long-horizon gate. `lambda=8` is
-selected by minimum finite-time RMS spreading; it is not derived from CAT/EPT.
-
-Result: finite-time improvement `0.00340278`, but `accepted_particle_candidate=false`.
-M9 remains a selected multi-parameter research model without physical calibration.
+The rates are not measured, derived from CAT/EPT, or converted to physical units.
+The time horizons differ; their operational clocks are not universal proper times.
