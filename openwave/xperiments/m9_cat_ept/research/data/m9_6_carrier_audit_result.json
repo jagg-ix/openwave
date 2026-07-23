@@ -1,0 +1,42 @@
+{
+  "schema": "openwave.m9.scalar-carrier-audit.v1",
+  "model": "M9-CAT-EPT",
+  "carrier": "single complex scalar field in 1+1 dimensions",
+  "capabilities": {
+    "global_u1_phase_symmetry": true,
+    "local_u1_gauge_symmetry": false,
+    "electric_charge_derivation": false,
+    "intrinsic_spin_half_representation": false,
+    "topological_charge_certificate": false
+  },
+  "representation_checks": {
+    "scalar_2pi": [1.0, 0.0],
+    "scalar_4pi": [1.0, 0.0],
+    "spinor_reference_2pi": [-1.0, 0.0],
+    "spinor_reference_4pi": [1.0, 0.0]
+  },
+  "replacement_routes": [
+    "locally gauge-coupled complex scalar",
+    "Dirac or Weyl spinor with local U(1)",
+    "multi-component topological order parameter"
+  ],
+  "acceptance": {
+    "global_u1_recorded_without_electric_overclaim": true,
+    "local_gauge_gap_explicit": true,
+    "spin_half_gap_explicit": true,
+    "topology_gap_explicit": true,
+    "scalar_representation_is_trivial": true,
+    "spinor_reference_exhibits_double_cover": true,
+    "replacement_routes_named": true
+  },
+  "passed": true,
+  "classification": {
+    "positive_result": "global U(1) norm symmetry is present",
+    "negative_results": [
+      "electric charge is not derived",
+      "spin-1/2 is not represented",
+      "no topological charge certificate is implemented"
+    ],
+    "scope": "current-carrier audit, not a theorem about every scalar extension"
+  }
+}
