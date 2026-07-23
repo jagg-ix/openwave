@@ -1,0 +1,72 @@
+{
+  "schema": "openwave.m9.replacement-carrier-contract.v1",
+  "current_carrier": {
+    "name": "one-component nonrelativistic complex scalar NLS",
+    "complex_components": 1,
+    "local_u1_connection": false,
+    "gauss_law_flux": false,
+    "opposite_charge_sector": false,
+    "spin_representation": "trivial scalar representation",
+    "two_pi_character_real": 1.0,
+    "intrinsic_spin_half": false,
+    "target_contains_zero_and_is_contractible": true,
+    "cat_ept_positive_density": true
+  },
+  "target_carrier": {
+    "name": "four-component Dirac spinor with local U(1) connection",
+    "complex_components": 4,
+    "local_u1_connection": true,
+    "gauss_law_flux": true,
+    "opposite_charge_sector": true,
+    "spin_representation": "Spin(1,3) Dirac representation",
+    "two_pi_character_real": -1.0,
+    "intrinsic_spin_half": true,
+    "target_contains_zero_and_is_contractible": true,
+    "cat_ept_positive_density": true
+  },
+  "requirements": {
+    "signed_electric_charge": [
+      "local U(1) connection A_mu",
+      "covariant derivative D_mu = partial_mu - i q A_mu",
+      "Gauss-law flux observable tied to the source current",
+      "opposite-charge or antiparticle sector"
+    ],
+    "intrinsic_spin_half": [
+      "nontrivial Spin(1,3) or Spin(3) representation",
+      "at least two complex spinor components",
+      "2pi action = -identity and 4pi action = +identity",
+      "spin current distinct from orbital angular momentum"
+    ],
+    "three_dimensional_localization": [
+      "declared 3D energy functional",
+      "Derrick or virial balance",
+      "grid, window, perturbation and radiation ledgers"
+    ],
+    "cat_ept_compatibility": [
+      "positive density psi-dagger psi",
+      "complex phase/action carrier",
+      "conserved or explicitly sourced current",
+      "fixed field-to-probability map for the entropic clock"
+    ]
+  },
+  "staged_path": [
+    {
+      "stage": "M9.6A",
+      "carrier": "Pauli spinor plus local U(1)",
+      "settles": "nonrelativistic spin and gauge coupling",
+      "does_not_settle": "relativistic antiparticles or Dirac branch structure"
+    },
+    {
+      "stage": "M9.6B",
+      "carrier": "Dirac spinor plus local U(1)",
+      "settles": "spinorial 2pi sign and opposite-charge relativistic sectors",
+      "does_not_settle": "3D nonlinear localization"
+    },
+    {
+      "stage": "M9.6C",
+      "carrier": "localized Dirac-gauge nonlinear model",
+      "settles": "candidate charged spin-1/2 particle only after numerical gates",
+      "does_not_settle": "Standard Model identity without calibration and observables"
+    }
+  ]
+}
