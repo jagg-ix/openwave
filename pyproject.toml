@@ -54,6 +54,8 @@ openwave = [
     "README.md",
     "LICENSE",
     "xperiments/m9_cat_ept/formal/*.json",
+    "xperiments/m9_cat_ept/research/data/*.json",
+    "xperiments/m9_cat_ept/research/presets/*.json",
 ]
 
 [tool.black]
