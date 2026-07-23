@@ -92,6 +92,30 @@
         "a stable localized charged particle or full 2D/3D Maxwell-Dirac dynamics",
         "electron identity, calibrated units, or fermionic quantization"
       ]
+    },
+    {
+      "name": "planar-2d-maxwell-dirac",
+      "title": "M9.10 Two-Dimensional Maxwell-Dirac Ledger",
+      "sector": "transported-2d",
+      "task": "M9.10",
+      "ledger": "m9_10_planar_2d_maxwell_dirac_result.json",
+      "runner": "openwave.xperiments.m9_cat_ept.planar_2d_maxwell_dirac:run_planar_2d_study",
+      "metrics": [
+        {"key": "order", "label": "Transported-spinor order", "path": "refinement.observed_order"},
+        {"key": "norm", "label": "Maximum norm drift", "path": "long_run.max_norm_drift"},
+        {"key": "energy", "label": "Corrected-energy drift", "path": "long_run.max_corrected_energy_relative_drift"},
+        {"key": "gauss", "label": "Final Gauss residual", "path": "long_run.final.gauss_residual_relative"},
+        {"key": "magnetic", "label": "Maximum magnetic field", "path": "long_run.final.max_magnetic_field"},
+        {"key": "separation", "label": "Final packet separation", "path": "long_run.final_separation"}
+      ],
+      "establishes": [
+        "two-dimensional Dirac transport with magnetic curl and Gauss monitoring",
+        "non-axis-aligned transport, Poynting flow, and domain-shape robustness"
+      ],
+      "does_not_establish": [
+        "a stable localized charged particle or full three-dimensional dynamics",
+        "electron identity, calibrated units, or fermionic quantization"
+      ]
     }
   ]
 }

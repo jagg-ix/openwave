@@ -29,33 +29,29 @@ gates are repository-specific.
 
 The stationary Maxwell--Dirac literature establishes localized stationary
 configurations as a meaningful mathematical target. OpenWave's `lambda=64`
-radial branch, numerical continuation, split evolution, and finite-time results
-are selected repository-specific constructions rather than reproductions of one
-published profile.
+radial branch and finite-time results are selected repository-specific
+constructions rather than reproductions of one published profile.
 
 ## M9.7c provenance
 
-Standard finite-difference Maxwell literature motivates the discrete transverse
-wave benchmark and energy/Poynting accounting. M9.7c does not implement the Yee
-staggered grid exactly; it uses a repository-specific second-order potential
-formulation with RK4 time integration and a conductivity absorber.
-
-The neutral opposite-charge local spinor pair is a bounded OpenWave interface for
-transverse current and energy exchange. The cited Maxwell--Dirac literature does
-not validate this reduction, its parameters, its numerical results, the CAT/EPT
-interpretation, or a particle identity.
+Finite-difference Maxwell literature motivates the transverse wave benchmark and
+energy/Poynting accounting. M9.7c uses a repository-specific potential formulation,
+RK4 integration, neutral-pair current, and conductivity absorber.
 
 ## M9.9 provenance
 
 M9.9 combines the standard 1+1D Dirac Hamiltonian with a temporal-gauge planar
-Maxwell reduction. The centered derivative, longitudinal-field inversion, RK4
-integration, packet construction, gauge seeds, absorber, scored intervals, and
-acceptance gates are OpenWave-specific numerical choices.
+Maxwell reduction. Its packet construction, parameters, discretization, absorber,
+and gates are OpenWave-specific.
 
-The cited Maxwell--Dirac and finite-difference literature motivates the equation
-class and conservation diagnostics. It does not validate the selected
-opposite-charge packets, the numerical values in the M9.9 ledger, a stable
-localized-particle interpretation, or the CAT/EPT interpretation.
+## M9.10 provenance
+
+M9.10 extends the selected temporal-gauge reduction to two transported spatial
+coordinates using spectral differentiation, RK4 integration, a spectral Poisson
+initial field, and conductivity damping with induced-charge accounting. The cited
+Maxwell--Dirac and numerical-Maxwell literature motivates the equation class and
+conservation diagnostics but does not validate the selected packets, parameters,
+benchmark order, numerical results, CAT/EPT interpretation, or particle identity.
 
 ## Local corpus
 

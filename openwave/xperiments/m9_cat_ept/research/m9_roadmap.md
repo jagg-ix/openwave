@@ -1,120 +1,85 @@
 # M9 CAT/EPT roadmap
 
-M9 is complete through shared instrumentation and a bounded spatially transported
-planar Maxwell--Dirac gate. Presentation remains separate from physical-identity
-claims.
+M9 is complete through bounded two-dimensional transported Maxwell--Dirac
+dynamics. All sectors remain selected dimensionless field models rather than
+physical particle identifications.
 
 | Task | Deliverable | Status / gate |
 | --- | --- | --- |
-| M9.1 | Version-pinned formal contract and conformance suite | DONE |
-| M9.2 | Free complex-field solver and exact Gaussian benchmark | DONE |
-| M9.3 | Fixed probability map and coarse-graining clocks | DONE |
-| M9.4 | Bounded scalar localization decision gate | DONE |
-| M9.5 | Exact scalar scaling and observable ledger | DONE |
-| M9.6 | Scalar charge/spin/topology audit | DONE |
+| M9.1--M9.6 | Formal, scalar, clock, scaling, and carrier audit | DONE |
 | M9.7a | Bounded 1+1D nonlinear Dirac/Soler qualification | DONE |
-| M9.7b1 | 3D spherical density and electrostatic Maxwell constraint | DONE |
-| M9.7b2 | Coupled stationary radial Dirac--electrostatic solve | DONE |
-| M9.7b3 | Time-dependent constrained spherical spinor--gauge evolution | DONE |
-| M9.7c | Bounded transverse Maxwell--spinor qualification | DONE |
+| M9.7b1--M9.7b3 | Spherical electrostatic stationary and dynamic program | DONE |
+| M9.7c | Bounded transverse Maxwell--spinor radiation | DONE |
 | M9.8 | Shared instrumentation, launcher, and renderer | DONE |
-| M9.9 | Spatially transported planar Maxwell--Dirac qualification | DONE; all gates passed |
-| M9.10 | Two-dimensional transported Maxwell--Dirac qualification | NEXT |
+| M9.9 | Spatially transported planar Maxwell--Dirac qualification | DONE |
+| M9.10 | Two-dimensional transported Maxwell--Dirac qualification | DONE; all gates passed |
+| M9.11 | Two-dimensional localization and radiative-stability decision | NEXT |
 
 ## Accumulated program
 
-### Formal, scalar, and information layers
+M9.1--M9.8 establish the pinned CAT/EPT density/information interfaces, validated
+scalar and spinor controls, a spherical stationary spinor branch, constrained
+radial dynamics, bounded transverse radiation, and shared claim-aware
+instrumentation.
 
-M9.1--M9.6 establish the source-pinned CAT/EPT interface, free control,
-coarse-graining information clock, exact neutral scalar family and scaling ledger,
-and the scalar carrier's charge/spin/topology boundary.
+M9.9 adds one-dimensional spatial Dirac transport with longitudinal and transverse
+gauge fields. The opposite-charge packets cross while norm, energy, net charge,
+final Gauss, magnetic, and emitted-energy ledgers remain within their frozen gates.
 
-### Spinor and spherical electrostatic layers
+## M9.10 two-dimensional transport
 
-M9.7a validates an exact localized two-component 1+1D Soler carrier. M9.7b1--b3
-add a spherical electrostatic Maxwell constraint, a normalized stationary radial
-spinor branch, and finite-time constrained dynamics with norm, energy, Gauss,
-window, perturbation, localization, and information ledgers.
-
-### Transverse radiation
-
-M9.7c introduces a bounded transverse mode
+The bounded 2+1D reduction is
 
 ```text
-A_t = -E
-E_t = -A_xx - J - sigma(x) E
-B = A_x
-```
-
-with nonzero Poynting flux, electric/magnetic energy, neutral spinor-current
-back-reaction, absorber accounting, and refinement/window robustness.
-
-### Instrumentation
-
-M9.8 provides a shared preset registry, deterministic ledger/runner links, common
-metric and claim-boundary panels, headless JSON/PNG export, an interactive
-Matplotlib dashboard, and OpenWave launcher discovery. M9.9 adds a fourth
-`transported-maxwell-dirac` preset.
-
-### Transported planar Maxwell--Dirac gate
-
-M9.9 evolves two opposite-charge spatial Dirac packets:
-
-```text
-i psi_s,t = [sigma_x(-i d_x - s q A_x)
-             + m sigma_z - s q A_y sigma_y] psi_s
+i psi_s,t = [sigma_x(-i d_x-s q A_x)
+             + sigma_y(-i d_y-s q A_y)
+             + m sigma_z] psi_s
 s in {+1,-1}
-```
 
-with
-
-```text
 A_x,t = -E_x
-E_x,t = -J_x
 A_y,t = -E_y
-E_y,t = -A_y,xx - J_y - sigma(x) E_y.
+E_x,t = d_y B_z - J_x - sigma E_x
+E_y,t = -d_x B_z - J_y - sigma E_y
+B_z = d_x A_y - d_y A_x.
 ```
 
-Frozen inputs are
+The absorber-induced charge obeys `rho_abs,t=-div(sigma E)`, allowing the Gauss
+ledger to include matter plus absorber charge without a projection step.
+
+Frozen inputs:
 
 ```text
 m = 1
-q = 0.25
-packet centers = -8, +8
-packet momenta = +0.9, -0.9
-packet width = 2.5
-transverse seed amplitude = 0.008.
+q = 0.20
+packet width = 2.2
+centers = (-5,-2), (5,2)
+momenta = (0.95,0.35), (-0.95,-0.2275)
+gauge seed amplitude = 0.006.
 ```
 
-Results:
+Scored results:
 
 ```text
-transported-spinor order = 1.89918
-long-run max norm drift = 6.02e-10
-long-run corrected-energy drift = 1.073e-6
-final Gauss residual = 2.754e-4 absolute, 0.02264 relative
-max net charge = 1.04e-16
-initial packet separation = 16
-final packet separation = -2.21328
-emitted energy = 2.84143e-5
-max transverse field = 0.0100947.
+transported-spinor order = 8.18686
+long-run norm drift = 5.73621e-9
+corrected-energy drift = 6.53843e-9
+final Gauss residual = 1.49202e-8 absolute, 1.71900e-5 relative
+max net charge = 5.51630e-11
+packet separation = 10.77033 -> 1.03495
+transport angle = 0.38051 -> 1.34895
+emitted energy = 1.12278e-5
+absorbed energy = 4.42916e-5
+max magnetic field = 0.00770611.
 ```
 
-The packets cross. This establishes spatial transport and bounded gauge
-back-reaction; it is not a stable localized-particle result.
+The domain-shape study gives relative spreads `2.49e-5` for final separation and
+`0.03147` for emitted energy.
 
-## Next gate: M9.10
+The high smooth-benchmark order is not claimed as universal accuracy. M9.10
+establishes bounded 2D transport, not stable localization or particle identity.
 
-M9.10 must lift the transported reduction to two spatial dimensions and include:
+## Next gate: M9.11
 
-1. two-dimensional Dirac transport;
-2. both longitudinal and transverse gauge components;
-3. two-dimensional charge continuity and Gauss closure;
-4. magnetic curl and non-axis-aligned Poynting transport;
-5. norm, energy, absorber, and emitted-energy balance;
-6. refinement and domain-shape convergence;
-7. localized packet collision or dispersal classification;
-8. explicit CAT/EPT density and information projections.
-
-M9.10 remains a bounded classical field-model target. Physical units, fermionic
-quantization, Standard Model identity, and experimental calibration remain open.
+M9.11 must run a bounded two-dimensional nonlinear-coupling survey and decide
+whether any member remains localized under fixed perturbation and a longer
+radiative horizon. It must return an explicit negative if no member survives.
