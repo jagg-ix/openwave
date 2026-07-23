@@ -20,31 +20,36 @@
 
 ## M9.7a provenance
 
-The implemented 1+1D equation, two-component representation, stationary ansatz,
-and explicit cubic solitary-wave family follow the nonlinear Dirac/Soler and
-massive Gross--Neveu literature represented above. OpenWave's convergence,
-perturbation, gauge-interface, and entropic-clock gates are repository-specific
-and are not claims made by those papers.
+The implemented 1+1D equation, representation, stationary ansatz, and explicit
+cubic solitary-wave family follow the nonlinear Dirac/Soler and massive
+Gross--Neveu literature. OpenWave's convergence, perturbation, gauge-interface,
+and entropic-clock gates are repository-specific.
 
 ## M9.7b1 provenance
 
 Higher-dimensional nonlinear Dirac solitary waves and Maxwell--Dirac localized
-states motivate the staged three-dimensional program. M9.7b1 does not reproduce a
-published Maxwell--Dirac soliton. It validates a regular spherical source ansatz
-and its electrostatic Maxwell constraint only.
+states motivate the staged three-dimensional program. M9.7b1 validates a regular
+spherical source ansatz and its electrostatic Maxwell constraint only.
 
 ## M9.7b2 provenance
 
 The stationary Maxwell--Dirac literature establishes that regular localized
-stationary configurations are a mathematically meaningful target. M9.7b2 does not
-claim to reproduce a specific published profile or variational construction. It
-solves OpenWave's selected spherical Soler--electrostatic boundary-value problem
-with `lambda=64`, unit norm, and dimensionless charge normalization, then applies
-repository-specific residual, energy, convergence, window, signed-sector, and
-information-ledger gates.
+stationary configurations are a meaningful target. M9.7b2 solves OpenWave's
+selected spherical Soler--electrostatic boundary-value problem with `lambda=64`,
+unit norm, and dimensionless charge normalization. It does not claim to reproduce
+a specific published profile or variational construction.
 
-The cited existence and decay results do not validate OpenWave's selected
-coupling, numerical branch, CAT/EPT interpretation, or particle identity.
+## M9.7b3 provenance
+
+M9.7b3 evolves the selected M9.7b2 branch with a repository-specific weighted
+radial split method. The longitudinal electrostatic field is constrained by
+Gauss/Poisson projection at every local substep. The cited stationary literature
+does not validate this discretization, perturbation, finite-time stability result,
+CAT/EPT interpretation, or particle identity.
+
+Spherical electrostatics has no transverse magnetic mode. The recorded zero
+Poynting flux follows from the selected symmetry reduction and is not a claim
+about general Maxwell--Dirac radiation.
 
 ## Local corpus
 
