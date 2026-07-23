@@ -1,0 +1,12 @@
+{
+  "task": "M9.41",
+  "passed": true,
+  "maximum_mu_left_population": 0.5152927515277135,
+  "maximum_balance_error": 8.881784197001252e-16,
+  "final_matter": 0.019063114291613364,
+  "final_reservoir": 0.980936885708386,
+  "right_control_final_matter": 1.0,
+  "right_control_final_reservoir": 0.0,
+  "all_acceptance_gates": true,
+  "physical_electroweak_theory_established": false
+}
