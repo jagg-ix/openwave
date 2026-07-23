@@ -16,42 +16,36 @@
 | C. Radford | 2001 | The Stationary Maxwell-Dirac Equations | arXiv:math-ph/0112037 |
 | A. G. Lisi | 1994/1995 | A Solution of the Maxwell-Dirac Equations in 3+1 Dimensions | arXiv:hep-th/9410244; Journal of Physics A 28, 5385 |
 | P. d'Avenia, G. Siciliano | 2021 | A normalized solitary wave solution of the Maxwell-Dirac equations | Annales de l'Institut Henri Poincare C 38, 1681; DOI 10.1016/j.anihpc.2020.12.006 |
+| K. S. Yee | 1966 | Numerical solution of initial boundary value problems involving Maxwell's equations in isotropic media | IEEE Transactions on Antennas and Propagation 14, 302--307 |
 | Jorge A. Garcia | 2026 | Entropic Physlib formal development | `jagg-ix/entropic-physlib-private`, pinned commit in `../formal/entropic_spine_contract.json` |
 
 ## M9.7a provenance
 
-The implemented 1+1D equation, representation, stationary ansatz, and explicit
-cubic solitary-wave family follow the nonlinear Dirac/Soler and massive
-Gross--Neveu literature. OpenWave's convergence, perturbation, gauge-interface,
-and entropic-clock gates are repository-specific.
+The 1+1D spinor model follows the nonlinear Dirac/Soler and massive Gross--Neveu
+literature. OpenWave's convergence, perturbation, gauge-interface, and information
+gates are repository-specific.
 
-## M9.7b1 provenance
+## M9.7b provenance
 
-Higher-dimensional nonlinear Dirac solitary waves and Maxwell--Dirac localized
-states motivate the staged three-dimensional program. M9.7b1 validates a regular
-spherical source ansatz and its electrostatic Maxwell constraint only.
+The stationary Maxwell--Dirac literature establishes localized stationary
+configurations as a meaningful mathematical target. OpenWave's `lambda=64`
+radial branch, numerical continuation, split evolution, and finite-time results
+are selected repository-specific constructions rather than reproductions of one
+published profile.
 
-## M9.7b2 provenance
+## M9.7c provenance
 
-The stationary Maxwell--Dirac literature establishes that regular localized
-stationary configurations are a meaningful target. M9.7b2 solves OpenWave's
-selected spherical Soler--electrostatic boundary-value problem with `lambda=64`,
-unit norm, and dimensionless charge normalization. It does not claim to reproduce
-a specific published profile or variational construction.
+Standard finite-difference Maxwell literature motivates the discrete transverse
+wave benchmark and energy/Poynting accounting. M9.7c does not implement the Yee
+staggered grid exactly; it uses a repository-specific second-order potential
+formulation with RK4 time integration and a conductivity absorber.
 
-## M9.7b3 provenance
-
-M9.7b3 evolves the selected M9.7b2 branch with a repository-specific weighted
-radial split method. The longitudinal electrostatic field is constrained by
-Gauss/Poisson projection at every local substep. The cited stationary literature
-does not validate this discretization, perturbation, finite-time stability result,
-CAT/EPT interpretation, or particle identity.
-
-Spherical electrostatics has no transverse magnetic mode. The recorded zero
-Poynting flux follows from the selected symmetry reduction and is not a claim
-about general Maxwell--Dirac radiation.
+The neutral opposite-charge local spinor pair is a bounded OpenWave interface for
+transverse current and energy exchange. The cited Maxwell--Dirac literature does
+not validate this reduction, its parameters, its numerical results, the CAT/EPT
+interpretation, or a particle identity.
 
 ## Local corpus
 
-No third-party source files are tracked. The M9 tasks require only the citation
-ledger and the executable equations committed in this repository.
+No third-party source files are tracked. The M9 tasks require only this citation
+ledger and the executable equations committed in the repository.
