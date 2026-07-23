@@ -1,0 +1,71 @@
+{
+  "acceptance": {
+    "contour_independent": true,
+    "contour_zero_rejection_is_explicit": true,
+    "global_phase_invariant": true,
+    "integer_sectors_recovered": true,
+    "multi_vortex_additivity": true,
+    "no_spontaneous_sector_selection_promoted": true,
+    "resolution_robust": true,
+    "smooth_perturbation_preserves_sector": true
+  },
+  "additivity": {
+    "integer_additivity_error": 0,
+    "left_integer": 1,
+    "right_integer": -2,
+    "total_integer": -1
+  },
+  "classification": {
+    "does_not_establish": [
+      "spontaneous creation or selection of the winding sector",
+      "identification of winding with elementary electric charge",
+      "a stable three-dimensional charged particle",
+      "a dynamical gauge coupling or Coulomb force law"
+    ],
+    "establishes": [
+      "an integer field-derived topological observable",
+      "global-phase, contour, resolution, and smooth-perturbation robustness",
+      "local and total additivity for separated vortices"
+    ]
+  },
+  "contours": {
+    "integer_windings": [2,2,2,2],
+    "maximum_quantization_error": 4.440892098500626e-16
+  },
+  "field_derived_integer_charge": true,
+  "global_phase_error": 0.0,
+  "grid": {
+    "contour_radius": 4.0,
+    "contour_samples": 2048,
+    "core_radius": 1.0,
+    "half_width": 8.0,
+    "minimum_contour_amplitude": 0.1,
+    "points": 257
+  },
+  "identified_with_electric_charge": false,
+  "observable": "closed-contour complex-field winding",
+  "passed": true,
+  "perturbation": {
+    "base": {
+      "integer_winding": -1,
+      "minimum_contour_amplitude": 0.9992977940683453,
+      "quantization_error": 2.220446049250313e-16,
+      "raw_winding": -1.0000000000000002
+    },
+    "integer_preserved": true,
+    "perturbed": {
+      "integer_winding": -1,
+      "minimum_contour_amplitude": 1.006550695062368,
+      "quantization_error": 2.220446049250313e-16,
+      "raw_winding": -1.0000000000000002
+    }
+  },
+  "resolution": {
+    "maximum_quantization_error": 2.220446049250313e-16,
+    "point_counts": [65,129,257],
+    "windings": [-2,-1,0,1,2]
+  },
+  "schema": "openwave.m9.topological-charge-result.v1",
+  "spontaneous_sector_selection": false,
+  "task": "M9.26"
+}
