@@ -1,23 +1,23 @@
 # M9 CAT/EPT roadmap
 
-M9 is complete through the two-dimensional negative localization decision and now
-contains a separately bounded three-dimensional research program.
-
 | Task | Deliverable | Status / gate |
 | --- | --- | --- |
-| M9.1--M9.11 | Formal, lower-dimensional, radiation, transport, instrumentation, and 2D decision program | DONE |
-| M9.12 | 3D Dirac representation plus free/vacuum controls | DONE |
-| M9.13 | Coupled 3D Maxwell--Dirac transport | NEXT |
-| M9.14 | 3D localization/radiative-stability decision | Gated on M9.13 |
+| M9.1--M9.11 | Lower-dimensional and 2D program | DONE |
+| M9.12 | 3D Dirac representation plus controls | DONE |
+| M9.13 | Coupled 3D Maxwell--Dirac transport | DONE |
+| M9.14 | 3D localization/radiative-stability decision | NEXT |
 
-## M9.12 result
+## M9.13 result
 
 ```text
-free-time orders = 3.99985, 3.99996
-coarse free norm drift = 2.56698e-7
-vacuum A relative L2 = 0.00301029
-vacuum E relative L2 = 0.00485267
-vacuum energy drift = 5.75908e-14.
+coupled spinor order = 1.25573
+norm drift = 4.56475e-8
+corrected-energy drift = 4.79127e-8
+final Gauss defect = 3.57316e-4 absolute, 0.190060 relative
+separation = 8.67468 -> 7.63604
+direction change = 0.0314262 rad
+emitted energy = 8.30750e-9
+max magnetic field = 8.18027e-4.
 ```
 
-All representation and control gates pass. Coupled 3D back-reaction remains open.
+All bounded transport gates pass. The coarse relative Gauss defect remains explicit.

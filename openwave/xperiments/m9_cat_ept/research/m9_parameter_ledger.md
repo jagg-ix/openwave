@@ -1,12 +1,15 @@
 # M9 input, calibration, and prediction ledger
 
-## M9.12 selected inputs
+## M9.12--M9.13 selected inputs
 
 | Choice | Value | Classification |
 | --- | --- | --- |
-| Dirac representation | Standard four-component alpha/beta matrices | Representation choice |
-| Free control | `20^3`, `t=0.8`, `dt/dx={0.08,0.04,0.02}` | Numerical control |
-| Vacuum control | `48x12x12`, `t=1.1` | Maxwell control |
-| Threshold selection | Coarse norm budget fixed after exploratory run | Not blind preregistration |
+| Mass and charge | `m=1`, `q=0.15` | Dimensionless inputs |
+| Packet width | `1.8` | Frozen localization input |
+| Offsets | `(4,1.5,0.75)` | Frozen 3D collision |
+| Momenta | `(0.8,0.25,0.15)` plus asymmetric opposite packet | Frozen transport |
+| Gauge seed | amplitude `0.004`, width `3.5` | Magnetic perturbation |
+| Numerics | centered differences, RK4, conductivity absorber | Numerical/boundary choice |
+| Scored grids | refinement `10^3,20^3,40^3`; long `20^3` | Runtime-bounded qualification |
 
-M9.12 adds no physical calibration or particle prediction.
+The relative Gauss threshold and reduced grids were fixed after exploratory runs. No physical charge or particle identity is inferred.
