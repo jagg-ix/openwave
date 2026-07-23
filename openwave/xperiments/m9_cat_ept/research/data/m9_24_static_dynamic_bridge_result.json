@@ -1,0 +1,9 @@
+{
+  "acceptance": {"boundary_conditions_shared": true, "dynamic_energy_nonincreasing": true, "perturbation_relaxes": true, "reference_not_promoted_to_cat_ept_particle": true, "same_parameter_fingerprint": true, "static_dynamic_equations_share_potential": true, "static_euler_lagrange_residual_converges": true, "topological_sector_preserved": true},
+  "dynamic": {"final_energy": 0.9429908556921953, "final_l2_to_static": 0.14057275114279744, "initial_energy": 0.9461004916040525, "initial_l2_to_static": 0.150623402204275, "topological_charge": 1.0},
+  "passed": true,
+  "resolution": {"orders": [1.9844236756654887, 1.9960892627389437], "points": [201, 401, 801]},
+  "schema": "openwave.m9.static-dynamic-bridge-result.v1",
+  "static": {"topological_charge": 0.9999999147224789},
+  "task": "M9.24"
+}
