@@ -1,0 +1,9 @@
+{
+  "acceptance": {"backreaction_is_executable": true, "balance_closes": true, "constraint_closes": true, "entropy_monotone": true, "matter_contracts": true, "rk4_converges": true, "sectors_explicit": true, "zero_loss_reduces_to_unitary": true},
+  "final": {"constraint_residual": 1.9618973112756066e-11, "entropic_clock": 0.3724424336793484, "geometry_energy": 0.002606170635501314, "geometry_p": -0.017508658161032045, "geometry_q": 0.10005904542943891, "matter_norm": 0.47478896052471087, "reservoir": 0.525211039494908, "sigma_z": 0.1484324005306061, "total_balance": 1.000000000019619},
+  "passed": true,
+  "reductions": {"full_geometry_change": 0.04994095457056108, "zero_backreaction_geometry_change": 0.29133335109743747, "zero_loss_entropy": 0.0, "zero_loss_norm_drift": 4.1522341120980855e-14, "zero_loss_reservoir": 0.0},
+  "refinement": {"dts": [0.08, 0.04, 0.02, 0.01], "orders": [3.969459616716179, 4.031383401986454]},
+  "schema": "openwave.m9.canonical-dynamics-result.v1",
+  "task": "M9.23"
+}
