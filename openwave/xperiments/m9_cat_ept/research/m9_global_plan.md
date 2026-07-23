@@ -22,10 +22,10 @@ These targets do not establish full-PDE particles, physical atoms, mesons, or ba
 
 | Target | Deliverable | State |
 | --- | --- | --- |
-| M9.34 | Geometry/metric back-reaction plugin | NEXT |
-| M9.35 | Multi-domain coupling graph and dependency scheduler | PLANNED |
-| M9.36 | Adaptive refinement and propagated error budgets | PLANNED |
-| M9.37 | Three-dimensional minimizer/BVP and continuation | PLANNED |
+| M9.34 | Geometry/metric back-reaction plugin | COMPLETE; WEAK-FIELD CONTROL |
+| M9.35 | Multi-domain coupling graph and dependency scheduler | COMPLETE |
+| M9.36 | Adaptive refinement and propagated error budgets | COMPLETE |
+| M9.37 | Three-dimensional minimizer/BVP and continuation | NEXT |
 | M9.38 | GPU manifest adapter | PLANNED |
 
 ## Phase E — spectrum and force sectors

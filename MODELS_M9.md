@@ -8,9 +8,9 @@ The canonical source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
 | Status | Count |
 | --- | ---: |
 | ✅ validated in-platform | 0 |
-| ⚠️ partial / with caveats | 12 |
+| ⚠️ partial / with caveats | 13 |
 | ❌ honest negative | 1 |
-| 🚧 planned / not yet | 7 |
+| 🚧 planned / not yet | 6 |
 | **Explicit criteria** | **20** |
 
 `MODELS.md` reports 21 criteria while the visible matrix contains 20 rows. The
@@ -41,7 +41,7 @@ missing explicit target remains **heat / thermal sector**.
 | Magnetic force | ⚠️ Regularized r^-4 dipole kernel; particle interaction open |
 | Strong force | 🚧 Not yet |
 | Weak force | 🚧 Not yet |
-| Gravity | 🚧 Metric back-reaction pending |
+| Gravity | ⚠️ Screened weak-field metric/lapse control; Einstein and tensor gravity open |
 
 ## Waves and quantum emergence
 
@@ -53,5 +53,5 @@ missing explicit target remains **heat / thermal sector**.
 
 Partial status records bounded simulation evidence, not a completed physical
 derivation. No stable 3D particle, physical mass, elementary-charge identity,
-exchange result, full-PDE annihilation, physical hadron, unique back-reaction,
-or physical-time identity is accepted.
+exchange result, full-PDE annihilation, physical hadron, Einstein-gravity result,
+unique back-reaction, or physical-time identity is accepted.
