@@ -1,0 +1,44 @@
+{
+  "acceptance": {
+    "density_is_stationary": true,
+    "domain_is_stable": true,
+    "four_discrete_bound_modes": true,
+    "hydrogenic_ladder_recovered": true,
+    "modes_are_orthonormal": true,
+    "node_ladder_is_integer": true,
+    "quantization_is_boundary_eigenmode_selection": true,
+    "resolution_converges": true
+  },
+  "analytic_energies": [-0.5, -0.125, -0.05555555555555555, -0.03125],
+  "energies": [-0.49968827930203796, -0.12498049922716864, -0.05555170288332541, -0.03124877969635962],
+  "relative_errors": [0.0006234413959240737, 0.00015600618265088073, 6.934810014261328e-05, 3.9049716492156605e-05],
+  "node_counts": [0, 1, 2, 3],
+  "maximum_density_stationarity_error": 2.220446049250313e-16,
+  "maximum_orthogonality_error": 4.440892098500626e-16,
+  "domain": {
+    "maximum_spread": 1.318879848263843e-06,
+    "radii": [40.0, 60.0, 80.0]
+  },
+  "resolution": {
+    "errors": [0.0021999361250592975, 0.0005545293835222, 0.00013897765314355065],
+    "orders": [1.988125822481688, 1.9964109842254472],
+    "points": [600, 1200, 2400]
+  },
+  "classification": {
+    "establishes": [
+      "discrete normalizable radial standing-wave modes",
+      "hydrogenic dimensionless energy ladder",
+      "integer node ordering and orthogonality",
+      "resolution and domain convergence"
+    ],
+    "does_not_establish": [
+      "orbital quantization from the full CAT/EPT PDE",
+      "an emergent electron or nucleus",
+      "radiative transitions or selection rules",
+      "physical atomic units"
+    ]
+  },
+  "passed": true,
+  "schema": "openwave.m9.orbital-quantization-result.v1",
+  "task": "M9.32"
+}
