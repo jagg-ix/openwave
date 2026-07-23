@@ -1,0 +1,64 @@
+{
+  "acceptance": {
+    "dirac_clifford_closes": true,
+    "free_norm_conserved": true,
+    "free_time_fourth_order": true,
+    "vacuum_electric_field_accurate": true,
+    "vacuum_energy_conserved": true,
+    "vacuum_vector_potential_accurate": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "coupled three-dimensional Maxwell-Dirac transport",
+      "a localized charged particle or physical calibration"
+    ],
+    "establishes": [
+      "a four-component Dirac representation in three transported dimensions",
+      "an exact-discrete free-spinor control for the RK4 evolution",
+      "a propagating three-dimensional vacuum Maxwell control",
+      "bounded norm and field-energy control ledgers"
+    ]
+  },
+  "clifford": {
+    "alpha_beta_anticommutator": 0.0,
+    "alpha_pair_anticommutator": 0.0,
+    "alpha_square": 0.0,
+    "beta_square": 0.0
+  },
+  "free_time_refinement": {
+    "observed_orders": [
+      3.9998456110813265,
+      3.9999614121207228
+    ],
+    "records": [
+      {
+        "dt": 0.08,
+        "dt_over_spacing": 0.08,
+        "max_norm_drift": 2.566979047102791e-07,
+        "spinor_relative_l2": 1.5439856072617064e-06
+      },
+      {
+        "dt": 0.04,
+        "dt_over_spacing": 0.04,
+        "max_norm_drift": 8.031879605852055e-09,
+        "spinor_relative_l2": 9.650942778468422e-08
+      },
+      {
+        "dt": 0.02,
+        "dt_over_spacing": 0.02,
+        "max_norm_drift": 2.5107493861753483e-10,
+        "spinor_relative_l2": 6.0320005727853385e-09
+      }
+    ]
+  },
+  "passed": true,
+  "schema": "openwave.m9.spatial-3d-controls-result.v1",
+  "task": "M9.12",
+  "vacuum_maxwell": {
+    "a_relative_l2": 0.0030102936863904226,
+    "dt": 0.005213270142180095,
+    "e_relative_l2": 0.004852665560692203,
+    "field_energy_relative_drift": 5.759077351950516e-14,
+    "steps": 211
+  }
+}
