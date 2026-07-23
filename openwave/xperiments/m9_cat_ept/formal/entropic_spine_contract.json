@@ -1,0 +1,101 @@
+{
+  "schema": "openwave.formal-contract.v1",
+  "model": "M9-CAT-EPT",
+  "formal_source": {
+    "repository": "jagg-ix/entropic-physlib-private",
+    "branch": "entropic-physlib-linear-full",
+    "commit": "f6e2b37571086e5ef6de40f77439a5eab468f71f",
+    "lean_version": "4.29.1",
+    "visibility_at_export": "private",
+    "export_date": "2026-07-22"
+  },
+  "scope": {
+    "establishes": "A version-pinned equation-to-code mapping and deterministic numerical conformance checks.",
+    "does_not_establish": [
+      "existence of a localized particle",
+      "stability of a particle under real-time evolution",
+      "electric charge quantization",
+      "spin or fermionic statistics",
+      "a local imaginary potential or non-unitary equation of motion",
+      "a particle mass prediction"
+    ]
+  },
+  "numerics": {
+    "default_absolute_tolerance": 1e-12,
+    "precision": "IEEE-754 binary64"
+  },
+  "claims": [
+    {
+      "id": "born-rule",
+      "kind": "exact algebraic theorem",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.EntropicDynamicsWaveFunctionReconstruction.edWaveFunction_modulus_sq",
+      "formula": "norm(sqrt(rho) * exp(i * Phi))^2 = rho",
+      "hypotheses": ["rho >= 0"],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.ed_wave_function",
+      "openwave_status": "mapped_not_reproved"
+    },
+    {
+      "id": "zitterbewegung-rest-clock",
+      "kind": "exact algebraic theorem",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.ComptonClock.FrequencyTrinity.zitterbewegung_rest_eq_two_compton",
+      "formula": "omega_Z(0) = 2 * omega_C",
+      "hypotheses": ["mass >= 0", "hbar != 0"],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.zitterbewegung_frequency",
+      "openwave_status": "mapped_not_reproved"
+    },
+    {
+      "id": "compton-clock-length",
+      "kind": "exact algebraic theorem",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.ComptonClock.FrequencyTrinity.comptonWavelength_mul_comptonFrequency",
+      "formula": "lambda_C * omega_C = c",
+      "hypotheses": ["mass != 0", "c != 0", "hbar != 0"],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.compton_wavelength",
+      "openwave_status": "mapped_not_reproved"
+    },
+    {
+      "id": "entropic-time-imaginary-action",
+      "kind": "exact algebraic theorem",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.TotalCorrelationEntropicClock.entropicClock_eq_imaginaryAction_div",
+      "formula": "tau_ent = S_I / hbar",
+      "hypotheses": ["hbar != 0"],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.imaginary_action",
+      "openwave_status": "mapped_not_reproved"
+    },
+    {
+      "id": "complex-action-weight-modulus",
+      "kind": "exact bridge theorem",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.TotalCorrelationEntropicClock.correlationComplexWeight_norm",
+      "formula": "norm(W) = exp(-tau_ent)",
+      "hypotheses": ["hbar != 0"],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.correlation_weight_norm",
+      "openwave_status": "mapped_not_reproved"
+    },
+    {
+      "id": "total-correlation-nonnegative",
+      "kind": "conditional theorem",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.TotalCorrelationEntropicClock.totalCorrelation_nonneg",
+      "formula": "D_KL(p_XY || p_X p_Y) >= 0",
+      "hypotheses": ["strictly positive normalized finite joint distribution"],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.total_correlation",
+      "openwave_status": "mapped_not_reproved"
+    },
+    {
+      "id": "independent-clock-zero",
+      "kind": "conditional theorem",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.TotalCorrelationEntropicClock.entropicClock_eq_zero_iff_independent",
+      "formula": "tau_ent = 0 iff p_XY = p_X p_Y, for gamma != 0",
+      "hypotheses": ["gamma != 0", "strictly positive normalized finite joint distribution"],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.total_correlation",
+      "openwave_status": "mapped_not_reproved"
+    },
+    {
+      "id": "quantum-potential-coupling",
+      "kind": "definition with exact coefficient identity",
+      "theorem": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.EntropicDynamicsEvolutionSchrodingerEhrenfest.kinetic_eq_four_coupling",
+      "formula": "lambda_Q = hbar^2 / 8",
+      "hypotheses": [],
+      "python_symbol": "openwave.xperiments.m9_cat_ept.formal_contract.quantum_coupling",
+      "openwave_status": "mapped_not_reproved"
+    }
+  ]
+}
