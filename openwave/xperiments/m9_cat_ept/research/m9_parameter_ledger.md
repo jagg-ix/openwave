@@ -1,12 +1,13 @@
 # M9 input, calibration, and prediction ledger
 
-## M9.12 selected inputs
+## M9.12--M9.14 selected inputs
 
-| Choice | Value | Classification |
-| --- | --- | --- |
-| Dirac representation | Standard four-component alpha/beta matrices | Representation choice |
-| Free control | `20^3`, `t=0.8`, `dt/dx={0.08,0.04,0.02}` | Numerical control |
-| Vacuum control | `48x12x12`, `t=1.1` | Maxwell control |
-| Threshold selection | Coarse norm budget fixed after exploratory run | Not blind preregistration |
+The 3D transport uses `m=1`, `q=0.15`, width `1.8`, offsets `(4,1.5,0.75)`,
+selected momenta, centered differences, RK4, and a conductivity absorber.
 
-M9.12 adds no physical calibration or particle prediction.
+M9.14 adds the bounded family `lambda={0,2,4,8}`, a `16^3,t=3` survey, a
+`20^3,t=3` fixed perturbation, and a `20^3,t=5` long-horizon gate. `lambda=8` is
+selected by minimum finite-time RMS spreading; it is not derived from CAT/EPT.
+
+Result: finite-time improvement `0.00340278`, but `accepted_particle_candidate=false`.
+M9 remains a selected multi-parameter research model without physical calibration.
