@@ -1,0 +1,34 @@
+{
+  "task": "M9.40",
+  "schema": "openwave.m9.confinement-sector-result.v1",
+  "passed": true,
+  "asymptotic": {
+    "potential_slope": 0.9011678099411105,
+    "force_plateau": 0.9004643290465227,
+    "slope_error": 0.0011678099411104315,
+    "force_plateau_error": 0.00046432904652271567
+  },
+  "string_breaking_radius": 3.104675884159087,
+  "above_threshold": {
+    "stored_flux_energy": 3.0788952564190937,
+    "pair_creation_threshold": 2.8,
+    "string_broken": true,
+    "created_pair_count": 1.0,
+    "residual_flux_energy": 0.27889525641909385,
+    "energy_closure": 0.0
+  },
+  "deconfinement_control": {
+    "force_power": -1.9983029529847924,
+    "potential_difference": 0.07645354326859999
+  },
+  "acceptance": {
+    "force_matches_energy_gradient": true,
+    "linear_potential_asymptote": true,
+    "constant_force_asymptote": true,
+    "mesonic_color_singlet_closes": true,
+    "below_threshold_string_survives": true,
+    "above_threshold_string_breaks": true,
+    "string_breaking_energy_closes": true,
+    "zero_tension_loses_confinement": true
+  }
+}
