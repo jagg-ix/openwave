@@ -1,0 +1,89 @@
+{
+  "acceptance": {
+    "continuous_family_is_explicit": true,
+    "domain_independent_at_scored_resolution": true,
+    "finite_norm_and_decay": true,
+    "long_horizon_reversible_localization": true,
+    "no_unique_scale_or_particle_promoted": true,
+    "norm_constraint_closes": true,
+    "perturbed_candidate_remains_localized": true,
+    "static_residual_second_order": true
+  },
+  "accepted_one_dimensional_localized_family": true,
+  "accepted_three_dimensional_particle": false,
+  "candidate_family": [
+    {
+      "kappa": 0.5,
+      "norm": 0.9999999999999998,
+      "peak_density": 0.2500000010326726,
+      "rms_radius": 1.8137988648711252,
+      "tail_fraction": 6.089179777097709e-07
+    },
+    {
+      "kappa": 0.8,
+      "norm": 1.5999999999999996,
+      "peak_density": 0.6400000000000162,
+      "rms_radius": 1.1336246026416226,
+      "tail_fraction": 7.58700649323924e-11
+    },
+    {
+      "kappa": 1.1,
+      "norm": 2.2,
+      "peak_density": 1.2100000000000002,
+      "rms_radius": 0.8244542564700988,
+      "tail_fraction": 1.1010679212901595e-14
+    }
+  ],
+  "classification": {
+    "does_not_establish": [
+      "a unique dynamically selected scale",
+      "a stable three-dimensional CAT/EPT particle",
+      "emergent charge, spin, or physical mass",
+      "that the constrained norm is a microscopic CAT/EPT law"
+    ],
+    "establishes": [
+      "a finite-norm one-dimensional localized family",
+      "second-order convergence of the static residual",
+      "bounded perturbation response and long-horizon localization",
+      "shared reversible and irreversible evolution on the same field"
+    ]
+  },
+  "domain_study": {
+    "peak_relative_spread": 1.3379012586253286e-05,
+    "rms_relative_spread": 2.5429870925819684e-07
+  },
+  "finite_perturbation": {
+    "core_fraction": 0.9988327452915586,
+    "norm_error": 0.0,
+    "peak_ratio_to_reference": 0.976406429054077,
+    "rms_ratio_to_reference": 1.0350113193340043,
+    "tail_fraction": 1.4630054657560283e-07
+  },
+  "long_horizon": {
+    "core_fraction": 0.9993640776511148,
+    "norm_error": 0.0,
+    "peak_ratio_to_reference": 1.0081652535257268,
+    "rms_ratio_to_reference": 1.001945636323802,
+    "tail_fraction": 7.074806117814685e-05
+  },
+  "model": "normalized complex-time focusing field",
+  "parameters": {
+    "core_radius": 5.0,
+    "dt": 0.01,
+    "final_time": 8.0,
+    "half_width": 20.0,
+    "irreversible_rate": 0.05,
+    "kappa": 0.8,
+    "long_time": 20.0,
+    "nonlinearity": 1.0,
+    "points": 256
+  },
+  "passed": true,
+  "residual_orders": [
+    1.979635450464539,
+    1.9948623028719275
+  ],
+  "scale_selected_dynamically": false,
+  "schema": "openwave.m9.localized-state-search-result.v1",
+  "task": "M9.25"
+}
