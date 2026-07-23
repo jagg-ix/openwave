@@ -1,0 +1,24 @@
+{
+  "acceptance": {
+    "all_explicit_rows_covered": true,
+    "deterministic_fingerprint": true,
+    "honest_negative_preserved": true,
+    "nonplanned_cells_have_evidence": true,
+    "particle_force_wave_partition_closes": true,
+    "summary_mismatch_recorded": true,
+    "thermal_gap_named": true
+  },
+  "audit": {
+    "criterion_count": 20,
+    "documented_summary_total": 21,
+    "domain_counts": {"forces": 5, "particles": 12, "waves": 3},
+    "matrix_total_mismatch": 1,
+    "missing_explicit_criterion": "heat_or_thermal_sector",
+    "status_counts": {"negative": 1, "not_yet": 15, "partial": 4, "validated": 0},
+    "valid": true
+  },
+  "model": "M9 CAT/EPT",
+  "passed": true,
+  "repository_profile": "MODELS_M9.md",
+  "schema": "openwave.m9.models-conformance.v1"
+}

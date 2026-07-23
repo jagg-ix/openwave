@@ -1,20 +1,24 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 now contains closed real-Hamiltonian controls, bounded field transport and
-localization decisions, a selected imaginary-action amplitude-loss control, a
-trace-preserving Lindblad information-loss control, a spatial reservoir ledger,
-and an explicit comparison decision.
+M9 is a dimensionless simulation model inside OpenWave. It contains real-Hamiltonian,
+Maxwell, Dirac, transport, localization, irreversible-interface, theory-manifest,
+integration, and cross-theory qualification controls.
 
-## Current decision
+## Current decisions
 
-- amplitude loss decreases accessible norm while normalized purity remains one;
-- dephasing preserves trace while purity/coherence decrease;
-- explicit reservoir transfer decreases matter norm while extended probability closes.
+- No stable three-dimensional particle candidate is accepted.
+- No unique back-reaction interface is selected.
+- No operational monotone is identified as physical time.
+- No particle identity or calibrated-unit claim is promoted.
 
-No unique back-reaction or physical-time identity is accepted.
+## Comparison status
 
-## Boundary
+The complete M9 criterion profile is [`MODELS_M9.md`](../../../MODELS_M9.md).
+Every non-planned status has repository evidence. The profile also records the
+20-versus-21 criterion discrepancy in the root comparison documentation.
 
-No microscopic rate, reservoir, physical calibration, particle identity, or
-experimental agreement is established. M9.19 must define calibrated observables
-and discriminants before physical interpretation is promoted.
+## Next critical infrastructure
+
+1. Canonical CAT/EPT dynamics: one state, one parameter set, explicit reductions.
+2. Static/dynamic solver bridge using the same functional and boundary data.
+3. Particle foundation: localization, charge, rest energy, clock, spin, interaction.

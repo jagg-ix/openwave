@@ -2,14 +2,14 @@
 
 | Task | Deliverable | Status |
 | --- | --- | --- |
-| M9.1--M9.18 | Formal, field, transport, localization, and back-reaction program | DONE |
-| M9.19 | Versioned simulation-theory plugin contract | DONE |
-| M9.20 | Reversible/irreversible operator-splitting engine | DONE |
-| M9.21 | Cross-theory simulation qualification and regression harness | DONE |
-| M9.22 | Geometry/metric back-reaction plugin interface | NEXT |
-| M9.23 | Multi-domain coupling graph and dependency scheduler | PLANNED |
-| M9.24 | Adaptive refinement and error-budget propagation | PLANNED |
+| M9.1--M9.18 | Formal, field, transport, localization, and back-reaction | DONE |
+| M9.19--M9.21 | Theory contract, split integrator, cross-theory qualification | DONE |
+| M9.22 | README/MODELS conformance profile | DONE |
+| M9.23 | Canonical CAT/EPT state and dynamics | DONE |
+| M9.24 | Static/dynamic solver bridge | DONE |
+| M9.25 | CAT/EPT-native localized-state search | NEXT |
+| M9.26 | Emergent charge/topological observable | GATED ON M9.25 |
+| M9.27 | Rest-energy and scale selection | GATED ON M9.25 |
 
-OpenWave remains simulation software. Apparatus acquisition, detector calibration, shot planning, and blinded experimental workflows are out of scope.
-
-A new theory must introduce executable state, parameter, evolution, observable, law, provenance, and regression contracts before it is treated as an OpenWave model.
+The global sequence is maintained in [`m9_global_plan.md`](m9_global_plan.md).
+OpenWave remains simulation software; physical-data acquisition is out of scope.
