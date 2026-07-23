@@ -1,0 +1,115 @@
+{
+  "acceptance": {
+    "dephasing_rate_nonnegative": true,
+    "hermiticity_preserved": true,
+    "information_loss_monotone": true,
+    "populations_preserved": true,
+    "positivity_preserved": true,
+    "rk4_converges_fourth_order": true,
+    "trace_preserved": true,
+    "zero_loss_reduces_to_unitary": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "that dephasing is the CAT/EPT imaginary-action mechanism",
+      "a unique information clock or physical time",
+      "a spatial reservoir or energy-exchange model",
+      "derivation of gamma from microscopic physics"
+    ],
+    "establishes": [
+      "a trace-preserving completely positive dephasing control",
+      "monotone purity and relative-coherence loss for the selected initial state",
+      "fourth-order numerical convergence and the zero-dephasing unitary limit",
+      "mathematical inequivalence to trace-decreasing amplitude loss"
+    ]
+  },
+  "finest": {
+    "dt": 0.025,
+    "final_coherence_l1": 0.15150217307628738,
+    "final_error_frobenius": 3.3934814303549115e-09,
+    "final_purity": 0.5564764542234188,
+    "final_relative_coherence": 0.011890273927255612,
+    "max_hermiticity_error": 2.0380535471009618e-17,
+    "max_population_drift": 0.0,
+    "max_trace_error": 2.220446049250313e-16,
+    "minimum_eigenvalue": 2.220446049250313e-16,
+    "purity_monotone": true,
+    "relative_coherence_monotone": true,
+    "steps": 160
+  },
+  "model": "selected trace-preserving two-level dephasing channel",
+  "parameters": {
+    "final_time": 4.0,
+    "gamma": 0.23,
+    "omega": 1.1
+  },
+  "passed": true,
+  "refinement": {
+    "errors": [
+      1.4859385835675107e-05,
+      8.939909612555198e-07,
+      5.481753779317583e-08
+    ],
+    "observed_orders": [
+      4.054970432746754,
+      4.027550810980935
+    ],
+    "records": [
+      {
+        "dt": 0.2,
+        "final_coherence_l1": 0.15152264919292274,
+        "final_error_frobenius": 1.4859385835675107e-05,
+        "final_purity": 0.5564795566092209,
+        "final_relative_coherence": 0.011893501741399581,
+        "max_hermiticity_error": 2.0380535471009618e-17,
+        "max_population_drift": 0.0,
+        "max_trace_error": 2.220446049250313e-16,
+        "minimum_eigenvalue": 2.220446049250313e-16,
+        "purity_monotone": true,
+        "relative_coherence_monotone": true,
+        "steps": 20
+      },
+      {
+        "dt": 0.1,
+        "final_coherence_l1": 0.15150336959919172,
+        "final_error_frobenius": 8.939909612555198e-07,
+        "final_purity": 0.5564766354999549,
+        "final_relative_coherence": 0.011890462532533008,
+        "max_hermiticity_error": 2.0380535471009618e-17,
+        "max_population_drift": 0.0,
+        "max_trace_error": 2.220446049250313e-16,
+        "minimum_eigenvalue": 2.220446049250313e-16,
+        "purity_monotone": true,
+        "relative_coherence_monotone": true,
+        "steps": 40
+      },
+      {
+        "dt": 0.05,
+        "final_coherence_l1": 0.1515022410827331,
+        "final_error_frobenius": 5.481753779317583e-08,
+        "final_purity": 0.5564764645265454,
+        "final_relative_coherence": 0.011890284646921656,
+        "max_hermiticity_error": 2.0380535471009618e-17,
+        "max_population_drift": 0.0,
+        "max_trace_error": 2.220446049250313e-16,
+        "minimum_eigenvalue": 2.220446049250313e-16,
+        "purity_monotone": true,
+        "relative_coherence_monotone": true,
+        "steps": 80
+      }
+    ],
+    "requested_dts": [
+      0.2,
+      0.1,
+      0.05
+    ]
+  },
+  "schema": "openwave.m9.lindblad-information-loss-result.v1",
+  "task": "M9.16",
+  "zero_loss": {
+    "coherence_drift": 4.583875501396051e-10,
+    "final_error_frobenius": 1.4145055368993189e-08,
+    "max_trace_error": 2.220446049250313e-16,
+    "purity_drift": 4.372735507018888e-10
+  }
+}
