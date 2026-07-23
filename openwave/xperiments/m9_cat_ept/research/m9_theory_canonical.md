@@ -18,82 +18,65 @@ omega_Z(0) = 2 omega_C.
 ```
 
 These identities do not select a carrier, nonlinear interaction, gauge action,
-physical unit map, or particle identity.
+unit map, or particle identity.
 
 ## 2. Shared density and information interface
 
-Accepted carriers map to normalized probability through positive density:
+For every accepted carrier, positive density defines normalized cell or shell
+probability:
 
 ```text
 scalar: rho = |psi|^2
 spinor: rho = Psi^dagger Psi
-cell/shell probability: p_i proportional to rho_i Delta V_i.
+p_i proportional to rho_i Delta V_i.
 ```
 
-The M9 information clock distinguishes remaining KL disequilibrium, accumulated
-discarded information, and one-step total correlation. Channel depth is a
-data-processing order, not physical time.
+The M9 information channel measures remaining KL disequilibrium, accumulated
+discarded information, and one-step total correlation. Channel depth is a data
+processing order, not physical time.
 
-## 3. Scalar and 1+1D spinor program
+## 3. Scalar and 1+1D spinor records
 
-The scalar localization family is
+The scalar bright-soliton family uses
 
 ```text
 i psi_t = -1/2 psi_xx - g |psi|^2 psi
 eta = gN/2
-psi = eta/sqrt(g) sech(eta x) exp(i eta^2 t/2)
-E = -eta^3/(3g)
-R_rms = pi/(2 sqrt(3) eta).
+psi = eta/sqrt(g) sech(eta x) exp(i eta^2 t/2).
 ```
 
-The exact identities
+Its exact energy, radius, frequency, norm scaling, and invariant ledgers pass.
+The scalar carrier does not itself supply electric charge, spin-1/2, or protected
+topology.
+
+M9.7a uses
 
 ```text
-omega_phase R_rms^2 = pi^2/24
-E/(mu N) = 1/3
-```
-
-close numerically. The scalar audit records global `U(1)` norm but no local gauge
-charge, spin-1/2, or protected topology.
-
-M9.7a then selects
-
-```text
-i d_t Psi = -i alpha d_x Psi
-            + beta(m-lambda bar(Psi)Psi)Psi
+i Psi_t = -i alpha Psi_x + beta(m-lambda bar(Psi)Psi)Psi
 alpha = -sigma_2
 beta = sigma_3
 m = lambda = 1
 omega = 0.8.
 ```
 
-Its exact solitary wave passes stationary, convergence, conservation, window,
-finite perturbation, free-control, background-gauge, and information gates.
+The exact two-component Soler wave passes stationary, convergence, conservation,
+window, perturbation, free-control, background-gauge, and information gates.
 
-## 4. Spherical 3D electrostatic program
+## 4. Spherical electrostatic program
 
-### 4.1 Electrostatic qualification
-
-M9.7b1 validates
+The radial gauge constraint is
 
 ```text
-Q(r) = 4 pi integral_0^r s^2 q rho(s) ds
-E(r) = Q(r)/(4 pi epsilon0 r^2)
-phi(infinity) = 0.
+Q' = 4 pi r^2 q rho
+phi' = -Q/(4 pi epsilon0 r^2).
 ```
 
-The field-energy ledger includes the exterior Coulomb tail.
-
-### 4.2 Coupled stationary branch
-
-The stationary radial equations are
+The coupled stationary spinor branch solves
 
 ```text
-v' = -(omega - q phi + M) u
-u' + 2u/r = (omega - q phi - M) v
-M = m - lambda(v^2-u^2)
-Q' = 4 pi r^2 q(v^2+u^2)
-phi' = -Q/(4 pi epsilon0 r^2).
+v' = -(omega-q phi+M)u
+u' + 2u/r = (omega-q phi-M)v
+M = m-lambda(v^2-u^2).
 ```
 
 For
@@ -103,191 +86,136 @@ m = epsilon0 = q = N = 1
 lambda = 64
 ```
 
-the normalized branch has
+the selected normalized branch has
 
 ```text
 omega = 0.9914633829359464
 R_rms = 5.879232363303192.
 ```
 
-It passes independent Dirac and Maxwell residuals, energy closure, convergence,
-window, signed-sector, and radial-information gates.
+The stationary and time-dependent radial programs pass residual, norm, energy,
+Gauss, flux, convergence, window, perturbation, localization, and information
+ledgers. Spherical electrostatics has no transverse magnetic radiation mode.
 
-### 4.3 Constrained spherical dynamics
+## 5. Bounded transverse radiation
 
-M9.7b3 evolves
-
-```text
-i V_t = (d_r + 2/r) U + (q phi + M) V
-i U_t = -d_r V + (q phi - M) U
-M = m - lambda(|V|^2-|U|^2).
-```
-
-The longitudinal field is reconstructed from Gauss law after local substeps. At
-`t=20`, the selected branch retains fidelity `0.9998920265`, core fraction
-`0.9897530407`, norm drift below `1e-14`, and total-energy drift below `8.2e-8`.
-
-The spherical radiation result is negative by symmetry:
-
-```text
-B = 0
-E cross B = 0.
-```
-
-## 5. M9.7c transverse Maxwell--spinor program
-
-### 5.1 Bounded geometry
-
-M9.7c leaves spherical electrostatics with a planar transverse gauge mode:
-
-```text
-A = A_y(x,t)
-E = E_y = -A_t
-B = B_z = A_x.
-```
-
-The hyperbolic field equations are
+M9.7c evolves
 
 ```text
 A_t = -E
-E_t = -A_xx - J - sigma(x) E.
+E_t = -A_xx - J - sigma(x) E
+B = A_x.
 ```
 
-The field energy and Poynting flux are
+A neutral opposite-charge local spinor pair supplies `J`. The bounded reduction
+passes vacuum and coupled convergence, dynamic zero-charge Gauss closure, nonzero
+Poynting emission, corrected energy balance, and absorber/window robustness.
+
+## 6. Shared instrumentation
+
+M9.8 defines deterministic preset-to-ledger and preset-to-runner links, common
+metric and acceptance panels, explicit claim boundaries, headless JSON/PNG export,
+an interactive dashboard, and OpenWave launcher discovery.
+
+Instrumentation consumes scientific ledgers; it does not alter equations or add
+physical claims.
+
+## 7. M9.9 transported planar Maxwell--Dirac reduction
+
+### 7.1 Matter equations
+
+Two opposite-charge packets evolve by
 
 ```text
-E_field = 1/2 integral(E^2+B^2) dx
-S_x = E B.
+i psi_s,t = [sigma_x(-i d_x-s q A_x)
+             + m sigma_z-s q A_y sigma_y] psi_s
+s in {+1,-1}.
 ```
 
-### 5.2 Neutral spinor-current pair
-
-Two local two-component spinors carry opposite charge labels:
+Charge and currents are
 
 ```text
-i psi_s,t = [m sigma_z - s q A sigma_y] psi_s
-s in {+1,-1}
-J = q psi_+^dagger sigma_y psi_+
-    - q psi_-^dagger sigma_y psi_-.
+rho = q(|psi_+|^2-|psi_-|^2)
+J_i = q psi_+^dagger sigma_i psi_+
+      - q psi_-^dagger sigma_i psi_-.
 ```
 
-Their initial pointwise densities are equal:
+### 7.2 Gauge equations
 
 ```text
-rho_q = q(|psi_+|^2-|psi_-|^2) = 0.
+A_x,t = -E_x
+E_x,t = -J_x
+A_y,t = -E_y
+E_y,t = -A_y,xx - J_y - sigma(x) E_y
+B_z = A_y,x.
 ```
 
-The symmetric local evolution preserves both species norms exactly in the
-continuum and to binary64 equality in the scored runs. Gauss law therefore closes
-without a Poisson projection.
+The initial longitudinal field inverts the centered-derivative Fourier symbol, so
+the initial discrete Gauss equation uses the same operator as the evolution and
+diagnostic.
 
-This is a local polarization-current model. It does not include spatial transport
-of the spinor envelope.
-
-### 5.3 Selected inputs
+### 7.3 Frozen inputs
 
 ```text
 m = 1
-q = 0.35
-polarization angle = 0.45
-envelope width = 2.5
-matter norm = 1
-gauge seed amplitude = 0.01
-gauge seed width = 4.
+q = 0.25
+packet width = 2.5
+packet centers = -8,+8
+packet momenta = +0.9,-0.9
+transverse seed amplitude = 0.008
+transverse seed width = 4.
 ```
 
-### 5.4 Numerical structure
+The total norm is one and the net charge is zero.
 
-- periodic second-order finite differences;
-- fourth-order Runge--Kutta time integration;
-- edge conductivity absorber;
-- symmetric Poynting probes;
-- matter, field, absorbed, and emitted-energy ledgers.
+### 7.4 Numerical result
 
-The corrected energy is
+The 128/256/512 refinement gives
 
 ```text
-E_corrected = E_matter + E_field + E_absorbed.
+transported-spinor order = 1.8991759529.
 ```
 
-### 5.5 M9.7c1 vacuum result
-
-For an exact right-moving pulse:
+At 512 points through `t=14`:
 
 ```text
-A orders = 1.99907, 1.99989
-E orders = 1.99347, 1.99859.
+max norm drift = 6.0176e-10
+max corrected-energy relative drift = 1.07295e-6
+final Gauss residual = 2.75441e-4 absolute
+final Gauss residual = 0.0226400 relative
+max net charge = 1.04083e-16
+packet separation = 16 -> -2.21328
+emitted energy = 2.84143e-5
+max transverse field = 0.0100947.
 ```
 
-### 5.6 M9.7c2 coupled result
+The wave-packet centers cross. The result demonstrates spatial Dirac transport and
+gauge back-reaction. It does not demonstrate a stable localized charged particle.
 
-At the finest coupled refinement level:
+## 8. Evidential status
 
-```text
-A self-convergence order = 1.98383
-E self-convergence order = 1.95569
-max signed charge density = 0
-max pair-norm mismatch = 0
-corrected-energy relative drift = 5.14e-7
-emitted energy = 3.996e-5
-central field-energy fraction = 0.09896.
-```
+Established for selected dimensionless models:
 
-### 5.7 M9.7c3 radiation and absorber result
-
-At `t=80`:
-
-```text
-emitted energy = 6.15138e-4
-absorbed energy = 4.89886e-4
-corrected-energy relative drift = 1.77811e-6.
-```
-
-Across the three absorber/window cases:
-
-```text
-emitted-energy relative spread = 0.0042613
-maximum corrected-energy relative drift = 1.443e-6.
-```
-
-The Poynting flux is nonzero, unlike the spherical M9.7b3 sector.
-
-## 6. Real and imaginary action sectors
-
-- scalar, Soler, electrostatic, and transverse couplings are selected real-sector
-  model choices;
-- none is derived from the pinned CAT/EPT imaginary-action layer;
-- `S_I` and `|W|` remain formal weighting observables;
-- no irreversible local imaginary potential or back-reaction is inferred.
-
-## 7. Evidential status
-
-Established within the selected models:
-
-- source-pinned CAT/EPT algebraic interfaces;
-- convergent scalar, spinor, radial, and transverse solvers;
-- localized scalar, 1+1D spinor, and stationary radial mathematical candidates;
-- constrained spherical finite-time localization;
-- transverse electric and magnetic field evolution;
-- nonzero Poynting emission;
-- dynamic neutral Gauss closure without projection;
-- absorber and emitted-energy accounting;
-- resolution and absorber-window convergence.
+- source-pinned CAT/EPT algebraic and density interfaces;
+- scalar and spinor control/localization results;
+- spherical electrostatic stationary and finite-time dynamics;
+- bounded transverse Maxwell radiation and absorber accounting;
+- shared research instrumentation with claim boundaries;
+- transported opposite-charge Dirac packets with longitudinal and transverse gauge
+  response;
+- bounded convergence, norm, corrected-energy, charge, Gauss, transport, and
+  emitted-energy ledgers.
 
 Not established:
 
-- a full spatial non-spherical Maxwell--Dirac solution;
-- a localized charged transverse particle;
-- non-spherical orbital stability;
-- calibrated electric charge or Standard Model identity;
+- a stable localized charged particle;
+- full two- or three-dimensional Maxwell--Dirac dynamics;
+- physical mass, charge, length, or energy calibration;
+- electron, positron, photon, or Standard Model identity;
 - fermionic quantization and statistics;
-- physical mass or absolute units;
-- necessity of any selected nonlinear coupling;
-- irreversible physical time from the imaginary action.
+- necessity of the selected nonlinear and gauge couplings;
+- irreversible physical-time dynamics derived from the imaginary action.
 
-## 8. Next canonical gate
-
-M9.8 may now add shared instrumentation, deterministic presets, headless export,
-and interactive rendering for the validated scalar, radial, and transverse
-sectors. The UI must preserve the same claim boundaries and may not default to
-an electron or other particle identity.
+The next canonical gate is M9.10: two-dimensional transported Maxwell--Dirac
+qualification with two-dimensional Gauss, magnetic curl, energy, absorber,
+refinement, domain-shape, and transport ledgers.

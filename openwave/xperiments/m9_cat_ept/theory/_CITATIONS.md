@@ -45,6 +45,18 @@ transverse current and energy exchange. The cited Maxwell--Dirac literature does
 not validate this reduction, its parameters, its numerical results, the CAT/EPT
 interpretation, or a particle identity.
 
+## M9.9 provenance
+
+M9.9 combines the standard 1+1D Dirac Hamiltonian with a temporal-gauge planar
+Maxwell reduction. The centered derivative, longitudinal-field inversion, RK4
+integration, packet construction, gauge seeds, absorber, scored intervals, and
+acceptance gates are OpenWave-specific numerical choices.
+
+The cited Maxwell--Dirac and finite-difference literature motivates the equation
+class and conservation diagnostics. It does not validate the selected
+opposite-charge packets, the numerical values in the M9.9 ledger, a stable
+localized-particle interpretation, or the CAT/EPT interpretation.
+
 ## Local corpus
 
 No third-party source files are tracked. The M9 tasks require only this citation
