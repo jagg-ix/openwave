@@ -1,0 +1,96 @@
+{
+  "acceptance": {
+    "cross_repo_fingerprint_is_deterministic": true,
+    "current_openwave_head_is_pinned": true,
+    "current_physlib_head_is_pinned": true,
+    "current_zil_head_is_pinned": true,
+    "density_minimum_matches_reference_peak": true,
+    "dispersion_sensitivity_is_explicit": true,
+    "finite_grid_ledgers_close": true,
+    "selected_coefficients_are_positive": true,
+    "selected_pair_retains_finite_grid_candidate": true,
+    "selection_conditions_are_independent": true,
+    "selection_equations_close": true,
+    "selection_is_near_the_discovered_candidate": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "derivation of the two selection conditions from fundamental CAT/EPT axioms",
+      "experimental calibration of alpha or beta",
+      "uniqueness outside the declared Gaussian self-consistency class"
+    ],
+    "establishes": [
+      "a unique coefficient pair from two explicit dimensionless self-consistency conditions",
+      "linear dispersion scaling of the selected coefficients",
+      "retained finite-grid localization for the selected pair"
+    ]
+  },
+  "config": {
+    "dispersion": 0.65,
+    "finite_grid": {
+      "dt": 0.02,
+      "final_times": [6.0, 5.0, 5.0],
+      "half_widths": [6.0, 7.0, 8.0],
+      "maximum_boundary": 0.02,
+      "points": [12, 14, 16],
+      "retained_radius_ratio": 1.45
+    },
+    "prior_alpha": 70.0,
+    "prior_beta": 380.0,
+    "reference_scale": 1.0,
+    "sensitivity_dispersions": [0.5, 0.65, 0.8]
+  },
+  "decision": {
+    "cat_ept_axioms_derive_self_consistency_conditions": false,
+    "coefficients_unique_under_declared_self_consistency": true,
+    "physical_coefficients_calibrated": false,
+    "selected_alpha": 74.66304462649356,
+    "selected_beta": 415.7483217223993
+  },
+  "finite_grid_confirmation": {
+    "all_grids_retain_localization": true,
+    "maximum_balance_error": 0.0,
+    "maximum_boundary_fraction": 0.010152524041952765,
+    "maximum_radius_ratio": 1.3470318990493781,
+    "rows": [
+      {"alpha":74.66304462649356,"beta":415.7483217223993,"final_entropy":0.06616327469840419,"final_radius":1.668216171725645,"final_time":6.0,"half_width":6.0,"initial_radius":1.2854556689427021,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.010152524041952765,"minimum_temperature":0.985,"points":12,"radius_ratio":1.2977625071254044,"retained_localization":true},
+      {"alpha":74.66304462649356,"beta":415.7483217223993,"final_entropy":0.05574451618708892,"final_radius":1.6995152974435832,"final_time":5.0,"half_width":7.0,"initial_radius":1.2854556689428487,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.0072842177502197925,"minimum_temperature":0.985,"points":14,"radius_ratio":1.3221111692177256,"retained_localization":true},
+      {"alpha":74.66304462649356,"beta":415.7483217223993,"final_entropy":0.055722121019516666,"final_radius":1.7315497908798743,"final_time":5.0,"half_width":8.0,"initial_radius":1.2854556689428487,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.007131508925742883,"minimum_temperature":0.985,"points":16,"radius_ratio":1.3470318990493781,"retained_localization":true}
+    ]
+  },
+  "formal_evidence": {
+    "branch": "entropic-physlib-linear-full",
+    "fingerprint": "0fa7884dba7b0c010b1725376e22081f7239367465a14a6e81f5226da2b332a0",
+    "head": "54b4ced090b200fac7ff04ee6a7e8797f1263049",
+    "repository": "jagg-ix/entropic-physlib-private",
+    "sources": [
+      {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/IpekCatichaSuperpositionViolation.lean","role":"unique gauge-covariant cubic law and exact global positive-time cubic continuum flow","sha":"e46898d0013c22e983051b7248160323e64f468f"},
+      {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/IpekCatichaUnboundedGenerator.lean","role":"maximal dissipativity and explicit homogeneous complex C0 semigroups","sha":"605a3eb7dd7055de4b1d5ce3d8eacecea136f70a"}
+    ],
+    "zil_head": "f39758f85ee6300b8060e4f8ea1ecf344ed32c96",
+    "zil_repository": "jagg-ix/zil-lean"
+  },
+  "passed": true,
+  "schema": "openwave.m9.coefficient-self-consistency.v1",
+  "selection": {
+    "alpha": 74.66304462649356,
+    "beta": 415.7483217223993,
+    "density_matching_error": 0.0,
+    "density_minimizer": 0.17958712212516656,
+    "determinant": 0.004690337634849289,
+    "maximum_equation_residual": 4.440892098500626e-16,
+    "reference_peak_density": 0.17958712212516656,
+    "relative_alpha_shift_from_m9_59": 0.06661492323562226,
+    "relative_beta_shift_from_m9_59": 0.09407453084841916
+  },
+  "sensitivity": {
+    "alpha_scales_linearly": true,
+    "beta_scales_linearly": true,
+    "rows": [
+      {"alpha":57.43311125114889,"alpha_over_dispersion":114.86622250229777,"beta":319.8064013249225,"beta_over_dispersion":639.612802649845,"dispersion":0.5},
+      {"alpha":74.66304462649356,"alpha_over_dispersion":114.86622250229777,"beta":415.7483217223993,"beta_over_dispersion":639.612802649845,"dispersion":0.65},
+      {"alpha":91.89297800183823,"alpha_over_dispersion":114.86622250229779,"beta":511.6902421198761,"beta_over_dispersion":639.6128026498451,"dispersion":0.8}
+    ]
+  },
+  "task": "M9.63"
+}
