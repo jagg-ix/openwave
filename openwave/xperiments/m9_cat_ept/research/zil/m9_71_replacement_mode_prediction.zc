@@ -1,0 +1,7 @@
+task:m9-71#produces@prediction:stationary-branch-radial-mode-v1.
+prediction:stationary-branch-radial-mode-v1#derived-on@grid:20-cubed.
+prediction:stationary-branch-radial-mode-v1#tested-on@grid:24-cubed.
+prediction:stationary-branch-radial-mode-v1#tested-on@grid:28-cubed.
+prediction:stationary-branch-radial-mode-v1#forbids@action:coefficient-refit-after-m9-68.
+prediction:stationary-branch-radial-mode-v1#status@evidence:passes-internal-held-out-grid-gate.
+prediction:stationary-branch-radial-mode-v1#status@validation:not-externally-tested.
