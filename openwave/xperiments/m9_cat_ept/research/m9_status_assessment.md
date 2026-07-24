@@ -1,6 +1,4 @@
-# CAT/EPT status after M9.48
-
-CAT/EPT is doing well as a disciplined simulation research program and poorly as a completed or validated physical theory.
+# CAT/EPT status after M9.52
 
 | Status | Count |
 | --- | ---: |
@@ -10,6 +8,8 @@ CAT/EPT is doing well as a disciplined simulation research program and poorly as
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The quark criterion is partial through finite SU(3), singlet, Wilson-loop, fractional-charge, and CKM controls. The first coupled finite-grid PDE closes matter/reservoir, thermal/loss, and gauge/work ledgers. A 24-unit 3D campaign keeps all trapped perturbations bounded, while the untrapped state spreads over the periodic box.
+The self-binding negative is stronger but still bounded. M9.49 found no self-bound candidate in the merged untrapped unified scan. M9.52 finds none across fifteen Gaussian, exponential, super-Gaussian, shell, or vortex/toroidal runs. The vortex winding remains resolved, showing that topology alone in the current action does not prevent dispersal.
 
-This strengthens simulation completeness but does not remove the negative self-binding result, establish continuum well-posedness, derive QCD, or validate any physical prediction. The decisive next bottleneck remains a self-bound three-dimensional unified-PDE solution or a rigorous no-go result.
+M9.50 provides a finite contraction-semigroup bridge, not a continuum theorem. M9.51 prevents evidence inflation and promotes zero formal proofs.
+
+CAT/EPT remains a strong simulation research framework and an incomplete physical theory. The decisive open work is nonlinear continuum well-posedness and a genuinely new binding mechanism outside the tested families.

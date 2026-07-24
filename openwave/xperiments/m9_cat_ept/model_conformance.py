@@ -5,14 +5,16 @@ from hashlib import sha256
 import json
 from typing import Any,Literal
 Status=Literal["validated","partial","negative","not_yet"]
+
 @dataclass(frozen=True)
 class Criterion:
     key:str; domain:str; label:str; status:Status; evidence:tuple[str,...]; finding:str
+
 CRITERIA:tuple[Criterion,...]=(
  Criterion("charge_quantization","particles","Charge quantization","partial",("openwave/xperiments/m9_cat_ept/topological_charge.py","openwave/xperiments/m9_cat_ept/research/findings/m9_26_method_note.md"),"Integer winding is field-derived and robust, but the sector is seeded and is not identified with elementary electric charge."),
  Criterion("electron_rest_energy","particles","Electron rest energy (mass)","partial",("openwave/xperiments/m9_cat_ept/scale_selection.py","openwave/xperiments/m9_cat_ept/research/findings/m9_27_method_note.md"),"A selected topological ansatz has an interior dimensionless scale minimum, but no physical mass or full CAT/EPT particle is established."),
  Criterion("de_broglie_clock","particles","de Broglie clock (Zitterbewegung)","partial",("openwave/xperiments/m9_cat_ept/intrinsic_clock_reduction.py","openwave/xperiments/m9_cat_ept/imaginary_action_backreaction.py","openwave/xperiments/m9_cat_ept/entropic_integrator.py"),"Reversible phase, entropic monotone, and geometry clock channels are separated; no Zitterbewegung or physical-time identity is accepted."),
- Criterion("particle_stability","particles","Particle stability (Derrick escape)","negative",("openwave/xperiments/m9_cat_ept/minimizer_3d.py","openwave/xperiments/m9_cat_ept/stability_campaign_3d.py","openwave/xperiments/m9_cat_ept/localized_state_search.py","openwave/xperiments/m9_cat_ept/spatial_3d_localization_decision.py","openwave/xperiments/m9_cat_ept/research/findings/m9_14_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_25_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_37_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_48_method_note.md"),"A trapped 3D minimizer survives a long-horizon perturbation campaign, but the untrapped control spreads, so no self-bound particle is accepted; the earlier bounded 3D candidate also fails its frozen localization gate."),
+ Criterion("particle_stability","particles","Particle stability (Derrick escape)","negative",("openwave/xperiments/m9_cat_ept/minimizer_3d.py","openwave/xperiments/m9_cat_ept/stability_campaign_3d.py","openwave/xperiments/m9_cat_ept/unified_self_binding_3d.py","openwave/xperiments/m9_cat_ept/non_gaussian_self_binding.py","openwave/xperiments/m9_cat_ept/localized_state_search.py","openwave/xperiments/m9_cat_ept/spatial_3d_localization_decision.py","openwave/xperiments/m9_cat_ept/research/findings/m9_14_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_25_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_37_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_48_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_49_method_note.md","openwave/xperiments/m9_cat_ept/research/findings/m9_52_method_note.md"),"A trapped 3D minimizer survives perturbations, but the merged M9.49 untrapped scan and M9.52 Gaussian, exponential, super-Gaussian, shell, and vortex/toroidal families spread or reach the periodic boundary. No self-bound particle is accepted; the negatives remain finite-grid and family-bounded."),
  Criterion("magnetic_moment_spin","particles","Magnetic moment and spin J","partial",("openwave/xperiments/m9_cat_ept/spin_magnetic_observables.py","openwave/xperiments/m9_cat_ept/research/findings/m9_29_method_note.md"),"Spin and a Pauli-current magnetic moment are field-integrated controls; no emergent electron g factor or stable particle is established."),
  Criterion("spin_half_statistics","particles","Spin-1/2 statistics (720-degree return)","partial",("openwave/xperiments/m9_cat_ept/spin_magnetic_observables.py","openwave/xperiments/m9_cat_ept/research/findings/m9_29_method_note.md"),"The spinor changes sign after 2pi and returns after 4pi, but exchange statistics are not established."),
  Criterion("antimatter_annihilation","particles","Antimatter and annihilation","partial",("openwave/xperiments/m9_cat_ept/capture_annihilation.py","openwave/xperiments/m9_cat_ept/research/findings/m9_31_method_note.md"),"A reduced opposite-sector model captures, annihilates, and transfers energy into radiation; full-PDE particle annihilation is not established."),
@@ -29,8 +31,7 @@ CRITERIA:tuple[Criterion,...]=(
  Criterion("em_waves","waves","EM waves (Maxwell)","partial",("openwave/xperiments/m9_cat_ept/wave_reductions.py","openwave/xperiments/m9_cat_ept/spatial_3d_controls.py","openwave/xperiments/m9_cat_ept/research/findings/m9_43_method_note.md","openwave/xperiments/m9_cat_ept/research/data/m9_12_spatial_3d_controls_result.json"),"A transverse Maxwell reduction, energy/speed controls, and a massless scalar bridge are qualified; electromagnetism does not yet emerge from the full CAT/EPT system."),
  Criterion("klein_gordon","waves","Quantum wave equation (Klein-Gordon)","partial",("openwave/xperiments/m9_cat_ept/wave_reductions.py","openwave/xperiments/m9_cat_ept/research/findings/m9_43_method_note.md"),"A massive spectral Klein-Gordon reduction and dispersion control exist, with a regular massless Maxwell-component bridge; full native particle dynamics remain open."),
  Criterion("orbital_quantization","waves","Orbital quantization (atomic structure)","partial",("openwave/xperiments/m9_cat_ept/orbital_quantization.py","openwave/xperiments/m9_cat_ept/research/findings/m9_32_method_note.md"),"A converged Coulomb-like radial standing-wave ladder is resolved; atomic structure from the full CAT/EPT PDE is not established."),
- Criterion("thermal_field","thermal","Heat / thermal-field sector","partial",("openwave/xperiments/m9_cat_ept/thermal_field.py","openwave/xperiments/m9_cat_ept/research/findings/m9_44_method_note.md"),"A periodic heat equation conserves total heat, increases normalized thermal entropy, and satisfies diffusion-dissipation controls; microscopic CAT/EPT thermodynamics remain open."),
-)
+ Criterion("thermal_field","thermal","Heat / thermal-field sector","partial",("openwave/xperiments/m9_cat_ept/thermal_field.py","openwave/xperiments/m9_cat_ept/research/findings/m9_44_method_note.md"),"A periodic heat equation conserves total heat, increases normalized thermal entropy, and satisfies diffusion-dissipation controls; microscopic CAT/EPT thermodynamics remain open."),)
 EXPECTED_VISIBLE_CRITERIA=21; DOCUMENTED_SUMMARY_TOTAL=21; MISSING_EXPLICIT_CRITERION=None
 
 def validate_profile(criteria:tuple[Criterion,...]=CRITERIA)->dict[str,Any]:
@@ -38,12 +39,27 @@ def validate_profile(criteria:tuple[Criterion,...]=CRITERIA)->dict[str,Any]:
     if len(keys)!=len(set(keys)) or len(labels)!=len(set(labels)): raise ValueError("duplicate criterion")
     if len(criteria)!=EXPECTED_VISIBLE_CRITERIA: raise ValueError("profile must cover 21 explicit rows")
     if any(x.status!="not_yet" and not x.evidence for x in criteria): raise ValueError("non-planned status lacks evidence")
-    domains={d:sum(x.domain==d for x in criteria) for d in ("particles","forces","waves","thermal")}; counts={s:sum(x.status==s for x in criteria) for s in ("validated","partial","negative","not_yet")}
+    domains={d:sum(x.domain==d for x in criteria) for d in ("particles","forces","waves","thermal")}
+    counts={s:sum(x.status==s for x in criteria) for s in ("validated","partial","negative","not_yet")}
     return {"valid":True,"criterion_count":len(criteria),"domain_counts":domains,"status_counts":counts,"documented_summary_total":DOCUMENTED_SUMMARY_TOTAL,"matrix_total_mismatch":DOCUMENTED_SUMMARY_TOTAL-len(criteria),"missing_explicit_criterion":MISSING_EXPLICIT_CRITERION}
 
-def canonical_payload()->dict[str,Any]:return {"schema":"openwave.m9.models-conformance.v1","model":"M9 CAT/EPT","criteria":[asdict(x) for x in CRITERIA],"audit":validate_profile()}
-def fingerprint()->str:return sha256(json.dumps(canonical_payload(),sort_keys=True,separators=(",",":")).encode()).hexdigest()
+def canonical_payload()->dict[str,Any]:
+    return {"schema":"openwave.m9.models-conformance.v1","model":"M9 CAT/EPT","criteria":[asdict(x) for x in CRITERIA],"audit":validate_profile()}
+def fingerprint()->str:
+    return sha256(json.dumps(canonical_payload(),sort_keys=True,separators=(",",":")).encode()).hexdigest()
 def run_conformance_study()->dict[str,Any]:
-    payload=canonical_payload(); acceptance={"all_explicit_rows_covered":payload["audit"]["criterion_count"]==21,"domain_partition_closes":payload["audit"]["domain_counts"]=={"particles":12,"forces":5,"waves":3,"thermal":1},"nonplanned_cells_have_evidence":all(x["status"]=="not_yet" or bool(x["evidence"]) for x in payload["criteria"]),"honest_negative_preserved":sum(x["status"]=="negative" for x in payload["criteria"])==2,"summary_total_closes":payload["audit"]["matrix_total_mismatch"]==0,"thermal_criterion_is_explicit":any(x["key"]=="thermal_field" for x in payload["criteria"]),"deterministic_fingerprint":fingerprint()==fingerprint(),"m9_46_48_status_counts":payload["audit"]["status_counts"]=={"validated":0,"partial":19,"negative":2,"not_yet":0}}
+    payload=canonical_payload(); stability=next(x for x in payload["criteria"] if x["key"]=="particle_stability")
+    acceptance={
+      "all_explicit_rows_covered":payload["audit"]["criterion_count"]==21,
+      "domain_partition_closes":payload["audit"]["domain_counts"]=={"particles":12,"forces":5,"waves":3,"thermal":1},
+      "nonplanned_cells_have_evidence":all(x["status"]=="not_yet" or bool(x["evidence"]) for x in payload["criteria"]),
+      "honest_negative_preserved":sum(x["status"]=="negative" for x in payload["criteria"])==2,
+      "summary_total_closes":payload["audit"]["matrix_total_mismatch"]==0,
+      "thermal_criterion_is_explicit":any(x["key"]=="thermal_field" for x in payload["criteria"]),
+      "deterministic_fingerprint":fingerprint()==fingerprint(),
+      "m9_52_status_counts":payload["audit"]["status_counts"]=={"validated":0,"partial":19,"negative":2,"not_yet":0},
+      "m9_49_52_negative_evidence_present":all(any(name in path for path in stability["evidence"]) for name in ("m9_49_method_note.md","m9_52_method_note.md")),
+    }
     return {**payload,"fingerprint":fingerprint(),"acceptance":acceptance,"passed":all(acceptance.values()),"repository_profile":"MODELS_M9.md"}
-def result_to_json(result:dict[str,Any])->str:return json.dumps(result,indent=2,sort_keys=True)+"\n"
+def result_to_json(result:dict[str,Any])->str:
+    return json.dumps(result,indent=2,sort_keys=True)+"\n"

@@ -1,7 +1,6 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-This is the script-backed M9 conformance profile. The canonical source is
-`openwave/xperiments/m9_cat_ept/model_conformance.py`.
+The canonical source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
 
 ## Summary
 
@@ -13,9 +12,6 @@ This is the script-backed M9 conformance profile. The canonical source is
 | 🚧 planned / not yet | 0 |
 | **Explicit criteria** | **21** |
 
-The former 20-versus-21 discrepancy is closed: **Heat / thermal-field sector**
-is now an explicit criterion.
-
 ## Particles
 
 | Criterion | Status |
@@ -23,7 +19,7 @@ is now an explicit criterion.
 | Charge quantization | ⚠️ Integer winding; electric identity open |
 | Electron rest energy | ⚠️ Interior dimensionless scale; physical mass open |
 | de Broglie clock | ⚠️ Clock channels separated; physical-time identity open |
-| Particle stability | ❌ Trapped 3D perturbations remain bounded; untrapped state spreads, so no self-bound particle |
+| Particle stability | ❌ Trapped states remain bounded, but merged untrapped and Gaussian, exponential, super-Gaussian, shell, and vortex/toroidal scans spread or reach box scale |
 | Magnetic moment and spin | ⚠️ Pauli-current field control; emergent g factor open |
 | Spin-1/2 statistics | ⚠️ 2π sign reversal and 4π return; exchange open |
 | Antimatter and annihilation | ⚠️ Reduced capture/annihilation/radiation ledger; full PDE open |
@@ -57,5 +53,4 @@ is now an explicit criterion.
 | --- | --- |
 | Heat / thermal-field sector | ⚠️ Conserved heat, entropy growth, and diffusion-dissipation control |
 
-Partial status records bounded simulation evidence, not a completed physical
-derivation. All 21 explicit criteria now have evidence. None is fully validated.
+All 21 criteria have evidence. None is fully validated. The M9.49 and M9.52 negatives are finite-grid and family-bounded, not universal no-go theorems.

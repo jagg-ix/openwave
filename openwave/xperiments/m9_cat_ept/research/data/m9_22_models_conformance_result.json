@@ -1,9 +1,27 @@
 {
-  "schema":"openwave.m9.models-conformance.v1",
-  "model":"M9 CAT/EPT",
-  "fingerprint":"a84116ebe85a8a9960dec66c34aecd94dd8912fcbd3244133496995138f476ae",
-  "passed":true,
-  "repository_profile":"MODELS_M9.md",
-  "audit":{"valid":true,"criterion_count":21,"domain_counts":{"particles":12,"forces":5,"waves":3,"thermal":1},"status_counts":{"validated":0,"partial":19,"negative":2,"not_yet":0},"documented_summary_total":21,"matrix_total_mismatch":0,"missing_explicit_criterion":null},
-  "acceptance":{"all_explicit_rows_covered":true,"domain_partition_closes":true,"nonplanned_cells_have_evidence":true,"honest_negative_preserved":true,"summary_total_closes":true,"thermal_criterion_is_explicit":true,"deterministic_fingerprint":true,"m9_46_48_status_counts":true}
+  "schema": "openwave.m9.models-conformance.v1",
+  "model": "M9 CAT/EPT",
+  "fingerprint": "f4aa42fb1b397681a51c804564d00a8e89e8324fa1b53bc4166b9e4ea0c57bc2",
+  "passed": true,
+  "repository_profile": "MODELS_M9.md",
+  "audit": {
+    "valid": true,
+    "criterion_count": 21,
+    "domain_counts": {"particles": 12, "forces": 5, "waves": 3, "thermal": 1},
+    "status_counts": {"validated": 0, "partial": 19, "negative": 2, "not_yet": 0},
+    "documented_summary_total": 21,
+    "matrix_total_mismatch": 0,
+    "missing_explicit_criterion": null
+  },
+  "acceptance": {
+    "all_explicit_rows_covered": true,
+    "domain_partition_closes": true,
+    "nonplanned_cells_have_evidence": true,
+    "honest_negative_preserved": true,
+    "summary_total_closes": true,
+    "thermal_criterion_is_explicit": true,
+    "deterministic_fingerprint": true,
+    "m9_52_status_counts": true,
+    "m9_49_52_negative_evidence_present": true
+  }
 }
