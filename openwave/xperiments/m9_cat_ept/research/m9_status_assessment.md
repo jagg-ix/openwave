@@ -14,17 +14,19 @@ The sole criterion-level negative remains the lepton-mass hierarchy. Particle st
 
 ## Formal interface changes
 
-The M9.70 formal branch head is `51aad63b2541a1377a001df71b85dfe35f26c0af`.
+PhysLib PR #16 is based on current formal head `f148278ec8264d031753d9def49cd2133ac4768d` and has head `f165cd8ba524a4274cb46bcd4c4ba1f12a274bf7`.
 
 - The cubic--quintic density slack has an exact kernel-proved square factorization.
-- Positive `beta` and nonnegative density give the exact lower bound `V(rho) >= -(3 alpha²/(16 beta)) rho`.
+- Positive `beta` and nonnegative density give `V(rho) >= -(3 alpha²/(16 beta)) rho`.
 - `H1OrbitalCertificate.uniform_orbital_stability` derives uniform orbital control from explicit flow, conservation, compactness, and coercivity fields.
+- ZIL scope records and a dedicated axiom/non-vacuity audit are included.
 - The theorem is conditional by construction; it does not silently assume the spatial PDE flow has been built.
+- The rebased branch preserves the latest Schrödinger--Newton compact-core binding-gap formalization.
 
 ## Latest decisions
 
 - **M9.69:** one non-Gaussian stationary branch is qualified across three unrelated seeds and three grids. It remains conditional on the M9.63 coefficient pair.
-- **M9.70:** the scoped kernel target closes. The end-to-end analytic target does not: PDE flow construction and concentration compactness remain certificate obligations.
+- **M9.70:** the scoped kernel target closes in PR #16. The end-to-end analytic target does not: PDE flow construction and concentration compactness remain certificate obligations.
 - **M9.71:** the frozen replacement ratio `1.074356835825` passes internal held-out grids by margins of `2.34%` and `4.18%`. It has not been externally tested.
 
 ## Prediction ledger
