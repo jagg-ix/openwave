@@ -1,0 +1,9 @@
+MODULE openwave.m9.kernel_evidence_refresh.
+claim:m9.55.source_snapshot#target_state@state:closed.
+claim:m9.55.fail_closed_promotion#target_state@state:closed.
+claim:m9.55.formal_promotions#count@number:0.
+claim:continuum_lindblad_generator#verification@state:open.
+claim:continuum_semigroup_wellposed#verification@state:open.
+claim:kernel_checked_export#target_state@state:open.
+QUERY refresh_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.
