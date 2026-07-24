@@ -1,0 +1,9 @@
+MODULE openwave.m9.coefficient_self_consistency.
+claim:m9.63.gaussian_peak_density_match#target_state@state:closed.
+claim:m9.63.reference_scale_stationarity#target_state@state:closed.
+claim:m9.63.unique_pair_under_conditions#target_state@state:closed.
+claim:m9.63.finite_grid_confirmation#target_state@state:closed.
+claim:self_consistency_conditions_derived_from_cat_ept_axioms#target_state@state:open.
+claim:physical_coefficient_calibration#target_state@state:open.
+QUERY coefficient_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.

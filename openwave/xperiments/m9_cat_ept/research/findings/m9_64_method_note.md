@@ -1,0 +1,3 @@
+# M9.64 finding
+
+For positive quintic saturation the exact pointwise inequality `V(rho) >= -(3 alpha^2 / (16 beta)) rho` gives the a-priori energy bound `E >= D ||grad psi||^2 - C M`. A 16³/20³/24³ spectral Strang campaign preserves mass to approximately `5e-13`, keeps maximum energy drift below `6e-7`, shows decreasing final-radius differences, and keeps the preregistered ±4% scale orbit within an 8% radius excursion. Time-step differences improve by about a factor of four. This closes a coercive and numerical continuum bridge, not a kernel proof of local well-posedness or orbital stability for every `H¹` perturbation.

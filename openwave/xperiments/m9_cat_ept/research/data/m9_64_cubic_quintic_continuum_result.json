@@ -1,0 +1,93 @@
+{
+  "acceptance": {
+    "coercive_density_inequality_closes": true,
+    "energy_drift_is_small_on_nested_grids": true,
+    "formal_source_head_is_current": true,
+    "full_h1_theorem_is_not_overstated": true,
+    "mass_is_preserved_on_nested_grids": true,
+    "nested_grid_observable_converges": true,
+    "orbital_mass_and_energy_controls_hold": true,
+    "small_scale_orbits_remain_bounded": true,
+    "time_refinement_improves": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "kernel-formalized local well-posedness for the spatial cubic--quintic differential PDE",
+      "orbital stability for every H1 perturbation modulo translation and phase",
+      "asymptotic stability or scattering"
+    ],
+    "establishes": [
+      "an exact coercive energy lower bound for positive quintic saturation",
+      "nested-grid mass-conserving and energy-stable cubic--quintic spectral flow",
+      "bounded evolution of the preregistered small scale perturbation orbit"
+    ]
+  },
+  "coefficients": {
+    "alpha": 74.66304462649356,
+    "beta": 415.7483217223993
+  },
+  "coercivity": {
+    "coercivity_constant": 2.5140977462952865,
+    "equality_density": 0.1346903415938749,
+    "equality_slack": 5.551115123125783e-17,
+    "minimum_sampled_slack": 0.0,
+    "statement": "V(rho) >= -C rho, hence E >= D||grad psi||^2 - C M"
+  },
+  "config": {
+    "dispersion": 0.65,
+    "dt": 0.0005,
+    "final_time": 0.3,
+    "grids": [16, 20, 24],
+    "half_width": 8.0,
+    "perturbation_scales": [0.96, 1.0, 1.04],
+    "refinement_dts": [0.001, 0.0005, 0.00025],
+    "refinement_time": 0.2
+  },
+  "decision": {
+    "arbitrary_h1_orbital_stability_formally_proved": false,
+    "coercive_h1_apriori_bound_established": true,
+    "full_spatial_pde_kernel_theorem_proved": false,
+    "nested_cubic_quintic_flow_qualified": true,
+    "small_orbit_numerical_stability_qualified": true
+  },
+  "formal_evidence": {
+    "branch": "entropic-physlib-linear-full",
+    "head": "54b4ced090b200fac7ff04ee6a7e8797f1263049",
+    "repository": "jagg-ix/entropic-physlib-private",
+    "sources": [
+      {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/IpekCatichaSuperpositionViolation.lean","role":"global positive-time pure-cubic continuum flow and fixed spatial-energy phase coupling","sha":"e46898d0013c22e983051b7248160323e64f468f"},
+      {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/IpekCatichaUnboundedGenerator.lean","role":"maximal dissipativity and explicit homogeneous complex contraction semigroups","sha":"605a3eb7dd7055de4b1d5ce3d8eacecea136f70a"}
+    ]
+  },
+  "nested_grid_campaign": {
+    "grid_observable_converges": true,
+    "rows": [
+      {"dt":0.0005,"final_energy":-0.43011262386395155,"final_mass":1.0000000000000606,"final_radius":1.2512272802394473,"initial_energy":-0.4301122026070969,"initial_mass":0.9999999999999996,"initial_radius":1.2234939282638315,"mass_error":6.106226635438361e-14,"maximum_energy_drift":5.432861993615035e-7,"maximum_fractional_radius_excursion":0.022667339277253395,"maximum_radius":1.2512272802394473,"minimum_radius":1.2234939282638315,"points":16,"scale":1.0},
+      {"dt":0.0005,"final_energy":-0.5109501645676555,"final_mass":1.0000000000002627,"final_radius":1.2233954593172567,"initial_energy":-0.5109497723748432,"initial_mass":1.0,"initial_radius":1.2247372885881025,"mass_error":2.6267876762631204e-13,"maximum_energy_drift":4.815236624988728e-7,"maximum_fractional_radius_excursion":0.0016273339866281766,"maximum_radius":1.2267303452025127,"minimum_radius":1.2233954593172567,"points":20,"scale":1.0},
+      {"dt":0.0005,"final_energy":-0.5322200032568309,"final_mass":0.9999999999995123,"final_radius":1.215815445469602,"initial_energy":-0.5322197099750678,"initial_mass":1.0,"initial_radius":1.224744859050606,"mass_error":4.877209747178313e-13,"maximum_energy_drift":3.558753263188663e-7,"maximum_fractional_radius_excursion":0.007290835732044587,"maximum_radius":1.22479106426452,"minimum_radius":1.215815445469602,"points":24,"scale":1.0}
+    ],
+    "successive_radius_differences": [0.02783182092219061, 0.007580013847654721]
+  },
+  "orbital_perturbation_campaign": {
+    "all_orbits_preserve_energy_numerically": true,
+    "all_orbits_preserve_mass": true,
+    "all_orbits_remain_radius_bounded": true,
+    "rows": [
+      {"dt":0.0005,"final_energy":-0.4766820300470265,"final_mass":1.0000000000002724,"final_radius":1.2000327290069008,"initial_energy":-0.4766813016136906,"initial_mass":1.0000000000000002,"initial_radius":1.1757326005137718,"mass_error":2.722266856380884e-13,"maximum_energy_drift":1.1817176109873984e-6,"maximum_fractional_radius_excursion":0.020668074086327426,"maximum_radius":1.2000327290069008,"minimum_radius":1.1757326005137718,"points":20,"scale":0.96},
+      {"dt":0.0005,"final_energy":-0.5109501645676555,"final_mass":1.0000000000002627,"final_radius":1.2233954593172567,"initial_energy":-0.5109497723748432,"initial_mass":1.0,"initial_radius":1.2247372885881025,"mass_error":2.6267876762631204e-13,"maximum_energy_drift":4.815236624988728e-7,"maximum_fractional_radius_excursion":0.0016273339866281766,"maximum_radius":1.2267303452025127,"minimum_radius":1.2233954593172567,"points":20,"scale":1.0},
+      {"dt":0.0005,"final_energy":-0.5131601633989225,"final_mass":1.0000000000002596,"final_radius":1.255577618651271,"initial_energy":-0.5131599228610827,"initial_mass":1.0,"initial_radius":1.2737322428540552,"mass_error":2.595701431573616e-13,"maximum_energy_drift":2.444825168979037e-7,"maximum_fractional_radius_excursion":0.014253093069313438,"maximum_radius":1.2737322428540552,"minimum_radius":1.255577618651271,"points":20,"scale":1.04}
+    ]
+  },
+  "passed": true,
+  "schema": "openwave.m9.cubic-quintic-continuum.v1",
+  "task": "M9.64",
+  "timestep_refinement": {
+    "refinement_improves": true,
+    "rows": [
+      {"dt":0.001,"final_energy":-0.5109512817490101,"final_mass":1.0000000000000921,"final_radius":1.226530458776465,"initial_energy":-0.5109497723748432,"initial_mass":1.0,"initial_radius":1.2247372885881025,"mass_error":9.214851104388799e-14,"maximum_energy_drift":1.9260917240027098e-6,"maximum_fractional_radius_excursion":0.0016253219417361464,"maximum_radius":1.226727880976107,"minimum_radius":1.2247372885881025,"points":20,"scale":1.0},
+      {"dt":0.0005,"final_energy":-0.5109501497172901,"final_mass":1.0000000000001774,"final_radius":1.2265304060916749,"initial_energy":-0.5109497723748432,"initial_mass":1.0,"initial_radius":1.2247372885881025,"mass_error":1.7741363933510002e-13,"maximum_energy_drift":4.815236624988728e-7,"maximum_fractional_radius_excursion":0.0016252760667605504,"maximum_radius":1.226727824791314,"minimum_radius":1.2247372885881025,"points":20,"scale":1.0},
+      {"dt":0.00025,"final_energy":-0.5109498667107841,"final_mass":1.0000000000003697,"final_radius":1.2265303929205449,"initial_energy":-0.5109497723748432,"initial_mass":1.0,"initial_radius":1.2247372885881025,"mass_error":3.6970426720017713e-13,"maximum_energy_drift":1.2038113139656303e-7,"maximum_fractional_radius_excursion":0.001625264598121623,"maximum_radius":1.2267278107452442,"minimum_radius":1.2247372885881025,"points":20,"scale":1.0}
+    ],
+    "successive_differences": [1.133257032631964e-6, 2.8331283258493836e-7]
+  }
+}

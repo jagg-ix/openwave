@@ -1,0 +1,9 @@
+MODULE openwave.m9.preregistered_breathing_prediction.
+claim:m9.65.collective_frequency_derivation#target_state@state:closed.
+claim:m9.65.compton_ratio_frozen#target_state@state:closed.
+claim:m9.65.failure_rule_preregistered#target_state@state:closed.
+claim:m9.65.cross_repo_fingerprint#target_state@state:closed.
+claim:external_measurement_comparison#target_state@state:open.
+claim:physical_prediction_validated#target_state@state:open.
+QUERY prediction_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.

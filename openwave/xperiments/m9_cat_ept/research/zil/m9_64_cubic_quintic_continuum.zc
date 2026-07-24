@@ -1,0 +1,9 @@
+MODULE openwave.m9.cubic_quintic_continuum.
+claim:m9.64.coercive_density_bound#target_state@state:closed.
+claim:m9.64.nested_mass_energy_flow#target_state@state:closed.
+claim:m9.64.small_orbit_numerical_stability#target_state@state:closed.
+claim:m9.64.timestep_refinement#target_state@state:closed.
+claim:spatial_cubic_quintic_local_wellposedness_kernel_theorem#target_state@state:open.
+claim:arbitrary_h1_orbital_stability#target_state@state:open.
+QUERY continuum_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.

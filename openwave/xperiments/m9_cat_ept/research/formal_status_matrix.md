@@ -1,6 +1,6 @@
 # CAT/EPT formal interface status
 
-This matrix records `jagg-ix/entropic-physlib-private@entropic-physlib-linear-full` at `adbe9ead533d56ea7acd18e4c9ad5dacafd973ff`. It is separate from OpenWave platform validation.
+This matrix records `jagg-ix/entropic-physlib-private@entropic-physlib-linear-full` at `54b4ced090b200fac7ff04ee6a7e8797f1263049`. It is separate from OpenWave platform validation.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
@@ -10,19 +10,23 @@ This matrix records `jagg-ix/entropic-physlib-private@entropic-physlib-linear-fu
 | ADM constraint propagation and all-time flow | conditional | explicit globally Lipschitz vector field and tangency |
 | Maximal development | conditional | fixed-Cauchy extensions and smooth quotient data |
 | Gauge-covariant cubic Born-density backreaction uniqueness | directly proved with explicit class | locality, gauge covariance, cubic homogeneity and normalization are premises |
-| Cubic continuum `C(X,ℂ)` evolution | local existence and uniqueness proved with explicit scope | cubic pointwise generator on compact continuous-field carrier |
-| Mode-diagonal Caticha unbounded generator | self-adjoint/closable with explicit scope | requires measurable real diagonal symbols |
-| Homogeneous CAT/EPT damping | maximally dissipative with explicit `C₀` contraction semigroup | exact `-γI` sector, not full nonlinear generator |
-| Free continuum kinetic Kolmogorov model | positive smooth kernel and bracket certificate directly proved | free constant-coefficient model, not general nonlinear/curved hypoellipticity |
-| Entropic time versus physical proper time | directly proved with explicit physical sector | positive imaginary Einstein energy and derived action-rate clock; not every entropy arrow |
-| Selected cubic--quintic generator | open end-to-end | quintic saturation and numerical coefficients not formally derived |
-| Arbitrary-`H¹` orbital stability | open end-to-end | M9.61 is a Gaussian-orbit/tightness bridge only |
-| Physical calibration | open end-to-end | M9.62 defines gates but promotes zero physical predictions |
+| Cubic continuum `C(X,ℂ)` evolution | local existence/uniqueness plus explicit global positive-time irreversible flow | exact pointwise cubic sector on compact continuous-field carriers |
+| Fixed spatial multiplication-energy plus cubic damping | explicit global positive-time pointwise flow and norm contraction | fixed continuous multiplication energy; not a spatial differential or state-dependent Hamiltonian |
+| Mode-diagonal Caticha unbounded generator | self-adjoint/closable with explicit scope | measurable real diagonal symbols |
+| Homogeneous CAT/EPT damping and phase-plus-damping | maximally dissipative with explicit contraction `C₀` semigroups | bounded homogeneous sectors, not the general unbounded functional differential generator |
+| Free continuum kinetic Kolmogorov model | positive smooth kernel, bracket certificate, and explicit PDE derivative identities | free constant-coefficient model, not general curved/nonlinear hypoellipticity |
+| Entropic time versus physical proper time | directly proved with explicit physical sector | positive imaginary Einstein energy and action-rate calibration; not every entropy arrow |
+| M9.63 coefficient pair | unique under two declared Gaussian self-consistency conditions | the conditions are not derived in Lean from the full coupled action |
+| Spatial cubic--quintic Laplacian PDE | exact OpenWave coercive energy bound and nested numerical flow | no kernel-formalized arbitrary-`H¹` local/global theorem |
+| Arbitrary-`H¹` orbital stability | open end-to-end | M9.64 qualifies only the preregistered small scale orbit numerically |
+| M9.65 breathing prediction | frozen and prediction-ready, not validated | collective-coordinate approximation plus reduced-Compton spatial anchor; no independent comparison yet |
 
-## New source pins
+## Current source pins
 
-- `IpekCatichaSuperpositionViolation.lean` — `7791ba4af4381052865294434b070f2b1e6ba9df`
-- `IpekCatichaUnboundedGenerator.lean` — `ddc009e49b64d8b33bede7c67c8392c1ef7cf30a`
-- `EntropicDynamicsLocalTimeFokkerPlanck.lean` — `00734bf484cd0dd724120d68fc8d41066acae582`
+- `IpekCatichaSuperpositionViolation.lean` — `e46898d0013c22e983051b7248160323e64f468f`
+- `IpekCatichaUnboundedGenerator.lean` — `605a3eb7dd7055de4b1d5ce3d8eacecea136f70a`
+- `EntropicDynamicsLocalTimeFokkerPlanck.lean` — `99c39cd8dd3629831e7361a5e7e72eaaa7483c35`
 - `Clock/EntropicAgreement.lean` — `8d7cb5a9c87dba47beefdc4a6c317aa872536632`
 - `EntropicComplexEinstein.lean` — `3e480aca62a95ae4b739dd92e3aa97ffea1b4414`
+
+The new formal work narrows the open continuum boundary. It does not justify reporting the selected cubic--quintic particle branch or its physical prediction as formally or experimentally validated.

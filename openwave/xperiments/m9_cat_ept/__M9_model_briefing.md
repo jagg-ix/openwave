@@ -1,42 +1,42 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 covers all 21 comparison criteria and now includes cross-repository evidence control, structural selection of the binding action, a continuum Gaussian-orbit compactness bridge, and a complete calibration/falsification ledger.
+M9 covers all 21 comparison criteria and now includes cross-repository evidence control, structural and numerical selection of the binding action, a coercive spatial cubic--quintic continuum bridge, and the first frozen out-of-sample physical prediction.
 
 ## Platform status
 
 - Zero criteria are fully validated in-platform.
 - Twenty criteria are partial or bounded.
 - One criterion remains an honest negative: the predictive lepton-mass hierarchy.
-- Particle stability remains partial. M9.59 selects a finite-grid candidate; M9.60 identifies the minimal local cubic--quintic form class; M9.61 finds a continuum Gaussian-orbit variational well and tightness proxy. None of these is a full physical-particle theorem.
-- M9.62 defines explicit failure rules for every criterion and records zero out-of-sample physical predictions.
+- Particle stability remains partial. M9.63 selects a coefficient pair under two declared self-consistency conditions and confirms the branch on three grids. M9.64 adds an exact coercive energy lower bound, nested mass/energy-stable spatial flow, and bounded small scale perturbations. A kernel theorem for every `H¹` perturbation and a physical-particle identification remain open.
+- M9.65 freezes one quantitative prediction before external comparison: `omega_breath / omega_Compton = 2.634371114527`, with a 5% preregistered failure threshold. The prediction is not tested or validated.
 
 ## Cross-repository sources
 
 | Repository | Ref | Pinned revision | Authority |
 | --- | --- | --- | --- |
-| `jagg-ix/openwave` | `main` | `ce17d7126f0c9a9f6564c7bce04df29ea383a558` | simulation evidence |
-| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `adbe9ead533d56ea7acd18e4c9ad5dacafd973ff` | Lean theorem authority |
-| `jagg-ix/zil-lean` | `main` | `64462a3c5e2ffb51a7b226675491cc3a9b156a8d` | evidence orchestration and durable receipts |
+| `jagg-ix/openwave` | `main` | `421c962fdaa4aa7359c00cd6b37f985d297f0dac` | simulation evidence |
+| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `54b4ced090b200fac7ff04ee6a7e8797f1263049` | Lean theorem authority |
+| `jagg-ix/zil-lean` | `main` | `f39758f85ee6300b8060e4f8ea1ecf344ed32c96` | evidence orchestration and test/install infrastructure |
 
 ## Latest formal changes consumed
 
-- Gauge-covariant cubic Born-density backreaction uniqueness in its declared class.
-- Local existence and uniqueness for the cubic continuum `C(X,ℂ)` generator.
-- Dense/closable and mode-diagonal self-adjoint unbounded Caticha generators.
-- Maximal dissipativity and an explicit contraction `C₀` semigroup for homogeneous CAT/EPT damping.
-- A free continuum kinetic Kolmogorov bracket, nondegenerate covariance, and positive smooth kernel.
-- Operational entropic-time/physical-time equality in the positive imaginary-Einstein sector, with its action-rate calibration explicit.
+- Exact global positive-time flow and norm contraction for the unique irreversible cubic continuum sector.
+- Exact fixed spatial multiplication-energy phase coupled to the cubic continuum flow.
+- Maximal dissipativity and explicit contraction `C₀` semigroups for homogeneous damping and phase-plus-damping sectors.
+- Stronger free kinetic Kolmogorov kernel/PDE identities.
+
+These strengthen the cubic and homogeneous continuum sectors. They do not prove the selected spatial differential cubic--quintic PDE or arbitrary-`H¹` orbital stability.
 
 ## Latest closures
 
-- **M9.60:** the cubic term is unique inside the pinned formal class and quintic saturation is the lowest bounded local polynomial extension. The numerical coefficients are not unique or derived.
-- **M9.61:** the selected action has an interior normalized-Gaussian scale minimum, positive second variation, an escape barrier, perturbation confinement, and tightness/radial convergence. Full arbitrary-`H¹` orbital stability remains open.
-- **M9.62:** all 21 criteria have preregistered failure rules and cross-repository ZIL-compatible source receipts. Physical calibration remains incomplete and no out-of-sample physical prediction is promoted.
+- **M9.63:** `alpha = 74.6630446265` and `beta = 415.7483217224` are uniquely selected by density-minimum/peak matching plus reference-scale stationarity. The conditions are explicit model assumptions, not derived physical axioms. The pair retains localization on 12³, 14³, and 16³ campaigns.
+- **M9.64:** `V(rho) >= -(3 alpha²/(16 beta)) rho` gives a coercive `H¹` a-priori bound. Nested 16³/20³/24³ spectral evolution preserves mass and energy numerically, refines, and keeps the preregistered small scale orbit bounded. The full kernel theorem remains open.
+- **M9.65:** the Gaussian collective coordinate yields the frozen prediction `omega_breath = 2.634371114527 m c² / hbar`, independent of the dispersion normalization under the M9.63 rule. No external data were used and no agreement is claimed.
 
 ZIL records identities, receipts, scope, and evidence-state transitions. Lean remains proof authority; OpenWave remains simulation software.
 
 ## Next critical targets
 
-1. M9.63 derive or falsify numerical coefficient selection for `(alpha,beta)` from the coupled action, normalization, and clock sectors.
-2. M9.64 construct the full cubic--quintic continuum generator and prove local/global well-posedness plus arbitrary-`H¹` orbital stability.
-3. M9.65 execute the first preregistered out-of-sample prediction after fixing a nondegenerate unit map.
+1. M9.66 derive or reject the two M9.63 self-consistency conditions from the full coupled CAT/EPT action and clock sector.
+2. M9.67 kernel-formalize the spatial cubic--quintic `H¹` evolution, compactness modulo phase/translation, and orbital stability.
+3. M9.68 execute an independent higher-fidelity or external comparison of the frozen M9.65 prediction without changing its value or tolerance.
