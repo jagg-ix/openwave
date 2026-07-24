@@ -1,0 +1,30 @@
+MODULE openwave.m9.quark_color.
+
+component:physlib_standard_model_gauge_group#kind@entity:component.
+component:physlib_standard_model_gauge_group#provided_by@api:StandardModel.GaugeGroupI.
+component:physlib_su3_projection#kind@entity:component.
+component:physlib_su3_projection#provided_by@api:StandardModel.GaugeGroupI.toSU3.
+component:physlib_ckm_unitary#kind@entity:component.
+component:physlib_ckm_unitary#provided_by@api:CKMMatrix.
+component:physlib_ckm_phase_equivalence#kind@entity:component.
+component:physlib_ckm_phase_equivalence#provided_by@api:PhaseShiftRelation.
+
+claim:finite_su3_color_carrier#kind@entity:interface.
+claim:finite_su3_color_carrier#uses@component:physlib_standard_model_gauge_group.
+claim:finite_su3_color_carrier#uses@component:physlib_su3_projection.
+claim:finite_su3_color_carrier#implemented_by@python:openwave.m9.quark_color_sector.
+
+claim:ckm_phase_invariant_control#kind@entity:simulation.
+claim:ckm_phase_invariant_control#uses@component:physlib_ckm_unitary.
+claim:ckm_phase_invariant_control#uses@component:physlib_ckm_phase_equivalence.
+claim:ckm_phase_invariant_control#implemented_by@python:openwave.m9.quark_color_sector.
+
+claim:full_qcd_dynamics#kind@entity:theorem.
+claim:full_qcd_dynamics#target_state@state:open.
+claim:full_qcd_dynamics#requires@claim:finite_su3_color_carrier.
+
+QUERY reused_components:
+FIND ?claim ?component WHERE ?claim#uses@?component.
+
+QUERY open_targets:
+FIND ?claim WHERE ?claim#target_state@state:open.

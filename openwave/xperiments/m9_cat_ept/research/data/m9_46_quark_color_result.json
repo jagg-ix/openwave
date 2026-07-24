@@ -1,0 +1,28 @@
+{
+  "acceptance": {
+    "ckm_is_unitary": true,
+    "ckm_phase_equivalence_preserves_observables": true,
+    "finite_gauge_element_is_special_unitary": true,
+    "fractional_charge_ledgers_close": true,
+    "meson_and_baryon_singlets_are_invariant": true,
+    "su3_commutators_close": true,
+    "su3_generators_are_hermitian_traceless_orthogonal": true,
+    "wilson_loop_is_gauge_invariant": true
+  },
+  "baryon_singlet_error": 5.854252512677691e-17,
+  "charges": {"neutron_udd": 0.0, "pion_plus_u_antid": 1.0, "pion_zero_u_antiu": 0.0, "proton_uud": 1.0},
+  "ckm": {"jarlskog": 3.096911391959173e-05, "phase_jarlskog_error": 6.46455545344482e-18, "phase_modulus_error": 3.3306690738754696e-16, "unitarity_error": 2.2204460494735933e-16},
+  "classification": {
+    "does_not_establish": ["dynamical QCD or gluon fields", "quarks emerging from the CAT/EPT PDE", "asymptotic freedom or running coupling", "physical hadron spectra or scattering"],
+    "establishes": ["finite-dimensional SU(3) color carrier", "meson and baryon singlet invariance", "lattice Wilson-loop gauge covariance", "fractional quark-charge ledgers", "unitary CKM and phase-equivalence controls"]
+  },
+  "config": {"ckm_delta": 1.2, "ckm_theta12": 0.227, "ckm_theta13": 0.0037, "ckm_theta23": 0.041, "gauge_scale": 0.23},
+  "gauge_element": {"determinant_error": 6.591949208711866e-17, "unitarity_error": 1.1161250171578925e-16},
+  "generator_diagnostics": {"commutator_closure_error": 1.1102230246251565e-16, "maximum_hermitian_error": 0.0, "maximum_trace_error": 0.0, "orthogonality_error": 1.1102230246251565e-16},
+  "meson_singlet_error": 1.1102733514304352e-16,
+  "passed": true,
+  "physlib_reuse": {"branch": "entropic-physlib-linear-full", "flavor_carrier": "CKMMatrix", "gauge_carrier": "StandardModel.GaugeGroupI.toSU3", "phase_equivalence": "PhaseShiftRelation", "zil_graphs": ["formalization/zil/liouville-second-quantization.zc", "formalization/zil/lindblad-driven-leads.zc"]},
+  "schema": "openwave.m9.quark-color-result.v1",
+  "task": "M9.46",
+  "wilson_loop_error": 4.618701254788249e-17
+}
