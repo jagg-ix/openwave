@@ -1,29 +1,32 @@
 # M9 global target plan
 
-## Closure through M9.68
+## Closure through M9.71
 
-- **M9.66:** Gaussian scale stationarity is exactly the variation of the reduced normalized action. The second M9.63 condition is not the full stationary field equation: the selected Gaussian has relative Euler--Lagrange residual `0.485819`. Three nondegenerate local density landmarks select three distinct positive coefficient pairs. The current first-principles uniqueness claim is rejected.
-- **M9.67:** six perturbation classes on `20^3` and `24^3` grids preserve mass below `7e-13`, control energy drift near `1e-6`, remain boundary-clean, and respect the coercive gradient estimate. PhysLib proves a separate jointly continuous contractive cubic semiflow and zero-field attractor. The spatial Laplacian-plus-quintic `H¹` theorem remains open.
-- **M9.68:** the immutable M9.65 value `omega_breath / omega_Compton = 2.634371114527` was tested without refitting. Independent relaxed-state simulations measure `1.3468`--`1.4949`, missing by `43%`--`49%`. The Gaussian collective-coordinate subprediction is falsified inside OpenWave.
+- **M9.69:** normalized imaginary-time evolution solves the full stationary cubic--quintic equation from super-Gaussian, anisotropic, and shell seeds. Maximum seed distance is `0.002245`, maximum relative residual is `0.002671`, nested radius spread is `0.012753`, and the best Gaussian remains at least `0.06790` away in `L²`.
+- **M9.70:** PhysLib proves the exact cubic--quintic density factorization and lower bound. An `H1OrbitalCertificate` makes flow, conservation, compactness modulo symmetry, and coercivity explicit and yields a uniform orbital-distance theorem. PR #16 adds ZIL scope records and a dedicated axiom/non-vacuity audit on top of the current formal branch. Construction of the analytic certificate fields from the spatial PDE remains open.
+- **M9.71:** the replacement stationary-branch radial mode is frozen at `omega_radial / omega_Compton = 1.074356835825` on `20³`. Held-out `24³` and `28³` discrepancies are `2.34%` and `4.18%`, both inside the fixed `5%` gate. No external experiment was used.
 
 ## Current cross-repository state
 
-| Repository | Current revision | Contribution |
+| Repository | Revision | Contribution |
 | --- | --- | --- |
-| OpenWave | `e11e8fce88ce886812860ce747c48d32c8eaeb57` | merged M9.65 baseline and simulation evidence |
-| PhysLib `entropic-physlib-linear-full` | `e2c06741c3e49deb604082a2e9c2e918eab8d545` | exact cubic nonlinear semiflow, strict contraction, zero global attractor, and broader formal action/clock stack |
-| ZIL | `7ef24a8557b610f8f0f560cf375c2a1600083591` | evidence orchestration plus current installation lifecycle tooling |
+| OpenWave baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged M9.68 state |
+| OpenWave work branch | `agent/m9-stationary-formal-mode-69-71` | M9.69--M9.71 implementation and evidence |
+| PhysLib current base | `f148278ec8264d031753d9def49cd2133ac4768d` | latest formal branch including compact-core binding-gap updates |
+| PhysLib frozen theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | revision pinned by generated numerical ledgers |
+| PhysLib PR #16 head | `f165cd8ba524a4274cb46bcd4c4ba1f12a274bf7` | rebased audited density coercivity and conditional orbital certificate |
+| ZIL | `7ef24a8557b610f8f0f560cf375c2a1600083591` | evidence conventions and operational tooling |
 
-The M9.66--M9.68 result ledgers use the earlier frozen ZIL evidence snapshot `f39758f85ee6300b8060e4f8ea1ecf344ed32c96`; the intervening ZIL change is operational installation tooling and does not change the consumed semantic interfaces.
+The current audited PhysLib successor leaves the theorem statements used by the frozen ledgers unchanged.
 
 ## Theory status
 
-The platform remains at `0 validated / 20 partial / 1 negative`. The single criterion-level negative remains the lepton hierarchy. Separately, the methodological prediction ledger now records one tested and falsified subprediction. This distinction prevents a failed approximation from being inflated into a theory-wide rejection.
+The platform remains `0 validated / 20 partial / 1 negative`. The lepton hierarchy remains the sole criterion-level negative. The methodological ledger contains two frozen subpredictions: M9.65 is internally falsified; M9.71 passes internal held-out grids. Neither has been externally tested or physically validated.
 
 ## Next phase
 
 | Target | Deliverable | State |
 | --- | --- | --- |
-| M9.69 | Solve the full normalized stationary spatial equation for a non-Gaussian localized branch and replace the rejected peak rule | NEXT |
-| M9.70 | Formalize spatial cubic--quintic `H¹` evolution, conserved quantities, compactness modulo symmetries, and orbital stability | GATED |
-| M9.71 | Derive a replacement mode prediction from the stationary branch and test it independently without refitting | PLANNED |
+| M9.72 | Construct the conservative spatial cubic--quintic `H¹` flow and prove mass/energy conservation | NEXT |
+| M9.73 | Prove minimizing-sequence compactness and nonzero-branch coercivity modulo phase/translation | GATED |
+| M9.74 | Compare the immutable M9.71 radial ratio with an independent implementation or external observable | PLANNED |

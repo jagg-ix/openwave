@@ -1,0 +1,7 @@
+task:m9-70#produces@claim:cubic-quintic-density-coercivity-kernel-proof.
+task:m9-70#produces@claim:conditional-h1-orbital-stability-kernel-theorem.
+claim:conditional-h1-orbital-stability-kernel-theorem#requires@certificate:h1-flow.
+claim:conditional-h1-orbital-stability-kernel-theorem#requires@certificate:energy-conservation.
+claim:conditional-h1-orbital-stability-kernel-theorem#requires@certificate:compactness-modulo-symmetry.
+claim:conditional-h1-orbital-stability-kernel-theorem#requires@certificate:lyapunov-coercivity.
+claim:conditional-h1-orbital-stability-kernel-theorem#does-not-establish@claim:end-to-end-spatial-pde-well-posedness.

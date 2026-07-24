@@ -1,0 +1,148 @@
+{
+  "acceptance": {
+    "branch_is_localized": true,
+    "branch_is_not_a_best_fit_gaussian": true,
+    "full_normalized_stationary_equation_is_solved_numerically": true,
+    "mass_normalization_closes": true,
+    "nested_grids_remain_in_one_radius_tube": true,
+    "seed_energy_is_consistent": true,
+    "unrelated_seeds_converge_to_one_branch": true
+  },
+  "coefficients": {
+    "alpha": 74.66304462649356,
+    "beta": 415.7483217223993
+  },
+  "config": {
+    "boundary_tolerance": 0.0001,
+    "dispersion": 0.65,
+    "grids": [20, 24, 28],
+    "half_width": 8.0,
+    "imaginary_dt": 0.0005,
+    "iterations": 6000,
+    "minimum_non_gaussian_distance": 0.05,
+    "reference_grid": 24,
+    "residual_tolerance": 0.003,
+    "seed_match_tolerance": 0.005,
+    "seeds": ["super_gaussian", "anisotropic", "shell"]
+  },
+  "decision": {
+    "branch_constructed_from_full_normalized_spatial_equation": true,
+    "branch_is_conditional_on_m9_63_coefficients": true,
+    "physical_particle_identified": false,
+    "stationary_non_gaussian_branch_constructed": true
+  },
+  "nested_grid_campaign": {
+    "energy_spread": 0.013327315452295707,
+    "radius_spread": 0.012752729718252365,
+    "rows": [
+      {
+        "best_gaussian_l2_distance": 0.07155011732262143,
+        "best_gaussian_scale": 0.9824999999999999,
+        "boundary_fraction": 8.711851699855913e-07,
+        "chemical_potential": -1.3162196161499018,
+        "energy": -0.5634751920882408,
+        "gradient_sq": 1.6035846369084636,
+        "mass": 0.9999999999999998,
+        "points": 20,
+        "quartic_integral": 0.06586567693285082,
+        "radial_kurtosis": 1.7947877695618377,
+        "radius": 1.210737840337302,
+        "relative_stationary_residual": 0.0009350036292360222,
+        "sextic_integral": 0.00615560475493644
+      },
+      {
+        "best_gaussian_l2_distance": 0.07393633566094257,
+        "best_gaussian_scale": 0.975,
+        "boundary_fraction": 3.400084341134158e-07,
+        "chemical_potential": -1.2719136470584471,
+        "energy": -0.5768025075405365,
+        "gradient_sq": 1.6300977963480954,
+        "mass": 1.0000000000000004,
+        "points": 24,
+        "quartic_integral": 0.06904676935451512,
+        "radial_kurtosis": 1.8415071847279203,
+        "radius": 1.2022836614223793,
+        "relative_stationary_residual": 0.0010178258685076436,
+        "sextic_integral": 0.00679200530563326
+      },
+      {
+        "best_gaussian_l2_distance": 0.06790121825392978,
+        "best_gaussian_scale": 0.985,
+        "boundary_fraction": 7.182783420764213e-08,
+        "chemical_potential": -1.2403613519676455,
+        "energy": -0.5684658122805598,
+        "gradient_sq": 1.582749555399246,
+        "mass": 1.0,
+        "points": 28,
+        "quartic_integral": 0.06757320223177524,
+        "radial_kurtosis": 1.8508990148891475,
+        "radius": 1.2150363911406317,
+        "relative_stationary_residual": 0.0011964534678833827,
+        "sextic_integral": 0.006677290816973098
+      }
+    ]
+  },
+  "passed": true,
+  "repositories": {
+    "openwave": "2dfaf6da88b24fe43799b53d79ef2f7aa3244a32",
+    "physlib_branch": "agent/m9-cubic-quintic-h1-certificate-70",
+    "physlib_head": "51aad63b2541a1377a001df71b85dfe35f26c0af",
+    "physlib_repository": "jagg-ix/entropic-physlib-private"
+  },
+  "schema": "openwave.m9.stationary-non-gaussian-branch.v1",
+  "seed_independence": {
+    "maximum_seed_distance": 0.002244638818430195,
+    "maximum_seed_energy_spread": 6.075783970382886e-06,
+    "rows": [
+      {
+        "best_gaussian_l2_distance": 0.07393633566094257,
+        "best_gaussian_scale": 0.975,
+        "boundary_fraction": 3.400084341134158e-07,
+        "chemical_potential": -1.2719136470584471,
+        "distance_from_reference": 0.0,
+        "energy": -0.5768025075405365,
+        "gradient_sq": 1.6300977963480954,
+        "mass": 1.0000000000000004,
+        "quartic_integral": 0.06904676935451512,
+        "radial_kurtosis": 1.8415071847279203,
+        "radius": 1.2022836614223793,
+        "relative_stationary_residual": 0.0010178258685076436,
+        "seed": "super_gaussian",
+        "sextic_integral": 0.00679200530563326
+      },
+      {
+        "best_gaussian_l2_distance": 0.07434674373898154,
+        "best_gaussian_scale": 0.975,
+        "boundary_fraction": 3.623081002793687e-07,
+        "chemical_potential": -1.2719878381261114,
+        "distance_from_reference": 0.002244638818430195,
+        "energy": -0.5767964317565661,
+        "gradient_sq": 1.6291318607189598,
+        "mass": 1.0,
+        "quartic_integral": 0.0690106568508208,
+        "radial_kurtosis": 1.8457121588239656,
+        "radius": 1.2028900790324917,
+        "relative_stationary_residual": 0.002670939418122612,
+        "seed": "anisotropic",
+        "sextic_integral": 0.006786851701224825
+      },
+      {
+        "best_gaussian_l2_distance": 0.07476137245455317,
+        "best_gaussian_scale": 0.975,
+        "boundary_fraction": 3.615566928137727e-07,
+        "chemical_potential": -1.2721112587573886,
+        "distance_from_reference": 0.0016378683335889373,
+        "energy": -0.5768022972591639,
+        "gradient_sq": 1.6278280621831038,
+        "mass": 0.9999999999999998,
+        "quartic_integral": 0.0689624198085436,
+        "radial_kurtosis": 1.8499587489623457,
+        "radius": 1.2036292415013101,
+        "relative_stationary_residual": 0.001190136204041615,
+        "seed": "shell",
+        "sextic_integral": 0.00677993050425825
+      }
+    ]
+  },
+  "task": "M9.69"
+}

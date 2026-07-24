@@ -1,0 +1,6 @@
+task:m9-69#produces@claim:stationary-non-gaussian-branch.
+claim:stationary-non-gaussian-branch#derived-from@equation:normalized-spatial-cubic-quintic.
+claim:stationary-non-gaussian-branch#supported-by@evidence:three-unrelated-seeds.
+claim:stationary-non-gaussian-branch#supported-by@evidence:nested-20-24-28-grids.
+claim:stationary-non-gaussian-branch#requires@assumption:m9-63-coefficient-pair.
+claim:stationary-non-gaussian-branch#does-not-establish@claim:physical-particle-identification.

@@ -1,0 +1,65 @@
+{
+  "acceptance": {
+    "density_slack_is_nonnegative": true,
+    "formal_branch_and_source_are_pinned": true,
+    "missing_analytic_hypotheses_remain_explicit": true,
+    "numerical_specialization_matches_kernel_factorization": true,
+    "unconditional_and_conditional_results_are_separated": true
+  },
+  "coefficient_specialization": {
+    "alpha": 74.66304462649356,
+    "beta": 415.7483217223993,
+    "coercivity_constant": 2.5140977462952865,
+    "equality_density": 0.1346903415938749,
+    "maximum_factorization_error": 3.552713678800501e-15,
+    "minimum_sampled_slack": 0.0
+  },
+  "decision": {
+    "compactness_derived_from_the_spatial_pde": false,
+    "conditional_h1_orbital_stability_kernel_proved": true,
+    "density_coercivity_kernel_proved": true,
+    "m9_70_end_to_end_analytic_target_closed": false,
+    "m9_70_scoped_formal_target_closed": true,
+    "spatial_cubic_quintic_h1_flow_constructed_in_kernel": false
+  },
+  "formal_evidence": {
+    "branch": "agent/m9-cubic-quintic-h1-certificate-70",
+    "head": "51aad63b2541a1377a001df71b85dfe35f26c0af",
+    "repository": "jagg-ix/entropic-physlib-private",
+    "source": {
+      "conditional_theorems": [
+        "H1OrbitalCertificate.energy_excess_flow_eq",
+        "H1OrbitalCertificate.orbitDistance_le_of_energy_excess",
+        "H1OrbitalCertificate.uniform_orbital_stability",
+        "H1OrbitalCertificate.minimizingSequence_compact_modulo_symmetry"
+      ],
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/CubicQuinticOrbitalStability.lean",
+      "sha": "b1bbf0bd6e58b41796aba1d63919f3cd6fe7aca4",
+      "unconditional_theorems": [
+        "cubicQuinticDensity_slack_eq",
+        "cubicQuinticDensity_coercive"
+      ]
+    }
+  },
+  "passed": true,
+  "schema": "openwave.m9.h1-kernel-certificate.v1",
+  "scope": {
+    "proved_from_explicit_certificate_fields": [
+      "flow composition and continuous time orbits",
+      "energy-excess invariance",
+      "compactness conclusion modulo a supplied symmetry action",
+      "uniform orbital-distance bound from conserved coercive energy"
+    ],
+    "proved_without_analytic_premises": [
+      "exact square factorization of the cubic--quintic density slack",
+      "pointwise lower bound V(rho) >= -(3 alpha^2/(16 beta)) rho"
+    ],
+    "still_required_as_certificate_data": [
+      "construction of the spatial cubic--quintic H1 flow",
+      "mass and energy conservation for that PDE",
+      "concentration compactness modulo phase and translation",
+      "coercivity of the nonzero stationary branch in the full H1 carrier"
+    ]
+  },
+  "task": "M9.70"
+}
