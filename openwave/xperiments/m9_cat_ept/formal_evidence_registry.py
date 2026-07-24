@@ -8,26 +8,23 @@ from dataclasses import asdict,dataclass
 from functools import lru_cache
 from hashlib import sha256
 import json
-from pathlib import Path
 from typing import Literal
 EvidenceState=Literal["kernel_checked","pending_ci","provided_interface","open","computational"]
 PromotionStatus=Literal["formal_promoted","implementation_declared","interface_available","open_boundary","computationally_verified","stale","missing"]
-FORMAL_REPOSITORY="jagg-ix/entropic-physlib-private"; FORMAL_BRANCH="entropic-physlib-linear-full"
+FORMAL_REPOSITORY="jagg-ix/entropic-physlib-private"
+FORMAL_BRANCH="entropic-physlib-linear-full"
 
 @dataclass(frozen=True)
 class EvidenceItem:
     identifier:str; repository:str; branch:str; path:str; expected_sha:str
     state:EvidenceState; witness:str; runtime_check:str|None; depends_on:tuple[str,...]=()
     def __post_init__(self):
-        if not all((self.identifier,self.repository,self.branch,self.path,self.expected_sha,self.witness)): raise ValueError("complete evidence identity required")
-        if len(self.expected_sha)!=40 and self.repository!="local": raise ValueError("remote sources require Git blob SHA")
-
-def local_source(path): return Path(__file__).resolve().parents[3]/path
-def file_sha256(path): return sha256(path.read_bytes()).hexdigest()
+        if not all((self.identifier,self.repository,self.branch,self.path,self.expected_sha,self.witness)):
+            raise ValueError("complete evidence identity required")
+        if len(self.expected_sha)!=40:
+            raise ValueError("evidence sources require Git blob SHA")
 
 def registry():
-    local50=local_source("openwave/xperiments/m9_cat_ept/semigroup_bridge.py")
-    local52=local_source("openwave/xperiments/m9_cat_ept/non_gaussian_self_binding.py")
     return (
       EvidenceItem("finite_hs_lddl_generator",FORMAL_REPOSITORY,FORMAL_BRANCH,"formalization/zil/lindblad-driven-leads.zc","8f98a97bb12f0b5ab21fbcc62f878e0650894353","pending_ci","QuantumMechanics.LindbladDrivenLeads.lindbladDissipatorHS_apply","m9_50_finite_generator"),
       EvidenceItem("bounded_lddl_evolution",FORMAL_REPOSITORY,FORMAL_BRANCH,"Physlib/QuantumMechanics/OpenSystems/LindbladDrivenLeads/Basic.lean","634087560adaffaaa5a683c47f3dee123501fb28","pending_ci","QuantumMechanics.LindbladDrivenLeads.lddlEvolutionHS_zero","m9_50_semigroup_composition",("finite_hs_lddl_generator",)),
@@ -36,8 +33,7 @@ def registry():
       EvidenceItem("continuum_lindblad_generator",FORMAL_REPOSITORY,FORMAL_BRANCH,"formalization/zil/liouville-second-quantization.zc","8141e353dc5960ef28c01883ccbb10411f62ac05","open","claim:continuum_lindblad_generator",None,("continuum_l2_kernel_carrier","continuum_pointwise_closable")),
       EvidenceItem("continuum_semigroup_wellposed",FORMAL_REPOSITORY,FORMAL_BRANCH,"formalization/zil/liouville-second-quantization.zc","8141e353dc5960ef28c01883ccbb10411f62ac05","open","assumption:continuum_semigroup_wellposed",None,("continuum_lindblad_generator",)),
       EvidenceItem("m9_49_unified_self_binding_campaign","jagg-ix/openwave","main","openwave/xperiments/m9_cat_ept/unified_self_binding_3d.py","e22bbb02ed93a856be438cbbcc5fbc2198be9524","computational","run_unified_self_binding_campaign","m9_49_focused_tests"),
-      EvidenceItem("m9_50_semigroup_bridge","local","main","openwave/xperiments/m9_cat_ept/semigroup_bridge.py",file_sha256(local50),"computational","run_semigroup_bridge_study","m9_50_focused_tests",("bounded_lddl_evolution","continuum_pointwise_closable")),
-      EvidenceItem("m9_52_non_gaussian_search","local","main","openwave/xperiments/m9_cat_ept/non_gaussian_self_binding.py",file_sha256(local52),"computational","run_profile_self_binding_search","m9_52_focused_tests",("m9_49_unified_self_binding_campaign",)),)
+      EvidenceItem("m9_50_semigroup_bridge","jagg-ix/openwave","agent/m9-semigroup-bridge","openwave/xperiments/m9_cat_ept/semigroup_bridge.py","6767a73827142c9a93278b5b705c42e563ab9ac9","computational","run_semigroup_bridge_study","m9_50_focused_tests",("bounded_lddl_evolution","continuum_pointwise_closable")),)
 
 def registry_fingerprint(items=None):
     selected=registry() if items is None else items
@@ -73,8 +69,9 @@ def promote(item,observed,runtime):
     return "computationally_verified" if runtime_ok else "missing"
 
 def evaluate_registry(observed=None,runtime_results=None):
-    items=registry();validate_dependencies(items);snapshot=default_observed_snapshot(items) if observed is None else observed
-    runtime={"m9_49_focused_tests":True,"m9_50_focused_tests":True,"m9_52_focused_tests":True,"m9_50_finite_generator":True,"m9_50_semigroup_composition":True}
+    items=registry();validate_dependencies(items)
+    snapshot=default_observed_snapshot(items) if observed is None else observed
+    runtime={"m9_49_focused_tests":True,"m9_50_focused_tests":True,"m9_50_finite_generator":True,"m9_50_semigroup_composition":True}
     if runtime_results:runtime.update(runtime_results)
     rows=[{**asdict(x),"observed_sha":snapshot.get((x.repository,x.branch,x.path)),"promotion_status":promote(x,snapshot,runtime)} for x in items]
     statuses=("formal_promoted","implementation_declared","interface_available","open_boundary","computationally_verified","stale","missing")
@@ -87,14 +84,15 @@ def drift_control():
     return {"stale_identifier":target.identifier,"stale_status":status(changed),"missing_status":status(missing)}
 
 def illegal_promotion_control():
-    items=registry();snapshot=default_observed_snapshot(items);pending=next(x for x in items if x.state=="pending_ci");opened=next(x for x in items if x.state=="open")
+    items=registry();snapshot=default_observed_snapshot(items)
+    pending=next(x for x in items if x.state=="pending_ci");opened=next(x for x in items if x.state=="open")
     ps=promote(pending,snapshot,{pending.runtime_check:True} if pending.runtime_check else {});os=promote(opened,snapshot,{})
     return {"pending_status":ps,"open_status":os,"pending_not_formal":ps!="formal_promoted","open_not_formal":os!="formal_promoted"}
 
 @lru_cache(maxsize=1)
 def run_formal_evidence_study():
     evaluation=evaluate_registry();drift=drift_control();illegal=illegal_promotion_control();counts=evaluation["counts"]
-    acceptance={"exact_formal_branch_is_pinned":all(r["branch"]==FORMAL_BRANCH for r in evaluation["rows"] if r["repository"]==FORMAL_REPOSITORY),"all_current_source_hashes_match":counts["stale"]==0 and counts["missing"]==0,"pending_ci_is_not_promoted":illegal["pending_not_formal"],"open_targets_are_not_promoted":illegal["open_not_formal"],"drift_is_detected":drift["stale_status"]=="stale","missing_sources_are_detected":drift["missing_status"]=="missing","computational_targets_are_verified":counts["computationally_verified"]==3,"formal_promotion_count_is_zero":counts["formal_promoted"]==0,"dependency_graph_is_acyclic":True,"registry_fingerprint_is_deterministic":registry_fingerprint()==registry_fingerprint()}
+    acceptance={"exact_formal_branch_is_pinned":all(r["branch"]==FORMAL_BRANCH for r in evaluation["rows"] if r["repository"]==FORMAL_REPOSITORY),"all_current_source_hashes_match":counts["stale"]==0 and counts["missing"]==0,"pending_ci_is_not_promoted":illegal["pending_not_formal"],"open_targets_are_not_promoted":illegal["open_not_formal"],"drift_is_detected":drift["stale_status"]=="stale","missing_sources_are_detected":drift["missing_status"]=="missing","computational_targets_are_verified":counts["computationally_verified"]==2,"formal_promotion_count_is_zero":counts["formal_promoted"]==0,"dependency_graph_is_acyclic":True,"registry_fingerprint_is_deterministic":registry_fingerprint()==registry_fingerprint()}
     return {"schema":"openwave.m9.formal-evidence-result.v1","task":"M9.51","evaluation":evaluation,"drift_control":drift,"illegal_promotion_control":illegal,"acceptance":acceptance,"passed":all(acceptance.values()),"decision":{"formal_evidence_promoted":False,"reason":"all theorem witnesses in inspected ZIL graphs remain pending_ci or open","computational_bridges_current":True,"cross_repository_drift_detected":True}}
 
 def result_to_json(result):return json.dumps(result,indent=2,sort_keys=True,default=str)+"\n"
