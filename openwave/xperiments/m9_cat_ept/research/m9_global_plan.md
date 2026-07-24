@@ -1,23 +1,18 @@
 # M9 global target plan
 
-OpenWave remains simulation-only and requires runnable evidence for every status.
+## M9.49--M9.52 closure update
 
-## Completed foundations
-
-M9.22--M9.45 provide the 21-item conformance surface, canonical and irreversible dynamics, static/dynamic bridging, particle and force controls, geometry, scheduling, error budgets, waves, thermal diffusion, composite graphs, and dark-sector surveying.
-
-## M9.46--M9.48 closure update
-
-- M9.46 uses the PhysLib `SU(3)` gauge carrier and unitary CKM/phase-equivalence patterns to qualify finite color and flavor controls.
-- M9.47 couples matter, color-wave, geometry, thermal, reservoir, and entropy domains in one finite-grid PDE with independent closure ledgers.
-- M9.48 runs deterministic long-horizon three-dimensional perturbations using the existing M9.37 minimizer and preserves the self-binding negative through a trap-free spreading control.
-
-All 21 comparison criteria now have repository evidence. The next scientific bottleneck is not another independent control: it is three-dimensional unified self-binding or a rigorous no-go result.
+- **M9.49:** merged one untrapped 3D unified finite-grid scan and selected no self-bound candidate.
+- **M9.50:** qualifies a finite-grid contraction semigroup, composition and resolvent bounds, first-/second-order splitting, and second-order grid-symbol consistency. It does not prove continuum generation.
+- **M9.51:** pins exact formal repository, branch, paths, and hashes. Three theorem witnesses remain `pending_ci`, two continuum targets remain `open`, one interface is available, and two computational sources are current. No formal proof is promoted.
+- **M9.52:** broadens the negative search to Gaussian, exponential, super-Gaussian, shell, and unit-winding toroidal profiles across three geometry couplings. All fifteen runs spread or reach the periodic boundary.
 
 ## Next closure phase
 
 | Target | Deliverable | State |
 | --- | --- | --- |
-| M9.49 | Three-dimensional unified-PDE self-binding/no-go campaign | NEXT |
-| M9.50 | Continuum well-posedness and semigroup bridge | PLANNED |
-| M9.51 | Formal evidence promotion and cross-repository drift checks | PLANNED |
+| M9.53 | Nonlinear continuum generator domain, dissipativity and closability | NEXT |
+| M9.54 | Kernel-checked evidence refresh and theorem/runtime drift audit | GATED |
+| M9.55 | Unified nonlinear continuum-to-grid convergence | PLANNED |
+
+The remaining bottleneck is sharply defined: either construct a new nonlinearity or topological action that changes the self-binding result, or prove the nonlinear continuum generator is mathematically well posed.
