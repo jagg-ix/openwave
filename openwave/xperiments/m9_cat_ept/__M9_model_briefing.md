@@ -1,22 +1,23 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 is a dimensionless simulation model inside OpenWave. It now includes bounded localization, field winding, scale selection, separated clock channels, spin/magnetic controls, interactions, waves, heat, geometry, a neutral fixed-charge survey, finite SU(3)/CKM controls, one coupled finite-grid PDE, and a long-horizon 3D campaign.
+M9 now includes all 21 comparison controls, finite color/flavor carriers, one coupled finite-grid PDE, multiple 3D stability and self-binding campaigns, a finite-grid semigroup bridge, and exact cross-repository evidence drift checks.
 
 ## Current decisions
 
-- All 21 explicit comparison criteria have repository evidence.
-- Nineteen remain partial and two remain honest negatives.
-- The trapped 3D minimizer survives deterministic perturbations, but the untrapped state spreads; no self-bound particle is accepted.
-- Finite SU(3), singlet, Wilson-loop, fractional-charge, and CKM controls exist; QCD and emergent quarks remain open.
-- One finite-grid PDE couples matter, color-wave, geometry, heat, reservoir, and entropy with three closure ledgers.
-- Continuum semigroup generation and well-posedness remain open ZIL/formal targets.
+- Nineteen criteria remain partial and two remain honest negatives.
+- M9.49 selects no self-bound candidate in its merged untrapped unified scan.
+- M9.52 selects no candidate across Gaussian, exponential, super-Gaussian, shell, and unit-winding toroidal families.
+- The vortex winding remains resolved, but topology in the current action does not prevent dispersal.
+- The finite-grid generator is dissipative and contractive; continuum well-posedness remains open.
+- Zero formal proofs are promoted because inspected ZIL witnesses are `pending_ci`, interfaces, or open targets.
+- ZIL supplies orchestration and source traceability; Lean remains proof authority.
 
-## Comparison status
+## Exact formal source
 
-[`MODELS_M9.md`](../../../MODELS_M9.md) records nineteen partial criteria, two honest negatives, and zero not-yet criteria.
+`jagg-ix/entropic-physlib-private@entropic-physlib-linear-full`
 
 ## Next critical targets
 
-1. M9.49 three-dimensional unified-PDE self-binding/no-go campaign.
-2. M9.50 continuum well-posedness and semigroup bridge.
-3. M9.51 formal evidence promotion and cross-repository drift checks.
+1. M9.53 nonlinear continuum generator domain, dissipativity and closability.
+2. M9.54 kernel-checked evidence refresh after formal verification.
+3. M9.55 unified nonlinear continuum-to-grid convergence.
