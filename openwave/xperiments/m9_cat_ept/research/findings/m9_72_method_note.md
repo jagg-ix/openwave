@@ -1,0 +1,3 @@
+# M9.72 finding
+
+The live formal branch already proves a complete continuum `H¹(ℝ³)` carrier, weak compactness with norm-bound retention, weak-plus-norm strong convergence, tight probability compactness consequences, one common field/density subsequence, local existence/uniqueness for supplied `C¹` generators, and compact-sublevel orbital stability. PhysLib PR #16 adds predicate-carrier wrappers and constrained direct-method attainment. The remaining target-specific gaps are the concrete generator's H¹ mapping/`C¹` property, normalized-mass weak closure, target-energy weak lower semicontinuity, and a global conserved target flow.
