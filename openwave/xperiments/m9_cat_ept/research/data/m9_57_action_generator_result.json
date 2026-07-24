@@ -1,0 +1,89 @@
+{
+  "acceptance": {
+    "all_formal_sources_are_blob_pinned": true,
+    "dissipative_direction_decreases_action": true,
+    "evidence_fingerprint_is_deterministic": true,
+    "finite_action_derivative_closes": true,
+    "hamiltonian_direction_is_first_order_action_neutral": true,
+    "live_formal_head_is_pinned": true,
+    "status_vocabulary_is_scoped": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "closability or maximal dissipativity of the full CAT/EPT continuum generator",
+      "one unique physical irreversible law",
+      "unconditional global coupled Einstein-Maxwell-entropic Cauchy development"
+    ],
+    "establishes": [
+      "live blob-pinned PhysLib/ZIL status reconciliation",
+      "finite action directional derivative and generator bridge",
+      "reversible versus dissipative action-rate discrimination"
+    ]
+  },
+  "config": {
+    "epsilon": 2e-07,
+    "focusing": 0.8,
+    "kinetic": 0.35,
+    "length": 6.283185307179586,
+    "points": 96,
+    "potential": 0.18,
+    "saturation": 0.45
+  },
+  "decision": {
+    "finite_action_to_generator_bridge_qualified": true,
+    "formal_global_action_interfaces_reconciled": true,
+    "full_cat_ept_continuum_generator_theorem_proved": false
+  },
+  "derivative_control": {
+    "absolute_error": 4.069092285341469e-11,
+    "analytic_directional_derivative": 0.0705154269627721,
+    "finite_difference": 0.07051542692208118
+  },
+  "flow_control": {
+    "dissipative_action_rate": -0.06628374536098296,
+    "dissipative_step_change": -6.628371296999933e-07,
+    "hamiltonian_action_rate": 0.0,
+    "hamiltonian_step_change": 5.753613731285245e-13
+  },
+  "formal_evidence": {
+    "branch": "entropic-physlib-linear-full",
+    "fingerprint": "9f5bd47966ff27a72f6a84276baf71e74d272040bcd79023442f3ba1d0918be0",
+    "head": "14ecf025ec58d2ec9e4731081c4ed1853f4468f0",
+    "repository": "jagg-ix/entropic-physlib-private",
+    "sources": [
+      {
+        "path": "formalization/zil/electrogravitic-action-closure.zc",
+        "sha": "cf9110d8b4229c33a1e2cefa34c0719062a3f340",
+        "status": "scoped_proved_interfaces"
+      },
+      {
+        "path": "Physlib/QuantumMechanics/ComplexAction/Curvature/GlobalEinsteinHilbertAction.lean",
+        "sha": "6862565fb915b5c6f1cc561b769e190b70f3156a",
+        "status": "proved_with_explicit_scope"
+      },
+      {
+        "path": "Physlib/QuantumMechanics/ComplexAction/Curvature/GlobalElectrograviticAction.lean",
+        "sha": "39e807f424cf8384135299e84fdffc97fb506ee5",
+        "status": "proved_with_explicit_scope"
+      },
+      {
+        "path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/ADMConstraintPropagation.lean",
+        "sha": "600b872eb73611de817df0d00dd6711570c567e2",
+        "status": "conditional_on_explicit_analytic_data"
+      },
+      {
+        "path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/MaximalCauchyDevelopment.lean",
+        "sha": "2504c579fd8f8afe0a1670911142fb0e7ecdb2c0",
+        "status": "conditional_on_gluing_data"
+      },
+      {
+        "path": "docs/EntropicDynamicsClosure.md",
+        "sha": "e9d542ea516492b6e308a5610f952f831f4ed1c5",
+        "status": "status_ledger"
+      }
+    ]
+  },
+  "passed": true,
+  "schema": "openwave.m9.action-generator-bridge.v1",
+  "task": "M9.57"
+}

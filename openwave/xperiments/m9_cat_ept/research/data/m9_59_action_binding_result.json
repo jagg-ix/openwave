@@ -1,0 +1,63 @@
+{
+  "acceptance": {
+    "baseline_reproduces_untrapped_spreading": true,
+    "binding_term_is_an_action_derivative": true,
+    "candidate_avoids_boundary_loading": true,
+    "candidate_reduces_radius_growth_by_large_factor": true,
+    "candidate_retains_localization_on_all_test_grids": true,
+    "entropy_and_temperature_controls_hold": true,
+    "matter_reservoir_balance_closes": true,
+    "physical_particle_claim_is_not_overstated": true
+  },
+  "action_density": {
+    "formula": "-alpha/2 rho^2 + beta/3 rho^3",
+    "variational_potential": "-alpha rho + beta rho^2"
+  },
+  "classification": {
+    "does_not_establish": [
+      "orbital stability or a continuum soliton theorem",
+      "uniqueness of the action term from CAT/EPT axioms",
+      "physical mass, lifetime, charge, or experimental calibration"
+    ],
+    "establishes": [
+      "an explicit bounded cubic--quintic action term and its variational potential",
+      "strong finite-grid discrimination against the merged untrapped baseline",
+      "retained localization across three cubic grids and domains"
+    ]
+  },
+  "config": {
+    "dt": 0.02,
+    "final_times": [6.0,5.0,5.0],
+    "half_widths": [6.0,7.0,8.0],
+    "maximum_boundary": 0.02,
+    "parameter_pairs": [[0.0,0.0],[46.0,170.0],[60.0,260.0],[70.0,380.0]],
+    "points": [12,14,16],
+    "retained_radius_ratio": 1.45
+  },
+  "decision": {
+    "candidate_unique_or_derived_from_first_principles": false,
+    "finite_grid_binding_candidate_selected": true,
+    "robust_untrapped_localization_on_test_campaign": true,
+    "stable_physical_particle_established": false
+  },
+  "derivative_control": {
+    "absolute_error": 7.292655368473788e-10,
+    "analytic_directional_derivative": 33.99947366354987,
+    "finite_difference": 33.999473662820606
+  },
+  "parameter_scan": [
+    {"alpha":0.0,"beta":0.0,"final_entropy":0.06664776612631984,"final_radius":6.249906109477608,"final_time":6.0,"half_width":6.0,"initial_radius":1.2854556689427021,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.7043948141858051,"minimum_temperature":0.985,"points":12,"radius_ratio":4.8620160620694195,"retained_localization":false},
+    {"alpha":46.0,"beta":170.0,"final_entropy":0.0661842757523035,"final_radius":1.9055892325493318,"final_time":6.0,"half_width":6.0,"initial_radius":1.2854556689427021,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.018398062810782947,"minimum_temperature":0.985,"points":12,"radius_ratio":1.482423142695146,"retained_localization":false},
+    {"alpha":60.0,"beta":260.0,"final_entropy":0.06616649563100006,"final_radius":1.7186106023386072,"final_time":6.0,"half_width":6.0,"initial_radius":1.2854556689427021,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.01241834313707252,"minimum_temperature":0.985,"points":12,"radius_ratio":1.3369660610327998,"retained_localization":true},
+    {"alpha":70.0,"beta":380.0,"final_entropy":0.06616796737211386,"final_radius":1.706860142483844,"final_time":6.0,"half_width":6.0,"initial_radius":1.2854556689427021,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.009010096760630686,"minimum_temperature":0.985,"points":12,"radius_ratio":1.327824975782907,"retained_localization":true}
+  ],
+  "passed": true,
+  "resolution_campaign": [
+    {"alpha":70.0,"beta":380.0,"final_entropy":0.06616796737211386,"final_radius":1.706860142483844,"final_time":6.0,"half_width":6.0,"initial_radius":1.2854556689427021,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.009010096760630686,"minimum_temperature":0.985,"points":12,"radius_ratio":1.327824975782907,"retained_localization":true},
+    {"alpha":70.0,"beta":380.0,"final_entropy":0.055746738125816916,"final_radius":1.7002796337830985,"final_time":5.0,"half_width":7.0,"initial_radius":1.2854556689428487,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.006270836893148533,"minimum_temperature":0.985,"points":14,"radius_ratio":1.3227057726396731,"retained_localization":true},
+    {"alpha":70.0,"beta":380.0,"final_entropy":0.05572391519484427,"final_radius":1.726579264814135,"final_time":5.0,"half_width":8.0,"initial_radius":1.2854556689428487,"maximum_balance_error":0.0,"maximum_boundary_fraction":0.006037350437617166,"minimum_temperature":0.985,"points":16,"radius_ratio":1.3431651565503335,"retained_localization":true}
+  ],
+  "schema": "openwave.m9.action-derived-binding.v1",
+  "selected_candidate": {"alpha":70.0,"beta":380.0},
+  "task": "M9.59"
+}

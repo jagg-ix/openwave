@@ -1,0 +1,9 @@
+MODULE openwave.m9.action_derived_binding.
+claim:m9.59.binding_action_derivative#target_state@state:closed.
+claim:m9.59.finite_grid_candidate#target_state@state:closed.
+claim:m9.59.multi_grid_localization#target_state@state:closed.
+claim:m9.59.physical_particle#target_state@state:open.
+claim:m9.59.continuum_orbital_stability#target_state@state:open.
+claim:m9.59.first_principles_uniqueness#target_state@state:open.
+QUERY binding_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.
