@@ -1,36 +1,22 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 is a dimensionless simulation model inside OpenWave. It now includes bounded
-localization, field winding, scale selection, separated clock channels, Pauli
-spin/magnetic controls, two-body kernels, reduced capture/annihilation, converged
-standing-wave quantization, composite-state graphs, a screened weak-field geometry
-plugin, deterministic multi-domain scheduling, adaptive numerical error budgets,
-3D continuation/minimization, a manifest-driven accelerator contract, a
-lepton-hierarchy model-selection audit, reduced confinement and chiral-transition
-sectors, a weak-field equivalence-principle suite, native wave reductions, an
-explicit thermal sector, and a neutral fixed-charge variational survey.
+M9 is a dimensionless simulation model inside OpenWave. It now includes bounded localization, field winding, scale selection, separated clock channels, spin/magnetic controls, interactions, waves, heat, geometry, a neutral fixed-charge survey, finite SU(3)/CKM controls, one coupled finite-grid PDE, and a long-horizon 3D campaign.
 
 ## Current decisions
 
-- A constrained 1D localized family exists; no stable 3D particle is accepted.
-- Integer winding is field-derived; electric-charge identity is open.
-- A dimensionless scale is selected; physical mass is open.
-- Reversible phase is an intrinsic-clock candidate; physical time is not identified.
-- Spin/magnetic/double-cover controls exist; exchange statistics and emergent g remain open.
-- Reduced annihilation closes its radiation ledger; full-PDE annihilation is open.
-- A radial bound-mode ladder is resolved; native CAT/EPT atomic structure is open.
-- Neutral-pair and charged-triplet graphs bind; physical mesons/baryons are not established.
-- Matter sources a scalar metric/lapse control; Einstein gravity and physical coupling remain open.
-- The 3D reference minimizer is trap-bound; no self-bound particle is accepted.
-- Current simple lepton-hierarchy laws fail predictive gates; no mass hierarchy is selected.
+- All 21 explicit comparison criteria have repository evidence.
+- Nineteen remain partial and two remain honest negatives.
+- The trapped 3D minimizer survives deterministic perturbations, but the untrapped state spreads; no self-bound particle is accepted.
+- Finite SU(3), singlet, Wilson-loop, fractional-charge, and CKM controls exist; QCD and emergent quarks remain open.
+- One finite-grid PDE couples matter, color-wave, geometry, heat, reservoir, and entropy with three closure ledgers.
+- Continuum semigroup generation and well-posedness remain open ZIL/formal targets.
 
 ## Comparison status
 
-[`MODELS_M9.md`](../../../MODELS_M9.md) records eighteen partial criteria, two
-honest negatives, and one not-yet criterion.
+[`MODELS_M9.md`](../../../MODELS_M9.md) records nineteen partial criteria, two honest negatives, and zero not-yet criteria.
 
 ## Next critical targets
 
-1. M9.46 quark/color field sector or an explicit no-go audit.
-2. M9.47 unified full-PDE closure across particle, force, wave, thermal, and geometry domains.
-3. M9.48 long-horizon three-dimensional perturbation and stability campaign.
+1. M9.49 three-dimensional unified-PDE self-binding/no-go campaign.
+2. M9.50 continuum well-posedness and semigroup bridge.
+3. M9.51 formal evidence promotion and cross-repository drift checks.
