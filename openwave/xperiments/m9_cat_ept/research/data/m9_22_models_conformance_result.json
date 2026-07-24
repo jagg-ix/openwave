@@ -1,7 +1,7 @@
 {
-  "schema": "openwave.m9.models-conformance.v5",
+  "schema": "openwave.m9.models-conformance.v6",
   "model": "M9 CAT/EPT",
-  "fingerprint": "010c776d2dd6f68c94f675586cd1a778ae01172f36fac8802e5dbbe491a7ebeb",
+  "fingerprint": "b5dd65d9ae1a2f87a4b210ceee1b971e2b134434881a5e0258a9d9c28118441e",
   "passed": true,
   "repository_profile": "MODELS_M9.md",
   "audit": {
@@ -21,9 +21,9 @@
     "summary_total_closes": true,
     "thermal_criterion_is_explicit": true,
     "deterministic_fingerprint": true,
-    "m9_68_status_counts": true,
-    "m9_66_67_stability_evidence_present": true,
-    "m9_68_falsification_evidence_present": true,
-    "falsified_subprediction_not_promoted_to_criterion_negative": true
+    "m9_71_status_counts": true,
+    "m9_69_70_stability_evidence_present": true,
+    "m9_71_replacement_mode_evidence_present": true,
+    "internal_mode_success_not_promoted_to_validation": true
   }
 }
