@@ -1,0 +1,22 @@
+MODULE openwave.m9.continuum_semigroup_bridge.
+
+component:physlib_exp#provided_by@api:NormedSpace.exp.
+component:physlib_c0_semigroup#provided_by@api:CPTPC0Semigroup.
+component:physlib_distribution_limit#provided_by@api:MeasureTheory.TendstoInDistribution.
+component:physlib_resolution_bridge#provided_by@api:NSFourierRiemannSumBridge.
+
+claim:finite_spectral_semigroup#kind@entity:simulation.
+claim:finite_spectral_semigroup#uses@component:physlib_exp.
+claim:finite_spectral_semigroup#uses@component:physlib_c0_semigroup.
+claim:finite_spectral_semigroup#uses@component:physlib_resolution_bridge.
+claim:finite_spectral_semigroup#implemented_by@python:openwave.m9.continuum_semigroup_bridge.
+
+claim:continuum_nonlinear_wellposedness#kind@entity:theorem.
+claim:continuum_nonlinear_wellposedness#target_state@state:open.
+claim:continuum_nonlinear_wellposedness#requires@claim:finite_spectral_semigroup.
+claim:continuum_nonlinear_wellposedness#uses@component:physlib_distribution_limit.
+
+QUERY reused_components:
+FIND ?claim ?component WHERE ?claim#uses@?component.
+QUERY open_targets:
+FIND ?claim WHERE ?claim#target_state@state:open.
