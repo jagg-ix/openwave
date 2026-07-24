@@ -1,0 +1,82 @@
+{
+  "acceptance": {
+    "breathing_curvature_is_positive": true,
+    "collective_inertia_is_positive": true,
+    "current_repository_heads_are_pinned": true,
+    "failure_rule_is_preregistered": true,
+    "fingerprint_is_deterministic": true,
+    "no_external_data_were_used": true,
+    "prediction_is_frozen_before_external_comparison": true,
+    "prediction_ratio_is_finite_and_positive": true,
+    "reference_branch_is_stationary": true,
+    "selection_rule_removes_dispersion_scale": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "experimental agreement",
+      "validity of the Gaussian collective-coordinate approximation for the full physical particle",
+      "identification of the localized branch with the electron"
+    ],
+    "establishes": [
+      "one frozen dimensionful breathing-frequency prediction derived before external comparison",
+      "a quantitative failure threshold and reproducible cross-repository fingerprint",
+      "dispersion-independent frequency ratio under the M9.63 self-consistency selection rule"
+    ]
+  },
+  "config": {
+    "dispersion": 0.65,
+    "external_observable": "dominant radial breathing angular frequency",
+    "perturbation_fraction": 0.04,
+    "reference_scale": 1.0,
+    "relative_tolerance": 0.05,
+    "spatial_anchor": "reduced Compton length hbar/(m c)"
+  },
+  "decision": {
+    "first_out_of_sample_physical_prediction_preregistered": true,
+    "prediction_externally_tested": false,
+    "prediction_ready_count": 1,
+    "prediction_validated": false
+  },
+  "derivation": {
+    "alpha": 74.66304462649356,
+    "beta": 415.7483217223993,
+    "breathing_period_over_compton_period": 0.37959723840184645,
+    "collective_scale_inertia": 1.1538461538461537,
+    "first_derivative": 0.0,
+    "omega_dimensionless": 3.4246824488849508,
+    "omega_over_compton": 2.634371114526885,
+    "second_derivative": 13.532826779654563
+  },
+  "dispersion_independence": {
+    "maximum_ratio_spread": 8.881784197001252e-16,
+    "ratio_is_dispersion_independent_under_selection_rule": true,
+    "rows": [
+      {"alpha":45.946489000919115,"beta":255.84512105993804,"dispersion":0.4,"omega_over_compton":2.6343711145268847},
+      {"alpha":57.43311125114889,"beta":319.8064013249225,"dispersion":0.5,"omega_over_compton":2.634371114526884},
+      {"alpha":74.66304462649356,"beta":415.7483217223993,"dispersion":0.65,"omega_over_compton":2.634371114526885},
+      {"alpha":91.89297800183823,"beta":511.6902421198761,"dispersion":0.8,"omega_over_compton":2.6343711145268847},
+      {"alpha":114.86622250229777,"beta":639.612802649845,"dispersion":1.0,"omega_over_compton":2.634371114526884}
+    ]
+  },
+  "fingerprint": "5115fce5fe7f998bca8acf9f206adfd7fc448d9f989b70abf01ae20f9fb07d5e",
+  "passed": true,
+  "preregistration": {
+    "dimensionless_ratio": 2.634371114526885,
+    "external_data_used_to_compute_prediction": false,
+    "failure_rule": "reject this collective-coordinate prediction if a converged independent physical or higher-fidelity CAT/EPT measurement gives |omega/omega_C-2.634371114527|/2.634371114527 > 0.050",
+    "frozen_before_external_comparison": true,
+    "initial_condition": "localized branch with a +4.0% radial scale perturbation",
+    "observable": "dominant radial breathing angular frequency",
+    "prediction": "omega_breath = 2.634371114527 * m c^2 / hbar",
+    "prediction_id": "CAT-EPT-M9.65-BREATHING-COMPTON-RATIO-v1",
+    "relative_tolerance": 0.05,
+    "spatial_anchor": "reduced Compton length hbar/(m c)"
+  },
+  "repositories": {
+    "openwave": "421c962fdaa4aa7359c00cd6b37f985d297f0dac",
+    "physlib": "54b4ced090b200fac7ff04ee6a7e8797f1263049",
+    "zil": "f39758f85ee6300b8060e4f8ea1ecf344ed32c96"
+  },
+  "schema": "openwave.m9.preregistered-breathing-prediction.v1",
+  "task": "M9.65"
+}
