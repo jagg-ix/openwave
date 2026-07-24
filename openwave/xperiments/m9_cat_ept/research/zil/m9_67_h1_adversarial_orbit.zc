@@ -1,0 +1,7 @@
+task:m9.67#consumes@task:m9.64.
+task:m9.67#consumes@physlib:continuum-spatial-energy-cubic-semiflow.
+task:m9.67#closed@claim:twelve-adversarial-orbits-preserve-finite-grid-ledgers.
+task:m9.67#closed@claim:coercive-gradient-bound-is-respected-numerically.
+task:m9.67#open@claim:spatial-cubic-quintic-h1-wellposedness-in-lean.
+task:m9.67#open@claim:compactness-modulo-phase-and-translation.
+task:m9.67#open@claim:arbitrary-h1-orbital-stability.

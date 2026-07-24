@@ -1,42 +1,43 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 covers all 21 comparison criteria and now includes cross-repository evidence control, structural and numerical selection of the binding action, a coercive spatial cubic--quintic continuum bridge, and the first frozen out-of-sample physical prediction.
+M9 covers all 21 comparison criteria and now includes cross-repository evidence control, coefficient-condition falsification, adversarial spatial-flow tests, and the first no-refit test of a frozen physical subprediction.
 
 ## Platform status
 
 - Zero criteria are fully validated in-platform.
 - Twenty criteria are partial or bounded.
 - One criterion remains an honest negative: the predictive lepton-mass hierarchy.
-- Particle stability remains partial. M9.63 selects a coefficient pair under two declared self-consistency conditions and confirms the branch on three grids. M9.64 adds an exact coercive energy lower bound, nested mass/energy-stable spatial flow, and bounded small scale perturbations. A kernel theorem for every `H¹` perturbation and a physical-particle identification remain open.
-- M9.65 freezes one quantitative prediction before external comparison: `omega_breath / omega_Compton = 2.634371114527`, with a 5% preregistered failure threshold. The prediction is not tested or validated.
+- Particle stability remains partial. The branch survives the M9.67 adversarial numerical campaign, but M9.66 rejects the Gaussian peak-density selection premise as a current first-principles derivation and the full `H¹` theorem remains open.
+- The M9.65 breathing prediction has now been tested and falsified inside OpenWave. This is a negative result for that Gaussian collective-coordinate approximation, not for every CAT/EPT clock or particle mechanism.
 
 ## Cross-repository sources
 
-| Repository | Ref | Pinned revision | Authority |
+| Repository | Ref | Current revision | Authority |
 | --- | --- | --- | --- |
-| `jagg-ix/openwave` | `main` | `421c962fdaa4aa7359c00cd6b37f985d297f0dac` | simulation evidence |
-| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `54b4ced090b200fac7ff04ee6a7e8797f1263049` | Lean theorem authority |
-| `jagg-ix/zil-lean` | `main` | `f39758f85ee6300b8060e4f8ea1ecf344ed32c96` | evidence orchestration and test/install infrastructure |
+| `jagg-ix/openwave` | `main` | `e11e8fce88ce886812860ce747c48d32c8eaeb57` | simulation evidence |
+| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `e2c06741c3e49deb604082a2e9c2e918eab8d545` | Lean theorem authority |
+| `jagg-ix/zil-lean` | `main` | `7ef24a8557b610f8f0f560cf375c2a1600083591` | evidence orchestration and install/test infrastructure |
+
+M9.66--M9.68 result ledgers were frozen against ZIL snapshot `f39758f85ee6300b8060e4f8ea1ecf344ed32c96`. The later ZIL commit changes installation lifecycle tooling and does not alter the theorem/evidence interfaces consumed by these results.
 
 ## Latest formal changes consumed
 
-- Exact global positive-time flow and norm contraction for the unique irreversible cubic continuum sector.
-- Exact fixed spatial multiplication-energy phase coupled to the cubic continuum flow.
-- Maximal dissipativity and explicit contraction `C₀` semigroups for homogeneous damping and phase-plus-damping sectors.
-- Stronger free kinetic Kolmogorov kernel/PDE identities.
+- A jointly continuous nonlinear semiflow for fixed spatial multiplication energy plus cubic damping.
+- Strict norm contraction for positive damping.
+- Uniform convergence to the zero field and a singleton zero global attractor.
 
-These strengthen the cubic and homogeneous continuum sectors. They do not prove the selected spatial differential cubic--quintic PDE or arbitrary-`H¹` orbital stability.
+These are exact results for the cubic dissipative `C(X,ℂ)` sector. They do not prove the conservative spatial Laplacian-plus-quintic particle equation or stability of a nonzero localized branch.
 
 ## Latest closures
 
-- **M9.63:** `alpha = 74.6630446265` and `beta = 415.7483217224` are uniquely selected by density-minimum/peak matching plus reference-scale stationarity. The conditions are explicit model assumptions, not derived physical axioms. The pair retains localization on 12³, 14³, and 16³ campaigns.
-- **M9.64:** `V(rho) >= -(3 alpha²/(16 beta)) rho` gives a coercive `H¹` a-priori bound. Nested 16³/20³/24³ spectral evolution preserves mass and energy numerically, refines, and keeps the preregistered small scale orbit bounded. The full kernel theorem remains open.
-- **M9.65:** the Gaussian collective coordinate yields the frozen prediction `omega_breath = 2.634371114527 m c² / hbar`, independent of the dispersion normalization under the M9.63 rule. No external data were used and no agreement is claimed.
+- **M9.66:** Gaussian scale stationarity is reduced-action-derived. Peak-density matching is not the normalized stationary field equation: the selected Gaussian has relative residual `0.485819`, and alternative local landmarks yield distinct positive coefficient pairs.
+- **M9.67:** twelve anisotropic, phase, translation, noise, and scale perturbation runs preserve mass and energy numerically, remain boundary-clean, and respect the coercive gradient estimate. The formal `H¹` target remains open.
+- **M9.68:** the frozen `omega_breath / omega_Compton = 2.634371114527` prediction was tested without refitting. Three grids measure `1.3468`--`1.4949`, missing by `43%`--`49%`; the subprediction fails its 5% gate.
 
 ZIL records identities, receipts, scope, and evidence-state transitions. Lean remains proof authority; OpenWave remains simulation software.
 
 ## Next critical targets
 
-1. M9.66 derive or reject the two M9.63 self-consistency conditions from the full coupled CAT/EPT action and clock sector.
-2. M9.67 kernel-formalize the spatial cubic--quintic `H¹` evolution, compactness modulo phase/translation, and orbital stability.
-3. M9.68 execute an independent higher-fidelity or external comparison of the frozen M9.65 prediction without changing its value or tolerance.
+1. M9.69 construct a stationary non-Gaussian localized branch from the full normalized spatial equation.
+2. M9.70 kernel-formalize the conservative spatial cubic--quintic `H¹` PDE, compactness, and orbital stability.
+3. M9.71 derive a replacement mode prediction from the stationary branch and test it independently without refitting.

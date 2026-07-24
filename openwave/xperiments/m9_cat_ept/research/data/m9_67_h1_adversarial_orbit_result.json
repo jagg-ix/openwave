@@ -1,0 +1,38 @@
+{
+  "schema": "openwave.m9.h1-adversarial-orbit.v1",
+  "task": "M9.67",
+  "passed": true,
+  "repositories": {
+    "openwave": "e11e8fce88ce886812860ce747c48d32c8eaeb57",
+    "physlib": "e2c06741c3e49deb604082a2e9c2e918eab8d545",
+    "zil": "f39758f85ee6300b8060e4f8ea1ecf344ed32c96"
+  },
+  "campaign": {
+    "grids": [20, 24],
+    "cases": ["scale_minus", "scale_plus", "anisotropic", "phase_chirp", "translated", "noise"],
+    "run_count": 12,
+    "final_time": 0.4,
+    "dt": 0.0005
+  },
+  "summary": {
+    "maximum_mass_error": 6.648015471455437e-13,
+    "maximum_energy_drift": 1.0125157788865025e-06,
+    "maximum_centered_radius": 1.3001754854089327,
+    "maximum_boundary_fraction": 5.973784060614624e-05,
+    "maximum_gradient_to_bound_ratio": 0.5833186982033435
+  },
+  "formal_gap_ledger": [
+    {"interface": "fixed-spatial-energy cubic damping semiflow", "status": "directly proved with explicit scope"},
+    {"interface": "spatial Laplacian cubic--quintic local H1 well-posedness", "status": "not closed end-to-end"},
+    {"interface": "mass and energy conservation for spatial PDE", "status": "not kernel-formalized"},
+    {"interface": "compactness modulo phase and translation", "status": "not kernel-formalized"},
+    {"interface": "orbital stability of nonzero branch", "status": "not kernel-formalized"}
+  ],
+  "decision": {
+    "adversarial_h1_like_orbits_numerically_bounded": true,
+    "coercive_h1_apriori_control_numerically_respected": true,
+    "spatial_cubic_quintic_h1_kernel_theorem_proved": false,
+    "arbitrary_h1_orbital_stability_proved": false,
+    "m9_67_formal_target_closed": false
+  }
+}

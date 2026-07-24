@@ -1,0 +1,6 @@
+task:m9.68#consumes@task:m9.65.
+task:m9.68#closed@claim:frozen-prediction-reused-without-refit.
+task:m9.68#closed@claim:independent-relaxed-state-comparison-runs-on-three-grids.
+task:m9.68#closed@claim:m9.65-gaussian-breathing-prediction-fails-five-percent-gate.
+task:m9.68#caveat@claim:internal-openwave-falsification-not-external-experiment.
+task:m9.68#open@claim:derive-a-new-mode-prediction-from-the-numerically-stationary-branch.

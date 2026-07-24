@@ -1,0 +1,36 @@
+{
+  "schema": "openwave.m9.independent-breathing-comparison.v1",
+  "task": "M9.68",
+  "passed": true,
+  "repositories": {
+    "openwave": "e11e8fce88ce886812860ce747c48d32c8eaeb57",
+    "physlib": "e2c06741c3e49deb604082a2e9c2e918eab8d545",
+    "zil": "f39758f85ee6300b8060e4f8ea1ecf344ed32c96"
+  },
+  "frozen_prediction": {
+    "prediction_id": "CAT-EPT-M9.65-BREATHING-COMPTON-RATIO-v1",
+    "dimensionless_ratio": 2.634371114526885,
+    "relative_tolerance": 0.05,
+    "frozen_before_external_comparison": true
+  },
+  "rows": [
+    {"points": 16, "ground_state_radius": 1.2469279910605673, "measured_omega_dimensionless": 1.8733583489681052, "measured_omega_over_compton": 1.4410448838216192, "relative_error_from_frozen_prediction": 0.45298334168820364, "fit_rmse": 0.005593884268601501, "maximum_mass_error": 2.6219026949547697e-12, "maximum_energy_drift": 3.1064985883677565e-07},
+    {"points": 20, "ground_state_radius": 1.211287148075193, "measured_omega_dimensionless": 1.7507817385866167, "measured_omega_over_compton": 1.3467551835281666, "relative_error_from_frozen_prediction": 0.48877545152933605, "fit_rmse": 0.005830568914805267, "maximum_mass_error": 1.0793810290010697e-11, "maximum_energy_drift": 2.3734717935486316e-07},
+    {"points": 24, "ground_state_radius": 1.202869485583391, "measured_omega_dimensionless": 1.9434021263289556, "measured_omega_over_compton": 1.494924712560735, "relative_error_from_frozen_prediction": 0.4325307074932709, "fit_rmse": 0.0054300831311132084, "maximum_mass_error": 1.8906654020156566e-11, "maximum_energy_drift": 2.4301078993538283e-07}
+  ],
+  "summary": {
+    "mean_measured_omega_over_compton": 1.4275749266368403,
+    "minimum_measured_omega_over_compton": 1.3467551835281666,
+    "maximum_measured_omega_over_compton": 1.494924712560735,
+    "grid_spread": 0.14816952903256841,
+    "minimum_relative_error": 0.4325307074932709,
+    "maximum_relative_error": 0.48877545152933605
+  },
+  "decision": {
+    "prediction_independently_tested": true,
+    "prediction_passes_preregistered_tolerance": false,
+    "prediction_falsified_by_higher_fidelity_openwave_test": true,
+    "external_experimental_test_performed": false,
+    "cat_ept_theory_falsified": false
+  }
+}
