@@ -1,0 +1,8 @@
+MODULE openwave.m9.action_generator.
+claim:m9.57.formal_source_reconciliation#target_state@state:closed.
+claim:m9.57.finite_action_derivative#target_state@state:closed.
+claim:m9.57.reversible_dissipative_split#target_state@state:closed.
+claim:full_cat_ept_continuum_generator#target_state@state:open.
+claim:continuum_semigroup_generation#target_state@state:open.
+QUERY action_generator_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.

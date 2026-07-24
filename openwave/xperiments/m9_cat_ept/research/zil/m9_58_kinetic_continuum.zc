@@ -1,0 +1,8 @@
+MODULE openwave.m9.kinetic_continuum.
+claim:m9.58.nested_phase_space_convergence#target_state@state:closed.
+claim:m9.58.mass_positivity#target_state@state:closed.
+claim:m9.58.hoermander_rank#target_state@state:closed.
+claim:continuum_hypoelliptic_wellposed#target_state@state:open.
+claim:continuum_subelliptic_regularization#target_state@state:open.
+QUERY kinetic_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.

@@ -1,25 +1,31 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 now includes all 21 comparison controls, finite color/flavor carriers, one coupled finite-grid PDE, multiple 3D stability and self-binding campaigns, finite-grid and phase-space semigroup bridges, nonlinear generator graph controls, fail-closed formal evidence refresh, and nested-grid convergence evidence.
+M9 now covers all 21 comparison criteria and includes a coupled finite-grid PDE, finite semigroup and phase-space bridges, nonlinear generator and nested-grid controls, live PhysLib/ZIL status reconciliation, a finite kinetic convergence campaign, and an action-derived 3D localization candidate.
 
-## Current decisions
+## Platform status
 
-- Nineteen criteria remain partial and two remain honest negatives.
-- M9.49 selects no self-bound candidate in its merged untrapped unified scan.
-- M9.52 selects no candidate across Gaussian, exponential, super-Gaussian, shell, and unit-winding toroidal families.
-- The vortex winding remains resolved, but topology in the current action does not prevent dispersal.
-- M9.53 closes a finite positive, mass-conserving Fokker--Planck bridge with detailed balance and entropy decay; continuum hypoelliptic well-posedness remains open.
-- M9.54 shows smooth finite-Galerkin state and generator-graph convergence plus bounded-set shifted dissipativity. It does not prove full nonlinear continuum closability or semigroup generation.
-- M9.55 refreshes exact kernel evidence and promotes zero formal proofs because the relevant declarations remain `pending_ci`, interface-only, or open.
-- M9.56 shows monotonically decreasing nested-grid errors for the unified nonlinear state while preserving all balance, positivity, and entropy controls. It does not construct a continuum solution.
-- ZIL supplies orchestration and source traceability; Lean remains proof authority.
+- Zero criteria are fully validated in-platform.
+- Twenty criteria are partial or bounded.
+- One criterion remains an honest negative: the predictive lepton-mass hierarchy.
+- M9.49 and M9.52 remain valid negatives for the original action and tested profile families.
+- M9.59 changes the particle-stability row to partial by selecting a finite-grid candidate from an explicit bounded cubic--quintic action term. It does not establish orbital stability, continuum existence, uniqueness of the term, or a physical particle.
 
-## Exact formal source
+## Formal status
 
-`jagg-ix/entropic-physlib-private@entropic-physlib-linear-full`
+The exact formal source is `jagg-ix/entropic-physlib-private@entropic-physlib-linear-full`, inspected at `14ecf025ec58d2ec9e4731081c4ed1853f4468f0`.
+
+PhysLib contains scoped metric-built Einstein--Maxwell--entropic action/PDE constructors, global Einstein--Hilbert and electrogravitic action interfaces, intrinsic Maxwell equations, ADM constraint propagation, and conditional maximal-development infrastructure. These results strengthen the formal evidence attached to the gravity and electromagnetic rows; they do not convert those rows into calibrated OpenWave validation.
+
+## Latest closures
+
+- **M9.57:** live blob-pinned formal reconciliation and a finite action-to-generator derivative/flow bridge. Full continuum generator closability and semigroup generation remain open.
+- **M9.58:** nested phase-space convergence, positive mass-conserving generators, and algebraic Hörmander bracket rank. Continuum existence, uniqueness, subelliptic estimates, and hypoellipticity remain open.
+- **M9.59:** bounded cubic--quintic action derivative and 3D discrimination against the merged untrapped baseline. A finite-grid localization candidate is selected across three grids; physical-particle status remains open.
+
+ZIL supplies orchestration, source traceability, scope labels, and open-target queries. Lean remains proof authority.
 
 ## Next critical targets
 
-1. M9.57 formal nonlinear generator closability, maximal dissipativity, and semigroup generation.
-2. M9.58 continuum kinetic/Fokker--Planck convergence and hypoelliptic well-posedness.
-3. M9.59 theory-derived binding term and untrapped 3D discrimination.
+1. M9.60 derive or reject uniqueness of the selected binding action from the CAT/EPT axioms and formal action stack.
+2. M9.61 continuum orbital-stability and compactness theorem for the selected candidate.
+3. M9.62 calibrated mass, charge, clock, and coupling map with external falsification gates.
