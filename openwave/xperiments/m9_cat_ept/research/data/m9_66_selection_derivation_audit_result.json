@@ -1,0 +1,37 @@
+{
+  "schema": "openwave.m9.selection-derivation-audit.v1",
+  "task": "M9.66",
+  "passed": true,
+  "repositories": {
+    "openwave": "e11e8fce88ce886812860ce747c48d32c8eaeb57",
+    "physlib": "e2c06741c3e49deb604082a2e9c2e918eab8d545",
+    "zil": "f39758f85ee6300b8060e4f8ea1ecf344ed32c96"
+  },
+  "selected_coefficients": {"alpha": 74.66304462649356, "beta": 415.7483217223993},
+  "scale_stationarity": {"derivative": 0.0, "derived_from_reduced_action_variation": true},
+  "stationary_field_residual": {
+    "mass": 1.0,
+    "best_chemical_potential": -1.1851570433141418,
+    "residual_l2": 0.6587336462350363,
+    "operator_l2": 1.3559230192010256,
+    "relative_residual": 0.4858193547176399,
+    "peak_operator": 1.950000000000002,
+    "peak_minus_chemical_potential": 3.135157043314144
+  },
+  "alternative_density_landmarks": {
+    "distinct_positive_pairs": 3,
+    "all_systems_nondegenerate": true,
+    "all_equations_close": true,
+    "rows": [
+      {"landmark": "local_action_minimum", "ratio_multiplier": 1.0, "alpha": 74.66304462649356, "beta": 415.7483217223993, "determinant": 0.004690337634849289},
+      {"landmark": "coercive_equality_density", "ratio_multiplier": 1.3333333333333333, "alpha": 44.93282482162864, "beta": 187.6505298232571, "determinant": 0.010391657310195987},
+      {"landmark": "interaction_inflection", "ratio_multiplier": 2.0, "alpha": 32.136378942892115, "beta": 89.47294929224957, "determinant": 0.02179429666088939}
+    ]
+  },
+  "decision": {
+    "scale_stationarity_derived_from_reduced_action": true,
+    "peak_density_matching_derived_from_full_normalized_field_equation": false,
+    "m9_63_pair_first_principles_unique": false,
+    "m9_63_peak_condition_rejected_as_current_first_principles_derivation": true
+  }
+}

@@ -2,9 +2,9 @@
 
 This file is the canonical **M9 extension column** for the shared OpenWave comparison rubric. The executable source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
 
-Platform validation, formal theorem status, and prediction status are deliberately separated. A scoped Lean theorem or a frozen prediction improves the evidence attached to a row, but neither becomes an in-platform physical validation without the corresponding independent result.
+Platform validation, formal theorem status, and subprediction status are deliberately separated. A scoped theorem, a frozen prediction, or a failed subprediction changes the evidence attached to a row without automatically changing the whole criterion to validated or negative.
 
-## Platform summary after M9.65
+## Platform summary after M9.68
 
 | Status | Count |
 | --- | ---: |
@@ -19,9 +19,9 @@ Platform validation, formal theorem status, and prediction status are deliberate
 | Criterion | Status |
 | --- | --- |
 | Charge quantization | ⚠️ Integer winding is resolved; the identity and normalization of elementary electric charge remain calibration-dependent. |
-| Electron rest energy | ⚠️ A dimensionless scale minimum and localized branch exist. The rest-mass unit remains calibration-required; M9.65 does not predict the mass itself. |
-| de Broglie clock | ⚠️ OpenWave separates reversible phase, entropic monotone, and geometry-clock channels. PhysLib proves an operational entropic/physical proper-time equality in the positive imaginary-Einstein sector under an explicit action-rate calibration. M9.65 freezes `omega_breath / omega_Compton = 2.634371114527`, but this breathing mode is untested and is not yet a physical Zitterbewegung identification. |
-| Particle stability | ⚠️ The original M9.49/M9.52 action and profiles disperse. M9.63 selects `alpha = 74.6630446265`, `beta = 415.7483217224` under two declared Gaussian self-consistency conditions and retains the branch on three grids. M9.64 proves an exact coercive energy bound, preserves mass/energy on nested spatial grids, and keeps the preregistered small scale orbit bounded. Kernel-formalized arbitrary-`H¹` orbital stability and a physical particle remain open. |
+| Electron rest energy | ⚠️ A dimensionless scale minimum and localized branch exist. The rest-mass unit remains calibration-required. |
+| de Broglie clock | ⚠️ PhysLib proves an operational entropic/physical proper-time equality in a scoped positive-imaginary-Einstein sector. The frozen M9.65 Gaussian breathing prediction was independently tested in M9.68 and fails by `43%`--`49%`. This rejects that collective-coordinate subprediction, not all clock channels or a physical Zitterbewegung model. |
+| Particle stability | ⚠️ The original action/profile families disperse. M9.67 keeps scale, anisotropic, phase-chirp, translated, and smooth-noise perturbations bounded on two grids and respects the coercive gradient estimate. M9.66 rejects Gaussian peak-density matching as the current first-principles selection law. A stationary non-Gaussian branch, kernel `H¹` theorem, and physical particle remain open. |
 | Magnetic moment and spin | ⚠️ Pauli-current and spin controls exist; a stable calibrated state and emergent electron g factor remain open. |
 | Spin-1/2 statistics | ⚠️ The spinor changes sign after `2π` and returns after `4π`; exchange antisymmetry remains open. |
 | Antimatter and annihilation | ⚠️ A reduced capture/annihilation/radiation ledger closes; full-PDE particle annihilation remains open. |
@@ -39,7 +39,7 @@ Platform validation, formal theorem status, and prediction status are deliberate
 | Magnetic force | ⚠️ A regularized dipole `r^-4` asymptote exists; a calibrated particle-level magnetic interaction remains open. |
 | Strong force | ⚠️ Cornell/flux-tube and string-breaking controls exist; dynamical QCD and jointly predicted tension/breaking remain open. |
 | Weak force | ⚠️ A reduced left-selective transition and decay ledger exists; electroweak gauge dynamics and physical rates remain open. |
-| Gravity | ⚠️ OpenWave has weak-field and equivalence-principle controls. PhysLib adds scoped metric-built Einstein--Maxwell--entropic action/PDE interfaces, global action, ADM constraint propagation, conditional maximal-development infrastructure, and calibrated clock theorems. A concrete calibrated coupled physical evolution remains open. |
+| Gravity | ⚠️ OpenWave has weak-field and equivalence-principle controls. PhysLib adds scoped metric-built Einstein--Maxwell--entropic actions/PDEs, ADM, maximal-development, cubic-semiflow, and clock interfaces. A concrete calibrated coupled physical evolution remains open. |
 
 ## Waves and quantum emergence
 
@@ -59,42 +59,44 @@ Platform validation, formal theorem status, and prediction status are deliberate
 
 | Formal layer | Status | Boundary |
 | --- | --- | --- |
-| Metric-built Einstein--Maxwell--entropic field-equation constructors | proved with explicit scope | certified action derivative, stationarity, and declared carriers |
-| Global Einstein--Hilbert/electrogravitic actions | proved with explicit scope | dominated differentiation and analytic hypotheses |
-| Intrinsic curved Maxwell equation and atlas independence | directly proved | equation identity, not automatic physical Cauchy data |
-| ADM constraint propagation and all-time flow | conditional | explicit globally Lipschitz vector field and tangency data |
-| Maximal-development gluing | conditional | fixed-Cauchy extension and smooth quotient data |
-| Gauge-covariant cubic Born-density law | directly proved inside an explicit class | locality, cubic homogeneity, gauge covariance, and normalization are premises |
-| Cubic continuum `C(X,ℂ)` sector | local existence/uniqueness and exact global positive-time irreversible flow | pointwise cubic generator, not the selected spatial differential cubic--quintic PDE |
-| Fixed multiplication-energy plus cubic damping | explicit global positive-time flow and norm contraction | fixed spatial energy field, not state-dependent or differential Hamiltonian |
-| Mode-diagonal unbounded Caticha generator | self-adjoint/closable with explicit scope | measurable real diagonal symbols |
-| Homogeneous damping and phase-plus-damping | maximally dissipative with explicit contraction `C₀` semigroups | homogeneous bounded sectors |
-| Free kinetic Kolmogorov model | positive smooth kernel, bracket certificate, and explicit PDE derivative identities | constant-coefficient free model |
-| Entropic versus physical proper time | proved with explicit physical sector | positive imaginary-Einstein energy and action-rate calibration; not every entropy arrow |
-| M9.63 coefficient pair | unique under two declared self-consistency conditions | those conditions are not yet derived from the full action |
-| M9.64 spatial cubic--quintic flow | exact coercive bound and converged numerical bridge | arbitrary-`H¹` kernel theorem remains open |
-| M9.65 breathing prediction | prediction-ready and frozen | not independently tested or validated |
+| Metric-built Einstein--Maxwell--entropic field equations and global actions | proved with explicit scope | certified action derivative, stationarity, carriers, and analytic hypotheses |
+| Intrinsic curved Maxwell equation | directly proved | equation identity, not automatic physical Cauchy data |
+| ADM constraint propagation and maximal development | conditional | concrete vector field, tangency, fixed-Cauchy, and quotient data |
+| Gauge-covariant cubic Born-density law | directly proved inside an explicit class | locality, cubic homogeneity, covariance, and normalization are premises |
+| Fixed-spatial-energy cubic continuum sector | jointly continuous contractive nonlinear semiflow; zero global attractor | dissipative pointwise cubic flow, not the conservative particle PDE |
+| Mode-diagonal and homogeneous generator sectors | self-adjoint/closable or maximally dissipative with explicit semigroups | declared diagonal or bounded homogeneous realizations |
+| Free kinetic Kolmogorov model | positive smooth kernel, bracket certificate, and explicit PDE identities | free constant-coefficient model |
+| Entropic versus physical proper time | proved with explicit physical sector | positive imaginary Einstein energy and action-rate calibration |
+| M9.63 coefficient rule | scale stationarity derived; peak rule rejected as current first-principles condition | Gaussian stationary-field residual is `0.485819`; alternative selections exist |
+| Spatial cubic--quintic Laplacian PDE | exact coercive bound plus nested/adversarial numerics | no kernel `H¹` local/global theorem or orbital stability |
+| M9.65 breathing prediction | independently tested and falsified inside OpenWave | no external experiment; not a theory-wide rejection |
 
 ## Calibration, falsification, and prediction status
 
-M9.62 defined a preregistered failure rule for all 21 rows and, at that snapshot, contained zero prediction-ready claims. M9.65 adds one separate immutable prediction record:
+The immutable M9.65 record was:
 
 ```text
-prediction: omega_breath = 2.634371114527 * m c^2 / hbar
+prediction: omega_breath / omega_Compton = 2.634371114527
 tolerance:  5% relative error
-status:     prediction-ready, untested, unvalidated
 ```
 
-The current methodological ledger is therefore:
+The M9.68 no-refit comparison gives:
 
-- 3 dimensionless-testable gates;
-- 2 formal-conditional identities;
-- 15 calibration-required gates;
-- 1 retained negative;
-- 1 prediction-ready physical claim;
-- 0 tested physical predictions;
+```text
+16^3: 1.441044883822
+20^3: 1.346755183528
+24^3: 1.494924712561
+relative discrepancy: 43%--49%
+verdict: falsified inside OpenWave
+```
+
+The current methodological ledger is:
+
+- 1 frozen/preregistered physical subprediction;
+- 1 independently tested subprediction;
+- 0 passed predictions;
+- 1 falsified subprediction;
+- 0 externally tested predictions;
 - 0 validated physical predictions.
 
-Four independent mass/length/time/charge anchors can consume all four unit directions. Fitting those anchors defines units; it does not itself validate the breathing prediction or the theory.
-
-All 21 platform criteria have evidence. None is fully validated. The remaining negative is the predictive lepton-mass hierarchy. CAT/EPT remains incomplete until the M9.63 conditions are derived or replaced, the full spatial particle theorem is closed, and the frozen M9.65 prediction survives an independent comparison without refitting.
+All 21 platform criteria have evidence. None is fully validated. The sole criterion-level negative remains the predictive lepton-mass hierarchy. The M9.65 failure is retained as a scoped negative result for the Gaussian collective-coordinate approximation.

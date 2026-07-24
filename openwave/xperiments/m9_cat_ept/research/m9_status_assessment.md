@@ -1,4 +1,4 @@
-# CAT/EPT status after M9.65
+# CAT/EPT status after M9.68
 
 ## OpenWave platform validation
 
@@ -10,26 +10,33 @@
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The remaining negative is the lepton-mass hierarchy. Particle stability remains partial: the original action disperses, M9.63 selects coefficients under two explicit Gaussian self-consistency conditions, and M9.64 supplies a coercive energy bound plus nested mass/energy-stable spatial evolution and bounded small perturbations. A stable calibrated physical particle and an arbitrary-`H¹` kernel theorem are not established.
+The criterion-level negative remains the lepton-mass hierarchy. Particle stability remains partial: the original action disperses, the M9.63 coefficients retain a finite branch, M9.66 rejects one coefficient-selection premise as a current first-principles derivation, and M9.67 broadens bounded numerical evidence to anisotropic, phase, translation, noise, and scale perturbations. A stationary full-field branch, arbitrary-`H¹` theorem, and physical particle remain open.
 
 ## Formal interface changes
 
-The current formal branch head is `54b4ced090b200fac7ff04ee6a7e8797f1263049`.
+The current formal branch head is `e2c06741c3e49deb604082a2e9c2e918eab8d545`.
 
-- The gauge-covariant cubic Born-density law remains unique inside its explicit class.
-- The irreversible cubic continuum sector now has an exact global positive-time flow, a nonlinear composition law, and continuum norm contraction.
-- A fixed continuous real multiplication-energy field can be coupled to that cubic flow without losing the global positive-time pointwise solution or norm contraction.
-- Homogeneous phase-plus-damping generators are maximally dissipative and generate explicit contraction `C₀` semigroups.
-- The free kinetic Kolmogorov kernel has stronger explicit PDE derivative identities.
-
-These theorems do not include the selected spatial Laplacian plus quintic saturation or arbitrary-`H¹` orbital stability.
+- The fixed-spatial-energy cubic sector is now packaged as a jointly continuous nonlinear semiflow.
+- Positive damping gives strict norm contraction, convergence to zero, and a singleton zero global attractor.
+- These results are exact on the compact continuous-field cubic carrier.
+- They do not include the conservative spatial Laplacian plus quintic saturation, mass/energy conservation for that PDE, or orbital stability of a nonzero branch.
 
 ## Latest decisions
 
-- **M9.63:** coefficients are uniquely selected under two declared dimensionless conditions: `alpha = 74.6630446265`, `beta = 415.7483217224`. The conditions are not first-principles derived or physically calibrated.
-- **M9.64:** the exact density coercivity bound and nested conservative spectral campaign qualify a spatial continuum bridge. Full kernel well-posedness and arbitrary-`H¹` orbital stability remain open.
-- **M9.65:** one immutable prediction-ready record now exists: `omega_breath / omega_Compton = 2.634371114527`, tolerance 5%. It has not been independently tested.
+- **M9.66:** reduced Gaussian scale stationarity is action-derived; peak-density matching is not the normalized stationary field equation and is rejected as the current first-principles selection rule.
+- **M9.67:** twelve adversarial finite-grid runs qualify stronger numerical orbital evidence, but the requested kernel `H¹` theorem remains open.
+- **M9.68:** the frozen M9.65 Gaussian breathing prediction fails its 5% gate by 43%--49% in an independent higher-fidelity OpenWave comparison. No external experiment was performed.
+
+## Prediction ledger
+
+| Prediction state | Count |
+| --- | ---: |
+| Frozen/preregistered | 1 |
+| Independently tested | 1 |
+| Passed | 0 |
+| Falsified | 1 |
+| Externally tested | 0 |
 
 ## Current theory classification
 
-CAT/EPT is a substantial cross-repository formal-and-computational research program. It is still not a complete physical theory. Coefficient selection currently depends on declared self-consistency conditions, the full spatial particle theorem is open, and the first quantitative physical prediction has not yet been compared with independent evidence.
+CAT/EPT remains a substantial cross-repository formal-and-computational program and an incomplete physical theory. The failed Gaussian condition and breathing subprediction identify specific model/ansatz defects. They do not falsify every CAT/EPT mechanism, but they require replacement rather than parameter refitting.

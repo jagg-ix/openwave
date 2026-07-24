@@ -1,0 +1,7 @@
+task:m9.66#consumes@task:m9.63.
+task:m9.66#consumes@physlib:global-electrogravitic-action.
+task:m9.66#consumes@physlib:entropic-clock-agreement.
+task:m9.66#closed@claim:gaussian-scale-stationarity-is-reduced-action-derived.
+task:m9.66#closed@claim:selected-gaussian-has-nonzero-full-stationary-field-residual.
+task:m9.66#closed@claim:peak-density-rule-is-not-currently-first-principles-derived.
+task:m9.66#open@claim:derive-a-non-gaussian-stationary-branch-from-the-full-coupled-action.
