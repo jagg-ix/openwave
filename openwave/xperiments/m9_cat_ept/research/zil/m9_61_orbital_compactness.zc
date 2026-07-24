@@ -1,0 +1,8 @@
+MODULE openwave.m9.orbital_compactness.
+claim:gaussian_orbit_variational_minimum#target_state@state:closed.
+claim:gaussian_tightness_modulo_translation#target_state@state:closed.
+claim:local_cubic_continuum_evolution#supported_by@theorem:Physlib.QuantumMechanics.ComplexAction.EntropicTime.IpekCatichaSuperpositionViolation.exists_local_continuumGrav_solution.
+claim:full_h1_orbital_stability#target_state@state:open.
+claim:full_cubic_quintic_global_wellposedness#target_state@state:open.
+QUERY orbital_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.
