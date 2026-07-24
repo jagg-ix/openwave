@@ -1,0 +1,17 @@
+{
+  "task": "M9.50",
+  "passed": true,
+  "finite_grid_contraction_semigroup_qualified": true,
+  "continuum_wellposedness_proved": false,
+  "largest_symmetric_eigenvalue": -0.08,
+  "semigroup_norm_at_final_time": 0.9065968179520694,
+  "composition_error": 2.070937225400711e-15,
+  "resolvent_ratios": [0.6693623095787727, 0.8383632523578775, 0.9133019483928347, 0.9553930467271363],
+  "lie_orders": [1.0063430518098244, 1.0016876401376213, 1.0004784829923514],
+  "strang_orders": [2.0072864875413545, 2.0018100955003346, 2.0004518094925907],
+  "grid_symbol_orders": [1.9944392382871212, 1.9986095691879942, 1.9996523773155614],
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_fingerprint": "cc239e81ae657063b5d875575e9b900d236756f6a452ea4eb78db92362921ed8",
+  "boundary": "Finite-grid semigroup only; continuum Lindblad generation and well-posedness remain open."
+}

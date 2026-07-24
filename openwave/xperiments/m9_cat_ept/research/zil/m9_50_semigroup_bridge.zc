@@ -1,0 +1,28 @@
+MODULE openwave.m9.semigroup_bridge.
+
+source:physlib_lddl_zil#path@file:formalization_zil_lindblad_driven_leads.
+source:physlib_liouville_zil#path@file:formalization_zil_liouville_second_quantization.
+source:physlib_basic_lean#path@file:Physlib_QuantumMechanics_OpenSystems_LindbladDrivenLeads_Basic.
+source:physlib_mul_lean#path@file:Physlib_QuantumMechanics_DDimensions_Operators_Multiplication.
+
+claim:finite_grid_dissipative_generator#kind@entity:computational_claim.
+claim:finite_grid_dissipative_generator#uses@component:NormedSpace_exp.
+claim:finite_grid_dissipative_generator#implemented_by@code:openwave.xperiments.m9_cat_ept.semigroup_bridge.
+
+claim:finite_grid_contraction_semigroup#kind@entity:computational_claim.
+claim:finite_grid_contraction_semigroup#requires@claim:finite_grid_dissipative_generator.
+
+claim:continuum_l2_carrier#kind@entity:interface.
+claim:continuum_l2_carrier#provided_by@api:QuantumMechanics_LiouvilleSecondQuantization_ContinuumKernelSpace.
+
+claim:continuum_pointwise_closable#kind@entity:declared_theorem.
+claim:continuum_pointwise_closable#formalized_by@proof:QuantumMechanics_SpaceDHilbertSpace_mulOperator_isClosable.
+claim:continuum_pointwise_closable#verification@state:pending_ci.
+
+claim:continuum_semigroup_wellposed#kind@entity:theorem.
+claim:continuum_semigroup_wellposed#target_state@state:open.
+claim:continuum_semigroup_wellposed#requires@claim:continuum_l2_carrier.
+claim:continuum_semigroup_wellposed#requires@claim:continuum_pointwise_closable.
+
+QUERY open_targets:
+FIND ?claim WHERE ?claim#target_state@state:open.
