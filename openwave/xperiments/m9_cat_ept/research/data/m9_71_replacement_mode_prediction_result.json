@@ -1,0 +1,89 @@
+{
+  "acceptance": {
+    "all_held_out_grids_pass_frozen_tolerance": true,
+    "derivation_mass_and_energy_controls_close": true,
+    "derivation_mode_fit_is_resolved": true,
+    "fingerprint_is_deterministic": true,
+    "held_out_mass_and_energy_controls_close": true,
+    "held_out_mode_fits_are_resolved": true,
+    "no_coefficient_refit_after_failed_m9_65_mode": true,
+    "prediction_is_frozen_before_held_out_tests": true
+  },
+  "config": {
+    "chirp_strength": 0.02,
+    "derivation_grid": 20,
+    "dt": 0.004,
+    "final_time": 12.0,
+    "fit_start": 1.0,
+    "frequency_samples": 1200,
+    "maximum_omega": 2.2,
+    "minimum_omega": 0.8,
+    "relative_tolerance": 0.05,
+    "sample_every": 3,
+    "test_grids": [24, 28]
+  },
+  "decision": {
+    "external_experimental_test_performed": false,
+    "physical_prediction_validated": false,
+    "replacement_mode_passes_internal_held_out_grids": true,
+    "replacement_mode_prediction_preregistered": true
+  },
+  "derivation": {
+    "energy_drift": 9.47250687888257e-07,
+    "fit_amplitude": 0.006744010754993124,
+    "fit_rmse": 0.002863671597511628,
+    "mass_error": 1.2585488207150775e-12,
+    "omega_dimensionless": 1.3966638865721435,
+    "omega_over_compton": 1.0743568358247257,
+    "points": 20,
+    "rmse_to_amplitude": 0.4246244114292709,
+    "stationary_radius": 1.210737840337302
+  },
+  "fingerprint": "e83aa3bd8b5daf1a0b7bfdefc84277a70f02ecb920c0820326ba5b0e5c539236",
+  "held_out_tests": [
+    {
+      "energy_drift": 1.0623721914404527e-06,
+      "fit_amplitude": 0.0067057965136498995,
+      "fit_rmse": 0.003108978992447328,
+      "mass_error": 2.454259018236371e-12,
+      "omega_dimensionless": 1.3639699749791494,
+      "omega_over_compton": 1.0492076730608841,
+      "passes_frozen_tolerance": true,
+      "points": 24,
+      "relative_error_from_frozen_prediction": 0.02340857518213299,
+      "rmse_to_amplitude": 0.4636256089964682,
+      "stationary_radius": 1.2022836614223793
+    },
+    {
+      "energy_drift": 9.58901343217633e-07,
+      "fit_amplitude": 0.006829134453150288,
+      "fit_rmse": 0.003081093577231396,
+      "mass_error": 1.4398482406363655e-12,
+      "omega_dimensionless": 1.3382819015846539,
+      "omega_over_compton": 1.02944761660358,
+      "passes_frozen_tolerance": true,
+      "points": 28,
+      "relative_error_from_frozen_prediction": 0.041801027110951815,
+      "rmse_to_amplitude": 0.4511689729303959,
+      "stationary_radius": 1.2150363911406317
+    }
+  ],
+  "passed": true,
+  "preregistration": {
+    "coefficients_refit_after_m9_68": false,
+    "derivation_grid": 20,
+    "dimensionless_ratio": 1.0743568358247257,
+    "frozen_before_held_out_comparison": true,
+    "held_out_test_grids": [24, 28],
+    "observable": "dominant small-chirp radial angular frequency",
+    "prediction": "omega_radial = 1.074356835825 * m c^2 / hbar",
+    "prediction_id": "CAT-EPT-M9.71-STATIONARY-BRANCH-RADIAL-MODE-v1",
+    "relative_tolerance": 0.05
+  },
+  "repositories": {
+    "openwave": "2dfaf6da88b24fe43799b53d79ef2f7aa3244a32",
+    "physlib": "51aad63b2541a1377a001df71b85dfe35f26c0af"
+  },
+  "schema": "openwave.m9.replacement-mode-prediction.v1",
+  "task": "M9.71"
+}
