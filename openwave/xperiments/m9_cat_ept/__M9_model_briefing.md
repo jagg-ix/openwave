@@ -1,6 +1,6 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 covers all 21 comparison criteria and now includes a stationary non-Gaussian spatial branch, an exact cubic--quintic coercivity theorem, a conditional kernel orbital-stability bridge, and a replacement radial-mode prediction tested on held-out grids.
+M9 covers all 21 comparison criteria and now includes a stationary non-Gaussian spatial branch, complete-continuum `H¹(ℝ³)` weak compactness, constrained direct-method and concentration-branch bridges, and a replacement radial mode that survives an independent perturbation and estimator.
 
 ## Platform status
 
@@ -8,31 +8,31 @@ M9 covers all 21 comparison criteria and now includes a stationary non-Gaussian 
 - Twenty criteria are partial or bounded.
 - The predictive lepton-mass hierarchy remains the sole criterion-level negative.
 - M9.69 replaces the failed Gaussian stationary ansatz with a localized full-equation branch that converges from super-Gaussian, anisotropic, and shell seeds.
-- M9.70 proves exact density coercivity and derives uniform orbital control from explicit analytic certificate fields. The actual spatial `H¹` flow, conservation laws, concentration compactness, and nonzero-branch coercivity still need end-to-end construction.
-- M9.71 freezes `omega_radial / omega_Compton = 1.074356835825` and passes held-out `24³` and `28³` grids without refitting. This is internal computational evidence, not experimental validation.
+- The deep formal audit corrects the previous underreporting: the live branch already proves the complete `H¹(ℝ³)` carrier, bounded weak subsequence extraction, a direct-method engine, negative-level exclusion of vanishing, strict subadditivity, and a positive quantitative binding gap.
+- M9.72 adds constrained direct-method attainment from explicit weak closure and weak lower semicontinuity.
+- M9.73 composes current theorems so an explicit concentration trichotomy leaves only compactness modulo translations.
+- M9.74 independently tests the frozen M9.71 mode with radial amplitude deformation and a Hann-windowed periodogram; all three grids pass the unchanged 5% gate.
 
 ## Cross-repository sources
 
 | Repository | Ref | Revision | Authority |
 | --- | --- | --- | --- |
 | `jagg-ix/openwave` | `main` baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged simulation evidence |
-| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `f148278ec8264d031753d9def49cd2133ac4768d` | current formal baseline including Schrödinger--Newton cluster-binding updates |
-| `jagg-ix/entropic-physlib-private` | M9.70 theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | theorem revision pinned by generated M9.69--M9.71 ledgers |
-| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `f165cd8ba524a4274cb46bcd4c4ba1f12a274bf7` | rebased audited theorem branch |
+| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `0a04328a01b7911078c4f9d01cc0c8c963519dc2` | complete H¹ weak compactness plus Schrödinger--Newton variational/binding authority |
+| `jagg-ix/entropic-physlib-private` | PR #16 head | `5d0cdf07c891b1dbe7381b93c2d794b593fae09d` | constrained direct method, concentration-branch elimination, and orbital certificate |
+| `jagg-ix/entropic-physlib-private` | frozen M9.69--M9.71 theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | immutable generated-ledger dependency |
 | `jagg-ix/zil-lean` | `main` | `7ef24a8557b610f8f0f560cf375c2a1600083591` | evidence conventions and tooling |
-
-The rebased audited successor preserves the theorem statements used by the frozen numerical ledgers while incorporating the latest formal baseline.
 
 ## Latest closures
 
-- **M9.69:** maximum seed distance `0.002245`; maximum stationary residual `0.002671`; nested radius spread `0.012753`; boundary fraction below `9e-7`; best-Gaussian `L²` distance at least `0.06790`.
-- **M9.70:** exact density factorization is kernel formalized. The numerical coefficient specialization closes to `3.55e-15`. Uniform orbital control is proved from an explicit `H1OrbitalCertificate`; missing analytic PDE certificates remain visible premises. PR #16 exports ZIL scope records and a dedicated axiom/non-vacuity audit.
-- **M9.71:** derivation ratio `1.074356835825`; held-out discrepancies `2.34%` and `4.18%`, both within the frozen `5%` gate. No external experiment was performed.
+- **M9.72:** constrained direct-method theorem on the repository's actual `EuclideanHs 3 1` carrier. Remaining target-specific inputs are normalized-mass weak closure, target-energy weak lower semicontinuity, and a concrete bounded minimizing sequence.
+- **M9.73:** weak H¹ precompactness is already proved; negative ground level excludes vanishing; strict subadditivity and positive binding gap exclude dichotomy; PR #16 concludes compactness modulo translations from an explicit trichotomy. Deriving the trichotomy and translation tightness remains open.
+- **M9.74:** frozen ratio `1.074356835825`; independent three-grid discrepancies `2.61%`, `0.21%`, and `1.60%`; mass error below `3.3e-12`; energy drift below `3.3e-7`. No external experiment was performed.
 
 ZIL records identities, dependencies, scope, and evidence-state transitions. Lean remains theorem authority; OpenWave remains simulation software.
 
 ## Next critical targets
 
-1. M9.72 construct the spatial cubic--quintic `H¹` flow and conserved quantities required by the M9.70 certificate.
-2. M9.73 establish concentration compactness and nonzero-branch coercivity modulo phase and translation.
-3. M9.74 compare the frozen M9.71 radial mode with an independent implementation or external physical observable without refitting.
+1. M9.75 prove weak closure of normalized mass and sequential weak lower semicontinuity of the promoted target energy.
+2. M9.76 construct the conservative state-dependent spatial cubic--quintic `H¹` flow and prove mass/energy conservation.
+3. M9.77 derive translation tightness, identify the compact limit with the nonzero branch, and prove coercivity modulo phase/translation.
