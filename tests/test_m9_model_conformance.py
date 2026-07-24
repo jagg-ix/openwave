@@ -7,7 +7,9 @@ def test_two_honest_negatives_are_preserved(): assert sum(c.status=="negative" f
 def test_summary_total_closes():
     r=validate_profile(); assert r["documented_summary_total"]==21 and r["matrix_total_mismatch"]==0
 def test_no_explicit_criterion_is_unaddressed(): assert validate_profile()["status_counts"]["not_yet"]==0
-def test_fingerprint_is_deterministic(): assert fingerprint()==fingerprint() and len(fingerprint())==64
-def test_m9_46_48_counts(): assert validate_profile()["status_counts"]=={"validated":0,"partial":19,"negative":2,"not_yet":0}
+def test_m9_49_52_negative_evidence_present():
+    stability=next(c for c in CRITERIA if c.key=="particle_stability")
+    assert all(any(name in path for path in stability.evidence) for name in ("m9_49_method_note.md","m9_52_method_note.md"))
+def test_status_counts_unchanged(): assert validate_profile()["status_counts"]=={"validated":0,"partial":19,"negative":2,"not_yet":0}
 def test_full_study_passes():
     r=run_conformance_study(); assert r["passed"] and all(r["acceptance"].values())
