@@ -8,28 +8,28 @@ This is the script-backed M9 conformance profile. The canonical source is
 | Status | Count |
 | --- | ---: |
 | ✅ validated in-platform | 0 |
-| ⚠️ partial / with caveats | 15 |
+| ⚠️ partial / with caveats | 18 |
 | ❌ honest negative | 2 |
-| 🚧 planned / not yet | 3 |
-| **Explicit criteria** | **20** |
+| 🚧 planned / not yet | 1 |
+| **Explicit criteria** | **21** |
 
-`MODELS.md` reports 21 criteria while the visible matrix contains 20 rows. The
-missing explicit target remains **heat / thermal sector**.
+The former 20-versus-21 discrepancy is closed: **Heat / thermal-field sector**
+is now an explicit criterion.
 
 ## Particles
 
 | Criterion | Status |
 | --- | --- |
-| Charge quantization | ⚠️ Integer field winding; electric identity open |
+| Charge quantization | ⚠️ Integer winding; electric identity open |
 | Electron rest energy | ⚠️ Interior dimensionless scale; physical mass open |
 | de Broglie clock | ⚠️ Clock channels separated; physical-time identity open |
-| Particle stability | ❌ Trapped 3D minimizer and 1D family exist; no self-bound stable 3D candidate |
+| Particle stability | ❌ Trapped 3D minimizer exists; no self-bound stable 3D particle |
 | Magnetic moment and spin | ⚠️ Pauli-current field control; emergent g factor open |
 | Spin-1/2 statistics | ⚠️ 2π sign reversal and 4π return; exchange open |
 | Antimatter and annihilation | ⚠️ Reduced capture/annihilation/radiation ledger; full PDE open |
-| Lepton mass spectrum | ❌ Current simple hierarchy laws fail prediction |
-| Dark matter candidate | 🚧 Not yet |
-| Quarks | 🚧 No dynamical color/quark sector yet |
+| Lepton mass spectrum | ❌ Current low-parameter hierarchy laws fail predictive gates |
+| Dark matter candidate | ⚠️ Neutral fixed-charge variational candidate; full PDE and phenomenology open |
+| Quarks | 🚧 Not yet |
 | Baryons | ⚠️ Charged-triplet graph control; physical baryon open |
 | Mesons | ⚠️ Neutral-pair graph control; physical meson open |
 
@@ -41,17 +41,21 @@ missing explicit target remains **heat / thermal sector**.
 | Magnetic force | ⚠️ Regularized r^-4 dipole kernel; particle interaction open |
 | Strong force | ⚠️ Cornell/flux-tube and string-breaking control; QCD open |
 | Weak force | ⚠️ Left-selective transition/decay control; electroweak theory open |
-| Gravity | ⚠️ Weak-field metric, universality, redshift, tidal, and accelerated-frame controls; GR open |
+| Gravity | ⚠️ Weak-field metric and equivalence-principle controls; GR open |
 
 ## Waves and quantum emergence
 
 | Criterion | Status |
 | --- | --- |
-| EM waves | ⚠️ Maxwell propagation control |
-| Klein-Gordon | 🚧 Not yet |
-| Orbital quantization | ⚠️ Converged radial bound-mode ladder; native CAT/EPT atom open |
+| EM waves | ⚠️ Transverse Maxwell reduction and massless scalar bridge |
+| Klein-Gordon | ⚠️ Massive dispersion-qualified reduction; native particle open |
+| Orbital quantization | ⚠️ Converged radial bound-mode ladder; native atom open |
+
+## Thermal sector
+
+| Criterion | Status |
+| --- | --- |
+| Heat / thermal-field sector | ⚠️ Conserved heat, entropy growth, and diffusion-dissipation control |
 
 Partial status records bounded simulation evidence, not a completed physical
-derivation. The two honest negatives remain self-bound 3D stability and the
-current lepton-hierarchy candidate laws. QCD, electroweak theory, and general
-relativity are not established by the reduced controls.
+derivation. The only unaddressed explicit criterion is quarks.

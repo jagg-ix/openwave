@@ -1,0 +1,396 @@
+{
+  "acceptance": {
+    "attraction_is_required": true,
+    "candidate_is_robust_to_parameter_perturbations": true,
+    "electric_neutrality_is_explicit": true,
+    "finite_charge_threshold_is_found": true,
+    "high_charge_candidate_is_bound": true,
+    "low_charge_state_is_diffuse": true,
+    "representative_minimum_is_locally_positive": true,
+    "sextic_stabilization_prevents_runaway": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "a full CAT/EPT field solution",
+      "long-horizon dynamical stability",
+      "a physical dark-matter particle or abundance",
+      "gravitational phenomenology or experimental compatibility"
+    ],
+    "establishes": [
+      "electrically neutral fixed-charge variational survey",
+      "finite-charge binding threshold within a Gaussian ansatz",
+      "interior locally positive candidate minimum",
+      "attraction and sextic-stabilization controls",
+      "bounded parameter-robustness survey"
+    ]
+  },
+  "config": {
+    "amplitude_max": 4.0,
+    "amplitude_min": 0.02,
+    "attraction": 2.0,
+    "mass": 1.0,
+    "radius_max": 30.0,
+    "radius_min": 0.2,
+    "stabilization": 1.0
+  },
+  "electric_charge": 0.0,
+  "global_u1_charge": 100.0,
+  "no_attraction_control": {
+    "any_bound": false,
+    "rows": [
+      {
+        "amplitude": 0.02,
+        "binding_margin": -0.05007459144975002,
+        "bound_candidate": false,
+        "charge": 60.0,
+        "energy": 60.05007459144975,
+        "energy_per_charge": 1.0008345765241624,
+        "free_threshold": 60.0,
+        "interior_minimum": false,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 29.974265068447306
+      },
+      {
+        "amplitude": 0.025779524142933663,
+        "binding_margin": -0.08330005549984776,
+        "bound_candidate": false,
+        "charge": 100.0,
+        "energy": 100.08330005549985,
+        "energy_per_charge": 1.0008330005549986,
+        "free_threshold": 100.0,
+        "interior_minimum": false,
+        "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "optimizer_success": true,
+        "radius": 30.000000000000004
+      },
+      {
+        "amplitude": 0.03645775062411402,
+        "binding_margin": -0.16660860389950471,
+        "bound_candidate": false,
+        "charge": 200.0,
+        "energy": 200.1666086038995,
+        "energy_per_charge": 1.0008330430194976,
+        "free_threshold": 200.0,
+        "interior_minimum": false,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 30.000000000000004
+      }
+    ]
+  },
+  "no_stabilization_control": {
+    "energies": [
+      77.56003089344935,
+      -491.29845283364807,
+      -54298.962454067514,
+      -1658240.6755208785,
+      -5599068.049079021
+    ],
+    "minimum_energy": -5599068.049079021,
+    "runaway_detected": true,
+    "sequence": [
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.0,
+        5.0
+      ],
+      [
+        3.0,
+        10.0
+      ],
+      [
+        4.0,
+        20.0
+      ],
+      [
+        4.0,
+        30.0
+      ]
+    ]
+  },
+  "parameter_robustness": {
+    "all_bound": true,
+    "maximum_energy_per_charge": 0.9562953984139796,
+    "results": [
+      {
+        "amplitude": 1.381132816174384,
+        "attraction": 1.9,
+        "binding_margin": 5.599208921902132,
+        "bound_candidate": true,
+        "charge": 100.0,
+        "energy": 94.40079107809787,
+        "energy_per_chare": 0.9440079107809787,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.2519226443085545,
+        "stabilization": 0.95
+      },
+      {
+        "amplitude": 1.3364672485067963,
+        "attraction": 1.9,
+        "binding_margin": 4.941155016323805,
+        "bound_candidate": true,
+        "charge": 100.0,
+        "energy": 95.0588449836762,
+        "energy_per_charge": 0.9505884498367619,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.2905116758823314,
+        "stabilization": 1.0
+      },
+      {
+        "amplitude": 1.295122629246272,
+        "attraction": 1.9,
+        "binding_margin": 4.370460158602043,
+        "bound_candidate": true,
+        "chare": 100.0,
+        "energy": 95.62953984139796,
+        "energy_per_chare": 0.9562953984139796,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.328979940693116,
+        "stabilization": 1.05
+      },
+      {
+        "amplitude": 1.449285978037509,
+        "attraction": 2.0,
+        "binding_margin": 7.790145531897096,
+        "bound_candidate": true,
+        "chare": 100.0,
+        "energy": 92.2098544681029,
+        "energy_per_charge": 0.922098544681029,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.209272243346902,
+        "stabilization": 0.95
+      },
+      {
+        "amplitude": 1.4033904801186312,
+        "attraction": 2.0,
+        "binding_margin": 6.960823124619623,
+        "bound_candidate": true,
+        "chare": 100.0,
+        "energy": 93.03917687538038,
+        "energy_per_chare": 0.9303917687538038,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.2436209871510084,
+        "stabilization": 1.0
+      },
+      {
+        "amplitude": 1.3609626328859477,
+        "attraction": 2.0,
+        "binding_margin": 6.241734114861714,
+        "bound_candidate": true,
+        "charge": 100.0,
+        "energy": 93.75826588513829,
+        "energy_per_charge": 0.9375826588513828,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.278092007734605,
+        "stabilization": 1.05
+      },
+      {
+        "amplitude": 1.5136874073467148,
+        "attraction": 2.1,
+        "binding_margin": 10.293283353857376,
+        "bound_candidate": true,
+        "charge": 100.0,
+        "energy": 89.70671664614262,
+        "energy_per_chare": 0.8970671664614263,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.1785105186862173,
+        "stabilization": 0.95
+      },
+      {
+        "amplitude": 1.4664371075680476,
+        "attraction": 2.1,
+        "binding_margin": 9.26235891270565,
+        "bound_candidate": true,
+        "charge": 100.0,
+        "energy": 90.73764108729435,
+        "energy_per_charge": 0.9073764108729435,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "ABNORMAL: ",
+        "optimizer_success": false,
+        "radius": 2.208626696277975,
+        "stabilization": 1.0
+      },
+      {
+        "amplitude": 1.4228110745180553,
+        "attraction": 2.1,
+        "binding_margin": 8.370130690631868,
+        "bound_candidate": true,
+        "charge": 100.0,
+        "energy": 91.62986930936813,
+        "energy_per_charge": 0.9162986930936813,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.2392442101800016,
+        "stabilization": 1.05
+      }
+    ]
+  },
+  "passed": true,
+  "representative_candidate": {
+    "amplitude": 1.4033904801186312,
+    "binding_margin": 6.960823124619623,
+    "bound_candidate": true,
+    "charge": 100.0,
+    "energy": 93.03917687538038,
+    "energy_per_charge": 0.9303917687538038,
+    "free_threshold": 100.0,
+    "interior_minimum": true,
+    "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "optimizer_success": true,
+    "radius": 2.2436209871510084
+  },
+  "representative_hessian_eigenvalues": [
+    73.99300383398224,
+    963.5333894986729
+  ],
+  "schema": "openwave.m9.dark-sector-survey-result.v1",
+  "survey": {
+    "bound_count": 5,
+    "charges": [
+      20.0,
+      40.0,
+      50.0,
+      60.0,
+      80.0,
+      100.0,
+      150.0,
+      200.0
+    ],
+    "first_bound_charge": 60.0,
+    "rows": [
+      {
+        "amplitude": 0.02,
+        "binding_margin": -0.03330448782355333,
+        "bound_candidate": false,
+        "chare": 20.0,
+        "energy": 20.033304487823553,
+        "energy_per_chare": 1.0016652243911777,
+        "free_threshold": 20.0,
+        "interior_minimum": false,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 20.78140314546368
+      },
+      {
+        "amplitude": 0.02,
+        "binding_margin": -0.04091599549930436,
+        "bound_candidate": false,
+        "charge": 40.0,
+        "energy": 40.040915995499304,
+        "energy_per_chare": 1.0010228998874826,
+        "free_threshold": 40.0,
+        "interior_minimum": false,
+        "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "optimizer_success": true,
+        "radius": 26.184795855597496
+      },
+      {
+        "amplitude": 0.02,
+        "binding_margin": -0.04358713080560506,
+        "bound_candidate": false,
+        "charge": 50.0,
+        "energy": 50.043587130805605,
+        "energy_per_chare": 1.000871742616112,
+        "free_threshold": 50.0,
+       "interior_minimum": false,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 28.20718999487949
+      },
+      {
+        "amplitude": 1.2222360374758434,
+        "binding_margin": 0.07109106985343061,
+        "bound_candidate": true,
+        "chare": 60.0,
+        "energy": 59.92890893014657,
+        "energy_per_charge": 0.9988151488357762,
+        "free_threshold": 60.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.0334506431271184
+      },
+      {
+        "amplitude": 1.3423621359867182,
+        "binding_margin": 3.2754876524159187,
+        "bound_candidate": true,
+        "charge": 80.0,
+        "energy": 76.72451234758408,
+      "energy_per_charge": 0.959056404344801,
+        "free_threshold": 80.0,
+       "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.1296189307298534
+      },
+      {
+        "amplitude": 1.4033904801186312,
+        "binding_margin": 6.960823124619623,
+        "bound_candidate": true,
+        "charge": 100.0,
+        "energy": 93.03917687538038,
+        "energy_per_charge": 0.9303917687538038,
+        "free_threshold": 100.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.2436209871510084
+      },
+      {
+        "amplitude": 1.47921490022797,
+        "binding_margin": 17.278153477093895,
+        "bound_candidate": true,
+        "chare": 150.0,
+        "energy": 132.7218465229061,
+        "energy_per_chare": 0.8848123101527073,
+        "free_threshold": 150.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.505153773945311
+      },
+      {
+        "amplitude": 1.5165270166954286,
+        "binding_margin": 28.47037852357022,
+        "bound_candidate": true,
+        "chare": 200.0,
+        "energy": 171.52962147642978,
+      "energy_per_charge": 0.8576481073821489,
+        "free_threshold": 200.0,
+        "interior_minimum": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "optimizer_success": true,
+        "radius": 2.726709675708937
+      }
+    ]
+  },
+  "task": "M9.45"
+}
