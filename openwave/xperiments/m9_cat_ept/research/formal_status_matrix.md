@@ -1,29 +1,28 @@
 # CAT/EPT formal interface status
 
-This matrix records the latest inspected status of `jagg-ix/entropic-physlib-private@entropic-physlib-linear-full`, pinned at commit `14ecf025ec58d2ec9e4731081c4ed1853f4468f0`.
-
-It is separate from OpenWave platform validation. Lean remains proof authority; ZIL records source identities, dependency edges, scope, and open boundaries.
+This matrix records `jagg-ix/entropic-physlib-private@entropic-physlib-linear-full` at `adbe9ead533d56ea7acd18e4c9ad5dacafd973ff`. It is separate from OpenWave platform validation.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
-| Metric-to-Levi-Civita-to-Riemann-to-Ricci-to-Einstein chain | directly proved | chartwise construction plus intrinsic/global representation |
-| Einstein--Maxwell--entropic equations from certified stationary action | proved with explicit scope | requires the action derivative certificate and stationarity |
-| Global Einstein--Hilbert action | proved with explicit scope | dominated differentiation and declared Lorentzian measure data |
-| Global electrogravitic action derivative seam | proved with explicit scope | arbitrary normed variation carrier with certified integrated derivative |
-| Intrinsic curved Maxwell PDE and atlas independence | directly proved | equation identity, not automatic Cauchy well-posedness |
-| Retarded/advanced Maxwell solutions | conditional | requires well-posed Cauchy/Green data |
-| ADM constraint propagation and all-time flow | conditional | requires concrete globally Lipschitz vector field and tangency certificates |
-| Maximal Cauchy development | conditional | requires coherent fixed-Cauchy extension maps and smooth quotient instantiation |
-| LDDL finite trace preservation | theorem declarations present | separate ZIL evidence state may still require kernel-checked export |
-| Cauchy/Lorentz broadening weak limit | theorem declarations present | separate ZIL evidence state may still require kernel-checked export |
-| Full CAT/EPT nonlinear continuum generator/semigroup | open end-to-end | M9.57 closes only the finite action-to-generator bridge |
-| Continuum kinetic existence, uniqueness, and hypoelliptic regularity | open end-to-end | M9.58 closes nested finite-grid and bracket controls only |
+| Metric-built Einstein--Maxwell--entropic action/PDE chain | proved with explicit scope | action certificate, stationarity and declared carriers |
+| Global Einstein--Hilbert/electrogravitic actions | proved with explicit scope | dominated differentiation and analytic hypotheses |
+| Intrinsic curved Maxwell PDE | directly proved | equation identity, not automatic physical Cauchy data |
+| ADM constraint propagation and all-time flow | conditional | explicit globally Lipschitz vector field and tangency |
+| Maximal development | conditional | fixed-Cauchy extensions and smooth quotient data |
+| Gauge-covariant cubic Born-density backreaction uniqueness | directly proved with explicit class | locality, gauge covariance, cubic homogeneity and normalization are premises |
+| Cubic continuum `C(X,ℂ)` evolution | local existence and uniqueness proved with explicit scope | cubic pointwise generator on compact continuous-field carrier |
+| Mode-diagonal Caticha unbounded generator | self-adjoint/closable with explicit scope | requires measurable real diagonal symbols |
+| Homogeneous CAT/EPT damping | maximally dissipative with explicit `C₀` contraction semigroup | exact `-γI` sector, not full nonlinear generator |
+| Free continuum kinetic Kolmogorov model | positive smooth kernel and bracket certificate directly proved | free constant-coefficient model, not general nonlinear/curved hypoellipticity |
+| Entropic time versus physical proper time | directly proved with explicit physical sector | positive imaginary Einstein energy and derived action-rate clock; not every entropy arrow |
+| Selected cubic--quintic generator | open end-to-end | quintic saturation and numerical coefficients not formally derived |
+| Arbitrary-`H¹` orbital stability | open end-to-end | M9.61 is a Gaussian-orbit/tightness bridge only |
+| Physical calibration | open end-to-end | M9.62 defines gates but promotes zero physical predictions |
 
-## Source pins
+## New source pins
 
-- `formalization/zil/electrogravitic-action-closure.zc` — `cf9110d8b4229c33a1e2cefa34c0719062a3f340`
-- `GlobalEinsteinHilbertAction.lean` — `6862565fb915b5c6f1cc561b769e190b70f3156a`
-- `GlobalElectrograviticAction.lean` — `39e807f424cf8384135299e84fdffc97fb506ee5`
-- `ADMConstraintPropagation.lean` — `600b872eb73611de817df0d00dd6711570c567e2`
-- `MaximalCauchyDevelopment.lean` — `2504c579fd8f8afe0a1670911142fb0e7ecdb2c0`
-- `docs/EntropicDynamicsClosure.md` — `e9d542ea516492b6e308a5610f952f831f4ed1c5`
+- `IpekCatichaSuperpositionViolation.lean` — `7791ba4af4381052865294434b070f2b1e6ba9df`
+- `IpekCatichaUnboundedGenerator.lean` — `ddc009e49b64d8b33bede7c67c8392c1ef7cf30a`
+- `EntropicDynamicsLocalTimeFokkerPlanck.lean` — `00734bf484cd0dd724120d68fc8d41066acae582`
+- `Clock/EntropicAgreement.lean` — `8d7cb5a9c87dba47beefdc4a6c317aa872536632`
+- `EntropicComplexEinstein.lean` — `3e480aca62a95ae4b739dd92e3aa97ffea1b4414`

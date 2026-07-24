@@ -1,0 +1,9 @@
+MODULE openwave.m9.physical_calibration_ledger.
+component:zil_control_event#provided_by@schema:ZIL-CONTROL-EVENT-1.
+component:zil_control_receipt#provided_by@schema:ZIL-CONTROL-RECEIPT-1.
+claim:all_twenty_one_falsification_gates#target_state@state:closed.
+claim:cross_repository_event_chain#target_state@state:closed.
+claim:physical_calibration_complete#target_state@state:open.
+claim:out_of_sample_physical_prediction#count@number:0.
+QUERY calibration_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.

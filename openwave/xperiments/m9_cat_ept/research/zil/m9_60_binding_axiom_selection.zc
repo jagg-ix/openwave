@@ -1,0 +1,8 @@
+MODULE openwave.m9.binding_axiom_selection.
+source:physlib_head#sha@value:adbe9ead533d56ea7acd18e4c9ad5dacafd973ff.
+source:zil_head#sha@value:64462a3c5e2ffb51a7b226675491cc3a9b156a8d.
+claim:cubic_born_backreaction_unique_in_declared_class#supported_by@theorem:Physlib.QuantumMechanics.ComplexAction.EntropicTime.IpekCatichaSuperpositionViolation.gaugeCovariantCubic_unique.
+claim:quintic_saturation_minimal_local_polynomial#target_state@state:closed.
+claim:selected_binding_coefficients_unique#target_state@state:open.
+QUERY binding_selection_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.

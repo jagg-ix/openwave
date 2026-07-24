@@ -1,38 +1,39 @@
-# PhysLib/ZIL reuse map through M9.59
+# PhysLib/ZIL reuse map through M9.62
 
-Source repository: `jagg-ix/entropic-physlib-private`  
-Source branch: `entropic-physlib-linear-full`  
-Pinned branch head: `14ecf025ec58d2ec9e4731081c4ed1853f4468f0`  
-Pinned ZIL workflow: `jagg-ix/zil-lean@167cf603aba21bb1160cbe68ad1c4ba9056f92e9`
+## Repository identities
 
-## Current formal source identities
+| Repository | Ref | Revision | Role |
+| --- | --- | --- | --- |
+| `jagg-ix/openwave` | `main` | `ce17d7126f0c9a9f6564c7bce04df29ea383a558` | simulation and platform evidence |
+| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `adbe9ead533d56ea7acd18e4c9ad5dacafd973ff` | Lean theorem authority |
+| `jagg-ix/zil-lean` | `main` | `64462a3c5e2ffb51a7b226675491cc3a9b156a8d` | semantic routing, durable source events, receipts, and runtime evaluation |
 
-| Path | Git blob SHA | Role |
+## New formal source identities
+
+| Path | Git blob SHA | Reused result |
 | --- | --- | --- |
-| `formalization/zil/electrogravitic-action-closure.zc` | `cf9110d8b4229c33a1e2cefa34c0719062a3f340` | scoped action/PDE closure graph |
-| `GlobalEinsteinHilbertAction.lean` | `6862565fb915b5c6f1cc561b769e190b70f3156a` | global gravitational action and dominated derivative |
-| `GlobalElectrograviticAction.lean` | `39e807f424cf8384135299e84fdffc97fb506ee5` | integrated coupled-action derivative seam |
-| `ADMConstraintPropagation.lean` | `600b872eb73611de817df0d00dd6711570c567e2` | continuum carrier, constraint propagation, global flow under hypotheses |
-| `MaximalCauchyDevelopment.lean` | `2504c579fd8f8afe0a1670911142fb0e7ecdb2c0` | conditional chain gluing and maximal development |
-| `docs/EntropicDynamicsClosure.md` | `e9d542ea516492b6e308a5610f952f831f4ed1c5` | corrected scientific status ledger |
+| `IpekCatichaSuperpositionViolation.lean` | `7791ba4af4381052865294434b070f2b1e6ba9df` | cubic gauge-covariant uniqueness; local continuum cubic evolution |
+| `IpekCatichaUnboundedGenerator.lean` | `ddc009e49b64d8b33bede7c67c8392c1ef7cf30a` | dense/closable and self-adjoint mode-diagonal generators; maximal homogeneous damping and `C₀` semigroup |
+| `EntropicDynamicsLocalTimeFokkerPlanck.lean` | `00734bf484cd0dd724120d68fc8d41066acae582` | free continuum kinetic bracket, covariance, positive smooth kernel |
+| `Clock/EntropicAgreement.lean` | `8d7cb5a9c87dba47beefdc4a6c317aa872536632` | operational clock calibration interface |
+| `EntropicComplexEinstein.lean` | `3e480aca62a95ae4b739dd92e3aa97ffea1b4414` | positive imaginary-Einstein entropic/physical-time identification |
+| `zil-lean/architecture/capability-ownership.edn` | `36e75ea2885c4fd2941ba65c6f4835144ddda84c` | `ZIL-CONTROL-EVENT/1`, receipt, evidence, and human-decision authority split |
 
-Earlier LDDL, Liouville, multiplication-operator, trace-preservation, and Cauchy-limit sources remain reusable. Evidence state must be read from the corresponding ZIL graph rather than inferred solely from the presence of a Lean declaration.
+Earlier global action, ADM, maximal-development, LDDL, Liouville, trace-preservation, and Cauchy-limit sources remain reusable.
 
-## M9.57--M9.59 closure
+## M9.60--M9.62 use
 
-- M9.57 reconciles the live formal branch and checks a finite action derivative and reversible/dissipative generator split.
-- M9.58 closes nested finite kinetic convergence, mass/positivity, and algebraic Hörmander rank.
-- M9.59 introduces a bounded cubic--quintic action density and selects a finite-grid localization candidate against the original-action baseline.
+- M9.60 combines the formal cubic uniqueness result with a polynomial boundedness audit. It does not infer unique numerical coefficients.
+- M9.61 uses the formal cubic local-evolution theorem only as a scope anchor; its cubic--quintic Gaussian-orbit result is an OpenWave variational calculation.
+- M9.62 emits a local verified hash chain shaped as `ZIL-CONTROL-EVENT/1` and `ZIL-CONTROL-RECEIPT/1`. It does not replace the Clojure durable store or Lean semantic authority.
 
 ## Open boundaries
 
-- uniqueness or first-principles derivation of the selected binding action;
-- full nonlinear CAT/EPT continuum generator closability and maximal dissipativity;
-- continuum kinetic existence, uniqueness, subelliptic estimates, and hypoellipticity;
-- continuum compactness and orbital stability for the selected 3D candidate;
-- concrete calibrated coupled Einstein--Maxwell--entropic physical evolution;
-- physical mass, charge, clock, coupling, lifetime, and experimental agreement.
+- derive or reject unique `(alpha,beta)` from the coupled action;
+- full cubic--quintic continuum generator and semigroup;
+- arbitrary-`H¹` compactness modulo translations/phase and orbital stability;
+- calibrated mass, charge, clock, coupling, lifetime, and one out-of-sample prediction.
 
 ## Status policy
 
-Use the vocabulary `directly proved`, `proved with explicit scope`, `conditional on explicit analytic data`, and `not closed end-to-end`. OpenWave platform validation remains separate. ZIL records identities, dependencies, scope, and evidence states; Lean remains proof authority.
+Use `directly proved`, `proved with explicit scope`, `conditional on explicit analytic data`, and `not closed end-to-end`. OpenWave validation remains separate. ZIL records identities and receipts; Lean remains proof authority; human review controls physical promotion.
