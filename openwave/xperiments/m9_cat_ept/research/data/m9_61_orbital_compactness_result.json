@@ -1,0 +1,81 @@
+{
+  "acceptance": {
+    "formal_local_wellposedness_anchor_is_current": true,
+    "full_pde_theorem_is_not_overstated": true,
+    "gaussian_family_is_tight_modulo_translation": true,
+    "interior_variational_minimum_exists": true,
+    "minimum_has_positive_second_variation": true,
+    "perturbations_remain_below_escape_barrier": true,
+    "phase_and_translation_orbits_are_quotiented": true,
+    "radial_quadrature_converges": true,
+    "small_scaling_perturbations_raise_energy": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "orbital stability for arbitrary H1 perturbations",
+      "Palais-Smale compactness modulo symmetries for the full action",
+      "global existence or asymptotic stability of the cubic--quintic CAT/EPT PDE"
+    ],
+    "establishes": [
+      "continuum normalized Gaussian-orbit energy well with positive second variation",
+      "finite perturbation confinement below the scaling barrier",
+      "translation/phase-quotiented tightness and convergent radial quadrature"
+    ]
+  },
+  "compactness": {
+    "aggregate_errors": [0.2161135003514874,0.028802872812132785,0.0003254090365466533,1.2989076481062511e-10],
+    "mass_inside_four_scales": 0.9999994766533552,
+    "phase_orbit_invariant": true,
+    "rows": [
+      {"energy":-0.2597171778800787,"mass":0.9852505628840705,"points":8},
+      {"energy":-0.48988354255030286,"mass":0.9999994286225334,"points":12},
+      {"energy":-0.46140665015206705,"mass":0.9999999999998838,"points":16},
+      {"energy":-0.4610812412455274,"mass":1.0,"points":24}
+    ],
+    "successive_errors_decrease": true,
+    "tail_mass_outside_four_scales": 5.233466447984725e-07,
+    "tightness_proxy": true,
+    "translation_orbit_invariant": true
+  },
+  "config": {
+    "alpha":70.0,"beta":380.0,"concentration_radius_factor":4.0,"dispersion":0.65,
+    "perturbations":[-0.12,-0.08,-0.04,0.04,0.08,0.12],"radial_cutoff":8.0,
+    "radial_points":[8,12,16,24],"scale_window":[0.35,5.0]
+  },
+  "decision": {
+    "concentration_compactness_proxy_qualified": true,
+    "full_continuum_orbital_stability_proved": false,
+    "full_cubic_quintic_pde_global_wellposedness_proved": false,
+    "gaussian_orbit_variational_stability_qualified": true
+  },
+  "formal_evidence": {
+    "branch":"entropic-physlib-linear-full","head":"adbe9ead533d56ea7acd18e4c9ad5dacafd973ff",
+    "repository":"jagg-ix/entropic-physlib-private",
+    "sources":[
+      {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/IpekCatichaSuperpositionViolation.lean","role":"local existence and uniqueness on C(X,C) for the cubic continuum generator","sha":"7791ba4af4381052865294434b070f2b1e6ba9df"},
+      {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/IpekCatichaUnboundedGenerator.lean","role":"unbounded/closable continuum operator and damping semigroup sectors","sha":"ddc009e49b64d8b33bede7c67c8392c1ef7cf30a"}
+    ]
+  },
+  "passed": true,
+  "schema": "openwave.m9.orbital-compactness-bridge.v1",
+  "task": "M9.61",
+  "variational_orbit": {
+    "all_small_perturbations_raise_energy": true,
+    "all_small_perturbations_remain_in_well": true,
+    "barrier_energy": 0.02832505714837402,
+    "rows": [
+      {"below_barrier":true,"energy":-0.3091244045329329,"energy_excess":0.15195683658270376,"fractional_scale_perturbation":-0.12,"scale":0.8800248372761674},
+      {"below_barrier":true,"energy":-0.40538548022566756,"energy_excess":0.05569576088996908,"fractional_scale_perturbation":-0.08,"scale":0.9200259662432659},
+      {"below_barrier":true,"energy":-0.4494789834797621,"energy_excess":0.011602257635874524,"fractional_scale_perturbation":-0.04,"scale":0.9600270952103644},
+      {"below_barrier":true,"energy":-0.4528007708466151,"energy_excess":0.008280470269021567,"fractional_scale_perturbation":0.04,"scale":1.0400293531445615},
+      {"below_barrier":true,"energy":-0.4327548436649951,"energy_excess":0.028326397450641527,"fractional_scale_perturbation":0.08,"scale":1.08003048211166},
+      {"below_barrier":true,"energy":-0.40617504842437196,"energy_excess":0.05490619269126468,"fractional_scale_perturbation":0.12,"scale":1.1200316110787587}
+    ],
+    "selected_energy": -0.46108124111563664,
+    "selected_scale": 1.000028224177463,
+    "stationary_points": [
+      {"energy":-0.46108124111563664,"kind":"minimum","scale":1.000028224177463,"second_derivative":12.198553602816329},
+      {"energy":0.02832505714837402,"kind":"maximum","scale":3.3548203064272655,"second_derivative":-0.014512254680317452}
+    ]
+  }
+}
