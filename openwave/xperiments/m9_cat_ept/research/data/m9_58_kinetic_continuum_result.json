@@ -1,0 +1,116 @@
+{
+  "acceptance": {
+    "continuum_claim_is_not_overstated": true,
+    "every_discrete_generator_conserves_mass": true,
+    "every_discrete_propagator_is_positive": true,
+    "hoermander_bracket_spans_phase_space": true,
+    "mass_remains_normalized_on_all_grids": true,
+    "moment_error_decreases": true,
+    "nested_observable_error_decreases": true,
+    "observed_refinement_orders_are_positive": true
+  },
+  "campaign": {
+    "aggregate_errors_to_finest": [
+      0.007408260854321055,
+      0.003393675311063991,
+      0.0015714845540050972
+    ],
+    "observed_orders": [
+      1.1262863565877839,
+      1.110720449965492
+    ],
+    "rows": [
+      {
+        "analytic_mean": 0.6455600871577352,
+        "analytic_variance": 0.7497799845302947,
+        "dt": 0.05,
+        "mass": 0.9999999999999993,
+        "mean_velocity": 0.6544557545685826,
+        "moment_error": 0.008899656843828598,
+        "nv": 25,
+        "nx": 16,
+        "relative_entropy": 0.2909630118434959,
+        "velocity_variance": 0.750046430122286
+      },
+      {
+        "analytic_mean": 0.6455596540484778,
+        "analytic_variance": 0.7497791799586861,
+        "dt": 0.04,
+        "mass": 0.9999999999999988,
+        "mean_velocity": 0.6505672117354147,
+        "moment_error": 0.005008606989975526,
+        "nv": 33,
+        "nx": 24,
+        "relative_entropy": 0.28988206289380136,
+        "velocity_variance": 0.7498816982108732
+      },
+      {
+        "analytic_mean": 0.645559318973756,
+        "analytic_variance": 0.7497785680458267,
+        "dt": 0.025,
+        "mass": 1.0000000000000022,
+        "mean_velocity": 0.6487649587611897,
+        "moment_error": 0.0032060332686266934,
+        "nv": 41,
+        "nx": 32,
+        "relative_entropy": 0.2894770937945195,
+        "velocity_variance": 0.7498287962526741
+      },
+      {
+        "analytic_mean": 0.6455588582134318,
+        "analytic_variance": 0.749777737032881,
+        "dt": 0.02,
+        "mass": 0.9999999999999969,
+        "mean_velocity": 0.6471943554547281,
+        "moment_error": 0.0016355831423626472,
+        "nv": 57,
+        "nx": 48,
+        "relative_entropy": 0.28951700254489704,
+        "velocity_variance": 0.7497944997681308
+      }
+    ]
+  },
+  "classification": {
+    "does_not_establish": [
+      "continuum existence or uniqueness",
+      "subelliptic estimates or smooth-density theorem",
+      "derivation of physical transport coefficients from CAT/EPT"
+    ],
+    "establishes": [
+      "nested finite phase-space convergence",
+      "positive mass-conserving discrete kinetic generators",
+      "algebraic Hörmander bracket rank for the selected kinetic vector fields"
+    ]
+  },
+  "config": {
+    "diffusion": 0.55,
+    "final_time": 1.0,
+    "friction": 0.7,
+    "levels": [
+      [16,25,0.05],
+      [24,33,0.04],
+      [32,41,0.025],
+      [48,57,0.02]
+    ],
+    "vmax": 5.0
+  },
+  "decision": {
+    "continuum_hypoelliptic_wellposedness_proved": false,
+    "finite_kinetic_convergence_qualified": true,
+    "hypoelliptic_bracket_condition_resolved_algebraically": true
+  },
+  "generator_controls": [
+    {"column_sum_error":8.881784197001252e-16,"minimum_propagator_entry":8.143664291106663e-44,"nv":25,"nx":16},
+    {"column_sum_error":1.7763568394002505e-15,"minimum_propagator_entry":5.577220233707826e-53,"nv":33,"nx":24},
+    {"column_sum_error":1.7763568394002505e-15,"minimum_propagator_entry":2.0768445236218606e-67,"nv":41,"nx":32},
+    {"column_sum_error":3.552713678800501e-15,"minimum_propagator_entry":2.2128916875526035e-85,"nv":57,"nx":48}
+  ],
+  "hoermander_control": {
+    "coefficient_matrix": [[0.0,1.0488088481701516],[1.0488088481701516,-0.7341661937191061]],
+    "determinant": -1.1,
+    "rank": 2
+  },
+  "passed": true,
+  "schema": "openwave.m9.kinetic-continuum-bridge.v1",
+  "task": "M9.58"
+}
