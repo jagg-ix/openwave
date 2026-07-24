@@ -1,0 +1,3 @@
+# M9.73 finding
+
+The branch already has weak H¹ subsequence extraction with bound retention, Prokhorov compactness consequences for tight probability measures, weak-plus-norm strong closure, a strictly negative normalized variational level excluding vanishing, and strict subadditivity with a positive binding gap excluding dichotomy. PhysLib PR #16 composes these results: any explicit concentration–compactness trichotomy reduces to compactness modulo translations. The remaining gap is derivation of recentered target tightness/trichotomy, mass/norm closure, compact low-energy sublevels, and identification of the compact limit with the nonzero branch.
