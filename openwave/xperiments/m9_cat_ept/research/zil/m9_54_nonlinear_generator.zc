@@ -1,0 +1,9 @@
+MODULE openwave.m9.nonlinear_generator.
+claim:m9.54.smooth_domain_projection#target_state@state:closed.
+claim:m9.54.generator_graph_sequence#target_state@state:closed.
+claim:m9.54.shifted_dissipativity#target_state@state:closed.
+claim:m9.54.pointwise_multiplier_closable#supported_by@theorem:QuantumMechanics.SpaceDHilbertSpace.mulOperator_isClosable.
+claim:full_nonlinear_generator_closable#target_state@state:open.
+claim:nonlinear_continuum_semigroup#target_state@state:open.
+QUERY generator_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.
