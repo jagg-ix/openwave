@@ -1,0 +1,21 @@
+MODULE openwave.m9.non_gaussian_self_binding.
+
+source:m9_49_merged#kind@entity:source.
+source:m9_49_merged#provided_by@code:openwave.xperiments.m9_cat_ept.unified_self_binding_3d.
+
+claim:five_profile_campaign#kind@entity:computational_claim.
+claim:five_profile_campaign#implemented_by@code:openwave.xperiments.m9_cat_ept.non_gaussian_self_binding.
+claim:five_profile_campaign#requires@source:m9_49_merged.
+
+claim:vortex_winding_control#kind@entity:computational_claim.
+claim:vortex_winding_control#requires@claim:five_profile_campaign.
+
+claim:profile_family_no_go#kind@entity:negative_result.
+claim:profile_family_no_go#requires@claim:five_profile_campaign.
+claim:profile_family_no_go#excludes@claim:universal_cat_ept_no_go.
+
+claim:universal_cat_ept_no_go#kind@entity:theorem.
+claim:universal_cat_ept_no_go#target_state@state:open.
+
+QUERY open_targets:
+FIND ?claim WHERE ?claim#target_state@state:open.
