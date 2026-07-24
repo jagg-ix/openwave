@@ -1,0 +1,91 @@
+{
+  "acceptance": {
+    "diffusion_dissipation_identity_closes": true,
+    "fourier_mode_decay_closes": true,
+    "resolution_is_stable": true,
+    "semigroup_property_closes": true,
+    "temperature_variance_decays": true,
+    "thermal_entropy_is_monotone": true,
+    "total_heat_is_conserved": true,
+    "zero_diffusivity_freezes_field": true
+  },
+  "classification": {
+    "does_not_establish": [
+      "microscopic thermodynamics from CAT/EPT",
+      "physical temperature calibration or material transport",
+      "quantum thermalization",
+      "relativistic heat conduction"
+    ],
+    "establishes": [
+      "explicit heat/thermal-field criterion",
+      "conserved total heat",
+      "monotone thermal entropy",
+      "variance and Fourier-mode dissipation",
+      "semigroup, zero-diffusivity, and resolution controls"
+    ]
+  },
+  "config": {
+    "diffusivity": 0.35,
+    "final_time": 4.0,
+    "length": 6.283185307179586,
+    "points": 256,
+    "samples": 101
+  },
+  "dissipation_identity": {
+    "absolute_error": 2.829139700288863e-12,
+    "expected_derivative": -0.08747460480818173,
+    "observed_derivative": -0.08747460481101087
+  },
+  "entropy_increase": 0.032897566968185465,
+  "final": {
+    "entropy": 1.8360134378892363,
+    "minimum_temperature": 0.9142209682414633,
+    "mode1_amplitude": 0.043154468689781136,
+    "time": 4.0,
+    "total_heat": 6.283185307179586,
+    "variance": 0.011701710603954269
+  },
+  "initial": {
+    "entropy": 1.8031158709210509,
+    "minimum_temperature": 0.7065147115216899,
+    "mode1_amplitude": 0.175,
+    "time": 0.0,
+    "total_heat": 6.283185307179586,
+    "variance": 0.22776546738526002
+  },
+  "mode_decay": {
+    "absolute_error": 0.0,
+    "expected_ratio": 0.5515625658678298,
+    "observed_ratio": 0.5515625658678298
+  },
+  "passed": true,
+  "resolution": {
+    "final_entropy": [
+      1.836013437889236,
+      1.8360134378892363,
+      1.8360134378892363,
+      1.8360134378892363
+    ],
+    "maximum_heat_error": 1.7763568394002505e-15,
+    "points": [
+      64,
+      128,
+      256,
+      512
+    ],
+    "successive_entropy_differences": [
+      2.220446049250313e-16,
+      0.0,
+      0.0
+    ]
+  },
+  "schema": "openwave.m9.thermal-field-result.v1",
+  "semigroup": {
+    "maximum_semigroup_error": 2.220446049250313e-16
+  },
+  "task": "M9.44",
+  "variance_decrease": 0.21606375678130574,
+  "zero_diffusivity": {
+    "maximum_field_change": 4.440892098500626e-16
+  }
+}
