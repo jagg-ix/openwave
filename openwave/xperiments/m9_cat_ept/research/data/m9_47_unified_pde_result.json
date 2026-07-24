@@ -1,0 +1,9 @@
+{
+  "task":"M9.47",
+  "passed":true,
+  "initial":{"matter_norm":1.0,"reservoir":0.0,"matter_reservoir_balance":1.0,"heat":12.0,"thermal_loss_balance":12.0,"entropy":0.0,"minimum_temperature":0.96,"gauge_energy":0.0,"gauge_work":0.0,"gauge_work_balance":0.0,"geometry_residual_l2":0.1633862069020428,"color_source_l2":0.07703704093835917},
+  "final":{"matter_norm":0.8737159116880395,"reservoir":0.12628408831196236,"matter_reservoir_balance":1.0000000000000018,"heat":12.075770452987175,"thermal_loss_balance":11.999999999999998,"entropy":0.07338352717563759,"minimum_temperature":0.9628539699366225,"gauge_energy":0.00045634727754784914,"gauge_work":0.0004563472775478812,"gauge_work_balance":-3.2038174196946656e-17,"geometry_residual_l2":0.028772597422647983,"color_source_l2":0.04865781790779602},
+  "maximum_balance_errors":{"matter_reservoir":1.7763568394002505e-15,"thermal_loss":7.105427357601002e-15,"gauge_work":3.2038174196946656e-17},
+  "refinement":{"dts":[0.003,0.0015,0.00075],"successive_differences":[4.0275706086768847e-13,2.7185576030077032e-14]},
+  "physlib_zil_boundary":{"branch":"entropic-physlib-linear-full","excluded_open_targets":["continuum_lindblad_generator","continuum_semigroup_wellposed","phase_space_fokker_planck_bridge"]}
+}
