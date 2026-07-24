@@ -1,0 +1,16 @@
+{
+  "task": "M9.50",
+  "passed": true,
+  "semigroup_law_error": 2.220446049250313e-16,
+  "strong_continuity_errors": [0.19367572421461068, 0.12888338156521723, 0.07057585208471633, 0.03624358920821903, 0.018260119323417392],
+  "generator_orders": [0.8496896636936757, 0.9495452840727728, 0.9858783637182201, 0.996232320087245],
+  "low_mode_resolution_differences": [2.746702497267681e-17, 2.684578404088011e-17, 1.1576395704183146e-17],
+  "final_matter_norm": 0.6187833918061407,
+  "final_reservoir": 0.38121660819385916,
+  "continuum_wellposedness_proved": false,
+  "physlib_pin": {
+    "repository": "jagg-ix/entropic-physlib-private",
+    "branch": "entropic-physlib-linear-full",
+    "commit": "2aaecf7735be8fdb14bbba90558cc8c04ac85555"
+  }
+}
