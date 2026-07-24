@@ -1,0 +1,26 @@
+MODULE openwave.m9.formal_evidence_registry.
+
+component:zil_traceability#provided_by@api:jagg_ix_zil_lean.
+component:lean_kernel#kind@entity:proof_authority.
+
+claim:exact_branch_pin#kind@entity:computational_claim.
+claim:exact_branch_pin#value@branch:entropic_physlib_linear_full.
+
+claim:source_hash_registry#kind@entity:computational_claim.
+claim:source_hash_registry#implemented_by@code:openwave.xperiments.m9_cat_ept.formal_evidence_registry.
+
+claim:pending_ci_nonpromotion#kind@entity:policy.
+claim:pending_ci_nonpromotion#requires@component:lean_kernel.
+
+claim:open_target_nonpromotion#kind@entity:policy.
+claim:open_target_nonpromotion#requires@component:lean_kernel.
+
+claim:cross_repository_drift_detection#kind@entity:computational_claim.
+claim:cross_repository_drift_detection#requires@claim:source_hash_registry.
+
+claim:formal_promotion#kind@entity:policy.
+claim:formal_promotion#requires@state:kernel_checked.
+claim:formal_promotion#current_state@state:no_promotions.
+
+QUERY promotion_boundaries:
+FIND ?claim ?state WHERE ?claim#current_state@?state.

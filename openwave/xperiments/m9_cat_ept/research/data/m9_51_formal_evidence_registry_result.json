@@ -1,0 +1,30 @@
+{
+  "task": "M9.51",
+  "passed": true,
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "registry_fingerprint": "3515b2dae326dfca6901d38aa805b018a3cccbf814668cddb127007937fba12c",
+  "counts": {
+    "formal_promoted": 0,
+    "implementation_declared": 3,
+    "interface_available": 1,
+    "open_boundary": 2,
+    "computationally_verified": 2,
+    "stale": 0,
+    "missing": 0
+  },
+  "drift_control": {
+    "stale_status": "stale",
+    "missing_status": "missing"
+  },
+  "promotion_boundary": {
+    "pending_ci": "implementation_declared",
+    "open": "open_boundary",
+    "kernel_checked_required_for_formal_promotion": true
+  },
+  "decision": {
+    "formal_evidence_promoted": false,
+    "computational_bridges_current": true,
+    "cross_repository_drift_detected": true
+  }
+}
