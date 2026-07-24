@@ -1,19 +1,29 @@
-# CAT/EPT status after M9.56
+# CAT/EPT status after M9.59
+
+## OpenWave platform validation
 
 | Status | Count |
 | --- | ---: |
 | Fully validated in-platform | 0 |
-| Partial / bounded controls | 19 |
-| Honest negative | 2 |
+| Partial / bounded controls | 20 |
+| Honest negative | 1 |
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The particle-stability negative remains stronger but bounded. M9.49 found no self-bound candidate in the merged untrapped unified scan. M9.52 found none across fifteen Gaussian, exponential, super-Gaussian, shell, or vortex/toroidal runs. The vortex winding remains resolved, showing that topology alone in the current action does not prevent dispersal.
+The remaining negative is the lepton-mass hierarchy. Particle stability moves to partial: the original M9.49 and M9.52 action/profile campaigns disperse, while M9.59 verifies an explicit cubic--quintic action derivative and selects a finite-grid untrapped localization candidate across 12³, 14³, and 16³ campaigns.
 
-M9.50 and M9.53 provide finite contraction-semigroup and positive Fokker--Planck bridges. M9.54 adds smooth finite-Galerkin domain approximation, generator-graph convergence, bounded-set local Lipschitz control, and sampled shifted dissipativity. These are numerical controls, not a proof that the full nonlinear continuum generator is closable or semigroup-generating.
+This is not a stable physical particle. The selected term is not yet uniquely derived from CAT/EPT axioms, and no continuum soliton, orbital-stability, mass, charge, lifetime, or experimental result is established.
 
-M9.55 refreshes exact source, declaration, and assumption identities with a fail-closed promotion policy. Four declarations remain `pending_ci`, one carrier remains interface-only, two continuum targets remain open, and zero formal proofs are promoted.
+## Formal interface status
 
-M9.56 records decreasing nested-grid errors for the unified nonlinear state while preserving matter/reservoir, thermal/loss, and gauge/work balances, positive temperature, and monotone entropy. It does not construct a continuum solution or prove convergence to one.
+The formal repository is stronger than the earlier OpenWave wording implied. It contains scoped action-certified Einstein--Maxwell--entropic constructors, global Einstein--Hilbert and electrogravitic action interfaces, intrinsic Maxwell equations, ADM constraint propagation, all-time flow under global-Lipschitz hypotheses, and conditional maximal-development gluing.
 
-CAT/EPT remains a strong simulation research framework and an incomplete physical theory. The decisive open work is a kernel-checked nonlinear continuum generator/semigroup theorem, continuum kinetic well-posedness, and a theory-derived binding mechanism outside the tested families.
+These are reported as directly proved, proved with explicit scope, conditional on analytic data, or open end-to-end. They are not collapsed into a bare yes/no and are not counted as OpenWave physical validations.
+
+## Latest numerical decisions
+
+- M9.57 closes a finite action-to-generator bridge and live source reconciliation, not the full continuum generator theorem.
+- M9.58 closes nested finite kinetic convergence and bracket-rank controls, not continuum hypoellipticity.
+- M9.59 selects a finite-grid binding candidate, not a physical particle.
+
+CAT/EPT is a substantial formal-and-computational research program and remains an incomplete physical theory.
