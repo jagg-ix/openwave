@@ -1,0 +1,92 @@
+{
+  "acceptance": {
+    "all_grids_pass_frozen_tolerance": true,
+    "estimator_is_independent_of_m9_71_least_squares_scan": true,
+    "fingerprint_is_deterministic": true,
+    "m9_71_record_reused_without_refit": true,
+    "mass_and_energy_controls_close": true,
+    "perturbation_is_independent_of_m9_71_chirp": true,
+    "spectral_peaks_are_resolved": true
+  },
+  "config": {
+    "amplitude_strength": 0.015,
+    "dt": 0.004,
+    "final_time": 16.0,
+    "fit_start": 1.0,
+    "grids": [20, 24, 28],
+    "maximum_omega": 2.2,
+    "minimum_omega": 0.8,
+    "minimum_peak_power_fraction": 0.3,
+    "relative_tolerance": 0.05,
+    "sample_every": 3,
+    "spectral_band_half_width": 0.12,
+    "zero_padding_factor": 32
+  },
+  "decision": {
+    "external_experimental_test_performed": false,
+    "frozen_replacement_mode_survives_independent_perturbation": true,
+    "internal_computational_robustness_qualified": true,
+    "physical_prediction_validated": false
+  },
+  "fingerprint": "9c71527e4d0bc3e15ecd2199fa259ab963c67da67b89b73b31a12666c14ba239",
+  "frozen_prediction": {
+    "coefficients_refit": false,
+    "dimensionless_ratio": 1.0743568358247257,
+    "estimator_reused_from_derivation": false,
+    "perturbation_reused_from_derivation": false,
+    "prediction_id": "CAT-EPT-M9.71-STATIONARY-BRANCH-RADIAL-MODE-v1",
+    "relative_tolerance": 0.05,
+    "source_fingerprint": "e83aa3bd8b5daf1a0b7bfdefc84277a70f02ecb920c0820326ba5b0e5c539236"
+  },
+  "measurements": [
+    {
+      "energy_drift": 2.787721907759888e-07,
+      "initial_perturbed_radius": 1.2253646665808684,
+      "mass_error": 1.6653345369377348e-12,
+      "maximum_relative_radius_excursion": 0.01207227479194515,
+      "omega_dimensionless": 1.4331194773464568,
+      "omega_over_compton": 1.1023995979588128,
+      "passes_frozen_tolerance": true,
+      "peak_power_fraction": 0.38013065528297313,
+      "points": 20,
+      "relative_error_from_frozen_prediction": 0.026101906926072806,
+      "stationary_radius": 1.2107378403373017,
+      "zero_padded_samples": 65536.0
+    },
+    {
+      "energy_drift": 2.8698914422697896e-07,
+      "initial_perturbed_radius": 1.2176674243107966,
+      "mass_error": 3.2752689449466743e-12,
+      "maximum_relative_radius_excursion": 0.012787115439753067,
+      "omega_dimensionless": 1.3996427146958297,
+      "omega_over_compton": 1.0766482420737151,
+      "passes_frozen_tolerance": true,
+      "peak_power_fraction": 0.3771518524455023,
+      "points": 24,
+      "relative_error_from_frozen_prediction": 0.002132816744476142,
+      "stationary_radius": 1.2022836614223797,
+      "zero_padded_samples": 65536.0
+    },
+    {
+      "energy_drift": 3.225865886635759e-07,
+      "initial_perturbed_radius": 1.2307521090650655,
+      "mass_error": 1.9094725800528067e-12,
+      "maximum_relative_radius_excursion": 0.01292658928688036,
+      "omega_dimensionless": 1.3742624665180223,
+      "omega_over_compton": 1.0571249742446325,
+      "passes_frozen_tolerance": true,
+      "peak_power_fraction": 0.39437402639498303,
+      "points": 28,
+      "relative_error_from_frozen_prediction": 0.01603923482914808,
+      "stationary_radius": 1.2150363911406317,
+      "zero_padded_samples": 65536.0
+    }
+  ],
+  "passed": true,
+  "repositories": {
+    "openwave_base": "2dfaf6da88b24fe43799b53d79ef2f7aa3244a32",
+    "physlib_pr_head": "5d0cdf07c891b1dbe7381b93c2d794b593fae09d"
+  },
+  "schema": "openwave.m9.independent-mode-robustness.v1",
+  "task": "M9.74"
+}
