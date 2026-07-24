@@ -7,8 +7,9 @@
 | M9.50 | Continuum well-posedness and semigroup bridge | DONE; FINITE-GRID SEMIGROUP / CONTINUUM OPEN |
 | M9.51 | Formal evidence promotion and drift checks | DONE; ZERO FORMAL PROMOTIONS |
 | M9.52 | Non-Gaussian/topological 3D self-binding search | DONE; FIVE-FAMILY NEGATIVE |
-| M9.53 | Nonlinear continuum generator domain, dissipativity and closability | NEXT |
-| M9.54 | Kernel-checked evidence refresh after formal verification | GATED |
-| M9.55 | Unified nonlinear continuum-to-grid convergence | PLANNED |
+| M9.53 | Phase-space Fokker--Planck bridge | DONE; FINITE POSITIVE/MASS-CONSERVING / CONTINUUM HYPOELLIPTIC OPEN |
+| M9.54 | Nonlinear continuum generator domain, dissipativity and closability | NEXT |
+| M9.55 | Kernel-checked evidence refresh after formal verification | GATED |
+| M9.56 | Unified nonlinear continuum-to-grid convergence | PLANNED |
 
 OpenWave remains simulation software.
