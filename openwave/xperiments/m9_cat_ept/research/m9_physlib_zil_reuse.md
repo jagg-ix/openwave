@@ -4,8 +4,9 @@
 
 | Repository | Ref | Revision | Role |
 | --- | --- | --- | --- |
-| `jagg-ix/openwave` | `main` baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged simulation baseline |
-| `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | M9.69--M9.74 implementation and evidence |
+| `jagg-ix/openwave` | current `main` after PR #75 | `ec309cdf9976f16155ef3ec07f8290126a652061` | merged M9.69--M9.71 simulation baseline |
+| `jagg-ix/openwave` | frozen campaign baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | immutable ancestry of M9.69--M9.74 generated results |
+| `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | post-merge M9.72--M9.74 reconciliation and evidence |
 | `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `496b275336f30c0f934fe4ddcfa9fbfd99fa567c` | complete H¹ compactness, local dynamics, orbital mechanism, and Schrödinger--Newton variational authority |
 | `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `9a15bf5023980f6bc401671de7dc7dca164a52d0` | predicate compactness bridges, constrained direct method, concentration composition, and density coercivity |
 | `jagg-ix/entropic-physlib-private` | frozen theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | immutable dependency of generated M9.69--M9.71 ledgers |
