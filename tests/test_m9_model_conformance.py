@@ -14,20 +14,22 @@ def test_domain_partition():
     assert validate_profile()["domain_counts"] == {"particles": 12, "forces": 5, "waves": 3, "thermal": 1}
 
 
-def test_status_counts_after_m9_71():
+def test_status_counts_after_m9_74():
     assert validate_profile()["status_counts"] == {"validated": 0, "partial": 20, "negative": 1, "not_yet": 0}
 
 
-def test_stability_includes_m9_69_70():
+def test_stability_includes_deep_h1_and_concentration_evidence():
     stability = next(item for item in CRITERIA if item.key == "particle_stability")
-    assert all(any(name in path for path in stability.evidence) for name in ("m9_69_method_note.md", "m9_70_method_note.md"))
+    assert all(any(name in path for path in stability.evidence) for name in ("m9_72_method_note.md", "m9_73_method_note.md"))
+    assert "weak sequential compactness" in stability.finding
+    assert "translation tightness" in stability.finding
 
 
-def test_replacement_mode_is_referenced_but_not_promoted_to_validation():
+def test_independent_mode_robustness_is_referenced_but_not_validated():
     clock = next(item for item in CRITERIA if item.key == "de_broglie_clock")
     assert clock.status == "partial"
-    assert any("m9_71_method_note.md" in path for path in clock.evidence)
-    assert "held-out" in clock.finding
+    assert any("m9_74_method_note.md" in path for path in clock.evidence)
+    assert "periodogram" in clock.finding
 
 
 def test_single_criterion_negative_remains_lepton_hierarchy():
