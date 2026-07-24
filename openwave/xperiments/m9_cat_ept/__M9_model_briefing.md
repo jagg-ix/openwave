@@ -1,38 +1,36 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 covers all 21 comparison criteria and now includes a stationary non-Gaussian spatial branch, an exact cubic--quintic coercivity theorem, a conditional kernel orbital-stability bridge, and a replacement radial-mode prediction tested on held-out grids.
+M9 covers all 21 comparison criteria and now includes a stationary non-Gaussian branch, the live continuum `H¹(ℝ³)` compactness/dynamics stack, predicate-carrier concentration bridges, and a replacement radial mode that survives an independent perturbation and estimator.
 
 ## Platform status
 
 - Zero criteria are fully validated in-platform.
 - Twenty criteria are partial or bounded.
 - The predictive lepton-mass hierarchy remains the sole criterion-level negative.
-- M9.69 replaces the failed Gaussian stationary ansatz with a localized full-equation branch that converges from super-Gaussian, anisotropic, and shell seeds.
-- M9.70 proves exact density coercivity and derives uniform orbital control from explicit analytic certificate fields. The actual spatial `H¹` flow, conservation laws, concentration compactness, and nonzero-branch coercivity still need end-to-end construction.
-- M9.71 freezes `omega_radial / omega_Compton = 1.074356835825` and passes held-out `24³` and `28³` grids without refitting. This is internal computational evidence, not experimental validation.
+- M9.69 constructs the localized full-equation branch from three unrelated seeds.
+- The deep audit corrects the previous underreporting: PhysLib already proves weak H¹ compactness with norm-bound retention, weak-plus-norm strong closure, Prokhorov compactness consequences, local existence/uniqueness for every `C¹` H¹ generator, vanishing/dichotomy exclusion, and compact-sublevel Cazenave--Lions stability.
+- M9.72 adds predicate-carrier compactness and constrained direct-method bridges.
+- M9.73 composes the variational exclusions so an explicit concentration trichotomy leaves compactness modulo translations.
+- M9.74 independently tests the frozen M9.71 mode with radial amplitude deformation and a Hann-windowed periodogram; all three grids pass the unchanged 5% gate.
 
 ## Cross-repository sources
 
-| Repository | Ref | Revision | Authority |
-| --- | --- | --- | --- |
-| `jagg-ix/openwave` | `main` baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged simulation evidence |
-| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `f148278ec8264d031753d9def49cd2133ac4768d` | current formal baseline including Schrödinger--Newton cluster-binding updates |
-| `jagg-ix/entropic-physlib-private` | M9.70 theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | theorem revision pinned by generated M9.69--M9.71 ledgers |
-| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `f165cd8ba524a4274cb46bcd4c4ba1f12a274bf7` | rebased audited theorem branch |
-| `jagg-ix/zil-lean` | `main` | `7ef24a8557b610f8f0f560cf375c2a1600083591` | evidence conventions and tooling |
-
-The rebased audited successor preserves the theorem statements used by the frozen numerical ledgers while incorporating the latest formal baseline.
+| Repository | Ref | Revision |
+| --- | --- | --- |
+| OpenWave current `main` after merged PR #75 | `main` | `ec309cdf9976f16155ef3ec07f8290126a652061` |
+| OpenWave frozen M9.69--M9.74 campaign baseline | snapshot | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` |
+| PhysLib live formal base | `entropic-physlib-linear-full` | `496b275336f30c0f934fe4ddcfa9fbfd99fa567c` |
+| PhysLib PR #16 | `agent/m9-cubic-quintic-h1-certificate-70-current` | `9a15bf5023980f6bc401671de7dc7dca164a52d0` |
+| Frozen M9.69--M9.71 theorem snapshot | snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` |
 
 ## Latest closures
 
-- **M9.69:** maximum seed distance `0.002245`; maximum stationary residual `0.002671`; nested radius spread `0.012753`; boundary fraction below `9e-7`; best-Gaussian `L²` distance at least `0.06790`.
-- **M9.70:** exact density factorization is kernel formalized. The numerical coefficient specialization closes to `3.55e-15`. Uniform orbital control is proved from an explicit `H1OrbitalCertificate`; missing analytic PDE certificates remain visible premises. PR #16 exports ZIL scope records and a dedicated axiom/non-vacuity audit.
-- **M9.71:** derivation ratio `1.074356835825`; held-out discrepancies `2.34%` and `4.18%`, both within the frozen `5%` gate. No external experiment was performed.
-
-ZIL records identities, dependencies, scope, and evidence-state transitions. Lean remains theorem authority; OpenWave remains simulation software.
+- **M9.72:** norm-bound retaining weak compactness, strong closure from weak-plus-norm convergence, tight-measure compactness consequences, one common field/density subsequence, constrained direct method, local supplied-generator well-posedness, and the compact-sublevel stability mechanism are formal. Target-generator regularity and global conserved evolution remain open.
+- **M9.73:** negative level excludes vanishing; positive binding gap excludes dichotomy; an explicit trichotomy leaves compactness modulo translations. Recentered target tightness, target trichotomy, compact sublevels, and branch identification remain open.
+- **M9.74:** frozen ratio `1.074356835825`; three-grid discrepancies `2.61%`, `0.21%`, and `1.60%`; mass error below `3.3e-12`; energy drift below `3.3e-7`. No external experiment was performed.
 
 ## Next critical targets
 
-1. M9.72 construct the spatial cubic--quintic `H¹` flow and conserved quantities required by the M9.70 certificate.
-2. M9.73 establish concentration compactness and nonzero-branch coercivity modulo phase and translation.
-3. M9.74 compare the frozen M9.71 radial mode with an independent implementation or external physical observable without refitting.
+1. M9.75 prove concrete target-generator H¹ mapping/`C¹` regularity, normalized-mass weak closure, and target-energy weak lower semicontinuity.
+2. M9.76 derive recentered tightness/concentration trichotomy and compact target low-energy sublevels.
+3. M9.77 construct the global mass/energy-preserving target flow, identify the compact limit, and instantiate orbital stability.
