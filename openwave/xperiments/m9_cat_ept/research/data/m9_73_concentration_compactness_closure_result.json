@@ -1,0 +1,39 @@
+{
+  "decision": {
+    "compact_branch_follows_from_explicit_trichotomy": true,
+    "concentration_compactness_trichotomy_derived_in_kernel": false,
+    "dichotomy_excluded_by_positive_binding_gap": true,
+    "m9_73_end_to_end_compactness_closed": false,
+    "m9_73_scoped_target_closed": true,
+    "translation_tightness_derived_from_first_principles": false,
+    "vanishing_excluded_by_negative_level": true,
+    "weak_h1_precompactness_proved": true
+  },
+  "fingerprint": "6d464e9bc551088562dd73f9801a64c323d91a042ead8c1346f514f7b2d20497",
+  "formal_base": {
+    "branch": "entropic-physlib-linear-full",
+    "head": "0a04328a01b7911078c4f9d01cc0c8c963519dc2"
+  },
+  "formal_pr": {
+    "branch": "agent/m9-cubic-quintic-h1-certificate-70-current",
+    "head": "5d0cdf07c891b1dbe7381b93c2d794b593fae09d",
+    "number": 16
+  },
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "passed": true,
+  "remaining_obligations": [
+    "derive the concentration--compactness trichotomy for the promoted minimizing sequence",
+    "prove translation tightness and mass preservation in the compact branch",
+    "identify the compact limit with the nonzero stationary branch",
+    "prove coercivity modulo phase and translation"
+  ],
+  "schema": "openwave.m9.concentration-compactness-closure.v2",
+  "task": "M9.73",
+  "theorems": {
+    "dichotomy_exclusion": "compactCoreGroundEnergy_strict_subadditive",
+    "new_composition": "schrodingerNewton_compactModuloTranslations_of_trichotomy",
+    "quantitative_binding_gap": "compactCoreBindingGap_pos",
+    "vanishing_exclusion": "normalizedCoreGroundEnergy_neg",
+    "weak_compactness": "bounded_sobolevNorm_has_hOneWeaklyConvergent_subsequence"
+  }
+}
