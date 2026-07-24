@@ -1,4 +1,4 @@
-# CAT/EPT status after M9.59
+# CAT/EPT status after M9.62
 
 ## OpenWave platform validation
 
@@ -10,20 +10,26 @@
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The remaining negative is the lepton-mass hierarchy. Particle stability moves to partial: the original M9.49 and M9.52 action/profile campaigns disperse, while M9.59 verifies an explicit cubic--quintic action derivative and selects a finite-grid untrapped localization candidate across 12³, 14³, and 16³ campaigns.
+The remaining negative is the lepton-mass hierarchy. Particle stability remains partial: the original action disperses, the M9.59 cubic--quintic action selects a finite-grid candidate, and M9.61 adds an ansatz-level continuum variational well and tightness proxy. A stable physical particle is not established.
 
-This is not a stable physical particle. The selected term is not yet uniquely derived from CAT/EPT axioms, and no continuum soliton, orbital-stability, mass, charge, lifetime, or experimental result is established.
+## Formal interface changes
 
-## Formal interface status
+The current formal branch head is `adbe9ead533d56ea7acd18e4c9ad5dacafd973ff`.
 
-The formal repository is stronger than the earlier OpenWave wording implied. It contains scoped action-certified Einstein--Maxwell--entropic constructors, global Einstein--Hilbert and electrogravitic action interfaces, intrinsic Maxwell equations, ADM constraint propagation, all-time flow under global-Lipschitz hypotheses, and conditional maximal-development gluing.
+- The local gauge-covariant cubic Born-density law is unique inside its explicit homogeneity class.
+- The cubic continuum generator has local existence and uniqueness on compact continuous-field carriers.
+- Mode-diagonal unbounded generators have self-adjoint/closable realizations; homogeneous damping is maximally dissipative and generates an explicit contraction semigroup.
+- The free kinetic Kolmogorov model has a continuum smooth positive kernel and bracket-generation certificate.
+- Entropic time equals physical proper-time advance in the positive imaginary-Einstein sector after the displayed action-rate calibration.
 
-These are reported as directly proved, proved with explicit scope, conditional on analytic data, or open end-to-end. They are not collapsed into a bare yes/no and are not counted as OpenWave physical validations.
+The selected quintic saturation, its coefficients, the full cubic--quintic PDE, and physical unit map remain outside those theorems.
 
-## Latest numerical decisions
+## Latest numerical and methodological decisions
 
-- M9.57 closes a finite action-to-generator bridge and live source reconciliation, not the full continuum generator theorem.
-- M9.58 closes nested finite kinetic convergence and bracket-rank controls, not continuum hypoellipticity.
-- M9.59 selects a finite-grid binding candidate, not a physical particle.
+- **M9.60:** structural form partially derived; coefficients nonunique.
+- **M9.61:** Gaussian-orbit variational stability/tightness qualified; full orbital stability open.
+- **M9.62:** falsification ledger complete; physical calibration incomplete; prediction count zero.
 
-CAT/EPT is a substantial formal-and-computational research program and remains an incomplete physical theory.
+## Current theory classification
+
+CAT/EPT is a substantial cross-repository formal-and-computational research program. It is not yet a complete physical theory because coefficient selection, full continuum particle dynamics, and out-of-sample calibrated predictions remain open.
