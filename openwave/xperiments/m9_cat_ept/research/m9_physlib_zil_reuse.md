@@ -1,53 +1,59 @@
-# PhysLib/ZIL reuse map through M9.71
+# PhysLib/ZIL reuse map through M9.74
 
 ## Repository identities
 
 | Repository | Ref | Revision | Role |
 | --- | --- | --- | --- |
 | `jagg-ix/openwave` | `main` baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged simulation baseline |
-| `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | M9.69--M9.71 implementation and evidence |
-| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `f148278ec8264d031753d9def49cd2133ac4768d` | current Lean baseline with compact-core binding-gap results |
-| `jagg-ix/entropic-physlib-private` | theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | revision pinned by generated M9.69--M9.71 ledgers |
-| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `f165cd8ba524a4274cb46bcd4c4ba1f12a274bf7` | rebased audited M9.70 theorem branch |
+| `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | M9.69--M9.74 implementation and evidence |
+| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `0a04328a01b7911078c4f9d01cc0c8c963519dc2` | complete H¹ weak compactness and Schrödinger--Newton variational/binding authority |
+| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `5d0cdf07c891b1dbe7381b93c2d794b593fae09d` | constrained direct method, concentration branch elimination, and orbital certificate |
+| `jagg-ix/entropic-physlib-private` | frozen theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | immutable dependency of generated M9.69--M9.71 ledgers |
 | `jagg-ix/zil-lean` | `main` | `7ef24a8557b610f8f0f560cf375c2a1600083591` | semantic routing and evidence conventions |
-
-PR #16 preserves the theorem statements used by the frozen numerical ledgers while adding ZIL attachments, a dedicated axiom/non-vacuity audit, and compatibility with the latest formal baseline.
 
 ## Current formal source identities
 
 | Path | Identity | Reused result |
 | --- | --- | --- |
-| `CubicQuinticOrbitalStability.lean` theorem snapshot | blob `b1bbf0bd6e58b41796aba1d63919f3cd6fe7aca4` | exact density factorization/coercivity and conditional `H¹` orbital theorem pinned by ledgers |
-| audited `CubicQuinticOrbitalStability.lean` | PhysLib PR #16 | same theorem surface plus ZIL scope attachments |
-| `CubicQuinticOrbitalStabilityAudit.lean` | PhysLib PR #16 | axiom-clean and non-vacuity registrations |
-| `SchrodingerNewtonEnergy.lean` | current formal base | strict subadditivity and quantitative compact-core cluster-binding gaps |
-| `IpekCatichaSuperpositionViolation.lean` | current formal base | cubic uniqueness, contractive semiflow, strict decay, and zero attractor |
+| `EuclideanSobolevFrequencyLocalization.lean` | blob `a3e5f79be6c3d650f48ea1c164541eedf8588c5b` | complete `EuclideanHs 3 1` carrier, Bessel-energy equivalence, weak H¹ subsequence extraction, conditional direct method |
+| `SchrodingerNewtonEnergy.lean` | blob `43ad108a3c0c08730f3892de2d2480697db8e357` | coercive lower bound, negative normalized level, exact cubic mass law, strict subadditivity, positive binding gap |
+| updated `CubicQuinticOrbitalStability.lean` | blob `3a5b8737331fb1bbae0dea62af2db21f58f1b332` | constrained direct method, concentration branch composition, density coercivity, certified orbital control |
+| `CubicQuinticOrbitalStabilityAudit.lean` | PR #16 | axiom-clean and non-vacuity registrations |
+| `IpekCatichaSuperpositionViolation.lean` | live formal base | cubic uniqueness, local polynomial continuum ODE, contractive semiflow, strict decay, zero attractor |
+| `LpAeConvergence.lean` | live formal base | finite-measure Vitali bridge and a.e. subsequence extraction from Lp convergence |
+| `LpSubsequenceDiagonalization.lean` | live formal base | one subsequence converging locally in L² on every exhaustion level |
 | `Clock/EntropicAgreement.lean` | existing source | operational clock calibration interface |
 
-## M9.69--M9.71 use
+## M9.72--M9.74 use
 
-- M9.69 uses selected cubic--quintic coefficients and spectral spatial infrastructure to construct a full-equation stationary branch. It does not claim PhysLib proves existence of that branch.
-- M9.70 adds the formal module and audit. The exact density inequality is unconditional. Uniform orbital control is derived from explicit analytic certificate fields, so missing PDE construction and concentration-compactness results cannot be hidden.
-- M9.71 uses the M9.69 branch and freezes a small-chirp radial mode on one grid before comparing with two held-out grids. ZIL records the no-refit dependency and the distinction between internal testing and external validation.
+- **M9.72** reuses the actual complete `H¹(ℝ³)` carrier and weak subsequence theorem. PR #16 adds the constrained direct method rather than replacing existing compactness infrastructure with a generic certificate.
+- **M9.73** reuses the negative variational level to exclude vanishing and the positive binding gap to exclude dichotomy. PR #16 composes those results with an explicit trichotomy to obtain compactness modulo translations.
+- **M9.74** reuses the immutable M9.71 prediction record, but changes both perturbation and estimator. ZIL records that no coefficient, frequency, or tolerance refit occurred.
 
 ## Current decisions
 
-- stationary non-Gaussian branch constructed numerically: `true`
-- exact cubic--quintic density coercivity kernel-proved: `true`
-- conditional orbital theorem kernel-proved: `true`
-- formal theorem surface ZIL-attached and audit-registered: `true`
-- formal PR rebased on current PhysLib: `true`
-- spatial `H¹` flow constructed in Lean: `false`
-- M9.71 replacement mode passes internal held-out grids: `true`
+- complete continuum H¹ carrier directly proved: `true`
+- bounded H¹ weak subsequence directly proved: `true`
+- constrained direct method directly proved in PR #16: `true`
+- vanishing excluded by negative level: `true`
+- dichotomy excluded by positive binding gap: `true`
+- compact branch follows from explicit trichotomy: `true`
+- trichotomy/translation tightness derived from first principles: `false`
+- normalized-mass weak closure instantiated: `false`
+- target-energy weak lower semicontinuity instantiated: `false`
+- conservative spatial H¹ flow and invariants constructed: `false`
+- M9.74 independent perturbation/estimator passes frozen mode gate: `true`
 - external experimental comparison: `false`
 - platform counts: `0 validated / 20 partial / 1 negative`
 
 ## Open boundaries
 
-- construct the conservative spatial cubic--quintic `H¹` flow;
-- prove mass and energy conservation for that flow;
-- derive compactness modulo phase/translation and coercivity of the M9.69 branch;
-- compare the immutable M9.71 radial mode with an independent implementation or external observable.
+- prove normalized-mass weak closure on the promoted carrier;
+- prove sequential weak lower semicontinuity of the promoted Hartree/cubic--quintic energy;
+- construct the conservative state-dependent spatial cubic--quintic H¹ flow and its invariants;
+- derive the concentration trichotomy and translation tightness;
+- identify the compact limit with the M9.69 branch and prove coercivity modulo phase/translation;
+- compare the immutable M9.71 mode with external physical evidence.
 
 ## Status policy
 
