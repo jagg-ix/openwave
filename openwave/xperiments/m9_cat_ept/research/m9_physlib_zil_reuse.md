@@ -1,4 +1,4 @@
-# PhysLib/ZIL reuse map through M9.52
+# PhysLib/ZIL reuse map through M9.53
 
 Source repository: `jagg-ix/entropic-physlib-private`  
 Source branch: `entropic-physlib-linear-full`  
@@ -20,14 +20,20 @@ Pinned ZIL workflow: `jagg-ix/zil-lean@167cf603aba21bb1160cbe68ad1c4ba9056f92e9`
 - `NormedSpace.exp`
 - `QuantumMechanics.SpaceDHilbertSpace.mulOperator`
 - `QuantumMechanics.SpaceDHilbertSpace.mulOperator_isClosable`
+- `OpenSystemLindblad.lindblad_trace_preserving`
+- `DampedHeatSemigroup.RealC0ContractionSemigroup`
 - continuum `L²` kernel carrier
 - dominated-convergence observable bridge
+
+## Finite target closure
+
+M9.53 closes `phase_space_fokker_planck_bridge` for the implemented finite Markov/Strang solver. This is computational evidence, not a continuum proof.
 
 ## Open targets retained
 
 - `continuum_lindblad_generator`
 - `continuum_semigroup_wellposed`
-- `phase_space_fokker_planck_bridge`
+- `continuum_hypoelliptic_wellposed`
 - Lorentz-sum and current continuum convergence
 - genuinely infinite-particle representation
 
@@ -36,6 +42,7 @@ Pinned ZIL workflow: `jagg-ix/zil-lean@167cf603aba21bb1160cbe68ad1c4ba9056f92e9`
 - M9.49 merged source: `jagg-ix/openwave@main:openwave/xperiments/m9_cat_ept/unified_self_binding_3d.py`, Git blob `e22bbb02ed93a856be438cbbcc5fbc2198be9524`.
 - M9.50 is a finite-grid computational bridge and does not change formal proof state.
 - M9.52 depends on merged M9.49 and broadens its profile families; it does not alter any formal theorem state.
+- M9.53 adds a finite Fokker--Planck bridge while leaving continuum kinetic well-posedness open.
 
 ## Promotion policy
 

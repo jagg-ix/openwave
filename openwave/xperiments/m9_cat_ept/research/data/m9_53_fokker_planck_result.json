@@ -1,0 +1,82 @@
+{
+  "acceptance": {
+    "detailed_balance_closes": true,
+    "moments_track_ou_limit": true,
+    "ou_propagator_is_positive": true,
+    "ou_semigroup_law_closes": true,
+    "phase_space_mass_closes": true,
+    "phase_space_positivity_preserved": true,
+    "relative_entropy_is_nonincreasing": true,
+    "timestep_refinement_improves": true,
+    "velocity_generator_conserves_mass": true
+  },
+  "analytic_final_moments": {
+    "mean": 0.3205752705279581,
+    "variance": 0.7768526468401811
+  },
+  "classification": {
+    "does_not_establish": [
+      "continuum hypoelliptic well-posedness",
+      "derivation from the full CAT/EPT density matrix",
+      "physical transport coefficients"
+    ],
+    "establishes": [
+      "positive conservative phase-space evolution",
+      "OU detailed balance and semigroup controls",
+      "relative-entropy decay",
+      "finite phase-space bridge from dissipative dynamics"
+    ]
+  },
+  "config": {
+    "diffusion": 0.55,
+    "dt": 0.025,
+    "final_time": 2.0,
+    "friction": 0.7,
+    "length": 6.283185307179586,
+    "nv": 41,
+    "nx": 32,
+    "vmax": 5.0
+  },
+  "detailed_balance_error": 2.220446049250313e-16,
+  "final": {
+    "mass": 1.0000000000000038,
+    "mean_velocity": 0.3242518131317128,
+    "minimum": 8.546541001765005e-10,
+    "relative_entropy": 0.07495072984817949,
+    "velocity_variance": 0.7767849734831092
+  },
+  "initial": {
+    "mass": 1.0,
+    "mean_velocity": 1.299996826416198,
+    "minimum": 1.76213135331234e-15,
+    "relative_entropy": 1.1164013774315085,
+    "velocity_variance": 0.6399877646166107
+  },
+  "ou_semigroup_error": 7.632783294297951e-16,
+  "passed": true,
+  "physlib_zil_evidence": {
+    "anchors": [
+      "OpenSystemLindblad.lindblad_trace_preserving",
+      "DampedHeatSemigroup.RealC0ContractionSemigroup"
+    ],
+    "boundary": "finite Markov/Strang bridge; continuum kinetic theorem remains open",
+    "branch": "entropic-physlib-linear-full",
+    "closes_open_target": "phase_space_fokker_planck_bridge"
+  },
+  "refinement": {
+    "dts": [0.1, 0.05, 0.025, 0.0125],
+    "successive_differences": [
+      0.0003464737596571843,
+      0.00015225085346187717,
+      7.146151517375965e-05
+    ],
+    "values": [
+      [0.32425181313171225, 0.7767849734831096, 0.07544945446129855],
+      [0.3242518131317121, 0.7767849734831099, 0.07510298070164137],
+      [0.3242518131317128, 0.7767849734831092, 0.07495072984817949],
+      [0.3242518131317116, 0.7767849734831096, 0.07487926833300573]
+    ]
+  },
+  "schema": "openwave.m9.fokker-planck-bridge.v1",
+  "task": "M9.53"
+}

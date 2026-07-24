@@ -1,0 +1,7 @@
+MODULE openwave.m9.fokker_planck.
+claim:m9.53.mass_conservation#supported_by@theorem:lindblad_trace_preserving.
+claim:m9.53.ou_semigroup#supported_by@theorem:dampedHeatC0ContractionSemigroup.
+claim:phase_space_fokker_planck_bridge#target_state@state:closed.
+claim:continuum_hypoelliptic_wellposed#target_state@state:open.
+QUERY bridge_status:
+FIND ?claim ?state WHERE ?claim#target_state@?state.
