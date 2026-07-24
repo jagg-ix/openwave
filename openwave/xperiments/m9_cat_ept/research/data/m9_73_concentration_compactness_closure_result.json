@@ -1,0 +1,67 @@
+{
+  "decision": {
+    "compact_branch_follows_from_explicit_trichotomy": true,
+    "compact_sublevel_orbital_stability_mechanism_proved": true,
+    "concentration_compactness_trichotomy_derived_in_kernel": false,
+    "dichotomy_excluded_by_positive_binding_gap": true,
+    "joint_field_density_subsequence_from_tightness_proved": true,
+    "m9_73_end_to_end_target_closed": false,
+    "m9_73_scoped_target_closed": true,
+    "prokhorov_compactness_from_tightness_proved": true,
+    "strong_h1_upgrade_from_norm_closure_proved": true,
+    "target_compact_energy_sublevel_proved": false,
+    "translation_tightness_derived_from_binding": false,
+    "vanishing_excluded_by_negative_level": true,
+    "weak_h1_precompactness_proved": true
+  },
+  "fingerprint": "270647d55f6cdc4b2e17b2356e04aab246b0e9bac5ec059894b54dcc52ec1b07",
+  "formal_base": {
+    "branch": "entropic-physlib-linear-full",
+    "head": "496b275336f30c0f934fe4ddcfa9fbfd99fa567c"
+  },
+  "formal_pr": {
+    "branch": "agent/m9-cubic-quintic-h1-certificate-70-current",
+    "head": "9a15bf5023980f6bc401671de7dc7dca164a52d0",
+    "number": 16
+  },
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "passed": true,
+  "remaining_obligations": [
+    "derive recentered probability tightness from the binding functional",
+    "derive the concentration--compactness trichotomy for the target sequence",
+    "prove mass and norm closure to upgrade weak to strong H1 convergence",
+    "identify the compact limit with the nonzero stationary branch",
+    "prove compactness of the target low-energy sublevel modulo phase and translation"
+  ],
+  "schema": "openwave.m9.concentration-compactness-closure.v3",
+  "sources": {
+    "cubic_quintic_closure": {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/CubicQuinticOrbitalStability.lean",
+      "sha": "24e14292478aeb7c78b52efdb00d30e4d84a870c"
+    },
+    "euclidean_h1": {
+      "path": "Physlib/QuantumMechanics/Schrodinger/EuclideanSobolevFrequencyLocalization.lean",
+      "sha": "bd421597ff33177f08de1063dc91fec84a6d1420"
+    },
+    "schrodinger_newton_energy": {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/SchrodingerNewtonEnergy.lean",
+      "sha": "43ad108a3c0c08730f3892de2d2480697db8e357"
+    },
+    "self_bound_h1_dynamics": {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/SelfBoundSchrodingerNewtonPDE.lean",
+      "sha": "b9a094a57398efc11825885d8c2f3efa5654824c"
+    }
+  },
+  "task": "M9.73",
+  "theorems": {
+    "dichotomy_exclusion": "compactCoreGroundEnergy_strict_subadditive",
+    "joint_field_density_subsequence": "bounded_hOne_and_tight_probabilitySequence_has_joint_subsequence",
+    "new_composition": "schrodingerNewton_compactModuloTranslations_of_trichotomy",
+    "orbital_mechanism": "uniform_orbitalStability_of_compact_energySublevel",
+    "quantitative_binding_gap": "compactCoreBindingGap_pos",
+    "strong_closure": "hOne_tendsto_of_weak_of_norm",
+    "tight_measure_compactness": "tight_probabilitySequence_has_convergent_subsequence",
+    "vanishing_exclusion": "normalizedCoreGroundEnergy_neg",
+    "weak_compactness": "bounded_hOne_has_weaklyConvergent_subsequence_with_norm_bound"
+  }
+}
