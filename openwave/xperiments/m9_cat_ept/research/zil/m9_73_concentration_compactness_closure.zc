@@ -1,0 +1,7 @@
+claim:m9-73-concentration-compactness-closure.
+claim:m9-73-concentration-compactness-closure#reuses@lean:bounded_hOne_and_tight_probabilitySequence_has_joint_subsequence.
+claim:m9-73-concentration-compactness-closure#reuses@lean:hOne_tendsto_of_weak_of_norm.
+claim:m9-73-concentration-compactness-closure#excludes@branch:vanishing-by-negative-ground-level.
+claim:m9-73-concentration-compactness-closure#excludes@branch:dichotomy-by-positive-binding-gap.
+claim:m9-73-concentration-compactness-closure#formalized_by@lean:schrodingerNewton_compactModuloTranslations_of_trichotomy.
+claim:m9-73-concentration-compactness-closure#remaining@assumption:recentered-tightness-trichotomy-and-compact-target-sublevel.
