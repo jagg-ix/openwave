@@ -1,0 +1,8 @@
+claim:m9-72-h1-direct-method-closure.
+claim:m9-72-h1-direct-method-closure#reuses@lean:EuclideanHOneThree.
+claim:m9-72-h1-direct-method-closure#reuses@lean:bounded_hOne_has_weaklyConvergent_subsequence_with_norm_bound.
+claim:m9-72-h1-direct-method-closure#reuses@lean:bounded_hOne_and_tight_probabilitySequence_has_joint_subsequence.
+claim:m9-72-h1-direct-method-closure#reuses@lean:exists_local_hOnePDE_solution.
+claim:m9-72-h1-direct-method-closure#reuses@lean:uniform_orbitalStability_of_compact_energySublevel.
+claim:m9-72-h1-direct-method-closure#formalized_by@lean:exists_constrained_hOne_minimizer_of_bounded_minimizingSequence.
+claim:m9-72-h1-direct-method-closure#remaining@assumption:target-generator-h1-c1-and-global-conserved-flow.
