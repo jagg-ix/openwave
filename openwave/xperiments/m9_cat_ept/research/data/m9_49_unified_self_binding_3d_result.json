@@ -1,0 +1,29 @@
+{
+  "task": "M9.49",
+  "passed": true,
+  "self_bound_candidate_selected": false,
+  "scan": {
+    "geometry_couplings": [0.0, 0.3, 0.6, 0.9, 1.2],
+    "initial_rms_radius": 1.2854556689427021,
+    "final_rms_radius_range": [5.47423073193117, 5.502818412474059],
+    "maximum_boundary_fraction_range": [0.6140442296959264, 0.6195193055965105],
+    "all_candidates_spread": true
+  },
+  "maximum_balance_error": 0.0,
+  "refinement": {
+    "dts": [0.02, 0.01, 0.005],
+    "successive_differences": [4.5042656049841246e-7, 2.5327528007970075e-7]
+  },
+  "physlib_zil_reuse": {
+    "repository": "jagg-ix/entropic-physlib-private",
+    "branch": "entropic-physlib-linear-full",
+    "commit": "2aaecf7735be8fdb14bbba90558cc8c04ac85555",
+    "components": [
+      "StandardModel.GaugeGroupI.toSU3",
+      "Physlib.EntropicSpine.Core",
+      "NSFourierIntegratedDissipationCascade",
+      "MeasureTheory.TendstoInDistribution"
+    ]
+  },
+  "boundary": "Finite-grid bounded-scan no-go only; no universal self-binding theorem."
+}

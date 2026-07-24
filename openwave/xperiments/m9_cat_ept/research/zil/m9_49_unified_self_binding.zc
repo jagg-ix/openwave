@@ -1,0 +1,21 @@
+MODULE openwave.m9.unified_self_binding_3d.
+
+component:physlib_su3#provided_by@api:StandardModel.GaugeGroupI.toSU3.
+component:physlib_entropic_spine#provided_by@api:Physlib.EntropicSpine.Core.
+component:physlib_dissipation_budget#provided_by@api:NSFourierIntegratedDissipationCascade.
+component:physlib_weak_limit#provided_by@api:MeasureTheory.TendstoInDistribution.
+
+claim:finite_3d_unified_scan#kind@entity:simulation.
+claim:finite_3d_unified_scan#uses@component:physlib_su3.
+claim:finite_3d_unified_scan#uses@component:physlib_entropic_spine.
+claim:finite_3d_unified_scan#uses@component:physlib_dissipation_budget.
+claim:finite_3d_unified_scan#implemented_by@python:openwave.m9.unified_self_binding_3d.
+
+claim:universal_self_binding_no_go#kind@entity:theorem.
+claim:universal_self_binding_no_go#target_state@state:open.
+claim:universal_self_binding_no_go#requires@claim:finite_3d_unified_scan.
+
+QUERY reused_components:
+FIND ?claim ?component WHERE ?claim#uses@?component.
+QUERY open_targets:
+FIND ?claim WHERE ?claim#target_state@state:open.
