@@ -6,23 +6,23 @@
 | --- | --- | --- | --- |
 | `jagg-ix/openwave` | `main` baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged simulation baseline |
 | `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | M9.69--M9.71 implementation and evidence |
-| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `e2c06741c3e49deb604082a2e9c2e918eab8d545` | merged Lean baseline |
+| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `f148278ec8264d031753d9def49cd2133ac4768d` | current Lean baseline with compact-core binding-gap results |
 | `jagg-ix/entropic-physlib-private` | theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | revision pinned by generated M9.69--M9.71 ledgers |
-| `jagg-ix/entropic-physlib-private` | `agent/m9-cubic-quintic-h1-certificate-70` | `da74f64d17627f85d424499c21dd38157a5d2b4b` | audited M9.70 theorem branch |
+| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `f165cd8ba524a4274cb46bcd4c4ba1f12a274bf7` | rebased audited M9.70 theorem branch |
 | `jagg-ix/zil-lean` | `main` | `7ef24a8557b610f8f0f560cf375c2a1600083591` | semantic routing and evidence conventions |
 
-The audited formal successor adds ZIL attachments and a dedicated axiom/non-vacuity audit; the theorem statements used by the frozen numerical ledgers are unchanged.
+PR #16 preserves the theorem statements used by the frozen numerical ledgers while adding ZIL attachments, a dedicated axiom/non-vacuity audit, and compatibility with the latest formal baseline.
 
 ## Current formal source identities
 
-| Path | Git blob SHA | Reused result |
+| Path | Identity | Reused result |
 | --- | --- | --- |
-| audited `CubicQuinticOrbitalStability.lean` | `f21dd35bd2b37b4e07b302728633d844748f8571` | exact density factorization/coercivity, conditional `H¹` orbital theorem, ZIL scope |
-| theorem snapshot pinned by ledgers | `b1bbf0bd6e58b41796aba1d63919f3cd6fe7aca4` | same theorem statements before audit/ZIL integration |
-| `CubicQuinticOrbitalStabilityAudit.lean` | current M9.70 branch | axiom-clean and non-vacuity registrations for the exported theorem surface |
-| `IpekCatichaSuperpositionViolation.lean` | `d4f6e760e20dc1a3d7b4db7e21b8569bc9d307a7` | cubic uniqueness, contractive semiflow, strict decay, and zero attractor |
-| `IpekCatichaUnboundedGenerator.lean` | `605a3eb7dd7055de4b1d5ce3d8eacecea136f70a` | self-adjoint diagonal generators and homogeneous contraction semigroups |
-| `Clock/EntropicAgreement.lean` | `8d7cb5a9c87dba47beefdc4a6c317aa872536632` | operational clock calibration interface |
+| `CubicQuinticOrbitalStability.lean` theorem snapshot | blob `b1bbf0bd6e58b41796aba1d63919f3cd6fe7aca4` | exact density factorization/coercivity and conditional `H¹` orbital theorem pinned by ledgers |
+| audited `CubicQuinticOrbitalStability.lean` | PhysLib PR #16 | same theorem surface plus ZIL scope attachments |
+| `CubicQuinticOrbitalStabilityAudit.lean` | PhysLib PR #16 | axiom-clean and non-vacuity registrations |
+| `SchrodingerNewtonEnergy.lean` | current formal base | strict subadditivity and quantitative compact-core cluster-binding gaps |
+| `IpekCatichaSuperpositionViolation.lean` | current formal base | cubic uniqueness, contractive semiflow, strict decay, and zero attractor |
+| `Clock/EntropicAgreement.lean` | existing source | operational clock calibration interface |
 
 ## M9.69--M9.71 use
 
@@ -36,6 +36,7 @@ The audited formal successor adds ZIL attachments and a dedicated axiom/non-vacu
 - exact cubic--quintic density coercivity kernel-proved: `true`
 - conditional orbital theorem kernel-proved: `true`
 - formal theorem surface ZIL-attached and audit-registered: `true`
+- formal PR rebased on current PhysLib: `true`
 - spatial `H¹` flow constructed in Lean: `false`
 - M9.71 replacement mode passes internal held-out grids: `true`
 - external experimental comparison: `false`
