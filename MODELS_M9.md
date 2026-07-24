@@ -8,9 +8,9 @@ This is the script-backed M9 conformance profile. The canonical source is
 | Status | Count |
 | --- | ---: |
 | ✅ validated in-platform | 0 |
-| ⚠️ partial / with caveats | 18 |
+| ⚠️ partial / with caveats | 19 |
 | ❌ honest negative | 2 |
-| 🚧 planned / not yet | 1 |
+| 🚧 planned / not yet | 0 |
 | **Explicit criteria** | **21** |
 
 The former 20-versus-21 discrepancy is closed: **Heat / thermal-field sector**
@@ -23,13 +23,13 @@ is now an explicit criterion.
 | Charge quantization | ⚠️ Integer winding; electric identity open |
 | Electron rest energy | ⚠️ Interior dimensionless scale; physical mass open |
 | de Broglie clock | ⚠️ Clock channels separated; physical-time identity open |
-| Particle stability | ❌ Trapped 3D minimizer exists; no self-bound stable 3D particle |
+| Particle stability | ❌ Trapped 3D perturbations remain bounded; untrapped state spreads, so no self-bound particle |
 | Magnetic moment and spin | ⚠️ Pauli-current field control; emergent g factor open |
 | Spin-1/2 statistics | ⚠️ 2π sign reversal and 4π return; exchange open |
 | Antimatter and annihilation | ⚠️ Reduced capture/annihilation/radiation ledger; full PDE open |
 | Lepton mass spectrum | ❌ Current low-parameter hierarchy laws fail predictive gates |
 | Dark matter candidate | ⚠️ Neutral fixed-charge variational candidate; full PDE and phenomenology open |
-| Quarks | 🚧 Not yet |
+| Quarks | ⚠️ Finite SU(3), singlet, Wilson-loop, fractional-charge, and CKM controls; QCD open |
 | Baryons | ⚠️ Charged-triplet graph control; physical baryon open |
 | Mesons | ⚠️ Neutral-pair graph control; physical meson open |
 
@@ -58,4 +58,4 @@ is now an explicit criterion.
 | Heat / thermal-field sector | ⚠️ Conserved heat, entropy growth, and diffusion-dissipation control |
 
 Partial status records bounded simulation evidence, not a completed physical
-derivation. The only unaddressed explicit criterion is quarks.
+derivation. All 21 explicit criteria now have evidence. None is fully validated.

@@ -1,0 +1,9 @@
+{
+  "task":"M9.48",
+  "passed":true,
+  "summary":{"maximum_norm_error":2.8621549574836536e-13,"maximum_energy_drift":7.0250792447712485e-06,"maximum_boundary_fraction":0.0007349330240809896,"maximum_radius_ratio":1.1677204831311006},
+  "untrapped_control":{"final_rms_radius":9.032578080199954,"final_boundary_fraction":0.9995589242369036,"maximum_rms_radius":9.531059284248455,"radius_ratio":7.665263510697752},
+  "refinement":{"dts":[0.02,0.01,0.005],"successive_differences":[5.051699284205384e-05,1.2628186814322927e-05]},
+  "perturbation_continuity":{"amplitudes":[0.02,0.04,0.08],"radius_deviations":[0.0009422970868739888,0.0030650551266866444,0.010799785586409927],"ordered":true},
+  "physlib_zil_reuse":{"branch":"entropic-physlib-linear-full","excluded_open_targets":["continuum_semigroup_wellposed","continuum_lindblad_generator"]}
+}
