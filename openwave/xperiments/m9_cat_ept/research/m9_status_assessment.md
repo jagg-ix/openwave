@@ -1,4 +1,4 @@
-# CAT/EPT status after M9.62
+# CAT/EPT status after M9.65
 
 ## OpenWave platform validation
 
@@ -10,26 +10,26 @@
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The remaining negative is the lepton-mass hierarchy. Particle stability remains partial: the original action disperses, the M9.59 cubic--quintic action selects a finite-grid candidate, and M9.61 adds an ansatz-level continuum variational well and tightness proxy. A stable physical particle is not established.
+The remaining negative is the lepton-mass hierarchy. Particle stability remains partial: the original action disperses, M9.63 selects coefficients under two explicit Gaussian self-consistency conditions, and M9.64 supplies a coercive energy bound plus nested mass/energy-stable spatial evolution and bounded small perturbations. A stable calibrated physical particle and an arbitrary-`H¹` kernel theorem are not established.
 
 ## Formal interface changes
 
-The current formal branch head is `adbe9ead533d56ea7acd18e4c9ad5dacafd973ff`.
+The current formal branch head is `54b4ced090b200fac7ff04ee6a7e8797f1263049`.
 
-- The local gauge-covariant cubic Born-density law is unique inside its explicit homogeneity class.
-- The cubic continuum generator has local existence and uniqueness on compact continuous-field carriers.
-- Mode-diagonal unbounded generators have self-adjoint/closable realizations; homogeneous damping is maximally dissipative and generates an explicit contraction semigroup.
-- The free kinetic Kolmogorov model has a continuum smooth positive kernel and bracket-generation certificate.
-- Entropic time equals physical proper-time advance in the positive imaginary-Einstein sector after the displayed action-rate calibration.
+- The gauge-covariant cubic Born-density law remains unique inside its explicit class.
+- The irreversible cubic continuum sector now has an exact global positive-time flow, a nonlinear composition law, and continuum norm contraction.
+- A fixed continuous real multiplication-energy field can be coupled to that cubic flow without losing the global positive-time pointwise solution or norm contraction.
+- Homogeneous phase-plus-damping generators are maximally dissipative and generate explicit contraction `C₀` semigroups.
+- The free kinetic Kolmogorov kernel has stronger explicit PDE derivative identities.
 
-The selected quintic saturation, its coefficients, the full cubic--quintic PDE, and physical unit map remain outside those theorems.
+These theorems do not include the selected spatial Laplacian plus quintic saturation or arbitrary-`H¹` orbital stability.
 
-## Latest numerical and methodological decisions
+## Latest decisions
 
-- **M9.60:** structural form partially derived; coefficients nonunique.
-- **M9.61:** Gaussian-orbit variational stability/tightness qualified; full orbital stability open.
-- **M9.62:** falsification ledger complete; physical calibration incomplete; prediction count zero.
+- **M9.63:** coefficients are uniquely selected under two declared dimensionless conditions: `alpha = 74.6630446265`, `beta = 415.7483217224`. The conditions are not first-principles derived or physically calibrated.
+- **M9.64:** the exact density coercivity bound and nested conservative spectral campaign qualify a spatial continuum bridge. Full kernel well-posedness and arbitrary-`H¹` orbital stability remain open.
+- **M9.65:** one immutable prediction-ready record now exists: `omega_breath / omega_Compton = 2.634371114527`, tolerance 5%. It has not been independently tested.
 
 ## Current theory classification
 
-CAT/EPT is a substantial cross-repository formal-and-computational research program. It is not yet a complete physical theory because coefficient selection, full continuum particle dynamics, and out-of-sample calibrated predictions remain open.
+CAT/EPT is a substantial cross-repository formal-and-computational research program. It is still not a complete physical theory. Coefficient selection currently depends on declared self-consistency conditions, the full spatial particle theorem is open, and the first quantitative physical prediction has not yet been compared with independent evidence.
