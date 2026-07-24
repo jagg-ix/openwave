@@ -1,0 +1,45 @@
+{
+  "decision": {
+    "bounded_h1_weak_subsequence_proved": true,
+    "complete_continuum_h1_carrier_proved": true,
+    "conditional_direct_method_proved": true,
+    "constrained_direct_method_proved": true,
+    "m9_72_end_to_end_ground_state_attainment_closed": false,
+    "m9_72_scoped_target_closed": true,
+    "mass_constraint_weak_closure_proved_for_target_functional": false,
+    "target_energy_weak_lower_semicontinuity_proved": false
+  },
+  "fingerprint": "286f2bbcb5f7ae5582c13573373d73b8938007beeca3c3b237a26ddc09dfaa9c",
+  "formal_base": {
+    "branch": "entropic-physlib-linear-full",
+    "head": "0a04328a01b7911078c4f9d01cc0c8c963519dc2"
+  },
+  "formal_pr": {
+    "branch": "agent/m9-cubic-quintic-h1-certificate-70-current",
+    "head": "5d0cdf07c891b1dbe7381b93c2d794b593fae09d",
+    "number": 16
+  },
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "passed": true,
+  "remaining_obligations": [
+    "weak closure of the normalized mass constraint on the promoted H1 carrier",
+    "sequential weak lower semicontinuity of the promoted Hartree/cubic--quintic energy",
+    "construction of an explicit bounded minimizing sequence for the target functional"
+  ],
+  "schema": "openwave.m9.h1-direct-method-closure.v2",
+  "task": "M9.72",
+  "theorems": {
+    "existing_complete_carrier": [
+      "EuclideanHOneThree",
+      "hOneEnergyEquiv",
+      "HOneWeaklyConverges",
+      "bounded_sobolevNorm_has_hOneWeaklyConvergent_subsequence",
+      "exists_hOne_minimizer_of_bounded_minimizingSequence"
+    ],
+    "new_constrained_bridge": [
+      "HOneSequentiallyWeaklyClosed",
+      "exists_constrained_hOne_minimizer_of_bounded_minimizingSequence",
+      "HOneGroundStateCertificate.exists_groundState"
+    ]
+  }
+}
