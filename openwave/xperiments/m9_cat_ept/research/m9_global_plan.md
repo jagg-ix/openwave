@@ -10,8 +10,9 @@
 
 | Repository | Revision | Contribution |
 | --- | --- | --- |
-| OpenWave baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged M9.68 state |
-| OpenWave work branch | `agent/m9-stationary-formal-mode-69-71` | M9.69--M9.74 implementation and evidence |
+| OpenWave current `main` | `ec309cdf9976f16155ef3ec07f8290126a652061` | merged PR #75 / M9.69--M9.71 state |
+| OpenWave frozen campaign baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | immutable numerical ancestry of M9.69--M9.74 ledgers |
+| OpenWave work branch | `agent/m9-stationary-formal-mode-69-71` | post-merge M9.72--M9.74 reconciliation and evidence |
 | PhysLib live base | `496b275336f30c0f934fe4ddcfa9fbfd99fa567c` | H¹ compactness/strong closure, tight-measure compactness, local dynamics, orbital mechanism, and variational/binding infrastructure |
 | PhysLib PR #16 head | `9a15bf5023980f6bc401671de7dc7dca164a52d0` | predicate compactness bridges, constrained direct method, concentration composition, and density coercivity |
 | PhysLib frozen theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | immutable dependency of M9.69--M9.71 generated ledgers |
