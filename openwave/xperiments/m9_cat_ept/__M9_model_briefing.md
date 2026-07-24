@@ -17,7 +17,8 @@ M9 covers all 21 comparison criteria and now includes a stationary non-Gaussian 
 
 | Repository | Ref | Revision | Authority |
 | --- | --- | --- | --- |
-| `jagg-ix/openwave` | `main` baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | merged simulation evidence |
+| `jagg-ix/openwave` | current `main` after merged PR #75 | `ec309cdf9976f16155ef3ec07f8290126a652061` | merged M9.69--M9.71 simulation evidence |
+| `jagg-ix/openwave` | frozen M9.69--M9.74 campaign baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | immutable numerical-run ancestry |
 | `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `496b275336f30c0f934fe4ddcfa9fbfd99fa567c` | H¹ compactness, local dynamics, orbital mechanism, and Schrödinger--Newton variational authority |
 | `jagg-ix/entropic-physlib-private` | PR #16 head | `9a15bf5023980f6bc401671de7dc7dca164a52d0` | predicate compactness bridges, constrained attainment, concentration composition, and density coercivity |
 | `jagg-ix/entropic-physlib-private` | frozen M9.69--M9.71 theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | immutable generated-ledger dependency |
