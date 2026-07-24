@@ -1,0 +1,24 @@
+MODULE openwave.m9.unified_pde.
+
+component:physlib_hs_operator_space#kind@entity:component.
+component:physlib_hs_operator_space#provided_by@api:HilbertSchmidtOperatorSpace.HSOp.
+component:physlib_left_right_mul#kind@entity:component.
+component:physlib_left_right_mul#provided_by@api:HilbertSchmidtOperatorSpace.leftMulHS_rightMulHS.
+component:physlib_banach_exponential#kind@entity:component.
+component:physlib_banach_exponential#provided_by@api:NormedSpace.exp.
+
+claim:finite_grid_unified_generator#kind@entity:simulation.
+claim:finite_grid_unified_generator#uses@component:physlib_hs_operator_space.
+claim:finite_grid_unified_generator#uses@component:physlib_left_right_mul.
+claim:finite_grid_unified_generator#uses@component:physlib_banach_exponential.
+claim:finite_grid_unified_generator#implemented_by@python:openwave.m9.unified_pde.
+
+claim:continuum_semigroup_closure#kind@entity:theorem.
+claim:continuum_semigroup_closure#target_state@state:open.
+claim:continuum_semigroup_closure#requires@claim:finite_grid_unified_generator.
+
+QUERY reused_components:
+FIND ?claim ?component WHERE ?claim#uses@?component.
+
+QUERY open_targets:
+FIND ?claim WHERE ?claim#target_state@state:open.
