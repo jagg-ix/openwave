@@ -1,0 +1,88 @@
+{
+  "acceptance": {
+    "centered_first_moment_remains_bounded": true,
+    "centered_tail_remains_small": true,
+    "continuum_conservation_is_not_overstated": true,
+    "density_centroid_recentring_is_stable": true,
+    "energy_drift_is_second_order": true,
+    "formal_evidence_registry_obligations_are_respected": true,
+    "local_interaction_converges_under_time_refinement": true,
+    "mass_is_preserved_at_all_refinements": true,
+    "recentered_first_moment_converges_under_time_refinement": true
+  },
+  "config": {
+    "chirp_strength": 0.012,
+    "final_time": 0.6,
+    "half_width": 8.0,
+    "points": 20,
+    "sample_every": 25,
+    "stationary_iterations": 3000,
+    "tail_radius": 4.0,
+    "timesteps": [0.004, 0.002, 0.001],
+    "translation_cells": 1
+  },
+  "decision": {
+    "continuum_global_conservation_theorem_proved": false,
+    "continuum_recentered_first_moment_theorem_proved": false,
+    "finite_grid_dynamic_recentring_qualified": true,
+    "finite_grid_local_interaction_convergence_qualified": true,
+    "finite_grid_mass_energy_conservation_qualified": true,
+    "m9_79_scoped_target_closed": true
+  },
+  "passed": true,
+  "repositories": {
+    "openwave_base": "c3cdd5725e9b5455cf3f2fb35164e79cab1265d8",
+    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_evidence_registry_head": "2cb1003ede54dc7d8487a8b397a1cacf15728feb",
+    "physlib_mild_flow_head": "83542cc13af0a966a072d90f2082c49785d20c55"
+  },
+  "rows": [
+    {
+      "dt": 0.004,
+      "final_center": [0.8150657104956067, -5.931066024718733e-07, -5.931066008729957e-07],
+      "final_centered_first_moment": 1.1057333189960088,
+      "final_centered_tail_fraction": 0.0001410806964739654,
+      "final_energy": -0.5625913071208846,
+      "final_local_interaction": -1.5894730605972387,
+      "first_moment_error_from_finest": 6.482238684046848e-06,
+      "local_interaction_error_from_finest": 2.416472997346375e-05,
+      "maximum_centered_first_moment_excursion": 0.011088554020674879,
+      "maximum_centered_tail_fraction": 0.0001410806964739654,
+      "maximum_energy_drift": 5.78122350658461e-07,
+      "maximum_mass_error": 6.52811138479592e-14,
+      "steps": 150
+    },
+    {
+      "dt": 0.002,
+      "final_center": [0.8150657381775939, -5.924249074277384e-07, -5.924249069093581e-07],
+      "final_centered_first_moment": 1.1057281330895763,
+      "final_centered_tail_fraction": 0.0001410497420015002,
+      "final_energy": -0.5625915400078452,
+      "final_local_interaction": -1.5894923925956748,
+      "first_moment_error_from_finest": 1.296332251543575e-06,
+      "local_interaction_error_from_finest": 4.832731537396384e-06,
+      "maximum_centered_first_moment_excursion": 0.011083368114242376,
+      "maximum_centered_tail_fraction": 0.0001410497420015002,
+      "maximum_energy_drift": 1.4421021798938227e-07,
+      "maximum_mass_error": 1.3500311979441904e-13,
+      "steps": 300
+    },
+    {
+      "dt": 0.001,
+      "final_center": [0.8150657450977712, -5.922547196295925e-07, -5.922547192089324e-07],
+      "final_centered_first_moment": 1.1057268367573247,
+      "final_centered_tail_fraction": 0.00014104200773941948,
+      "final_energy": -0.5625915977916918,
+      "final_local_interaction": -1.5894972253272122,
+      "first_moment_error_from_finest": 0.0,
+      "local_interaction_error_from_finest": 0.0,
+      "maximum_centered_first_moment_excursion": 0.011082071781990832,
+      "maximum_centered_tail_fraction": 0.00014104200773941948,
+      "maximum_energy_drift": 3.603237042071328e-08,
+      "maximum_mass_error": 2.788880237858393e-13,
+      "steps": 600
+    }
+  ],
+  "schema": "openwave.m9.recentered-conservation-closure.v1",
+  "task": "M9.79"
+}
