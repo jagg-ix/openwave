@@ -1,0 +1,30 @@
+MODULE openwave.m9.recentered_conservation.
+
+source:openwave_main_c3cdd572#kind@entity:repository_revision.
+source:physlib_evidence_pr17_2cb1003e#kind@entity:evidence_registry.
+
+claim:density_centroid_fourier_recentring#kind@entity:computational_result.
+claim:density_centroid_fourier_recentring#supported_by@artifact:m9_79_recentered_conservation_closure_result.
+claim:density_centroid_fourier_recentring#status@status:qualified.
+
+claim:local_interaction_time_refinement#kind@entity:computational_result.
+claim:local_interaction_time_refinement#requires@claim:density_centroid_fourier_recentring.
+claim:local_interaction_time_refinement#status@status:qualified.
+
+claim:finite_grid_mass_energy_conservation#kind@entity:computational_result.
+claim:finite_grid_mass_energy_conservation#supported_by@artifact:m9_79_recentered_conservation_closure_result.
+claim:finite_grid_mass_energy_conservation#status@status:qualified.
+
+obligation:continuum_recentered_first_moment_bound#kind@entity:obligation.
+obligation:continuum_recentered_first_moment_bound#state@state:open.
+obligation:continuum_recentered_first_moment_bound#tracked_by@source:physlib_evidence_pr17_2cb1003e.
+
+obligation:continuum_global_mass_energy_conservation#kind@entity:obligation.
+obligation:continuum_global_mass_energy_conservation#state@state:open.
+obligation:continuum_global_mass_energy_conservation#tracked_by@source:physlib_evidence_pr17_2cb1003e.
+
+QUERY qualified_results:
+FIND ?claim WHERE ?claim#status@status:qualified.
+
+QUERY remaining_obligations:
+FIND ?obligation WHERE ?obligation#state@state:open.

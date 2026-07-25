@@ -1,4 +1,4 @@
-# CAT/EPT status after M9.77
+# CAT/EPT status after M9.80
 
 ## OpenWave platform validation
 
@@ -10,24 +10,21 @@
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The sole criterion-level negative remains the lepton-mass hierarchy. Particle stability is materially stronger but remains partial: M9.69 supplies a localized non-Gaussian stationary branch; M9.75 corrects the analytic topology; M9.76 qualifies the phase/translation quotient and Born localization; M9.77 adds a five-perturbation long-time aligned-orbit campaign.
+The sole criterion-level negative remains the lepton-mass hierarchy. Particle stability is materially stronger but remains partial. M9.78 adds a contracting finite-Galerkin Duhamel fixed point; M9.79 adds dynamically recentered localization and refined conservation ledgers; M9.80 adds finite-grid constrained-curvature and orbit-return evidence.
 
-## Corrected formal interface
+## Formal and evidence interfaces
 
-The live PhysLib base is `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`; the active PR #16 branch is `83542cc13af0a966a072d90f2082c49785d20c55`.
+The live PhysLib base is `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`.
 
-- `EuclideanHOneThree` is the complete continuum `H¹(ℝ³)` carrier.
-- The live base proves weak compactness, strong closure from weak plus norm convergence, actual Born-law compactness from first moments, Hartree interaction convergence, no-loss from the energy split, ground-state orbit existence, and the Cazenave--Lions stability mechanism.
-- PR #16 adds cubic--quintic predicate bridges and the corrected weak/mild-flow composition.
-- The Laplacian is not treated as a bounded `H¹ → H¹` vector field. The correct unresolved construction is a weak/Duhamel flow in `H¹` with generator in `H⁻¹`.
-- The unit-mass sphere is not globally weakly closed. Mass closes after strong no-loss convergence.
-- The attractive translation-invariant energy is not unconditionally weakly lower semicontinuous. Localization and interaction convergence are required.
+- Active PR #16 at `83542cc13af0a966a072d90f2082c49785d20c55` supplies cubic--quintic compactness and corrected weak/mild-flow composition.
+- Active PR #17 at `2cb1003ede54dc7d8487a8b397a1cacf15728feb` supplies Lean/ZIL lifecycle records, resolved-omission edges, and structured open obligations.
+- The concrete continuum energy-critical flow, continuum recentered localization, local-interaction convergence, global conservation, and analytic M9.69 identity are still open.
 
 ## Latest decisions
 
-- **M9.75:** corrected scoped target closed. The false `H¹ → H¹` and unconditional closure premises are rejected; localized interaction convergence yields strong no-loss and normalized-mass closure.
-- **M9.76:** corrected scoped target closed. Four translations have unaligned L² distances up to `1.4079`, but recentered distance is zero; centered tail mass is `8.3141e-5` and energy is invariant to `7.8e-16`.
-- **M9.77:** corrected scoped target closed. Five perturbations preserve mass below `3.38e-13`, energy within `1.45e-7`, boundary mass below `7.05e-6`, and remain inside relative aligned `H¹` distance `0.02152`.
+- **M9.78:** scoped finite-Galerkin target closed. Maximum Picard ratio is `0.02277`; the Duhamel residual is below `3e-16`; Duhamel/Strang differences halve from `3.161e-4` to `7.903e-5`.
+- **M9.79:** scoped finite-grid target closed. Centered moment excursion stays below `0.01109`, tail below `1.411e-4`, mass error below `2.8e-13`, and energy drift decreases by approximately four per time-step halving.
+- **M9.80:** scoped finite-grid identification target closed. Radial, quadrupole, and shell directions have positive second variations and six relaxed states return within phase-aligned `H¹` distance `0.00468`. External comparison remains blocked.
 
 ## Prediction ledger
 
@@ -42,4 +39,4 @@ The live PhysLib base is `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`; the active 
 
 ## Current theory classification
 
-CAT/EPT remains an incomplete physical theory with a substantial formal and computational program. M9.75--M9.77 correct the functional setting and close the available compactness/stability composition without claiming the missing energy-critical Duhamel construction, continuum global conservation, analytic identification of M9.69, external calibration, or a physically observed particle.
+CAT/EPT remains an incomplete physical theory with a substantial formal and computational program. M9.78--M9.80 close finite-Galerkin and evidence-governance targets only. They do not establish continuum energy-critical well-posedness, continuum conservation, analytic branch identity, independent calibration, external agreement, or an observed particle.
