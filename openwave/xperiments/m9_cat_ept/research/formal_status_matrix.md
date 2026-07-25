@@ -1,41 +1,35 @@
 # CAT/EPT formal interface status
 
-This matrix records live PhysLib baseline `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82` and active PR #16 branch head `83542cc13af0a966a072d90f2082c49785d20c55`. Formal theorem status remains separate from OpenWave platform validation.
+This matrix records live PhysLib baseline `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`, active PR #16 head `83542cc13af0a966a072d90f2082c49785d20c55`, and active PR #17 head `2cb1003ede54dc7d8487a8b397a1cacf15728feb`. Formal theorem status remains separate from OpenWave platform validation.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
-| Metric-built Einstein--Maxwell--entropic action/PDE chain | proved with explicit scope | declared action, carrier, and analytic hypotheses |
-| Fixed-spatial-energy cubic continuum flow | jointly continuous contractive nonlinear semiflow | pointwise damping, not the conservative Laplacian PDE |
-| Complete continuum `H¹(ℝ³)` carrier | directly constructed | exact Bessel-energy realization |
-| Bounded weak subsequences and strong closure from weak plus norm | directly proved | norm/no-loss must come from target interaction closure |
-| Actual Born-law probability and first-moment compactness | directly proved | recentered first-moment bound remains target-specific |
-| Hartree interaction convergence from `L^(6/5)` Born convergence | directly proved | local cubic--quintic interaction convergence remains separate |
-| Energy-split no-loss, level attainment, and normalization closure | directly proved | consumes localized interaction convergence and lower-level property |
-| Born-law energy minimizer and compact minimizing orbit | directly proved | consumes first moment, weak admissibility, and interaction closure |
+| Complete continuum `H¹(ℝ³)` carrier and weak compactness | directly proved | norm/no-loss comes from target interaction closure |
+| Actual Born probability and first-moment compactness | directly proved | recentered first-moment bound remains target-specific |
+| Hartree convergence from `L^(6/5)` Born convergence | directly proved | local cubic--quintic interaction convergence remains separate |
+| Energy-split no-loss, level attainment, normalization closure | directly proved | consumes localized interaction convergence |
+| Born-law minimizer and compact minimizing orbit | directly proved | consumes localization, weak admissibility, and interaction closure |
 | Cazenave--Lions minimizing-orbit stability | directly proved | consumes a global admissible energy-conserving flow |
-| Cubic--quintic density coercivity and concentration branch composition | proved in PR #16 | trichotomy/localization inputs remain explicit |
-| Correct target interaction convergence wrapper | proved in PR #16 | Hartree closure plus supplied local-interaction convergence |
-| Corrected weak/mild `H¹` flow certificate | proved in PR #16 | generator is tested in the `H¹` dual; concrete Duhamel construction remains open |
-| Compact target minimizing orbit from Born localization | proved in PR #16 | recentered first moment and local interaction closure remain inputs |
-| Uniformly stable minimizing orbit from global conservative weak/mild flow | proved in PR #16 | global flow and conservation laws remain certificate fields |
-| Bounded `H¹ → H¹` Laplacian generator | rejected | Fourier ratio grows as `k²`; natural bound is `H¹ → H⁻¹` |
-| Global weak closure of unit `L²` mass sphere | rejected | orthonormal modes converge weakly to zero while mass remains one |
-| Unconditional weak lower semicontinuity of attractive target energy | rejected | translated negative-energy states converge weakly to zero |
-| Concrete energy-critical Duhamel/Strichartz target flow | open | must construct `H¹` mild flow with weak generator in `H⁻¹` |
-| Target recentered localization and local interaction convergence | open end-to-end | required for analytic minimizing-orbit compactness |
-| Global target mass/energy conservation | open end-to-end | finite-grid conservation is not a continuum theorem |
-| Analytic identification of M9.69 with minimizing orbit | open end-to-end | finite stationary residual is insufficient |
-| M9.75 corrected generator audit | OpenWave exact/Fourier evidence | scoped closure, not a PDE construction |
-| M9.76 recentered orbit audit | OpenWave numerical result | periodic translation quotient, not general continuum tightness |
-| M9.77 aligned long-time orbit campaign | OpenWave numerical result | five perturbations, finite time and grid |
-| M9.71 replacement radial mode | internally robust | no external experiment or physical validation |
+| Cubic--quintic coercivity and corrected weak/mild composition | proved in PR #16 | concrete Duhamel construction and conservation remain inputs |
+| Lean/ZIL evidence lifecycle and omission reconciliation | proved in PR #17 | proof verification remains distinct from declaration identity |
+| Bounded `H¹ → H¹` Laplacian generator | rejected | Fourier ratio grows as `k²`; natural weak bound is `H¹ → H⁻¹` |
+| Global weak closure of unit mass sphere | rejected | orthonormal modes converge weakly to zero |
+| Unconditional weak lower semicontinuity of attractive energy | rejected | translated negative-energy states converge weakly to zero |
+| M9.78 finite-Galerkin Duhamel fixed point | OpenWave numerical result | contracting Volterra map and refinement, not continuum Strichartz |
+| M9.79 dynamically recentered localization/conservation | OpenWave numerical result | finite grid and finite time, not continuum theorems |
+| M9.80 minimizing-orbit identification | OpenWave numerical result | positive directional curvature and relaxation, not Lean identity |
+| Continuum energy-critical Duhamel/Strichartz flow | open | must construct the actual `H¹` mild evolution |
+| Analytic recentered localization and local interaction convergence | open | needed for continuum minimizing-orbit compactness |
+| Global continuum mass and energy conservation | open | finite-grid ledgers do not prove it |
+| Analytic identification of M9.69 with minimizing orbit | open | finite stationary residual and relaxation are insufficient |
+| Independent branch calibration and external dataset | open | required before physical mode comparison |
+| M9.71 replacement radial mode | internally robust and externally blocked | no physical validation |
 
 ## Current source pins
 
+- OpenWave merged base — `c3cdd5725e9b5455cf3f2fb35164e79cab1265d8`
 - live PhysLib base — `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`
-- active PhysLib PR #16 branch — `83542cc13af0a966a072d90f2082c49785d20c55`
-- live `H¹`/Born compactness source blob — `211f40b255b0f4816260a726f3bc6ed7b1b011e9`
-- live Schrödinger--Newton energy blob — `43ad108a3c0c08730f3892de2d2480697db8e357`
-- live H¹ dynamics/orbital source blob — `6897b5cbdc2f36a2297f3d26ba4891d88231d3f8`
+- active PhysLib PR #16 — `83542cc13af0a966a072d90f2082c49785d20c55`
+- active PhysLib PR #17 — `2cb1003ede54dc7d8487a8b397a1cacf15728feb`
 
-The corrected remaining target is not a generic Banach ODE on `H¹`. It is the concrete energy-critical weak/Duhamel flow, its localization and interaction convergence, continuum conservation, and analytic branch identification.
+The next correct target is a PhysLib continuum theorem stack, not another finite-grid substitute. External comparison remains inadmissible until branch identity and calibration are fixed independently.
