@@ -1,0 +1,65 @@
+{
+  "acceptance": {
+    "continuum_strichartz_theorem_is_not_overstated": true,
+    "discrete_duhamel_residual_closes": true,
+    "duhamel_and_strang_trajectories_converge_under_refinement": true,
+    "duhamel_mass_defect_decreases": true,
+    "observed_duhamel_quadrature_ratio_is_first_order": true,
+    "picard_iteration_is_contracting": true,
+    "weak_h1_to_hminus1_formal_interface_is_reused": true
+  },
+  "config": {
+    "final_time": 0.01,
+    "half_width": 8.0,
+    "maximum_fixed_point_residual": 1e-10,
+    "maximum_picard_ratio": 0.03,
+    "picard_iterations": 7,
+    "points": 16,
+    "stationary_iterations": 3000,
+    "time_steps": [8, 16, 32]
+  },
+  "decision": {
+    "continuum_energy_critical_strichartz_flow_constructed": false,
+    "finite_galerkin_duhamel_fixed_point_constructed": true,
+    "finite_galerkin_mild_and_strang_trajectories_converge": true,
+    "m9_78_scoped_target_closed": true
+  },
+  "passed": true,
+  "repositories": {
+    "openwave_base": "c3cdd5725e9b5455cf3f2fb35164e79cab1265d8",
+    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_evidence_registry_head": "2cb1003ede54dc7d8487a8b397a1cacf15728feb",
+    "physlib_mild_flow_head": "83542cc13af0a966a072d90f2082c49785d20c55"
+  },
+  "rows": [
+    {
+      "dt": 0.00125,
+      "duhamel_mass_error": 7.882007214199405e-05,
+      "duhamel_strang_final_h1_difference": 0.00031613674327536585,
+      "fixed_point_residual_h1": 4.3592151037901314e-18,
+      "maximum_picard_ratio": 0.018213415645464984,
+      "picard_differences": [0.05761235553859361, 0.0009258824564601099, 1.6863482018352117e-05, 8.010422426163968e-08, 3.051144392445718e-10, 6.112885073631498e-13, 2.0398743272167944e-15],
+      "time_steps": 8
+    },
+    {
+      "dt": 0.000625,
+      "duhamel_mass_error": 3.9407875553010285e-05,
+      "duhamel_strang_final_h1_difference": 0.00015806370505975234,
+      "fixed_point_residual_h1": 1.8410024993179817e-16,
+      "maximum_picard_ratio": 0.021250058312615172,
+      "picard_differences": [0.057611230969218157, 0.0009920078021585324, 2.108022364243803e-05, 1.3015766799164384e-07, 7.437816191946904e-10, 2.73133873225602e-12, 2.2691230466740777e-14],
+      "time_steps": 16
+    },
+    {
+      "dt": 0.0003125,
+      "duhamel_mass_error": 1.970333535106228e-05,
+      "duhamel_strang_final_h1_difference": 7.903049772304825e-05,
+      "fixed_point_residual_h1": 2.6620393929854276e-16,
+      "maximum_picard_ratio": 0.022768498095105352,
+      "picard_differences": [0.05761067287010987, 0.0010250704364395632, 2.3339314279423007e-05, 1.6072378416308742e-07, 1.0716211159370407e-09, 4.828695947426966e-12, 5.214891552453967e-14],
+      "time_steps": 32
+    }
+  ],
+  "schema": "openwave.m9.duhamel-fixed-point-campaign.v1",
+  "task": "M9.78"
+}
