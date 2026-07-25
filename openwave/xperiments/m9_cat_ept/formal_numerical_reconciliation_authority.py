@@ -7,7 +7,7 @@ import json
 from typing import Any, Mapping
 
 from .dirac_ehrenfest_diagnostics import run_dirac_ehrenfest_diagnostics
-from .formal_numerical_equation_contract import (
+from .formal_numerical_equation_contract_current import (
     run_formal_numerical_equation_contract,
 )
 from .reconciled_gauge_spinor_stationary import (
