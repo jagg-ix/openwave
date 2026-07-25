@@ -1,0 +1,89 @@
+MODULE openwave.m9.zil_runtime_upgrade.
+
+model:m9_cat_ept#uses@runtime:zil_lean.
+runtime:zil_lean#repository@repository:jagg_ix_zil_lean.
+runtime:zil_lean#branch@branch:main.
+runtime:zil_lean#head@sha:3c9d4ce962fb9ce0b3284d700e7acaee5fb272bc.
+
+runtime:zil_lean#supersedes@sha:f39758f85ee6300b8060e4f8ea1ecf344ed32c96.
+runtime:zil_lean#supersedes@sha:64462a3c5e2ffb51a7b226675491cc3a9b156a8d.
+sha:f39758f85ee6300b8060e4f8ea1ecf344ed32c96#status@state:historical_bootstrap_pin.
+sha:64462a3c5e2ffb51a7b226675491cc3a9b156a8d#status@state:historical_control_event_pin.
+
+runtime:zil_lean#exports@root:zil_datalog.
+runtime:zil_lean#exports@root:zil_native.
+root:zil_datalog#import_name@module:Zil.
+root:zil_datalog#namespace@namespace:Zil_Datalog.
+root:zil_datalog#used_by@consumer:physlib_embedded_formalization.
+root:zil_datalog#provides@capability:declaration_attachments.
+root:zil_datalog#provides@capability:embedded_validation.
+root:zil_datalog#provides@capability:holds_semantics.
+root:zil_datalog#provides@capability:formalization_contracts.
+root:zil_datalog#provides@capability:theorem_intents.
+root:zil_datalog#provides@capability:zil_solve_and_apply.
+
+root:zil_native#import_name@module:Zil_Native.
+root:zil_native#used_by@consumer:openwave_zc_graphs.
+root:zil_native#provides@capability:facts_and_theorem_rules.
+root:zil_native#provides@capability:query_engine.
+root:zil_native#provides@capability:provenance.
+root:zil_native#provides@capability:workflow.
+root:zil_native#provides@capability:authorization.
+root:zil_native#provides@capability:proof_and_theorem_audits.
+
+runtime:zil_lean#pins@source:zil_root.
+source:zil_root#path@path:Zil_lean.
+source:zil_root#blob@sha:faf28e701e4a02781e410491a6d3daf5d47f8879.
+runtime:zil_lean#pins@source:zil_native_root.
+source:zil_native_root#path@path:Zil_Native_lean.
+source:zil_native_root#blob@sha:2e6c87a85ef2f80d2424c8251ffe524067e27dee.
+runtime:zil_lean#pins@source:datalog_compat.
+source:datalog_compat#blob@sha:d72fd52996eb2418037ed329b97c280e2f187b1a.
+runtime:zil_lean#pins@source:formalization_contract.
+source:formalization_contract#blob@sha:b5753801f2564f17a684a1d8da77bc3b024e7c0a.
+runtime:zil_lean#pins@source:dual_root_lake_build.
+source:dual_root_lake_build#blob@sha:8dc0dd81f8c3d80192f9467792a617fde5ec24b5.
+runtime:zil_lean#pins@source:physlib_native_arc_example.
+source:physlib_native_arc_example#blob@sha:91ec7daf0dd351e5de480149b77eea903a472ea3.
+
+root:zil_native#executes@graph:m9_94_95_formalization_spin_force.
+root:zil_native#executes@graph:m9_96_charged_source_force.
+root:zil_native#executes@graph:m9_97_gauge_spinor_dynamics.
+root:zil_native#executes@graph:m9_98_zil_runtime_upgrade.
+graph:m9_94_95_formalization_spin_force#blob@sha:d2952ca95134e67ff3cf37a46df4d630e9eb0aa1.
+graph:m9_96_charged_source_force#blob@sha:19eef18ae3869c7165e1a7880e97e3702c9015b5.
+graph:m9_97_gauge_spinor_dynamics#blob@sha:261de47286a0c1c7c4c4369dd8b2973b813a50a8.
+graph:m9_98_zil_runtime_upgrade#status@state:self_describing_runtime_graph.
+
+runtime:zil_lean#proof_authority@authority:lean_kernel.
+runtime:zil_lean#orchestration_authority@authority:zil_runtime.
+runtime:zil_lean#does_not_promote@criterion:magnetic_moment_spin.
+runtime:zil_lean#does_not_promote@criterion:electric_force.
+runtime:zil_lean#does_not_promote@criterion:magnetic_force.
+model:m9_cat_ept#validated_count@value:7.
+model:m9_cat_ept#partial_count@value:13.
+model:m9_cat_ept#negative_count@value:1.
+
+RULE historical_pin_not_current:
+IF runtime:zil_lean#supersedes@?sha AND ?sha#status@?historical
+THEN ?sha#authority@state:historical_only.
+
+RULE native_graph_root_is_explicit:
+IF root:zil_native#executes@?graph
+THEN ?graph#runtime_root@root:zil_native.
+
+RULE no_runtime_upgrade_promotion:
+IF runtime:zil_lean#does_not_promote@?criterion
+THEN ?criterion#status@state:partial.
+
+QUERY current_runtime:
+FIND ?head WHERE runtime:zil_lean#head@?head.
+
+QUERY historical_pins:
+FIND ?sha ?state WHERE runtime:zil_lean#supersedes@?sha AND ?sha#status@?state.
+
+QUERY native_graphs:
+FIND ?graph WHERE root:zil_native#executes@?graph.
+
+QUERY retained_partial_rows:
+FIND ?criterion WHERE runtime:zil_lean#does_not_promote@?criterion.

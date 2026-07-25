@@ -26,7 +26,8 @@
 | M9.97b | Evolve an opposite four-spinor pair and matched self-field control in the Maxwell--Dirac engine | DONE; MOMENTUM/LORENTZ ERROR 2.61 PERCENT / CENTER RESPONSE WRONG SIGN |
 | M9.97c | Compare finite-time spin evolution with the exact Dirac generator and rest-frame T-BMT shadow | DONE; GENERATOR ERROR 2.57 PERCENT / REST-FRAME BMT REDUCTION REJECTED |
 | M9.97d | Register dynamics formal overlay, evidence authority, calibration ledger, conformance profile, and canonical component | DONE; 3 PARTIAL ROWS PRESERVED |
-| M9.98 | Construct an independently varied coupled action with a stable charged spinorial branch, converged center dynamics, and covariant moving-packet spin law | NEXT |
-| M9.99 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
+| M9.98 | Upgrade ZIL from historical bootstrap/control-event pins to current dual-root `Zil` / `Zil.Native` authority | DONE; HEAD 3c9d4ce / EXACT BLOBS / FAIL-CLOSED ROOT CONTRACT |
+| M9.99 | Construct an independently varied coupled action with a stable charged spinorial branch, converged center dynamics, and covariant moving-packet spin law | NEXT |
+| M9.100 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
 
-The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.97 closes kinetic-momentum transfer against the four-spinor Lorentz force and finite-time spin evolution against the exact Dirac generator. It also rejects three stronger reductions for the current model: charged spinorial stationarity, center acceleration with the Lorentz sign, and the rest-frame T-BMT shadow for the moving winding packet. Magnetic moment, electric force, magnetic force, and physical particle identity therefore remain unpromoted.
+The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.98 upgrades evidence orchestration and formalization-contract validation without changing Lean proof authority or any physical result. PhysLib embedded metadata uses the `Zil` Datalog compatibility root; OpenWave `.zc` graphs use `Zil.Native`. M9.97's stationary, center-response, and moving-packet spin boundaries remain unchanged.

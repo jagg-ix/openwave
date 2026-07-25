@@ -2,16 +2,29 @@
 
 Live PhysLib authority: `jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, base commit `e10af9a3b47bf90afc0a88167a5d495b6935f4dc`, exact current tree `239a663a3192a3144fb998e7bb200e09689a3bb9`.
 
+Current ZIL runtime authority: `jagg-ix/zil-lean`, branch `main`, commit `3c9d4ce962fb9ce0b3284d700e7acaee5fb272bc`.
+
 OpenWave imports:
 
 - current `Physlib.lean` blob `182a06e0f50314ec54436da602b4ac86eba4ee08`;
 - 24 exact Lean aggregate/source blobs in the branch-wide inventory;
-- 11 ZIL graphs with 422 entity identifiers;
+- 11 formalization/status ZIL graphs with 422 entity identifiers;
 - 12 explicit open, constructive-QFT, or external-analytic boundaries;
-- two current-tree M9.96 sources for Pauli--Maxwell and conserved-current/Maxwell closure;
-- three current-tree M9.97 dynamics sources for rest-frame spin precession, electromagnetic particle dynamics, and distributional point-charge fields.
+- two M9.96 sources for Pauli--Maxwell and conserved-current/Maxwell closure;
+- three M9.97 dynamics sources for rest-frame spin precession, electromagnetic particle dynamics, and distributional point-charge fields;
+- six exact upstream ZIL runtime/build/example blobs;
+- four exact OpenWave native `.zc` graph blobs.
 
-Lean remains proof authority. ZIL remains the dependency, source, status, rule, and query graph. Criterion-specific overlays add exact witnesses without changing the 11-graph corpus count.
+Lean remains proof authority. The ZIL runtime is orchestration, dependency, source, status, query, provenance, and formalization-contract authority. Runtime availability never promotes a Lean theorem or a physical criterion.
+
+## ZIL dual-root authority
+
+| Root | Current role | Boundary |
+| --- | --- | --- |
+| `Zil` | PhysLib-facing `Zil.Datalog` compatibility root: attachments, attributes, embedded validation, `Holds`, tactics, theorem intents, file contracts | not the native standalone graph engine |
+| `Zil.Native` | facts, theorem-shaped rules, native parser/query/provenance/workflow/authorization/audits for OpenWave `.zc` graphs | not Lean proof authority |
+
+The current `lakefile.lean` builds both roots as default library roots. The historical revisions `f39758f85ee6300b8060e4f8ea1ecf344ed32c96` and `64462a3c5e2ffb51a7b226675491cc3a9b156a8d` remain recorded only as historical M9.63 and M9.62 evidence pins.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
@@ -33,36 +46,24 @@ Lean remains proof authority. ZIL remains the dependency, source, status, rule, 
 | Rest-frame T-BMT rate equals Dirac--Pauli rate | directly proved in M9.97 overlay | covariant boost, Thomas term, and moving-packet reduction remain open |
 | QED coupling and force-law chain | structurally proved | Schwinger value is supplied; loop derivation remains open |
 | Exact Coulomb potential and symmetry | directly proved | ideal point-particle carrier, not a finite winding-state identity |
-| Radiation-gauge Helmholtz decomposition | directly proved | longitudinal/transverse decomposition is not a complete nonlinear evolution theorem |
+| Radiation-gauge Helmholtz decomposition | directly proved | decomposition is not a complete nonlinear evolution theorem |
 | Distributional 3D point-charge electric field and Gauss source | directly proved | distributional point source, not a calibrated extended particle |
-| Lorentz-EM superoperator decomposition and covariance | directly proved | does not supply a calibrated dipole force law |
-| Yukawa screening and Coulomb upper bound | directly proved | potential identity, not physical charge calibration |
 | Global electrogravitic action and metric-built equations | directly proved with explicit scope | full nonlinear global coupled certificate remains open |
 | Eddington affine first integral and Einstein-Λ recovery | directly proved algebraically | finite-index first integral assumes the connection equation |
-| Torsion-vacuum and Lovelock first-integral bridges | directly proved with scope | full variational/Cauchy theory is not reconstructed |
 | Maxwell Green solutions | conditional on analytic data | concrete well-posed Cauchy data not constructed end to end |
-| Local nonlinear complex-Einstein evolution/uniqueness | conditional on analytic data | local fixed-gauge result, not maximal global development |
-| Liouville continuum carrier | provided by existing API | continuum generator and semigroup remain open |
-| LDDL finite generator/evolution and transport declarations | implementation declared / pending CI in ZIL | ZIL status is not kernel proof promotion |
-| Cauchy weak zero-width limit declarations | pending CI in ZIL | distributional limit tokens are not promoted by import |
-| LDDL trace preservation | pending CI in ZIL | trace-zero tokens remain pending until kernel/CI confirmation |
-| Rivers finite and continuum Green-function graphs | mixed checked, pending, and constructive-QFT boundaries | coincident products and interacting continuum measure remain open |
-| Lovelock--Rund graphs | source and declaration inventory | graph presence is not an independent kernel audit |
-| Veliev periodic-Schrödinger graph | formal declarations plus external analytic requirement | arbitrary-order error estimates remain external |
-| M9.94 branch-wide formal import | OpenWave executable | faithful status import; no criterion promotion |
-| M9.94 spin-magnetic bridge | OpenWave executable | tree `g=2`; Gaussian control, anomaly, and identity remain open |
-| M9.95 electric/magnetic bridge | OpenWave executable | declared winding pair and supplied kernels |
-| M9.96 charged stationary feasibility | OpenWave negative model subresult | zero passing scalar charged stationary candidates |
-| M9.96 charged Maxwell source | OpenWave executable | static Maxwell constraints and moment response close; no backreacted stationary branch |
-| M9.96 field-force triangle | OpenWave executable | Lorentz, energy-gradient, and stress-flux agree within `2.6%`; no PDE center response |
-| M9.97 gauge-spinor stationary audit | OpenWave executable negative model subresult | winding, spin, localization, and Maxwell constraints close; residual ends at `0.519` |
+| LDDL and Cauchy/status graphs | mixed implementation, checked, pending, and conditional states | ZIL status is not kernel proof promotion |
+| Rivers/Lovelock--Rund/Veliev corpus graphs | source/declaration/status inventory | graph presence is not an independent kernel audit |
+| M9.96 field-source and force evidence | OpenWave executable | no stable charged stationary branch or PDE center response |
+| M9.97 gauge-spinor stationary audit | OpenWave negative model subresult | residual ends at `0.519` |
 | M9.97 four-spinor momentum response | OpenWave executable | momentum/Lorentz error `2.61%`; no stable pair |
-| M9.97 four-spinor center response | OpenWave failed reduction | center response has the wrong sign and `114.74%` relative mismatch |
+| M9.97 center response | OpenWave failed reduction | wrong sign and `114.74%` relative mismatch |
 | M9.97 exact-generator spin response | OpenWave executable | finite-time/generator error `2.57%` |
-| M9.97 rest-frame T-BMT shadow | OpenWave failed reduction | moving winding packet differs by `266.90%` and opposite transverse sign |
-| M9.97 dynamics authority | OpenWave executable | preserves all three partial statuses and blocks physical identity |
+| M9.97 rest-frame T-BMT shadow | OpenWave failed reduction | `266.90%` mismatch and opposite transverse sign |
+| M9.98 current ZIL runtime | OpenWave executable authority | exact commit/blobs and dual-root roles; promotes no claim |
 
-## Imported operational/status ZIL graphs
+## Imported formalization/status ZIL corpus
+
+Operational graphs:
 
 1. electrogravitic action closure;
 2. Lindblad-driven leads;
@@ -70,7 +71,7 @@ Lean remains proof authority. ZIL remains the dependency, source, status, rule, 
 4. Cauchy weak limit;
 5. Lindblad trace preservation.
 
-## Imported formalization-corpus ZIL graphs
+Formalization-family graphs:
 
 6. Rivers scalar Green functions;
 7. Rivers scalar Green functions -- continuum extension;
@@ -79,25 +80,27 @@ Lean remains proof authority. ZIL remains the dependency, source, status, rule, 
 10. Lovelock--Rund invariant geometry;
 11. Veliev periodic Schrödinger perturbation theory.
 
-## M9.97 evidence boundary
+These are PhysLib declaration/status graphs and remain separate from the four OpenWave native M9 `.zc` graphs assigned to `Zil.Native`. The M9.98 graph declares its own native-root role, while its exact blob is pinned externally by the current runtime overlay.
 
-Closed dimensionless subreductions:
+## M9.98 runtime boundary
 
-- field-derived winding-three and exact-third charge;
-- self-consistent periodic Maxwell constraints;
-- current-integral versus weak-field-response magnetic moment;
-- M9.96 Lorentz/energy/stress force triangle;
-- four-spinor kinetic-momentum transfer versus Lorentz force within `2.61%`;
-- finite-time spin evolution versus the exact numerical Dirac generator within `2.57%`.
+The runtime upgrade closes:
 
-Open or rejected reductions:
+- exact current ZIL commit identity;
+- separate PhysLib Datalog and OpenWave native root roles;
+- exact upstream root, compatibility, contract, build, and example blobs;
+- exact OpenWave M9.94--M9.98 graph blobs;
+- historical-pin classification;
+- deterministic runtime fingerprint and fail-closed drift checks.
 
-- charged spinorial stationary residual (`0.519` versus `0.10` gate);
-- center response sign and magnitude;
-- rest-frame T-BMT reduction for the moving extended winding packet;
-- full covariant Thomas/BMT dynamics;
+It does not close:
+
+- any Lean theorem proof obligation;
+- charged spinorial stationarity;
+- center-response convergence;
+- covariant moving-packet spin dynamics;
 - anomalous-moment derivation;
-- common physical calibration and withheld predictions.
+- common physical calibration or withheld predictions.
 
 ## Explicit retained boundaries
 
@@ -118,4 +121,4 @@ Open or rejected reductions:
 - arbitrary-order periodic-Schrödinger error estimates;
 - out-of-sample physical predictions.
 
-The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.97 closes momentum transfer and exact-generator spin integration, but rejects stationary, center-response, and rest-frame T-BMT reductions for the current model. Magnetic moment/spin, electric force, magnetic force, calibration, and physical particle identity remain unpromoted.
+The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.98 upgrades ZIL runtime authority and contract validation without changing M9.97 physics evidence. Magnetic moment/spin, electric force, magnetic force, calibration, and physical particle identity remain unpromoted.
