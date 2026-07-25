@@ -1,0 +1,45 @@
+{
+  "acceptance": {
+    "all_aligned_orbits_remain_in_h1_tube": true,
+    "all_orbits_preserve_energy_numerically": true,
+    "all_orbits_preserve_mass": true,
+    "all_orbits_remain_boundary_clean": true,
+    "born_minimizing_orbit_stability_composition_is_formalized": true,
+    "global_conservative_weak_mild_flow_certificate_is_formalized": true
+  },
+  "config": {
+    "dt": 0.002,
+    "final_time": 1.5,
+    "half_width": 8.0,
+    "maximum_boundary_fraction": 0.0002,
+    "maximum_energy_drift": 1e-05,
+    "maximum_relative_h1_orbit_distance": 0.22,
+    "perturbations": ["phase", "translation", "chirp", "amplitude", "noise"],
+    "points": 20,
+    "sample_every": 25,
+    "stationary_iterations": 3000
+  },
+  "decision": {
+    "finite_grid_long_time_orbit_is_bounded": true,
+    "formal_global_conservative_mild_flow_constructed_from_pde": false,
+    "formal_global_flow_certificate_interface_closed": true,
+    "m9_69_branch_physically_identified": false,
+    "m9_77_corrected_scoped_target_closed": true,
+    "minimizing_orbit_stability_from_explicit_certificates_closed": true
+  },
+  "passed": true,
+  "repositories": {
+    "openwave_base": "009efb37d535174712109c550e8da06b77dd8f9c",
+    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_pr_head": "83542cc13af0a966a072d90f2082c49785d20c55"
+  },
+  "rows": [
+    {"dt": 0.002, "final_radius": 1.2163677229065073, "mass_error": 3.255173908200959e-13, "maximum_boundary_fraction": 9.1518618029053e-07, "maximum_energy_drift": 3.881696808427648e-08, "maximum_relative_h1_orbit_distance": 0.011785624703721317, "perturbation": "phase", "steps": 750},
+    {"dt": 0.002, "final_radius": 1.4558674087539756, "mass_error": 3.375077994860476e-13, "maximum_boundary_fraction": 1.0846433024798303e-06, "maximum_energy_drift": 3.881695298524335e-08, "maximum_relative_h1_orbit_distance": 0.01178562470371904, "perturbation": "translation", "steps": 750},
+    {"dt": 0.002, "final_radius": 1.219813445345903, "mass_error": 3.290701044988964e-13, "maximum_boundary_fraction": 1.8946804298442533e-06, "maximum_energy_drift": 1.440401099506161e-07, "maximum_relative_h1_orbit_distance": 0.02151480380155879, "perturbation": "chirp", "steps": 750},
+    {"dt": 0.002, "final_radius": 1.2095445666801519, "mass_error": 3.275157922644212e-13, "maximum_boundary_fraction": 7.044578750620927e-06, "maximum_energy_drift": 1.3947872112840543e-07, "maximum_relative_h1_orbit_distance": 0.021238277191157715, "perturbation": "amplitude", "steps": 750},
+    {"dt": 0.002, "final_radius": 1.2165495453955317, "mass_error": 3.2818192607919627e-13, "maximum_boundary_fraction": 9.972846865183788e-07, "maximum_energy_drift": 4.0441928361723e-08, "maximum_relative_h1_orbit_distance": 0.013507866893274935, "perturbation": "noise", "steps": 750}
+  ],
+  "schema": "openwave.m9.global-mild-orbit-campaign.v1",
+  "task": "M9.77"
+}
