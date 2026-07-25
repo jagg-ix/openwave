@@ -1,69 +1,55 @@
-# PhysLib/ZIL reuse map through M9.74
+# PhysLib/ZIL reuse map through M9.77
 
 ## Repository identities
 
 | Repository | Ref | Revision | Role |
 | --- | --- | --- | --- |
-| `jagg-ix/openwave` | current `main` after PR #75 | `ec309cdf9976f16155ef3ec07f8290126a652061` | merged M9.69--M9.71 simulation baseline |
-| `jagg-ix/openwave` | frozen campaign baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | immutable ancestry of generated M9.69--M9.74 results |
-| `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | synchronized M9.72--M9.74 evidence |
-| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82` | complete H¹ compactness, local dynamics, orbital mechanism, and current Schrödinger--Newton variational authority |
-| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `86366ca14330f1037e6a76f5b36e52a34f7bf3fe` | rebased predicate compactness bridges, constrained direct method, concentration composition, and density coercivity |
-| `jagg-ix/entropic-physlib-private` | frozen theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | immutable dependency of generated M9.69--M9.71 ledgers |
+| `jagg-ix/openwave` | merged `main` after PR #77 | `009efb37d535174712109c550e8da06b77dd8f9c` | simulation/evidence baseline through M9.74 |
+| `jagg-ix/openwave` | `agent/m9-hminus-one-mild-flow-75-77` | current work branch | corrected M9.75--M9.77 evidence |
+| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82` | complete H¹/Born compactness, interaction no-loss, ground-state orbit, and orbital-stability authority |
+| `jagg-ix/entropic-physlib-private` | active PR #16 branch | `83542cc13af0a966a072d90f2082c49785d20c55` | cubic--quintic compactness plus corrected weak/mild-flow composition |
 | `jagg-ix/zil-lean` | `main` | `7ef24a8557b610f8f0f560cf375c2a1600083591` | semantic routing and evidence conventions |
 
 ## Deep formal source inventory
 
 | Path | Reused result |
 | --- | --- |
-| `EuclideanSobolevFrequencyLocalization.lean` | complete `EuclideanHs 3 1` carrier; bounded weak subsequences with retained norm bounds; weak-plus-norm strong closure; Prokhorov compactness; common field/density subsequences; direct-method engine |
-| `SchrodingerNewtonEnergy.lean` | continuum coercive lower bounds; negative normalized level; cubic mass scaling; strict subadditivity; exact positive cluster-binding gaps; compact-core vanishing and dichotomy exclusion inputs |
-| `SelfBoundSchrodingerNewtonPDE.lean` | local H¹ existence and uniqueness for supplied `C¹` vector fields; eventual uniqueness; compact-energy-sublevel Cazenave--Lions orbital-stability mechanism |
-| `CubicQuinticOrbitalStability.lean` | exact density coercivity; predicate-carrier strong/joint compactness bridges; constrained direct method; explicit concentration-compactness branch elimination |
-| `CubicQuinticOrbitalStabilityAudit.lean` | axiom-clean and non-vacuity registration of the new bridges together with reused local dynamics and stability mechanisms |
-| `IpekCatichaSuperpositionViolation.lean` | cubic uniqueness, local polynomial continuum ODE, exact contractive semiflow, strict decay, and zero global attractor in the fixed-energy dissipative sector |
-| `LpAeConvergence.lean` | finite-measure Vitali convergence and almost-everywhere subsequence extraction from `Lp` convergence |
-| `LpSubsequenceDiagonalization.lean` | one subsequence converging locally in `L²` over every exhaustion level |
-| `Clock/EntropicAgreement.lean` | operational entropic/physical clock calibration interface |
+| `EuclideanSobolevFrequencyLocalization.lean` | complete `H¹(ℝ³)` carrier; Born density/probability; first-moment compactness; energy-split no-loss; normalized minimizer; compact minimizing orbit |
+| `SchrodingerNewtonEnergy.lean` | HLS/Sobolev control, negative normalized level, mass scaling, strict subadditivity, positive binding gaps |
+| `SelfBoundSchrodingerNewtonPDE.lean` | Hartree interaction convergence, local supplied-`C¹` flow mechanism, actual Born-law minimizing orbit, and Cazenave--Lions stability composition |
+| `CubicQuinticOrbitalStability.lean` | density coercivity, predicate-carrier bridges, constrained direct method, concentration branch composition |
+| `CubicQuinticMildFlow.lean` | corrected weak-generator interface, target interaction convergence, no-loss normalization closure, compact minimizing orbit, global conservative mild-flow certificate |
+| `CubicQuinticMildFlowAudit.lean` | axiom-clean/non-vacuity registration for M9.75--M9.77 bridge theorems |
 
 ## Corrected target interpretation
 
-- **M9.72** does not rebuild generic H¹ compactness or local ODE theory. Those are already in the base. It records the complete carrier, weak compactness with bound retention, weak-plus-norm strong closure, tight-measure compactness, local `C¹`-generator ODE theory, and compact-sublevel stability. PR #16 adds only the predicate-carrier and constrained direct-method bridges absent from the base.
-- **M9.73** does not claim a new concentration-compactness theorem from scratch. The live branch already supplies negative level, strict subadditivity, and positive binding gaps. PR #16 composes those facts with an explicit trichotomy: vanishing and dichotomy are eliminated, leaving compactness modulo translations once target tightness/trichotomy data are proved.
-- **M9.74** reuses the immutable M9.71 prediction without refitting, while changing both perturbation and estimator: amplitude deformation replaces phase chirp, and a zero-padded periodogram replaces the least-squares frequency scan.
+- **M9.75:** the Laplacian is not a bounded `H¹ → H¹` map. The natural topology is weak/dual `H¹ → H⁻¹`. The unit-mass sphere is not globally weakly closed, and the attractive energy is not unconditionally weakly lower semicontinuous. Strong no-loss and mass closure follow after localized interaction convergence.
+- **M9.76:** translation drift is the compactness obstruction. Recentring makes the M9.69 finite-grid orbit collapse, while the live Born first-moment and interaction-closure theorem supplies the correct continuum compactness implication from explicit localization data.
+- **M9.77:** the live theorem already converts a global admissible energy-conserving flow and Born compactness data into a nonempty compact uniformly stable minimizing orbit. PR #16 exposes the corrected weak/mild-flow certificate; OpenWave supplies finite-grid long-time evidence only.
 
 ## Current decisions
 
-- complete continuum H¹ carrier directly proved: `true`
-- bounded H¹ weak subsequence with norm-bound retention directly proved: `true`
-- weak-plus-norm strong H¹ closure directly proved: `true`
-- tight probability compactness consequence directly proved: `true`
-- common field/density subsequence from tightness directly proved: `true`
-- local H¹ existence/uniqueness for supplied `C¹` generator directly proved: `true`
-- compact-sublevel orbital-stability mechanism directly proved: `true`
-- constrained direct method directly proved in PR #16: `true`
-- vanishing excluded by negative level: `true`
-- dichotomy excluded by positive binding gap: `true`
-- compact branch follows from an explicit trichotomy: `true`
-- concrete target generator H¹ mapping and `C¹`: `false`
-- translation tightness/trichotomy derived from the target binding functional: `false`
-- normalized-mass weak closure instantiated: `false`
-- target-energy weak lower semicontinuity instantiated: `false`
-- global conservative target flow and invariants constructed: `false`
-- target compact low-energy sublevel proved: `false`
-- M9.74 independent perturbation/estimator passes frozen mode gate: `true`
+- bounded `H¹ → H¹` Laplacian target: `rejected`
+- weak/dual `H¹ → H⁻¹` generator interface: `selected`
+- global weak closure of unit mass sphere: `false`
+- strong no-loss normalized-mass closure from interaction convergence: `proved`
+- unconditional attractive-energy weak lower semicontinuity: `false`
+- target minimizer/compact orbit from Born localization and interaction closure: `proved from explicit premises`
+- stable minimizing orbit from global conservative weak/mild-flow certificate: `proved from explicit premises`
+- finite-grid translation orbit recentered: `true`
+- five-perturbation aligned long-time campaign passes: `true`
+- concrete energy-critical Duhamel/Strichartz flow constructed: `false`
 - external experimental comparison: `false`
 - platform counts: `0 validated / 20 partial / 1 negative`
 
 ## Open boundaries
 
-- prove the concrete Hartree/cubic--quintic generator maps H¹ to H¹ and is `C¹`;
-- prove normalized-mass weak closure and target-energy weak lower semicontinuity;
-- derive recentered tightness and the target concentration trichotomy;
-- construct a global mass/energy-preserving target flow;
-- prove compactness of target low-energy sublevels modulo phase/translation and identify the M9.69 branch;
-- compare the immutable M9.71 mode with external physical evidence.
+- construct the concrete cubic--quintic Duhamel/Strichartz flow in `H¹` with weak generator in `H⁻¹`;
+- prove recentered first-moment bounds and local cubic--quintic interaction convergence for the target minimizing family;
+- prove global mass and energy conservation for the continuum target flow;
+- analytically identify the minimizing orbit with M9.69;
+- compare the immutable radial mode with external physical evidence.
 
 ## Status policy
 
-Use `directly proved`, `proved from explicit premises`, `numerically qualified`, `prediction-ready`, `internally tested`, `externally tested`, and `validated` as distinct states. Lean remains proof authority; OpenWave owns simulation evidence; ZIL records identities and scope; human review controls physical promotion.
+Use `directly proved`, `proved from explicit premises`, `numerically qualified`, `internally tested`, `externally tested`, and `validated` as distinct states. Lean remains proof authority; OpenWave owns simulation evidence; ZIL records identities and scope; human review controls physical promotion.
