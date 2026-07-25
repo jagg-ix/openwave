@@ -1,0 +1,87 @@
+MODULE openwave.m9.charged_source_force.
+
+model:m9_cat_ept#has@campaign:m9_96_charged_source_force.
+
+campaign:m9_96_charged_source_force#uses@result:m9_69_neutral_stationary_branch.
+campaign:m9_96_charged_source_force#uses@formalization:current_cat_ept_tree.
+campaign:m9_96_charged_source_force#uses@formalization:pauli_maxwell_extension.
+campaign:m9_96_charged_source_force#uses@formalization:maxwell_current_extension.
+
+candidate:winding_three_seed#derived_from@state:m9_69_neutral_stationary_branch.
+candidate:winding_three_seed#has@observable:field_measured_winding_three.
+candidate:winding_three_seed#has@observable:exact_third_charge_one.
+candidate:winding_three_seed#has@observable:spin_half_up_embedding.
+candidate:winding_three_seed#has@state:localized_normalized_seed.
+
+campaign:m9_96a#tests@candidate:winding_three_seed.
+campaign:m9_96a#tests@control:multiple_vortex_core_scales.
+campaign:m9_96a#tests@dynamics:unconstrained_cubic_quintic_imaginary_time.
+campaign:m9_96a#result@result:no_passing_charged_stationary_candidate.
+result:no_passing_charged_stationary_candidate#reason@obligation:stationary_residual_and_compact_radius_not_simultaneously_closed.
+result:no_passing_charged_stationary_candidate#preserves@status:negative_model_subresult.
+result:no_passing_charged_stationary_candidate#does_not_imply@result:absence_in_extended_gauge_spinorial_model.
+
+campaign:m9_96b#uses@candidate:winding_three_seed.
+campaign:m9_96b#derives@source:field_charge_density.
+campaign:m9_96b#derives@source:convective_phase_current.
+campaign:m9_96b#derives@source:pauli_magnetization_current.
+campaign:m9_96b#derives@field:periodic_electric_field.
+campaign:m9_96b#derives@field:periodic_magnetic_field.
+campaign:m9_96b#establishes@result:projected_gauss_law_closed.
+campaign:m9_96b#establishes@result:static_ampere_law_closed.
+campaign:m9_96b#establishes@result:magnetic_divergence_closed.
+campaign:m9_96b#establishes@result:current_moment_equals_uniform_field_response.
+
+formalization:pauli_maxwell_extension#provided_by@proof:Physlib.QuantumMechanics.ComplexAction.FirstQuantizedQED.AnomalousMomentLinks.pauliCoupling_gauge_invariant.
+formalization:pauli_maxwell_extension#provided_by@proof:Physlib.QuantumMechanics.ComplexAction.FirstQuantizedQED.AnomalousMomentLinks.magneticInteraction_dirac.
+formalization:pauli_maxwell_extension#provided_by@proof:Physlib.QuantumMechanics.ComplexAction.FirstQuantizedQED.AnomalousMomentLinks.magneticInteraction_gFactor.
+formalization:maxwell_current_extension#provided_by@proof:Physlib.QuantumMechanics.ComplexAction.Electromagnetic.MaxwellContinuityCovariant.fourCurrent_conserved.
+formalization:maxwell_current_extension#provided_by@proof:Physlib.QuantumMechanics.ComplexAction.Electromagnetic.MaxwellContinuityCovariant.heras_existence_theorem.
+formalization:maxwell_current_extension#provided_by@proof:Physlib.QuantumMechanics.ComplexAction.ComplexEinstein.ElectroGravitationalFieldEquations.maxwellStressEnergy_faraday_gauge_invariant.
+
+campaign:m9_96c#uses@source:opposite_field_derived_candidates.
+campaign:m9_96c#measures@force:lorentz_volume_force.
+campaign:m9_96c#measures@force:interaction_energy_derivative.
+campaign:m9_96c#measures@force:cross_maxwell_stress_flux.
+campaign:m9_96c#establishes@result:field_force_triangle_agreement.
+result:field_force_triangle_agreement#includes@component:electric_force_nonzero.
+result:field_force_triangle_agreement#includes@component:magnetic_force_nonzero.
+result:field_force_triangle_agreement#includes@component:action_reaction_closed.
+result:field_force_triangle_agreement#boundary@obligation:full_pde_center_acceleration.
+result:field_force_triangle_agreement#boundary@obligation:stable_charged_stationary_pair.
+result:field_force_triangle_agreement#boundary@obligation:physical_force_calibration.
+
+criterion:magnetic_moment_spin#supported_by@result:current_moment_equals_uniform_field_response.
+criterion:magnetic_moment_spin#blocked_by@result:no_passing_charged_stationary_candidate.
+criterion:magnetic_moment_spin#status@state:partial.
+
+criterion:electric_force#supported_by@result:projected_gauss_law_closed.
+criterion:electric_force#supported_by@result:field_force_triangle_agreement.
+criterion:electric_force#blocked_by@obligation:full_pde_center_acceleration.
+criterion:electric_force#blocked_by@result:no_passing_charged_stationary_candidate.
+criterion:electric_force#status@state:partial.
+
+criterion:magnetic_force#supported_by@result:static_ampere_law_closed.
+criterion:magnetic_force#supported_by@result:field_force_triangle_agreement.
+criterion:magnetic_force#blocked_by@obligation:full_pde_torque_and_precession.
+criterion:magnetic_force#blocked_by@result:no_passing_charged_stationary_candidate.
+criterion:magnetic_force#status@state:partial.
+
+RULE preserve_partial_without_stationary_branch:
+IF ?criterion#supported_by@?result AND ?criterion#blocked_by@result:no_passing_charged_stationary_candidate
+THEN ?criterion#status@state:partial.
+
+QUERY charged_branch_result:
+FIND ?result WHERE campaign:m9_96a#result@?result.
+
+QUERY source_closures:
+FIND ?result WHERE campaign:m9_96b#establishes@?result.
+
+QUERY force_closures:
+FIND ?result WHERE campaign:m9_96c#establishes@?result.
+
+QUERY retained_partial_rows:
+FIND ?criterion WHERE ?criterion#status@state:partial.
+
+QUERY remaining_obligations:
+FIND ?obligation WHERE result:field_force_triangle_agreement#boundary@?obligation.
