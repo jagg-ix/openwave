@@ -1,4 +1,4 @@
-# CAT/EPT status after M9.74
+# CAT/EPT status after M9.77
 
 ## OpenWave platform validation
 
@@ -10,29 +10,24 @@
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The sole criterion-level negative remains the lepton-mass hierarchy. Particle stability is stronger but still partial. M9.69 constructs a localized stationary non-Gaussian solution of the full normalized cubic--quintic equation. The deep PhysLib audit now shows that the branch already has complete-continuum `H¹(ℝ³)` weak compactness with norm-bound retention, weak-plus-norm strong closure, Prokhorov compactness consequences for tight Born measures, a direct-method engine, local existence/uniqueness for every `C¹` H¹ generator, negative-level exclusion of vanishing, positive-binding-gap exclusion of dichotomy, and a Cazenave--Lions orbital-stability mechanism from compact energy sublevels. PR #16 adds predicate-carrier compactness bridges, constrained attainment, and explicit concentration-branch composition.
+The sole criterion-level negative remains the lepton-mass hierarchy. Particle stability is materially stronger but remains partial: M9.69 supplies a localized non-Gaussian stationary branch; M9.75 corrects the analytic topology; M9.76 qualifies the phase/translation quotient and Born localization; M9.77 adds a five-perturbation long-time aligned-orbit campaign.
 
-## Formal interface changes
+## Corrected formal interface
 
-The live PhysLib base is `496b275336f30c0f934fe4ddcfa9fbfd99fa567c`; PR #16 has head `9a15bf5023980f6bc401671de7dc7dca164a52d0`.
+The live PhysLib base is `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`; the active PR #16 branch is `83542cc13af0a966a072d90f2082c49785d20c55`.
 
-- `EuclideanHOneThree` is a complete continuum `H¹(ℝ³)` Bessel-energy carrier, not a finite-mode surrogate.
-- Sobolev-bounded sequences admit weakly convergent subsequences whose limits retain the same closed-ball bound.
-- Weak convergence plus convergence of the exact H¹ norm gives strong H¹ convergence.
-- Tight probability sequences have distributionally convergent subsequences, and H¹ boundedness plus tightness gives one common field/density subsequence.
-- The complete-carrier direct method attains a level from boundedness and weak lower semicontinuity; PR #16 adds sequential weak closure of constraints.
-- Local existence and uniqueness are proved for every `C¹` vector field on the complete H¹ carrier.
-- `normalizedCoreGroundEnergy_neg` excludes vanishing; strict subadditivity and `compactCoreBindingGap_pos` exclude dichotomy.
-- PR #16 proves that an explicit trichotomy therefore leaves compactness modulo translations.
-- `uniform_orbitalStability_of_compact_energySublevel` proves the Cazenave--Lions mechanism once the target compact sublevel and conserved flow are supplied.
-
-This corrects the earlier shallow boundary: generic H¹ compactness, local H¹ ODE theory, Prokhorov compactness consequences, and the orbital-stability mechanism are not missing.
+- `EuclideanHOneThree` is the complete continuum `H¹(ℝ³)` carrier.
+- The live base proves weak compactness, strong closure from weak plus norm convergence, actual Born-law compactness from first moments, Hartree interaction convergence, no-loss from the energy split, ground-state orbit existence, and the Cazenave--Lions stability mechanism.
+- PR #16 adds cubic--quintic predicate bridges and the corrected weak/mild-flow composition.
+- The Laplacian is not treated as a bounded `H¹ → H¹` vector field. The correct unresolved construction is a weak/Duhamel flow in `H¹` with generator in `H⁻¹`.
+- The unit-mass sphere is not globally weakly closed. Mass closes after strong no-loss convergence.
+- The attractive translation-invariant energy is not unconditionally weakly lower semicontinuous. Localization and interaction convergence are required.
 
 ## Latest decisions
 
-- **M9.72:** scoped H¹ closure is complete: weak compactness, strong closure from weak-plus-norm convergence, tight-measure compactness consequences, constrained direct method, local `C¹`-generator well-posedness, and the compact-sublevel orbital mechanism are formal. The concrete target generator's H¹ mapping/`C¹` property and global conserved flow remain open.
-- **M9.73:** vanishing and dichotomy are formally eliminated; joint field/density compactness follows once recentered tightness is supplied. Derivation of target tightness/trichotomy, mass/norm closure, branch identification, and compact low-energy sublevels remains open.
-- **M9.74:** the frozen M9.71 ratio `1.074356835825` survives a different radial-amplitude perturbation and Hann-windowed periodogram. Three-grid relative discrepancies are `2.61%`, `0.21%`, and `1.60%`, all inside the immutable 5% gate. No external experiment was performed.
+- **M9.75:** corrected scoped target closed. The false `H¹ → H¹` and unconditional closure premises are rejected; localized interaction convergence yields strong no-loss and normalized-mass closure.
+- **M9.76:** corrected scoped target closed. Four translations have unaligned L² distances up to `1.4079`, but recentered distance is zero; centered tail mass is `8.3141e-5` and energy is invariant to `7.8e-16`.
+- **M9.77:** corrected scoped target closed. Five perturbations preserve mass below `3.38e-13`, energy within `1.45e-7`, boundary mass below `7.05e-6`, and remain inside relative aligned `H¹` distance `0.02152`.
 
 ## Prediction ledger
 
@@ -42,10 +37,9 @@ This corrects the earlier shallow boundary: generic H¹ compactness, local H¹ O
 | Internally tested | 2 |
 | Internally passed | 1 |
 | Internally falsified | 1 |
-| Passed by an independent perturbation/estimator | 1 |
 | Externally tested | 0 |
 | Physically validated | 0 |
 
 ## Current theory classification
 
-CAT/EPT remains a substantial cross-repository formal-and-computational program and an incomplete physical theory. The deeper audit substantially improves the mathematical status of the variational and orbital program, while narrowing the unresolved work to concrete target-generator regularity, closure/lower-semicontinuity, derivation of tightness, global conserved evolution, and compact-sublevel branch identification. Internal numerical robustness of the replacement mode does not establish an observed particle, experimental calibration, or physical validation.
+CAT/EPT remains an incomplete physical theory with a substantial formal and computational program. M9.75--M9.77 correct the functional setting and close the available compactness/stability composition without claiming the missing energy-critical Duhamel construction, continuum global conservation, analytic identification of M9.69, external calibration, or a physically observed particle.
