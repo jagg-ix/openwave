@@ -1,4 +1,4 @@
-"""README/MODELS-aligned CAT/EPT conformance profile through M9.89."""
+"""README/MODELS-aligned CAT/EPT conformance profile through M9.92."""
 from __future__ import annotations
 from dataclasses import asdict, dataclass
 from hashlib import sha256
@@ -24,7 +24,10 @@ FORMAL_STATUS = ROOT + "research/formal_status_matrix.md"
 C = Criterion
 
 CRITERIA: tuple[Criterion, ...] = (
-    C("charge_quantization", "particles", "Charge quantization", "partial", (ROOT + "topological_charge.py", FINDINGS + "m9_26_method_note.md"), "Integer winding is field-derived and robust, but the sector is seeded and is not identified with elementary electric charge."),
+    C("charge_quantization", "particles", "Charge quantization", "validated", (
+        ROOT + "topological_charge.py", ROOT + "charge_quantization_closure.py",
+        FINDINGS + "m9_26_method_note.md", FINDINGS + "m9_90_method_note.md", FORMAL_STATUS),
+      "Validated in-platform for the literal quantization criterion. The field-derived winding is integer-valued, contour/phase/resolution/perturbation robust, additive, conjugation odd, and quantized in thirds with an exact Fock-space charge grading. The winding unit is not thereby identified with a measured elementary electric charge, and spontaneous sector selection is not derived."),
     C("electron_rest_energy", "particles", "Electron rest energy (mass)", "partial", (ROOT + "scale_selection.py", FINDINGS + "m9_27_method_note.md", ROOT + "physical_calibration_ledger.py", FINDINGS + "m9_62_method_note.md"), "A dimensionless interior scale and localized branch exist. The mass anchor remains calibration-required; no out-of-sample rest-mass prediction is established."),
     C("de_broglie_clock", "particles", "de Broglie clock (Zitterbewegung)", "partial", (ROOT + "intrinsic_clock_reduction.py", ROOT + "replacement_mode_prediction.py", ROOT + "independent_mode_robustness.py", ROOT + "minimizing_orbit_identification.py", FINDINGS + "m9_65_method_note.md", FINDINGS + "m9_68_method_note.md", FINDINGS + "m9_71_method_note.md", FINDINGS + "m9_74_method_note.md", FINDINGS + "m9_80_method_note.md", FORMAL_STATUS), "PhysLib proves a scoped operational entropic/physical proper-time equality. The first Gaussian prediction failed. The frozen stationary-branch ratio passes internal held-out tests, but physical Zitterbewegung identity, independent calibration, and external evidence remain open."),
     C("particle_stability", "particles", "Particle stability (Derrick escape)", "validated", (
@@ -57,15 +60,23 @@ CRITERIA: tuple[Criterion, ...] = (
     C("weak_force", "forces", "Weak force", "partial", (ROOT + "weak_chiral_sector.py", FINDINGS + "m9_41_method_note.md"), "A reduced left-selective transition/decay ledger exists; electroweak gauge dynamics and physical rates remain open."),
     C("gravity", "forces", "Gravity", "partial", (ROOT + "geometry_backreaction.py", ROOT + "equivalence_principle.py", ROOT + "formal_action_generator_bridge.py", ROOT + "physical_calibration_ledger.py", FORMAL_STATUS), "Weak-field and equivalence-principle controls and scoped Einstein-Maxwell-entropic interfaces exist. A calibrated coupled physical evolution remains open."),
     C("em_waves", "waves", "EM waves (Maxwell)", "validated", (ROOT + "wave_reductions.py", ROOT + "maxwell_wave_closure.py", FINDINGS + "m9_82_method_note.md", FORMAL_STATUS), "Validated in-platform for the literal free-wave criterion. Photon quantization, full coupled emergence, and physical-unit calibration remain open."),
-    C("klein_gordon", "waves", "Quantum wave equation (Klein-Gordon)", "partial", (ROOT + "wave_reductions.py", FINDINGS + "m9_43_method_note.md"), "A massive spectral dispersion reduction exists; a native calibrated particle sector remains open."),
-    C("orbital_quantization", "waves", "Orbital quantization (atomic structure)", "partial", (ROOT + "orbital_quantization.py", FINDINGS + "m9_32_method_note.md"), "A converged radial bound-mode ladder exists; native calibrated atomic structure remains open."),
+    C("klein_gordon", "waves", "Quantum wave equation (Klein-Gordon)", "validated", (ROOT + "wave_reductions.py", ROOT + "klein_gordon_closure.py", FINDINGS + "m9_43_method_note.md", FINDINGS + "m9_91_method_note.md", FORMAL_STATUS), "Validated in-platform for the free massive Klein-Gordon criterion. Exact spectral evolution conserves energy, closes the massive dispersion and massless limit, and independently satisfies finite-mode composition, reversal, and quadratic-energy gates. Interacting scalar QFT, physical particle identity, and mass calibration remain open."),
+    C("orbital_quantization", "waves", "Orbital quantization (atomic structure)", "validated", (ROOT + "orbital_quantization.py", ROOT + "orbital_quantization_closure.py", FINDINGS + "m9_32_method_note.md", FINDINGS + "m9_92_method_note.md", FORMAL_STATUS), "Validated in-platform for dimensionless Coulomb orbital quantization. The radial hydrogenic ladder, integer nodes, orthogonality, stationarity, refinement, domain stability, and 2s/2p and 3s/3p/3d degeneracies close, with formal Coulomb/O(4)/Gegenbauer support. Emergent particles, radiative transitions, and physical atomic units remain open."),
     C("thermal_field", "thermal", "Heat / thermal-field sector", "validated", (ROOT + "thermal_field.py", ROOT + "thermal_sector_closure.py", FINDINGS + "m9_83_method_note.md", FORMAL_STATUS), "Validated in-platform for the explicit dimensionless thermal criterion. Microscopic CAT/EPT thermodynamics, material calibration, quantum thermalization, and relativistic heat conduction remain open."),
 )
 
 EXPECTED_VISIBLE_CRITERIA = 21
 DOCUMENTED_SUMMARY_TOTAL = 21
 MISSING_EXPLICIT_CRITERION = None
-PROMOTED_KEYS = {"particle_stability", "spin_half_statistics", "em_waves", "thermal_field"}
+PROMOTED_KEYS = {
+    "charge_quantization",
+    "particle_stability",
+    "spin_half_statistics",
+    "em_waves",
+    "klein_gordon",
+    "orbital_quantization",
+    "thermal_field",
+}
 
 
 def validate_profile(criteria: tuple[Criterion, ...] = CRITERIA) -> dict[str, Any]:
@@ -83,7 +94,7 @@ def validate_profile(criteria: tuple[Criterion, ...] = CRITERIA) -> dict[str, An
 
 
 def canonical_payload() -> dict[str, Any]:
-    return {"schema": "openwave.m9.models-conformance.v11", "model": "M9 CAT/EPT", "criteria": [asdict(item) for item in CRITERIA], "audit": validate_profile()}
+    return {"schema": "openwave.m9.models-conformance.v12", "model": "M9 CAT/EPT", "criteria": [asdict(item) for item in CRITERIA], "audit": validate_profile()}
 
 
 def fingerprint() -> str:
@@ -93,7 +104,6 @@ def fingerprint() -> str:
 def run_conformance_study() -> dict[str, Any]:
     payload = canonical_payload()
     by_key = {item["key"]: item for item in payload["criteria"]}
-    stability = by_key["particle_stability"]
     acceptance = {
         "all_explicit_rows_covered": payload["audit"]["criterion_count"] == 21,
         "domain_partition_closes": payload["audit"]["domain_counts"] == {"particles": 12, "forces": 5, "waves": 3, "thermal": 1},
@@ -101,10 +111,12 @@ def run_conformance_study() -> dict[str, Any]:
         "single_honest_negative_preserved": sum(item["status"] == "negative" for item in payload["criteria"]) == 1,
         "summary_total_closes": payload["audit"]["matrix_total_mismatch"] == 0,
         "deterministic_fingerprint": fingerprint() == fingerprint(),
-        "m9_89_status_counts": payload["audit"]["status_counts"] == {"validated": 4, "partial": 16, "negative": 1, "not_yet": 0},
-        "exactly_the_audited_four_rows_are_validated": {item["key"] for item in payload["criteria"] if item["status"] == "validated"} == PROMOTED_KEYS,
-        "m9_87_89_stability_evidence_present": all(any(name in path for path in stability["evidence"]) for name in ("m9_87_method_note.md", "m9_88_method_note.md", "m9_89_method_note.md")),
-        "stability_promotion_keeps_physical_boundary": "not physical-particle identification" in stability["finding"],
+        "m9_92_status_counts": payload["audit"]["status_counts"] == {"validated": 7, "partial": 13, "negative": 1, "not_yet": 0},
+        "exactly_the_audited_seven_rows_are_validated": {item["key"] for item in payload["criteria"] if item["status"] == "validated"} == PROMOTED_KEYS,
+        "charge_promotion_keeps_identity_boundary": "not thereby identified" in by_key["charge_quantization"]["finding"],
+        "klein_gordon_promotion_keeps_interaction_boundary": "Interacting scalar QFT" in by_key["klein_gordon"]["finding"],
+        "orbital_promotion_keeps_physical_boundary": "Emergent particles" in by_key["orbital_quantization"]["finding"],
+        "stability_promotion_keeps_physical_boundary": "not physical-particle identification" in by_key["particle_stability"]["finding"],
         "spin_promotion_keeps_particle_identity_boundary": "Physical electron identity" in by_key["spin_half_statistics"]["finding"],
         "maxwell_promotion_keeps_photon_boundary": "Photon quantization" in by_key["em_waves"]["finding"],
         "thermal_promotion_keeps_microscopic_boundary": "Microscopic CAT/EPT thermodynamics" in by_key["thermal_field"]["finding"],
