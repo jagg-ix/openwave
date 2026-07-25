@@ -5,32 +5,32 @@
 | Repository | Ref | Revision | Role |
 | --- | --- | --- | --- |
 | `jagg-ix/openwave` | current `main` after PR #75 | `ec309cdf9976f16155ef3ec07f8290126a652061` | merged M9.69--M9.71 simulation baseline |
-| `jagg-ix/openwave` | frozen campaign baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | immutable ancestry of M9.69--M9.74 generated results |
-| `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | post-merge M9.72--M9.74 reconciliation and evidence |
-| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `496b275336f30c0f934fe4ddcfa9fbfd99fa567c` | complete H¹ compactness, local dynamics, orbital mechanism, and Schrödinger--Newton variational authority |
-| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `9a15bf5023980f6bc401671de7dc7dca164a52d0` | predicate compactness bridges, constrained direct method, concentration composition, and density coercivity |
+| `jagg-ix/openwave` | frozen campaign baseline | `2dfaf6da88b24fe43799b53d79ef2f7aa3244a32` | immutable ancestry of generated M9.69--M9.74 results |
+| `jagg-ix/openwave` | `agent/m9-stationary-formal-mode-69-71` | current work branch | synchronized M9.72--M9.74 evidence |
+| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82` | complete H¹ compactness, local dynamics, orbital mechanism, and current Schrödinger--Newton variational authority |
+| `jagg-ix/entropic-physlib-private` | PR #16 / `agent/m9-cubic-quintic-h1-certificate-70-current` | `86366ca14330f1037e6a76f5b36e52a34f7bf3fe` | rebased predicate compactness bridges, constrained direct method, concentration composition, and density coercivity |
 | `jagg-ix/entropic-physlib-private` | frozen theorem snapshot | `51aad63b2541a1377a001df71b85dfe35f26c0af` | immutable dependency of generated M9.69--M9.71 ledgers |
 | `jagg-ix/zil-lean` | `main` | `7ef24a8557b610f8f0f560cf375c2a1600083591` | semantic routing and evidence conventions |
 
-## Current formal source identities
+## Deep formal source inventory
 
-| Path | Identity | Reused result |
-| --- | --- | --- |
-| `EuclideanSobolevFrequencyLocalization.lean` | blob `bd421597ff33177f08de1063dc91fec84a6d1420` | complete H¹ carrier; norm-bound retaining weak subsequence; weak-plus-norm strong closure; Prokhorov compactness; joint field/density subsequence; direct method |
-| `SchrodingerNewtonEnergy.lean` | blob `43ad108a3c0c08730f3892de2d2480697db8e357` | coercive lower bound, negative normalized level, exact cubic mass law, strict subadditivity, positive binding gap |
-| `SelfBoundSchrodingerNewtonPDE.lean` | blob `b9a094a57398efc11825885d8c2f3efa5654824c` | local H¹ existence/uniqueness for supplied `C¹` generators and compact-sublevel Cazenave--Lions orbital stability |
-| updated `CubicQuinticOrbitalStability.lean` | blob `24e14292478aeb7c78b52efdb00d30e4d84a870c` | predicate-carrier strong/joint compactness bridges, constrained direct method, concentration branch composition, density coercivity |
-| `CubicQuinticOrbitalStabilityAudit.lean` | PR #16 | axiom-clean and non-vacuity registrations including live dynamics/stability mechanisms |
-| `IpekCatichaSuperpositionViolation.lean` | live formal base | cubic uniqueness, local polynomial continuum ODE, contractive semiflow, strict decay, zero attractor |
-| `LpAeConvergence.lean` | live formal base | finite-measure Vitali bridge and a.e. subsequence extraction from Lp convergence |
-| `LpSubsequenceDiagonalization.lean` | live formal base | one subsequence converging locally in L² on every exhaustion level |
-| `Clock/EntropicAgreement.lean` | existing source | operational clock calibration interface |
+| Path | Reused result |
+| --- | --- |
+| `EuclideanSobolevFrequencyLocalization.lean` | complete `EuclideanHs 3 1` carrier; bounded weak subsequences with retained norm bounds; weak-plus-norm strong closure; Prokhorov compactness; common field/density subsequences; direct-method engine |
+| `SchrodingerNewtonEnergy.lean` | continuum coercive lower bounds; negative normalized level; cubic mass scaling; strict subadditivity; exact positive cluster-binding gaps; compact-core vanishing and dichotomy exclusion inputs |
+| `SelfBoundSchrodingerNewtonPDE.lean` | local H¹ existence and uniqueness for supplied `C¹` vector fields; eventual uniqueness; compact-energy-sublevel Cazenave--Lions orbital-stability mechanism |
+| `CubicQuinticOrbitalStability.lean` | exact density coercivity; predicate-carrier strong/joint compactness bridges; constrained direct method; explicit concentration-compactness branch elimination |
+| `CubicQuinticOrbitalStabilityAudit.lean` | axiom-clean and non-vacuity registration of the new bridges together with reused local dynamics and stability mechanisms |
+| `IpekCatichaSuperpositionViolation.lean` | cubic uniqueness, local polynomial continuum ODE, exact contractive semiflow, strict decay, and zero global attractor in the fixed-energy dissipative sector |
+| `LpAeConvergence.lean` | finite-measure Vitali convergence and almost-everywhere subsequence extraction from `Lp` convergence |
+| `LpSubsequenceDiagonalization.lean` | one subsequence converging locally in `L²` over every exhaustion level |
+| `Clock/EntropicAgreement.lean` | operational entropic/physical clock calibration interface |
 
-## M9.72--M9.74 use
+## Corrected target interpretation
 
-- **M9.72** reuses the complete carrier, weak compactness with bound retention, weak-plus-norm strong closure, tight-measure compactness consequences, local `C¹`-generator ODE theory, and the compact-sublevel orbital mechanism. PR #16 adds the predicate-carrier and constrained bridges that are actually absent.
-- **M9.73** reuses the negative variational level to exclude vanishing and the positive binding gap to exclude dichotomy. Once recentered tightness is supplied, the live branch already supplies a common field/density subsequence; PR #16 composes the explicit trichotomy.
-- **M9.74** reuses the immutable M9.71 prediction record, but changes both perturbation and estimator. ZIL records that no coefficient, frequency, or tolerance refit occurred.
+- **M9.72** does not rebuild generic H¹ compactness or local ODE theory. Those are already in the base. It records the complete carrier, weak compactness with bound retention, weak-plus-norm strong closure, tight-measure compactness, local `C¹`-generator ODE theory, and compact-sublevel stability. PR #16 adds only the predicate-carrier and constrained direct-method bridges absent from the base.
+- **M9.73** does not claim a new concentration-compactness theorem from scratch. The live branch already supplies negative level, strict subadditivity, and positive binding gaps. PR #16 composes those facts with an explicit trichotomy: vanishing and dichotomy are eliminated, leaving compactness modulo translations once target tightness/trichotomy data are proved.
+- **M9.74** reuses the immutable M9.71 prediction without refitting, while changing both perturbation and estimator: amplitude deformation replaces phase chirp, and a zero-padded periodogram replaces the least-squares frequency scan.
 
 ## Current decisions
 
@@ -44,9 +44,9 @@
 - constrained direct method directly proved in PR #16: `true`
 - vanishing excluded by negative level: `true`
 - dichotomy excluded by positive binding gap: `true`
-- compact branch follows from explicit trichotomy: `true`
-- concrete target generator H¹ mapping/`C¹`: `false`
-- trichotomy/translation tightness derived from target binding: `false`
+- compact branch follows from an explicit trichotomy: `true`
+- concrete target generator H¹ mapping and `C¹`: `false`
+- translation tightness/trichotomy derived from the target binding functional: `false`
 - normalized-mass weak closure instantiated: `false`
 - target-energy weak lower semicontinuity instantiated: `false`
 - global conservative target flow and invariants constructed: `false`
