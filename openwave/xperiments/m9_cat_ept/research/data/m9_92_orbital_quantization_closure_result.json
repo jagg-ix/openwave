@@ -1,0 +1,56 @@
+{
+  "schema": "openwave.m9.orbital-quantization-closure.v1",
+  "task": "M9.92",
+  "repositories": {
+    "openwave_base": "6773431e37a08efce2d9d9b1ec53ca2b953080dc",
+    "physlib_base": "3923d802339c957066fcccd579362f739775797a",
+    "physlib_parent_head": "128bebd375cd895af1431444974a7a591c872a31",
+    "physlib_criterion_head": "e192104955fc516f1ba267f8653f0dcf8d18ab51"
+  },
+  "radial": {
+    "energies": [-0.49968827930203796, -0.12498049922716864, -0.05555170288332541, -0.03124877969635962],
+    "analytic_energies": [-0.5, -0.125, -0.05555555555555555, -0.03125],
+    "relative_errors": [0.0006234413959240737, 0.00015600618265088073, 0.00006934810014261328, 0.000039049716492156605],
+    "node_counts": [0, 1, 2, 3],
+    "maximum_orthogonality_error": 4.440892098500626e-16,
+    "maximum_density_stationarity_error": 2.220446049250313e-16,
+    "resolution_orders": [1.988125822481688, 1.9964109842254472],
+    "maximum_domain_spread": 1.318879848263843e-06
+  },
+  "cross_angular_momentum": {
+    "radius": 100.0,
+    "points": 2400,
+    "energies": {
+      "1s": -0.4997833547058612,
+      "2s": -0.12498645086551563,
+      "2p": -0.12500451855484768,
+      "3s": -0.05555287886086342,
+      "3p": -0.0555576381172377,
+      "3d": -0.05555573401851514
+    },
+    "n2_spread": 0.000018067689332046388,
+    "n3_spread": 0.000004759256374275989,
+    "n2_maximum_error": 0.000013549134484369674,
+    "n3_maximum_error": 0.000002676694692130277
+  },
+  "acceptance": {
+    "radial_hydrogenic_campaign_passes": true,
+    "four_negative_bound_levels_exist": true,
+    "radial_hydrogenic_ladder_is_accurate": true,
+    "integer_node_ladder_and_orthogonality_close": true,
+    "radial_resolution_is_second_order": true,
+    "two_s_two_p_degeneracy_closes": true,
+    "three_s_three_p_three_d_degeneracy_closes": true,
+    "cross_l_levels_match_hydrogenic_energies": true,
+    "formal_coulomb_o4_witnesses_are_named": true,
+    "physical_atomic_identity_is_not_inherited": true
+  },
+  "passed": true,
+  "decision": {
+    "orbital_quantization_validated_in_platform": true,
+    "hydrogenic_radial_ladder_closed": true,
+    "coulomb_cross_l_degeneracy_closed": true,
+    "emergent_electron_and_nucleus_identified": false,
+    "radiative_transitions_and_physical_units_calibrated": false
+  }
+}

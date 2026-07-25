@@ -1,0 +1,15 @@
+MODULE openwave.m9.charge_quantization_closure.
+
+criterion:charge_quantization#supported_by@evidence:m9_26_winding_campaign.
+criterion:charge_quantization#supported_by@evidence:m9_90_exact_charge_arithmetic.
+criterion:charge_quantization#supported_by@proof:Physlib.QuantumMechanics.ComplexAction.EntropicTime.M9ChargeKleinOrbitalCriteria.chargeQuantizationCriterion.
+criterion:charge_quantization#supported_by@proof:Physlib.QuantumMechanics.ComplexAction.Winding.ChargeFockRealization.secondQuant_scalar_creationOp.
+criterion:charge_quantization#status@state:validated_in_platform.
+criterion:charge_quantization#boundary@obligation:elementary_electric_charge_identity.
+criterion:charge_quantization#boundary@obligation:spontaneous_sector_selection.
+
+QUERY support:
+FIND ?item WHERE criterion:charge_quantization#supported_by@?item.
+
+QUERY boundaries:
+FIND ?item WHERE criterion:charge_quantization#boundary@?item.

@@ -1,0 +1,44 @@
+{
+  "schema": "openwave.m9.charge-quantization-closure.v1",
+  "task": "M9.90",
+  "repositories": {
+    "openwave_base": "6773431e37a08efce2d9d9b1ec53ca2b953080dc",
+    "physlib_base": "3923d802339c957066fcccd579362f739775797a",
+    "physlib_parent_head": "128bebd375cd895af1431444974a7a591c872a31",
+    "physlib_criterion_head": "e192104955fc516f1ba267f8653f0dcf8d18ab51"
+  },
+  "winding": {
+    "recovered_sectors": [-2, -1, 0, 1, 2],
+    "maximum_resolution_error": 2.220446049250313e-16,
+    "maximum_contour_error": 4.440892098500626e-16,
+    "global_phase_error": 0.0,
+    "smooth_perturbation_preserved": true,
+    "integer_additivity_error": 0
+  },
+  "charge_table": {
+    "electron": "-1",
+    "neutrino": "0",
+    "up": "2/3",
+    "down": "-1/3"
+  },
+  "acceptance": {
+    "field_winding_campaign_passes": true,
+    "integer_windings_recovered_to_machine_precision": true,
+    "contour_and_phase_invariance_close": true,
+    "smooth_perturbations_preserve_sector": true,
+    "separated_vortex_charge_is_additive": true,
+    "third_charge_table_closes_exactly": true,
+    "charge_additivity_and_conjugation_close_exactly": true,
+    "integer_sector_divisibility_closes_exactly": true,
+    "formal_winding_and_fock_witnesses_are_named": true,
+    "electric_charge_identity_is_not_inherited": true
+  },
+  "passed": true,
+  "decision": {
+    "charge_quantization_validated_in_platform": true,
+    "winding_is_field_derived": true,
+    "fock_space_charge_grading_available": true,
+    "elementary_electric_charge_identity_established": false,
+    "spontaneous_sector_selection_established": false
+  }
+}

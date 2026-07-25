@@ -1,0 +1,15 @@
+MODULE openwave.m9.klein_gordon_closure.
+
+criterion:klein_gordon#supported_by@evidence:m9_43_massive_spectral_wave.
+criterion:klein_gordon#supported_by@evidence:m9_91_multimode_group_audit.
+criterion:klein_gordon#supported_by@proof:Physlib.QuantumMechanics.ComplexAction.EntropicTime.M9ChargeKleinOrbitalCriteria.kleinGordonFiniteModeCriterion.
+criterion:klein_gordon#status@state:validated_in_platform.
+criterion:klein_gordon#boundary@obligation:interacting_scalar_quantum_field.
+criterion:klein_gordon#boundary@obligation:physical_scalar_particle_identity.
+criterion:klein_gordon#boundary@obligation:mass_calibration.
+
+QUERY support:
+FIND ?item WHERE criterion:klein_gordon#supported_by@?item.
+
+QUERY boundaries:
+FIND ?item WHERE criterion:klein_gordon#boundary@?item.

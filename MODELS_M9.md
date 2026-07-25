@@ -1,62 +1,81 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-The executable source is `openwave/xperiments/m9_cat_ept/model_conformance.py`. Platform validation, formal theorem status, and physical validation remain distinct.
+The executable source is `openwave/xperiments/m9_cat_ept/model_conformance.py`. Platform validation, formal theorem status, physical identity, calibration, and experimental validation are separate layers.
 
-## Platform summary after M9.89
+## Platform summary after M9.92
 
 | Status | Count |
 | --- | ---: |
-| ✅ validated in-platform | 4 |
-| ⚠️ partial / bounded | 16 |
+| ✅ validated in-platform | 7 |
+| ⚠️ partial / bounded | 13 |
 | ❌ honest negative | 1 |
 | 🚧 planned / not yet | 0 |
 | **Explicit criteria** | **21** |
 
-The validated rows are:
+Validated rows:
 
+- charge quantization;
 - particle stability / Derrick escape;
 - spin-1/2 statistics;
 - source-free Maxwell waves;
-- the explicit dimensionless thermal field.
+- free massive Klein–Gordon evolution;
+- dimensionless Coulomb orbital quantization;
+- explicit dimensionless thermal field.
 
-## Particle-stability closure
+## M9.90 — charge quantization
 
-The earlier status underestimated the live repository. PhysLib already contains:
+The field-derived winding observable recovers sectors `-2,-1,0,1,2` with maximum resolution error `2.22e-16`, remains contour and global-phase invariant, survives smooth perturbations, and is additive across separated vortices. Exact arithmetic gives
 
-- the genuine free Schrödinger unitary group on `L²(ℝ³)`;
-- the complete `H¹(ℝ³)` Bessel-energy carrier;
-- exact free-group identity, composition, norm preservation, and strong continuity;
-- exact nonlinear continuum semiflows for the fixed multiplication-energy sectors;
-- localized Rellich, Born `L^(6/5)`, Hartree, energy no-loss, minimizer, and compact-orbit results;
-- `GlobalConservativeBornMildFlowCertificate`;
-- compact minimizing-orbit uniform stability;
-- `IdentifiedTargetBranchCertificate` and its minimizing-orbit membership theorem.
+```text
+electron = -1
+neutrino = 0
+up       = 2/3
+down     = -1/3
+```
 
-M9.87--M9.89 add the missing named adapters and executable instantiation:
+PhysLib proves winding additivity, charge conjugation, the integer-sector iff `3 | n` theorem, and the Fock-space scalar charge grading.
 
-| Record | Result |
+**Boundary:** the winding unit is not identified with a measured elementary electric charge, and spontaneous sector selection is not derived.
+
+## M9.91 — Klein–Gordon
+
+The massive periodic spectral field conserves energy to `4.44e-16`, recovers the dispersion relation with relative error `3.54e-9`, and matches the massless wave sector to `2.22e-16`.
+
+An independent audit across four masses and three nonzero modes closes:
+
+| Control | Maximum error |
 | --- | ---: |
-| Free subflow group error | `5.63e-16` |
-| Local subflow group error | `1.46e-16` |
-| Maximum mass error across perturbation campaign | `9.01e-13` |
-| Maximum finest energy drift | `4.72e-8` |
-| Maximum declared perturbation `H¹` distance | `0.222281` |
-| Maximum standing-wave phase-orbit `H¹` error | `0.0016073` |
-| Maximum standing-wave energy drift | `1.77e-9` |
+| Dispersion | `3.55e-15` |
+| Group composition | `8.88e-16` |
+| Reversal | `2.22e-16` |
+| Mode energy | `3.55e-15` |
 
-The conservative campaign covers chirp, radial, quadrupole, and smooth-noise perturbations. No Derrick-type escape is observed, energy drift is second order under time refinement, and M9.69 remains in its computed phase orbit on `20³`, `24³`, and `28³` grids.
+The zero-frequency limit also composes exactly. PhysLib packages the finite spectral massive dispersion and conserved quadratic mode energy.
 
-**Boundary:** this validates the literal criterion inside OpenWave. It does not identify the branch as an electron or another observed particle, calibrate physical units, or provide external experimental validation.
+**Boundary:** no interacting scalar QFT, physical scalar-particle identity, or calibrated mass is claimed.
 
-## Remaining criteria
+## M9.92 — orbital quantization
 
-| Domain | Remaining blocker classes |
-| --- | --- |
-| Particle identity and masses | independent calibration and out-of-sample predictions |
-| Magnetic moment | emergent calibrated g factor |
-| Antimatter/composites/dark matter | full interacting dynamics and phenomenology |
-| Strong and weak sectors | dynamical gauge theories and physical rates |
-| Gravity | calibrated coupled physical evolution |
-| Klein-Gordon and atomic structure | native calibrated particle/atomic sectors |
+The existing radial study recovers four negative hydrogenic levels, node counts `0,1,2,3`, orthogonality to `4.44e-16`, stationary densities, second-order refinement, and stable domains.
 
-The sole criterion-level negative remains the predictive lepton-mass hierarchy. The frozen M9.71 radial-mode record remains internally tested but externally blocked.
+The new cross-angular-momentum campaign obtains:
+
+```text
+2s / 2p spread       = 1.80677e-5
+3s / 3p / 3d spread  = 4.75926e-6
+```
+
+PhysLib supplies the unscreened Yukawa-to-Coulomb endpoint and the integer-labelled `O(4)/S³` Gegenbauer harmonics.
+
+**Boundary:** no emergent electron/nucleus identity, radiative transition theory, or physical atomic-unit calibration is claimed.
+
+## Retained blockers
+
+The remaining thirteen partials require at least one of:
+
+- independent particle identity or calibration;
+- full interacting gauge or constituent dynamics;
+- physical rates, spectra, abundance, or phenomenology;
+- external datasets and no-refit predictions.
+
+The sole criterion-level negative remains the predictive lepton-mass hierarchy. The internally successful M9.71 radial-mode record remains externally blocked.

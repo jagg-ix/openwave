@@ -20,31 +20,44 @@ def test_domain_partition():
     }
 
 
-def test_status_counts_after_m9_89():
+def test_status_counts_after_m9_92():
     assert validate_profile()["status_counts"] == {
-        "validated": 4,
-        "partial": 16,
+        "validated": 7,
+        "partial": 13,
         "negative": 1,
         "not_yet": 0,
     }
 
 
-def test_exactly_audited_four_rows_are_promoted():
+def test_exactly_audited_seven_rows_are_promoted():
     validated = {item.key for item in CRITERIA if item.status == "validated"}
     assert validated == PROMOTED_KEYS == {
+        "charge_quantization",
         "particle_stability",
         "spin_half_statistics",
         "em_waves",
+        "klein_gordon",
+        "orbital_quantization",
         "thermal_field",
     }
 
 
 def test_promoted_rows_keep_stronger_boundaries():
     by_key = {item.key: item for item in CRITERIA}
+    assert "not thereby identified" in by_key["charge_quantization"].finding
     assert "not physical-particle identification" in by_key["particle_stability"].finding
     assert "Physical electron identity" in by_key["spin_half_statistics"].finding
     assert "Photon quantization" in by_key["em_waves"].finding
+    assert "Interacting scalar QFT" in by_key["klein_gordon"].finding
+    assert "Emergent particles" in by_key["orbital_quantization"].finding
     assert "Microscopic CAT/EPT thermodynamics" in by_key["thermal_field"].finding
+
+
+def test_new_closures_have_focused_evidence():
+    by_key = {item.key: item for item in CRITERIA}
+    assert any("m9_90_method_note.md" in path for path in by_key["charge_quantization"].evidence)
+    assert any("m9_91_method_note.md" in path for path in by_key["klein_gordon"].evidence)
+    assert any("m9_92_method_note.md" in path for path in by_key["orbital_quantization"].evidence)
 
 
 def test_stability_includes_live_flow_conservation_and_orbit_evidence():

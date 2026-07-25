@@ -1,0 +1,15 @@
+MODULE openwave.m9.orbital_quantization_closure.
+
+criterion:orbital_quantization#supported_by@evidence:m9_32_radial_hydrogenic_ladder.
+criterion:orbital_quantization#supported_by@evidence:m9_92_cross_angular_momentum_degeneracy.
+criterion:orbital_quantization#supported_by@proof:Physlib.QuantumMechanics.ComplexAction.EntropicTime.M9ChargeKleinOrbitalCriteria.orbitalQuantizationCriterion.
+criterion:orbital_quantization#status@state:validated_in_platform.
+criterion:orbital_quantization#boundary@obligation:emergent_electron_and_nucleus_identity.
+criterion:orbital_quantization#boundary@obligation:radiative_transitions.
+criterion:orbital_quantization#boundary@obligation:physical_atomic_units.
+
+QUERY support:
+FIND ?item WHERE criterion:orbital_quantization#supported_by@?item.
+
+QUERY boundaries:
+FIND ?item WHERE criterion:orbital_quantization#boundary@?item.
