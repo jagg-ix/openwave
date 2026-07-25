@@ -1,22 +1,23 @@
 # CAT/EPT formal interface status
 
-Live PhysLib baseline: `829abc1c3a6c947de8aa1cab61194c3d83aa5c4e`.
-Constructed-adapter branch: `agent/m9-live-flow-identified-branch-87-89` at `8e0ce0c9a73348dd44fe46151b30cbe41b4bfec5`.
+Live PhysLib baseline: `3923d802339c957066fcccd579362f739775797a`.
+Parent flow/branch adapter PR #19: `128bebd375cd895af1431444974a7a591c872a31`.
+M9.90--M9.92 stacked criterion branch: `e192104955fc516f1ba267f8653f0dcf8d18ab51`.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
-| Complete continuum `H¹(ℝ³)` carrier | directly proved | genuine infinite-dimensional Bessel-energy carrier |
-| Free Schrödinger identity/group/norm/strong continuity | directly proved | exact `L²` evolution, now packaged on the complete `H¹` coordinate |
-| Exact nonlinear continuum semiflow for fixed multiplication energy | directly proved | not a claim about every state-dependent spatial Hamiltonian |
-| Local Rellich + recentered tails + `L3` to Born `L^(6/5)` and Hartree | directly proved | target model supplies the estimates |
-| Cubic--quintic coercivity and weak/mild target interface | directly present on live base | no longer an unavailable PR-only surface |
-| Global conservative Born mild-flow certificate | directly present on live base | consumes explicit flow invariants |
-| Compact minimizing orbit and uniform orbital stability | directly proved from the certificate | physical identity is separate |
-| Identified-target-branch structure and membership theorem | directly present on live base | branch constructor added on adapter branch |
-| Free `H¹` unitary-group adapter | added on adapter branch | kernel check pending |
-| Identified stable minimizing-branch constructor | added on adapter branch | consumes an actual conservative certificate |
-| M9.87 exact free/local flow and split-flow composition | OpenWave executable | group/reverse/mass errors at roundoff |
-| M9.88 conservative perturbation campaign | OpenWave executable | mass exact; energy second-order under refinement |
-| M9.89 standing-wave branch orbit | OpenWave executable | physical particle identity and external validation remain false |
+| Complete continuum `H¹(ℝ³)` carrier and free Schrödinger group | directly proved | genuine infinite-dimensional carrier |
+| Global conservative certificate, compact minimizing orbit, and identified branch | directly present / adapted in PR #19 | physical identity remains separate |
+| Winding charge additivity and conjugation | directly proved | charge unit interpretation is separate |
+| Integer winding-charge sector iff `3 | n` | directly proved | spontaneous sector selection is not derived |
+| Fock-space scalar charge grading | directly proved | operator grading does not calibrate electric charge |
+| M9 charge criterion capstone | added on stacked formal branch | combines existing arithmetic/operator theorems |
+| Finite spectral Klein–Gordon dispersion | added on stacked formal branch | free finite mode, not interacting QFT |
+| Finite spectral Klein–Gordon energy conservation | added on stacked formal branch | no physical scalar-mass calibration |
+| Coulomb endpoint and `O(4)/S³` Gegenbauer harmonics | directly proved | formal angular sector, not calibrated atoms |
+| Negative integer-labelled hydrogenic energy carrier | added on stacked formal branch | numerical radial eigenproblem remains OpenWave evidence |
+| M9.90 winding/Fock closure | OpenWave executable | elementary electric-charge identity remains false |
+| M9.91 massive KG closure | OpenWave executable | interacting scalar particle remains false |
+| M9.92 radial and cross-`l` orbital closure | OpenWave executable | particles, transitions, and physical units remain false |
 
-The stale labels “free H1 flow unavailable,” “compact stable orbit unavailable,” and “identified-branch constructor unavailable” are rejected. The platform matrix is `4 validated / 16 partial / 1 negative`; particle stability is the newly validated literal criterion.
+The platform matrix is `7 validated / 13 partial / 1 negative`. The newly validated rows are charge quantization, Klein–Gordon, and orbital quantization. No force, particle-mass, composite, or external-evidence row inherits those promotions.
