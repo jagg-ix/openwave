@@ -1,0 +1,86 @@
+MODULE openwave.m9.gauge_spinor_dynamics.
+
+model:m9_cat_ept#extends@task:m9_96_charged_source_force.
+task:m9_97#contains@task:m9_97a_gauge_spinor_stationary.
+task:m9_97#contains@task:m9_97b_four_spinor_pair_dynamics.
+task:m9_97#contains@task:m9_97c_dynamics_authority.
+
+formalization:m9_97_dynamics_overlay#uses@formalization:m9_96_force_overlay.
+formalization:m9_97_dynamics_overlay#imports@lean:thomas_bmt_magic_cancellation.
+formalization:m9_97_dynamics_overlay#imports@lean:em_particle_dynamics.
+formalization:m9_97_dynamics_overlay#imports@lean:distributional_point_particle_three_d.
+formalization:m9_97_dynamics_overlay#establishes@result:rest_frame_dirac_pauli_precession.
+formalization:m9_97_dynamics_overlay#establishes@result:rest_frame_tbmt_equals_dirac_pauli.
+formalization:m9_97_dynamics_overlay#establishes@result:exact_coulomb_and_point_source_carriers.
+formalization:m9_97_dynamics_overlay#boundary@obligation:full_covariant_tbmt_for_winding_packet.
+formalization:m9_97_dynamics_overlay#boundary@obligation:loop_derivation_of_f2.
+
+state:m9_97_winding_spinor#constructed_from@state:m9_96_winding_three_candidate.
+state:m9_97_winding_spinor#carries@observable:field_measured_winding_three.
+state:m9_97_winding_spinor#carries@observable:spin_half.
+state:m9_97_winding_spinor#sources@field:periodic_charge_current.
+state:m9_97_winding_spinor#sources@field:periodic_electric_magnetic.
+
+equation:m9_97_gauge_spinor_stationary#contains@term:gauge_covariant_kinetic.
+equation:m9_97_gauge_spinor_stationary#contains@term:selected_cubic_quintic_density.
+equation:m9_97_gauge_spinor_stationary#contains@term:self_consistent_scalar_vector_potential.
+equation:m9_97_gauge_spinor_stationary#contains@term:tree_level_pauli_coupling.
+equation:m9_97_gauge_spinor_stationary#tested_by@campaign:imaginary_time_self_consistency.
+campaign:imaginary_time_self_consistency#preserves@observable:winding_three.
+campaign:imaginary_time_self_consistency#preserves@observable:spin_half_within_measured_tolerance.
+campaign:imaginary_time_self_consistency#preserves@observable:localization.
+campaign:imaginary_time_self_consistency#preserves@constraint:projected_maxwell.
+campaign:imaginary_time_self_consistency#fails@obligation:stationary_residual_gate.
+criterion:magnetic_moment_spin#boundary@obligation:stable_charged_spinorial_stationary_branch.
+
+dynamics:m9_97_maxwell_dirac_pair#uses@engine:bounded_four_spinor_maxwell_dirac_rk4.
+dynamics:m9_97_maxwell_dirac_pair#uses@control:matched_four_spinor_self_field_single_source.
+dynamics:m9_97_maxwell_dirac_pair#derives@source:four_spinor_charge_density.
+dynamics:m9_97_maxwell_dirac_pair#derives@source:four_spinor_dirac_current.
+dynamics:m9_97_maxwell_dirac_pair#derives@field:four_spinor_periodic_maxwell.
+dynamics:m9_97_maxwell_dirac_pair#measures@observable:kinetic_momentum_transfer.
+dynamics:m9_97_maxwell_dirac_pair#measures@observable:center_acceleration.
+dynamics:m9_97_maxwell_dirac_pair#measures@observable:finite_time_spin_rate.
+dynamics:m9_97_maxwell_dirac_pair#measures@observable:instantaneous_dirac_generator_spin_rate.
+dynamics:m9_97_maxwell_dirac_pair#compares@observable:lorentz_volume_force.
+dynamics:m9_97_maxwell_dirac_pair#compares@formalization:rest_frame_dirac_pauli_tbmt_rate.
+
+result:m9_97_momentum_transfer#status@state:closed_dimensionless.
+result:m9_97_momentum_transfer#error@value:0.0261161575.
+result:m9_97_momentum_transfer#supports@criterion:electric_force.
+result:m9_97_spin_generator_integration#status@state:closed_dimensionless.
+result:m9_97_spin_generator_integration#error@value:0.0257324740.
+result:m9_97_spin_generator_integration#supports@criterion:magnetic_moment_spin.
+result:m9_97_spin_generator_integration#supports@criterion:magnetic_force.
+result:m9_97_center_acceleration#status@state:failed_wrong_sign.
+result:m9_97_center_acceleration#error@value:1.1473951353.
+result:m9_97_center_acceleration#blocks@criterion:electric_force.
+result:m9_97_rest_frame_bmt_reduction#status@state:failed_for_moving_winding_packet.
+result:m9_97_rest_frame_bmt_reduction#error@value:2.6689649932.
+result:m9_97_rest_frame_bmt_reduction#blocks@criterion:magnetic_moment_spin.
+result:m9_97_rest_frame_bmt_reduction#blocks@criterion:magnetic_force.
+
+criterion:magnetic_moment_spin#status@state:partial.
+criterion:electric_force#status@state:partial.
+criterion:magnetic_force#status@state:partial.
+model:m9_cat_ept#criterion_count@value:21.
+model:m9_cat_ept#validated_count@value:7.
+model:m9_cat_ept#partial_count@value:13.
+model:m9_cat_ept#negative_count@value:1.
+
+RULE no_dynamics_subreduction_promotion:
+IF ?criterion#supported_by@?result AND ?result#status@state:closed_dimensionless AND ?criterion#boundary@?obligation
+THEN ?criterion#status@state:partial.
+
+RULE failed_reduction_blocks_promotion:
+IF ?result#blocks@?criterion AND ?result#status@?failure
+THEN ?criterion#status@state:partial.
+
+QUERY closed_dynamics_subreductions:
+FIND ?result WHERE ?result#status@state:closed_dimensionless.
+
+QUERY failed_dynamics_reductions:
+FIND ?result ?state WHERE ?result#status@?state.
+
+QUERY retained_partial_rows:
+FIND ?criterion WHERE ?criterion#status@state:partial.
