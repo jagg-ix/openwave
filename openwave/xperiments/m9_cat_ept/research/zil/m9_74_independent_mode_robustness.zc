@@ -1,0 +1,6 @@
+claim:m9-74-independent-mode-robustness.
+claim:m9-74-independent-mode-robustness#reuses@claim:m9-71-frozen-stationary-branch-radial-mode.
+claim:m9-74-independent-mode-robustness#perturbation@method:normalized-radial-amplitude-deformation.
+claim:m9-74-independent-mode-robustness#estimator@method:detrended-hann-windowed-periodogram.
+claim:m9-74-independent-mode-robustness#result@status:passes-three-grid-five-percent-gate.
+claim:m9-74-independent-mode-robustness#caveat@status:internal-computational-test-not-experimental-validation.

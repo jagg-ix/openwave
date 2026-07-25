@@ -1,0 +1,79 @@
+{
+  "decision": {
+    "bounded_h1_weak_subsequence_with_norm_bound_proved": true,
+    "compact_sublevel_orbital_stability_mechanism_proved": true,
+    "complete_continuum_h1_carrier_proved": true,
+    "conditional_direct_method_proved": true,
+    "constrained_direct_method_proved": true,
+    "global_target_flow_and_invariants_proved": false,
+    "joint_field_density_subsequence_from_tightness_proved": true,
+    "local_h1_existence_uniqueness_for_c1_generator_proved": true,
+    "m9_72_end_to_end_target_closed": false,
+    "m9_72_scoped_target_closed": true,
+    "target_generator_h1_mapping_and_c1_proved": false,
+    "tight_probability_compactness_consequence_proved": true,
+    "weak_plus_norm_strong_h1_closure_proved": true
+  },
+  "fingerprint": "a236759a7525ea50ff8401a08291a10431759b9e69036ef63992125bfac01375",
+  "formal_base": {
+    "branch": "entropic-physlib-linear-full",
+    "head": "496b275336f30c0f934fe4ddcfa9fbfd99fa567c"
+  },
+  "formal_pr": {
+    "branch": "agent/m9-cubic-quintic-h1-certificate-70-current",
+    "head": "9a15bf5023980f6bc401671de7dc7dca164a52d0",
+    "number": 16
+  },
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "passed": true,
+  "remaining_obligations": [
+    "prove the concrete Hartree/cubic--quintic generator maps H1 to H1 and is C1",
+    "weak closure of the normalized mass constraint on the promoted H1 carrier",
+    "sequential weak lower semicontinuity of the promoted target energy",
+    "construct a global mass/energy-preserving target flow"
+  ],
+  "schema": "openwave.m9.h1-direct-method-closure.v3",
+  "sources": {
+    "cubic_quintic_closure": {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/CubicQuinticOrbitalStability.lean",
+      "sha": "24e14292478aeb7c78b52efdb00d30e4d84a870c"
+    },
+    "euclidean_h1": {
+      "path": "Physlib/QuantumMechanics/Schrodinger/EuclideanSobolevFrequencyLocalization.lean",
+      "sha": "bd421597ff33177f08de1063dc91fec84a6d1420"
+    },
+    "schrodinger_newton_energy": {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/SchrodingerNewtonEnergy.lean",
+      "sha": "43ad108a3c0c08730f3892de2d2480697db8e357"
+    },
+    "self_bound_h1_dynamics": {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/SelfBoundSchrodingerNewtonPDE.lean",
+      "sha": "b9a094a57398efc11825885d8c2f3efa5654824c"
+    }
+  },
+  "task": "M9.72",
+  "theorems": {
+    "complete_carrier_and_compactness": [
+      "EuclideanHOneThree",
+      "hOneEnergyEquiv",
+      "bounded_hOne_has_weaklyConvergent_subsequence_with_norm_bound",
+      "bounded_sobolevNorm_has_hOneWeaklyConvergent_subsequence",
+      "hOne_tendsto_of_weak_of_norm",
+      "tight_probabilitySequence_has_convergent_subsequence",
+      "bounded_hOne_and_tight_probabilitySequence_has_joint_subsequence",
+      "exists_hOne_minimizer_of_bounded_minimizingSequence"
+    ],
+    "live_dynamics_mechanisms": [
+      "exists_local_hOnePDE_solution",
+      "hOnePDE_solution_eventuallyEq",
+      "uniform_orbitalStability_of_compact_energySublevel"
+    ],
+    "new_predicate_bridges": [
+      "HOneSequentiallyWeaklyClosed",
+      "hOneEnergyCoordinate_tendsto_of_weak_of_sobolevNorm",
+      "bounded_sobolevNorm_and_tightProbability_has_joint_subsequence",
+      "exists_constrained_hOne_minimizer_of_bounded_minimizingSequence",
+      "HOneGroundStateCertificate.exists_groundState"
+    ]
+  }
+}

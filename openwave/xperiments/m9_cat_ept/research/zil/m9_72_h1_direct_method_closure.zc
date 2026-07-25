@@ -1,0 +1,6 @@
+claim:m9-72-h1-direct-method-closure.
+claim:m9-72-h1-direct-method-closure#reuses@lean:EuclideanHOneThree.
+claim:m9-72-h1-direct-method-closure#reuses@lean:bounded_sobolevNorm_has_hOneWeaklyConvergent_subsequence.
+claim:m9-72-h1-direct-method-closure#formalized_by@lean:exists_constrained_hOne_minimizer_of_bounded_minimizingSequence.
+claim:m9-72-h1-direct-method-closure#remaining@assumption:normalized-mass-weak-closure.
+claim:m9-72-h1-direct-method-closure#remaining@assumption:target-energy-weak-lower-semicontinuity.
