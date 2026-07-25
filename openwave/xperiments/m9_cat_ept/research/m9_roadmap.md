@@ -22,7 +22,11 @@
 | M9.96b | Derive charge/current, periodic Maxwell self-fields, and independent magnetic response from one winding candidate | DONE; STATIC SOURCE EQUATIONS AND MOMENT RESPONSE CLOSED |
 | M9.96c | Compare Lorentz-volume, interaction-energy, and Maxwell-stress forces for an opposite candidate pair | DONE; FIELD-FORCE TRIANGLE CLOSED WITHIN 2.6 PERCENT |
 | M9.96d | Register current-tree formal overlay, evidence authority, calibration ledger, and unchanged status boundary | DONE; 3 PARTIAL ROWS PRESERVED |
-| M9.97 | Construct a self-consistent gauge/spinorial stationary equation and measure full-PDE acceleration, torque, and precession | NEXT |
-| M9.98 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
+| M9.97a | Construct and test a self-consistent gauge-covariant Pauli stationary equation | DONE; WINDING/SPIN/MAXWELL PRESERVED / RESIDUAL 0.519 / NO STATIONARY BRANCH |
+| M9.97b | Evolve an opposite four-spinor pair and matched self-field control in the Maxwell--Dirac engine | DONE; MOMENTUM/LORENTZ ERROR 2.61 PERCENT / CENTER RESPONSE WRONG SIGN |
+| M9.97c | Compare finite-time spin evolution with the exact Dirac generator and rest-frame T-BMT shadow | DONE; GENERATOR ERROR 2.57 PERCENT / REST-FRAME BMT REDUCTION REJECTED |
+| M9.97d | Register dynamics formal overlay, evidence authority, calibration ledger, conformance profile, and canonical component | DONE; 3 PARTIAL ROWS PRESERVED |
+| M9.98 | Construct an independently varied coupled action with a stable charged spinorial branch, converged center dynamics, and covariant moving-packet spin law | NEXT |
+| M9.99 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
 
-The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.96 replaces detached force-kernel controls with a field-derived source and force-consistency triangle, but the selected scalar action fails the charged stationary-state gate. Magnetic moment, electric force, magnetic force, and physical particle identity therefore remain unpromoted.
+The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.97 closes kinetic-momentum transfer against the four-spinor Lorentz force and finite-time spin evolution against the exact Dirac generator. It also rejects three stronger reductions for the current model: charged spinorial stationarity, center acceleration with the Lorentz sign, and the rest-frame T-BMT shadow for the moving winding packet. Magnetic moment, electric force, magnetic force, and physical particle identity therefore remain unpromoted.
