@@ -1,24 +1,22 @@
 # CAT/EPT formal interface status
 
-This matrix records live PhysLib baseline `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3`, criterion-bridge PR #18 at `19ef639d0ab849f92fb462d5899817ac1a5c4161`, active PR #16 at `83542cc13af0a966a072d90f2082c49785d20c55`, and active PR #17 at `2cb1003ede54dc7d8487a8b397a1cacf15728feb`. Formal theorem status remains separate from OpenWave platform and physical validation.
+Live PhysLib baseline: `829abc1c3a6c947de8aa1cab61194c3d83aa5c4e`.
+Constructed-adapter branch: `agent/m9-live-flow-identified-branch-87-89` at `8e0ce0c9a73348dd44fe46151b30cbe41b4bfec5`.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
-| Fermion exchange, harmonic Maxwell wave, finite spectral heat flow | formal surfaces available or packaged in PR #18 | criterion closure does not imply particle identity, photons, or microscopic thermodynamics |
-| Complete continuum `H¹(ℝ³)` carrier and weak compactness | directly proved | norm/no-loss comes from target interaction closure |
-| Local `L1` Rellich plus recentered tails gives global `L1` convergence | directly proved on live base | model must supply local convergence and uniform tail estimates |
-| `L1` plus uniform `L3` gives strong `L^(6/5)` | directly proved on live base | model must supply the finite `L3` bound |
-| Recentered localized Rellich gives Born `L^(6/5)` and Hartree convergence | directly proved on live base | OpenWave M9.84 qualifies premises only on nested finite grids |
-| Energy-split no-loss, minimizer, compact orbit, stability mechanism | directly proved | consumes target local interaction closure and a conserved flow |
-| Cubic--quintic coercivity and corrected weak/mild composition | proved in PR #16 | concrete Duhamel construction and conservation remain inputs |
-| Lean/ZIL evidence lifecycle and omission reconciliation | proved in PR #17 | proof verification remains distinct from declaration identity |
-| M9.84 nested Rellich/Hartree campaign | OpenWave finite-grid evidence | not a continuum compactness proof |
-| M9.85 local interaction and `H1` no-loss campaign | OpenWave finite-grid evidence | not continuum local-interaction convergence or conservation |
-| M9.86 branch feature certificate | OpenWave finite-grid evidence | not analytic minimizing-orbit identity or particle identity |
-| Continuum energy-critical Duhamel/Strichartz flow | open | must construct the actual `H¹` mild evolution |
-| Model-level recentered Rellich and local interaction convergence | open end-to-end | theorem infrastructure exists; target hypotheses remain to be proved |
-| Global continuum mass and energy conservation | open | finite-grid ledgers do not prove it |
-| Analytic identification of M9.69 with minimizing orbit | open | fingerprint and seed/grid convergence are insufficient |
-| Independent branch calibration and external dataset | open | required before physical mode comparison |
+| Complete continuum `H¹(ℝ³)` carrier | directly proved | genuine infinite-dimensional Bessel-energy carrier |
+| Free Schrödinger identity/group/norm/strong continuity | directly proved | exact `L²` evolution, now packaged on the complete `H¹` coordinate |
+| Exact nonlinear continuum semiflow for fixed multiplication energy | directly proved | not a claim about every state-dependent spatial Hamiltonian |
+| Local Rellich + recentered tails + `L3` to Born `L^(6/5)` and Hartree | directly proved | target model supplies the estimates |
+| Cubic--quintic coercivity and weak/mild target interface | directly present on live base | no longer an unavailable PR-only surface |
+| Global conservative Born mild-flow certificate | directly present on live base | consumes explicit flow invariants |
+| Compact minimizing orbit and uniform orbital stability | directly proved from the certificate | physical identity is separate |
+| Identified-target-branch structure and membership theorem | directly present on live base | branch constructor added on adapter branch |
+| Free `H¹` unitary-group adapter | added on adapter branch | kernel check pending |
+| Identified stable minimizing-branch constructor | added on adapter branch | consumes an actual conservative certificate |
+| M9.87 exact free/local flow and split-flow composition | OpenWave executable | group/reverse/mass errors at roundoff |
+| M9.88 conservative perturbation campaign | OpenWave executable | mass exact; energy second-order under refinement |
+| M9.89 standing-wave branch orbit | OpenWave executable | physical particle identity and external validation remain false |
 
-The platform matrix remains `3 validated / 17 partial / 1 negative`. M9.84--M9.86 strengthen the particle-stability evidence chain without transferring any stronger physical claim.
+The stale labels “free H1 flow unavailable,” “compact stable orbit unavailable,” and “identified-branch constructor unavailable” are rejected. The platform matrix is `4 validated / 16 partial / 1 negative`; particle stability is the newly validated literal criterion.

@@ -1,0 +1,10 @@
+MODULE openwave.m9.live_flow_construction.
+
+target:m9_87#uses@claim:free_h_one_schrodinger_group.
+target:m9_87#uses@claim:exact_nonlinear_continuum_semiflow.
+target:m9_87#produces@evidence:openwave_constructed_target_flow.
+evidence:openwave_constructed_target_flow#status@status:qualified.
+claim:flow_infrastructure_unavailable#status@status:rejected.
+
+QUERY closed_flow_components:
+FIND ?claim WHERE target:m9_87#uses@?claim.

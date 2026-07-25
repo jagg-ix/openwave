@@ -1,0 +1,11 @@
+MODULE openwave.m9.identified_standing_wave_orbit.
+
+target:m9_89#uses@evidence:m9_86_branch_identity_certificate.
+target:m9_89#uses@proof:Physlib.QuantumMechanics.ComplexAction.EntropicTime.CubicQuinticConstructedCertificates.exists_identifiedStableMinimizingBranch.
+target:m9_89#produces@evidence:openwave_standing_wave_branch_orbit.
+evidence:openwave_standing_wave_branch_orbit#status@status:validated_in_platform.
+evidence:openwave_standing_wave_branch_orbit#boundary@obligation:physical_particle_identity.
+evidence:openwave_standing_wave_branch_orbit#boundary@obligation:external_experimental_validation.
+
+QUERY identified_orbit_boundaries:
+FIND ?obligation WHERE evidence:openwave_standing_wave_branch_orbit#boundary@?obligation.
