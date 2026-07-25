@@ -1,0 +1,24 @@
+MODULE openwave.m9.duhamel_fixed_point.
+
+source:openwave_main_c3cdd572#kind@entity:repository_revision.
+source:physlib_mild_flow_pr16_83542cc1#kind@entity:formal_interface.
+source:physlib_evidence_pr17_2cb1003e#kind@entity:evidence_registry.
+
+claim:finite_galerkin_duhamel_fixed_point#kind@entity:computational_result.
+claim:finite_galerkin_duhamel_fixed_point#supported_by@artifact:m9_78_duhamel_fixed_point_campaign_result.
+claim:finite_galerkin_duhamel_fixed_point#uses@source:physlib_mild_flow_pr16_83542cc1.
+claim:finite_galerkin_duhamel_fixed_point#status@status:qualified.
+
+claim:duhamel_strang_refinement_agreement#kind@entity:computational_result.
+claim:duhamel_strang_refinement_agreement#requires@claim:finite_galerkin_duhamel_fixed_point.
+claim:duhamel_strang_refinement_agreement#status@status:qualified.
+
+obligation:continuum_energy_critical_strichartz_flow#kind@entity:obligation.
+obligation:continuum_energy_critical_strichartz_flow#state@state:open.
+obligation:continuum_energy_critical_strichartz_flow#tracked_by@source:physlib_evidence_pr17_2cb1003e.
+
+QUERY qualified_results:
+FIND ?claim WHERE ?claim#status@status:qualified.
+
+QUERY remaining_obligations:
+FIND ?obligation WHERE ?obligation#state@state:open.
