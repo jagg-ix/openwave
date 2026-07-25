@@ -1,0 +1,56 @@
+{
+  "acceptance": {
+    "empirical_calibration_is_not_silently_inferred": true,
+    "existing_wave_reduction_campaign_passes": true,
+    "formal_maxwell_and_plane_wave_witnesses_are_named": true,
+    "massless_wave_bridge_closes": true,
+    "photon_quantization_is_not_silently_inferred": true,
+    "right_moving_wave_propagates_at_declared_speed": true,
+    "source_free_maxwell_energy_is_conserved": true,
+    "transverse_constraint_closes": true
+  },
+  "decision": {
+    "electromagnetism_derived_from_full_cat_ept": false,
+    "em_wave_sector_validated_in_platform": true,
+    "photon_quantization_established": false,
+    "physical_units_calibrated": false,
+    "source_free_maxwell_plane_wave_established": true
+  },
+  "formal_witnesses": [
+    "Electromagnetism.ElectromagneticPotential.harmonicWaveX_isExtrema",
+    "Electromagnetism.ElectromagneticPotential.harmonicWaveX_isPlaneWave",
+    "Electromagnetism.ElectromagneticPotential.harmonicWaveX_maxwell_planeWave"
+  ],
+  "massless_bridge": {
+    "final_field_error": 1.6653345369377348e-16,
+    "maximum_field_error": 2.220446049250313e-16
+  },
+  "maxwell_controls": {
+    "maximum_energy_drift": 2.220446049250313e-16,
+    "translation": {
+      "expected_distance": 5.0,
+      "maximum_translation_error": 0.0
+    },
+    "transverse_constraint_residual": 0.0
+  },
+  "passed": true,
+  "repositories": {
+    "openwave_base": "52bbc8ebfc748386145f55b53d1e662874d8844e",
+    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_branch": "agent/m9-criterion-reduction-spin-maxwell-thermal",
+    "physlib_head": "34e4ae551304dae31548efeec7969040b3059d58",
+    "physlib_repository": "jagg-ix/entropic-physlib-private"
+  },
+  "resolution": {
+    "bridge_errors": [
+      2.220446049250313e-16,
+      2.7755575615628914e-16,
+      2.220446049250313e-16,
+      3.3306690738754696e-16
+    ],
+    "maximum_error": 3.3306690738754696e-16,
+    "points": [64, 128, 256, 512]
+  },
+  "schema": "openwave.m9.maxwell-wave-closure.v1",
+  "task": "M9.82"
+}
