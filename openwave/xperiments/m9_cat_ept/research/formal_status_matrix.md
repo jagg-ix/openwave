@@ -4,30 +4,21 @@ This matrix records live PhysLib baseline `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
-| Fermion-fermion exchange phase `-1` | directly proved on live base | field-statistics assignment is a declared sector |
-| Two-state antisymmetry and identical-state exclusion | packaged in PR #18 | does not dynamically assign a specific CAT/EPT excitation as fermionic |
-| Smooth harmonic source-free Maxwell solution | directly proved on live base | free field, not coupled emergence or photon quantization |
-| Harmonic Maxwell solution is a plane wave | directly proved on live base and packaged in PR #18 | no empirical unit calibration |
-| Finite spectral heat multiplier and semigroup | packaged in PR #18 | finite spectral carrier, not microscopic thermodynamics |
-| Spectral zero-mode heat conservation and zero-diffusivity limit | packaged in PR #18 | no material-specific transport calibration |
+| Fermion exchange, harmonic Maxwell wave, finite spectral heat flow | formal surfaces available or packaged in PR #18 | criterion closure does not imply particle identity, photons, or microscopic thermodynamics |
 | Complete continuum `H¹(ℝ³)` carrier and weak compactness | directly proved | norm/no-loss comes from target interaction closure |
-| Actual Born probability and first-moment compactness | directly proved | recentered first-moment bound remains target-specific |
-| Hartree convergence from `L^(6/5)` Born convergence | directly proved | local cubic--quintic interaction convergence remains separate |
-| Energy-split no-loss, minimizer, compact orbit, stability mechanism | directly proved | consumes localization, interaction closure, and conserved flow |
+| Local `L1` Rellich plus recentered tails gives global `L1` convergence | directly proved on live base | model must supply local convergence and uniform tail estimates |
+| `L1` plus uniform `L3` gives strong `L^(6/5)` | directly proved on live base | model must supply the finite `L3` bound |
+| Recentered localized Rellich gives Born `L^(6/5)` and Hartree convergence | directly proved on live base | OpenWave M9.84 qualifies premises only on nested finite grids |
+| Energy-split no-loss, minimizer, compact orbit, stability mechanism | directly proved | consumes target local interaction closure and a conserved flow |
 | Cubic--quintic coercivity and corrected weak/mild composition | proved in PR #16 | concrete Duhamel construction and conservation remain inputs |
 | Lean/ZIL evidence lifecycle and omission reconciliation | proved in PR #17 | proof verification remains distinct from declaration identity |
-| Bounded `H¹ → H¹` Laplacian generator | rejected | Fourier ratio grows as `k²`; natural weak bound is `H¹ → H⁻¹` |
-| M9.78--M9.80 finite Duhamel, recentering and orbit identification | OpenWave numerical results | not continuum well-posedness, conservation, or Lean identity |
+| M9.84 nested Rellich/Hartree campaign | OpenWave finite-grid evidence | not a continuum compactness proof |
+| M9.85 local interaction and `H1` no-loss campaign | OpenWave finite-grid evidence | not continuum local-interaction convergence or conservation |
+| M9.86 branch feature certificate | OpenWave finite-grid evidence | not analytic minimizing-orbit identity or particle identity |
 | Continuum energy-critical Duhamel/Strichartz flow | open | must construct the actual `H¹` mild evolution |
-| Analytic recentered localization and local interaction convergence | open | needed for continuum minimizing-orbit compactness |
+| Model-level recentered Rellich and local interaction convergence | open end-to-end | theorem infrastructure exists; target hypotheses remain to be proved |
 | Global continuum mass and energy conservation | open | finite-grid ledgers do not prove it |
-| Analytic identification of M9.69 with minimizing orbit | open | finite stationary residual and relaxation are insufficient |
+| Analytic identification of M9.69 with minimizing orbit | open | fingerprint and seed/grid convergence are insufficient |
 | Independent branch calibration and external dataset | open | required before physical mode comparison |
 
-## Criterion implications
-
-- `spin_half_statistics`: formal exchange/exclusion plus OpenWave double-cover and two-state controls support platform validation.
-- `em_waves`: formal harmonic Maxwell plane wave plus exact executable wave controls support platform validation.
-- `thermal_field`: formal finite spectral heat identities plus executable entropy/dissipation controls support platform validation.
-
-These implications do not transfer to physical particle identity, photon quantization, or microscopic thermodynamic derivation.
+The platform matrix remains `3 validated / 17 partial / 1 negative`. M9.84--M9.86 strengthen the particle-stability evidence chain without transferring any stronger physical claim.
