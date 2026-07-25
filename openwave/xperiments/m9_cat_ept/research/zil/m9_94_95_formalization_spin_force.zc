@@ -1,0 +1,82 @@
+MODULE openwave.m9.formalization_spin_force.
+
+model:m9_cat_ept#imports@formalization:cat_ept_inventory.
+formalization:cat_ept_inventory#repository@repository:jagg_ix_entropic_physlib_private.
+formalization:cat_ept_inventory#branch@branch:entropic_physlib_linear_full.
+formalization:cat_ept_inventory#tree@sha:239a663a3192a3144fb998e7bb200e09689a3bb9.
+formalization:cat_ept_inventory#module_index@sha:182a06e0f50314ec54436da602b4ac86eba4ee08.
+formalization:cat_ept_inventory#contains@graph:electrogravitic_action_closure.
+formalization:cat_ept_inventory#contains@graph:lindblad_driven_leads.
+formalization:cat_ept_inventory#contains@graph:liouville_second_quantization.
+formalization:cat_ept_inventory#contains@graph:cauchy_weak_limit.
+formalization:cat_ept_inventory#contains@graph:lindblad_trace_preservation.
+formalization:cat_ept_inventory#contains@graph:rivers_scalar_green_functions.
+formalization:cat_ept_inventory#contains@graph:rivers_scalar_green_functions_continuum.
+formalization:cat_ept_inventory#contains@graph:lovelock_rund_continuum_variational.
+formalization:cat_ept_inventory#contains@graph:lovelock_rund_pointwise_operators.
+formalization:cat_ept_inventory#contains@graph:lovelock_rund_invariant_geometry.
+formalization:cat_ept_inventory#contains@graph:veliev_periodic_schrodinger.
+formalization:cat_ept_inventory#entity_count@value:422.
+formalization:cat_ept_inventory#open_boundary_count@value:12.
+formalization:cat_ept_inventory#lean_source_count@value:24.
+formalization:cat_ept_inventory#proof_authority@authority:lean_kernel.
+formalization:cat_ept_inventory#orchestration_authority@authority:zil_graph.
+formalization:cat_ept_inventory#preserves@state:pending_ci.
+formalization:cat_ept_inventory#preserves@state:pending_kernel_check.
+formalization:cat_ept_inventory#preserves@state:conditional.
+formalization:cat_ept_inventory#preserves@state:open_constructive_qft_boundary.
+formalization:cat_ept_inventory#preserves@state:external_analytic_proof.
+
+criterion:gravity#supported_by@formalization:eddington_affine_first_integral.
+formalization:eddington_affine_first_integral#establishes@result:einstein_lambda_first_integral.
+formalization:eddington_affine_first_integral#establishes@result:torsion_vacuum_contorsion_zero.
+formalization:eddington_affine_first_integral#establishes@result:lovelock_field_equation_bridge.
+formalization:eddington_affine_first_integral#boundary@obligation:derive_connection_equation_from_action.
+formalization:eddington_affine_first_integral#boundary@obligation:global_nonlinear_cauchy_development.
+formalization:eddington_affine_first_integral#boundary@obligation:physical_gravity_calibration.
+criterion:gravity#status@state:partial.
+
+criterion:magnetic_moment_spin#supported_by@bridge:m9_94_canonical_spin_magnetic.
+bridge:m9_94_canonical_spin_magnetic#uses@formalization:pauli_spin_orbit.
+bridge:m9_94_canonical_spin_magnetic#uses@formalization:anomalous_magnetic_moment.
+bridge:m9_94_canonical_spin_magnetic#uses@state:canonical_cat_ept_particle.
+bridge:m9_94_canonical_spin_magnetic#establishes@result:tree_level_g_two.
+bridge:m9_94_canonical_spin_magnetic#boundary@obligation:schwinger_anomaly_from_particle_dynamics.
+bridge:m9_94_canonical_spin_magnetic#boundary@obligation:physical_electron_identity.
+criterion:magnetic_moment_spin#status@state:partial.
+
+criterion:electric_force#supported_by@bridge:m9_95_canonical_force_formal.
+bridge:m9_95_canonical_force_formal#uses@formalization:yukawa_screened_potential.
+bridge:m9_95_canonical_force_formal#uses@formalization:coulomb_endpoint.
+bridge:m9_95_canonical_force_formal#uses@state:opposite_declared_winding_pair.
+bridge:m9_95_canonical_force_formal#uses@ledger:shared_dimensionless_interaction.
+bridge:m9_95_canonical_force_formal#boundary@obligation:charged_stationary_branch.
+bridge:m9_95_canonical_force_formal#boundary@obligation:physical_force_calibration.
+criterion:electric_force#status@state:partial.
+
+criterion:magnetic_force#supported_by@bridge:m9_95_canonical_force_formal.
+bridge:m9_95_canonical_force_formal#uses@bridge:m9_94_canonical_spin_magnetic.
+bridge:m9_95_canonical_force_formal#uses@formalization:em_lorentz_superoperator.
+bridge:m9_95_canonical_force_formal#boundary@obligation:dipole_force_from_full_cat_ept_pde.
+bridge:m9_95_canonical_force_formal#boundary@obligation:physical_magnetic_calibration.
+criterion:magnetic_force#status@state:partial.
+
+RULE no_formal_availability_promotion:
+IF ?criterion#supported_by@?bridge AND ?bridge#boundary@?obligation
+THEN ?criterion#status@state:partial.
+
+RULE no_formal_source_promotion:
+IF ?criterion#supported_by@?formalization AND ?formalization#boundary@?obligation
+THEN ?criterion#status@state:partial.
+
+QUERY imported_graphs:
+FIND ?graph WHERE formalization:cat_ept_inventory#contains@?graph.
+
+QUERY gravity_boundaries:
+FIND ?obligation WHERE formalization:eddington_affine_first_integral#boundary@?obligation.
+
+QUERY spin_boundaries:
+FIND ?obligation WHERE bridge:m9_94_canonical_spin_magnetic#boundary@?obligation.
+
+QUERY force_boundaries:
+FIND ?obligation WHERE bridge:m9_95_canonical_force_formal#boundary@?obligation.

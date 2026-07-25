@@ -2,7 +2,7 @@
 
 The executable source is `openwave/xperiments/m9_cat_ept/model_conformance.py`. Platform validation, formal theorem status, physical identity, calibration, and experimental validation are separate layers.
 
-## Platform summary after M9.93c
+## Platform summary after M9.95
 
 | Status | Count |
 | --- | ---: |
@@ -18,76 +18,70 @@ Validated rows:
 - particle stability / Derrick escape;
 - spin-1/2 statistics;
 - source-free Maxwell waves;
-- free massive Klein–Gordon evolution;
+- free massive Klein-Gordon evolution;
 - dimensionless Coulomb orbital quantization;
 - explicit dimensionless thermal field.
 
-## M9.90 — charge quantization
+## M9.90--M9.93 retained validated infrastructure
 
-The field-derived winding observable recovers sectors `-2,-1,0,1,2` with maximum resolution error `2.22e-16`, remains contour and global-phase invariant, survives smooth perturbations, and is additive across separated vortices. Exact arithmetic gives
+M9.90 closes field-derived winding and exact third-charge arithmetic while preserving elementary-charge and sector-selection boundaries. M9.91 closes free massive Klein-Gordon dispersion, group, reversal, energy, and massless-limit controls. M9.92 closes dimensionless Coulomb radial and cross-angular-momentum orbital quantization. M9.93 adds the selected PhysLib contract, reusable particle-state API, canonical registration, and periodic-covariant translations and observables.
+
+The repository-default particle has no physical name or calibration record. The neutral stationary branch is available. Nonzero winding may be declared, but it is not embedded into a stationary branch until a charged solution is actually constructed.
+
+## M9.94a — branch-wide formalization import
+
+The import is pinned to:
 
 ```text
-electron = -1
-neutrino = 0
-up       = 2/3
-down     = -1/3
+repository   jagg-ix/entropic-physlib-private
+branch       entropic-physlib-linear-full
+base commit  e10af9a3b47bf90afc0a88167a5d495b6935f4dc
+current tree 239a663a3192a3144fb998e7bb200e09689a3bb9
+Physlib.lean 182a06e0f50314ec54436da602b4ac86eba4ee08
 ```
 
-PhysLib proves winding additivity, charge conjugation, the integer-sector iff `3 | n` theorem, and the Fock-space scalar charge grading.
-
-**Boundary:** the winding unit is not identified with a measured elementary electric charge, and spontaneous sector selection is not derived.
-
-## M9.91 — Klein–Gordon
-
-The massive periodic spectral field conserves energy to `4.44e-16`, recovers the dispersion relation with relative error `3.54e-9`, and matches the massless wave sector to `2.22e-16`.
-
-An independent audit across four masses and three nonzero modes closes:
-
-| Control | Maximum error |
+| Imported surface | Count |
 | --- | ---: |
-| Dispersion | `3.55e-15` |
-| Group composition | `8.88e-16` |
-| Reversal | `2.22e-16` |
-| Mode energy | `3.55e-15` |
+| ZIL graphs | 11 |
+| ZIL entity identifiers | 422 |
+| Explicit open/external boundaries | 12 |
+| Blob-pinned Lean aggregate/source files | 24 |
 
-The zero-frequency limit also composes exactly. PhysLib packages the finite spectral massive dispersion and conserved quadratic mode energy.
+Operational/status graphs cover electrogravitic action closure, Lindblad-driven leads, Liouville second quantization, the Cauchy weak limit, and Lindblad trace preservation. Corpus graphs cover Rivers scalar Green functions and their continuum extension, Lovelock–Rund continuum variation, pointwise operators and invariant geometry, and Veliev periodic Schrödinger perturbation theory.
 
-**Boundary:** no interacting scalar QFT, physical scalar-particle identity, or calibrated mass is claimed.
+Lean remains proof authority. ZIL preserves components, sources, assumptions, claims, proof tokens, dependencies, pending/conditional/open states, rules, queries, constructive-QFT boundaries, and external analytic requirements.
 
-## M9.92 — orbital quantization
+The latest tree adds `EddingtonAffineFirstIntegral.lean`, including affine connection residual identities, Ricci/scalar first integrals, Einstein-Λ recovery, nonsingular-Λ consequences, torsion-vacuum contorsion elimination, and a Lovelock first-integral field-equation bridge.
 
-The existing radial study recovers four negative hydrogenic levels, node counts `0,1,2,3`, orthogonality to `4.44e-16`, stationary densities, second-order refinement, and stable domains.
+**Boundary:** the Eddington result assumes the affine connection field equation and is algebraic on a finite index type. It does not supply the complete variational origin, maximal global Cauchy development, or calibrated CAT/EPT gravity.
 
-The new cross-angular-momentum campaign obtains:
+## M9.94 — canonical spin and magnetic moment
 
-```text
-2s / 2p spread       = 1.80677e-5
-3s / 3p / 3d spread  = 4.75926e-6
-```
+The canonical three-dimensional particle envelope is embedded into a Pauli spinor. Spectral Pauli-current observables close normalization, `J_z = 1/2`, zero orbital control, periodic covariance, opposite-spin reversal, and the tree-level `g = 2` ratio. PhysLib supplies the Pauli tensor, spin-orbit/Foldy-Wouthuysen structure, and the structural Schwinger identity.
 
-PhysLib supplies the unscreened Yukawa-to-Coulomb endpoint and the integer-labelled `O(4)/S³` Gegenbauer harmonics.
+**Boundary:** the Schwinger anomaly is imported as formal structure, not derived from the CAT/EPT particle. A calibrated electron magnetic moment and physical electron identity remain open. The criterion remains partial.
 
-**Boundary:** no emergent electron/nucleus identity, radiative transition theory, or physical atomic-unit calibration is claimed.
+## M9.95 — canonical electric and magnetic pair bridge
 
-## M9.93 — model infrastructure closure
+One periodic pair carries declared winding sectors `+3` and `-3`, giving exact dimensionless charges `+1` and `-1`. The same envelopes carry Pauli-current magnetic moments, and one shared dimensionless interaction ledger drives both force kernels.
 
-M9.93 adds three infrastructure surfaces without promoting a criterion:
+The bridge closes electric and magnetic energy derivatives, signs, action-reaction, superposition, legacy inverse-square and dipole `r^-4` asymptotes, Yukawa screening, the exact zero-screening Coulomb endpoint, and the Lorentz-EM decomposition/covariance boundary.
 
-- `physlib_contract.py` and `formal/physlib_contract.v2.json` pin `entropic-physlib-linear-full` at an exact commit and source-blob set, associate declarations with numerical adapters, preserve assumptions and claim boundaries, and fail closed under simulated commit/blob drift;
-- `particle_model.py` exposes the current action specification, particle specification, three-dimensional state, exact free/local subflows, Strang evolution, perturbations, translations, observables, fingerprints, and physical-identity gate;
-- `model_registration.py` registers the launcher, profile, formal contract, particle API, briefing, and current `7/13/1` conformance state as one canonical M9 component.
+**Boundary:** winding is declared rather than embedded in stationary branches; the regularized dipole law is not derived from the full CAT/EPT PDE; charge, magnetic-moment, and force units remain uncalibrated. Both force criteria remain partial.
 
-The repository-default particle has no physical name or calibration record. The neutral stationary branch can be constructed through the existing M9.69 solver. A nonzero winding can be declared, but it is not marked as embedded into the same stationary state until a charged branch is actually constructed.
+## Explicit retained boundaries
 
-**Boundary:** M9.93 establishes reusable and testable infrastructure. It does not establish a charged stationary particle, physical unit calibration, an electron identity, or an out-of-sample physical prediction.
+- concrete Maxwell Cauchy construction;
+- concrete ADM constraint propagation;
+- maximal globally hyperbolic coupled development;
+- concrete global nonlinear coupled-action certificate;
+- continuum hybridization and LDDL-current convergence;
+- genuinely infinite-particle representation;
+- continuum Lindblad generator and Fokker-Planck bridge;
+- continuum coincident field-product regularization;
+- interacting continuum scalar measure;
+- arbitrary-order periodic-Schrödinger error estimates;
+- charged stationary CAT/EPT branches;
+- physical calibration and out-of-sample predictions.
 
-## Retained blockers
-
-The remaining thirteen partials require at least one of:
-
-- independent particle identity or calibration;
-- full interacting gauge or constituent dynamics;
-- physical rates, spectra, abundance, or phenomenology;
-- external datasets and no-refit predictions.
-
-The sole criterion-level negative remains the predictive lepton-mass hierarchy. The internally successful M9.71 radial-mode record remains externally blocked.
+The sole criterion-level negative remains the predictive lepton-mass hierarchy. The next critical target is M9.96: construct a charged stationary branch with simultaneous winding, localization, and dynamical-stability closure.

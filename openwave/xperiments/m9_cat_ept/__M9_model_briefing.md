@@ -1,14 +1,17 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 covers all 21 OpenWave comparison criteria and combines a stationary non-Gaussian branch, theorem-guided finite-grid dynamics, explicit claim boundaries, and a reusable uncalibrated particle-model API.
+M9 covers all 21 OpenWave comparison criteria and combines a stationary non-Gaussian branch, theorem-guided finite-grid dynamics, explicit claim boundaries, a reusable uncalibrated particle-model API, and a branch-wide imported inventory of the CAT/EPT Lean/ZIL formalization corpus.
 
-## Platform status after M9.93c
+## Platform status after M9.95
 
 - Seven criteria are validated in-platform.
 - Thirteen criteria remain partial or bounded.
 - The predictive lepton-mass hierarchy remains the sole criterion-level negative.
-- The reusable particle kernel wraps the existing coefficient selection, stationary branch, exact subflows, perturbations, observables, serialization fingerprints, and fail-closed physical-identity gate.
-- The PhysLib contract pins the live `entropic-physlib-linear-full` branch, exact source blobs, theorem declarations, numerical adapters, assumptions, and per-interface claim boundaries.
+- The reusable particle kernel wraps coefficient selection, stationary branch construction, exact subflows, perturbations, periodic-covariant observables, serialization fingerprints, and a fail-closed physical-identity gate.
+- The formalization importer pins `entropic-physlib-linear-full` by exact tree `239a663a3192a3144fb998e7bb200e09689a3bb9`, current `Physlib.lean` blob `182a06e0f50314ec54436da602b4ac86eba4ee08`, 11 ZIL graphs, 422 graph entities, 12 open/external boundaries, and 24 Lean sources.
+- The latest tree includes `EddingtonAffineFirstIntegral.lean`, adding affine connection residual, first-integral Einstein-Λ recovery, torsion-vacuum, and Lovelock field-equation bridges.
+- M9.94 binds the canonical three-dimensional particle envelope to Pauli spin/current and closes the tree-level `g=2` relation.
+- M9.95 binds one canonical declared-winding particle pair to electric and magnetic kernels under one shared dimensionless ledger.
 
 Validated criteria:
 
@@ -25,39 +28,52 @@ Validated criteria:
 | Surface | Path | Role |
 | --- | --- | --- |
 | 21-criterion profile | `model_conformance.py` and `MODELS_M9.md` | executable comparison status |
-| Model registration | `model_registration.py` | canonical M9 component identity and surface map |
-| Particle kernel | `particle_model.py` | reusable state construction, perturbation, flow, observables, and identity gate |
-| PhysLib contract | `formal/physlib_contract.v2.json` and `physlib_contract.py` | version-pinned formal authority and drift validation |
-| Instrumentation | `_launcher.py`, `instrumentation.py`, and preset ledgers | headless or rendered evidence panels |
+| Model registration | `model_registration.py` | canonical M9 component, formal revision, and imported-surface map |
+| Particle kernel | `particle_model.py` | reusable state construction, perturbation, flow, periodic observables, and identity gate |
+| Selected PhysLib contract | `formal/physlib_contract.v2.json` and `physlib_contract.py` | historical selected theorem contract and drift validation |
+| Operational ZIL inventory | `formalization_inventory.py` and `formalization_inventory_additional.py` | electrogravity and open-systems graphs |
+| Corpus ZIL inventory | `formalization_inventory_corpus.py` | Rivers, Lovelock–Rund, Veliev, latest tree/source data, and Eddington gravity imports |
+| Import validator | `formalization_import.py` | 11-graph declaration coverage, exact tree/blob checks, status preservation, and adapter resolution |
+| Canonical spin bridge | `canonical_spin_magnetic_bridge.py` | Pauli embedding, current, moment, angular momentum, tree `g=2` |
+| Canonical force bridge | `canonical_force_formal_bridge.py` | declared winding pair, shared electric/magnetic ledger, formal potential/superoperator boundary |
 
-## Cross-repository authority
+## Imported ZIL corpus
 
-| Repository | Ref | Revision | Authority |
-| --- | --- | --- | --- |
-| `jagg-ix/openwave` | `main` | `bbc3fd392e0553ddd94080831e42196891911360` | merged numerical evidence through M9.92 |
-| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `e10af9a3b47bf90afc0a88167a5d495b6935f4dc` | Lean proof authority pinned by contract v2 |
+Operational/status graphs:
 
-The formal contract includes the elementary U(1), Klein-Gordon, and Coulomb quantization layer; winding-charge arithmetic; the Euclidean free Schrödinger group; a scoped nonlinear continuum interface; and an optional zero-point-length extension. Lean is not required at simulation runtime.
+1. electrogravitic action closure;
+2. Lindblad-driven leads;
+3. Liouville second quantization;
+4. Cauchy weak limit;
+5. Lindblad trace preservation.
 
-## Particle-model boundary
+Merged formalization-family graphs:
 
-`CatEptParticleModel.repository_default()` constructs a model specification with:
+6. Rivers scalar Green functions;
+7. Rivers scalar Green functions — continuum extension;
+8. Lovelock–Rund continuum variational structure;
+9. Lovelock–Rund pointwise operators;
+10. Lovelock–Rund invariant geometry;
+11. Veliev periodic Schrödinger perturbation theory.
 
-- the current dimensionless dispersion and selected cubic-quintic coefficients;
-- the assumptions used to select those coefficients;
-- an exact formal-contract fingerprint;
-- no default physical particle name or calibration record.
+Lean declarations remain proof authority. ZIL records components, claims, assumptions, sources, proof tokens, dependencies, status vocabulary, rules, queries, and explicit boundaries. OpenWave does not reinterpret pending, conditional, open, constructive-QFT, or external-analytic items as proved.
 
-The existing stationary solver can construct the neutral non-Gaussian branch. Nonzero winding may be declared in a model specification, but a charged stationary branch is not claimed until winding is embedded into the same solved state and passes the identity gates.
+## Particle, force, and gravity boundaries
 
-A physical assignment requires one certificate covering localization, normalization, embedded winding, calibration, rest energy, clock identity, spin/exchange, magnetic moment, far-field force, and an out-of-sample prediction. The default state intentionally fails that certificate.
+The neutral stationary branch is available. Nonzero winding may be declared, but a charged stationary branch is not claimed until winding is embedded into the same solved state and passes localization and dynamical-stability gates.
+
+The M9.94 Pauli embedding closes spin `1/2` and the tree-level `g=2` ratio. It does not derive the Schwinger anomaly from the CAT/EPT particle. The M9.95 pair closes dimensionless electric and magnetic force ledgers, but the two nonzero winding sectors are declared rather than dynamically embedded, and no physical force-unit calibration is inherited.
+
+The Eddington affine first integral derives an Einstein equation with cosmological constant algebraically after assuming the affine connection field equation. It does not supply a full variational derivation, global nonlinear Cauchy development, or calibrated CAT/EPT gravity.
+
+A physical assignment still requires one certificate covering localization, normalization, embedded winding, calibration, rest energy, clock identity, spin/exchange, magnetic moment, far-field force, and an out-of-sample prediction.
 
 ## Boundary
 
-The M9 stack establishes a reproducible mathematical particle kernel and seven criterion-scoped OpenWave validations. It does not establish an electron, positron, quark, or other observed-particle identity; calibrated physical units; a derived elementary charge scale; or external experimental agreement.
+The M9 stack establishes a reproducible mathematical particle kernel, a branch-wide imported formalization inventory, and seven criterion-scoped OpenWave validations. It does not establish an observed-particle identity, charged stationary particles, calibrated physical units, a CAT/EPT derivation of the anomalous magnetic moment, global calibrated gravity, or external experimental agreement.
 
 ## Next critical targets
 
-1. M9.94: bind magnetic moment and spin observables to one canonical particle state and the live Pauli-current theorem surface.
-2. M9.95: bind Coulomb and magnetic force measurements to two canonical states with one shared calibration ledger.
-3. M9.96: construct a charged stationary branch whose field-derived winding, localization, and dynamical stability close simultaneously.
+1. M9.96: construct a charged stationary branch whose field-derived winding, localization, and dynamical stability close simultaneously.
+2. M9.97: use that charged branch in full-PDE annihilation and composite-sector campaigns.
+3. M9.98: register independent calibration and out-of-sample physical prediction gates.
