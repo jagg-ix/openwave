@@ -1,0 +1,6 @@
+task:m9_75#status@scoped_closed.
+task:m9_75#rejects@claim:h1_to_h1_bounded_laplacian.
+task:m9_75#selects@claim:h1_to_hminus1_weak_generator.
+task:m9_75#evidence@file:hminus_one_mild_flow_audit.py.
+task:m9_75#formal@lean:CubicQuinticMildFlow.target_tendsto_and_normalized_of_minimizing_energySplit.
+task:m9_75#open@claim:concrete_energy_critical_duhamel_flow.
