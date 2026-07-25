@@ -1,0 +1,30 @@
+{
+  "schema": "openwave.m9.local-interaction-no-loss-closure.v1",
+  "task": "M9.85",
+  "rows": [
+    {"coarse_points": 20, "fine_points": 24, "quartic_error": 0.0031017322486143056, "sextic_error": 0.0005507441484152572, "local_interaction_error": 0.03946873484817015, "hartree_error": 0.005140359453504995, "target_interaction_error": 0.044609094301675145, "h1_distance": 0.18649847098608435, "energy_split_error": 0.018750851225085574, "mass_error": 5.551115123125783e-16},
+    {"coarse_points": 24, "fine_points": 28, "quartic_error": 0.0013762289153591983, "sextic_error": 0.000214343280119449, "local_interaction_error": 0.021672434134488938, "hartree_error": 0.003294307674136021, "target_interaction_error": 0.02496674180862496, "h1_distance": 0.10595283677935775, "energy_split_error": 0.006999687681260358, "mass_error": 4.440892098500626e-16},
+    {"coarse_points": 28, "fine_points": 32, "quartic_error": 0.000479725733442557, "sextic_error": 0.00012862877862619606, "local_interaction_error": 8.31589759022755e-5, "hartree_error": 0.0006435455469124274, "target_interaction_error": 0.0007267045228147029, "h1_distance": 0.04460395727019959, "energy_split_error": 0.0012030210342053316, "mass_error": 4.440892098500626e-16}
+  ],
+  "acceptance": {
+    "rellich_hartree_campaign_passes": true,
+    "quartic_density_power_converges": true,
+    "sextic_density_power_converges": true,
+    "local_cubic_quintic_interaction_converges": true,
+    "combined_target_interaction_error_decreases": true,
+    "nested_h1_no_loss_distance_decreases": true,
+    "energy_split_error_decreases": true,
+    "mass_normalization_is_retained": true,
+    "formal_interaction_and_no_loss_witnesses_are_named": true,
+    "continuum_local_interaction_and_conservation_are_not_overstated": true
+  },
+  "passed": true,
+  "decision": {
+    "finite_grid_local_interaction_convergence_qualified": true,
+    "finite_grid_target_interaction_convergence_qualified": true,
+    "finite_grid_h1_no_loss_sequence_qualified": true,
+    "continuum_local_interaction_theorem_proved": false,
+    "continuum_global_conservation_proved": false,
+    "m9_85_scoped_target_closed": true
+  }
+}

@@ -1,0 +1,12 @@
+MODULE openwave.m9.local_interaction_no_loss.
+
+task:m9_85#depends_on@task:m9_84.
+task:m9_85#uses@proof:targetInteraction_tendsto.
+task:m9_85#uses@proof:hOne_tendsto_of_minimizing_energySplit.
+task:m9_85#produces@evidence:quartic_sextic_local_interaction_convergence.
+task:m9_85#produces@evidence:nested_hone_no_loss_sequence.
+task:m9_85#boundary@obligation:continuum_local_interaction_convergence.
+task:m9_85#boundary@obligation:continuum_mass_energy_conservation.
+
+QUERY remaining_boundaries:
+FIND ?obligation WHERE task:m9_85#boundary@?obligation.

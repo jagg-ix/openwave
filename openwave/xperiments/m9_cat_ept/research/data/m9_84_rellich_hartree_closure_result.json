@@ -1,0 +1,33 @@
+{
+  "schema": "openwave.m9.rellich-hartree-closure.v1",
+  "task": "M9.84",
+  "repositories": {
+    "openwave_base": "5df88b26a51dccd9d9cc2b3b1182acb384b01b78",
+    "physlib_branch": "entropic-physlib-linear-full",
+    "physlib_head": "c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3"
+  },
+  "rows": [
+    {"coarse_points": 20, "fine_points": 24, "global_lone_error": 0.06274893674794342, "lthree_power_integral": 6.43651012873163e-7, "lsix_fifths_power_integral": 0.018538940839772325, "interpolation_upper_bound": 0.01989348083502517, "tail_at_radius_6": 5.912726476991092e-6, "periodic_hartree_error": 0.005140359453504995, "h1_distance": 0.18649847098608435},
+    {"coarse_points": 24, "fine_points": 28, "global_lone_error": 0.02713444715127792, "lthree_power_integral": 2.3722623859981287e-8, "lsix_fifths_power_integral": 0.0062136900112988325, "interpolation_upper_bound": 0.006724889490936539, "tail_at_radius_6": 2.822742422978214e-6, "periodic_hartree_error": 0.003294307674136021, "h1_distance": 0.10595283677935775},
+    {"coarse_points": 28, "fine_points": 32, "global_lone_error": 0.013204171079361955, "lthree_power_integral": 1.8224655444375926e-8, "lsix_fifths_power_integral": 0.0029768110975750867, "interpolation_upper_bound": 0.003425357942093464, "tail_at_radius_6": 4.719616836980553e-7, "periodic_hartree_error": 0.0006435455469124274, "h1_distance": 0.04460395727019959}
+  ],
+  "acceptance": {
+    "nested_local_rellich_errors_decrease": true,
+    "recentered_tails_decrease_with_radius": true,
+    "uniform_farthest_tail_is_small": true,
+    "density_difference_lthree_bound_is_finite": true,
+    "one_three_interpolation_bound_closes": true,
+    "lsix_fifths_error_decreases": true,
+    "periodic_hartree_proxy_converges": true,
+    "nested_h1_distances_decrease": true,
+    "live_rellich_hartree_theorems_are_named": true,
+    "finite_grid_premises_are_not_promoted_to_continuum_proofs": true
+  },
+  "passed": true,
+  "decision": {
+    "finite_grid_local_rellich_premises_qualified": true,
+    "finite_grid_lsix_fifths_and_hartree_closure_qualified": true,
+    "continuum_model_premises_proved": false,
+    "m9_84_scoped_target_closed": true
+  }
+}

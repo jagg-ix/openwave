@@ -20,7 +20,7 @@ def test_domain_partition():
     }
 
 
-def test_status_counts_after_m9_83():
+def test_status_counts_after_m9_86():
     assert validate_profile()["status_counts"] == {
         "validated": 3,
         "partial": 17,
@@ -45,18 +45,19 @@ def test_promoted_rows_keep_stronger_boundaries():
     assert "Microscopic CAT/EPT thermodynamics" in by_key["thermal_field"].finding
 
 
-def test_stability_includes_duhamel_conservation_and_identification_evidence():
+def test_stability_includes_rellich_interaction_and_identity_evidence():
     stability = next(item for item in CRITERIA if item.key == "particle_stability")
     assert all(
         any(name in path for path in stability.evidence)
         for name in (
-            "m9_78_method_note.md",
-            "m9_79_method_note.md",
-            "m9_80_method_note.md",
+            "m9_84_method_note.md",
+            "m9_85_method_note.md",
+            "m9_86_method_note.md",
         )
     )
-    assert "finite-Galerkin Duhamel fixed point" in stability.finding
-    assert "continuum energy-critical Duhamel theorem" in stability.finding
+    assert "local-Rellich" in stability.finding
+    assert "analytic minimizing-orbit identity" in stability.finding
+    assert stability.status == "partial"
 
 
 def test_external_mode_comparison_remains_blocked_and_unvalidated():
