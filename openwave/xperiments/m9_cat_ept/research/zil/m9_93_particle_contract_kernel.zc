@@ -1,0 +1,24 @@
+MODULE openwave.m9.particle_contract_kernel.
+
+model:m9_cat_ept#registered_by@component:model_registration.
+model:m9_cat_ept#formal_contract@component:physlib_contract_v2.
+model:m9_cat_ept#particle_api@component:cat_ept_particle_model.
+model:m9_cat_ept#comparison_profile@evidence:models_m9.
+model:m9_cat_ept#status@state:canonical_component.
+
+component:physlib_contract_v2#pins@repository:jagg_ix_entropic_physlib_private.
+component:physlib_contract_v2#pins@branch:entropic_physlib_linear_full.
+component:physlib_contract_v2#boundary@obligation:no_inherited_physical_identity.
+component:physlib_contract_v2#boundary@obligation:no_runtime_lean_dependency.
+
+component:cat_ept_particle_model#constructs@state:stationary_non_gaussian_branch.
+component:cat_ept_particle_model#evolves_by@procedure:exact_free_local_strang_flow.
+component:cat_ept_particle_model#boundary@obligation:physical_calibration.
+component:cat_ept_particle_model#boundary@obligation:charged_stationary_branch.
+component:cat_ept_particle_model#boundary@obligation:out_of_sample_prediction.
+
+QUERY components:
+FIND ?item WHERE model:m9_cat_ept#registered_by@?item.
+
+QUERY boundaries:
+FIND ?item WHERE component:cat_ept_particle_model#boundary@?item.

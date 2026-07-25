@@ -1,0 +1,158 @@
+{
+  "schema": "openwave.m9.physlib-contract.v2",
+  "model": "M9 CAT/EPT",
+  "repository": {
+    "name": "jagg-ix/entropic-physlib-private",
+    "branch": "entropic-physlib-linear-full",
+    "commit": "e10af9a3b47bf90afc0a88167a5d495b6935f4dc",
+    "role": "Lean kernel proof authority"
+  },
+  "policy": {
+    "runtime_dependency": false,
+    "source_commit_required": true,
+    "source_blob_required": true,
+    "physical_identity_inherited": false,
+    "allowed_statuses": [
+      "kernel_checked",
+      "scoped_proved",
+      "provided_interface",
+      "conditional",
+      "optional"
+    ]
+  },
+  "interfaces": [
+    {
+      "id": "u1-charge-single-valuedness",
+      "module": "Physlib.QuantumMechanics.ComplexAction.ElementaryQuantization",
+      "declaration": "Physlib.QuantumMechanics.ComplexAction.ElementaryQuantization.charge_single_valued_iff_int",
+      "source_path": "Physlib/QuantumMechanics/ComplexAction/ElementaryQuantization.lean",
+      "source_blob": "b68b5c1588e6f299e826cf41117e1bc97cb5bedf",
+      "status": "kernel_checked",
+      "semantic_role": "integer U(1) charge phase sector",
+      "numerical_adapter": "openwave.xperiments.m9_cat_ept.charge_quantization_closure:arithmetic_audit",
+      "assumptions": [
+        "U(1) phase model",
+        "single-valued state after a full gauge-circle traversal"
+      ],
+      "establishes": [
+        "integer-valued charge phase sectors"
+      ],
+      "does_not_establish": [
+        "measured elementary charge normalization",
+        "spontaneous sector selection"
+      ]
+    },
+    {
+      "id": "winding-third-charge-arithmetic",
+      "module": "Physlib.QuantumMechanics.ComplexAction.Winding.QuarkChargeWinding",
+      "declaration": "Physlib.QuantumMechanics.ComplexAction.Winding.QuarkChargeWinding.windingCharge_integer_iff",
+      "source_path": "Physlib/QuantumMechanics/ComplexAction/Winding/QuarkChargeWinding.lean",
+      "source_blob": "a8317538d445453a0e9345c499c11ad3742f7980",
+      "status": "kernel_checked",
+      "semantic_role": "additive winding charge in thirds",
+      "numerical_adapter": "openwave.xperiments.m9_cat_ept.topological_charge:run_topological_charge_study",
+      "assumptions": [
+        "charge is represented by winding divided by three"
+      ],
+      "establishes": [
+        "charge additivity",
+        "charge conjugation",
+        "integer charge iff the winding is divisible by three"
+      ],
+      "does_not_establish": [
+        "electric-charge unit calibration",
+        "particle-flavor assignment"
+      ]
+    },
+    {
+      "id": "free-klein-gordon-mode-group",
+      "module": "Physlib.QuantumMechanics.ComplexAction.ElementaryQuantization",
+      "declaration": "Physlib.QuantumMechanics.ComplexAction.ElementaryQuantization.kgMode_add",
+      "source_path": "Physlib/QuantumMechanics/ComplexAction/ElementaryQuantization.lean",
+      "source_blob": "b68b5c1588e6f299e826cf41117e1bc97cb5bedf",
+      "status": "kernel_checked",
+      "semantic_role": "free massive Klein-Gordon mode evolution",
+      "numerical_adapter": "openwave.xperiments.m9_cat_ept.klein_gordon_closure:run_klein_gordon_closure",
+      "assumptions": [
+        "free positive-frequency mode",
+        "dimensionless natural units"
+      ],
+      "establishes": [
+        "mass-shell dispersion",
+        "one-parameter mode group",
+        "subluminal massive group velocity"
+      ],
+      "does_not_establish": [
+        "interacting scalar quantum field theory",
+        "physical scalar-particle identity",
+        "mass calibration"
+      ]
+    },
+    {
+      "id": "free-schrodinger-l2-group",
+      "module": "Physlib.QuantumMechanics.Schrodinger.EuclideanL2FreeEvolution",
+      "declaration": "Physlib.QuantumMechanics.Schrodinger.EuclideanL2FreeEvolution.freeSchrodingerEvolution_add",
+      "source_path": "Physlib/QuantumMechanics/Schrodinger/EuclideanL2FreeEvolution.lean",
+      "source_blob": "161641f1261421b55014d078744c2c89a932668b",
+      "status": "kernel_checked",
+      "semantic_role": "infinite-dimensional free L2 evolution",
+      "numerical_adapter": "openwave.xperiments.m9_cat_ept.live_flow_construction:run_live_flow_construction",
+      "assumptions": [
+        "Euclidean L2 carrier",
+        "paper-normalized Fourier phase"
+      ],
+      "establishes": [
+        "free evolution composition",
+        "norm preservation",
+        "strong continuity"
+      ],
+      "does_not_establish": [
+        "pointwise convergence",
+        "full nonlinear CAT/EPT well-posedness"
+      ]
+    },
+    {
+      "id": "cat-ept-cubic-continuum-interface",
+      "module": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.IpekCatichaSuperpositionViolation",
+      "declaration": "Physlib.QuantumMechanics.ComplexAction.EntropicTime.IpekCatichaSuperpositionViolation.continuumSpatialEnergyCubicSemiflow",
+      "source_path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/IpekCatichaSuperpositionViolation.lean",
+      "source_blob": "ff050e86cb9812bcb0ecb612e498d7dc05e8c639",
+      "status": "scoped_proved",
+      "semantic_role": "state-dependent nonlinear continuum flow interface",
+      "numerical_adapter": "openwave.xperiments.m9_cat_ept.coefficient_self_consistency:run_coefficient_self_consistency",
+      "assumptions": [
+        "declared multiplication-energy sector",
+        "chosen cubic-quintic effective action conditions"
+      ],
+      "establishes": [
+        "a scoped nonlinear continuum-flow interface",
+        "nonlinear state-dependent generator structure"
+      ],
+      "does_not_establish": [
+        "derivation of OpenWave alpha and beta from fundamental CAT/EPT axioms",
+        "unique physical irreversible law"
+      ]
+    },
+    {
+      "id": "zero-point-length-extension",
+      "module": "Physlib.QuantumMechanics.ComplexAction.ComptonClock.ZeroPointLength",
+      "declaration": "Physlib.QuantumMechanics.ComplexAction.ComptonClock.ZeroPointLength.qgInterval_ge_L",
+      "source_path": "Physlib/QuantumMechanics/ComplexAction/ComptonClock/ZeroPointLength.lean",
+      "source_blob": "7232eefe2d0b85ddf6df0d7ed206f7acfb2d005d",
+      "status": "optional",
+      "semantic_role": "optional ultraviolet minimal-length extension",
+      "numerical_adapter": "openwave.xperiments.m9_cat_ept.geometry_backreaction:run_geometry_backreaction_study",
+      "assumptions": [
+        "zero-point-length shift",
+        "positive path scale"
+      ],
+      "establishes": [
+        "minimal effective interval under the declared shift"
+      ],
+      "does_not_establish": [
+        "baseline particle identity",
+        "required modification of every M9 simulation"
+      ]
+    }
+  ]
+}
