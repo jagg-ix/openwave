@@ -1,0 +1,43 @@
+{
+  "schema": "openwave.m9.live-flow-construction.v1",
+  "task": "M9.87",
+  "repositories": {
+    "openwave_base": "0d271c8b26d437638c334fcaab5cdbc4e89a6259",
+    "physlib_base": "829abc1c3a6c947de8aa1cab61194c3d83aa5c4e",
+    "physlib_adapter_head": "8e0ce0c9a73348dd44fe46151b30cbe41b4bfec5"
+  },
+  "free_subflow": {
+    "group_error": 5.63209448260136e-16,
+    "reverse_error": 6.932207899959981e-16,
+    "mass_error": 2.220446049250313e-16
+  },
+  "local_subflow": {
+    "group_error": 1.4642494892295526e-16,
+    "reverse_error": 1.6420987256755475e-16,
+    "mass_error": 0.0
+  },
+  "constructed_split_flow": {
+    "time_step": 0.002,
+    "direct_steps": 98,
+    "composed_steps": [61, 37],
+    "composition_error": 0.0
+  },
+  "acceptance": {
+    "live_free_h1_group_witnesses_are_named": true,
+    "free_subflow_group_law_closes": true,
+    "local_subflow_group_law_closes": true,
+    "free_subflow_is_reversible": true,
+    "local_subflow_is_reversible": true,
+    "both_exact_subflows_preserve_mass": true,
+    "constructed_discrete_flow_composes": true,
+    "previous_unavailable_classification_is_rejected": true
+  },
+  "passed": true,
+  "decision": {
+    "free_h1_unitary_group_available": true,
+    "exact_nonlinear_continuum_semiflow_available": true,
+    "concrete_global_spectral_split_flow_constructed": true,
+    "weak_mild_target_certificate_interface_available": true,
+    "flow_infrastructure_unavailable": false
+  }
+}
