@@ -42,8 +42,8 @@ Further repetitions of existing finite-grid or algebraic controls should not cha
 
 ## Formal dependencies
 
-- Live PhysLib base: `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`.
-- Criterion bridge branch: `agent/m9-criterion-reduction-spin-maxwell-thermal` at `34e4ae551304dae31548efeec7969040b3059d58`.
+- Live PhysLib base: `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3`.
+- Criterion bridge PR #18: `agent/m9-criterion-reduction-spin-maxwell-thermal` at `19ef639d0ab849f92fb462d5899817ac1a5c4161`.
 - Active PR #16: cubic--quintic compactness and corrected weak/mild-flow composition.
 - Active PR #17: Lean/ZIL evidence lifecycle and omission reconciliation.
 
