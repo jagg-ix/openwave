@@ -1,4 +1,4 @@
-from openwave.xperiments.m9_cat_ept.reconciled_gauge_spinor_stationary import (
+from openwave.xperiments.m9_cat_ept.reconciled_gauge_spinor_stationary_current import (
     result_to_json,
     run_reconciled_gauge_spinor_campaign,
 )
