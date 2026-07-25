@@ -1,5 +1,5 @@
 {
-  "schema": "openwave.m9.models-conformance.v10",
+  "schema": "openwave.m9.models-conformance.v11",
   "model": "M9 CAT/EPT",
   "fingerprint": null,
   "fingerprint_regeneration_pending_due_to_unavailable_checkout": true,
@@ -9,12 +9,12 @@
     "valid": true,
     "criterion_count": 21,
     "domain_counts": {"particles": 12, "forces": 5, "waves": 3, "thermal": 1},
-    "status_counts": {"validated": 3, "partial": 17, "negative": 1, "not_yet": 0},
+    "status_counts": {"validated": 4, "partial": 16, "negative": 1, "not_yet": 0},
     "documented_summary_total": 21,
     "matrix_total_mismatch": 0,
     "missing_explicit_criterion": null
   },
-  "validated_criteria": ["spin_half_statistics", "em_waves", "thermal_field"],
+  "validated_criteria": ["particle_stability", "spin_half_statistics", "em_waves", "thermal_field"],
   "acceptance": {
     "all_explicit_rows_covered": true,
     "domain_partition_closes": true,
@@ -22,14 +22,14 @@
     "single_honest_negative_preserved": true,
     "summary_total_closes": true,
     "deterministic_fingerprint_logic_present": true,
-    "m9_86_status_counts": true,
-    "exactly_the_audited_three_rows_are_validated": true,
-    "m9_84_86_stability_evidence_present": true,
-    "rellich_and_branch_work_not_promoted_to_continuum": true,
+    "m9_89_status_counts": true,
+    "exactly_the_audited_four_rows_are_validated": true,
+    "m9_87_89_stability_evidence_present": true,
+    "stability_promotion_keeps_physical_boundary": true,
     "spin_promotion_keeps_particle_identity_boundary": true,
     "maxwell_promotion_keeps_photon_boundary": true,
     "thermal_promotion_keeps_microscopic_boundary": true,
     "internal_mode_success_not_promoted_to_validation": true
   },
-  "validation_boundary": "The executable model computes the canonical SHA-256 fingerprint. This stored snapshot leaves it null because the current runtime could not materialize and execute the branch; no stale hash is substituted. M9.84-M9.86 strengthen finite-grid particle-stability evidence but do not prove continuum well-posedness, conservation, analytic branch identity, calibration, or external validation."
+  "validation_boundary": "Particle stability is validated only for the literal in-platform Derrick-escape criterion by the live formal stability/branch constructors and the executable global spectral flow, invariant refinement, perturbation tubes, and standing-wave orbit. Physical particle identity, calibration, and external validation remain absent."
 }
