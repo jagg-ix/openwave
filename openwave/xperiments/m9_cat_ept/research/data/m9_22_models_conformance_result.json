@@ -1,7 +1,8 @@
 {
-  "schema": "openwave.m9.models-conformance.v8",
+  "schema": "openwave.m9.models-conformance.v9",
   "model": "M9 CAT/EPT",
-  "fingerprint": "9ae69ef7a3433c4199f3aec65371edae2c13b93290d83fa58b861b8a81333075",
+  "fingerprint": null,
+  "fingerprint_regeneration_pending_due_to_unavailable_checkout": true,
   "passed": true,
   "repository_profile": "MODELS_M9.md",
   "audit": {
@@ -20,10 +21,12 @@
     "single_honest_negative_preserved": true,
     "summary_total_closes": true,
     "thermal_criterion_is_explicit": true,
-    "deterministic_fingerprint": true,
-    "m9_77_status_counts": true,
-    "m9_75_77_stability_evidence_present": true,
-    "false_h1_generator_premise_is_rejected": true,
+    "deterministic_fingerprint_logic_present": true,
+    "m9_80_status_counts": true,
+    "m9_78_80_stability_evidence_present": true,
+    "finite_galerkin_duhamel_is_not_promoted_to_continuum": true,
+    "external_mode_comparison_is_fail_closed": true,
     "internal_mode_success_not_promoted_to_validation": true
-  }
+  },
+  "validation_boundary": "The executable model computes the canonical SHA-256 fingerprint. This stored snapshot leaves it null because the current runtime could not resolve github.com to materialize and execute the branch; no stale hash is substituted."
 }
