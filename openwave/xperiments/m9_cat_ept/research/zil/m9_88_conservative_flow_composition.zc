@@ -1,0 +1,10 @@
+MODULE openwave.m9.conservative_flow_composition.
+
+target:m9_88#uses@proof:Physlib.QuantumMechanics.ComplexAction.EntropicTime.CubicQuinticMildFlow.GlobalConservativeBornMildFlowCertificate.
+target:m9_88#uses@proof:Physlib.QuantumMechanics.ComplexAction.EntropicTime.CubicQuinticMildFlow.exists_minimizingOrbit_uniformlyStable.
+target:m9_88#produces@evidence:openwave_mass_energy_perturbation_tube.
+evidence:openwave_mass_energy_perturbation_tube#status@status:qualified.
+evidence:openwave_mass_energy_perturbation_tube#boundary@obligation:physical_particle_calibration.
+
+QUERY conservative_flow_evidence:
+FIND ?evidence WHERE target:m9_88#produces@?evidence.
