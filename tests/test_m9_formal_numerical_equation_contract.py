@@ -1,19 +1,24 @@
 from openwave.xperiments.m9_cat_ept.formal_numerical_equation_contract import (
     FORMAL_BRANCH,
     FORMAL_SOURCES,
-    OPENWAVE_SOURCES,
-    contract_fingerprint,
     equation_relations,
+)
+from openwave.xperiments.m9_cat_ept.formal_numerical_equation_contract_current import (
+    ALL_OPENWAVE_SOURCES,
+    current_contract_fingerprint,
+    expected_formal_blobs,
+    expected_openwave_blobs,
     run_formal_numerical_equation_contract,
+    validate_formal_numerical_equation_contract,
 )
 
 
 def test_current_formal_branch_and_sources_are_exact():
     assert FORMAL_BRANCH == "entropic-physlib-linear-full"
     assert len(FORMAL_SOURCES) == 9
-    assert len(OPENWAVE_SOURCES) == 5
+    assert len(ALL_OPENWAVE_SOURCES) == 8
     assert all(len(item["blob"]) == 40 for item in FORMAL_SOURCES)
-    assert all(len(item["blob"]) == 40 for item in OPENWAVE_SOURCES)
+    assert all(len(item["blob"]) == 40 for item in ALL_OPENWAVE_SOURCES)
 
 
 def test_major_equation_mismatches_are_machine_visible():
@@ -30,11 +35,33 @@ def test_contract_passes_without_promotion():
     result = run_formal_numerical_equation_contract()
     assert result["passed"] and all(result["acceptance"].values())
     assert not result["decision"][
-        "openwave_legacy_results_are_direct_numerical_tests_of_current_formal_equations"
+        "legacy_results_are_direct_tests_of_current_formal_equations"
     ]
     assert result["decision"]["criterion_rows_promoted"] == []
 
 
+def test_formal_source_drift_fails_closed():
+    observed = expected_formal_blobs()
+    path = next(iter(observed))
+    observed[path] = "0" * 40
+    result = validate_formal_numerical_equation_contract(
+        observed_formal_blobs=observed
+    )
+    assert not result["passed"]
+    assert f"formal source drift detected: {path}" in result["errors"]
+
+
+def test_openwave_source_drift_fails_closed():
+    observed = expected_openwave_blobs()
+    path = next(iter(observed))
+    observed[path] = "f" * 40
+    result = validate_formal_numerical_equation_contract(
+        observed_openwave_blobs=observed
+    )
+    assert not result["passed"]
+    assert f"OpenWave source drift detected: {path}" in result["errors"]
+
+
 def test_contract_fingerprint_is_deterministic():
-    assert len(contract_fingerprint()) == 64
-    assert contract_fingerprint() == contract_fingerprint()
+    assert len(current_contract_fingerprint()) == 64
+    assert current_contract_fingerprint() == current_contract_fingerprint()
