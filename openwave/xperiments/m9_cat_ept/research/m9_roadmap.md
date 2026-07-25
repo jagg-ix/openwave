@@ -28,11 +28,11 @@
 | M9.97d | Register dynamics formal overlay, evidence authority, calibration ledger, conformance profile, and canonical component | DONE; 3 PARTIAL ROWS PRESERVED |
 | M9.98 | Upgrade ZIL from historical bootstrap/control-event pins to current dual-root `Zil` / `Zil.Native` authority | DONE; HEAD 3c9d4ce / EXACT BLOBS / FAIL-CLOSED ROOT CONTRACT |
 | M9.99a | Pin current `entropic-physlib-linear-full` equation surfaces and machine-classify formal/numerical relations | DONE; 9 RELATIONS / HARTREE, MASS, CARRIER, OPERATOR, AND DOMAIN MISMATCHES EXPLICIT |
-| M9.99b | Replace mixed spectral/centered operators with one Fourier complex and enforce `D = 1/(2m)` | DONE; ONE ZERO MODE / NYQUIST RETAINED / MASS AND CURRENT MAP CLOSED |
+| M9.99b | Replace mixed spectral/centered operators with one Fourier complex and enforce `D = 1/(2m)` | DONE; 17³ ODD GRID / ONE ZERO MODE / MASS AND CURRENT MAP CLOSED |
 | M9.99c | Replace the direct center-force promotion gate with `d<x>/dt = <alpha>` and retain momentum/Lorentz | DONE; DIRAC OBSERVABLE DOMAIN CORRECTED |
 | M9.99d--e | Register the reconciliation authority, ZIL graph, runners, tests, and schema-v6 component | DONE; STATUS PROFILE UNCHANGED |
 | M9.100 | Derive one coupled gauge-spinor-Hartree action, select its dimensionless coupling map, and construct a stable charged stationary branch | NEXT |
 | M9.101 | Construct Foldy--Wouthuysen packet position and covariant local T-BMT reductions, then rerun refined pair dynamics | PLANNED |
 | M9.102 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
 
-The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.99 explains why legacy OpenWave outputs were not direct tests of the current Lean equations, closes the internal mass/current and discrete-operator mismatches, and corrects the Dirac observable domain. It does not select the Hartree coupling, derive one coupled action, construct a charged stationary branch, or promote a physical criterion.
+The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.99 explains why legacy OpenWave outputs were not direct tests of the current Lean equations, closes the internal mass/current and discrete-operator mismatches on an odd real Fourier grid, and corrects the Dirac observable domain. It does not select the Hartree coupling, derive one coupled action, construct a charged stationary branch, or promote a physical criterion.
