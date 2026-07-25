@@ -1,0 +1,33 @@
+{
+  "acceptance": {
+    "all_nonpromoted_rows_name_a_blocking_gap": true,
+    "all_promotions_retain_stronger_boundaries": true,
+    "all_twenty_baseline_partials_are_classified": true,
+    "exactly_three_rows_are_promotable": true
+  },
+  "baseline_counts": {
+    "negative": 1,
+    "not_yet": 0,
+    "partial": 20,
+    "validated": 0
+  },
+  "decision": {
+    "physical_theory_fully_validated": false,
+    "remaining_partial_count": 17,
+    "safe_reduction_count": 3,
+    "twenty_partials_can_be_reduced": true
+  },
+  "passed": true,
+  "promoted_criteria": [
+    "spin_half_statistics",
+    "em_waves",
+    "thermal_field"
+  ],
+  "proposed_counts": {
+    "negative": 1,
+    "not_yet": 0,
+    "partial": 17,
+    "validated": 3
+  },
+  "schema": "openwave.m9.partial-reduction-audit.v1"
+}

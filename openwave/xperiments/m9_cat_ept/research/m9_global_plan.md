@@ -1,38 +1,38 @@
 # M9 global target plan
 
-## Closure through M9.80
+## Closure through M9.83
 
-- **M9.78:** constructs the finite spectral Volterra/Duhamel map, closes a seven-step Picard iteration, and compares the mild trajectory with the existing Strang flow over three time refinements. The observed Duhamel/Strang error halves with the time step. This is not the continuum energy-critical Strichartz theorem.
-- **M9.79:** estimates the evolving density centroid, recenters with the Fourier shift theorem, and refines centered first moment, tail mass, local cubic--quintic interaction, total mass, and energy. Energy drift is second order. Continuum localization and conservation remain open.
-- **M9.80:** tests radial, quadrupole, and shell deformation directions. Each raises constrained energy, has positive symmetric second variation, and relaxes back to one finite-grid phase/translation orbit tube. The immutable M9.71 mode is preserved, while external comparison is blocked by missing analytic identity, particle identity, calibration, and dataset prerequisites.
+- **M9.81:** combines the existing localized spinor double-cover campaign with explicit two-state antisymmetry, identical-state exclusion, and PhysLib's fermion exchange phase. The literal spin-statistics criterion is validated in-platform; the fermionic assignment and physical particle identity remain open.
+- **M9.82:** combines exact spectral Maxwell energy/speed/transverse/massless-wave controls with PhysLib's harmonic source-free Maxwell plane-wave theorem. The EM-wave criterion is validated in-platform; photon quantization, full coupled emergence, and physical calibration remain open.
+- **M9.83:** combines exact periodic heat conservation, entropy growth, dissipation, semigroup, zero-diffusivity and resolution controls with the finite spectral heat-flow theorem. The explicit thermal criterion is validated in-platform; microscopic thermodynamics and material calibration remain open.
 
 ## Current cross-repository state
 
 | Repository | Revision | Contribution |
 | --- | --- | --- |
-| OpenWave merged base | `c3cdd5725e9b5455cf3f2fb35164e79cab1265d8` | merged PR #78 / closure through M9.77 |
-| OpenWave work branch | `agent/m9-duhamel-conservation-identification-78-80` | M9.78--M9.80 implementation and evidence |
-| PhysLib live base | `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82` | complete `H¹`/Born compactness, interaction no-loss, minimizing orbit, and orbital-stability infrastructure |
-| PhysLib PR #16 | `83542cc13af0a966a072d90f2082c49785d20c55` | cubic--quintic compactness and corrected weak/mild-flow certificate composition |
-| PhysLib PR #17 | `2cb1003ede54dc7d8487a8b397a1cacf15728feb` | Lean/ZIL evidence lifecycle, resolved omissions, and open-obligation registry |
-| ZIL | `7ef24a8557b610f8f0f560cf375c2a1600083591` | evidence conventions and operational tooling |
+| OpenWave merged base | `52bbc8ebfc748386145f55b53d1e662874d8844e` | merged PR #79 / closure through M9.80 |
+| OpenWave work branch | `agent/m9-reduce-partials-spin-maxwell-thermal` | M9.81--M9.83 criterion closure and twenty-partial audit |
+| PhysLib live base | `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3` | theorem inventory and formal authority |
+| PhysLib PR #18 | `19ef639d0ab849f92fb462d5899817ac1a5c4161` | Pauli exchange, harmonic Maxwell, finite spectral heat bridges and audit |
+| PhysLib PR #16 | `83542cc13af0a966a072d90f2082c49785d20c55` | cubic--quintic compactness and corrected weak/mild-flow composition |
+| PhysLib PR #17 | `2cb1003ede54dc7d8487a8b397a1cacf15728feb` | Lean/ZIL evidence lifecycle and obligation registry |
 
 ## Theory boundary
 
-The platform remains `0 validated / 20 partial / 1 negative`. The lepton hierarchy remains the sole criterion-level negative. M9.78--M9.80 materially strengthen internal mathematical and computational coherence but do not create an externally tested physical prediction.
+The platform matrix is corrected to `3 validated / 17 partial / 1 negative`. This is a criterion-level platform status, not experimental validation of CAT/EPT as a physical theory.
 
-The remaining analytic chain is now explicit:
+The remaining seventeen partials require one or more genuinely status-changing results:
 
-1. construct the continuum energy-critical `H¹` Duhamel/Strichartz flow with weak generator in `H⁻¹`;
-2. prove recentered Born localization and local-interaction convergence;
-3. prove continuum mass and energy conservation;
-4. identify the analytic minimizing orbit with M9.69;
-5. independently calibrate the branch and register an external dataset before comparing the frozen mode.
+1. independent physical identity or calibration;
+2. full interacting gauge/constituent dynamics;
+3. continuum well-posedness, localization, and conservation;
+4. analytic branch identification;
+5. external datasets and out-of-sample prediction.
 
 ## Next phase
 
 | Target | Deliverable | State |
 | --- | --- | --- |
-| M9.81 | PhysLib continuum energy-critical Duhamel/Strichartz construction | NEXT |
-| M9.82 | Analytic recentered localization, interaction convergence, and continuum conservation | GATED |
-| M9.83 | Analytic branch identification and prerequisite-complete external protocol | PLANNED |
+| M9.84 | PhysLib continuum energy-critical Duhamel/Strichartz construction | NEXT |
+| M9.85 | Analytic recentered localization, interaction convergence, and continuum conservation | GATED |
+| M9.86 | Analytic branch identification and prerequisite-complete external protocol | PLANNED |

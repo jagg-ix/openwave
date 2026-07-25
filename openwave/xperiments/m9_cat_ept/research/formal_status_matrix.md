@@ -1,35 +1,33 @@
 # CAT/EPT formal interface status
 
-This matrix records live PhysLib baseline `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`, active PR #16 head `83542cc13af0a966a072d90f2082c49785d20c55`, and active PR #17 head `2cb1003ede54dc7d8487a8b397a1cacf15728feb`. Formal theorem status remains separate from OpenWave platform validation.
+This matrix records live PhysLib baseline `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3`, criterion-bridge PR #18 at `19ef639d0ab849f92fb462d5899817ac1a5c4161`, active PR #16 at `83542cc13af0a966a072d90f2082c49785d20c55`, and active PR #17 at `2cb1003ede54dc7d8487a8b397a1cacf15728feb`. Formal theorem status remains separate from OpenWave platform and physical validation.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
+| Fermion-fermion exchange phase `-1` | directly proved on live base | field-statistics assignment is a declared sector |
+| Two-state antisymmetry and identical-state exclusion | packaged in PR #18 | does not dynamically assign a specific CAT/EPT excitation as fermionic |
+| Smooth harmonic source-free Maxwell solution | directly proved on live base | free field, not coupled emergence or photon quantization |
+| Harmonic Maxwell solution is a plane wave | directly proved on live base and packaged in PR #18 | no empirical unit calibration |
+| Finite spectral heat multiplier and semigroup | packaged in PR #18 | finite spectral carrier, not microscopic thermodynamics |
+| Spectral zero-mode heat conservation and zero-diffusivity limit | packaged in PR #18 | no material-specific transport calibration |
 | Complete continuum `H¹(ℝ³)` carrier and weak compactness | directly proved | norm/no-loss comes from target interaction closure |
 | Actual Born probability and first-moment compactness | directly proved | recentered first-moment bound remains target-specific |
 | Hartree convergence from `L^(6/5)` Born convergence | directly proved | local cubic--quintic interaction convergence remains separate |
-| Energy-split no-loss, level attainment, normalization closure | directly proved | consumes localized interaction convergence |
-| Born-law minimizer and compact minimizing orbit | directly proved | consumes localization, weak admissibility, and interaction closure |
-| Cazenave--Lions minimizing-orbit stability | directly proved | consumes a global admissible energy-conserving flow |
+| Energy-split no-loss, minimizer, compact orbit, stability mechanism | directly proved | consumes localization, interaction closure, and conserved flow |
 | Cubic--quintic coercivity and corrected weak/mild composition | proved in PR #16 | concrete Duhamel construction and conservation remain inputs |
 | Lean/ZIL evidence lifecycle and omission reconciliation | proved in PR #17 | proof verification remains distinct from declaration identity |
 | Bounded `H¹ → H¹` Laplacian generator | rejected | Fourier ratio grows as `k²`; natural weak bound is `H¹ → H⁻¹` |
-| Global weak closure of unit mass sphere | rejected | orthonormal modes converge weakly to zero |
-| Unconditional weak lower semicontinuity of attractive energy | rejected | translated negative-energy states converge weakly to zero |
-| M9.78 finite-Galerkin Duhamel fixed point | OpenWave numerical result | contracting Volterra map and refinement, not continuum Strichartz |
-| M9.79 dynamically recentered localization/conservation | OpenWave numerical result | finite grid and finite time, not continuum theorems |
-| M9.80 minimizing-orbit identification | OpenWave numerical result | positive directional curvature and relaxation, not Lean identity |
+| M9.78--M9.80 finite Duhamel, recentering and orbit identification | OpenWave numerical results | not continuum well-posedness, conservation, or Lean identity |
 | Continuum energy-critical Duhamel/Strichartz flow | open | must construct the actual `H¹` mild evolution |
 | Analytic recentered localization and local interaction convergence | open | needed for continuum minimizing-orbit compactness |
 | Global continuum mass and energy conservation | open | finite-grid ledgers do not prove it |
 | Analytic identification of M9.69 with minimizing orbit | open | finite stationary residual and relaxation are insufficient |
 | Independent branch calibration and external dataset | open | required before physical mode comparison |
-| M9.71 replacement radial mode | internally robust and externally blocked | no physical validation |
 
-## Current source pins
+## Criterion implications
 
-- OpenWave merged base — `c3cdd5725e9b5455cf3f2fb35164e79cab1265d8`
-- live PhysLib base — `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`
-- active PhysLib PR #16 — `83542cc13af0a966a072d90f2082c49785d20c55`
-- active PhysLib PR #17 — `2cb1003ede54dc7d8487a8b397a1cacf15728feb`
+- `spin_half_statistics`: formal exchange/exclusion plus OpenWave double-cover and two-state controls support platform validation.
+- `em_waves`: formal harmonic Maxwell plane wave plus exact executable wave controls support platform validation.
+- `thermal_field`: formal finite spectral heat identities plus executable entropy/dissipation controls support platform validation.
 
-The next correct target is a PhysLib continuum theorem stack, not another finite-grid substitute. External comparison remains inadmissible until branch identity and calibration are fixed independently.
+These implications do not transfer to physical particle identity, photon quantization, or microscopic thermodynamic derivation.

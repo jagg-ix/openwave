@@ -1,0 +1,16 @@
+MODULE openwave.m9.maxwell_wave_closure.
+
+criterion:em_waves#status@status:validated_in_platform.
+criterion:em_waves#supported_by@evidence:m9_43_exact_spectral_maxwell.
+criterion:em_waves#supported_by@proof:Electromagnetism.ElectromagneticPotential.harmonicWaveX_isExtrema.
+criterion:em_waves#supported_by@proof:Electromagnetism.ElectromagneticPotential.harmonicWaveX_isPlaneWave.
+criterion:em_waves#supported_by@proof:Electromagnetism.ElectromagneticPotential.harmonicWaveX_maxwell_planeWave.
+criterion:em_waves#boundary@obligation:photon_quantization.
+criterion:em_waves#boundary@obligation:full_cat_ept_emergence.
+criterion:em_waves#boundary@obligation:empirical_unit_calibration.
+
+QUERY closure_support:
+FIND ?evidence WHERE criterion:em_waves#supported_by@?evidence.
+
+QUERY retained_boundaries:
+FIND ?obligation WHERE criterion:em_waves#boundary@?obligation.

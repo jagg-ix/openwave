@@ -1,0 +1,17 @@
+MODULE openwave.m9.thermal_sector_closure.
+
+criterion:thermal_field#status@status:validated_in_platform.
+criterion:thermal_field#supported_by@evidence:m9_44_exact_spectral_heat_flow.
+criterion:thermal_field#supported_by@evidence:m9_44_entropy_dissipation_resolution.
+criterion:thermal_field#supported_by@proof:Physlib.Mathematics.HarmonicAnalysis.FiniteSpectralHeatFlow.flow_add.
+criterion:thermal_field#supported_by@proof:Physlib.Mathematics.HarmonicAnalysis.FiniteSpectralHeatFlow.flow_preserves_zero_mode.
+criterion:thermal_field#supported_by@proof:Physlib.Mathematics.HarmonicAnalysis.FiniteSpectralHeatFlow.flow_zero_diffusivity.
+criterion:thermal_field#boundary@obligation:microscopic_cat_ept_thermodynamics.
+criterion:thermal_field#boundary@obligation:material_transport_calibration.
+criterion:thermal_field#boundary@obligation:relativistic_heat_conduction.
+
+QUERY closure_support:
+FIND ?evidence WHERE criterion:thermal_field#supported_by@?evidence.
+
+QUERY retained_boundaries:
+FIND ?obligation WHERE criterion:thermal_field#boundary@?obligation.

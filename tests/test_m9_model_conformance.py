@@ -1,5 +1,6 @@
 from openwave.xperiments.m9_cat_ept.model_conformance import (
     CRITERIA,
+    PROMOTED_KEYS,
     fingerprint,
     run_conformance_study,
     validate_profile,
@@ -19,13 +20,29 @@ def test_domain_partition():
     }
 
 
-def test_status_counts_after_m9_80():
+def test_status_counts_after_m9_83():
     assert validate_profile()["status_counts"] == {
-        "validated": 0,
-        "partial": 20,
+        "validated": 3,
+        "partial": 17,
         "negative": 1,
         "not_yet": 0,
     }
+
+
+def test_exactly_audited_three_rows_are_promoted():
+    validated = {item.key for item in CRITERIA if item.status == "validated"}
+    assert validated == PROMOTED_KEYS == {
+        "spin_half_statistics",
+        "em_waves",
+        "thermal_field",
+    }
+
+
+def test_promoted_rows_keep_stronger_boundaries():
+    by_key = {item.key: item for item in CRITERIA}
+    assert "not derived" in by_key["spin_half_statistics"].finding
+    assert "Photon quantization" in by_key["em_waves"].finding
+    assert "Microscopic CAT/EPT thermodynamics" in by_key["thermal_field"].finding
 
 
 def test_stability_includes_duhamel_conservation_and_identification_evidence():

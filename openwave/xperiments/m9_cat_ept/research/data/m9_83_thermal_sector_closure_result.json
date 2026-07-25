@@ -1,0 +1,48 @@
+{
+  "acceptance": {
+    "diffusion_dissipation_identity_closes": true,
+    "entropy_monotonicity_closes": true,
+    "existing_thermal_campaign_passes": true,
+    "formal_spectral_heat_witnesses_are_named": true,
+    "material_calibration_is_not_silently_inferred": true,
+    "microscopic_thermodynamics_is_not_silently_inferred": true,
+    "resolution_control_closes": true,
+    "semigroup_property_closes": true,
+    "total_heat_conservation_closes": true,
+    "zero_diffusivity_control_closes": true
+  },
+  "decision": {
+    "dimensionless_heat_entropy_dissipation_sector_established": true,
+    "material_transport_coefficients_calibrated": false,
+    "microscopic_cat_ept_thermodynamics_derived": false,
+    "relativistic_heat_conduction_established": false,
+    "thermal_field_sector_validated_in_platform": true
+  },
+  "formal_witnesses": [
+    "Physlib.Mathematics.HarmonicAnalysis.FiniteSpectralHeatFlow.flow_add",
+    "Physlib.Mathematics.HarmonicAnalysis.FiniteSpectralHeatFlow.flow_preserves_zero_mode",
+    "Physlib.Mathematics.HarmonicAnalysis.FiniteSpectralHeatFlow.flow_zero_diffusivity",
+    "Physlib.Mathematics.HarmonicAnalysis.SobolevHeatSemigroupDuhamel.duhamel_telescoping"
+  ],
+  "passed": true,
+  "repositories": {
+    "openwave_base": "52bbc8ebfc748386145f55b53d1e662874d8844e",
+    "physlib_base": "c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3",
+    "physlib_branch": "agent/m9-criterion-reduction-spin-maxwell-thermal",
+    "physlib_head": "19ef639d0ab849f92fb462d5899817ac1a5c4161",
+    "physlib_repository": "jagg-ix/entropic-physlib-private"
+  },
+  "schema": "openwave.m9.thermal-sector-closure.v1",
+  "task": "M9.83",
+  "thermal_controls": {
+    "dissipation_identity": {"absolute_error": 2.829139700288863e-12, "expected_derivative": -0.08747460480818173, "observed_derivative": -0.08747460481101087},
+    "entropy_increase": 0.032897566968185465,
+    "final": {"entropy": 1.8360134378892363, "minimum_temperature": 0.9142209682414633, "mode1_amplitude": 0.043154468689781136, "time": 4.0, "total_heat": 6.283185307179586, "variance": 0.011701710603954269},
+    "initial": {"entropy": 1.8031158709210509, "minimum_temperature": 0.7065147115216899, "mode1_amplitude": 0.175, "time": 0.0, "total_heat": 6.283185307179586, "variance": 0.22776546738526002},
+    "mode_decay": {"absolute_error": 0.0, "expected_ratio": 0.5515625658678298, "observed_ratio": 0.5515625658678298},
+    "resolution": {"final_entropy": [1.836013437889236, 1.8360134378892363, 1.8360134378892363, 1.8360134378892363], "maximum_heat_error": 1.7763568394002505e-15, "points": [64, 128, 256, 512], "successive_entropy_differences": [2.220446049250313e-16, 0.0, 0.0]},
+    "semigroup": {"maximum_semigroup_error": 2.220446049250313e-16},
+    "variance_decrease": 0.21606375678130574,
+    "zero_diffusivity": {"maximum_field_change": 4.440892098500626e-16}
+  }
+}
