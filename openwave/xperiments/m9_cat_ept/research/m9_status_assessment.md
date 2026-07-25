@@ -1,4 +1,4 @@
-# CAT/EPT status after M9.83
+# CAT/EPT status after M9.86
 
 ## OpenWave platform validation
 
@@ -10,43 +10,36 @@
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The validated rows are `spin_half_statistics`, `em_waves`, and `thermal_field`. The sole criterion-level negative remains the lepton-mass hierarchy.
+The validated rows remain `spin_half_statistics`, `em_waves`, and `thermal_field`. The sole criterion-level negative remains the lepton-mass hierarchy.
 
-## Why the count changed
+## New particle-stability closure
 
-A deep grep across `entropic-physlib-linear-full`, embedded ZIL declarations, OpenWave executable gates, and the 21-row conformance profile showed that three rows were underreported:
+The live PhysLib base now proves the missing abstract bridge from local Rellich convergence, recentered uniform tails, and a uniform `L3` density-difference bound to global `L1`, strong `L^(6/5)`, and Hartree convergence.
 
-- PhysLib already had the fermion exchange sign; M9.81 adds the explicit antisymmetrized two-state and Pauli-exclusion bridge to the existing double-cover control.
-- PhysLib already constructed a smooth harmonic source-free Maxwell solution and proved it is a plane wave; M9.82 combines this with exact spectral Maxwell controls.
-- OpenWave already had a complete dimensionless heat/entropy/dissipation campaign; M9.83 adds the finite spectral heat-flow and zero-mode formal bridge.
+OpenWave M9.84--M9.86 execute the corresponding finite-grid evidence chain:
+
+- **M9.84:** adjacent-grid `L^(6/5)` error decreases `0.01854 → 0.00621 → 0.00298`; periodic Hartree error decreases `0.00514 → 0.00329 → 0.000644`; the farthest recentered tail is below `6e-6`.
+- **M9.85:** target-interaction error decreases `0.04461 → 0.02497 → 0.000727`; nested `H1` distance decreases `0.1865 → 0.1060 → 0.0446`; energy-split error reaches `0.00120` with normalization retained.
+- **M9.86:** nested-grid distance to the frozen `32³` reference decreases `0.1316 → 0.1022 → 0.0446`; unrelated seeds remain within `0.01093` in `H1`; the reference feature fingerprint is frozen.
 
 ## Retained boundaries
 
-The promotions do not establish:
+These results do not establish:
 
-- a dynamical fermionic assignment or physical electron identity;
-- photon quantization, full coupled CAT/EPT emergence of electromagnetism, or calibrated units;
-- microscopic CAT/EPT thermodynamics, material transport coefficients, quantum thermalization, or relativistic heat conduction.
-
-## Remaining seventeen partials
-
-Every remaining partial has a named status-changing blocker. The dominant classes are:
-
-- physical identity and independent calibration;
-- full interacting gauge or constituent dynamics;
-- continuum well-posedness and conservation;
-- analytic branch identification;
-- external datasets and out-of-sample prediction.
-
-Further repetitions of existing finite-grid or algebraic controls should not change those statuses.
+- the continuum energy-critical Duhamel/Strichartz flow;
+- model-level local Rellich and recentered-tail hypotheses in Lean;
+- continuum local cubic--quintic interaction convergence;
+- global continuum mass and energy conservation;
+- analytic identification of M9.69 with the minimizing orbit;
+- physical particle identity, independent calibration, or external agreement.
 
 ## Formal dependencies
 
 - Live PhysLib base: `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3`.
-- Criterion bridge PR #18: `agent/m9-criterion-reduction-spin-maxwell-thermal` at `19ef639d0ab849f92fb462d5899817ac1a5c4161`.
+- Criterion bridge PR #18: `19ef639d0ab849f92fb462d5899817ac1a5c4161`.
 - Active PR #16: cubic--quintic compactness and corrected weak/mild-flow composition.
 - Active PR #17: Lean/ZIL evidence lifecycle and omission reconciliation.
 
 ## Current theory classification
 
-CAT/EPT remains an incomplete physical theory. The status reduction is a correction to the platform matrix, not a claim of external or experimental validation. The next status-changing targets remain continuum Duhamel well-posedness, continuum localization/conservation, analytic particle identity, independent calibration, and external prediction tests.
+CAT/EPT remains an incomplete physical theory. M9.84--M9.86 replace an opaque compactness gap with explicit, measured model premises and a reproducible candidate-branch certificate. They do not change the criterion counts or constitute experimental validation.
