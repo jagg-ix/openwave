@@ -1,33 +1,39 @@
-# CAT/EPT status after M9.89
+# CAT/EPT status after M9.92
 
 ## OpenWave platform validation
 
 | Status | Count |
 | --- | ---: |
-| Fully validated in-platform | 4 |
-| Partial / bounded controls | 16 |
+| Fully validated in-platform | 7 |
+| Partial / bounded controls | 13 |
 | Honest negative | 1 |
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The validated rows are `particle_stability`, `spin_half_statistics`, `em_waves`, and `thermal_field`. The sole criterion-level negative remains the lepton-mass hierarchy.
+Validated rows:
 
-## Re-evaluation of formerly unavailable infrastructure
+- `charge_quantization`;
+- `particle_stability`;
+- `spin_half_statistics`;
+- `em_waves`;
+- `klein_gordon`;
+- `orbital_quantization`;
+- `thermal_field`.
 
-The live PhysLib base at `829abc1c3a6c947de8aa1cab61194c3d83aa5c4e` already contains the complete H1 carrier, free unitary Schrödinger group, nonlinear continuum semiflows, Rellich/Hartree/no-loss chain, global conservative target certificate, compact minimizing orbit, uniform stability theorem, and identified-branch structure.
+The sole criterion-level negative remains `lepton_mass_spectrum`.
 
-The adapter branch adds named constructors rather than new foundations:
+## M9.90--M9.92 decisions
 
-- exact free H1 unitary-group certificate;
-- construction of an identified branch from any actual minimizer;
-- existence of an identified branch inside the compact uniformly stable minimizing orbit of every global conservative certificate.
+- **Charge quantization:** integer field winding, contour/phase/resolution robustness, perturbation stability, additivity, conjugation, third-charge arithmetic, divisibility, and Fock grading close. Elementary electric-charge identity remains false.
+- **Klein–Gordon:** massive spectral energy, dispersion, massless reduction, finite-mode group law, reversal, and mode-energy conservation close. Interacting scalar QFT and calibrated particle mass remain false.
+- **Orbital quantization:** the radial hydrogenic ladder, integer node count, orthogonality, stationarity, refinement, domain stability, and the `2s≈2p` and `3s≈3p≈3d` degeneracies close. Physical atomic identity, transitions, and units remain false.
 
-## M9.87--M9.89 decisions
+## Formal dependency state
 
-- **M9.87:** exact free/local group laws, reversibility, mass preservation, and split-flow composition close at roundoff. The previous `flow unavailable` classification is rejected.
-- **M9.88:** all four perturbation families preserve mass below `9.1e-13`; energy drift is second order; localization and the H1 tube remain bounded; no Derrick-type escape is observed.
-- **M9.89:** M9.69 remains within phase-aligned H1 distance `0.00161` of its computed standing-wave orbit on three grids while mass and energy remain closed.
+- Live formal base: `3923d802339c957066fcccd579362f739775797a`.
+- Parent adapter PR #19 head: `128bebd375cd895af1431444974a7a591c872a31`.
+- M9.90--M9.92 criterion head: `e192104955fc516f1ba267f8653f0dcf8d18ab51`.
 
 ## Boundary
 
-Particle stability is validated only inside the platform rubric. The result does not establish physical particle identity, calibrated mass or charge, abundance, external agreement, or universal global well-posedness for arbitrary nonlinear continuum models.
+The seven platform validations are literal rubric closures. CAT/EPT remains incomplete as a physical theory. Particle identities, independent parameter calibration, interacting Standard-Model dynamics, phenomenology, and external prediction tests remain separate requirements.
