@@ -1,0 +1,73 @@
+{
+  "acceptance": {
+    "corrected_weak_or_mild_flow_interface_is_selected": true,
+    "formal_hartree_interaction_convergence_is_available": true,
+    "laplacian_h1_to_h1_bound_is_rejected": true,
+    "laplacian_h1_to_hminus1_bound_is_uniform": true,
+    "negative_translation_counterexample_closes": true,
+    "unit_mass_weak_closure_is_not_overstated": true,
+    "unlocalized_weak_lsc_is_not_overstated": true
+  },
+  "config": {
+    "fourier_modes": [1, 2, 4, 8, 12, 16],
+    "gaussian_scale": 1.0,
+    "translations": [0.0, 2.0, 4.0, 8.0, 12.0],
+    "weak_test_modes": [0, 1, 2, 3]
+  },
+  "decision": {
+    "concrete_global_mild_flow_constructed": false,
+    "h1_to_h1_c1_generator_target_rejected": true,
+    "h1_to_hminus1_or_weak_generator_is_correct_interface": true,
+    "m9_75_corrected_scoped_target_closed": true,
+    "normalized_mass_closes_after_strong_no_loss_convergence": true,
+    "unconditional_target_energy_weak_lsc_proved": false,
+    "unconditional_weak_mass_closure_proved": false
+  },
+  "fingerprint": "e7c3ab1bae217668aedf24e86db0b0ce928d85081ee7b00a98c49b0fff76c2be",
+  "laplacian_mapping": [
+    {"laplacian_h1_to_h1_ratio": 1.0, "laplacian_h1_to_hminus1_ratio": 0.5, "mode": 1, "wave_number": 1.0},
+    {"laplacian_h1_to_h1_ratio": 4.0, "laplacian_h1_to_hminus1_ratio": 0.8, "mode": 2, "wave_number": 2.0},
+    {"laplacian_h1_to_h1_ratio": 16.0, "laplacian_h1_to_hminus1_ratio": 0.9411764705882353, "mode": 4, "wave_number": 4.0},
+    {"laplacian_h1_to_h1_ratio": 64.0, "laplacian_h1_to_hminus1_ratio": 0.9846153846153847, "mode": 8, "wave_number": 8.0},
+    {"laplacian_h1_to_h1_ratio": 144.0, "laplacian_h1_to_hminus1_ratio": 0.993103448275862, "mode": 12, "wave_number": 12.0},
+    {"laplacian_h1_to_h1_ratio": 256.0, "laplacian_h1_to_hminus1_ratio": 0.9961089494163424, "mode": 16, "wave_number": 16.0}
+  ],
+  "passed": true,
+  "repositories": {
+    "openwave_base": "009efb37d535174712109c550e8da06b77dd8f9c",
+    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_pr_head": "83542cc13af0a966a072d90f2082c49785d20c55"
+  },
+  "schema": "openwave.m9.hminus-one-mild-flow-audit.v1",
+  "task": "M9.75",
+  "weak_lsc_translation_counterexample": {
+    "constant_sequence_energy": -0.5351570433141419,
+    "localization_or_interaction_closure_is_required": true,
+    "rows": [
+      {"l2_mass": 1.0, "overlap_with_fixed_origin_test": 1.0, "translation": 0.0, "translation_invariant_energy": -0.5351570433141419},
+      {"l2_mass": 1.0, "overlap_with_fixed_origin_test": 0.36787944117144233, "translation": 2.0, "translation_invariant_energy": -0.5351570433141419},
+      {"l2_mass": 1.0, "overlap_with_fixed_origin_test": 0.01831563888873418, "translation": 4.0, "translation_invariant_energy": -0.5351570433141419},
+      {"l2_mass": 1.0, "overlap_with_fixed_origin_test": 1.1253517471925912e-07, "translation": 8.0, "translation_invariant_energy": -0.5351570433141419},
+      {"l2_mass": 1.0, "overlap_with_fixed_origin_test": 2.3195228302435696e-16, "translation": 12.0, "translation_invariant_energy": -0.5351570433141419}
+    ],
+    "target_energy_is_unconditionally_weakly_lsc": false,
+    "weak_limit": "zero field as translations escape to infinity",
+    "weak_lsc_inequality_E_limit_le_liminf": false,
+    "zero_field_energy": 0.0
+  },
+  "weak_unit_sphere_counterexample": {
+    "candidate_weak_limit_l2_mass": 0.0,
+    "carrier": "orthonormal Fourier basis in an infinite-dimensional periodic L2/H1 carrier",
+    "closed_unit_ball_is_weakly_closed": true,
+    "rows": [
+      {"l2_mass": 1.0, "maximum_fixed_test_overlap": 0.0, "sequence_mode": 4},
+      {"l2_mass": 1.0, "maximum_fixed_test_overlap": 0.0, "sequence_mode": 5},
+      {"l2_mass": 1.0, "maximum_fixed_test_overlap": 0.0, "sequence_mode": 6},
+      {"l2_mass": 1.0, "maximum_fixed_test_overlap": 0.0, "sequence_mode": 7},
+      {"l2_mass": 1.0, "maximum_fixed_test_overlap": 0.0, "sequence_mode": 8},
+      {"l2_mass": 1.0, "maximum_fixed_test_overlap": 0.0, "sequence_mode": 9}
+    ],
+    "sequence_l2_mass": 1.0,
+    "unit_sphere_is_weakly_closed": false
+  }
+}

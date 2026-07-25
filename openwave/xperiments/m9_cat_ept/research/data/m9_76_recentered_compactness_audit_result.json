@@ -1,0 +1,42 @@
+{
+  "acceptance": {
+    "centered_first_moment_is_uniform": true,
+    "centered_tail_is_uniform_and_small": true,
+    "live_born_moment_compactness_theorem_is_reused": true,
+    "live_interaction_convergence_no_loss_theorem_is_reused": true,
+    "mass_and_energy_are_translation_invariant": true,
+    "recentring_collapses_translation_orbit": true,
+    "translated_family_is_not_naively_compact": true
+  },
+  "config": {
+    "energy_tolerance": 2e-10,
+    "half_width": 8.0,
+    "points": 20,
+    "recentered_tolerance": 2e-12,
+    "stationary_iterations": 3000,
+    "tail_radius": 4.0,
+    "translation_cells": [0, 2, 4, 6]
+  },
+  "decision": {
+    "compact_minimizing_orbit_from_interaction_closure_kernel_available": true,
+    "finite_grid_translation_orbit_recentered": true,
+    "first_moment_and_tail_tightness_numerically_qualified": true,
+    "general_concentration_trichotomy_proved": false,
+    "general_target_recentered_tightness_proved": false,
+    "m9_76_corrected_scoped_target_closed": true
+  },
+  "passed": true,
+  "repositories": {
+    "openwave_base": "009efb37d535174712109c550e8da06b77dd8f9c",
+    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_pr_head": "83542cc13af0a966a072d90f2082c49785d20c55"
+  },
+  "rows": [
+    {"centered_first_moment": 1.0946447653184948, "centered_tail_fraction": 8.314061735764669e-05, "energy_error": 0.0, "mass_error": 0.0, "physical_translation": 0.0, "recentered_l2_distance": 0.0, "translation_cells": 0, "unaligned_l2_distance": 0.0},
+    {"centered_first_moment": 1.0946447653184948, "centered_tail_fraction": 8.314061735764669e-05, "energy_error": 2.220446049250313e-16, "mass_error": 0.0, "physical_translation": 1.6, "recentered_l2_distance": 0.0, "translation_cells": 2, "unaligned_l2_distance": 0.9842194823183865},
+    {"centered_first_moment": 1.0946447653184948, "centered_tail_fraction": 8.314061735764669e-05, "energy_error": 7.771561172376096e-16, "mass_error": 2.220446049250313e-16, "physical_translation": 3.2, "recentered_l2_distance": 0.0, "translation_cells": 4, "unaligned_l2_distance": 1.3507237163428651},
+    {"centered_first_moment": 1.0946447653184948, "centered_tail_fraction": 8.314061735764669e-05, "energy_error": 6.661338147750939e-16, "mass_error": 0.0, "physical_translation": 4.800000000000001, "recentered_l2_distance": 0.0, "translation_cells": 6, "unaligned_l2_distance": 1.4079187847538588}
+  ],
+  "schema": "openwave.m9.recentered-compactness-audit.v1",
+  "task": "M9.76"
+}

@@ -1,0 +1,3 @@
+# M9.76 finding
+
+Periodic translations of the M9.69 branch are separated before alignment but collapse to machine precision after recentering. Centered first moment, tail mass, total mass, and energy are invariant across the translation orbit. This qualifies the finite-grid symmetry quotient and matches the live Born-moment/interaction-closure compactness theorem, but does not derive general continuum tightness.

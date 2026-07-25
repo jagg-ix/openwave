@@ -1,0 +1,6 @@
+task:m9_76#status@scoped_closed.
+task:m9_76#evidence@file:recentered_compactness_audit.py.
+task:m9_76#reuses@lean:bounded_normalized_hOne_firstMoment_has_energyMinimizer.
+task:m9_76#reuses@lean:isCompact_hOneBorn_energyMinimizers_of_interactionClosure.
+task:m9_76#qualifies@claim:finite_grid_translation_orbit_recentering.
+task:m9_76#open@claim:general_target_recentered_tightness.

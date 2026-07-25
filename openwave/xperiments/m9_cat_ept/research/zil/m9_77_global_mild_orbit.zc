@@ -1,0 +1,6 @@
+task:m9_77#status@scoped_closed.
+task:m9_77#evidence@file:global_mild_orbit_campaign.py.
+task:m9_77#formal@lean:CubicQuinticMildFlow.exists_minimizingOrbit_uniformlyStable.
+task:m9_77#tests@perturbation:phase_translation_chirp_amplitude_noise.
+task:m9_77#qualifies@claim:finite_grid_aligned_orbit_boundedness.
+task:m9_77#open@claim:global_conservative_duhamel_flow_from_pde.
