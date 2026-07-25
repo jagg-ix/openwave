@@ -2,19 +2,22 @@
 
 The package contains the 21-criterion comparison campaign, a reusable
 uncalibrated particle-model kernel, the selected PhysLib theorem contract, the
-current-tree CAT/EPT Lean/ZIL formalization inventory, and the M9.96--M9.97
-charged-source, field-force, gauge-spinor, and Maxwell--Dirac dynamics studies.
+current-tree CAT/EPT formalization inventory, the M9.96--M9.97 charged-source
+and gauge-spinor dynamics studies, and the M9.98 ZIL runtime authority.
 
 M9.96 constructs field-derived winding-three source candidates and closes their
 projected static Maxwell constraints, magnetic response, and Lorentz/energy/
 stress force triangle. M9.97 adds a self-consistent gauge-covariant Pauli
-stationary equation and a full four-spinor Maxwell--Dirac pair/control campaign.
-The latter closes kinetic-momentum transfer against the Lorentz force and
-finite-time spin evolution against the exact Dirac generator. The selected
-gauge-spinor equation still lacks a stationary charged branch, center
-acceleration does not yet converge to momentum transfer, and the moving packet
-does not reduce to the imported rest-frame Pauli/T-BMT torque. Magnetic moment,
-electric force, and magnetic force therefore remain partial. Lean remains proof
-authority; formal availability, numerical subreductions, physical identity, and
+stationary equation and a source-consistent four-spinor Maxwell--Dirac campaign.
+It closes kinetic-momentum transfer and exact-generator spin integration while
+retaining the charged-stationary, center-response, and moving-packet T-BMT
+boundaries.
+
+M9.98 pins current ``jagg-ix/zil-lean`` and makes its dual-root architecture
+explicit: ``Zil`` is the PhysLib-facing Datalog compatibility root, while
+``Zil.Native`` is the native graph/query/provenance runtime used by OpenWave
+``.zc`` programs. Historical bootstrap/control-event pins remain auditable but
+are not current authority. Lean remains proof authority; runtime upgrades,
+formal availability, numerical subreductions, physical identity, and
 calibration remain separate layers.
 """
