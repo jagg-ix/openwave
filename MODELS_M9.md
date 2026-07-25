@@ -2,7 +2,7 @@
 
 The executable source is `openwave/xperiments/m9_cat_ept/model_conformance.py`. Platform validation, formal theorem status, physical identity, calibration, and experimental validation are separate layers.
 
-## Platform summary after M9.92
+## Platform summary after M9.93c
 
 | Status | Count |
 | --- | ---: |
@@ -68,6 +68,18 @@ The new cross-angular-momentum campaign obtains:
 PhysLib supplies the unscreened Yukawa-to-Coulomb endpoint and the integer-labelled `O(4)/S³` Gegenbauer harmonics.
 
 **Boundary:** no emergent electron/nucleus identity, radiative transition theory, or physical atomic-unit calibration is claimed.
+
+## M9.93 — model infrastructure closure
+
+M9.93 adds three infrastructure surfaces without promoting a criterion:
+
+- `physlib_contract.py` and `formal/physlib_contract.v2.json` pin `entropic-physlib-linear-full` at an exact commit and source-blob set, associate declarations with numerical adapters, preserve assumptions and claim boundaries, and fail closed under simulated commit/blob drift;
+- `particle_model.py` exposes the current action specification, particle specification, three-dimensional state, exact free/local subflows, Strang evolution, perturbations, translations, observables, fingerprints, and physical-identity gate;
+- `model_registration.py` registers the launcher, profile, formal contract, particle API, briefing, and current `7/13/1` conformance state as one canonical M9 component.
+
+The repository-default particle has no physical name or calibration record. The neutral stationary branch can be constructed through the existing M9.69 solver. A nonzero winding can be declared, but it is not marked as embedded into the same stationary state until a charged branch is actually constructed.
+
+**Boundary:** M9.93 establishes reusable and testable infrastructure. It does not establish a charged stationary particle, physical unit calibration, an electron identity, or an out-of-sample physical prediction.
 
 ## Retained blockers
 

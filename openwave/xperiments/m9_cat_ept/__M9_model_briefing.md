@@ -1,41 +1,63 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 covers all 21 comparison criteria and combines the stationary non-Gaussian branch with a theorem-guided finite-grid compactness and interaction program.
+M9 covers all 21 OpenWave comparison criteria and combines a stationary non-Gaussian branch, theorem-guided finite-grid dynamics, explicit claim boundaries, and a reusable uncalibrated particle-model API.
 
-## Platform status after M9.86
+## Platform status after M9.93c
 
-- Three criteria are validated in-platform.
-- Seventeen criteria remain partial or bounded.
+- Seven criteria are validated in-platform.
+- Thirteen criteria remain partial or bounded.
 - The predictive lepton-mass hierarchy remains the sole criterion-level negative.
-- M9.84 executes the live PhysLib local-Rellich, recentered-tail, `L³`, `L^(6/5)`, and Hartree chain on four nested grids.
-- M9.85 qualifies quartic/sextic local interaction, combined target interaction, normalization, energy-split closure, and decreasing `H¹` no-loss distance.
-- M9.86 freezes a reproducible `32³` branch feature fingerprint and qualifies nested-grid plus independent-seed candidate identity.
+- The reusable particle kernel wraps the existing coefficient selection, stationary branch, exact subflows, perturbations, observables, serialization fingerprints, and fail-closed physical-identity gate.
+- The PhysLib contract pins the live `entropic-physlib-linear-full` branch, exact source blobs, theorem declarations, numerical adapters, assumptions, and per-interface claim boundaries.
 
-## Cross-repository sources
+Validated criteria:
+
+1. charge quantization;
+2. particle stability / Derrick escape;
+3. spin-1/2 statistics;
+4. source-free Maxwell waves;
+5. free massive Klein-Gordon evolution;
+6. dimensionless Coulomb orbital quantization;
+7. the explicit dimensionless thermal field.
+
+## Canonical implementation surfaces
+
+| Surface | Path | Role |
+| --- | --- | --- |
+| 21-criterion profile | `model_conformance.py` and `MODELS_M9.md` | executable comparison status |
+| Model registration | `model_registration.py` | canonical M9 component identity and surface map |
+| Particle kernel | `particle_model.py` | reusable state construction, perturbation, flow, observables, and identity gate |
+| PhysLib contract | `formal/physlib_contract.v2.json` and `physlib_contract.py` | version-pinned formal authority and drift validation |
+| Instrumentation | `_launcher.py`, `instrumentation.py`, and preset ledgers | headless or rendered evidence panels |
+
+## Cross-repository authority
 
 | Repository | Ref | Revision | Authority |
 | --- | --- | --- | --- |
-| `jagg-ix/openwave` | current `main` after merged PR #80 | `5df88b26a51dccd9d9cc2b3b1182acb384b01b78` | merged implementation through M9.83 |
-| `jagg-ix/openwave` | `agent/m9-rellich-interaction-branch-84-86` | current work branch | M9.84--M9.86 evidence |
-| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3` | local Rellich/interpolation/Hartree theorem authority |
-| `jagg-ix/entropic-physlib-private` | PR #18 | `19ef639d0ab849f92fb462d5899817ac1a5c4161` | criterion bridge modules and audit |
-| `jagg-ix/entropic-physlib-private` | active PR #16 | `83542cc13af0a966a072d90f2082c49785d20c55` | cubic--quintic weak/mild-flow composition |
-| `jagg-ix/entropic-physlib-private` | active PR #17 | `2cb1003ede54dc7d8487a8b397a1cacf15728feb` | Lean/ZIL evidence lifecycle |
+| `jagg-ix/openwave` | `main` | `bbc3fd392e0553ddd94080831e42196891911360` | merged numerical evidence through M9.92 |
+| `jagg-ix/entropic-physlib-private` | `entropic-physlib-linear-full` | `e10af9a3b47bf90afc0a88167a5d495b6935f4dc` | Lean proof authority pinned by contract v2 |
 
-## Latest closure values
+The formal contract includes the elementary U(1), Klein-Gordon, and Coulomb quantization layer; winding-charge arithmetic; the Euclidean free Schrödinger group; a scoped nonlinear continuum interface; and an optional zero-point-length extension. Lean is not required at simulation runtime.
 
-- Born-density `L^(6/5)` adjacent-grid error: `0.01854 → 0.00621 → 0.00298`.
-- Periodic Hartree error: `0.00514 → 0.00329 → 0.000644`.
-- Target-interaction error: `0.04461 → 0.02497 → 0.000727`.
-- Nested `H¹` no-loss distance: `0.1865 → 0.1060 → 0.0446`.
-- Independent-seed branch distance: maximum `0.01093`.
+## Particle-model boundary
+
+`CatEptParticleModel.repository_default()` constructs a model specification with:
+
+- the current dimensionless dispersion and selected cubic-quintic coefficients;
+- the assumptions used to select those coefficients;
+- an exact formal-contract fingerprint;
+- no default physical particle name or calibration record.
+
+The existing stationary solver can construct the neutral non-Gaussian branch. Nonzero winding may be declared in a model specification, but a charged stationary branch is not claimed until winding is embedded into the same solved state and passes the identity gates.
+
+A physical assignment requires one certificate covering localization, normalization, embedded winding, calibration, rest energy, clock identity, spin/exchange, magnetic moment, far-field force, and an out-of-sample prediction. The default state intentionally fails that certificate.
 
 ## Boundary
 
-These are finite-grid qualifications of newly proved formal implications. They do not construct the continuum energy-critical Duhamel flow, prove continuum conservation, discharge the analytic identified-branch certificate, calibrate a physical particle, or admit an external comparison.
+The M9 stack establishes a reproducible mathematical particle kernel and seven criterion-scoped OpenWave validations. It does not establish an electron, positron, quark, or other observed-particle identity; calibrated physical units; a derived elementary charge scale; or external experimental agreement.
 
 ## Next critical targets
 
-1. M9.87 construct the actual continuum energy-critical Duhamel/Strichartz theorem in PhysLib.
-2. M9.88 prove the target model's local Rellich/tightness/local-interaction hypotheses and continuum conservation.
-3. M9.89 discharge analytic branch identity, then register independent calibration and external evidence.
+1. M9.94: bind magnetic moment and spin observables to one canonical particle state and the live Pauli-current theorem surface.
+2. M9.95: bind Coulomb and magnetic force measurements to two canonical states with one shared calibration ledger.
+3. M9.96: construct a charged stationary branch whose field-derived winding, localization, and dynamical stability close simultaneously.

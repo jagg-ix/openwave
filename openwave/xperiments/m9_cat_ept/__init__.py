@@ -1,5 +1,8 @@
-"""M9 CAT/EPT research models through the negative back-reaction decision.
+"""M9 CAT/EPT entropic particle dynamics.
 
-These are selected dimensionless controls and field models, not calibrated
-particle identities or a unique physical-time construction.
+The package contains the 21-criterion comparison campaign, a version-pinned
+PhysLib contract, and a reusable uncalibrated particle-model kernel. Constructed
+localized branches remain mathematical states; no electron, positron, or other
+physical particle identity is inherited without a separate calibration and
+identity certificate.
 """
