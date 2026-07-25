@@ -1,4 +1,4 @@
-from openwave.xperiments.m9_cat_ept.reconciled_gauge_spinor_stationary import (
+from openwave.xperiments.m9_cat_ept.reconciled_gauge_spinor_stationary_current import (
     ReconciledGaugeSpinorConfig,
 )
 
@@ -15,6 +15,14 @@ def test_legacy_mass_mismatch_is_material():
     cfg = ReconciledGaugeSpinorConfig()
     relative = abs(1.0 - cfg.effective_mass) / cfg.effective_mass
     assert relative > 0.25
+
+
+def test_historical_even_seed_is_separate_from_odd_operational_grid():
+    cfg = ReconciledGaugeSpinorConfig()
+    assert cfg.seed_points == 16
+    assert cfg.points == 17
+    assert cfg.seed_points % 2 == 0
+    assert cfg.points % 2 == 1
 
 
 def test_hartree_coupling_is_a_sweep_not_a_hidden_constant():
