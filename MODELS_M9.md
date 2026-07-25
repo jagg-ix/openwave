@@ -2,9 +2,9 @@
 
 This file is the canonical **M9 extension column** for the shared OpenWave comparison rubric. The executable source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
 
-Platform validation, formal theorem status, finite-grid qualification, and physical validation are separate. M9.81--M9.83 validate three literal platform criteria while retaining their stronger emergence, identity, and calibration boundaries.
+Platform validation, formal theorem status, finite-grid qualification, and physical validation are separate. The current matrix remains criterion-scoped.
 
-## Platform summary after M9.83
+## Platform summary after M9.86
 
 | Status | Count |
 | --- | ---: |
@@ -21,7 +21,7 @@ Platform validation, formal theorem status, finite-grid qualification, and physi
 | Charge quantization | ⚠️ Integer winding is resolved; elementary-charge identity and normalization remain calibration-dependent. |
 | Electron rest energy | ⚠️ A dimensionless scale minimum and localized stationary branch exist. The rest-mass unit remains calibration-required. |
 | de Broglie clock | ⚠️ PhysLib proves a scoped entropic/physical proper-time equality. M9.65 failed. The frozen M9.71 ratio `1.074356835825` passes internal tests, but external comparison remains blocked by analytic identity, calibration, and dataset prerequisites. |
-| Particle stability | ⚠️ M9.69--M9.80 provide a stationary branch, finite-Galerkin Duhamel closure, dynamic recentering/conservation, positive constrained curvature, and return to one finite-grid `H¹` orbit tube. Continuum Duhamel well-posedness, continuum localization/conservation, analytic branch identity, calibration, and physical-particle identification remain open. |
+| Particle stability | ⚠️ M9.69--M9.80 establish the finite stationary branch, mild-flow, recentering, conservation, curvature, and orbit-return evidence. The live PhysLib base now proves the local-Rellich/recentered-tail/`L³` route to strong `L^(6/5)` Born-density and Hartree convergence. M9.84 qualifies those premises on `20³→24³→28³→32³`; M9.85 qualifies local and target interaction convergence plus decreasing `H¹` no-loss distance; M9.86 freezes a reproducible branch fingerprint and obtains nested-grid and independent-seed candidate identity. Continuum Duhamel well-posedness, model-level Rellich/tightness, continuum conservation, analytic branch identity, calibration, and physical-particle identification remain open. |
 | Magnetic moment and spin | ⚠️ Pauli-current and spin controls exist; a stable calibrated state and emergent electron g factor remain open. |
 | Spin-1/2 statistics | ✅ Validated in-platform: `2π` sign reversal and `4π` return, fermion exchange phase `-1`, two-state antisymmetry, exchange involution, and identical-state exclusion all close. A specific CAT/EPT particle is not dynamically proven fermionic and is not identified with the electron. |
 | Antimatter and annihilation | ⚠️ A reduced capture/annihilation/radiation ledger closes; full-PDE particle annihilation remains open. |
@@ -55,24 +55,23 @@ Platform validation, formal theorem status, finite-grid qualification, and physi
 | --- | --- |
 | Heat / thermal-field sector | ✅ Validated in-platform: exact spectral heat flow conserves heat, increases entropy, dissipates variance, obeys exact mode-decay and semigroup laws, freezes at zero diffusivity, and is resolution stable; PhysLib supplies the finite spectral semigroup and zero-mode theorem. Microscopic thermodynamics, material calibration, quantum thermalization, and relativistic heat transport remain open. |
 
-## Reduction audit
+## M9.84--M9.86 particle-stability evidence
 
-The deep repository grep classified all twenty former partials. Only three had their literal criterion closed by both formal and executable evidence. The remaining seventeen are blocked by one or more of:
-
-- physical identity or independent calibration;
-- full interacting or gauge dynamics;
-- continuum well-posedness/conservation;
-- analytic branch identification;
-- external datasets and out-of-sample prediction.
+| Record | Finest control | Boundary |
+| --- | ---: | --- |
+| Recentered Rellich / Born `L^(6/5)` | `0.00297681` | finite-grid theorem premises, not continuum compactness |
+| Periodic Hartree proxy | `6.43546e-4` error | proxy on the periodic box |
+| Target interaction | `7.26705e-4` error | continuum local interaction remains open |
+| Nested `H¹` distance | `0.044604` | finite-grid no-loss sequence |
+| Independent-seed branch distance | `0.0109274` maximum | candidate identity, not Lean minimizing-orbit identity |
 
 ## Formal and computational interface summary
 
 | Layer | Status | Boundary |
 | --- | --- | --- |
-| Fermion exchange and Pauli exclusion | directly proved / executable | no dynamical assignment to a specific CAT/EPT particle |
-| Harmonic source-free Maxwell plane wave | directly proved / executable | no photon quantization or empirical calibration |
-| Finite spectral heat semigroup and thermal controls | directly proved / executable | no microscopic or material-specific thermodynamics |
-| Complete continuum `H¹(ℝ³)` carrier, Born compactness and Hartree closure | directly proved | target localization and continuum flow remain model-specific |
+| Fermion exchange, Maxwell plane wave, and finite heat semigroup | directly proved / executable | no transfer to stronger particle, photon, or microscopic claims |
+| Complete continuum `H¹(ℝ³)` carrier, Born compactness and interaction no-loss | directly proved | target hypotheses and flow remain model-specific |
+| Local Rellich plus recentered tails plus `L³` gives `L^(6/5)` and Hartree convergence | directly proved on live PhysLib base | OpenWave supplies finite-grid premise evidence only |
 | Cubic--quintic weak/mild-flow composition | active PhysLib PR #16 | concrete continuum Duhamel flow and conservation remain inputs |
 | Lean/ZIL evidence lifecycle | active PhysLib PR #17 | implementation and kernel-verification state remain distinct |
 
