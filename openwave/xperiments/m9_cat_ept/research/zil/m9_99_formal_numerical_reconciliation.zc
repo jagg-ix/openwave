@@ -46,8 +46,11 @@ engine:periodic_fourier_differential_complex#provides@operator:laplacian.
 engine:periodic_fourier_differential_complex#provides@operator:helmholtz_projection.
 engine:periodic_fourier_differential_complex#provides@operator:poisson_inverse.
 engine:periodic_fourier_differential_complex#provides@operator:gauge_covariant_laplacian.
+engine:periodic_fourier_differential_complex#uses@grid:odd_real_fourier_17_cubed.
 engine:periodic_fourier_differential_complex#removes@mode:global_zero_only.
-engine:periodic_fourier_differential_complex#retains@mode:nyquist.
+engine:periodic_fourier_differential_complex#rejects@grid:even_real_fourier_nyquist_ambiguous.
+seed:m9_99_historical_even#grid@grid:even_16_cubed.
+seed:m9_99_historical_even#resampled_to@grid:odd_real_fourier_17_cubed.
 
 campaign:m9_99b#enforces@equation:D_equals_one_over_two_m.
 campaign:m9_99b#establishes@result:schrodinger_pauli_mass_map_closed.
