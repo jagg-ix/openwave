@@ -95,6 +95,10 @@ class CatEptParticleState:
             raise TypeError("particle field must be complex-valued")
         if self.spacing <= 0.0 or self.simulation_time < 0.0:
             raise ValueError("positive spacing and nonnegative time required")
+        if len(self.center) != 3 or not all(math.isfinite(value) for value in self.center):
+            raise ValueError("a finite three-dimensional center is required")
+        if not math.isfinite(self.phase_origin):
+            raise ValueError("a finite phase origin is required")
         if len(self.reference_branch_fingerprint) != 64:
             raise ValueError("reference branch fingerprint must be SHA-256")
         if not self.construction:
@@ -141,7 +145,10 @@ def field_mass(field: ComplexField, spacing: float) -> float:
     return float(np.sum(np.abs(field) ** 2) * spacing**3)
 
 
-def wave_number_squared(shape: tuple[int, int, int], spacing: float) -> NDArray[np.float64]:
+def wave_number_squared(
+    shape: tuple[int, int, int],
+    spacing: float,
+) -> NDArray[np.float64]:
     axes = [2.0 * math.pi * np.fft.fftfreq(points, d=spacing) for points in shape]
     kx, ky, kz = np.meshgrid(*axes, indexing="ij")
     return np.asarray(kx * kx + ky * ky + kz * kz, dtype=np.float64)
@@ -154,7 +161,9 @@ def free_subflow(
     dispersion: float,
 ) -> ComplexField:
     k2 = wave_number_squared(tuple(field.shape), spacing)
-    evolved = np.fft.ifftn(np.fft.fftn(field) * np.exp(-1j * dispersion * k2 * time))
+    evolved = np.fft.ifftn(
+        np.fft.fftn(field) * np.exp(-1j * dispersion * k2 * time)
+    )
     return np.asarray(evolved, dtype=np.complex128)
 
 
@@ -180,7 +189,10 @@ def strang_step(
     return local_subflow(second, 0.5 * time, action.alpha, action.beta)
 
 
-def normalized_gaussian(points: int = 8, half_width: float = 3.0) -> tuple[ComplexField, float]:
+def normalized_gaussian(
+    points: int = 8,
+    half_width: float = 3.0,
+) -> tuple[ComplexField, float]:
     if points < 4 or half_width <= 0.0:
         raise ValueError("a finite grid and positive half width are required")
     spacing = 2.0 * half_width / points
@@ -216,9 +228,21 @@ class CatEptParticleModel:
 
     def _requires_repository_coefficients(self) -> None:
         selected = selected_coefficients()
-        if not math.isclose(self.spec.action.alpha, float(selected["alpha"]), rel_tol=0.0, abs_tol=1e-12):
+        alpha = float(selected["alpha"])
+        beta = float(selected["beta"])
+        if not math.isclose(
+            self.spec.action.alpha,
+            alpha,
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        ):
             raise ValueError("the current stationary solver is pinned to the repository alpha")
-        if not math.isclose(self.spec.action.beta, float(selected["beta"]), rel_tol=0.0, abs_tol=1e-12):
+        if not math.isclose(
+            self.spec.action.beta,
+            beta,
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        ):
             raise ValueError("the current stationary solver is pinned to the repository beta")
 
     def construct_stationary_state(
@@ -284,6 +308,8 @@ class CatEptParticleModel:
         state: CatEptParticleState,
         offsets: tuple[int, int, int],
     ) -> CatEptParticleState:
+        if len(offsets) != 3:
+            raise ValueError("three integer cell offsets are required")
         translated = np.roll(state.field, shift=offsets, axis=(0, 1, 2))
         center = tuple(
             value + offset * state.spacing
@@ -324,19 +350,26 @@ class CatEptParticleModel:
             (np.arange(points, dtype=np.float64) - points / 2.0) * state.spacing
             for points in shape
         ]
-        x, y, z = np.meshgrid(*axes, indexing="ij")
-        radius_sq = x * x + y * y + z * z
+        global_x, global_y, global_z = np.meshgrid(*axes, indexing="ij")
+        relative_x = global_x - state.center[0]
+        relative_y = global_y - state.center[1]
+        relative_z = global_z - state.center[2]
+        radius_sq = relative_x**2 + relative_y**2 + relative_z**2
         density = np.abs(state.field) ** 2
         total_mass = field_mass(state.field, state.spacing)
         rms_radius = math.sqrt(
-            float(np.sum(radius_sq * density) * state.spacing**3 / max(total_mass, 1e-30))
+            float(
+                np.sum(radius_sq * density)
+                * state.spacing**3
+                / max(total_mass, 1e-30)
+            )
         )
         half_widths = [0.5 * points * state.spacing for points in shape]
         boundary = np.maximum.reduce(
             (
-                np.abs(x) / half_widths[0],
-                np.abs(y) / half_widths[1],
-                np.abs(z) / half_widths[2],
+                np.abs(global_x) / half_widths[0],
+                np.abs(global_y) / half_widths[1],
+                np.abs(global_z) / half_widths[2],
             )
         ) > 0.75
         boundary_fraction = float(
@@ -365,6 +398,7 @@ class CatEptParticleModel:
         supplied = dict(evidence or {})
         required_external = (
             "stable_localized_state",
+            "charge_unit_calibrated",
             "rest_energy_calibrated",
             "clock_identified",
             "spin_and_exchange_closed",
@@ -376,19 +410,23 @@ class CatEptParticleModel:
             "formal_contract_current": validate_contract()["passed"],
             "state_is_normalized": observables["normalization_error"] <= 2e-10,
             "state_is_localized": observables["boundary_fraction"] <= 2e-2,
+            "state_sector_matches_model": (
+                state.declared_winding_sector == self.spec.winding_sector
+            ),
             "winding_sector_is_embedded": state.winding_embedded,
             "physical_name_is_requested": self.spec.physical_assignment is not None,
             "calibration_record_is_present": self.spec.calibration_id is not None,
             **{key: bool(supplied.get(key, False)) for key in required_external},
         }
+        passed = all(gates.values())
         return {
             "schema": "openwave.m9.cat-ept-identity-certificate.v1",
             "particle_id": self.spec.particle_id,
             "requested_assignment": self.spec.physical_assignment,
             "gates": gates,
-            "passed": all(gates.values()),
+            "passed": passed,
             "decision": {
-                "physical_identity_established": all(gates.values()),
+                "physical_identity_established": passed,
                 "mathematical_branch_available": True,
                 "default_identity_is_blocked": self.spec.physical_assignment is None,
             },
@@ -411,7 +449,11 @@ class CatEptParticleModel:
         )
         certificate = candidate.evaluate_identity(state, evidence)
         if not certificate["passed"]:
-            failed = [name for name, passed in certificate["gates"].items() if not passed]
+            failed = [
+                name
+                for name, passed_gate in certificate["gates"].items()
+                if not passed_gate
+            ]
             raise ValueError(f"physical identity gate failed: {', '.join(failed)}")
         return candidate
 
