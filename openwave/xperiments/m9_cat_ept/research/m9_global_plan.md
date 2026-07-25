@@ -12,8 +12,8 @@
 | --- | --- | --- |
 | OpenWave merged base | `52bbc8ebfc748386145f55b53d1e662874d8844e` | merged PR #79 / closure through M9.80 |
 | OpenWave work branch | `agent/m9-reduce-partials-spin-maxwell-thermal` | M9.81--M9.83 criterion closure and twenty-partial audit |
-| PhysLib live base | `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82` | theorem inventory and formal authority |
-| PhysLib criterion branch | `34e4ae551304dae31548efeec7969040b3059d58` | Pauli exchange, harmonic Maxwell, finite spectral heat bridges and audit |
+| PhysLib live base | `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3` | theorem inventory and formal authority |
+| PhysLib PR #18 | `19ef639d0ab849f92fb462d5899817ac1a5c4161` | Pauli exchange, harmonic Maxwell, finite spectral heat bridges and audit |
 | PhysLib PR #16 | `83542cc13af0a966a072d90f2082c49785d20c55` | cubic--quintic compactness and corrected weak/mild-flow composition |
 | PhysLib PR #17 | `2cb1003ede54dc7d8487a8b397a1cacf15728feb` | Lean/ZIL evidence lifecycle and obligation registry |
 
