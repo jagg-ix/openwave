@@ -2,9 +2,9 @@
 
 This file is the canonical **M9 extension column** for the shared OpenWave comparison rubric. The executable source is `openwave/xperiments/m9_cat_ept/model_conformance.py`.
 
-Platform validation, formal theorem status, and subprediction status are separate. Scoped formal closure and finite-grid orbital evidence do not automatically make a criterion physically validated.
+Platform validation, formal theorem status, finite-grid qualification, and subprediction status are separate. None of M9.78--M9.80 supplies external physical validation.
 
-## Platform summary after M9.77
+## Platform summary after M9.80
 
 | Status | Count |
 | --- | ---: |
@@ -20,8 +20,8 @@ Platform validation, formal theorem status, and subprediction status are separat
 | --- | --- |
 | Charge quantization | ⚠️ Integer winding is resolved; elementary-charge identity and normalization remain calibration-dependent. |
 | Electron rest energy | ⚠️ A dimensionless scale minimum and localized stationary branch exist. The rest-mass unit remains calibration-required. |
-| de Broglie clock | ⚠️ PhysLib proves a scoped entropic/physical proper-time equality. M9.65 failed. The frozen M9.71 ratio `1.074356835825` passes held-out grids and the independent M9.74 perturbation/periodogram test. No external experiment or physical Zitterbewegung identification is established. |
-| Particle stability | ⚠️ M9.69 constructs a localized non-Gaussian stationary branch. The live formal stack proves complete `H¹`/Born compactness, Hartree interaction closure, energy-split no-loss, compact minimizing orbits, and the Cazenave--Lions stability mechanism. M9.75 rejects the false bounded `H¹ → H¹` Laplacian target and unconditional weak closure/lower-semicontinuity claims. M9.76 qualifies the translation quotient and centered tails. M9.77 keeps five perturbations in a small aligned `H¹` tube. The concrete energy-critical Duhamel flow, continuum conservation, analytic branch identification, calibration, and a physical particle remain open. |
+| de Broglie clock | ⚠️ PhysLib proves a scoped entropic/physical proper-time equality. M9.65 failed. The frozen M9.71 ratio `1.074356835825` passes internal held-out and independent-method tests. M9.80 preserves the immutable record but blocks external comparison until analytic branch identity, particle identity, independent calibration, and an external dataset exist. |
+| Particle stability | ⚠️ M9.69 constructs a localized non-Gaussian stationary branch. The live formal stack proves complete `H¹`/Born compactness, Hartree interaction closure, energy-split no-loss, compact minimizing orbits, and the Cazenave--Lions mechanism. M9.78 constructs a contracting finite-Galerkin Duhamel fixed point whose trajectory converges to Strang under refinement. M9.79 qualifies density-centroid recentering, local-interaction refinement, and finite-grid conservation. M9.80 finds positive constrained curvature and return to one finite-grid `H¹` orbit tube in radial, quadrupole, and shell directions. Continuum Duhamel well-posedness, continuum localization/conservation, analytic branch identity, calibration, and physical-particle identification remain open. |
 | Magnetic moment and spin | ⚠️ Pauli-current and spin controls exist; a stable calibrated state and emergent electron g factor remain open. |
 | Spin-1/2 statistics | ⚠️ The spinor changes sign after `2π` and returns after `4π`; exchange antisymmetry remains open. |
 | Antimatter and annihilation | ⚠️ A reduced capture/annihilation/radiation ledger closes; full-PDE particle annihilation remains open. |
@@ -55,33 +55,27 @@ Platform validation, formal theorem status, and subprediction status are separat
 | --- | --- |
 | Heat / thermal-field sector | ⚠️ Heat conservation, entropy growth, and diffusion-dissipation controls exist; calibrated microscopic thermodynamics remain open. |
 
-## Formal interface summary
+## Formal and computational interface summary
 
-| Formal layer | Status | Boundary |
+| Layer | Status | Boundary |
 | --- | --- | --- |
-| Complete continuum `H¹(ℝ³)` carrier and weak compactness | directly proved | norm/mass no-loss remains target-dependent |
-| Born probability and first-moment compactness | directly proved | recentered moment bound remains model-specific |
-| Hartree interaction convergence and energy-split no-loss | directly proved | local cubic--quintic interaction convergence remains separate |
-| Born-law minimizer and compact minimizing orbit | directly proved | consumes localization, weak admissibility, and interaction closure |
-| Cazenave--Lions minimizing-orbit stability | directly proved | consumes a global admissible energy-conserving flow |
-| Cubic--quintic coercivity and concentration branch composition | proved in active PhysLib PR #16 | localization/trichotomy inputs remain explicit |
-| Correct weak `H¹ → H⁻¹` generator and mild-flow certificate | proved in active PhysLib PR #16 | concrete Duhamel/Strichartz construction remains open |
-| Strong normalized-mass closure from interaction convergence | proved in active PhysLib PR #16 | no global weak closure of unit sphere is claimed |
-| Compact target orbit from Born localization | proved in active PhysLib PR #16 | recentered first moment and local interaction convergence remain inputs |
-| Stable minimizing orbit from conservative weak/mild-flow certificate | proved in active PhysLib PR #16 | continuum flow/conservation remain certificate data |
-| Bounded `H¹ → H¹` Laplacian premise | rejected | Fourier ratio grows as `k²` |
-| Global weak closure of unit mass sphere | rejected | orthonormal modes weakly converge to zero |
-| Unconditional weak lower semicontinuity of attractive energy | rejected | translated negative-energy states weakly converge to zero |
-| M9.69 stationary branch | OpenWave numerical result | conditional on selected coefficients |
-| M9.77 aligned long-time campaign | OpenWave numerical result | finite grid and time |
-| M9.71 replacement radial mode | internally robust | no external experiment or physical validation |
+| Complete continuum `H¹(ℝ³)` carrier, Born probability, weak compactness | directly proved | norm/mass no-loss remains interaction-dependent |
+| Hartree convergence, energy-split no-loss, minimizer and compact orbit | directly proved | consumes localization and interaction closure |
+| Cazenave--Lions minimizing-orbit stability | directly proved | consumes a global admissible conserved flow |
+| Cubic--quintic coercivity and corrected weak/mild-flow composition | active PhysLib PR #16 | concrete Duhamel flow and conservation remain inputs |
+| Lean/ZIL evidence lifecycle and omission reconciliation | active PhysLib PR #17 | implementation and kernel-verification state remain distinct |
+| Bounded `H¹ → H¹` Laplacian premise | rejected | Fourier ratio grows as `k²`; natural weak bound is `H¹ → H⁻¹` |
+| M9.78 finite-Galerkin Duhamel fixed point | numerically qualified | not a continuum Strichartz theorem |
+| M9.79 dynamically recentered conservation campaign | numerically qualified | not a continuum localization or conservation theorem |
+| M9.80 minimizing-orbit identification | numerically qualified | not analytic Lean identification or particle identity |
+| M9.71 replacement radial mode | internally robust and externally blocked | no external dataset or physical validation |
 
 ## Prediction ledger
 
 | Record | State |
 | --- | --- |
 | M9.65 Gaussian breathing ratio `2.634371114527` | frozen, internally tested, falsified |
-| M9.71 stationary-branch radial ratio `1.074356835825` | frozen, held-out-grid passed, independent perturbation/estimator passed |
+| M9.71 stationary-branch radial ratio `1.074356835825` | frozen, internally passed, external comparison blocked by prerequisites |
 
 Current methodological counts:
 
