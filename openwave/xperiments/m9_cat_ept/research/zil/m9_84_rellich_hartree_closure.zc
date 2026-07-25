@@ -1,0 +1,12 @@
+MODULE openwave.m9.rellich_hartree_closure.
+
+task:m9_84#uses@proof:hOneBornLSixFifthsConverges_of_recentered_localizedRellich.
+task:m9_84#uses@proof:hOneAttractiveNewtonInteraction_tendsto_of_recentered_localizedRellich.
+task:m9_84#requires@evidence:local_rellich_lone_nested_grids.
+task:m9_84#requires@evidence:recentered_uniform_tails.
+task:m9_84#requires@evidence:uniform_lthree_density_difference_bound.
+task:m9_84#produces@evidence:finite_grid_lsix_fifths_hartree_closure.
+task:m9_84#boundary@obligation:continuum_model_rellich_premises.
+
+QUERY remaining_boundary:
+FIND ?obligation WHERE task:m9_84#boundary@?obligation.
