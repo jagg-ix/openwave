@@ -30,9 +30,9 @@
   "passed": true,
   "repositories": {
     "openwave_base": "52bbc8ebfc748386145f55b53d1e662874d8844e",
-    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_base": "c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3",
     "physlib_branch": "agent/m9-criterion-reduction-spin-maxwell-thermal",
-    "physlib_head": "34e4ae551304dae31548efeec7969040b3059d58",
+    "physlib_head": "19ef639d0ab849f92fb462d5899817ac1a5c4161",
     "physlib_repository": "jagg-ix/entropic-physlib-private"
   },
   "schema": "openwave.m9.spin-statistics-closure.v1",
