@@ -17,8 +17,8 @@ M9 covers all 21 comparison criteria and now combines the stationary non-Gaussia
 | --- | --- | --- | --- |
 | `jagg-ix/openwave` | current `main` after merged PR #79 | `52bbc8ebfc748386145f55b53d1e662874d8844e` | merged simulation evidence through M9.80 |
 | `jagg-ix/openwave` | `agent/m9-reduce-partials-spin-maxwell-thermal` | current work branch | M9.81--M9.83 criterion closure and twenty-partial audit |
-| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82` | theorem inventory and formal base |
-| `jagg-ix/entropic-physlib-private` | `agent/m9-criterion-reduction-spin-maxwell-thermal` | `34e4ae551304dae31548efeec7969040b3059d58` | criterion bridge modules and audit |
+| `jagg-ix/entropic-physlib-private` | live `entropic-physlib-linear-full` | `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3` | theorem inventory and formal base |
+| `jagg-ix/entropic-physlib-private` | PR #18 / `agent/m9-criterion-reduction-spin-maxwell-thermal` | `19ef639d0ab849f92fb462d5899817ac1a5c4161` | criterion bridge modules and audit |
 | `jagg-ix/entropic-physlib-private` | active PR #16 | `83542cc13af0a966a072d90f2082c49785d20c55` | cubic--quintic weak/mild-flow composition |
 | `jagg-ix/entropic-physlib-private` | active PR #17 | `2cb1003ede54dc7d8487a8b397a1cacf15728feb` | Lean/ZIL evidence lifecycle |
 
