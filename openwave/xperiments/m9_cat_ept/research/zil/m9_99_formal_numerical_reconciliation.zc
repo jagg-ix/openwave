@@ -1,0 +1,115 @@
+MODULE openwave.m9.formal_numerical_reconciliation.
+
+model:m9_cat_ept#extends@task:m9_98_zil_runtime_upgrade.
+task:m9_99#contains@task:m9_99a_equation_contract.
+task:m9_99#contains@task:m9_99b_mass_operator_reconciliation.
+task:m9_99#contains@task:m9_99c_dirac_observable_reconciliation.
+task:m9_99#contains@task:m9_99d_evidence_authority.
+task:m9_99#contains@task:m9_99e_canonical_registration.
+
+formalization:current_physlib#repository@repository:jagg_ix_entropic_physlib_private.
+formalization:current_physlib#branch@branch:entropic_physlib_linear_full.
+formalization:current_physlib#proof_authority@authority:lean_kernel.
+
+formalization:current_target_interaction#contains@term:newton_hartree_attraction.
+formalization:current_target_interaction#contains@term:local_cubic_quintic_interaction.
+formalization:current_target_interaction#boundary@obligation:select_dimensionless_hartree_coupling.
+formalization:current_target_interaction#boundary@obligation:derive_single_coupled_action.
+
+numerical:legacy_stationary_equation#contains@term:local_cubic_quintic_interaction.
+numerical:legacy_stationary_equation#omits@term:newton_hartree_attraction.
+numerical:legacy_stationary_equation#uses@param:dispersion_0_65.
+numerical:legacy_pauli_dirac#uses@param:mass_1.
+result:legacy_mass_map#status@state:inconsistent.
+result:legacy_mass_map#reason@equation:D_equals_one_over_two_m_not_closed.
+
+numerical:legacy_matter_derivative#uses@symbol:exact_fourier_ik.
+numerical:legacy_maxwell_derivative#uses@symbol:centered_sin_kh_over_h.
+result:legacy_discrete_complex#status@state:inconsistent.
+result:legacy_discrete_complex#reason@obligation:one_shared_derivative_family.
+
+campaign:m9_99a#maps@formalization:current_target_interaction.
+campaign:m9_99a#maps@numerical:legacy_stationary_equation.
+campaign:m9_99a#establishes@result:formal_numerical_terms_machine_classified.
+result:formal_numerical_terms_machine_classified#includes@relation:formal_term_missing_numerically.
+result:formal_numerical_terms_machine_classified#includes@relation:parameter_mismatch.
+result:formal_numerical_terms_machine_classified#includes@relation:carrier_mismatch.
+result:formal_numerical_terms_machine_classified#includes@relation:observable_domain_mismatch.
+result:formal_numerical_terms_machine_classified#includes@relation:discrete_operator_mismatch.
+
+campaign:m9_99b#uses@engine:periodic_fourier_differential_complex.
+engine:periodic_fourier_differential_complex#uses@symbol:exact_fourier_ik.
+engine:periodic_fourier_differential_complex#provides@operator:gradient.
+engine:periodic_fourier_differential_complex#provides@operator:divergence.
+engine:periodic_fourier_differential_complex#provides@operator:curl.
+engine:periodic_fourier_differential_complex#provides@operator:laplacian.
+engine:periodic_fourier_differential_complex#provides@operator:helmholtz_projection.
+engine:periodic_fourier_differential_complex#provides@operator:poisson_inverse.
+engine:periodic_fourier_differential_complex#provides@operator:gauge_covariant_laplacian.
+engine:periodic_fourier_differential_complex#removes@mode:global_zero_only.
+engine:periodic_fourier_differential_complex#retains@mode:nyquist.
+
+campaign:m9_99b#enforces@equation:D_equals_one_over_two_m.
+campaign:m9_99b#establishes@result:schrodinger_pauli_mass_map_closed.
+campaign:m9_99b#establishes@result:one_shared_discrete_differential_complex.
+campaign:m9_99b#tests@control:hartree_coupling_sweep.
+control:hartree_coupling_sweep#includes@value:zero.
+control:hartree_coupling_sweep#includes@value:positive_small.
+control:hartree_coupling_sweep#does_not_select@parameter:physical_hartree_coupling.
+
+formalization:four_spinor_dirac#establishes@observable:alpha_velocity.
+formalization:four_spinor_dirac#boundary@obligation:foldy_wouthuysen_position_projection.
+formalization:rest_frame_tbmt#establishes@observable:rest_vertical_field_precession.
+formalization:rest_frame_tbmt#boundary@obligation:covariant_moving_packet_thomas_bmt.
+
+campaign:m9_99c#measures@observable:center_velocity_fit.
+campaign:m9_99c#measures@observable:alpha_velocity_expectation.
+campaign:m9_99c#compares@equation:d_center_dt_equals_alpha_expectation.
+campaign:m9_99c#retains@comparison:momentum_rate_vs_lorentz_force.
+campaign:m9_99c#demotes@comparison:center_acceleration_vs_force_per_norm.
+campaign:m9_99c#classifies@comparison:rest_frame_bmt_on_moving_packet_out_of_domain.
+
+result:legacy_center_mismatch#does_not_imply@result:lean_dirac_contradiction.
+result:legacy_rest_bmt_mismatch#does_not_imply@result:lean_tbmt_contradiction.
+result:m9_99_reconciliation#establishes@result:legacy_disagreement_explained_by_model_and_domain_mismatch.
+result:m9_99_reconciliation#boundary@obligation:select_dimensionless_hartree_coupling.
+result:m9_99_reconciliation#boundary@obligation:derive_single_coupled_action.
+result:m9_99_reconciliation#boundary@obligation:construct_charged_stationary_branch.
+result:m9_99_reconciliation#boundary@obligation:construct_foldy_wouthuysen_position_projection.
+result:m9_99_reconciliation#boundary@obligation:construct_covariant_packet_tbmt.
+result:m9_99_reconciliation#boundary@obligation:physical_calibration.
+
+criterion:magnetic_moment_spin#status@state:partial.
+criterion:electric_force#status@state:partial.
+criterion:magnetic_force#status@state:partial.
+model:m9_cat_ept#validated_count@value:7.
+model:m9_cat_ept#partial_count@value:13.
+model:m9_cat_ept#negative_count@value:1.
+
+RULE missing_formal_term_blocks_equation_identity:
+IF formalization:current_target_interaction#contains@?term AND numerical:legacy_stationary_equation#omits@?term
+THEN numerical:legacy_stationary_equation#status@state:not_current_formal_equation.
+
+RULE out_of_domain_result_is_not_contradiction:
+IF ?result#does_not_imply@?contradiction
+THEN ?contradiction#status@state:not_established.
+
+RULE open_reconciliation_boundary_preserves_partial:
+IF result:m9_99_reconciliation#boundary@?obligation
+THEN criterion:magnetic_moment_spin#status@state:partial.
+
+RULE no_reconciliation_promotion:
+IF result:m9_99_reconciliation#boundary@?obligation
+THEN criterion:electric_force#status@state:partial.
+
+QUERY equation_mismatches:
+FIND ?relation WHERE result:formal_numerical_terms_machine_classified#includes@?relation.
+
+QUERY reconciled_operators:
+FIND ?operator WHERE engine:periodic_fourier_differential_complex#provides@?operator.
+
+QUERY remaining_reconciliation_obligations:
+FIND ?obligation WHERE result:m9_99_reconciliation#boundary@?obligation.
+
+QUERY retained_partial_rows:
+FIND ?criterion WHERE ?criterion#status@state:partial.
