@@ -1,0 +1,40 @@
+{
+  "schema": "openwave.m9.branch-identity-certificate.v1",
+  "task": "M9.86",
+  "reference": {
+    "points": 32,
+    "center": [-1.0096308233897848e-9, -1.0096296511879147e-9, -1.0096280053848314e-9],
+    "fingerprint": "3e171c5b4ecd2b79e858b634d4a1b7cc796b20711aa1ef757ba33967f609a1c0",
+    "features": {"mass": 0.9999999999999997, "first_moment": 1.1127189040711674, "second_moment": 1.4776712345467142, "fourth_moment": 4.0171843472409074, "quartic_integral": 0.06699637708126976, "sextic_integral": 0.006546661073589708, "kinetic_energy": 1.0270953465858026, "local_interaction": -1.5938222945060234, "energy": -0.5667269479202208}
+  },
+  "nested_grid_rows": [
+    {"points": 20, "h1_distance_to_reference": 0.13155926178675167, "energy_gap_to_reference": 0.010832941733543988, "shell_mass_lone_distance": 0.03658860008218657},
+    {"points": 24, "h1_distance_to_reference": 0.10224502088614482, "energy_gap_to_reference": 0.006091420437307926, "shell_mass_lone_distance": 0.02486574196007125},
+    {"points": 28, "h1_distance_to_reference": 0.04460395727019965, "energy_gap_to_reference": 0.0012030210342051095, "shell_mass_lone_distance": 0.01155766092931911},
+    {"points": 32, "h1_distance_to_reference": 1.0236610112449876e-27, "energy_gap_to_reference": 0.0, "shell_mass_lone_distance": 0.0}
+  ],
+  "seed_rows": [
+    {"seed": "super_gaussian", "h1_distance_to_reference": 1.0236610112449876e-27, "energy_gap_to_reference": 0.0},
+    {"seed": "anisotropic", "h1_distance_to_reference": 0.010927400143739382, "energy_gap_to_reference": 2.9067465221022104e-5},
+    {"seed": "shell", "h1_distance_to_reference": 0.002106278298501863, "energy_gap_to_reference": -5.261630975361697e-7}
+  ],
+  "acceptance": {
+    "rellich_interaction_no_loss_chain_passes": true,
+    "nested_grid_h1_distance_improves": true,
+    "independent_seeds_return_to_one_h1_tube": true,
+    "independent_seed_energy_spread_is_small": true,
+    "reference_feature_fingerprint_is_frozen": true,
+    "formal_identified_branch_interface_is_named": true,
+    "analytic_identity_and_external_comparison_remain_fail_closed": true
+  },
+  "passed": true,
+  "decision": {
+    "reproducible_finite_grid_branch_certificate_constructed": true,
+    "nested_grid_and_seed_candidate_identity_qualified": true,
+    "analytic_minimizing_orbit_identified_in_lean": false,
+    "physical_particle_identity_fixed": false,
+    "independent_calibration_registered": false,
+    "external_comparison_admissible": false,
+    "m9_86_scoped_target_closed": true
+  }
+}
