@@ -27,53 +27,22 @@
   "passed": true,
   "repositories": {
     "openwave_base": "52bbc8ebfc748386145f55b53d1e662874d8844e",
-    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_base": "c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3",
     "physlib_branch": "agent/m9-criterion-reduction-spin-maxwell-thermal",
-    "physlib_head": "34e4ae551304dae31548efeec7969040b3059d58",
+    "physlib_head": "19ef639d0ab849f92fb462d5899817ac1a5c4161",
     "physlib_repository": "jagg-ix/entropic-physlib-private"
   },
   "schema": "openwave.m9.thermal-sector-closure.v1",
   "task": "M9.83",
   "thermal_controls": {
-    "dissipation_identity": {
-      "absolute_error": 2.829139700288863e-12,
-      "expected_derivative": -0.08747460480818173,
-      "observed_derivative": -0.08747460481101087
-    },
+    "dissipation_identity": {"absolute_error": 2.829139700288863e-12, "expected_derivative": -0.08747460480818173, "observed_derivative": -0.08747460481101087},
     "entropy_increase": 0.032897566968185465,
-    "final": {
-      "entropy": 1.8360134378892363,
-      "minimum_temperature": 0.9142209682414633,
-      "mode1_amplitude": 0.043154468689781136,
-      "time": 4.0,
-      "total_heat": 6.283185307179586,
-      "variance": 0.011701710603954269
-    },
-    "initial": {
-      "entropy": 1.8031158709210509,
-      "minimum_temperature": 0.7065147115216899,
-      "mode1_amplitude": 0.175,
-      "time": 0.0,
-      "total_heat": 6.283185307179586,
-      "variance": 0.22776546738526002
-    },
-    "mode_decay": {
-      "absolute_error": 0.0,
-      "expected_ratio": 0.5515625658678298,
-      "observed_ratio": 0.5515625658678298
-    },
-    "resolution": {
-      "final_entropy": [1.836013437889236, 1.8360134378892363, 1.8360134378892363, 1.8360134378892363],
-      "maximum_heat_error": 1.7763568394002505e-15,
-      "points": [64, 128, 256, 512],
-      "successive_entropy_differences": [2.220446049250313e-16, 0.0, 0.0]
-    },
-    "semigroup": {
-      "maximum_semigroup_error": 2.220446049250313e-16
-    },
+    "final": {"entropy": 1.8360134378892363, "minimum_temperature": 0.9142209682414633, "mode1_amplitude": 0.043154468689781136, "time": 4.0, "total_heat": 6.283185307179586, "variance": 0.011701710603954269},
+    "initial": {"entropy": 1.8031158709210509, "minimum_temperature": 0.7065147115216899, "mode1_amplitude": 0.175, "time": 0.0, "total_heat": 6.283185307179586, "variance": 0.22776546738526002},
+    "mode_decay": {"absolute_error": 0.0, "expected_ratio": 0.5515625658678298, "observed_ratio": 0.5515625658678298},
+    "resolution": {"final_entropy": [1.836013437889236, 1.8360134378892363, 1.8360134378892363, 1.8360134378892363], "maximum_heat_error": 1.7763568394002505e-15, "points": [64, 128, 256, 512], "successive_entropy_differences": [2.220446049250313e-16, 0.0, 0.0]},
+    "semigroup": {"maximum_semigroup_error": 2.220446049250313e-16},
     "variance_decrease": 0.21606375678130574,
-    "zero_diffusivity": {
-      "maximum_field_change": 4.440892098500626e-16
-    }
+    "zero_diffusivity": {"maximum_field_change": 4.440892098500626e-16}
   }
 }
