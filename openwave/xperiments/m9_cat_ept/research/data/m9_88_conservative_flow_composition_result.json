@@ -1,0 +1,35 @@
+{
+  "schema": "openwave.m9.conservative-flow-composition.v1",
+  "task": "M9.88",
+  "summary": {
+    "maximum_mass_error": 9.01057006785777e-13,
+    "maximum_finest_energy_drift": 4.7222098786825484e-08,
+    "maximum_phase_aligned_h1_distance": 0.222280148728642,
+    "maximum_first_moment_excursion": 0.01954968029132731,
+    "maximum_tail_fraction": 0.005173085171526696
+  },
+  "energy_refinement": {
+    "chirp": [7.080788793079051e-07, 1.7669848140222655e-07, 4.415438725757781e-08],
+    "radial": [7.541534888799717e-07, 1.888177407760594e-07, 4.7222098786825484e-08],
+    "quadrupole": [1.7808508223637887e-08, 4.051883939482082e-09, 9.870484429796988e-10],
+    "noise": [2.4144006038895327e-07, 5.98060156953295e-08, 1.4916782697937947e-08]
+  },
+  "acceptance": {
+    "formal_conservative_and_stability_constructors_are_named": true,
+    "mass_is_preserved_for_every_perturbation_and_refinement": true,
+    "energy_drift_decreases_under_every_refinement": true,
+    "energy_drift_has_second_order_scaling": true,
+    "all_perturbations_remain_in_a_bounded_h1_tube": true,
+    "recentered_localization_remains_bounded": true,
+    "tail_mass_remains_bounded": true,
+    "certificate_manifest_contains_all_live_fields": true
+  },
+  "passed": true,
+  "decision": {
+    "global_spectral_conservative_flow_qualified": true,
+    "all_global_conservative_certificate_fields_constructed": true,
+    "compact_uniformly_stable_orbit_constructor_available": true,
+    "particle_escape_under_declared_perturbations_observed": false,
+    "physical_particle_calibrated": false
+  }
+}
