@@ -1,42 +1,52 @@
-# CAT/EPT status after M9.80
+# CAT/EPT status after M9.83
 
 ## OpenWave platform validation
 
 | Status | Count |
 | --- | ---: |
-| Fully validated in-platform | 0 |
-| Partial / bounded controls | 20 |
+| Fully validated in-platform | 3 |
+| Partial / bounded controls | 17 |
 | Honest negative | 1 |
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The sole criterion-level negative remains the lepton-mass hierarchy. Particle stability is materially stronger but remains partial. M9.78 adds a contracting finite-Galerkin Duhamel fixed point; M9.79 adds dynamically recentered localization and refined conservation ledgers; M9.80 adds finite-grid constrained-curvature and orbit-return evidence.
+The validated rows are `spin_half_statistics`, `em_waves`, and `thermal_field`. The sole criterion-level negative remains the lepton-mass hierarchy.
 
-## Formal and evidence interfaces
+## Why the count changed
 
-The live PhysLib base is `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`.
+A deep grep across `entropic-physlib-linear-full`, embedded ZIL declarations, OpenWave executable gates, and the 21-row conformance profile showed that three rows were underreported:
 
-- Active PR #16 at `83542cc13af0a966a072d90f2082c49785d20c55` supplies cubic--quintic compactness and corrected weak/mild-flow composition.
-- Active PR #17 at `2cb1003ede54dc7d8487a8b397a1cacf15728feb` supplies Lean/ZIL lifecycle records, resolved-omission edges, and structured open obligations.
-- The concrete continuum energy-critical flow, continuum recentered localization, local-interaction convergence, global conservation, and analytic M9.69 identity are still open.
+- PhysLib already had the fermion exchange sign; M9.81 adds the explicit antisymmetrized two-state and Pauli-exclusion bridge to the existing double-cover control.
+- PhysLib already constructed a smooth harmonic source-free Maxwell solution and proved it is a plane wave; M9.82 combines this with exact spectral Maxwell controls.
+- OpenWave already had a complete dimensionless heat/entropy/dissipation campaign; M9.83 adds the finite spectral heat-flow and zero-mode formal bridge.
 
-## Latest decisions
+## Retained boundaries
 
-- **M9.78:** scoped finite-Galerkin target closed. Maximum Picard ratio is `0.02277`; the Duhamel residual is below `3e-16`; Duhamel/Strang differences halve from `3.161e-4` to `7.903e-5`.
-- **M9.79:** scoped finite-grid target closed. Centered moment excursion stays below `0.01109`, tail below `1.411e-4`, mass error below `2.8e-13`, and energy drift decreases by approximately four per time-step halving.
-- **M9.80:** scoped finite-grid identification target closed. Radial, quadrupole, and shell directions have positive second variations and six relaxed states return within phase-aligned `H¹` distance `0.00468`. External comparison remains blocked.
+The promotions do not establish:
 
-## Prediction ledger
+- a dynamical fermionic assignment or physical electron identity;
+- photon quantization, full coupled CAT/EPT emergence of electromagnetism, or calibrated units;
+- microscopic CAT/EPT thermodynamics, material transport coefficients, quantum thermalization, or relativistic heat conduction.
 
-| Prediction state | Count |
-| --- | ---: |
-| Frozen/preregistered records | 2 |
-| Internally tested | 2 |
-| Internally passed | 1 |
-| Internally falsified | 1 |
-| Externally tested | 0 |
-| Physically validated | 0 |
+## Remaining seventeen partials
+
+Every remaining partial has a named status-changing blocker. The dominant classes are:
+
+- physical identity and independent calibration;
+- full interacting gauge or constituent dynamics;
+- continuum well-posedness and conservation;
+- analytic branch identification;
+- external datasets and out-of-sample prediction.
+
+Further repetitions of existing finite-grid or algebraic controls should not change those statuses.
+
+## Formal dependencies
+
+- Live PhysLib base: `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`.
+- Criterion bridge branch: `agent/m9-criterion-reduction-spin-maxwell-thermal` at `34e4ae551304dae31548efeec7969040b3059d58`.
+- Active PR #16: cubic--quintic compactness and corrected weak/mild-flow composition.
+- Active PR #17: Lean/ZIL evidence lifecycle and omission reconciliation.
 
 ## Current theory classification
 
-CAT/EPT remains an incomplete physical theory with a substantial formal and computational program. M9.78--M9.80 close finite-Galerkin and evidence-governance targets only. They do not establish continuum energy-critical well-posedness, continuum conservation, analytic branch identity, independent calibration, external agreement, or an observed particle.
+CAT/EPT remains an incomplete physical theory. The status reduction is a correction to the platform matrix, not a claim of external or experimental validation. The next status-changing targets remain continuum Duhamel well-posedness, continuum localization/conservation, analytic particle identity, independent calibration, and external prediction tests.
