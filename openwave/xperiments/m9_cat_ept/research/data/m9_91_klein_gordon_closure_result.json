@@ -1,0 +1,46 @@
+{
+  "schema": "openwave.m9.klein-gordon-closure.v1",
+  "task": "M9.91",
+  "repositories": {
+    "openwave_base": "6773431e37a08efce2d9d9b1ec53ca2b953080dc",
+    "physlib_base": "3923d802339c957066fcccd579362f739775797a",
+    "physlib_parent_head": "128bebd375cd895af1431444974a7a591c872a31",
+    "physlib_criterion_head": "e192104955fc516f1ba267f8653f0dcf8d18ab51"
+  },
+  "spatial": {
+    "energy_drift": 4.440892098500626e-16,
+    "massless_bridge_error": 2.220446049250313e-16,
+    "expected_frequency": 3.0805843601498726,
+    "measured_frequency": 3.080584349258111,
+    "dispersion_relative_error": 3.5356154681736436e-09
+  },
+  "finite_modes": {
+    "masses": [0.0, 0.3, 0.7, 1.2],
+    "modes": [1, 3, 5],
+    "maximum_dispersion_error": 3.552713678800501e-15,
+    "maximum_group_error": 8.881784197001252e-16,
+    "maximum_reverse_error": 2.220446049250313e-16,
+    "maximum_energy_error": 3.552713678800501e-15,
+    "zero_mode_group_error": 0.0
+  },
+  "acceptance": {
+    "shared_spatial_wave_campaign_passes": true,
+    "massive_spatial_energy_is_conserved": true,
+    "massive_dispersion_is_measured": true,
+    "massless_limit_matches_wave_sector": true,
+    "finite_modes_obey_exact_dispersion": true,
+    "finite_mode_group_law_closes": true,
+    "finite_modes_are_reversible": true,
+    "finite_mode_energy_is_conserved": true,
+    "formal_klein_gordon_witnesses_are_named": true,
+    "interacting_scalar_particle_is_not_inherited": true
+  },
+  "passed": true,
+  "decision": {
+    "klein_gordon_validated_in_platform": true,
+    "massive_free_spectral_equation_closed": true,
+    "massless_limit_closed": true,
+    "interacting_scalar_field_derived": false,
+    "physical_scalar_mass_calibrated": false
+  }
+}
