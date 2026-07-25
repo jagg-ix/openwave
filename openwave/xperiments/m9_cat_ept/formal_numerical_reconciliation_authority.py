@@ -10,7 +10,7 @@ from .dirac_ehrenfest_diagnostics import run_dirac_ehrenfest_diagnostics
 from .formal_numerical_equation_contract_current import (
     run_formal_numerical_equation_contract,
 )
-from .reconciled_gauge_spinor_stationary import (
+from .reconciled_gauge_spinor_stationary_current import (
     run_reconciled_gauge_spinor_campaign,
 )
 
