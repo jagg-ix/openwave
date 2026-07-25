@@ -1,15 +1,15 @@
 # CAT/EPT formal interface status
 
-This matrix records live PhysLib baseline `bd17dacbb5118e89eb58acacf11c1da8f9a9cc82`, criterion-bridge branch `agent/m9-criterion-reduction-spin-maxwell-thermal` at `34e4ae551304dae31548efeec7969040b3059d58`, active PR #16 at `83542cc13af0a966a072d90f2082c49785d20c55`, and active PR #17 at `2cb1003ede54dc7d8487a8b397a1cacf15728feb`. Formal theorem status remains separate from OpenWave platform and physical validation.
+This matrix records live PhysLib baseline `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3`, criterion-bridge PR #18 at `19ef639d0ab849f92fb462d5899817ac1a5c4161`, active PR #16 at `83542cc13af0a966a072d90f2082c49785d20c55`, and active PR #17 at `2cb1003ede54dc7d8487a8b397a1cacf15728feb`. Formal theorem status remains separate from OpenWave platform and physical validation.
 
 | Interface | Status | Boundary |
 | --- | --- | --- |
 | Fermion-fermion exchange phase `-1` | directly proved on live base | field-statistics assignment is a declared sector |
-| Two-state antisymmetry and identical-state exclusion | packaged on criterion bridge branch | does not dynamically assign a specific CAT/EPT excitation as fermionic |
+| Two-state antisymmetry and identical-state exclusion | packaged in PR #18 | does not dynamically assign a specific CAT/EPT excitation as fermionic |
 | Smooth harmonic source-free Maxwell solution | directly proved on live base | free field, not coupled emergence or photon quantization |
-| Harmonic Maxwell solution is a plane wave | directly proved on live base | no empirical unit calibration |
-| Finite spectral heat multiplier and semigroup | packaged on criterion bridge branch | finite spectral carrier, not microscopic thermodynamics |
-| Spectral zero-mode heat conservation and zero-diffusivity limit | packaged on criterion bridge branch | no material-specific transport calibration |
+| Harmonic Maxwell solution is a plane wave | directly proved on live base and packaged in PR #18 | no empirical unit calibration |
+| Finite spectral heat multiplier and semigroup | packaged in PR #18 | finite spectral carrier, not microscopic thermodynamics |
+| Spectral zero-mode heat conservation and zero-diffusivity limit | packaged in PR #18 | no material-specific transport calibration |
 | Complete continuum `H¹(ℝ³)` carrier and weak compactness | directly proved | norm/no-loss comes from target interaction closure |
 | Actual Born probability and first-moment compactness | directly proved | recentered first-moment bound remains target-specific |
 | Hartree convergence from `L^(6/5)` Born convergence | directly proved | local cubic--quintic interaction convergence remains separate |
