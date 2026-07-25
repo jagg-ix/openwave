@@ -1,0 +1,38 @@
+MODULE openwave.m9.minimizing_orbit_identification.
+
+source:openwave_main_c3cdd572#kind@entity:repository_revision.
+source:physlib_mild_flow_pr16_83542cc1#kind@entity:formal_interface.
+source:physlib_evidence_pr17_2cb1003e#kind@entity:evidence_registry.
+
+claim:finite_grid_minimizing_orbit_identification#kind@entity:computational_result.
+claim:finite_grid_minimizing_orbit_identification#supported_by@artifact:m9_80_minimizing_orbit_identification_result.
+claim:finite_grid_minimizing_orbit_identification#status@status:qualified.
+
+claim:m9_71_frozen_mode_record_preserved#kind@entity:evidence_record.
+claim:m9_71_frozen_mode_record_preserved#supported_by@prediction:CAT_EPT_M9_71_STATIONARY_BRANCH_RADIAL_MODE_v1.
+claim:m9_71_frozen_mode_record_preserved#status@status:preserved.
+
+claim:external_comparison_fail_closed#kind@entity:governance_result.
+claim:external_comparison_fail_closed#requires@obligation:analytic_minimizing_orbit_identification.
+claim:external_comparison_fail_closed#requires@obligation:physical_particle_identity.
+claim:external_comparison_fail_closed#requires@obligation:independent_mass_clock_calibration.
+claim:external_comparison_fail_closed#requires@obligation:registered_external_dataset.
+claim:external_comparison_fail_closed#status@status:blocked.
+
+obligation:analytic_minimizing_orbit_identification#kind@entity:obligation.
+obligation:analytic_minimizing_orbit_identification#state@state:open.
+obligation:physical_particle_identity#kind@entity:obligation.
+obligation:physical_particle_identity#state@state:open.
+obligation:independent_mass_clock_calibration#kind@entity:obligation.
+obligation:independent_mass_clock_calibration#state@state:open.
+obligation:registered_external_dataset#kind@entity:obligation.
+obligation:registered_external_dataset#state@state:open.
+
+QUERY qualified_results:
+FIND ?claim WHERE ?claim#status@status:qualified.
+
+QUERY blocked_promotions:
+FIND ?claim ?requirement WHERE ?claim#status@status:blocked AND ?claim#requires@?requirement.
+
+QUERY remaining_obligations:
+FIND ?obligation WHERE ?obligation#state@state:open.
