@@ -1,0 +1,76 @@
+{
+  "acceptance": {
+    "all_declared_deformations_raise_energy": true,
+    "all_declared_second_variations_are_positive": true,
+    "external_comparison_is_fail_closed_until_prerequisites_exist": true,
+    "frozen_radial_record_is_unchanged": true,
+    "imaginary_time_relaxation_returns_to_one_energy_tube": true,
+    "imaginary_time_relaxation_returns_to_one_h1_tube": true,
+    "no_external_or_physical_validation_is_claimed": true,
+    "phase_and_translation_zero_modes_are_respected": true
+  },
+  "config": {
+    "deformation_strength": 0.02,
+    "directions": ["radial", "quadrupole", "shell"],
+    "half_width": 8.0,
+    "imaginary_dt": 0.0005,
+    "points": 20,
+    "relaxation_iterations": 2000,
+    "stationary_iterations": 6000
+  },
+  "decision": {
+    "analytic_minimizing_orbit_identified_in_lean": false,
+    "external_experimental_test_performed": false,
+    "external_physical_comparison_admissible": false,
+    "finite_grid_minimizing_orbit_identification_qualified": true,
+    "m9_80_corrected_scoped_target_closed": true,
+    "physical_prediction_validated": false
+  },
+  "directional_curvature": [
+    {"direction": "radial", "epsilon": 0.02, "minus_energy_gap": 0.0012120849572234693, "plus_energy_gap": 0.0011202208195196794, "symmetric_second_variation": 5.830764441857594},
+    {"direction": "quadrupole", "epsilon": 0.02, "minus_energy_gap": 0.00037035553249498143, "plus_energy_gap": 0.00037035553249509245, "symmetric_second_variation": 1.8517776624749072},
+    {"direction": "shell", "epsilon": 0.02, "minus_energy_gap": 0.0007563744585201704, "plus_energy_gap": 0.0007009254053016445, "symmetric_second_variation": 3.643249659554537}
+  ],
+  "external_testability": {
+    "comparison_admissible": false,
+    "comparison_performed": false,
+    "prerequisites": {
+      "analytic_minimizing_orbit_identified_in_lean": false,
+      "external_dataset_registered": false,
+      "independent_mass_clock_calibration": false,
+      "no_refit_protocol_frozen": true,
+      "physical_particle_identity_fixed": false
+    },
+    "reason": "the immutable dimensionless mode cannot be promoted to a physical comparison before branch identity and calibration are fixed independently"
+  },
+  "frozen_external_protocol": {
+    "dimensionless_ratio": 1.0743568358247257,
+    "fingerprint": "e83aa3bd8b5daf1a0b7bfdefc84277a70f02ecb920c0820326ba5b0e5c539236",
+    "prediction_id": "CAT-EPT-M9.71-STATIONARY-BRANCH-RADIAL-MODE-v1",
+    "relative_tolerance": 0.05
+  },
+  "passed": true,
+  "reference_energy": -0.5634751920882408,
+  "relaxation_rows": [
+    {"direction": "radial", "initial_energy_gap": 0.0012120849572234693, "relaxed_energy_gap": 1.1598356579378688e-05, "relaxed_phase_aligned_h1_distance": 0.003019029610744345, "sign": -1},
+    {"direction": "radial", "initial_energy_gap": 0.0011202208195196794, "relaxed_energy_gap": 9.36582229904559e-06, "relaxed_phase_aligned_h1_distance": 0.004414751560487938, "sign": 1},
+    {"direction": "quadrupole", "initial_energy_gap": 0.00037035553249498143, "relaxed_energy_gap": 8.646333852002641e-06, "relaxed_phase_aligned_h1_distance": 0.004672047674838216, "sign": -1},
+    {"direction": "quadrupole", "initial_energy_gap": 0.00037035553249509245, "relaxed_energy_gap": 8.646333853112864e-06, "relaxed_phase_aligned_h1_distance": 0.004672047674833652, "sign": 1},
+    {"direction": "shell", "initial_energy_gap": 0.0007563744585201704, "relaxed_energy_gap": 1.0181566174605194e-06, "relaxed_phase_aligned_h1_distance": 0.0008106385343170487, "sign": -1},
+    {"direction": "shell", "initial_energy_gap": 0.0007009254053016445, "relaxed_energy_gap": 2.6745636216851665e-07, "relaxed_phase_aligned_h1_distance": 0.0020724588502846445, "sign": 1}
+  ],
+  "repositories": {
+    "openwave_base": "c3cdd5725e9b5455cf3f2fb35164e79cab1265d8",
+    "physlib_base": "bd17dacbb5118e89eb58acacf11c1da8f9a9cc82",
+    "physlib_evidence_registry_head": "2cb1003ede54dc7d8487a8b397a1cacf15728feb",
+    "physlib_mild_flow_head": "83542cc13af0a966a072d90f2082c49785d20c55"
+  },
+  "schema": "openwave.m9.minimizing-orbit-identification.v1",
+  "symmetry_controls": {
+    "phase_aligned_h1_distance": 3.7117063314451125e-16,
+    "phase_energy_error": 1.1102230246251565e-16,
+    "recentered_translation_h1_distance": 0.0,
+    "translation_energy_error": 4.440892098500626e-16
+  },
+  "task": "M9.80"
+}
