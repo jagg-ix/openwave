@@ -1,45 +1,33 @@
-# CAT/EPT status after M9.86
+# CAT/EPT status after M9.89
 
 ## OpenWave platform validation
 
 | Status | Count |
 | --- | ---: |
-| Fully validated in-platform | 3 |
-| Partial / bounded controls | 17 |
+| Fully validated in-platform | 4 |
+| Partial / bounded controls | 16 |
 | Honest negative | 1 |
 | Not yet addressed | 0 |
 | Total explicit criteria | 21 |
 
-The validated rows remain `spin_half_statistics`, `em_waves`, and `thermal_field`. The sole criterion-level negative remains the lepton-mass hierarchy.
+The validated rows are `particle_stability`, `spin_half_statistics`, `em_waves`, and `thermal_field`. The sole criterion-level negative remains the lepton-mass hierarchy.
 
-## New particle-stability closure
+## Re-evaluation of formerly unavailable infrastructure
 
-The live PhysLib base now proves the missing abstract bridge from local Rellich convergence, recentered uniform tails, and a uniform `L3` density-difference bound to global `L1`, strong `L^(6/5)`, and Hartree convergence.
+The live PhysLib base at `829abc1c3a6c947de8aa1cab61194c3d83aa5c4e` already contains the complete H1 carrier, free unitary Schrödinger group, nonlinear continuum semiflows, Rellich/Hartree/no-loss chain, global conservative target certificate, compact minimizing orbit, uniform stability theorem, and identified-branch structure.
 
-OpenWave M9.84--M9.86 execute the corresponding finite-grid evidence chain:
+The adapter branch adds named constructors rather than new foundations:
 
-- **M9.84:** adjacent-grid `L^(6/5)` error decreases `0.01854 → 0.00621 → 0.00298`; periodic Hartree error decreases `0.00514 → 0.00329 → 0.000644`; the farthest recentered tail is below `6e-6`.
-- **M9.85:** target-interaction error decreases `0.04461 → 0.02497 → 0.000727`; nested `H1` distance decreases `0.1865 → 0.1060 → 0.0446`; energy-split error reaches `0.00120` with normalization retained.
-- **M9.86:** nested-grid distance to the frozen `32³` reference decreases `0.1316 → 0.1022 → 0.0446`; unrelated seeds remain within `0.01093` in `H1`; the reference feature fingerprint is frozen.
+- exact free H1 unitary-group certificate;
+- construction of an identified branch from any actual minimizer;
+- existence of an identified branch inside the compact uniformly stable minimizing orbit of every global conservative certificate.
 
-## Retained boundaries
+## M9.87--M9.89 decisions
 
-These results do not establish:
+- **M9.87:** exact free/local group laws, reversibility, mass preservation, and split-flow composition close at roundoff. The previous `flow unavailable` classification is rejected.
+- **M9.88:** all four perturbation families preserve mass below `9.1e-13`; energy drift is second order; localization and the H1 tube remain bounded; no Derrick-type escape is observed.
+- **M9.89:** M9.69 remains within phase-aligned H1 distance `0.00161` of its computed standing-wave orbit on three grids while mass and energy remain closed.
 
-- the continuum energy-critical Duhamel/Strichartz flow;
-- model-level local Rellich and recentered-tail hypotheses in Lean;
-- continuum local cubic--quintic interaction convergence;
-- global continuum mass and energy conservation;
-- analytic identification of M9.69 with the minimizing orbit;
-- physical particle identity, independent calibration, or external agreement.
+## Boundary
 
-## Formal dependencies
-
-- Live PhysLib base: `c7283b7fc1ec9ef8acbfd6ed292b34e7ba8d5dd3`.
-- Criterion bridge PR #18: `19ef639d0ab849f92fb462d5899817ac1a5c4161`.
-- Active PR #16: cubic--quintic compactness and corrected weak/mild-flow composition.
-- Active PR #17: Lean/ZIL evidence lifecycle and omission reconciliation.
-
-## Current theory classification
-
-CAT/EPT remains an incomplete physical theory. M9.84--M9.86 replace an opaque compactness gap with explicit, measured model premises and a reproducible candidate-branch certificate. They do not change the criterion counts or constitute experimental validation.
+Particle stability is validated only inside the platform rubric. The result does not establish physical particle identity, calibrated mass or charge, abundance, external agreement, or universal global well-posedness for arbitrary nonlinear continuum models.
