@@ -145,6 +145,27 @@ def field_mass(field: ComplexField, spacing: float) -> float:
     return float(np.sum(np.abs(field) ** 2) * spacing**3)
 
 
+def wrap_periodic_coordinate(value: float, length: float) -> float:
+    """Return one coordinate in the canonical periodic interval ``[-L/2, L/2)``."""
+    if length <= 0.0:
+        raise ValueError("positive periodic length required")
+    return float((value + 0.5 * length) % length - 0.5 * length)
+
+
+def periodic_displacement(
+    coordinates: NDArray[np.float64],
+    center: float,
+    length: float,
+) -> NDArray[np.float64]:
+    """Return minimum-image displacements from ``center`` on a periodic axis."""
+    if length <= 0.0:
+        raise ValueError("positive periodic length required")
+    return np.asarray(
+        (coordinates - center + 0.5 * length) % length - 0.5 * length,
+        dtype=np.float64,
+    )
+
+
 def wave_number_squared(
     shape: tuple[int, int, int],
     spacing: float,
@@ -308,12 +329,15 @@ class CatEptParticleModel:
         state: CatEptParticleState,
         offsets: tuple[int, int, int],
     ) -> CatEptParticleState:
-        if len(offsets) != 3:
+        if len(offsets) != 3 or any(
+            not isinstance(offset, (int, np.integer)) for offset in offsets
+        ):
             raise ValueError("three integer cell offsets are required")
         translated = np.roll(state.field, shift=offsets, axis=(0, 1, 2))
+        lengths = tuple(points * state.spacing for points in state.field.shape)
         center = tuple(
-            value + offset * state.spacing
-            for value, offset in zip(state.center, offsets)
+            wrap_periodic_coordinate(value + int(offset) * state.spacing, length)
+            for value, offset, length in zip(state.center, offsets, lengths)
         )
         return replace(
             state,
@@ -351,9 +375,10 @@ class CatEptParticleModel:
             for points in shape
         ]
         global_x, global_y, global_z = np.meshgrid(*axes, indexing="ij")
-        relative_x = global_x - state.center[0]
-        relative_y = global_y - state.center[1]
-        relative_z = global_z - state.center[2]
+        lengths = tuple(points * state.spacing for points in shape)
+        relative_x = periodic_displacement(global_x, state.center[0], lengths[0])
+        relative_y = periodic_displacement(global_y, state.center[1], lengths[1])
+        relative_z = periodic_displacement(global_z, state.center[2], lengths[2])
         radius_sq = relative_x**2 + relative_y**2 + relative_z**2
         density = np.abs(state.field) ** 2
         total_mass = field_mass(state.field, state.spacing)
@@ -364,12 +389,12 @@ class CatEptParticleModel:
                 / max(total_mass, 1e-30)
             )
         )
-        half_widths = [0.5 * points * state.spacing for points in shape]
+        half_widths = [0.5 * length for length in lengths]
         boundary = np.maximum.reduce(
             (
-                np.abs(global_x) / half_widths[0],
-                np.abs(global_y) / half_widths[1],
-                np.abs(global_z) / half_widths[2],
+                np.abs(relative_x) / half_widths[0],
+                np.abs(relative_y) / half_widths[1],
+                np.abs(relative_z) / half_widths[2],
             )
         ) > 0.75
         boundary_fraction = float(
@@ -486,23 +511,37 @@ def run_particle_kernel_study() -> dict[str, Any]:
         model.spec.action.alpha,
         model.spec.action.beta,
     )
+    translated = model.translate_cells(state, (3, -2, 1))
+    base_observables = model.measure(state)
+    translated_observables = model.measure(translated)
     evolved = model.evolve(state, duration=0.01, time_step=0.002)
     identity = model.evaluate_identity(evolved)
     free_error = float(np.linalg.norm(free_reverse - field) / np.linalg.norm(field))
     local_error = float(np.linalg.norm(local_reverse - field) / np.linalg.norm(field))
     mass_error = abs(field_mass(evolved.field, spacing) - field_mass(field, spacing))
+    translation_radius_error = abs(
+        translated_observables["rms_radius"] - base_observables["rms_radius"]
+    )
+    translation_boundary_error = abs(
+        translated_observables["boundary_fraction"]
+        - base_observables["boundary_fraction"]
+    )
     acceptance = {
         "formal_contract_passes": validate_contract()["passed"],
         "repository_action_assumptions_are_explicit": bool(model.spec.action.assumptions),
         "free_subflow_is_reversible": free_error < 2e-14,
         "local_subflow_is_reversible": local_error < 2e-14,
         "split_flow_preserves_mass": mass_error < 2e-12,
+        "periodic_translation_preserves_radius": translation_radius_error < 2e-14,
+        "periodic_translation_preserves_boundary_fraction": (
+            translation_boundary_error < 2e-14
+        ),
         "state_manifest_is_replay_identifiable": len(evolved.state_fingerprint) == 64,
         "physical_identity_is_blocked_by_default": not identity["passed"]
         and identity["decision"]["default_identity_is_blocked"],
     }
     return {
-        "schema": "openwave.m9.cat-ept-particle-kernel-result.v1",
+        "schema": "openwave.m9.cat-ept-particle-kernel-result.v2",
         "task": "M9.93b",
         "model": asdict(model.spec),
         "control_state": evolved.to_manifest(),
@@ -510,12 +549,15 @@ def run_particle_kernel_study() -> dict[str, Any]:
             "free_reverse": free_error,
             "local_reverse": local_error,
             "mass": mass_error,
+            "translation_radius": translation_radius_error,
+            "translation_boundary_fraction": translation_boundary_error,
         },
         "identity_certificate": identity,
         "acceptance": acceptance,
         "passed": all(acceptance.values()),
         "decision": {
             "reusable_particle_kernel_available": True,
+            "periodic_observables_are_translation_covariant": True,
             "localized_branch_is_a_physical_particle": False,
             "charged_stationary_branch_constructed": False,
             "physical_calibration_complete": False,
