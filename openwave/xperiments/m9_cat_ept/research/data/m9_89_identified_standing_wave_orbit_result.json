@@ -1,0 +1,60 @@
+{
+  "schema": "openwave.m9.identified-standing-wave-orbit.v1",
+  "task": "M9.89",
+  "identity_certificate_fingerprint": "3e171c5b4ecd2b79e858b634d4a1b7cc796b20711aa1ef757ba33967f609a1c0",
+  "rows": [
+    {
+      "points": 20,
+      "dt": 0.002,
+      "steps": 500,
+      "chemical_potential": -1.3162196161499018,
+      "relative_stationary_residual": 0.0009350036292360222,
+      "maximum_mass_error": 2.1782575743145571e-13,
+      "maximum_energy_drift": 1.7635737314947164e-09,
+      "raw_l2_phase_orbit_error": 0.0010635424795311208,
+      "phase_aligned_h1_orbit_error": 0.001301731745466815
+    },
+    {
+      "points": 24,
+      "dt": 0.002,
+      "steps": 500,
+      "chemical_potential": -1.2719136470584471,
+      "relative_stationary_residual": 0.0010178258685076436,
+      "maximum_mass_error": 4.014566457044566e-13,
+      "maximum_energy_drift": 1.539142369111346e-09,
+      "raw_l2_phase_orbit_error": 0.0011165243688840108,
+      "phase_aligned_h1_orbit_error": 0.0013480964858167059
+    },
+    {
+      "points": 28,
+      "dt": 0.002,
+      "steps": 500,
+      "chemical_potential": -1.2403613519676455,
+      "relative_stationary_residual": 0.0011964534678833827,
+      "maximum_mass_error": 2.3003821070233244e-13,
+      "maximum_energy_drift": 1.4560807004571075e-09,
+      "raw_l2_phase_orbit_error": 0.0013264483177797288,
+      "phase_aligned_h1_orbit_error": 0.0016072769842411948
+    }
+  ],
+  "acceptance": {
+    "merged_branch_identity_certificate_passes": true,
+    "formal_identified_branch_constructors_are_named": true,
+    "stationary_equation_residual_is_small_on_every_grid": true,
+    "real_time_flow_remains_in_one_phase_orbit": true,
+    "raw_phase_prediction_closes": true,
+    "mass_is_preserved": true,
+    "energy_is_preserved": true,
+    "physical_identity_and_external_comparison_remain_separate": true
+  },
+  "passed": true,
+  "decision": {
+    "m9_69_branch_instantiated_as_standing_wave_orbit": true,
+    "identified_minimizing_branch_constructor_available": true,
+    "compact_uniformly_stable_orbit_theorem_available": true,
+    "particle_stability_validated_in_platform": true,
+    "physical_particle_identity_fixed": false,
+    "independent_calibration_registered": false,
+    "external_experimental_validation": false
+  }
+}
