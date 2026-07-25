@@ -18,8 +18,11 @@
 | M9.94b | Import the Eddington affine first integral, Einstein-Λ recovery, torsion-vacuum, and Lovelock field-equation bridges | DONE; SCOPED ALGEBRAIC GRAVITY SURFACE |
 | M9.94 | Bind the canonical 3D particle envelope to Pauli spin/current and imported spin-magnetic formal structure | DONE; TREE-LEVEL G=2 CLOSED / PHYSICAL ANOMALY OPEN |
 | M9.95 | Bind one canonical declared-winding pair to electric/magnetic kernels and imported potential/superoperator structure | DONE; DIMENSIONLESS LEDGER CLOSED / CHARGED BRANCH AND CALIBRATION OPEN |
-| M9.96 | Construct a charged stationary branch with simultaneous winding, localization, and dynamical-stability closure | NEXT |
-| M9.97 | Apply the charged-branch result to annihilation and composite-sector PDE campaigns | PLANNED |
-| M9.98 | Register independent calibration and out-of-sample physical prediction gates | PLANNED |
+| M9.96a | Test field-derived winding-three stationary candidates under the full unconstrained selected scalar action | DONE; NO PASSING CHARGED STATIONARY BRANCH |
+| M9.96b | Derive charge/current, periodic Maxwell self-fields, and independent magnetic response from one winding candidate | DONE; STATIC SOURCE EQUATIONS AND MOMENT RESPONSE CLOSED |
+| M9.96c | Compare Lorentz-volume, interaction-energy, and Maxwell-stress forces for an opposite candidate pair | DONE; FIELD-FORCE TRIANGLE CLOSED WITHIN 2.6 PERCENT |
+| M9.96d | Register current-tree formal overlay, evidence authority, calibration ledger, and unchanged status boundary | DONE; 3 PARTIAL ROWS PRESERVED |
+| M9.97 | Construct a self-consistent gauge/spinorial stationary equation and measure full-PDE acceleration, torque, and precession | NEXT |
+| M9.98 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
 
-The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.94--M9.95 increase formal and canonical-state integration without promoting magnetic moment, electric force, magnetic force, gravity, or physical particle identity.
+The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.96 replaces detached force-kernel controls with a field-derived source and force-consistency triangle, but the selected scalar action fails the charged stationary-state gate. Magnetic moment, electric force, magnetic force, and physical particle identity therefore remain unpromoted.
