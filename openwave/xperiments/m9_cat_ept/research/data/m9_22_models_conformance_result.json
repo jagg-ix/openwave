@@ -1,5 +1,5 @@
 {
-  "schema": "openwave.m9.models-conformance.v11",
+  "schema": "openwave.m9.models-conformance.v12",
   "model": "M9 CAT/EPT",
   "fingerprint": null,
   "fingerprint_regeneration_pending_due_to_unavailable_checkout": true,
@@ -9,12 +9,20 @@
     "valid": true,
     "criterion_count": 21,
     "domain_counts": {"particles": 12, "forces": 5, "waves": 3, "thermal": 1},
-    "status_counts": {"validated": 4, "partial": 16, "negative": 1, "not_yet": 0},
+    "status_counts": {"validated": 7, "partial": 13, "negative": 1, "not_yet": 0},
     "documented_summary_total": 21,
     "matrix_total_mismatch": 0,
     "missing_explicit_criterion": null
   },
-  "validated_criteria": ["particle_stability", "spin_half_statistics", "em_waves", "thermal_field"],
+  "validated_criteria": [
+    "charge_quantization",
+    "particle_stability",
+    "spin_half_statistics",
+    "em_waves",
+    "klein_gordon",
+    "orbital_quantization",
+    "thermal_field"
+  ],
   "acceptance": {
     "all_explicit_rows_covered": true,
     "domain_partition_closes": true,
@@ -22,14 +30,16 @@
     "single_honest_negative_preserved": true,
     "summary_total_closes": true,
     "deterministic_fingerprint_logic_present": true,
-    "m9_89_status_counts": true,
-    "exactly_the_audited_four_rows_are_validated": true,
-    "m9_87_89_stability_evidence_present": true,
+    "m9_92_status_counts": true,
+    "exactly_the_audited_seven_rows_are_validated": true,
+    "charge_promotion_keeps_identity_boundary": true,
+    "klein_gordon_promotion_keeps_interaction_boundary": true,
+    "orbital_promotion_keeps_physical_boundary": true,
     "stability_promotion_keeps_physical_boundary": true,
     "spin_promotion_keeps_particle_identity_boundary": true,
     "maxwell_promotion_keeps_photon_boundary": true,
     "thermal_promotion_keeps_microscopic_boundary": true,
     "internal_mode_success_not_promoted_to_validation": true
   },
-  "validation_boundary": "Particle stability is validated only for the literal in-platform Derrick-escape criterion by the live formal stability/branch constructors and the executable global spectral flow, invariant refinement, perturbation tubes, and standing-wave orbit. Physical particle identity, calibration, and external validation remain absent."
+  "validation_boundary": "M9.90-M9.92 validate field-derived charge quantization, the free massive Klein-Gordon equation, and dimensionless Coulomb orbital quantization in-platform. They do not identify a measured elementary charge, derive an interacting scalar particle, or calibrate atomic systems in physical units."
 }
