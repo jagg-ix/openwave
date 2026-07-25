@@ -1,0 +1,13 @@
+MODULE openwave.m9.branch_identity_certificate.
+
+task:m9_86#depends_on@task:m9_85.
+task:m9_86#uses@interface:IdentifiedTargetBranchCertificate.
+task:m9_86#produces@evidence:frozen_reference_feature_fingerprint.
+task:m9_86#produces@evidence:nested_grid_hone_candidate_identity.
+task:m9_86#produces@evidence:independent_seed_candidate_identity.
+task:m9_86#boundary@obligation:analytic_minimizing_orbit_identity.
+task:m9_86#boundary@obligation:independent_physical_calibration.
+task:m9_86#boundary@obligation:registered_external_dataset.
+
+QUERY blocked_external_requirements:
+FIND ?obligation WHERE task:m9_86#boundary@?obligation.
