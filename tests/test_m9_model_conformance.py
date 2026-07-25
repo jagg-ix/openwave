@@ -19,7 +19,7 @@ def test_domain_partition():
     }
 
 
-def test_status_counts_after_m9_77():
+def test_status_counts_after_m9_80():
     assert validate_profile()["status_counts"] == {
         "validated": 0,
         "partial": 20,
@@ -28,24 +28,25 @@ def test_status_counts_after_m9_77():
     }
 
 
-def test_stability_includes_corrected_mild_flow_evidence():
+def test_stability_includes_duhamel_conservation_and_identification_evidence():
     stability = next(item for item in CRITERIA if item.key == "particle_stability")
     assert all(
         any(name in path for path in stability.evidence)
         for name in (
-            "m9_75_method_note.md",
-            "m9_76_method_note.md",
-            "m9_77_method_note.md",
+            "m9_78_method_note.md",
+            "m9_79_method_note.md",
+            "m9_80_method_note.md",
         )
     )
-    assert "false bounded H1-to-H1 Laplacian premise" in stability.finding
-    assert "energy-critical Duhamel flow" in stability.finding
+    assert "finite-Galerkin Duhamel fixed point" in stability.finding
+    assert "continuum energy-critical Duhamel theorem" in stability.finding
 
 
-def test_independent_mode_robustness_is_referenced_but_not_validated():
+def test_external_mode_comparison_remains_blocked_and_unvalidated():
     clock = next(item for item in CRITERIA if item.key == "de_broglie_clock")
     assert clock.status == "partial"
-    assert any("m9_74_method_note.md" in path for path in clock.evidence)
+    assert any("m9_80_method_note.md" in path for path in clock.evidence)
+    assert "blocks external comparison" in clock.finding
 
 
 def test_single_criterion_negative_remains_lepton_hierarchy():
