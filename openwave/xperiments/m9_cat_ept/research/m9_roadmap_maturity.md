@@ -1,26 +1,24 @@
 # M9 maturity-based roadmap
 
-M9.100 replaced the frozen scalar status summary with evidence-derived maturity. M9.101 executed four conditional-row campaigns. M9.102 corrected evidence authority, formal drift, and quantitative reproducibility. M9.103--M9.105 execute the next three scientific blockers as falsification campaigns.
+M9.100 introduced evidence-derived maturity. M9.101--M9.105 completed the coupled-action, evidence-integrity, unrestricted-state, packet-refinement, and independent-calibration layers. M9.106--M9.108 execute the next three dynamical targets.
 
 | Task | Target | State |
 | --- | --- | --- |
-| M9.100a--c | Six-axis evidence registry, derived headlines, registration, graph, tests, and report | DONE |
-| M9.101a--e | Coupled action, packet spin, internal clock and weak-field gravity campaigns | DONE; PHYSICAL SUBGATES SEPARATE |
-| M9.102a--e | Live formal authority, carrier/state separation, snapshots, conformance and registration | DONE |
-| M9.103 | Remove winding/spin projection after initialization; run unrestricted stationary and orbital gates | DONE; OUTCOME DYNAMIC |
-| M9.104 | Refine local packet Thomas--BMT across grids/time steps against the exact Dirac generator | DONE; THOMAS EXTENSION EXTERNAL POSTULATE |
-| M9.105 | Audit independent `sigma0`, clock, mass, charge and force anchors; preregister withheld predictions | DONE; DEFAULT INTERNAL ANCHORS NOT CALIBRATED |
-| M9.106 | Extend weak-field gravity to constraint-preserving nonlinear metric evolution | NEXT |
-| M9.107 | Convert antimatter, strong-force, and weak-force reduced models into full coupled-field campaigns | PLANNED |
-| M9.108 | Advance dark matter, quark, baryon, and meson candidates through stable dynamical-state construction | PLANNED |
-| M9.109 | Execute externally anchored, frozen, preregistered prediction tests after calibration closes | BLOCKED ON EXTERNAL ANCHORS |
+| M9.100--M9.105 | Multi-axis evidence, coupled action, unrestricted state, packet refinement, calibration protocol | DONE; PHYSICAL SUBGATES SEPARATE |
+| M9.106 | Constraint-preserving nonlinear conformal-ADM electrogravity | DONE; GENERAL EINSTEIN DEVELOPMENT SEPARATE |
+| M9.107 | Coupled-field successors for antimatter, strong, and weak sectors | DONE; STANDARD-MODEL IDENTITY SEPARATE |
+| M9.108 | Dynamical dark-matter, quark, baryon, and meson candidate states | DONE; PARTICLE IDENTITY SEPARATE |
+| M9.109 | Execute externally anchored frozen predictions | BLOCKED ON EXTERNAL ANCHORS |
+| M9.110 | Generalize metric evolution beyond conformal/pure-trace ADM | NEXT |
+| M9.111 | Replace reduced color/chiral carriers with gauge-covariant non-Abelian/electroweak systems | PLANNED |
+| M9.112 | Connect stable candidate carriers to spectra, decays, and phenomenology | PLANNED |
 
-## M9.103--M9.105 evidence effect
+## Current upstream authorities
 
-Three layers remain distinct:
+```text
+OpenWave  e9900880b4c54d7d68cbf468819dc361c6518a78
+Physlib   128974a501d3d0a43108a3ab9a1bd9d4fea5d7db
+zil-lean  e09723a44185a1e70031ad2661c8009dc98bef74
+```
 
-1. **campaign execution** -- the solver, refinement or calibration audit runs;
-2. **physical sub-gate** -- stationarity, orbital stability, packet reduction or independent calibration closes;
-3. **physical interpretation** -- particle identity and external prediction require separate evidence.
-
-The current `zil-lean` root semantics are unchanged; its new Make/example harness supplies structured execution reports, not Lean proofs or physical evidence.
+The current Physlib update adds a program-health synthesis and ratchet. New OpenWave campaigns are blocked from becoming current authority if health metrics regress beyond the registered baseline.
