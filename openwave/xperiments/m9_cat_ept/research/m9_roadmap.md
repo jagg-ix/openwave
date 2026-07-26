@@ -24,10 +24,15 @@
 | M9.96d | Register current-tree formal overlay, evidence authority, calibration ledger, and unchanged status boundary | DONE; 3 PARTIAL ROWS PRESERVED |
 | M9.97a | Construct and test a self-consistent gauge-covariant Pauli stationary equation | DONE; WINDING/SPIN/MAXWELL PRESERVED / RESIDUAL 0.519 / NO STATIONARY BRANCH |
 | M9.97b | Evolve an opposite four-spinor pair and matched self-field control in the Maxwell--Dirac engine | DONE; MOMENTUM/LORENTZ ERROR 2.61 PERCENT / CENTER RESPONSE WRONG SIGN |
-| M9.97c | Compare finite-time spin evolution with the exact Dirac generator and rest-frame T-BMT shadow | DONE; GENERATOR ERROR 2.57 PERCENT / REST-FRAME BMT REDUCTION REJECTED |
+| M9.97c | Compare finite-time spin evolution with the exact Dirac generator and rest-frame T-BMT shadow | DONE; GENERATOR ERROR 2.57 PERCENT / REST-FRAME BMT REDUCTION OUTSIDE PACKET DOMAIN |
 | M9.97d | Register dynamics formal overlay, evidence authority, calibration ledger, conformance profile, and canonical component | DONE; 3 PARTIAL ROWS PRESERVED |
 | M9.98 | Upgrade ZIL from historical bootstrap/control-event pins to current dual-root `Zil` / `Zil.Native` authority | DONE; HEAD 3c9d4ce / EXACT BLOBS / FAIL-CLOSED ROOT CONTRACT |
-| M9.99 | Construct an independently varied coupled action with a stable charged spinorial branch, converged center dynamics, and covariant moving-packet spin law | NEXT |
-| M9.100 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
+| M9.99a | Pin current `entropic-physlib-linear-full` equation surfaces and machine-classify formal/numerical relations | DONE; 9 RELATIONS / HARTREE, MASS, CARRIER, OPERATOR, AND DOMAIN MISMATCHES EXPLICIT |
+| M9.99b | Replace mixed spectral/centered operators with one Fourier complex and enforce `D = 1/(2m)` | DONE; 17³ ODD GRID / ONE ZERO MODE / MASS AND CURRENT MAP CLOSED |
+| M9.99c | Replace the direct center-force promotion gate with `d<x>/dt = <alpha>` and retain momentum/Lorentz | DONE; DIRAC OBSERVABLE DOMAIN CORRECTED |
+| M9.99d--e | Register the reconciliation authority, ZIL graph, runners, tests, and schema-v6 component | DONE; STATUS PROFILE UNCHANGED |
+| M9.100 | Derive one coupled gauge-spinor-Hartree action, select its dimensionless coupling map, and construct a stable charged stationary branch | NEXT |
+| M9.101 | Construct Foldy--Wouthuysen packet position and covariant local T-BMT reductions, then rerun refined pair dynamics | PLANNED |
+| M9.102 | Apply a stable charged branch to annihilation, composite-sector, calibration, and withheld physical-prediction campaigns | PLANNED |
 
-The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.98 upgrades evidence orchestration and formalization-contract validation without changing Lean proof authority or any physical result. PhysLib embedded metadata uses the `Zil` Datalog compatibility root; OpenWave `.zc` graphs use `Zil.Native`. M9.97's stationary, center-response, and moving-packet spin boundaries remain unchanged.
+The platform matrix remains `7 validated / 13 partial / 1 negative`. M9.99 explains why legacy OpenWave outputs were not direct tests of the current Lean equations, closes the internal mass/current and discrete-operator mismatches on an odd real Fourier grid, and corrects the Dirac observable domain. It does not select the Hartree coupling, derive one coupled action, construct a charged stationary branch, or promote a physical criterion.

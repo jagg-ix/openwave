@@ -1,102 +1,82 @@
 # M9 CAT/EPT: Entropic Particle Dynamics
 
-M9 covers all 21 OpenWave comparison criteria and combines a stationary non-Gaussian branch, theorem-guided finite-grid dynamics, explicit claim boundaries, a reusable uncalibrated particle-model API, a branch-wide CAT/EPT formalization inventory, and a versioned ZIL runtime authority.
+M9 covers all 21 OpenWave comparison criteria and combines a stationary non-Gaussian branch, theorem-guided finite-grid dynamics, explicit claim boundaries, a reusable uncalibrated particle API, branch-wide formalization inventory, current ZIL runtime authority, and a formal/numerical equation reconciliation layer.
 
-## Platform status after M9.98
+## Platform status after M9.99
 
 - Seven criteria are validated in-platform.
-- Thirteen criteria remain partial or bounded.
+- Thirteen remain partial or bounded.
 - The predictive lepton-mass hierarchy remains the sole criterion-level negative.
-- The formalization importer pins `entropic-physlib-linear-full` by exact tree `239a663a3192a3144fb998e7bb200e09689a3bb9`, current `Physlib.lean` blob `182a06e0f50314ec54436da602b4ac86eba4ee08`, 11 ZIL graphs, 422 graph entities, 12 open/external boundaries, and 24 Lean sources.
-- M9.96 adds two force-specific formal sources; M9.97 adds three dynamics sources covering rest-frame Dirac--Pauli/T-BMT precession, Coulomb/radiation-gauge particle dynamics, and a distributional point-charge Maxwell source.
-- M9.98 upgrades the current ZIL authority to `jagg-ix/zil-lean` commit `3c9d4ce962fb9ce0b3284d700e7acaee5fb272bc`.
-- `import Zil` is the PhysLib-facing Datalog compatibility root. `import Zil.Native` is the native facts/rules/query/provenance/workflow root used by OpenWave `.zc` graphs.
-- The older `f39758f...` and `64462a3...` revisions remain historical evidence pins, not current runtime authority.
-- M9.98 changes no Lean theorem status and no physical simulation result.
+- `entropic-physlib-linear-full` is the current formal equation authority.
+- All formal and OpenWave files referenced by the equation comparison are exact-blob pinned and fail closed on drift.
+- M9.99 closes internal equation-mapping, mass/current, discrete-operator, and Dirac-observable infrastructure; it changes no criterion status or physical identity.
 
-Validated criteria remain:
-
-1. charge quantization;
-2. particle stability / Derrick escape;
-3. spin-1/2 statistics;
-4. source-free Maxwell waves;
-5. free massive Klein-Gordon evolution;
-6. dimensionless Coulomb orbital quantization;
-7. the explicit dimensionless thermal field.
+Validated criteria remain charge quantization, particle stability, spin-1/2 statistics, source-free Maxwell waves, free massive Klein--Gordon evolution, dimensionless Coulomb orbital quantization, and the explicit dimensionless thermal field.
 
 ## Canonical implementation surfaces
 
 | Surface | Path | Role |
 | --- | --- | --- |
-| Historical 21-row profile | `model_conformance.py` | profile through M9.95 |
-| M9.96 profile | `model_conformance_current.py` | charged-source and field-force overlay |
 | Current physics profile | `model_conformance_dynamics.py` | M9.97 findings with unchanged statuses |
-| Historical registration | `model_registration.py` | M9.96-compatible registration |
-| M9.97 registration | `model_registration_current.py` | dynamics authority before runtime upgrade |
-| Current registration | `model_registration_zil.py` | schema-v5 M9.98 component with ZIL runtime authority |
-| Particle kernel | `particle_model.py` | reusable state, flow, observables, and historical identity gate |
-| Branch-wide formal inventory | `formalization_inventory*.py` and `formalization_import.py` | 11-graph current-tree coverage |
-| Force formal overlay | `formalization_force_extension.py` | Pauli--Maxwell/current/stress witnesses |
-| Dynamics formal overlay | `formalization_dynamics_extension.py` | rest-frame spin, Coulomb, gauge, and point-source witnesses |
-| ZIL runtime authority | `zil_runtime_upgrade.py` and `zil_runtime_upgrade_current.py` | current commit, dual-root roles, exact blobs, graph assignments, and drift checks |
-| Datalog smoke fixture | `research/lean/M9ZilDatalogSurface.lean` | validates the PhysLib-facing `Zil` root |
-| Native smoke fixture | `research/lean/M9ZilNativeSurface.lean` | validates the `Zil.Native` graph runtime root |
-| Gauge-spinor stationary audit | `gauge_spinor_stationary_current.py` | self-consistent Pauli equation and explicit residual failure |
-| Four-spinor pair dynamics | `spinorial_pair_dynamics_authoritative.py` | source-consistent momentum, center, and spin response |
-| Dynamics authority | `dynamics_evidence_authority.py` | current no-promotion identity authority |
-| Dynamics calibration ledger | `physical_calibration_ledger_v3.py` | promotion and falsification rules for the three partial rows |
+| ZIL registration | `model_registration_zil.py` | schema-v5 runtime authority |
+| Current registration | `model_registration_reconciliation.py` | schema-v6 formal/numerical reconciliation |
+| Equation contract | `formal_numerical_equation_contract_current.py` | exact formal/OpenWave source registry and nine relation classes |
+| Shared geometry | `compatible_discrete_geometry.py` | odd-grid Fourier gradient/divergence/curl/Laplacian/Poisson/Helmholtz/covariant derivative family |
+| Reconciled stationary campaign | `reconciled_gauge_spinor_stationary_current.py` | `D=1/(2m)`, 16-to-17 seed resampling, exact final Maxwell field, Hartree sweep |
+| Dirac observables | `dirac_ehrenfest_diagnostics.py` | `d<x>/dt=<alpha>`, retained momentum/Lorentz, theorem-domain classification |
+| Reconciliation authority | `formal_numerical_reconciliation_authority.py` | composed no-promotion evidence boundary |
+| ZIL graph | `research/zil/m9_99_formal_numerical_reconciliation.zc` | dependencies, mismatches, closures, and remaining obligations |
 
-## M9.98 ZIL runtime contract
+## M9.99 equation findings
 
-Current exact pin:
+The legacy M9.97 model was not the current formal target:
 
-```text
-repository  jagg-ix/zil-lean
-branch      main
-head        3c9d4ce962fb9ce0b3284d700e7acaee5fb272bc
-```
+- current Lean target: attractive Newton/Hartree plus supplied local interaction;
+- legacy stationary model: local cubic--quintic only;
+- Lean leaves `alpha`, `beta`, and analytic closure hypotheses explicit;
+- OpenWave selected `alpha`, `beta` from a Gaussian reference ansatz;
+- legacy scalar coefficient `D=0.65` and Pauli/Dirac mass `m=1` violated `D=1/(2m)`;
+- legacy matter used exact Fourier derivatives while Maxwell used centered `sin(kh)/h` symbols;
+- the periodic neutralized extended-source Maxwell carrier differed from isolated `R³` and momentum-space formal carriers;
+- the exact Dirac position theorem is `d<x>/dt=<alpha>`, not direct `d²<x>/dt²=F/m`;
+- the exact T-BMT/Dirac--Pauli bridge is rest-frame and vertical-field, not a moving extended packet with globally averaged fields.
 
-The default `zil-lean` library build includes both public roots:
+The canonical Dirac matrices remain an exact structural overlap.
 
-```text
-Zil
-Zil.Native
-```
-
-The root roles are intentionally different:
-
-| Root | Consumer | Responsibility |
-| --- | --- | --- |
-| `Zil` | PhysLib embedded formalization | Datalog semantics, compatibility aliases, attachments, theorem intents, file contracts, tactics, embedded validation |
-| `Zil.Native` | OpenWave native graphs | facts, theorem-shaped rules, parsing, queries, provenance, workflow, authorization, and audits |
-
-Six upstream runtime/build/example source blobs and four OpenWave graph blobs are pinned. Commit, source, or graph drift fails closed. The M9.98 self-describing graph is externally blob-pinned to avoid a self-hash fixed point. The formalization-tree fingerprint remains independent from the runtime fingerprint.
-
-## Retained M9.97 measured result
+## M9.99 corrected numerical infrastructure
 
 ```text
-gauge-spinor stationary residual 0.5190695504
-momentum/Lorentz error           2.61 percent
-center/Lorentz mismatch          114.74 percent, wrong sign
-spin/full-generator error        2.57 percent
-spin/rest-frame BMT mismatch     266.90 percent
+operational grid    17 × 17 × 17, odd real Fourier
+historical seed     16 × 16 × 16, Fourier-resampled
+D                   0.65
+m_eff               0.7692307692307692
+q/m_eff             2Dq
+Hartree sweep       0.00, 0.05, 0.10
 ```
 
-Momentum transfer and exact-generator spin integration close as dimensionless subreductions. Charged spinorial stationarity, center dynamics, and the moving-packet T-BMT reduction remain open.
+The odd grid avoids the self-conjugate real Nyquist ambiguity. Only the global zero Fourier mode is removed. Even-grid real exact-Fourier derivatives fail closed.
+
+The final stationary Hamiltonian uses the exact Maxwell vector potential whose Gauss and Ampère residuals are reported. The Hartree sweep is executable, but no value is selected as the unique formal or physical coupling.
+
+## Corrected interpretation of M9.97
+
+The retained `2.61%` momentum/Lorentz result remains a valid dimensionless subreduction. The old center-force wrong-sign result is a nonrelativistic diagnostic outside the proved unprojected Dirac position carrier, not a Lean contradiction. The `2.57%` full-generator spin result remains the integration gate. The rest-frame BMT mismatch is outside the moving-packet theorem domain, not a contradiction of the rest-frame theorem.
 
 ## Current boundaries
 
 The following remain open:
 
-- a converged charged spinorial stationary branch;
-- a center-of-energy response with the Lorentz-force sign and magnitude;
-- a covariant moving-packet spin law derived from the same action;
-- anomalous-moment derivation;
-- physical charge, moment, force, length, time, and mass calibration;
-- withheld external predictions.
+- derive one coupled gauge-spinor-Hartree action;
+- select its dimensionless coupling map;
+- construct a stable charged stationary branch;
+- construct a Foldy--Wouthuysen packet position projection;
+- construct a covariant local packet T-BMT law;
+- derive the anomalous moment;
+- calibrate physical charge, moment, force, length, time, and mass units;
+- execute withheld external predictions.
 
 Magnetic moment/spin, electric force, and magnetic force remain partial. The matrix remains `7 validated / 13 partial / 1 negative`.
 
 ## Next critical target
 
-M9.99 should construct an independently varied coupled action whose Euler--Lagrange system supplies the stationary spinor, gauge field, momentum/center relation, and covariant spin dynamics together. Then repeat M9.97 across refined grids, time steps, boxes, separations, and spin orientations before any calibration campaign.
+M9.100 should derive one coupled gauge-spinor-Hartree action and its dimensionless parameter map, then solve for a stable charged stationary branch using the M9.99 odd-grid differential complex before repeating pair force and spin studies.

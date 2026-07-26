@@ -1,147 +1,129 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-The canonical physics profile remains `openwave/xperiments/m9_cat_ept/model_conformance_dynamics.py`. The current canonical registration is now `model_registration_zil.py`, which adds the M9.98 ZIL runtime authority without changing any of the 21 criterion rows.
+The canonical physics profile remains `openwave/xperiments/m9_cat_ept/model_conformance_dynamics.py`. The current canonical registration is `model_registration_reconciliation.py`, schema v6. It composes the M9.98 ZIL authority with the M9.99 formal/numerical equation, operator, mass, and observable reconciliation without changing any of the 21 criterion rows.
 
-Platform validation, Lean theorem status, ZIL runtime/orchestration status, physical identity, calibration, and external validation remain separate layers.
+Platform validation, Lean theorem status, ZIL runtime/orchestration status, numerical equation identity, discretization closure, physical identity, calibration, and external validation remain separate layers.
 
-## Platform summary after M9.98
+## Platform summary after M9.99
 
 | Status | Count |
 | --- | ---: |
-| ✅ validated in-platform | 7 |
-| ⚠️ partial / bounded | 13 |
-| ❌ honest negative | 1 |
-| 🚧 planned / not yet | 0 |
+| validated in-platform | 7 |
+| partial / bounded | 13 |
+| honest negative | 1 |
+| planned / not yet | 0 |
 | **Explicit criteria** | **21** |
 
-Validated rows remain charge quantization, particle stability, spin-1/2 statistics, source-free Maxwell waves, free massive Klein--Gordon evolution, dimensionless Coulomb orbital quantization, and the explicit dimensionless thermal field. The sole criterion-level negative remains the predictive lepton-mass hierarchy.
+Validated rows remain charge quantization, particle stability, spin-1/2 statistics, source-free Maxwell waves, free massive Klein--Gordon evolution, dimensionless Coulomb orbital quantization, and the explicit dimensionless thermal field. The predictive lepton-mass hierarchy remains the sole criterion-level negative.
 
 ## Formal proof authority
 
-```text
-repository   jagg-ix/entropic-physlib-private
-branch       entropic-physlib-linear-full
-base commit  e10af9a3b47bf90afc0a88167a5d495b6935f4dc
-current tree 239a663a3192a3144fb998e7bb200e09689a3bb9
-Physlib.lean 182a06e0f50314ec54436da602b4ac86eba4ee08
-```
-
-| Imported surface | Count |
-| --- | ---: |
-| formalization/status ZIL graphs | 11 |
-| graph entity identifiers | 422 |
-| explicit open/external boundaries | 12 |
-| branch-wide Lean aggregate/source files | 24 |
-| M9.96 Pauli/Maxwell extension sources | 2 |
-| M9.97 dynamics extension sources | 3 |
-
-Lean remains proof authority. ZIL records and evaluates orchestration, dependencies, source links, statuses, queries, contracts, and audits; it does not turn graph presence into a theorem.
-
-## M9.98 ZIL runtime authority
-
-The previous M9 evidence carried two old ZIL revisions:
+The current equation contract reads exact source blobs from:
 
 ```text
-f39758f85ee6300b8060e4f8ea1ecf344ed32c96
-64462a3c5e2ffb51a7b226675491cc3a9b156a8d
+repository  jagg-ix/entropic-physlib-private
+branch      entropic-physlib-linear-full
 ```
 
-They are retained as historical pins only. Current authority is:
+It covers the current Hartree-plus-local mild-flow target, cubic--quintic coercivity and conditional stability, the self-bound Schrödinger--Newton carrier, Foldy--Wouthuysen Pauli structure, four-spinor Dirac algebra and velocity, Maxwell/continuity, rest-frame Dirac--Pauli/T-BMT, isolated Coulomb/radiation gauge, and the distributional three-dimensional point charge.
+
+All formal and OpenWave sources referenced by the comparison are blob-pinned. Formal-source or numerical-source drift fails closed. Lean remains proof authority.
+
+## Why the legacy M9.97 numbers were not Lean contradictions
+
+The machine-readable equation contract records nine relations.
+
+| Relation | Current formal side | Legacy numerical side | Classification |
+| --- | --- | --- | --- |
+| Binding | Newton/Hartree plus local interaction | local cubic--quintic only | formal term missing numerically |
+| Coefficients | parameters with coercivity and closure hypotheses | Gaussian-reference selection | parameter mismatch |
+| Mass | nonrelativistic `D = 1/(2m)` | `D = 0.65`, `m = 1` | parameter mismatch |
+| Pauli equation | FW matrix carrier with relativistic, Darwin, and spin--orbit terms | nonlinear self-consistent `D_A²`, `rho`, `rho²`, `sigma.B` PDE | different carrier/equation |
+| Maxwell | isolated `R³` or momentum-space `F=dA` | periodic neutralized extended source | carrier mismatch |
+| Discretization | one derivative family | spectral matter plus centered Maxwell | discrete-operator mismatch |
+| Dirac position | `d<x>/dt = <alpha>` | `d²<x>/dt²` versus force per norm | observable-domain mismatch |
+| Spin | rest-frame vertical-field bridge | moving extended packet with averaged field | observable-domain mismatch |
+| Clifford algebra | canonical Dirac matrices | same numerical matrices | exact structural overlap |
+
+The legacy center-force and rest-frame BMT discrepancies remain useful diagnostics, but they are not counterexamples to the proved Lean statements.
+
+## M9.99 discrete and mass reconciliation
+
+M9.99 introduces one exact Fourier differential complex for:
+
+- gradient;
+- divergence;
+- curl;
+- Laplacian;
+- Helmholtz projection;
+- scalar and vector Poisson inversion;
+- gauge-covariant matter Laplacian.
+
+Real Maxwell fields use a `17 × 17 × 17` odd grid so there is no self-conjugate Nyquist ambiguity. The historical `16 × 16 × 16` winding seed is Fourier-resampled and normalized onto that operational grid. Even-grid real exact-Fourier derivatives fail closed rather than silently dropping an imaginary Nyquist contribution.
+
+The reconciled mass is
 
 ```text
-repository  jagg-ix/zil-lean
-branch      main
-head        3c9d4ce962fb9ce0b3284d700e7acaee5fb272bc
+D     = 0.65
+m_eff = 1/(2D) = 0.7692307692307692
+q/m   = 2Dq
 ```
 
-Current `zil-lean` has two explicit public roots:
+The kinetic operator, convective current, magnetization current, and Pauli coupling now use this same mass map.
 
-| Import root | Consumer | Surface |
-| --- | --- | --- |
-| `Zil` | PhysLib embedded formalization | `Zil.Datalog` clause logic, compatibility aliases, attachments, embedded validation, tactics, theorem intents, file contracts, witness/abstraction checks |
-| `Zil.Native` | OpenWave native `.zc` programs | facts, theorem-shaped rules, parser, queries, provenance, workflow, authorization, impact, proof/theorem/recovery audits |
+The final stationary residual is evaluated with the exact Maxwell vector potential whose Gauss and Ampère residuals are reported, not a relaxed intermediate vector.
 
-The latest package builds both roots as default library targets. OpenWave validates them in separate Lean smoke modules so compatibility aliases cannot silently replace native types.
+## Hartree boundary
 
-### Exact runtime controls
-
-| Source | Blob |
-| --- | --- |
-| `Zil.lean` | `faf28e701e4a02781e410491a6d3daf5d47f8879` |
-| `Zil/Native.lean` | `2e6c87a85ef2f80d2424c8251ffe524067e27dee` |
-| `Zil/Datalog/Compat.lean` | `d72fd52996eb2418037ed329b97c280e2f187b1a` |
-| `Zil/Datalog/FormalizationContract.lean` | `b5753801f2564f17a684a1d8da77bc3b024e7c0a` |
-| `lakefile.lean` | `8dc0dd81f8c3d80192f9467792a617fde5ec24b5` |
-| real PhysLib native-arc example | `91ec7daf0dd351e5de480149b77eea903a472ea3` |
-
-The M9.94--M9.97 native graph blobs are also pinned. Head, runtime-source, or graph drift fails closed. The runtime fingerprint is independent of the PhysLib formalization-tree fingerprint.
-
-## Retained M9.97 physics result
-
-### Gauge-spinor stationarity
+The current formal target includes attractive Newton/Hartree interaction. No unique OpenWave dimensionless coupling has been derived, so the reconciled campaign exposes an explicit control sweep:
 
 ```text
-initial residual 0.5071084764
-final residual   0.5190695504
-final radius     1.5835697888
-final spin z     0.4999999088
+G = 0.00, 0.05, 0.10
 ```
 
-Winding, exact-third charge, normalization, localization, spin one-half within `2e-7`, and Maxwell constraints close. The stationary residual does not.
+The zero row is the reconciled local-only control. No row is called the unique formal target, a calibrated coupling, or a physical particle.
 
-### Four-spinor momentum and center response
+## Correct Dirac observables
+
+The current center observable tests
 
 ```text
-Lorentz momentum rate            0.001645074525562959
-Maxwell-Dirac momentum rate      0.0016022176381169852
-relative momentum error          2.61 percent
-center acceleration             -0.0002424759822742363
-center/Lorentz relative mismatch 114.74 percent
+d<x_i>/dt = <alpha_i>
 ```
 
-Kinetic-momentum transfer closes. The center response has the wrong sign.
+for the pair, the matched self-field control, and their interaction difference. Kinetic-momentum transfer versus the Lorentz-volume force remains the force gate.
 
-### Spin response
-
-```text
-finite-time spin rate y       1.45073921e-4
-Dirac-generator rate y        1.45128373e-4
-generator relative error      2.57 percent
-rest-frame T-BMT rate y      -8.69424870e-5
-rest-frame relative mismatch 266.90 percent
-```
-
-The exact numerical generator is integrated consistently. The moving finite-size winding packet does not reduce to the rest-frame T-BMT torque.
-
-## Current three-row status
-
-| Criterion | Closed subreduction | Promotion blocker |
-| --- | --- | --- |
-| Magnetic moment and spin | field-derived moment/response and exact-generator spin evolution | no stationary charged spinor; rest-frame/covariant BMT reduction, anomaly, identity, and calibration open |
-| Electric force | M9.96 force triangle and four-spinor momentum/Lorentz agreement | center response has wrong sign; no stable charged pair or unit map |
-| Magnetic force | field-derived magnetic contribution and exact-generator precession | moving-packet torque law, stable pair, and common moment/force calibration open |
-
-All three remain **partial**. The ZIL upgrade promotes none of them.
+The old direct comparison `d²<x>/dt² = F/norm` is retained only as a nonrelativistic diagnostic until a Foldy--Wouthuysen packet position projection and positive-energy limit are constructed. The rest-frame T-BMT shadow is similarly outside the domain of the moving, extended, nonuniform-field packet; the full Dirac generator remains the spin-integration gate.
 
 ## Current authority surfaces
 
-- `zil_runtime_upgrade.py`;
-- `model_registration_zil.py`;
-- `research/lean/M9ZilDatalogSurface.lean`;
-- `research/lean/M9ZilNativeSurface.lean`;
-- `research/zil/m9_98_zil_runtime_upgrade.zc`;
-- retained M9.97 dynamics and calibration authorities.
+- `formal_numerical_equation_contract_current.py`;
+- `compatible_discrete_geometry.py`;
+- `reconciled_gauge_spinor_stationary_current.py`;
+- `dirac_ehrenfest_diagnostics.py`;
+- `formal_numerical_reconciliation_authority.py`;
+- `model_registration_reconciliation.py`;
+- `research/zil/m9_99_formal_numerical_reconciliation.zc`.
+
+## Current three-row status
+
+| Criterion | Retained evidence | Promotion blocker |
+| --- | --- | --- |
+| Magnetic moment and spin | field-derived moment/response and exact-generator spin evolution | no stationary charged spinor; covariant packet BMT, anomaly, identity, and calibration open |
+| Electric force | force triangle and four-spinor momentum/Lorentz agreement | no stable charged pair, selected Hartree coupling, FW packet-center reduction, or unit map |
+| Magnetic force | field-derived magnetic contribution and exact-generator precession | covariant local torque law, stable pair, and common calibration open |
+
+All three remain **partial**.
 
 ## Explicit retained boundaries
 
-- independently varied coupled gauge-spinor action;
-- stable charged spinorial stationary branch;
-- converged relation between kinetic momentum and center motion;
-- covariant moving-packet spin and torque law;
-- anomalous-moment derivation;
-- physical charge, moment, force, mass, length, and time calibration;
-- global nonlinear coupled-action and Cauchy-development boundaries;
-- continuum open-system and constructive-QFT boundaries;
-- withheld external predictions.
+- derive one coupled gauge-spinor-Hartree action;
+- select its dimensionless coupling map;
+- construct a stable charged stationary branch;
+- construct a Foldy--Wouthuysen packet position projection;
+- construct a covariant local packet T-BMT law;
+- derive the anomalous moment;
+- calibrate physical charge, moment, force, mass, length, and time units;
+- complete global nonlinear coupled-action, Cauchy-development, continuum, and withheld-prediction targets.
 
-The matrix remains `7 validated / 13 partial / 1 negative`. The next critical target is M9.99: an independently varied coupled action that can produce a stable charged spinorial branch and derive both center and covariant spin dynamics from the same equations.
+The matrix remains `7 validated / 13 partial / 1 negative`. The next critical target is M9.100: derive one coupled gauge-spinor-Hartree action, select its dimensionless coupling map, and construct a stable charged stationary branch before repeating the force and spin campaigns.
