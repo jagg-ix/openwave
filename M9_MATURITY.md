@@ -9,90 +9,65 @@ The historical `7 validated / 13 partial / 1 negative` table is compatibility me
 - calibration;
 - prediction readiness.
 
-Implementation evidence is now recorded separately from those six claim axes. An equation, solver, adapter, or evolution can exist without a state-existence gate passing.
+Implementation evidence remains separate. A solver or postulate can exist without the corresponding state, derivation, calibration, or prediction gate passing.
 
-## Current headline summary
+## M9.102 baseline
 
-| Headline | Count | Meaning |
-| --- | ---: | --- |
-| Validated in scope | 7 | The literal dimensionless or algebraic criterion closes; broader physical interpretation can remain open. |
-| Conditional validated | 5 | Strong formal/numerical closure exists, but theorem scope, state existence, physical identity, or calibration blocks the full named claim. |
-| Reduced-model validated | 3 | The reduced carrier closes its declared test; the full coupled field model remains open. |
-| Calibration pending | 1 | A stable dimensionless state exists, but the named physical quantity is not independently predicted. |
-| Candidate | 4 | Structural or variational ingredients exist without the required dynamical state or prediction. |
-| Negative | 1 | A preregistered predictive test failed. |
-| **Total** | **21** | |
+| Headline | Count |
+| --- | ---: |
+| Validated in scope | 7 |
+| Conditional validated | 5 |
+| Reduced-model validated | 3 |
+| Calibration pending | 1 |
+| Candidate | 4 |
+| Negative | 1 |
+| **Total** | **21** |
 
-## M9.102 correction to M9.101
+M9.103--M9.105 derive any changes from executable sub-gates. No new count is hardcoded.
 
-M9.101 added one finite action, one winding-sector solver, one packet T-BMT adapter, one internal clock calibration, and one weak-field gravity evolution. M9.102 separates those implementations from their nested state and physical gates.
+## M9.103--M9.105 axis rules
 
-| Criterion | Implementation evidence | State-axis rule | Remaining boundary |
+| Criterion | New executable evidence | Axis advancement rule | Retained boundary |
 | --- | --- | --- | --- |
-| de Broglie clock | clock/action/Yukawa/entropy calibration campaign | calibration becomes `partial` only when the internal calibration gate passes | physical clock identity and external calibration |
-| Magnetic moment and spin | coupled action, winding-sector solver, packet adapter | remains `not_constructed` unless the symmetry-reduced stationary-state gate passes | unrestricted state, packet reduction, QED covariant derivation, anomaly, calibration |
-| Electric force | coupled action and winding-sector solver | remains `not_constructed` unless the symmetry-reduced stationary-state gate passes | unrestricted stable pair, physical unit map, external test |
-| Magnetic force | coupled action, solver, packet torque adapter | remains `not_constructed` unless the symmetry-reduced stationary-state gate passes | unrestricted pair, packet reduction, QED covariant torque, anomaly, calibration |
-| Gravity | weak-field Schrodinger-Maxwell-Poisson implementation | advances to `reduced_constructed` only when the weak-field evolution gate passes | independent `sigma0`, nonlinear Einstein development, calibration |
+| Magnetic moment and spin | unrestricted coupled descent, orbital tubes, refined packet spin | `reduced_constructed` only after unrestricted stationarity; `stable_constructed` only after orbital stability | QED derivation, anomaly, identity, calibration |
+| Electric force | same unrestricted charged carrier | state advances only on the charged-state gates | common physical unit map and withheld force test |
+| Magnetic force | unrestricted carrier plus refined packet torque | state follows charged-state gates; packet refinement is separate numerical evidence | QED-covariant derivation, anomaly, calibration |
+| Electron rest energy | independent-anchor dependency audit | calibration advances only after an external shared bundle closes | withheld rest-energy prediction |
+| de Broglie clock | independent clock/mass anchor audit | internal mode identities cannot produce `calibrated` | physical clock identity and external prediction |
 
-The five headlines remain `conditional_validated`; the correction changes evidence precision, not physical status.
+The covariant Thomas equation is registered as `explicit-external-postulate`. It is not counted as a QED-derived formal closure.
 
-## Formal authority
-
-Exact PR #92 reproduction uses:
+## Authorities
 
 ```text
-acdbe8ce6456e66837bd18604cf3107d3181c4de
+Physlib   eba0124fcfbc1216d973bb6f504c5a6d324de60c
+zil-lean  e09723a44185a1e70031ad2661c8009dc98bef74
 ```
 
-The live `entropic-physlib-linear-full` authority is:
+The current ZIL commit changes example execution and reporting, not root semantics or proof authority.
 
-```text
-eba0124fcfbc1216d973bb6f504c5a6d324de60c
-```
+## Independent calibration rule
 
-The live branch adds claim-maturity, evidence-integrity, and theorem-intent auditing. These additions improve evidence governance and create no new numerical physics evidence.
+The shared calibration gate requires independent support for:
 
-## Quantitative snapshots
+- inference width `sigma0`;
+- clock frequency;
+- mass;
+- charge unit;
+- force unit.
 
-M9.102 can generate and verify complete M9.101 result bundles:
-
-```bash
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_102_reproduce_m101.py \
-  --write build/m9_101_snapshots
-
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_102_reproduce_m101.py \
-  --verify build/m9_101_snapshots
-```
-
-The manifest hashes every full payload and reports campaign passage beside the stationary-state, packet-reduction, external-calibration, and full-Einstein sub-gates.
-
-## Resolution of the legacy 13 partial rows
-
-| Criterion | Current headline | Closed | Principal remaining boundary |
-| --- | --- | --- | --- |
-| Electron rest energy | Calibration pending | localized branch, scale, binding candidate | independent mass prediction and shared energy/length map |
-| de Broglie clock | Conditional validated | scoped theorem, internal clock tests, action-rate and entropy normalization | physical clock identity and external calibration |
-| Magnetic moment and spin | Conditional validated | `Jz=1/2`, tree-level `g=2`, moment response, Dirac generator, finite-action and packet carriers | constructed charged state, covariant/QED closure, anomaly and calibration |
-| Antimatter and annihilation | Reduced-model validated | opposite-sector capture, reduced annihilation, radiation ledger | unassisted full coupled-PDE annihilation |
-| Dark matter | Candidate | neutral variational candidate | stability, production, abundance, phenomenology |
-| Quarks | Candidate | finite SU(3), singlet, Wilson-loop, fractional-charge and CKM controls | dynamical QCD, confinement, running coupling, spectrum |
-| Baryons | Candidate | charged-triplet graph and ledgers | three-body field state and proton/neutron spectrum |
-| Mesons | Candidate | neutral-pair graph and ledgers | two-body field state, flavor dynamics, spectrum and decays |
-| Electric force | Conditional validated | Gauss closure, force triangle, momentum/Lorentz agreement, finite-action carrier | constructed stable pair, physical unit map and external test |
-| Magnetic force | Conditional validated | magnetization/Ampere closure, magnetic force, generator evolution, finite-action and packet carriers | constructed pair, QED-covariant torque, anomaly and calibration |
-| Strong force | Reduced-model validated | Cornell, flux-tube and string-breaking controls | dynamical Yang-Mills/QCD and joint predictions |
-| Weak force | Reduced-model validated | left-selective transitions and reduced decay ledger | electroweak gauge dynamics and calibrated rates |
-| Gravity | Conditional validated | formal action interface, G-free map, weak-field source/evolution chain | independent coupling selection, nonlinear metric evolution and calibration |
+A target-dependent fit, missing dependency, dependency cycle, internal simulation value, or algebraically derived value cannot count as independent calibration. Preregistered predictions remain unexecuted until the gate closes.
 
 ## Current implementation
 
-- `formalization_m102_extension.py`: historical/current formal-head separation and governance pins;
-- `criterion_maturity_m102.py`: carrier/state separation and outcome-driven state axes;
-- `m101_reproducibility_contract.py`: snapshot generation, hashing, summaries, and verification;
-- `model_conformance_m102.py`: schema-v19 current conformance;
-- `model_registration_m102.py`: schema-v10 current registration;
-- `research/zil/m9_102_evidence_integrity.zc`: dependency and retained-boundary graph;
-- `M9_EVIDENCE_INTEGRITY.md`: public audit and reproduction guide.
+- `unrestricted_charged_stationary.py` -- unrestricted stationarity and orbital gates;
+- `packet_tbmt_refinement.py` -- explicit Thomas postulate and grid/time refinement;
+- `independent_calibration_protocol.py` -- external-anchor and prediction protocol;
+- `zil_runtime_reporting_m105.py` -- current ZIL source/report authority;
+- `m103_105_evidence_authority.py` -- campaign and physical-subgate composition;
+- `criterion_maturity_m105.py` -- outcome-driven maturity v5;
+- `model_conformance_m105.py` -- schema v20;
+- `model_registration_m105.py` -- schema v11;
+- `M9_SCIENTIFIC_CLOSURE.md` -- public execution guide.
 
-No physical identity, externally calibrated parameter, or independent experimental prediction is created by these evidence-integrity changes.
+No physical identity, calibrated parameter, QED covariant derivation, or external validation is inferred from campaign execution alone.
