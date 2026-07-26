@@ -1,29 +1,32 @@
 """M9 CAT/EPT entropic particle dynamics.
 
 The package contains the 21-criterion comparison campaign, a reusable
-uncalibrated particle-model kernel, the selected PhysLib theorem contract, the
-current-tree CAT/EPT formalization inventory, M9.96--M9.97 charged-source and
-Maxwell--Dirac studies, the M9.98 ZIL runtime authority, and the M9.99
-formal/numerical reconciliation layer.
+uncalibrated particle-model kernel, exact Physlib source contracts, current ZIL
+runtime authority, formal/numerical equation reconciliation, evidence-derived
+multi-axis maturity, and the M9.101 coupled action, packet-spin, clock, and
+weak-field gravity campaigns.
 
-M9.96 constructs field-derived winding-three source candidates and closes their
-projected static Maxwell constraints, magnetic response, and Lorentz/energy/
-stress force triangle. M9.97 adds a self-consistent gauge-covariant Pauli
-stationary equation and a source-consistent four-spinor Maxwell--Dirac campaign.
-It closes kinetic-momentum transfer and exact-generator spin integration while
-retaining charged-stationary, center-response, and moving-packet T-BMT
-boundaries.
+M9.96--M9.97 construct field-derived winding sources, static Maxwell/force
+closures, and source-consistent Maxwell--Dirac dynamics. M9.98 upgrades the
+``Zil``/``Zil.Native`` runtime split. M9.99 pins current formal equations,
+repairs the mass and discrete-operator mismatches, adds the missing Hartree
+term as an explicit control, and uses the exact Dirac center-velocity
+observable. M9.100 replaces the frozen scalar partial bucket with independent
+formal, numerical, state, identity, calibration, and prediction axes.
 
-M9.98 pins current ``jagg-ix/zil-lean`` and makes its dual-root architecture
-explicit. M9.99 pins the current ``entropic-physlib-linear-full`` equation
-surfaces, records where the numerical model differs, introduces one Fourier
-differential complex for matter and Maxwell fields, enforces ``D = 1/(2m)``,
-exposes the missing Hartree coupling as a sweep, and replaces the invalid direct
-Dirac center-force promotion gate with ``d<x>/dt = <alpha>`` plus the retained
-momentum-versus-Lorentz comparison.
+M9.101 refreshes ``entropic-physlib-linear-full`` to head
+``acdbe8ce6456e66837bd18604cf3107d3181c4de`` and recognizes the global
+integrated electrogravitic action, G-free inference-variance coupling,
+clock/action bridges, gauge-invariant Pauli tensor, and current T-BMT surfaces.
+It adds:
 
-Lean remains proof authority. Formal availability, numerical model identity,
-discretization closure, physical identity, calibration, and external validation
-remain separate layers. The M9 comparison matrix remains seven validated,
-thirteen partial, and one negative.
+* one finite periodic gauge-spinor-Hartree action and winding-sector solver;
+* one pointwise packet Thomas--BMT integral with matched self control;
+* one internal clock/action/Yukawa/entropy calibration frozen across grids;
+* one end-to-end weak-field Schrodinger--Maxwell--Poisson metric evolution.
+
+Lean remains proof authority. Symmetry-reduced construction, imported
+covariant dynamics, internal calibration, and weak-field evolution are not
+silently promoted to unrestricted stability, QED derivation, external
+validation, or nonlinear Einstein Cauchy development.
 """

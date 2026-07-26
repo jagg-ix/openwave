@@ -1,0 +1,113 @@
+MODULE openwave.m9.coupled_physics_101.
+
+model:m9_cat_ept#extends@task:m9_100_multi_axis_maturity.
+task:m9_101#contains@task:m9_101a_formal_authority.
+task:m9_101#contains@task:m9_101b_coupled_action.
+task:m9_101#contains@task:m9_101c_packet_tbmt.
+task:m9_101#contains@task:m9_101d_clock_calibration.
+task:m9_101#contains@task:m9_101e_weak_field_gravity.
+task:m9_101#contains@task:m9_101f_evidence_authority.
+task:m9_101#contains@task:m9_101g_maturity_overlay.
+task:m9_101#contains@task:m9_101h_conformance.
+task:m9_101#contains@task:m9_101i_registration.
+
+formalization:current_physlib#repository@repository:jagg_ix_entropic_physlib_private.
+formalization:current_physlib#branch@branch:entropic_physlib_linear_full.
+formalization:current_physlib#head@commit:acdbe8ce6456e66837bd18604cf3107d3181c4de.
+formalization:current_physlib#proof_authority@authority:lean_kernel.
+
+formalization:global_electrogravitic_action#provides@interface:integrated_nonlinear_action.
+formalization:global_electrogravitic_action#provides@interface:dominated_frechet_derivative.
+formalization:global_electrogravitic_action#provides@interface:stationarity_to_metric_maxwell_entropic_equations.
+formalization:global_electrogravitic_action#epistemic_status@status:ansatz_loaded.
+formalization:global_electrogravitic_action#boundary@obligation:construct_physical_continuum_density.
+
+formalization:g_free_newton_coupling#provides@equation:G_equals_hbar_c_sigma0_fourth.
+formalization:g_free_newton_coupling#epistemic_status@status:ansatz_loaded.
+formalization:g_free_newton_coupling#boundary@obligation:fix_sigma0_independently.
+
+formalization:clock_action_bridge#provides@equation:y_equals_sqrt2_hbar_omega_over_c2_v.
+formalization:clock_action_bridge#provides@equation:entropy_rate_proportional_to_compton_clock_mass.
+formalization:clock_action_bridge#epistemic_status@status:inversion.
+formalization:clock_action_bridge#boundary@obligation:external_clock_identity.
+
+formalization:pauli_tensor#provides@operator:gauge_invariant_sigma_F.
+formalization:thomas_bmt#provides@equation:lab_frame_scalar_coefficients.
+formalization:thomas_bmt#provides@equation:rest_frame_qed_precession.
+formalization:thomas_bmt#boundary@obligation:qed_derive_covariant_thomas_extension.
+
+campaign:m9_101b#implements@action:finite_periodic_gauge_spinor_hartree.
+action:finite_periodic_gauge_spinor_hartree#contains@term:gauge_covariant_kinetic.
+action:finite_periodic_gauge_spinor_hartree#contains@term:local_cubic_quintic.
+action:finite_periodic_gauge_spinor_hartree#contains@term:electrostatic_self_energy.
+action:finite_periodic_gauge_spinor_hartree#contains@term:newton_hartree_self_energy.
+action:finite_periodic_gauge_spinor_hartree#contains@term:magnetic_field_energy.
+action:finite_periodic_gauge_spinor_hartree#contains@term:pauli_spin_coupling.
+campaign:m9_101b#uses@equation:G_equals_hbar_c_sigma0_fourth.
+campaign:m9_101b#constructs@state:winding_sector_stationary_candidate.
+campaign:m9_101b#does_not_establish@state:unrestricted_stable_charged_particle.
+
+campaign:m9_101c#implements@adapter:local_packet_thomas_bmt.
+adapter:local_packet_thomas_bmt#uses@observable:pointwise_dirac_velocity.
+adapter:local_packet_thomas_bmt#uses@observable:local_lorentz_gamma.
+adapter:local_packet_thomas_bmt#uses@field:local_electric_field.
+adapter:local_packet_thomas_bmt#uses@field:local_magnetic_field.
+adapter:local_packet_thomas_bmt#integrates@observable:local_spin_torque_density.
+adapter:local_packet_thomas_bmt#subtracts@control:matched_self_field.
+campaign:m9_101c#compares@observable:exact_dirac_generator_spin_rate.
+campaign:m9_101c#deprecates@comparison:averaged_rest_frame_field_shadow.
+campaign:m9_101c#does_not_establish@claim:qed_derived_covariant_thomas_extension.
+
+campaign:m9_101d#measures@observable:stationary_branch_internal_frequency.
+campaign:m9_101d#derives@param:internal_yukawa_coupling.
+campaign:m9_101d#derives@param:entropy_action_unit.
+campaign:m9_101d#freezes@param:entropy_action_unit_across_held_out_grids.
+campaign:m9_101d#checks@identity:clock_mass_equals_yukawa_mass.
+campaign:m9_101d#checks@identity:frequency_lapse_tolman_reconstruction.
+campaign:m9_101d#does_not_establish@claim:physical_electron_zitterbewegung_clock.
+
+campaign:m9_101e#implements@evolution:weak_field_schrodinger_maxwell_poisson.
+evolution:weak_field_schrodinger_maxwell_poisson#uses@source:one_spinor_density_and_current.
+evolution:weak_field_schrodinger_maxwell_poisson#constructs@field:maxwell_electric_and_magnetic.
+evolution:weak_field_schrodinger_maxwell_poisson#constructs@source:matter_plus_em_gravitational_density.
+evolution:weak_field_schrodinger_maxwell_poisson#constructs@field:newton_potential.
+evolution:weak_field_schrodinger_maxwell_poisson#constructs@metric:weak_g00.
+evolution:weak_field_schrodinger_maxwell_poisson#checks@equation:weak_einstein_00_poisson.
+evolution:weak_field_schrodinger_maxwell_poisson#does_not_establish@claim:nonlinear_four_dimensional_einstein_cauchy_development.
+
+criterion:de_broglie_clock#calibration@state:partial_internal.
+criterion:magnetic_moment_spin#state_construction@state:reduced_constructed.
+criterion:electric_force#state_construction@state:reduced_constructed.
+criterion:magnetic_force#state_construction@state:reduced_constructed.
+criterion:gravity#state_construction@state:reduced_constructed.
+
+RULE ansatz_loaded_coupling_is_not_external_prediction:
+IF ?formalization#epistemic_status@status:ansatz_loaded
+THEN ?formalization#prediction_status@state:conditional_only.
+
+RULE symmetry_reduced_state_does_not_close_unrestricted_stability:
+IF campaign:m9_101b#constructs@state:winding_sector_stationary_candidate
+THEN state:unrestricted_stable_charged_particle#status@state:open.
+
+RULE weak_field_evolution_does_not_close_full_einstein:
+IF campaign:m9_101e#implements@evolution:weak_field_schrodinger_maxwell_poisson
+THEN claim:nonlinear_four_dimensional_einstein_cauchy_development#status@state:open.
+
+RULE internal_clock_calibration_preserves_external_boundary:
+IF campaign:m9_101d#derives@param:entropy_action_unit
+THEN claim:physical_electron_zitterbewegung_clock#status@state:open.
+
+QUERY current_formal_head:
+FIND ?head WHERE formalization:current_physlib#head@?head.
+
+QUERY coupled_action_terms:
+FIND ?term WHERE action:finite_periodic_gauge_spinor_hartree#contains@?term.
+
+QUERY packet_tbmt_inputs:
+FIND ?input WHERE adapter:local_packet_thomas_bmt#uses@?input.
+
+QUERY m101_open_boundaries:
+FIND ?obligation WHERE ?formalization#boundary@?obligation.
+
+QUERY maturity_axis_changes:
+FIND ?state WHERE ?criterion#state_construction@?state.
