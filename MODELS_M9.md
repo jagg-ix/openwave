@@ -1,129 +1,128 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-The canonical physics profile remains `openwave/xperiments/m9_cat_ept/model_conformance_dynamics.py`. The current canonical registration is `model_registration_reconciliation.py`, schema v6. It composes the M9.98 ZIL authority with the M9.99 formal/numerical equation, operator, mass, and observable reconciliation without changing any of the 21 criterion rows.
+The canonical conformance profile is now `model_conformance_m101.py`, schema v18. The canonical registration is `model_registration_m101.py`, schema v9.
 
-Platform validation, Lean theorem status, ZIL runtime/orchestration status, numerical equation identity, discretization closure, physical identity, calibration, and external validation remain separate layers.
+Lean theorem status, ZIL orchestration, numerical carrier identity, state construction, physical identity, calibration, and prediction readiness remain separate layers.
 
-## Platform summary after M9.99
+## Evidence-derived maturity
 
-| Status | Count |
+| Headline | Count |
 | --- | ---: |
-| validated in-platform | 7 |
-| partial / bounded | 13 |
-| honest negative | 1 |
-| planned / not yet | 0 |
-| **Explicit criteria** | **21** |
+| Validated in scope | 7 |
+| Conditional validated | 5 |
+| Reduced-model validated | 3 |
+| Calibration pending | 1 |
+| Candidate | 4 |
+| Negative | 1 |
+| **Total** | **21** |
 
-Validated rows remain charge quantization, particle stability, spin-1/2 statistics, source-free Maxwell waves, free massive Klein--Gordon evolution, dimensionless Coulomb orbital quantization, and the explicit dimensionless thermal field. The predictive lepton-mass hierarchy remains the sole criterion-level negative.
+The old `7 validated / 13 partial / 1 negative` table remains compatibility metadata only.
 
-## Formal proof authority
-
-The current equation contract reads exact source blobs from:
-
-```text
-repository  jagg-ix/entropic-physlib-private
-branch      entropic-physlib-linear-full
-```
-
-It covers the current Hartree-plus-local mild-flow target, cubic--quintic coercivity and conditional stability, the self-bound Schrödinger--Newton carrier, Foldy--Wouthuysen Pauli structure, four-spinor Dirac algebra and velocity, Maxwell/continuity, rest-frame Dirac--Pauli/T-BMT, isolated Coulomb/radiation gauge, and the distributional three-dimensional point charge.
-
-All formal and OpenWave sources referenced by the comparison are blob-pinned. Formal-source or numerical-source drift fails closed. Lean remains proof authority.
-
-## Why the legacy M9.97 numbers were not Lean contradictions
-
-The machine-readable equation contract records nine relations.
-
-| Relation | Current formal side | Legacy numerical side | Classification |
-| --- | --- | --- | --- |
-| Binding | Newton/Hartree plus local interaction | local cubic--quintic only | formal term missing numerically |
-| Coefficients | parameters with coercivity and closure hypotheses | Gaussian-reference selection | parameter mismatch |
-| Mass | nonrelativistic `D = 1/(2m)` | `D = 0.65`, `m = 1` | parameter mismatch |
-| Pauli equation | FW matrix carrier with relativistic, Darwin, and spin--orbit terms | nonlinear self-consistent `D_A²`, `rho`, `rho²`, `sigma.B` PDE | different carrier/equation |
-| Maxwell | isolated `R³` or momentum-space `F=dA` | periodic neutralized extended source | carrier mismatch |
-| Discretization | one derivative family | spectral matter plus centered Maxwell | discrete-operator mismatch |
-| Dirac position | `d<x>/dt = <alpha>` | `d²<x>/dt²` versus force per norm | observable-domain mismatch |
-| Spin | rest-frame vertical-field bridge | moving extended packet with averaged field | observable-domain mismatch |
-| Clifford algebra | canonical Dirac matrices | same numerical matrices | exact structural overlap |
-
-The legacy center-force and rest-frame BMT discrepancies remain useful diagnostics, but they are not counterexamples to the proved Lean statements.
-
-## M9.99 discrete and mass reconciliation
-
-M9.99 introduces one exact Fourier differential complex for:
-
-- gradient;
-- divergence;
-- curl;
-- Laplacian;
-- Helmholtz projection;
-- scalar and vector Poisson inversion;
-- gauge-covariant matter Laplacian.
-
-Real Maxwell fields use a `17 × 17 × 17` odd grid so there is no self-conjugate Nyquist ambiguity. The historical `16 × 16 × 16` winding seed is Fourier-resampled and normalized onto that operational grid. Even-grid real exact-Fourier derivatives fail closed rather than silently dropping an imaginary Nyquist contribution.
-
-The reconciled mass is
+## Current formal authority
 
 ```text
-D     = 0.65
-m_eff = 1/(2D) = 0.7692307692307692
-q/m   = 2Dq
+repository   jagg-ix/entropic-physlib-private
+branch       entropic-physlib-linear-full
+head         acdbe8ce6456e66837bd18604cf3107d3181c4de
+Physlib.lean cf0c719c3249c48174df8923380287bcaf33f04b
 ```
 
-The kinetic operator, convective current, magnetization current, and Pauli coupling now use this same mass map.
+M9.101 recognizes exact current blobs for:
 
-The final stationary residual is evaluated with the exact Maxwell vector potential whose Gauss and Ampère residuals are reported, not a relaxed intermediate vector.
+- the global integrated electrogravitic action;
+- the coupled metric/gauge/entropic derivative interface;
+- the metric-built entropic-dynamics Einstein--Maxwell capstone;
+- the G-free relations `G = hbar*c/m²` and `G = hbar*c*sigma0⁴`;
+- clock relative entropy, clock/action-rate, and Yukawa isolation;
+- gauge-invariant Pauli tensor coupling;
+- T-BMT coefficients, magic cancellation, and rest-frame QED grounding;
+- Schrödinger/Ehrenfest curved gauge-density interfaces;
+- epistemically typed derived-prediction auditing.
 
-## Hartree boundary
+The global action data still requires an explicit physical density and derivative identification. The Newton coupling remains conditional on the Compton-cell model and an independently fixed `sigma0`. The covariant Thomas equation remains imported physical dynamics rather than a QED derivation.
 
-The current formal target includes attractive Newton/Hartree interaction. No unique OpenWave dimensionless coupling has been derived, so the reconciled campaign exposes an explicit control sweep:
+## M9.101 coupled action
+
+`coupled_gauge_spinor_hartree_action.py` implements one finite periodic action with:
+
+- gauge-covariant spinor kinetic energy;
+- local cubic--quintic interaction;
+- eliminated electrostatic self-energy;
+- Newton/Hartree self-energy;
+- transverse magnetic energy;
+- Pauli spin coupling.
+
+It includes an action/Hamiltonian directional audit and a normalized winding-three symmetry-sector solver. The solver outcome is reported dynamically. A symmetry-reduced candidate is not relabeled as unrestricted charged-particle stability.
+
+## M9.101 packet spin
+
+`covariant_packet_tbmt.py` replaces the averaged rest-frame magnetic shadow with a local packet integral:
 
 ```text
-G = 0.00, 0.05, 0.10
+beta(x) = j_D(x)/rho(x)
+gamma(x) = 1/sqrt(1-|beta(x)|²)
+rate = integral [Omega_BMT(x) cross s(x)] d³x
 ```
 
-The zero row is the reconciled local-only control. No row is called the unique formal target, a calibrated coupling, or a physical particle.
+Pair and self-field-control torques are subtracted before comparison with the exact Dirac-generator spin rate. Improvement over the old rest-frame shadow and numerical closure are separate decisions.
 
-## Correct Dirac observables
+## M9.101 clock/action calibration
 
-The current center observable tests
+`clock_action_rate_calibration.py` uses the preregistered stationary-branch frequency to derive one internal natural-unit map:
 
 ```text
-d<x_i>/dt = <alpha_i>
+m_clock = hbar*omega/c²
+y = sqrt(2)*hbar*omega/(c²*v)
+action rate = hbar*omega
 ```
 
-for the pair, the matched self-field control, and their interaction difference. Kinetic-momentum transfer versus the Lorentz-volume force remains the force gate.
+One entropy-action normalization is determined on the derivation grid and transported without refitting across the held-out grids. The nonconstant entropy-rate modulation is retained as a residual. This is not external clock or mass calibration.
 
-The old direct comparison `d²<x>/dt² = F/norm` is retained only as a nonrelativistic diagnostic until a Foldy--Wouthuysen packet position projection and positive-energy limit are constructed. The rest-frame T-BMT shadow is similarly outside the domain of the moving, extended, nonuniform-field packet; the full Dirac generator remains the spin-integration gate.
+## M9.101 weak-field electrogravity
+
+`electrogravitic_weak_field_evolution.py` closes one executable source chain:
+
+```text
+spinor
+ -> charge/current
+ -> Maxwell E,B
+ -> matter + EM gravitational source
+ -> Newton potential
+ -> weak g00
+ -> next Schrödinger step
+```
+
+The campaign checks Maxwell constraints, weak Einstein-00/Poisson closure, norm and charge, metric signature, and probe-mass cancellation. It is not a nonlinear four-dimensional Einstein Cauchy development.
+
+## Maturity-axis updates
+
+| Criterion | M9.101 update |
+| --- | --- |
+| de Broglie clock | internal calibration becomes partial |
+| magnetic moment and spin | reduced state construction and packet adapter |
+| electric force | reduced state construction from one coupled action |
+| magnetic force | reduced state construction and local packet torque adapter |
+| gravity | reduced end-to-end weak-field evolution |
+
+All five remain `conditional_validated`: physical identity, independent calibration, and external validation are not inferred.
 
 ## Current authority surfaces
 
-- `formal_numerical_equation_contract_current.py`;
-- `compatible_discrete_geometry.py`;
-- `reconciled_gauge_spinor_stationary_current.py`;
-- `dirac_ehrenfest_diagnostics.py`;
-- `formal_numerical_reconciliation_authority.py`;
-- `model_registration_reconciliation.py`;
-- `research/zil/m9_99_formal_numerical_reconciliation.zc`.
+- `formalization_m101_extension.py`;
+- `coupled_gauge_spinor_hartree_action.py`;
+- `covariant_packet_tbmt.py`;
+- `clock_action_rate_calibration.py`;
+- `electrogravitic_weak_field_evolution.py`;
+- `m101_evidence_authority.py`;
+- `criterion_maturity_m101.py`;
+- `model_conformance_m101.py`;
+- `model_registration_m101.py`;
+- `research/zil/m9_101_coupled_physics.zc`.
 
-## Current three-row status
+## Remaining critical targets
 
-| Criterion | Retained evidence | Promotion blocker |
-| --- | --- | --- |
-| Magnetic moment and spin | field-derived moment/response and exact-generator spin evolution | no stationary charged spinor; covariant packet BMT, anomaly, identity, and calibration open |
-| Electric force | force triangle and four-spinor momentum/Lorentz agreement | no stable charged pair, selected Hartree coupling, FW packet-center reduction, or unit map |
-| Magnetic force | field-derived magnetic contribution and exact-generator precession | covariant local torque law, stable pair, and common calibration open |
-
-All three remain **partial**.
-
-## Explicit retained boundaries
-
-- derive one coupled gauge-spinor-Hartree action;
-- select its dimensionless coupling map;
-- construct a stable charged stationary branch;
-- construct a Foldy--Wouthuysen packet position projection;
-- construct a covariant local packet T-BMT law;
-- derive the anomalous moment;
-- calibrate physical charge, moment, force, mass, length, and time units;
-- complete global nonlinear coupled-action, Cauchy-development, continuum, and withheld-prediction targets.
-
-The matrix remains `7 validated / 13 partial / 1 negative`. The next critical target is M9.100: derive one coupled gauge-spinor-Hartree action, select its dimensionless coupling map, and construct a stable charged stationary branch before repeating the force and spin campaigns.
+1. establish unrestricted charged stationary stability without winding/spin projection;
+2. derive or explicitly postulate the covariant Thomas extension and close it across refined packet carriers;
+3. fix `sigma0`, clock, mass, Yukawa, charge, and force maps independently;
+4. extend weak-field gravity to constraint-preserving nonlinear metric evolution;
+5. freeze all maps before preregistered external prediction tests.
