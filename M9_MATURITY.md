@@ -1,6 +1,6 @@
 # OpenWave M9 maturity profile
 
-The current assessment keeps theorem status, numerical closure, state construction, physical identity, calibration, prediction readiness, and implementation evidence separate.
+The current assessment keeps formal theorem status, numerical closure, state construction, physical identity, calibration, prediction readiness, and implementation evidence separate.
 
 ## Headline summary
 
@@ -14,36 +14,37 @@ The current assessment keeps theorem status, numerical closure, state constructi
 | Negative | 1 |
 | **Total** | **21** |
 
-M9.106--M9.108 do not hardcode new headline counts. Their physical sub-gates drive only the relevant axes.
+M9.109 changes the **formal interpretation** of Newton's constant without hardcoding a new headline or claiming a numerical prediction.
 
-## New axis rules
+## Newton-G status
 
-| Criterion | New evidence | Axis rule | Retained boundary |
-| --- | --- | --- | --- |
-| Gravity | nonlinear conformal metric, trace curvature, Hamiltonian/momentum constraints, projection | state advances only if the nonlinear constraint gate passes | general 4D Einstein Cauchy development and physical calibration |
-| Antimatter/annihilation | particle, antiparticle, electrostatic, and radiation fields | reduced headline retained; coupled-field gate is additional numerical evidence | physical QED annihilation and cross sections |
-| Strong force | color-triplet amplitudes and a dynamical flux field | reduced headline retained | non-Abelian Yang-Mills/QCD and hadron spectrum |
-| Weak force | left/right flavor fields, mediator, and reservoir | reduced headline retained | electroweak gauge theory and calibrated rates |
-| Dark matter | neutral Hartree candidate and perturbation tube | state becomes `stable_constructed` only after the candidate gate | abundance, production, mass scale, phenomenology |
-| Quarks/baryons/mesons | color/composite field candidates and perturbation tubes | state follows each candidate gate | QCD identity, spectrum, decays, physical calibration |
+| Layer | Current result |
+| --- | --- |
+| Formal relation | `G = hbar*c/m_anchor^2 = c^5/(hbar*omega_anchor^2) = hbar*c*sigma0_anchor^4` |
+| Primitive status | `G` is canonicalized as derived, not primitive |
+| Mass value | not derived |
+| Particle-clock universality | rejected by electron/muon/proton audit |
+| Universal gravity anchor | open |
+| Physical unit map | open |
+| Withheld `G` prediction | not executed |
+| Weak/nonlinear coupling injection | blocked until prediction and unit map close |
 
-## Program-health authority
+The Compton anchor removes a free clock-frequency knob once a mass is fixed. It does not explain the mass hierarchy or identify an ordinary particle clock with the universal gravity scale.
+
+## Quantitative implication
+
+Using 2022 CODATA masses:
 
 ```text
-Physlib head 128974a501d3d0a43108a3ab9a1bd9d4fea5d7db
-edges 4528
-exact identities 218
-untested numerical predictions 0
-loaded uncited claims 12
-undisclosed loaded claims 0
-physical internal-only claims 2
-hidden epistemic debt 43
+electron G_clock / G_measured  about 5.71e44
+muon     G_clock / G_measured  about 1.34e40
+proton   G_clock / G_measured  about 1.69e38
 ```
 
-A regression in exact identities, untested numerical predictions, undisclosed claims, vocabulary validity, internal-only physical claims, or hidden debt blocks the current authority. Program-health passage is not physical evidence.
+The Planck-mass/frequency control reproduces measured `G` because it is obtained by inversion from measured `G`; it is not an independent prediction.
 
-## Executed reduced-model results
+## Promotion rule
 
-The standalone NumPy kernels for M9.107 and M9.108 were executed before publication. The committed records under `research/results/` show all three M9.107 coupled-field gates and all four M9.108 candidate-state gates passing their declared tolerances.
+Gravity calibration may advance only after an independently grounded universal-gravity mass or clock, with no dependency on withheld `G`, produces the same frozen coupling through every registered path and an explicit SI-to-OpenWave unit map.
 
-M9.106 depends on the complete OpenWave matter/Maxwell stack and must be executed in a repository checkout. No numerical M9.106 outcome is claimed here.
+Natural-unit closure is internal consistency, not external calibration.
