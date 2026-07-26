@@ -1,0 +1,82 @@
+MODULE openwave.m9.evidence_integrity_102.
+
+model:m9_cat_ept#extends@task:m9_101_coupled_physics.
+task:m9_102#contains@task:m9_102a_formal_refresh.
+task:m9_102#contains@task:m9_102b_carrier_state_separation.
+task:m9_102#contains@task:m9_102c_reproducibility_contract.
+task:m9_102#contains@task:m9_102d_conformance.
+task:m9_102#contains@task:m9_102e_registration.
+
+formalization:m9_101_historical#head@commit:acdbe8ce6456e66837bd18604cf3107d3181c4de.
+formalization:m9_102_current#head@commit:eba0124fcfbc1216d973bb6f504c5a6d324de60c.
+formalization:m9_102_current#ahead_by@count:6.
+formalization:m9_101_historical#purpose@purpose:exact_pr_92_reproduction.
+formalization:m9_102_current#purpose@purpose:live_formal_authority.
+
+formalization:claim_maturity#provides@audit:six_independent_axes.
+formalization:claim_maturity#provides@audit:axis_prerequisite_coherence.
+formalization:claim_maturity#provides@audit:asserted_level_not_above_derived_level.
+formalization:claim_maturity#provides@audit:witness_backed_formal_closure.
+formalization:claim_maturity#does_not_create@evidence:numerical_physics_result.
+
+formalization:evidence_integrity#provides@audit:falsified_claim_consistency.
+formalization:evidence_integrity#provides@audit:structured_numeric_gates.
+formalization:evidence_integrity#provides@audit:internal_vs_external_evidence.
+formalization:evidence_integrity#transcribes@gates:m9_69_neutral_branch.
+formalization:evidence_integrity#does_not_create@evidence:external_validation.
+
+formalization:theorem_intent_audit#provides@audit:theorem_level_vs_graph_edges.
+formalization:theorem_intent_audit#build_mode@mode:on_demand.
+
+campaign:m9_101b#implements@carrier:coupled_action_and_solver.
+campaign:m9_101b#reports@gate:symmetry_reduced_stationary_state.
+campaign:m9_101b#reports@gate:unrestricted_stationary_state.
+campaign:m9_101c#implements@carrier:local_packet_tbmt_adapter.
+campaign:m9_101c#reports@gate:packet_tbmt_reduction.
+campaign:m9_101e#implements@carrier:weak_field_evolution.
+campaign:m9_101e#reports@gate:full_einstein_evolution.
+
+policy:carrier_state_separation#forbids@inference:implemented_carrier_implies_constructed_state.
+policy:campaign_subgate_separation#forbids@inference:campaign_passed_implies_physical_subgate_passed.
+policy:formal_head_separation#forbids@inference:historical_pin_is_live_head_resolution.
+policy:snapshot_evidence#forbids@inference:fresh_internal_snapshot_is_external_validation.
+
+reproducibility:m9_101_snapshot_bundle#contains@snapshot:coupled_action.
+reproducibility:m9_101_snapshot_bundle#contains@snapshot:packet_tbmt.
+reproducibility:m9_101_snapshot_bundle#contains@snapshot:clock_calibration.
+reproducibility:m9_101_snapshot_bundle#contains@snapshot:weak_field_gravity.
+reproducibility:m9_101_snapshot_bundle#contains@manifest:component_sha256.
+reproducibility:m9_101_snapshot_bundle#contains@manifest:quantitative_summary.
+reproducibility:m9_101_snapshot_bundle#status@state:generation_and_verification_available.
+reproducibility:m9_101_snapshot_bundle#committed_reference@state:not_present.
+
+RULE implemented_carrier_keeps_state_gate_explicit:
+IF ?campaign#implements@?carrier
+THEN ?campaign#requires@gate:state_existence.
+
+RULE campaign_passage_keeps_subgate_explicit:
+IF ?campaign#reports@?gate
+THEN ?campaign#requires@evidence:measured_subgate_value.
+
+RULE historical_pin_is_not_live_resolution:
+IF formalization:m9_101_historical#purpose@purpose:exact_pr_92_reproduction
+THEN formalization:m9_101_historical#live_resolution@state:false.
+
+RULE internal_snapshot_is_not_external_validation:
+IF reproducibility:m9_101_snapshot_bundle#status@state:generation_and_verification_available
+THEN claim:external_validation#status@state:open.
+
+QUERY current_formal_head:
+FIND ?head WHERE formalization:m9_102_current#head@?head.
+
+QUERY historical_formal_head:
+FIND ?head WHERE formalization:m9_101_historical#head@?head.
+
+QUERY evidence_governance_surfaces:
+FIND ?audit WHERE ?formalization#provides@?audit.
+
+QUERY m101_snapshot_components:
+FIND ?snapshot WHERE reproducibility:m9_101_snapshot_bundle#contains@?snapshot.
+
+QUERY retained_evidence_boundaries:
+FIND ?inference WHERE ?policy#forbids@?inference.

@@ -1,8 +1,8 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-The canonical conformance profile is now `model_conformance_m101.py`, schema v18. The canonical registration is `model_registration_m101.py`, schema v9.
+The canonical conformance profile is `model_conformance_m102.py`, schema v19. The canonical registration is `model_registration_m102.py`, schema v10.
 
-Lean theorem status, ZIL orchestration, numerical carrier identity, state construction, physical identity, calibration, and prediction readiness remain separate layers.
+Lean theorem status, formal-source identity, numerical carrier implementation, state construction, physical identity, calibration, prediction readiness, and external evidence remain separate layers.
 
 ## Evidence-derived maturity
 
@@ -16,9 +16,11 @@ Lean theorem status, ZIL orchestration, numerical carrier identity, state constr
 | Negative | 1 |
 | **Total** | **21** |
 
-The old `7 validated / 13 partial / 1 negative` table remains compatibility metadata only.
+The historical `7 validated / 13 partial / 1 negative` table remains compatibility metadata only.
 
-## Current formal authority
+## Formal authority
+
+Exact reproduction of merged PR #92 uses:
 
 ```text
 repository   jagg-ix/entropic-physlib-private
@@ -27,97 +29,78 @@ head         acdbe8ce6456e66837bd18604cf3107d3181c4de
 Physlib.lean cf0c719c3249c48174df8923380287bcaf33f04b
 ```
 
-M9.101 recognizes exact current blobs for:
-
-- the global integrated electrogravitic action;
-- the coupled metric/gauge/entropic derivative interface;
-- the metric-built entropic-dynamics Einstein--Maxwell capstone;
-- the G-free relations `G = hbar*c/m²` and `G = hbar*c*sigma0⁴`;
-- clock relative entropy, clock/action-rate, and Yukawa isolation;
-- gauge-invariant Pauli tensor coupling;
-- T-BMT coefficients, magic cancellation, and rest-frame QED grounding;
-- Schrödinger/Ehrenfest curved gauge-density interfaces;
-- epistemically typed derived-prediction auditing.
-
-The global action data still requires an explicit physical density and derivative identification. The Newton coupling remains conditional on the Compton-cell model and an independently fixed `sigma0`. The covariant Thomas equation remains imported physical dynamics rather than a QED derivation.
-
-## M9.101 coupled action
-
-`coupled_gauge_spinor_hartree_action.py` implements one finite periodic action with:
-
-- gauge-covariant spinor kinetic energy;
-- local cubic--quintic interaction;
-- eliminated electrostatic self-energy;
-- Newton/Hartree self-energy;
-- transverse magnetic energy;
-- Pauli spin coupling.
-
-It includes an action/Hamiltonian directional audit and a normalized winding-three symmetry-sector solver. The solver outcome is reported dynamically. A symmetry-reduced candidate is not relabeled as unrestricted charged-particle stability.
-
-## M9.101 packet spin
-
-`covariant_packet_tbmt.py` replaces the averaged rest-frame magnetic shadow with a local packet integral:
+The current live formal authority is:
 
 ```text
-beta(x) = j_D(x)/rho(x)
-gamma(x) = 1/sqrt(1-|beta(x)|²)
-rate = integral [Omega_BMT(x) cross s(x)] d³x
+head         eba0124fcfbc1216d973bb6f504c5a6d324de60c
+Physlib.lean 56813b617e44f1ebd2ce5716fec72db4327ed0d0
 ```
 
-Pair and self-field-control torques are subtracted before comparison with the exact Dirac-generator spin rate. Improvement over the old rest-frame shadow and numerical closure are separate decisions.
+The six-commit update adds:
 
-## M9.101 clock/action calibration
+- `ClaimMaturity.lean`: six-axis maturity, prerequisite coherence, assertion honesty, and witness-backed formal closure;
+- `EvidenceIntegrity.lean`: falsification/supersession consistency, structured numerical gates, and internal-versus-external evidence classification;
+- `TheoremIntentAudit.lean`: on-demand comparison of theorem abstraction intents with graph support.
 
-`clock_action_rate_calibration.py` uses the preregistered stationary-branch frequency to derive one internal natural-unit map:
+These are evidence-governance surfaces. They add no new OpenWave numerical result or physical identity.
 
-```text
-m_clock = hbar*omega/c²
-y = sqrt(2)*hbar*omega/(c²*v)
-action rate = hbar*omega
+## M9.101 physics campaigns
+
+### Coupled action
+
+`coupled_gauge_spinor_hartree_action.py` implements one finite periodic action with gauge-covariant spinor kinetic energy, local cubic--quintic interaction, electrostatic and Hartree self-energy, transverse magnetic energy, and Pauli coupling. The equation and solver are implementation evidence. The symmetry-reduced stationary-state gate and unrestricted-state gate are reported separately.
+
+### Packet spin
+
+`covariant_packet_tbmt.py` integrates the pointwise lab-frame BMT torque over the packet after subtracting a matched self-field control. Adapter implementation, improvement over the old rest-frame shadow, and numerical reduction closure are distinct decisions.
+
+### Clock/action calibration
+
+`clock_action_rate_calibration.py` transports one internal action/Yukawa/entropy normalization across held-out grids without refitting. This is internal calibration, not physical clock or mass validation.
+
+### Weak-field electrogravity
+
+`electrogravitic_weak_field_evolution.py` evolves one state through charge/current, Maxwell fields, a matter-plus-EM gravitational source, Newton potential, weak `g00`, and the next Schrödinger step. Weak-field passage is not nonlinear Einstein evolution.
+
+## M9.102 evidence correction
+
+The previous M9.101 maturity overlay assigned `reduced_constructed` to magnetic moment, electric force, and magnetic force whenever the coupled-action campaign existed. M9.102 corrects this:
+
+- an implemented action, solver, or adapter is stored under `implementation`;
+- the state axis remains `not_constructed` unless the symmetry-reduced stationary-state gate passes;
+- unrestricted stability remains separate;
+- gravity advances only when the weak-field state gate passes;
+- all five headline classes remain `conditional_validated`.
+
+## Quantitative reproduction
+
+Generate a complete four-component M9.101 snapshot bundle:
+
+```bash
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_102_reproduce_m101.py \
+  --write build/m9_101_snapshots
 ```
 
-One entropy-action normalization is determined on the derivation grid and transported without refitting across the held-out grids. The nonconstant entropy-rate modulation is retained as a residual. This is not external clock or mass calibration.
+Verify schemas, required measurements, SHA-256 hashes, and the quantitative summary:
 
-## M9.101 weak-field electrogravity
-
-`electrogravitic_weak_field_evolution.py` closes one executable source chain:
-
-```text
-spinor
- -> charge/current
- -> Maxwell E,B
- -> matter + EM gravitational source
- -> Newton potential
- -> weak g00
- -> next Schrödinger step
+```bash
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_102_reproduce_m101.py \
+  --verify build/m9_101_snapshots
 ```
 
-The campaign checks Maxwell constraints, weak Einstein-00/Poisson closure, norm and charge, metric signature, and probe-mass cancellation. It is not a nonlinear four-dimensional Einstein Cauchy development.
-
-## Maturity-axis updates
-
-| Criterion | M9.101 update |
-| --- | --- |
-| de Broglie clock | internal calibration becomes partial |
-| magnetic moment and spin | reduced state construction and packet adapter |
-| electric force | reduced state construction from one coupled action |
-| magnetic force | reduced state construction and local packet torque adapter |
-| gravity | reduced end-to-end weak-field evolution |
-
-All five remain `conditional_validated`: physical identity, independent calibration, and external validation are not inferred.
+The manifest reports campaign passage beside the actual stationary-state, packet-reduction, external-calibration, and full-Einstein sub-gates. A top-level campaign result cannot substitute for a nested physical gate.
 
 ## Current authority surfaces
 
-- `formalization_m101_extension.py`;
-- `coupled_gauge_spinor_hartree_action.py`;
-- `covariant_packet_tbmt.py`;
-- `clock_action_rate_calibration.py`;
-- `electrogravitic_weak_field_evolution.py`;
-- `m101_evidence_authority.py`;
-- `criterion_maturity_m101.py`;
-- `model_conformance_m101.py`;
-- `model_registration_m101.py`;
-- `research/zil/m9_101_coupled_physics.zc`.
+- `formalization_m102_extension.py`;
+- `criterion_maturity_m102.py`;
+- `m101_reproducibility_contract.py`;
+- `model_conformance_m102.py`;
+- `model_registration_m102.py`;
+- `research/zil/m9_102_evidence_integrity.zc`;
+- `M9_EVIDENCE_INTEGRITY.md`.
+
+Historical M9.101 modules remain available for exact PR #92 reproduction.
 
 ## Remaining critical targets
 
