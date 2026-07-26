@@ -1,0 +1,58 @@
+MODULE openwave.m9.scientific_closure_103_105.
+
+model:m9_cat_ept#extends@task:m9_102_evidence_integrity.
+task:m9_103_105#contains@task:m9_103_unrestricted_charged_stationary.
+task:m9_103_105#contains@task:m9_104_packet_tbmt_refinement.
+task:m9_103_105#contains@task:m9_105_independent_calibration.
+
+formalization:physlib#head@commit:eba0124fcfbc1216d973bb6f504c5a6d324de60c.
+runtime:zil_lean#head@commit:e09723a44185a1e70031ad2661c8009dc98bef74.
+runtime:zil_lean#report_schema@schema:ZIL_EXAMPLES_REPORT_1.
+
+campaign:m9_103#implements@solver:unrestricted_two_component_descent.
+campaign:m9_103#uses@action:finite_gauge_spinor_hartree.
+campaign:m9_103#measures@gate:unrestricted_stationarity.
+campaign:m9_103#measures@gate:unrestricted_orbital_stability.
+campaign:m9_103#does_not_establish@claim:physical_particle_identity.
+
+campaign:m9_104#uses@postulate:covariant_thomas_bmt.
+postulate:covariant_thomas_bmt#qed_derived@state:false.
+postulate:covariant_thomas_bmt#rest_frame_qed_grounded@state:true.
+campaign:m9_104#refines@dimension:grid.
+campaign:m9_104#refines@dimension:time_step.
+campaign:m9_104#compares@observable:exact_dirac_generator_spin_rate.
+campaign:m9_104#measures@gate:refined_packet_reduction.
+
+campaign:m9_105#audits@anchor:sigma0.
+campaign:m9_105#audits@anchor:clock_frequency.
+campaign:m9_105#audits@anchor:mass.
+campaign:m9_105#audits@anchor:charge_unit.
+campaign:m9_105#audits@anchor:force_unit.
+campaign:m9_105#preregisters@prediction:G_from_sigma0.
+campaign:m9_105#preregisters@prediction:clock_mass.
+campaign:m9_105#preregisters@prediction:force_scale.
+campaign:m9_105#does_not_execute@prediction:without_independent_anchors.
+
+RULE implementation_does_not_close_state:
+IF ?campaign#implements@?solver
+THEN ?campaign#state_promotion@state:gate_dependent.
+
+RULE external_postulate_is_not_qed_derivation:
+IF ?campaign#uses@?postulate AND ?postulate#qed_derived@state:false
+THEN ?campaign#qed_derivation@state:open.
+
+RULE internal_anchor_blocks_prediction:
+IF ?campaign#audits@?anchor AND ?campaign#does_not_execute@prediction:without_independent_anchors
+THEN ?campaign#prediction_status@state:blocked_pending_external_anchor.
+
+QUERY scientific_subgates:
+FIND ?campaign ?gate WHERE ?campaign#measures@?gate.
+
+QUERY external_postulates:
+FIND ?postulate WHERE ?postulate#qed_derived@state:false.
+
+QUERY calibration_anchors:
+FIND ?anchor WHERE campaign:m9_105#audits@?anchor.
+
+QUERY preregistered_predictions:
+FIND ?prediction WHERE campaign:m9_105#preregisters@?prediction.
