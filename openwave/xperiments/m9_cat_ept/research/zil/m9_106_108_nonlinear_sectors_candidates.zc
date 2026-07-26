@@ -1,0 +1,55 @@
+MODULE openwave.m9.nonlinear.sectors.candidates.106.108.
+
+formalization:physlib#head@commit:128974a501d3d0a43108a3ab9a1bd9d4fea5d7db.
+runtime:zil_lean#head@commit:e09723a44185a1e70031ad2661c8009dc98bef74.
+formalization:program_health#baseline@artifact:health_baseline.
+formalization:program_health#requires@policy:no_health_regression.
+
+campaign:m9_106#implements@evolution:nonlinear_conformal_adm.
+campaign:m9_106#measures@constraint:hamiltonian.
+campaign:m9_106#measures@constraint:momentum.
+campaign:m9_106#projects@constraint:hamiltonian.
+campaign:m9_106#projects@constraint:momentum.
+campaign:m9_106#does_not_establish@claim:general_einstein_cauchy_development.
+
+campaign:m9_107#implements@field_system:particle_antiparticle_radiation.
+campaign:m9_107#implements@field_system:color_triplet_flux.
+campaign:m9_107#implements@field_system:chiral_flavor_mediator.
+campaign:m9_107#does_not_establish@claim:qed_qcd_electroweak_standard_model.
+
+campaign:m9_108#constructs@candidate:dark_matter.
+campaign:m9_108#constructs@candidate:quark.
+campaign:m9_108#constructs@candidate:baryon.
+campaign:m9_108#constructs@candidate:meson.
+campaign:m9_108#checks@gate:stationary_residual.
+campaign:m9_108#checks@gate:localization.
+campaign:m9_108#checks@gate:perturbation_stability.
+campaign:m9_108#does_not_establish@claim:observed_particle_identity.
+
+RULE health_regression_blocks_current:
+IF formalization:program_health#status@state:regressed
+THEN authority:m9_108#status@state:blocked.
+
+RULE reduced_metric_keeps_general_einstein_open:
+IF campaign:m9_106#implements@evolution:nonlinear_conformal_adm
+THEN claim:general_einstein_cauchy_development#status@state:open.
+
+RULE coupled_sector_fields_keep_standard_model_open:
+IF campaign:m9_107#implements@field_system:color_triplet_flux
+THEN claim:qed_qcd_electroweak_standard_model#status@state:open.
+
+RULE candidate_state_keeps_identity_open:
+IF campaign:m9_108#constructs@?candidate
+THEN ?candidate#physical_identity@state:open.
+
+QUERY nonlinear_constraints:
+FIND ?constraint WHERE campaign:m9_106#measures@?constraint.
+
+QUERY coupled_field_systems:
+FIND ?system WHERE campaign:m9_107#implements@?system.
+
+QUERY dynamical_candidates:
+FIND ?candidate WHERE campaign:m9_108#constructs@?candidate.
+
+QUERY retained_boundaries:
+FIND ?claim WHERE ?campaign#does_not_establish@?claim.
