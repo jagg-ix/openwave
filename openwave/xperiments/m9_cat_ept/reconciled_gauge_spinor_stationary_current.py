@@ -116,20 +116,28 @@ def run_one_coupling(
     initial: dict[str, float] | None = None
     final_fields: dict[str, Any] | None = None
     final_hamiltonian: np.ndarray | None = None
+    final_uses_exact_vector = False
     for iteration in range(cfg.iterations + 1):
         charge_density, current = reconciled_charge_current(
             spinor, vector_potential, geometry, cfg
         )
         fields = geometry.static_maxwell_fields(charge_density, current)
-        next_vector = fields["vector_potential"]
-        vector_potential = tuple(
-            np.asarray(
-                (1.0 - cfg.field_relaxation) * vector_potential[index]
-                + cfg.field_relaxation * next_vector[index],
-                dtype=np.float64,
-            )
-            for index in range(3)
+        exact_vector = tuple(
+            np.asarray(component, dtype=np.float64)
+            for component in fields["vector_potential"]
         )
+        if iteration == cfg.iterations:
+            vector_potential = exact_vector
+            final_uses_exact_vector = True
+        else:
+            vector_potential = tuple(
+                np.asarray(
+                    (1.0 - cfg.field_relaxation) * vector_potential[index]
+                    + cfg.field_relaxation * exact_vector[index],
+                    dtype=np.float64,
+                )
+                for index in range(3)
+            )
         magnetic = geometry.curl(vector_potential)
         density = np.asarray(
             np.sum(np.abs(spinor) ** 2, axis=0), dtype=np.float64
@@ -171,6 +179,7 @@ def run_one_coupling(
         "final": final,
         "residual_change": final["relative_stationary_residual"]
         - initial["relative_stationary_residual"],
+        "final_hamiltonian_uses_exact_maxwell_vector": final_uses_exact_vector,
         "maxwell": {
             key: final_fields[key]
             for key in (
@@ -218,6 +227,9 @@ def run_reconciled_gauge_spinor_campaign() -> dict[str, Any]:
         ),
         "all_hartree_sweep_rows_execute": len(rows)
         == len(cfg.hartree_couplings),
+        "final_hamiltonians_use_exact_maxwell_vectors": all(
+            row["final_hamiltonian_uses_exact_maxwell_vector"] for row in rows
+        ),
         "shared_maxwell_constraints_close": all(
             row["maxwell"]["gauss_relative_residual"] <= 1.0e-11
             and row["maxwell"]["ampere_relative_residual"] <= 1.0e-11
@@ -251,6 +263,7 @@ def run_reconciled_gauge_spinor_campaign() -> dict[str, Any]:
         "decision": {
             "legacy_mass_and_operator_mismatch_repaired": True,
             "historical_even_seed_resampled_to_odd_operational_grid": True,
+            "final_stationary_residual_uses_exact_maxwell_field": True,
             "current_formal_hartree_term_is_executable_as_a_sweep": True,
             "formal_hartree_coupling_selected": False,
             "charged_stationary_branch_promoted": False,
