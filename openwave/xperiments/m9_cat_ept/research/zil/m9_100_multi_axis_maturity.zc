@@ -1,0 +1,88 @@
+MODULE openwave.m9.multi_axis_maturity.
+
+model:m9_cat_ept#extends@task:m9_99_formal_numerical_reconciliation.
+task:m9_100#contains@task:m9_100a_criterion_maturity.
+task:m9_100#contains@task:m9_100b_maturity_conformance.
+task:m9_100#contains@task:m9_100c_maturity_registration.
+
+policy:legacy_scalar_status#status@state:compatibility_only.
+policy:legacy_7_13_1#status@state:not_acceptance_gate.
+policy:fixed_promoted_keys#status@state:not_used.
+policy:multi_axis_maturity#status@state:canonical.
+
+axis:formal#member@status:proved.
+axis:formal#member@status:conditional.
+axis:formal#member@status:structural.
+axis:numerical#member@status:validated.
+axis:numerical#member@status:reduced_validated.
+axis:numerical#member@status:candidate.
+axis:numerical#member@status:negative.
+axis:state#member@status:stable_constructed.
+axis:state#member@status:reduced_constructed.
+axis:state#member@status:candidate.
+axis:state#member@status:not_constructed.
+axis:identity#member@status:not_required_for_scope.
+axis:identity#member@status:open.
+axis:identity#member@status:candidate.
+axis:calibration#member@status:not_required_for_scope.
+axis:calibration#member@status:open.
+axis:calibration#member@status:partial.
+axis:prediction#member@status:validated_internal.
+axis:prediction#member@status:conditional_internal.
+axis:prediction#member@status:not_ready.
+axis:prediction#member@status:negative_out_of_sample.
+
+headline:validated_in_scope#count@value:7.
+headline:conditional_validated#count@value:5.
+headline:reduced_model_validated#count@value:3.
+headline:calibration_pending#count@value:1.
+headline:candidate#count@value:4.
+headline:negative#count@value:1.
+
+legacy:partial#resolves_to@headline:conditional_validated.
+legacy:partial#resolves_to@headline:reduced_model_validated.
+legacy:partial#resolves_to@headline:calibration_pending.
+legacy:partial#resolves_to@headline:candidate.
+
+criterion:de_broglie_clock#headline@headline:conditional_validated.
+criterion:magnetic_moment_spin#headline@headline:conditional_validated.
+criterion:electric_force#headline@headline:conditional_validated.
+criterion:magnetic_force#headline@headline:conditional_validated.
+criterion:gravity#headline@headline:conditional_validated.
+criterion:antimatter_annihilation#headline@headline:reduced_model_validated.
+criterion:strong_force#headline@headline:reduced_model_validated.
+criterion:weak_force#headline@headline:reduced_model_validated.
+criterion:electron_rest_energy#headline@headline:calibration_pending.
+criterion:dark_matter#headline@headline:candidate.
+criterion:quarks#headline@headline:candidate.
+criterion:baryons#headline@headline:candidate.
+criterion:mesons#headline@headline:candidate.
+
+result:m9_100_maturity#does_not_imply@claim:physical_identity.
+result:m9_100_maturity#does_not_imply@claim:parameter_calibration.
+result:m9_100_maturity#does_not_imply@claim:external_prediction.
+
+RULE negative_evidence_dominates:
+IF ?criterion#prediction@status:negative_out_of_sample
+THEN ?criterion#headline@headline:negative.
+
+RULE conditional_formal_precedes_reduced_carrier:
+IF ?criterion#formal@status:conditional AND ?criterion#numerical@status:reduced_validated
+THEN ?criterion#headline@headline:conditional_validated.
+
+RULE reduced_constructed_closes_reduced_model:
+IF ?criterion#numerical@status:reduced_validated AND ?criterion#state@status:reduced_constructed
+THEN ?criterion#headline@headline:reduced_model_validated.
+
+RULE reclassification_does_not_promote_identity:
+IF ?criterion#headline@?headline
+THEN claim:physical_identity#status@state:not_inferred.
+
+QUERY maturity_headlines:
+FIND ?criterion ?headline WHERE ?criterion#headline@?headline.
+
+QUERY legacy_partial_resolutions:
+FIND ?headline WHERE legacy:partial#resolves_to@?headline.
+
+QUERY open_identity_boundaries:
+FIND ?criterion WHERE ?criterion#identity@status:open.
