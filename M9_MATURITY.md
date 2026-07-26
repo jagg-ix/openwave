@@ -1,17 +1,8 @@
 # OpenWave M9 maturity profile
 
-The historical `7 validated / 13 partial / 1 negative` table is compatibility metadata only. The current assessment derives one headline from six independent axes:
+The current assessment keeps theorem status, numerical closure, state construction, physical identity, calibration, prediction readiness, and implementation evidence separate.
 
-- formal theorem status;
-- numerical closure;
-- state construction;
-- physical identity;
-- calibration;
-- prediction readiness.
-
-Implementation evidence remains separate. A solver or postulate can exist without the corresponding state, derivation, calibration, or prediction gate passing.
-
-## M9.102 baseline
+## Headline summary
 
 | Headline | Count |
 | --- | ---: |
@@ -23,51 +14,36 @@ Implementation evidence remains separate. A solver or postulate can exist withou
 | Negative | 1 |
 | **Total** | **21** |
 
-M9.103--M9.105 derive any changes from executable sub-gates. No new count is hardcoded.
+M9.106--M9.108 do not hardcode new headline counts. Their physical sub-gates drive only the relevant axes.
 
-## M9.103--M9.105 axis rules
+## New axis rules
 
-| Criterion | New executable evidence | Axis advancement rule | Retained boundary |
+| Criterion | New evidence | Axis rule | Retained boundary |
 | --- | --- | --- | --- |
-| Magnetic moment and spin | unrestricted coupled descent, orbital tubes, refined packet spin | `reduced_constructed` only after unrestricted stationarity; `stable_constructed` only after orbital stability | QED derivation, anomaly, identity, calibration |
-| Electric force | same unrestricted charged carrier | state advances only on the charged-state gates | common physical unit map and withheld force test |
-| Magnetic force | unrestricted carrier plus refined packet torque | state follows charged-state gates; packet refinement is separate numerical evidence | QED-covariant derivation, anomaly, calibration |
-| Electron rest energy | independent-anchor dependency audit | calibration advances only after an external shared bundle closes | withheld rest-energy prediction |
-| de Broglie clock | independent clock/mass anchor audit | internal mode identities cannot produce `calibrated` | physical clock identity and external prediction |
+| Gravity | nonlinear conformal metric, trace curvature, Hamiltonian/momentum constraints, projection | state advances only if the nonlinear constraint gate passes | general 4D Einstein Cauchy development and physical calibration |
+| Antimatter/annihilation | particle, antiparticle, electrostatic, and radiation fields | reduced headline retained; coupled-field gate is additional numerical evidence | physical QED annihilation and cross sections |
+| Strong force | color-triplet amplitudes and a dynamical flux field | reduced headline retained | non-Abelian Yang-Mills/QCD and hadron spectrum |
+| Weak force | left/right flavor fields, mediator, and reservoir | reduced headline retained | electroweak gauge theory and calibrated rates |
+| Dark matter | neutral Hartree candidate and perturbation tube | state becomes `stable_constructed` only after the candidate gate | abundance, production, mass scale, phenomenology |
+| Quarks/baryons/mesons | color/composite field candidates and perturbation tubes | state follows each candidate gate | QCD identity, spectrum, decays, physical calibration |
 
-The covariant Thomas equation is registered as `explicit-external-postulate`. It is not counted as a QED-derived formal closure.
-
-## Authorities
+## Program-health authority
 
 ```text
-Physlib   eba0124fcfbc1216d973bb6f504c5a6d324de60c
-zil-lean  e09723a44185a1e70031ad2661c8009dc98bef74
+Physlib head 128974a501d3d0a43108a3ab9a1bd9d4fea5d7db
+edges 4528
+exact identities 218
+untested numerical predictions 0
+loaded uncited claims 12
+undisclosed loaded claims 0
+physical internal-only claims 2
+hidden epistemic debt 43
 ```
 
-The current ZIL commit changes example execution and reporting, not root semantics or proof authority.
+A regression in exact identities, untested numerical predictions, undisclosed claims, vocabulary validity, internal-only physical claims, or hidden debt blocks the current authority. Program-health passage is not physical evidence.
 
-## Independent calibration rule
+## Executed reduced-model results
 
-The shared calibration gate requires independent support for:
+The standalone NumPy kernels for M9.107 and M9.108 were executed before publication. The committed records under `research/results/` show all three M9.107 coupled-field gates and all four M9.108 candidate-state gates passing their declared tolerances.
 
-- inference width `sigma0`;
-- clock frequency;
-- mass;
-- charge unit;
-- force unit.
-
-A target-dependent fit, missing dependency, dependency cycle, internal simulation value, or algebraically derived value cannot count as independent calibration. Preregistered predictions remain unexecuted until the gate closes.
-
-## Current implementation
-
-- `unrestricted_charged_stationary.py` -- unrestricted stationarity and orbital gates;
-- `packet_tbmt_refinement.py` -- explicit Thomas postulate and grid/time refinement;
-- `independent_calibration_protocol.py` -- external-anchor and prediction protocol;
-- `zil_runtime_reporting_m105.py` -- current ZIL source/report authority;
-- `m103_105_evidence_authority.py` -- campaign and physical-subgate composition;
-- `criterion_maturity_m105.py` -- outcome-driven maturity v5;
-- `model_conformance_m105.py` -- schema v20;
-- `model_registration_m105.py` -- schema v11;
-- `M9_SCIENTIFIC_CLOSURE.md` -- public execution guide.
-
-No physical identity, calibrated parameter, QED covariant derivation, or external validation is inferred from campaign execution alone.
+M9.106 depends on the complete OpenWave matter/Maxwell stack and must be executed in a repository checkout. No numerical M9.106 outcome is claimed here.

@@ -1,0 +1,81 @@
+{
+  "antimatter": {
+    "final": {
+      "antiparticle_norm": 0.9212960424121687,
+      "ledger_error": 0.0010219618426641208,
+      "overlap": 0.09414786699731523,
+      "particle_norm": 0.9212960424121693,
+      "radiation": 0.15842987701832573,
+      "time": 1.0
+    },
+    "initial": {
+      "antiparticle_norm": 0.9999999999999998,
+      "ledger_error": 0.0,
+      "overlap": 0.012662206693108273,
+      "particle_norm": 1.0,
+      "radiation": 0.0,
+      "time": 0.0
+    },
+    "maximum_ledger_error": 0.0010219618426641208
+  },
+  "decision": {
+    "antimatter_full_field_gate": true,
+    "qed_qcd_electroweak_theories_constructed": false,
+    "strong_full_field_gate": true,
+    "three_reduced_models_have_coupled_field_successors": true,
+    "weak_full_field_gate": true
+  },
+  "passed": true,
+  "record_counts": {
+    "antimatter": 51,
+    "strong": 51,
+    "weak": 51
+  },
+  "schema": "openwave.m9.coupled-sector-field-summary.v1",
+  "sector_gates": {
+    "antimatter_annihilation": true,
+    "strong_force": true,
+    "weak_force": true
+  },
+  "source_full_ledger_sha256": "816f064291eb2376d43adb01ed9d45108584148f9614c941cb35df8fa19a51f6",
+  "strong": {
+    "final": {
+      "antiquark_norm": 0.9999999999999998,
+      "energy": 0.8913484708521714,
+      "flux_l2": 0.6725821415621254,
+      "quark_norm": 1.0,
+      "singlet_imbalance": 4.163336342344337e-17,
+      "time": 1.0
+    },
+    "initial": {
+      "antiquark_norm": 1.0,
+      "energy": 0.5468749999999998,
+      "flux_l2": 0.0,
+      "quark_norm": 1.0,
+      "singlet_imbalance": 0.0,
+      "time": 0.0
+    },
+    "initial_energy": 0.5468749999999998
+  },
+  "task": "M9.107",
+  "weak": {
+    "final": {
+      "ledger_error": 0.00034685685811730593,
+      "left_e": 0.7269222862894118,
+      "left_mu": 0.2732511427194933,
+      "mediator_l2": 1.0525585401418633e-05,
+      "reservoir": 2.22958162461955e-12,
+      "right_norm": 1.000173427846983,
+      "time": 1.0
+    },
+    "initial": {
+      "ledger_error": 0.0,
+      "left_e": 1.0,
+      "left_mu": 0.0,
+      "mediator_l2": 0.0,
+      "reservoir": 0.0,
+      "right_norm": 1.0,
+      "time": 0.0
+    }
+  }
+}

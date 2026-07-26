@@ -1,89 +1,60 @@
 # OpenWave M9 CAT/EPT comparison profile
 
-The canonical conformance profile is `model_conformance_m105.py`, schema v20. The canonical registration is `model_registration_m105.py`, schema v11.
+The canonical conformance profile is `model_conformance_m108.py`, schema v21. The canonical registration is `model_registration_m108.py`, schema v12.
 
-Lean theorem status, source identity, implementation, numerical closure, state construction, physical identity, calibration, prediction readiness, and external evidence remain separate layers.
-
-## Baseline maturity before M9.103--M9.105 execution
-
-| Headline | Count |
-| --- | ---: |
-| Validated in scope | 7 |
-| Conditional validated | 5 |
-| Reduced-model validated | 3 |
-| Calibration pending | 1 |
-| Candidate | 4 |
-| Negative | 1 |
-| **Total** | **21** |
-
-The M9.103--M9.105 runner derives any state or calibration changes from the actual sub-gates. This document does not predetermine those outcomes.
-
-## Current authorities
+## Authorities
 
 ```text
-OpenWave base  ca40b8648fcb02c23e56951f08c9988c24e763ab
-Physlib        eba0124fcfbc1216d973bb6f504c5a6d324de60c
+OpenWave base  e9900880b4c54d7d68cbf468819dc361c6518a78
+Physlib        128974a501d3d0a43108a3ab9a1bd9d4fea5d7db
 zil-lean       e09723a44185a1e70031ad2661c8009dc98bef74
 ```
 
-The current Physlib physics surfaces retain the integrated action, T-BMT scalar/rest-frame grounding, Coulomb/radiation-gauge interfaces, G-free mass/variance maps, clock identities, Yukawa inversion, and evidence-governance modules. `zil-lean` retains the same `Zil` and `Zil.Native` root blobs while adding a Make-driven `ZIL-EXAMPLES-REPORT/1` harness.
+## M9.106 — nonlinear constraint evolution
 
-## M9.103 -- unrestricted charged state
+`nonlinear_constraint_gravity.py` evolves a conformally flat spatial metric `gamma_ij = exp(4u) delta_ij`, the trace of the extrinsic curvature, one Pauli matter state, Maxwell fields, and the matter-plus-EM gravitational source.
 
-`unrestricted_charged_stationary.py` uses the winding projection only to prepare initial data. It then evolves the complete two-component spinor without projection. Three tilted/anisotropic seeds are compared using:
+It measures and projects Hamiltonian and momentum constraints at every step. The physical gate requires bounded constraints, Lorentzian signature, and non-worsening projection. This is a nonlinear reduced 3+1 model, not a general Einstein solver.
 
-- the full stationary residual;
-- measured winding and lower-component fraction;
-- action monotonicity and cross-seed distance;
-- exact-periodic Maxwell constraints;
-- spin-tilt, quadrupole, and phase-chirp real-time tubes.
+## M9.107 — coupled interaction-sector fields
 
-Campaign passage means the audit executes. `unrestricted_stationary_state_constructed` and `unrestricted_orbital_stability_qualified` are the state gates.
+`coupled_sector_fields.py` replaces the earlier low-dimensional controls with:
 
-## M9.104 -- refined packet Thomas--BMT
+- particle/antiparticle complex fields, electrostatic potential, and radiation;
+- color-triplet quark/antiquark amplitudes and a dynamical flux field;
+- left/right flavor fields, a dynamical chiral mediator, and a positive reservoir.
 
-`packet_tbmt_refinement.py` registers the covariant Thomas equation as an explicit external postulate, not as a QED derivation. It compares the pointwise packet torque and finite-time Maxwell--Dirac response with the exact initial Dirac generator on `16^3` and `20^3` grids at time steps `0.004` and `0.002`.
+The executed default result closes all three declared reduced-field gates. It does not establish QED, QCD, or electroweak theory.
 
-The refined packet gate is reported dynamically and cannot advance the state axis by itself.
+## M9.108 — dynamical candidate states
 
-## M9.105 -- independent calibration
+`composite_candidate_states.py` constructs and perturbs:
 
-`independent_calibration_protocol.py` audits `sigma0`, clock frequency, mass, charge unit, and force unit. Internal, derived, absent, circular, or target-fitted anchors are rejected as independent calibration.
+- a neutral Hartree dark-matter candidate;
+- a color-balanced quark candidate;
+- a three-center baryon candidate;
+- a quark-antiquark meson candidate.
 
-Three predictions are preregistered with explicit failure rules:
-
-- Newton coupling from an independently measured inference width;
-- clock/mass consistency on a withheld physical state;
-- electric and magnetic force scales across withheld separations.
-
-The current default anchors do not close independent calibration, so these predictions remain unexecuted unless an external bundle passes the audit.
+The executed default result closes all four reduced candidate gates. These results establish only finite periodic carrier stability, not observed particle identity or calibrated spectra.
 
 ## Run
 
 ```bash
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_103_unrestricted_charged_stationary.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_104_packet_tbmt_refinement.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_105_independent_calibration.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_105_current_registration.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_106_nonlinear_constraint_gravity.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_107_coupled_sector_fields.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_108_candidate_states.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_108_current_registration.py
 ```
 
 ## Current authority surfaces
 
-- `formalization_m105_extension.py`;
-- `zil_runtime_reporting_m105.py`;
-- `unrestricted_charged_stationary.py`;
-- `packet_tbmt_refinement.py`;
-- `independent_calibration_protocol.py`;
-- `m103_105_evidence_authority.py`;
-- `criterion_maturity_m105.py`;
-- `model_conformance_m105.py`;
-- `model_registration_m105.py`;
-- `research/zil/m9_103_105_scientific_closure.zc`;
-- `M9_SCIENTIFIC_CLOSURE.md`.
-
-## Remaining critical targets
-
-1. extend weak-field gravity to constraint-preserving nonlinear metric evolution;
-2. replace reduced antimatter, strong-force, and weak-force controls with full coupled-field campaigns;
-3. advance dark matter and composite candidates through stable dynamical states;
-4. execute frozen external predictions only after independent calibration closes.
+- `formalization_m108_extension.py`
+- `nonlinear_constraint_gravity.py`
+- `coupled_sector_fields.py`
+- `composite_candidate_states.py`
+- `m106_108_evidence_authority.py`
+- `criterion_maturity_m108.py`
+- `model_conformance_m108.py`
+- `model_registration_m108.py`
+- `research/zil/m9_106_108_nonlinear_sectors_candidates.zc`
+- `M9_DYNAMICAL_FIELDS.md`
