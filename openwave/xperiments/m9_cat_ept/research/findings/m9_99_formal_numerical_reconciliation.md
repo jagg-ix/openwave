@@ -29,6 +29,9 @@ M9.99 pins exact source blobs for:
 - isolated Coulomb/radiation-gauge particle dynamics;
 - the distributional three-dimensional point charge.
 
+It also pins every OpenWave source referenced by the comparison. Formal or
+OpenWave blob drift fails closed.
+
 ## Equation reconciliation
 
 The machine-readable contract records nine relations.
@@ -73,10 +76,31 @@ div grad = Laplacian
 
 within floating-point tolerance using one operator family.
 
-The legacy centered symbol `sin(kh)/h` has eight null nodes on an even cubic
-three-dimensional grid: every coordinate may independently be the zero or
-Nyquist frequency. The exact Fourier Laplacian removes only the one global zero
-mode and retains Nyquist modes.
+### Real-field Nyquist correction
+
+An even real Fourier grid has a self-conjugate Nyquist mode. Multiplication by
+`ik` sends that real coefficient to an imaginary intermediate field. Silently
+taking the real part would reintroduce a Gauss-law defect.
+
+The reconciled real Maxwell campaign therefore uses a `17 × 17 × 17` odd grid.
+The historical `16 × 16 × 16` winding seed is Fourier-resampled and normalized
+onto that grid. The odd grid has no Nyquist ambiguity, and the exact Fourier
+Laplacian removes only the global zero mode.
+
+The implementation fails closed if an exact real Fourier derivative or Poisson
+solve is requested on an even grid. The legacy centered symbol `sin(kh)/h` still
+has eight null nodes on the historical even cubic grid.
+
+Private reconstruction gives representative operator residuals:
+
+```text
+curl grad maximum             4.4e-16
+div curl maximum              0
+Laplacian identity error      6.1e-16
+Gauss relative residual       8.3e-15
+Ampere relative residual      5.9e-15
+magnetic divergence maximum   7.8e-16
+```
 
 ## Mass and current reconciliation
 
@@ -154,8 +178,9 @@ M9.99 completes infrastructure, not physical closure.
 Closed:
 
 - current formal equations are machine mapped to numerical terms;
+- all referenced formal and OpenWave source blobs are fail-closed;
 - the `D`/`m`/current map is internally consistent;
-- matter and Maxwell use one discrete differential complex;
+- matter and Maxwell use one odd-grid real Fourier differential complex;
 - the exact Dirac center-velocity observable is measured;
 - legacy center and rest-frame BMT mismatches are no longer mislabeled as Lean contradictions.
 
@@ -182,5 +207,6 @@ No criterion is promoted.
 
 The execution container cannot resolve `github.com`, so a direct clone and full
 repository test run are not claimed. The PR provides deterministic unit tests,
-exact source/blob contracts, synthetic Dirac-observable tests, Fourier identity
-tests, and executable full-campaign runners for the repository environment.
+exact source/blob contracts, synthetic Dirac-observable tests, odd-grid Fourier
+identity and Maxwell tests, and executable full-campaign runners for the
+repository environment.
