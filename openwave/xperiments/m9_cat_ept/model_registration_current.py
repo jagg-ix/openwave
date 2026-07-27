@@ -1,4 +1,4 @@
-"""Stable current M9 registration entry point through M9.121."""
+"""Stable current M9 registration entry point through M9.122."""
 from __future__ import annotations
 from dataclasses import asdict, replace
 from hashlib import sha256
@@ -6,14 +6,14 @@ import json
 from typing import Any, Mapping
 
 from .model_registration import M9_REGISTRATION as HISTORICAL_M9_REGISTRATION
-from .model_registration_m121 import (
-    canonical_registration_payload as _m121_payload,
-    run_model_registration_study as _run_m121_registration,
+from .model_registration_m122 import (
+    canonical_registration_payload as _m122_payload,
+    run_model_registration_study as _run_m122_registration,
 )
 
-CURRENT_MILESTONE = "M9.121"
-CURRENT_SCHEMA = "openwave.model-registration.v24"
-CURRENT_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_m121"
+CURRENT_MILESTONE = "M9.122"
+CURRENT_SCHEMA = "openwave.model-registration.v25"
+CURRENT_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_m122"
 CURRENT_ALIAS_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_current"
 CURRENT_CONFORMANCE_RUNNER = (
     "openwave.xperiments.m9_cat_ept.model_conformance_current:run_conformance_study"
@@ -27,7 +27,7 @@ M9_REGISTRATION = replace(
 
 
 def canonical_registration_payload() -> dict[str, Any]:
-    versioned = _m121_payload()
+    versioned = _m122_payload()
     return {
         **versioned,
         "registration": asdict(M9_REGISTRATION),
@@ -52,11 +52,11 @@ def registration_fingerprint(payload: Mapping[str, Any] | None = None) -> str:
 
 
 def run_model_registration_study() -> dict[str, Any]:
-    versioned = _run_m121_registration()
+    versioned = _run_m122_registration()
     payload = canonical_registration_payload()
     acceptance = {
         **versioned["acceptance"],
-        "stable_alias_preserves_schema_v24": payload["schema"] == CURRENT_SCHEMA,
+        "stable_alias_preserves_schema_v25": payload["schema"] == CURRENT_SCHEMA,
         "stable_registration_points_to_current_conformance": payload["registration"][
             "conformance_runner"
         ]
