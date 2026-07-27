@@ -1,6 +1,6 @@
 # OpenWave M9 CAT/EPT current comparison profile
 
-M9 is integrated through **M9.124**.
+M9 is integrated through **M9.125**.
 
 ```text
 conformance   openwave/xperiments/m9_cat_ept/model_conformance_current.py
@@ -11,96 +11,99 @@ Current schemas:
 
 ```text
 openwave.m9.models-conformance.v22
-openwave.model-registration.v27
-openwave.m9.platform-integration-contract.v7
+openwave.model-registration.v28
+openwave.m9.platform-integration-contract.v8
 ```
 
-## The three clock roles
+## M9.125: one reduced carrier for three aspects of time
 
-The entropic-physlib theorem graph does not contain one theorem saying that Page-Wootters, modular, and entropic time are the same number. It contains three distinct physical roles and pairwise bridges.
+M9.124 separated the clock roles. M9.125 puts them on one explicitly shared finite state algebra.
 
-| Clock | Physical question | Generator/evolution | Reversibility |
-| --- | --- | --- | --- |
-| Page-Wootters relational clock | Relative to which clock reading is the system state described? | condition a stationary system-clock history state; conditional Hamiltonian or Hamiltonian+GKSL generator | neutral: reversible or dissipative depending on the conditioned generator |
-| modular / thermal clock | Which intrinsic reversible flow is selected by the state? | `K = -log rho`, `U(s)=exp(-iKs)`, isospectral conjugation | reversible; von Neumann entropy preserved |
-| entropic / irreversible clock | How much irreversible change has accumulated? | relative-entropy contraction or nonnegative GKSL jump rate | irreversible; freezes at vanishing dissipation |
+| Aspect | Realization on the shared carrier |
+| --- | --- |
+| Page-Wootters relational time | a clock-indexed classical-quantum history state conditions to the exact thermal-relaxation system state at each reading |
+| modular / thermal time | the same equilibrium state defines `K = -log rho_eq`; for the Gibbs carrier `K = beta H + log(Z) I` |
+| entropic time | quantum relative entropy to the same equilibrium state decreases, so accumulated entropic time increases |
 
-### Page-Wootters
+The conditioned Hamiltonian part and modular generator agree after the explicit `t = beta s` rescaling and an irrelevant identity offset. The dissipative flow and modular flow act on the same qubit operator algebra.
 
-Page-Wootters supplies **relational ordering**. The global state may satisfy a stationary Hamiltonian constraint while conditional system states change with the clock subsystem's reading. The formal source also permits a dissipative conditional generator
+This closes a **reduced common-carrier compatibility result**. It does not derive the full Page-Wootters conditioned dynamics from a Wheeler-DeWitt tensor constraint.
+
+## M9.125a shared finite carrier
+
+The carrier uses a full-rank Gibbs equilibrium and a thermal-relaxation semigroup:
 
 ```text
-d rho_S / d tau = -(i/hbar)[H_S,rho_S] + L_S(rho_S),
+p(t) = p_eq + (p_0 - p_eq) exp(-gamma t)
+c(t) = c_0 exp[(-gamma/2 + i DeltaE)t]
 ```
 
-whose unitary limit is recovered when `L_S = 0`.
+It verifies:
 
-### Modular flow
+- positive, unit-trace states throughout the branch;
+- exact semigroup composition;
+- agreement with the right infinitesimal generator;
+- exact conditioning of the clock-indexed history state;
+- `K = beta H + log(Z) I`;
+- modular/Hamiltonian flow agreement after `t = beta s`;
+- monotone remaining and accumulated relative-entropy clocks.
 
-Modular time supplies a **state-dependent reversible thermal flow**. For a faithful state or Gibbs reference,
+## M9.125b internal calibration contract
+
+The model records explicit maps:
 
 ```text
-K = -log rho,
-U(s) = exp(-i K s).
+t = a_pw tau_pw
+s = t / beta
+sigma_nominal = t / N
+tau_ent = D(rho_0 || rho_eq) - D(rho_t || rho_eq)
 ```
 
-The flow is isospectral and entropy preserving. At a Gibbs state, `K = beta H + log(Z) I`, so modular flow agrees with Hamiltonian evolution after the explicit rescaling `t = beta s`.
+The first three are coordinate-like positive maps. The entropic reading is nonlinear but invertible on the selected monotone relaxation branch. Roundtrip and commuting-diagram checks are executable.
 
-### Entropic time
+These are **model-internal calibration maps**. `a_pw`, `beta`, and `N` are not independently measured physical calibration data.
 
-Entropic time supplies the **irreversible arrow**. Negative real spectral rates contract amplitudes, GKSL jump operators give a nonnegative dissipation rate, and relative entropy to equilibrium decreases while accumulated entropy production increases. At equilibrium the dissipative rate vanishes and the entropic clock freezes.
+## M9.125c blinded three-clock protocol
 
-## Pairwise bridges
+A prediction payload is committed before reveal and contains, at preregistered readings:
 
 ```text
-Page-Wootters <-> entropic:
-  conditioned GKSL evolution and nonnegative conditional entropic rate
-
-modular <-> entropic:
-  static entropy/modular bridge plus dynamical orthogonality and complementarity
-
-Page-Wootters <-> modular:
-  possible when the conditioned system generator is explicitly identified with K
+Page-Wootters reading
+modular parameter
+nominal proper-time adapter
+conditioned population
+coherence magnitude
+accumulated entropic time
 ```
 
-None of these bridges makes the three parameters transitively identical.
+The live package remains blocked because it has no independent physical units, clock identity, calibration source, or observed data. A synthetic fixture exercises all metrics but is permanently ineligible for external promotion.
 
-## M9.124 numerical controls
-
-The benchmark checks:
+## Current authority
 
 ```text
-Page-Wootters  normalized history state, exact conditioning, equal marginal entropies
-modular         Gibbs identity K = beta H + log(Z)I, isospectral flow, entropy preservation
-entropic        monotone accumulated relative-entropy clock, semigroup composition, population change
+merged Physlib baseline       master@80c2b0bb25ba0b28d2c3dd8b038071e0f49261ef
+clock development source      entropic-physlib-linear-full@af78ea63ee0b39456d8dab023761482196b8c172
+public zil-lean               c671f02d8b6dcf7ba689afc86477ff7e35465c35
 ```
 
-These are deterministic reduced controls, not clock experiments or independent calibration.
-
-## Formal authority
-
-```text
-merged Physlib baseline   master@80c2b0bb25ba0b28d2c3dd8b038071e0f49261ef
-development clock source  entropic-physlib-linear-full@af78ea63ee0b39456d8dab023761482196b8c172
-public zil-lean            c671f02d8b6dcf7ba689afc86477ff7e35465c35
-```
-
-The three clock files are recorded as development-branch sources. OpenWave does not relabel them as merged `master` authority and claims no new Lean proof.
+Stacked Physlib PRs #22--#24 are recorded as candidate relaxation/KL-clock work and are not relabeled as merged `master` authority.
 
 ## Current decision
 
 ```text
-three distinct clock roles                    established internally
-three pairwise bridge surfaces                registered
-Page-Wootters conditioning control            passed
-modular Gibbs-flow control                     passed
-entropic relaxation control                    passed
-single common clock carrier                    missing
-constraint-to-conditioned dynamics theorem    incomplete
-PW/modular/entropic parameter calibration      missing
-proper-time calibration across all clocks      missing
-held-out three-clock validation                missing
-single unified physical clock                  not established
+three distinct clock roles                         established
+shared finite three-clock carrier                  constructed
+conditioned/modular generator identification       constructed in reduced Gibbs carrier
+internal Page-Wootters/modular maps                constructed
+branch-specific modular/entropic map               constructed
+nominal proper-time adapter                        constructed but not physically calibrated
+three-clock prediction commitment                  constructed
+real three-clock data                              not ingested
+full constraint-to-conditioned dynamics theorem    open
+continuum or field-level common carrier             open
+independent proper-time calibration                 open
+held-out three-clock test                           open
+single universal physical clock                    not established
 ```
 
-A three-aspect time framework is not the same as one universal clock theorem.
+A shared finite carrier is not a carrier-independent equivalence theorem. A nominal proper-time adapter is not measured proper time. A synthetic holdout is not external evidence.

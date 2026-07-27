@@ -1,0 +1,44 @@
+MODULE openwave.m9.three_clock_common_carrier.
+
+claim:shared_finite_carrier#status@status:constructed.
+claim:conditioned_modular_identification#status@status:reduced_constructed.
+claim:internal_clock_maps#status@status:constructed.
+claim:three_clock_commitment#status@status:constructed.
+
+claim:constraint_to_conditioned_dynamics#status@status:open.
+claim:continuum_common_carrier#status@status:open.
+claim:proper_time_external_calibration#status@status:open.
+claim:heldout_three_clock_test#status@status:open.
+claim:universal_clock_equivalence#status@status:open.
+
+claim:shared_finite_carrier#does_not_imply@claim:universal_clock_equivalence.
+claim:internal_clock_maps#does_not_imply@claim:proper_time_external_calibration.
+claim:three_clock_commitment#does_not_imply@claim:heldout_three_clock_test.
+
+RULE reduced_clock_ready:
+IF claim:shared_finite_carrier#status@status:constructed
+AND claim:conditioned_modular_identification#status@status:reduced_constructed
+AND claim:internal_clock_maps#status@status:constructed
+THEN system:m9_125#status@status:reduced_ready.
+
+RULE universal_clock_blocked:
+IF claim:constraint_to_conditioned_dynamics#status@status:open
+THEN system:m9_125#blocked_by@claim:constraint_to_conditioned_dynamics.
+
+RULE universal_clock_blocked:
+IF claim:continuum_common_carrier#status@status:open
+THEN system:m9_125#blocked_by@claim:continuum_common_carrier.
+
+RULE universal_clock_blocked:
+IF claim:proper_time_external_calibration#status@status:open
+THEN system:m9_125#blocked_by@claim:proper_time_external_calibration.
+
+RULE universal_clock_blocked:
+IF claim:heldout_three_clock_test#status@status:open
+THEN system:m9_125#blocked_by@claim:heldout_three_clock_test.
+
+QUERY reduced_status:
+FIND ?status WHERE system:m9_125#status@?status.
+
+QUERY universal_blockers:
+FIND ?claim WHERE system:m9_125#blocked_by@?claim.
