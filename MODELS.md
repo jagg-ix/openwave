@@ -31,7 +31,7 @@ A criterion may therefore have a constructed reduced carrier while physical iden
 
 ## M9 - CAT/EPT current state
 
-Current integrated milestone: **M9.119**.
+Current integrated milestone: **M9.120**.
 
 | Layer | Current result | Boundary retained |
 | --- | --- | --- |
@@ -43,6 +43,8 @@ Current integrated milestone: **M9.119**.
 | multi-resolution gravity | one-G low-mode Poisson/tidal observables agree across three odd grids | scale consistency is not external experimental validation |
 | local strong carrier | SU(3) links, covariant color transport, plaquettes and finite Wilson loops constructed | finite carrier is not lattice QCD or a confinement result |
 | local electroweak carrier | SU(2)xU(1) links, U(1)^3 Higgs action, covariant flow and quartic vacuum orbit constructed | bosonic carrier is not full chiral electroweak theory or mass prediction |
+| finite spectra and response | locally gauge-invariant spectra, source response, residuals and completeness sum rules constructed | dimensionless modes and numerical broadening are not observed masses or decay widths |
+| spectral refinement | flat and smooth low spectra improve across four odd grids | Cauchy improvement is not a continuum theorem or external calibration |
 
 Stable executable entry points:
 
