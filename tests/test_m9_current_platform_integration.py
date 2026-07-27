@@ -7,6 +7,7 @@ from openwave.xperiments.m9_cat_ept.model_conformance_current import (
     run_conformance_study,
 )
 from openwave.xperiments.m9_cat_ept.model_registration_current import (
+    CURRENT_CONFORMANCE_RUNNER,
     CURRENT_SCHEMA as CURRENT_REGISTRATION_SCHEMA,
     canonical_registration_payload,
     run_model_registration_study,
@@ -22,6 +23,7 @@ def test_stable_current_aliases_reach_m9_117() -> None:
 
     assert CURRENT_MILESTONE == "M9.117"
     assert registration["schema"] == CURRENT_REGISTRATION_SCHEMA
+    assert registration["registration"]["conformance_runner"] == CURRENT_CONFORMANCE_RUNNER
     assert registration["m9_117"]["dynamic_screen_flow_registered"]
     assert registration["m9_117"]["multi_resolution_gravity_registered"]
     assert registration["m9_117"]["physical_claims_promoted"] == []
@@ -31,6 +33,10 @@ def test_stable_current_aliases_reach_m9_117() -> None:
     assert len(conformance["maturity"]["criteria"]) == 21
     assert conformance["latest_evidence"]["passed"]
     assert conformance["latest_registration"]["schema"] == CURRENT_REGISTRATION_SCHEMA
+    assert (
+        conformance["latest_registration"]["registration"]["conformance_runner"]
+        == CURRENT_CONFORMANCE_RUNNER
+    )
 
 
 def test_current_authority_studies_pass_without_promoting_physics() -> None:
@@ -50,6 +56,7 @@ def test_platform_integration_contract_passes() -> None:
 
     assert result["passed"]
     assert all(result["acceptance"].values())
+    assert result["current_conformance_runner"] == CURRENT_CONFORMANCE_RUNNER
     assert result["decision"]["M9_is_exposed_as_first_class_OpenWave_model"]
     assert result["decision"]["physical_claims_promoted"] == []
 
