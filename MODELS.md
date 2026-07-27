@@ -31,7 +31,7 @@ A criterion may therefore have a constructed reduced carrier while physical iden
 
 ## M9 - CAT/EPT current state
 
-Current integrated milestone: **M9.117**.
+Current integrated milestone: **M9.119**.
 
 | Layer | Current result | Boundary retained |
 | --- | --- | --- |
@@ -41,6 +41,8 @@ Current integrated milestone: **M9.117**.
 | curvature and constraints | metric-built conformal Ricci, scalar screen-tidal source, tensor/Gamma damping and three-grid refinement constructed | finite-grid consistency is not a continuum Einstein proof |
 | coarse graining | continuous count flow, finite heat/block flow and Gaussian covariance adapter constructed | particle-mass endpoint and interacting CAT/EPT fixed point remain open |
 | multi-resolution gravity | one-G low-mode Poisson/tidal observables agree across three odd grids | scale consistency is not external experimental validation |
+| local strong carrier | SU(3) links, covariant color transport, plaquettes and finite Wilson loops constructed | finite carrier is not lattice QCD or a confinement result |
+| local electroweak carrier | SU(2)xU(1) links, U(1)^3 Higgs action, covariant flow and quartic vacuum orbit constructed | bosonic carrier is not full chiral electroweak theory or mass prediction |
 
 Stable executable entry points:
 

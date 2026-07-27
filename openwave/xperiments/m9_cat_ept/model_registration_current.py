@@ -1,9 +1,9 @@
-"""Stable current M9 registration entry point through M9.117.
+"""Stable current M9 registration entry point through M9.119.
 
 Versioned registration modules remain immutable evidence records. Callers that need
 the current CAT/EPT model state should import this module rather than guessing the
-latest ``model_registration_mNNN`` filename. The stable alias also refreshes the
-registration metadata so its conformance runner points back to this current layer.
+latest ``model_registration_mNNN`` filename. The stable alias refreshes discovery
+metadata so its conformance runner points back to the current layer.
 """
 from __future__ import annotations
 
@@ -13,14 +13,14 @@ import json
 from typing import Any, Mapping
 
 from .model_registration import M9_REGISTRATION as HISTORICAL_M9_REGISTRATION
-from .model_registration_m117 import (
-    canonical_registration_payload as _m117_payload,
-    run_model_registration_study as _run_m117_registration,
+from .model_registration_m119 import (
+    canonical_registration_payload as _m119_payload,
+    run_model_registration_study as _run_m119_registration,
 )
 
-CURRENT_MILESTONE = "M9.117"
-CURRENT_SCHEMA = "openwave.model-registration.v21"
-CURRENT_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_m117"
+CURRENT_MILESTONE = "M9.119"
+CURRENT_SCHEMA = "openwave.model-registration.v22"
+CURRENT_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_m119"
 CURRENT_ALIAS_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_current"
 CURRENT_CONFORMANCE_RUNNER = (
     "openwave.xperiments.m9_cat_ept.model_conformance_current:run_conformance_study"
@@ -34,8 +34,7 @@ M9_REGISTRATION = replace(
 
 
 def canonical_registration_payload() -> dict[str, Any]:
-    """Return schema-v21 evidence with refreshed stable registration metadata."""
-    versioned = _m117_payload()
+    versioned = _m119_payload()
     return {
         **versioned,
         "registration": asdict(M9_REGISTRATION),
@@ -49,12 +48,10 @@ def canonical_registration_payload() -> dict[str, Any]:
 
 
 def canonical_payload() -> dict[str, Any]:
-    """Compatibility alias for the current canonical registration payload."""
     return canonical_registration_payload()
 
 
 def registration_fingerprint(payload: Mapping[str, Any] | None = None) -> str:
-    """Fingerprint the supplied payload, or the current registration when omitted."""
     selected = canonical_registration_payload() if payload is None else dict(payload)
     return sha256(
         json.dumps(selected, sort_keys=True, separators=(",", ":"), default=str).encode()
@@ -62,11 +59,11 @@ def registration_fingerprint(payload: Mapping[str, Any] | None = None) -> str:
 
 
 def run_model_registration_study() -> dict[str, Any]:
-    versioned = _run_m117_registration()
+    versioned = _run_m119_registration()
     payload = canonical_registration_payload()
     acceptance = {
         **versioned["acceptance"],
-        "stable_alias_preserves_schema_v21": payload["schema"] == CURRENT_SCHEMA,
+        "stable_alias_preserves_schema_v22": payload["schema"] == CURRENT_SCHEMA,
         "stable_registration_points_to_current_conformance": payload["registration"][
             "conformance_runner"
         ]

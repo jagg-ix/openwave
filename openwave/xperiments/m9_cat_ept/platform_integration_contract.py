@@ -23,13 +23,14 @@ from .model_registration_current import (
     canonical_registration_payload,
 )
 
-SCHEMA = "openwave.m9.platform-integration-contract.v1"
+SCHEMA = "openwave.m9.platform-integration-contract.v2"
 ROOT = Path(__file__).resolve().parents[3]
 DOCUMENT_PATHS = (
     "MODELS.md",
     "MODELS_M9.md",
     "openwave/xperiments/m9_cat_ept/__init__.py",
     "openwave/xperiments/m9_cat_ept/_launcher.py",
+    "openwave/xperiments/m9_cat_ept/research/m9_roadmap_maturity.md",
 )
 
 
@@ -56,6 +57,7 @@ def run_platform_integration_contract() -> dict[str, Any]:
     m9_profile = documents["MODELS_M9.md"]
     package = documents["openwave/xperiments/m9_cat_ept/__init__.py"]
     launcher = documents["openwave/xperiments/m9_cat_ept/_launcher.py"]
+    roadmap = documents["openwave/xperiments/m9_cat_ept/research/m9_roadmap_maturity.md"]
 
     payload = {
         "schema": SCHEMA,
@@ -71,12 +73,12 @@ def run_platform_integration_contract() -> dict[str, Any]:
         "claim_boundary": {
             "canonical_alias_implies_physical_validation": False,
             "root_registry_is_a_new_numerical_result": False,
-            "M9_117_coarse_graining_derives_particle_mass": False,
+            "M9_119_gauge_covariance_is_QCD_or_full_electroweak_validation": False,
             "current_registration_completes_external_calibration": False,
         },
     }
     acceptance = {
-        "stable_registration_points_to_schema_v21": registration["schema"]
+        "stable_registration_points_to_schema_v22": registration["schema"]
         == CURRENT_REGISTRATION_SCHEMA,
         "stable_registration_metadata_points_to_current_conformance": registration[
             "registration"
@@ -84,7 +86,7 @@ def run_platform_integration_contract() -> dict[str, Any]:
         == CURRENT_CONFORMANCE_RUNNER,
         "stable_conformance_preserves_schema_v22": conformance["schema"]
         == CURRENT_CONFORMANCE_SCHEMA,
-        "stable_conformance_composes_M9_117_evidence": conformance[
+        "stable_conformance_composes_M9_119_evidence": conformance[
             "current_milestone"
         ]
         == CURRENT_MILESTONE
@@ -97,20 +99,33 @@ def run_platform_integration_contract() -> dict[str, Any]:
                 "model_registration_current.py",
                 "model_conformance_current.py",
                 "MODELS_LEGACY.md",
+                "M9.119",
             )
         ),
         "M9_profile_names_current_aliases_and_schemas": all(
             token in m9_profile
             for token in (
-                "M9.117",
+                "M9.119",
                 "model_registration_current.py",
                 "model_conformance_current.py",
                 CURRENT_REGISTRATION_SCHEMA,
                 CURRENT_CONFORMANCE_SCHEMA,
+                "SU(3)",
+                "SU(2)",
+                "U(1)",
             )
         ),
-        "package_description_reaches_M9_117": "M9.117" in package
-        and "not yet a dynamical renormalization" not in package,
+        "package_description_reaches_M9_119": "M9.119" in package,
+        "roadmap_closes_M9_119_and_advances_M9_120": all(
+            token in roadmap
+            for token in (
+                "M9.119a",
+                "M9.119b",
+                "M9.119c",
+                "M9.120",
+                "NEXT",
+            )
+        ),
         "launcher_exposes_current_reports": all(
             token in launcher
             for token in (
@@ -122,6 +137,7 @@ def run_platform_integration_contract() -> dict[str, Any]:
         "obsolete_current_markers_are_absent": all(
             token not in m9_profile
             for token in (
+                "Current integrated milestone: **M9.117**",
                 "canonical registration is `model_registration_m109.py`",
                 "Current M9 conformance overlay through M9.96",
                 "Canonical M9 registration through M9.97",
