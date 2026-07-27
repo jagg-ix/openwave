@@ -9,6 +9,9 @@ def test_schema_v13_preserves_G_boundaries():
     current = payload["m9_109"]
     assert payload["schema"] == "openwave.model-registration.v13"
     assert current["G_is_derived_not_primitive"]
+    assert current["theorem_and_paper_scope_audited"]
+    assert not current["Lean_theorems_contradicted"]
+    assert not current["papers_validate_full_G_chain"]
     assert not current["particle_clocks_define_universal_G"]
     assert not current["withheld_G_prediction_executed"]
     assert not current["calibrated_gravity_coupling_injected"]
@@ -19,4 +22,6 @@ def test_current_registration_passes_without_overpromotion():
     result = run_model_registration_study()
     assert result["passed"]
     assert result["decision"]["Newton_G_formal_maturity_changed"]
+    assert not result["decision"]["current_Lean_theorem_falsified"]
+    assert result["decision"]["broad_particle_clock_interpretation_rejected"]
     assert not result["decision"]["Newton_G_physical_prediction_changed"]
