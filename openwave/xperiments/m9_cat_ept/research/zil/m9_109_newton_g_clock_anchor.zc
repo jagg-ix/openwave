@@ -1,0 +1,51 @@
+MODULE m9.newton.g.clock.anchor.
+
+formal:newtonG#status@derived.
+formal:newtonG#equivalent@map:hbar-c-over-mass-squared.
+formal:newtonG#equivalent@map:c-fifth-over-hbar-omega-squared.
+formal:newtonG#equivalent@map:hbar-c-sigma-fourth.
+formal:newtonG#not_primitive@true.
+
+clock:electron#scope@particle.
+clock:muon#scope@particle.
+clock:proton#scope@particle.
+clock:universal-gravity#scope@universal_gravity.
+
+clock:electron#fails_universal_G@true.
+clock:muon#fails_universal_G@true.
+clock:proton#fails_universal_G@true.
+clock:universal-gravity#requires@anchor:independent-planck-scale.
+
+anchor:independent-planck-scale#status@open.
+anchor:particle-clock#forbidden_for@prediction:newton-G.
+anchor:G-inversion#forbidden_for@prediction:newton-G.
+anchor:natural-unit-one#forbidden_for@prediction:newton-G.
+prediction:newton-G#status@blocked.
+prediction:newton-G#requires@anchor:independent-planck-scale.
+prediction:newton-G#requires@unit-map:physical.
+gravity:weak-field#uses@coupling:frozen-G.
+gravity:nonlinear#uses@coupling:frozen-G.
+
+RULE derivedNotPrimitive:
+IF ?constant#status@derived
+THEN ?constant#cannot_be_primitive@true.
+
+RULE universalAnchorRequirement:
+IF ?clock#scope@particle AND ?clock#fails_universal_G@true
+THEN ?clock#cannot_anchor@prediction:newton-G.
+
+RULE sharedGravityCoupling:
+IF gravity:weak-field#uses@?coupling AND gravity:nonlinear#uses@?coupling
+THEN ?coupling#shared_by@gravity:both-levels.
+
+QUERY g_equivalences:
+FIND ?map WHERE formal:newtonG#equivalent@?map.
+
+QUERY forbidden_g_anchors:
+FIND ?anchor WHERE ?anchor#forbidden_for@prediction:newton-G.
+
+QUERY blocked_g_prediction:
+FIND ?requirement WHERE prediction:newton-G#requires@?requirement.
+
+QUERY shared_gravity_coupling:
+FIND ?coupling WHERE ?coupling#shared_by@gravity:both-levels.
