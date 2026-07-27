@@ -5,20 +5,22 @@ OpenWave hosts multiple candidate field-theoretic models in one numerical enviro
 | ID | Model | Current profile | Status authority |
 | --- | --- | --- | --- |
 | M4--M8 | historical OpenWave models | [`MODELS_LEGACY.md`](MODELS_LEGACY.md) | legacy matrix |
-| **M9** | **CAT/EPT entropic particle dynamics** | **[`MODELS_M9.md`](MODELS_M9.md)** | **current registration + conformance aliases** |
+| **M9** | **CAT/EPT entropic particle and field dynamics** | **[`MODELS_M9.md`](MODELS_M9.md)** | **current registration + conformance aliases** |
 
 ## M9 current state
 
-Current integrated milestone: **M9.122**.
+Current integrated milestone: **M9.123**.
+
+M9.123 corrects the evaluation emphasis: particle spectroscopy is not the primary scorecard for CAT/EPT. The current audit measures non-particle physics across entropic time, quantum reconstruction, open systems, stochastic/kinetic dynamics, gravity, causal electromagnetic fields, thermodynamics, and dissipative continuum controls.
 
 | Layer | Current result | Boundary retained |
 | --- | --- | --- |
-| 21-criterion maturity | M9.109 evidence-derived profile remains canonical | later implementation cannot silently promote physical axes |
-| gravity, gauge, spectra, and decay | reduced carriers, gauge-invariant finite spectra, response, refinement, and CPTP model-unit decay | not a calibrated continuum Standard Model or gravity prediction |
-| external-evidence package | canonical digest-checked package and reveal-order validation | schema readiness is not external evidence |
-| blinded evaluator | live path blocks before reveal; synthetic fixture exercises metrics | synthetic data are not held-out validation |
-| identity bridge | independent discriminants and negative controls required | shared names do not establish observed identity |
-| promotion | external promotion remains fail-closed | real anchor, holdout, and identity evidence remain missing |
+| formal scope | eight non-particle physics domains mapped to exact Physlib theorem surfaces | broad representation is not complete unification |
+| irreversible dynamics | dissipative relative-entropy clock decreases while the unitary invariant-reference clock is constant | internal control is not a measured clock experiment |
+| quantum/stochastic controls | Born reconstruction, Fokker--Planck flux equivalence, and kinetic Kolmogorov control | exact identities and free controls are not full interacting QFT |
+| gravity and geometry | proper-time clock and one-screen weak-gravity consistency controls | dimensionless consistency is not independent calibration |
+| continuum dissipation | finite Fourier Stokes semigroup and exact energy balance | finite Galerkin closure is not nonlinear Navier--Stokes |
+| explanatory scope | broad internal physics modeling passes; explanatory-compression and prediction gates fail closed | predictive fundamental theory remains unestablished |
 
 Stable entry points:
 
@@ -28,4 +30,4 @@ python -m openwave.xperiments.m9_cat_ept._launcher --current-registration
 python -m openwave.xperiments.m9_cat_ept._launcher --platform-contract
 ```
 
-Every result must distinguish formal or internal closure from physical calibration, identity, and external validation.
+Every result must distinguish formal or internal closure from physical calibration, unique explanation, held-out prediction, and external validation.
