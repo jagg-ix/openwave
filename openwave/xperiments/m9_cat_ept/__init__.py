@@ -1,4 +1,4 @@
-"""M9 CAT/EPT entropic particle, gravity, and gauge-sector dynamics.
+"""M9 CAT/EPT entropic particle, gravity, gauge, and spectral dynamics.
 
 The package contains the 21-criterion evidence-derived maturity profile, reusable
 numerical kernels, exact Physlib/ZIL source contracts, reproducible snapshots, and
@@ -16,14 +16,16 @@ Current integrated lineage:
 * M9.117: continuous count flow, finite heat/block coarse graining, Gaussian
   covariance scale flow, and one-G multi-resolution gravity;
 * M9.119: local SU(3) Wilson-link color transport and local SU(2)xU(1) Higgs
-  transport with gauge-covariant matter/link evolution.
+  transport with gauge-covariant matter/link evolution;
+* M9.120: gauge-invariant finite spectra, gauge-invariant source response,
+  Higgs radial/tangent selection, and odd-grid spectral refinement.
 
-Lean remains proof authority. The M9.119 construction closes finite local gauge
-covariance and declared bosonic vacuum-flow gates, but it does not establish QCD
-confinement, full chiral electroweak theory, calibrated particle masses, physical
-sector identity, or external experimental validation.
+Lean remains proof authority. The M9.120 construction supplies dimensionless
+finite spectra, response functions, and improving grid sequences. It does not
+identify observed particles, construct intrinsic decay, prove a continuum
+spectrum, calibrate physical units, or provide external experimental validation.
 """
 
-CURRENT_MILESTONE = "M9.119"
-CURRENT_REGISTRATION_SCHEMA = "openwave.model-registration.v22"
+CURRENT_MILESTONE = "M9.120"
+CURRENT_REGISTRATION_SCHEMA = "openwave.model-registration.v23"
 CURRENT_CONFORMANCE_SCHEMA = "openwave.m9.models-conformance.v22"
