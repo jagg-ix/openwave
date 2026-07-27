@@ -1,97 +1,106 @@
 # OpenWave M9 CAT/EPT current comparison profile
 
-M9 is integrated through **M9.123**. Stable callers should use:
+M9 is integrated through **M9.124**.
 
 ```text
 conformance   openwave/xperiments/m9_cat_ept/model_conformance_current.py
 registration  openwave/xperiments/m9_cat_ept/model_registration_current.py
-launcher      openwave/xperiments/m9_cat_ept/_launcher.py
 ```
 
 Current schemas:
 
 ```text
 openwave.m9.models-conformance.v22
-openwave.model-registration.v26
-openwave.m9.platform-integration-contract.v6
+openwave.model-registration.v27
+openwave.m9.platform-integration-contract.v7
 ```
 
-The historical 21-criterion particle-oriented maturity headlines remain those of M9.109. M9.123 adds a separate non-particle scope profile and does not rewrite those rows.
+## The three clock roles
 
-## Authorities
+The entropic-physlib theorem graph does not contain one theorem saying that Page-Wootters, modular, and entropic time are the same number. It contains three distinct physical roles and pairwise bridges.
+
+| Clock | Physical question | Generator/evolution | Reversibility |
+| --- | --- | --- | --- |
+| Page-Wootters relational clock | Relative to which clock reading is the system state described? | condition a stationary system-clock history state; conditional Hamiltonian or Hamiltonian+GKSL generator | neutral: reversible or dissipative depending on the conditioned generator |
+| modular / thermal clock | Which intrinsic reversible flow is selected by the state? | `K = -log rho`, `U(s)=exp(-iKs)`, isospectral conjugation | reversible; von Neumann entropy preserved |
+| entropic / irreversible clock | How much irreversible change has accumulated? | relative-entropy contraction or nonnegative GKSL jump rate | irreversible; freezes at vanishing dissipation |
+
+### Page-Wootters
+
+Page-Wootters supplies **relational ordering**. The global state may satisfy a stationary Hamiltonian constraint while conditional system states change with the clock subsystem's reading. The formal source also permits a dissipative conditional generator
 
 ```text
-Physlib repository    jagg-ix/entropic-physlib-private
-merged branch         master
-development branch    private/entropic-physlib-linear-full
-merged Physlib head   80c2b0bb25ba0b28d2c3dd8b038071e0f49261ef
-Physlib root blob     f953c09c428eb83d9894c1944e1fd44a7ffe95a1
-public zil-lean head  c671f02d8b6dcf7ba689afc86477ff7e35465c35
+d rho_S / d tau = -(i/hbar)[H_S,rho_S] + L_S(rho_S),
 ```
 
-M9.123 pins eleven theorem/runtime surfaces spanning entropic clocks, Born reconstruction, Schrödinger/Ehrenfest interfaces, local-time Fokker--Planck and kinetic control, complex-Einstein proper time, metric-built electrogravity, Stokes dissipation, open-system spectral limits, and stratified ZIL auditing.
+whose unitary limit is recovered when `L_S = 0`.
 
-## Why the scorecard changed
+### Modular flow
 
-CAT/EPT has not primarily focused on particle masses and hadron spectroscopy. The audit therefore targets entropic time, quantum reconstruction, open systems, stochastic/kinetic dynamics, gravity, electromagnetism/AQFT, thermodynamics, and fluid dissipation.
-
-particle spectroscopy is not the primary scorecard. Particle incompleteness still limits universal-unification claims, but it no longer obscures non-particle theorem and dynamics coverage.
-
-## M9.123a scope profile
+Modular time supplies a **state-dependent reversible thermal flow**. For a faithful state or Gibbs reference,
 
 ```text
-strong internal       3
-conditional internal  1
-reduced internal      2
-interface internal    1
-structural internal   1
+K = -log rho,
+U(s) = exp(-i K s).
 ```
 
-These counts summarize the declared eight-domain profile. They are not a universal scientific score.
+The flow is isospectral and entropy preserving. At a Gibbs state, `K = beta H + log(Z) I`, so modular flow agrees with Hamiltonian evolution after the explicit rescaling `t = beta s`.
 
-## M9.123b executable controls
+### Entropic time
+
+Entropic time supplies the **irreversible arrow**. Negative real spectral rates contract amplitudes, GKSL jump operators give a nonnegative dissipation rate, and relative entropy to equilibrium decreases while accumulated entropy production increases. At equilibrium the dissipative rate vanishes and the entropic clock freezes.
+
+## Pairwise bridges
 
 ```text
-dissipative relative-entropy clock versus unitary frozen clock
-positive-imaginary-energy proper-time clock
-local-time Fokker--Planck current/drift-diffusion equivalence
-free kinetic Kolmogorov bracket and covariance positivity
-finite Fourier Stokes energy/enstrophy balance
-one-screen weak-gravity scale, flux, and test-mass consistency
+Page-Wootters <-> entropic:
+  conditioned GKSL evolution and nonnegative conditional entropic rate
+
+modular <-> entropic:
+  static entropy/modular bridge plus dynamical orthogonality and complementarity
+
+Page-Wootters <-> modular:
+  possible when the conditioned system generator is explicitly identified with K
 ```
 
-## M9.123c explanatory scope
+None of these bridges makes the three parameters transitively identical.
 
-The broad internal modeling gate passes. The predictive fundamental theory gate remains blocked on:
+## M9.124 numerical controls
+
+The benchmark checks:
 
 ```text
-single universal action or generator
-independent parameter fixing
-end-to-end continuum dynamics
-cross-domain held-out prediction
+Page-Wootters  normalized history state, exact conditioning, equal marginal entropies
+modular         Gibbs identity K = beta H + log(Z)I, isospectral flow, entropy preservation
+entropic        monotone accumulated relative-entropy clock, semigroup composition, population change
 ```
 
-Current decisions:
+These are deterministic reduced controls, not clock experiments or independent calibration.
+
+## Formal authority
 
 ```text
-broad non-particle formal coverage                 constructed
-six non-particle executable controls               passed
-particle spectroscopy primary scorecard            false
-broad internal physics modeling                    ready
-single-mechanism explanatory compression           not established
-independent physical calibration                    open
-held-out external validation                        open
-predictive fundamental theory                       not ready
-external physical promotion                         blocked
+merged Physlib baseline   master@80c2b0bb25ba0b28d2c3dd8b038071e0f49261ef
+development clock source  entropic-physlib-linear-full@af78ea63ee0b39456d8dab023761482196b8c172
+public zil-lean            c671f02d8b6dcf7ba689afc86477ff7e35465c35
 ```
 
-## Reproduction
+The three clock files are recorded as development-branch sources. OpenWave does not relabel them as merged `master` authority and claims no new Lean proof.
 
-```bash
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_123a_physics_scope.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_123b_nonparticle_benchmark.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_123c_explanatory_scope.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_123_current_registration.py
+## Current decision
+
+```text
+three distinct clock roles                    established internally
+three pairwise bridge surfaces                registered
+Page-Wootters conditioning control            passed
+modular Gibbs-flow control                     passed
+entropic relaxation control                    passed
+single common clock carrier                    missing
+constraint-to-conditioned dynamics theorem    incomplete
+PW/modular/entropic parameter calibration      missing
+proper-time calibration across all clocks      missing
+held-out three-clock validation                missing
+single unified physical clock                  not established
 ```
 
-A formal theorem map is not a unique physical explanation. A deterministic control case is not an independently calibrated prediction. Broad internal modeling does not establish a predictive fundamental theory.
+A three-aspect time framework is not the same as one universal clock theorem.
