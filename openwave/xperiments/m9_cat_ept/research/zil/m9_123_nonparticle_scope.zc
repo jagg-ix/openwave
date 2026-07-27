@@ -1,0 +1,41 @@
+MODULE openwave.m9.nonparticle_scope.
+
+claim:m9_123_nonparticle_physics#formalized_by@lean:Physlib.EntropicSpinePublic.
+claim:m9_123_nonparticle_physics#implemented_by@campaign:openwave_m9_123b.
+claim:m9_123_nonparticle_physics#reproduced_by@runner:m9_123_nonparticle_benchmark.
+claim:m9_123_nonparticle_physics#covers_domain@domain:entropic_time.
+claim:m9_123_nonparticle_physics#covers_domain@domain:quantum_reconstruction.
+claim:m9_123_nonparticle_physics#covers_domain@domain:open_quantum_systems.
+claim:m9_123_nonparticle_physics#covers_domain@domain:stochastic_kinetic.
+claim:m9_123_nonparticle_physics#covers_domain@domain:gravity_geometry.
+claim:m9_123_nonparticle_physics#covers_domain@domain:electromagnetism_aqft.
+claim:m9_123_nonparticle_physics#covers_domain@domain:thermodynamics.
+claim:m9_123_nonparticle_physics#covers_domain@domain:fluid_dissipation.
+claim:m9_123_nonparticle_physics#scorecard_policy@policy:particle_spectroscopy_not_primary.
+claim:m9_123_nonparticle_physics#missing_requirement@requirement:single_universal_action_or_generator.
+claim:m9_123_nonparticle_physics#missing_requirement@requirement:independent_parameter_fixing.
+claim:m9_123_nonparticle_physics#missing_requirement@requirement:end_to_end_continuum_dynamics.
+claim:m9_123_nonparticle_physics#missing_requirement@requirement:cross_domain_heldout_prediction.
+
+RULE broad_internal_modeling:
+IF ?claim#formalized_by@?lean AND
+   ?claim#implemented_by@?campaign AND
+   ?claim#reproduced_by@?runner AND
+   ?claim#scorecard_policy@policy:particle_spectroscopy_not_primary
+THEN ?claim#modeling_state@state:broad_internal_ready.
+
+RULE explanatory_compression_blocked:
+IF ?claim#modeling_state@state:broad_internal_ready AND
+   ?claim#missing_requirement@?requirement
+THEN ?claim#blocked_by@?requirement.
+
+RULE physical_promotion_blocked:
+IF ?claim#blocked_by@?requirement
+THEN ?claim#promotion_state@state:physical_promotion_blocked.
+
+QUERY internal_ready:
+FIND ?claim WHERE ?claim#modeling_state@state:broad_internal_ready.
+QUERY blockers:
+FIND ?claim ?requirement WHERE ?claim#blocked_by@?requirement.
+QUERY physical_promotion:
+FIND ?claim WHERE ?claim#promotion_state@state:physical_promotion_blocked.

@@ -1,34 +1,40 @@
 # M9 maturity-based roadmap
 
-M9.100--M9.121 established multi-axis maturity, reduced gravity and gauge carriers, finite spectra and response, controlled refinement, CPTP model-unit decay, blind commitment, and fail-closed physical-promotion governance. M9.122 makes the external-evidence path executable without fabricating evidence.
+M9.100--M9.122 established historical maturity, reduced gravity and gauge carriers, finite spectra and response, irreversible model-unit decay, and external-evidence governance. The scope review showed that CAT/EPT should primarily be evaluated as a theory of entropic time, irreversible dynamics, quantum reconstruction, gravity, and continuum field interfaces.
 
 | Task | Target | State |
 | --- | --- | --- |
-| M9.100--M9.121 | Formal/numerical carriers, model-unit decay, commitment, and promotion governance | DONE; PHYSICAL AXES SEPARATE |
-| M9.122a | Canonical evidence package with artifact digests, commitment ordering, target-leakage checks, and incomplete live template | DONE; NO REAL PACKAGE INGESTED |
-| M9.122b | Blinded evaluator that blocks before reveal and computes preregistered metrics only for a valid package | DONE; SYNTHETIC FIXTURE ONLY |
-| M9.122c | Independent transition-identity bridge requiring discriminants and negative controls | DONE; OBSERVED IDENTITY OPEN |
-| M9.123 | Ingest one real independent anchor, reveal a precommitted holdout, and execute one externally identified transition test without refitting | NEXT; EXTERNAL INPUT REQUIRED |
+| M9.100--M9.122 | Historical maturity, carriers, decay, and external-evidence readiness | DONE; PHYSICAL AXES SEPARATE |
+| M9.123a | Evidence-derived profile for eight non-particle physics domains | DONE; DOMAIN COVERAGE IS NOT VALIDATION |
+| M9.123b | Irreversible-clock, proper-time, Fokker--Planck, kinetic, Stokes, and weak-gravity controls | DONE; INTERNAL CONTROLS ONLY |
+| M9.123c | Separate broad modeling from explanatory compression, calibration, and held-out prediction through Python and ZIL gates | DONE; FUNDAMENTAL-THEORY PROMOTION BLOCKED |
+| M9.124 | Execute one real non-particle held-out benchmark with an independent scale and no refitting | NEXT; EXTERNAL INPUT REQUIRED |
+
+## Re-scoping record
+
+The former M9.123 external-package execution target moves to M9.124. This explicit scope correction follows the recognition that the previous sequence continued to emphasize particle-transition evidence even though CAT/EPT's strongest domains are time, irreversibility, open systems, gravity, and continuum physics. The external-evidence requirement is preserved as the next promotion gate.
 
 ## Current decision
 
 ```text
-external-evidence package schema          constructed
-artifact integrity checks                 constructed
-commitment-before-reveal check            constructed
-target-leakage rejection                  constructed
-blinded external evaluator                constructed
-identity-bridge contract                  constructed
-real independent anchor                   missing
-real held-out observation                 not revealed
-observed transition identity              open
-external validation                       open
+non-particle domain profile                 constructed
+irreversible versus reversible clock test   passed
+proper-time clock consistency               passed
+Fokker--Planck and kinetic controls          passed
+Stokes dissipation control                  passed
+weak-gravity scale/flux control             passed
+broad internal physics modeling             ready
+single universal generator                  missing
+independent parameter fixing                missing
+end-to-end continuum dynamics               incomplete
+cross-domain held-out prediction            missing
+predictive fundamental theory               not ready
 ```
 
 ## Current upstream authorities
 
 ```text
-OpenWave main base    0b25d14e0e14a30b4b4ac46a95e9de4c72083134
+OpenWave main base    a6187b076aec806f80e65a8b6a3a241ff1bd2267
 Physlib merged branch master
 Physlib merged head   80c2b0bb25ba0b28d2c3dd8b038071e0f49261ef
 Physlib root          f953c09c428eb83d9894c1944e1fd44a7ffe95a1
@@ -36,4 +42,4 @@ development branch    private/entropic-physlib-linear-full
 public zil-lean       c671f02d8b6dcf7ba689afc86477ff7e35465c35
 ```
 
-M9.123 cannot be closed by synthetic fixtures, another algebraic identity, or another finite diagonalization. It requires a real evidence package whose sources are independent of the target observables.
+M9.124 cannot be closed by another internal identity or synthetic fixture. It requires a genuinely independent non-particle observable and a frozen pre-reveal prediction.
