@@ -39,6 +39,7 @@ def run_physical_promotion_gate() -> dict[str, Any]:
         "implemented_by:numerical_campaign",
         "axiom_status:kernel_clean",
         "reproduced_by:deterministic_runner",
+        "committed_before_reveal:prediction_digest",
         "open_system_decay:model_units",
         "calibration_state:external_anchor_missing",
         "validation_state:holdout_sealed",
@@ -72,6 +73,9 @@ def run_physical_promotion_gate() -> dict[str, Any]:
     acceptance = {
         "internal_model_gate_accepts_current_evidence": internal["passed"],
         "external_gate_rejects_current_unvalidated_state": not external["passed"],
+        "pre_reveal_commitment_is_recognized": (
+            "committed_before_reveal:prediction_digest" in current
+        ),
         "external_gate_names_all_missing_relations": set(external["missing"])
         == set(EXTERNAL_REQUIREMENTS) - set(current),
         "complete_synthetic_record_passes": synthetic["passed"],
