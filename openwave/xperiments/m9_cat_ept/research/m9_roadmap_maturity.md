@@ -1,6 +1,6 @@
 # M9 maturity-based roadmap
 
-M9.100--M9.108 established evidence-derived maturity, coupled particle/field campaigns, nonlinear reduced gravity, and dynamical candidate states. M9.109 audited the Compton-clock specialization. M9.110--M9.115 restore the holographic area-per-bit hierarchy and advance its gravity carrier toward BSSN-style evolution.
+M9.100--M9.108 established evidence-derived maturity, coupled particle/field campaigns, nonlinear reduced gravity, and dynamical candidate states. M9.109 audited the Compton-clock specialization. M9.110--M9.116 restore the holographic area-per-bit hierarchy and advance its gravity carrier through a source-coupled, constraint-damped BSSN-style refinement layer.
 
 | Task | Target | State |
 | --- | --- | --- |
@@ -12,8 +12,10 @@ M9.100--M9.108 established evidence-derived maturity, coupled particle/field cam
 | M9.115a | Add conformal connection functions and their differential constraint | DONE; REDUCED BSSN-STYLE |
 | M9.115b | Enforce unit determinant and trace-free conformal variables | DONE; ALGEBRAIC CONTROL |
 | M9.115c | Add 1+log lapse and Gamma-driver shift evolution | DONE; GAUGE REFINEMENT |
-| M9.116 | Add stronger tensor constraint propagation and convergence/refinement studies | NEXT |
-| M9.117 | Construct or falsify a dynamical coarse-graining mechanism for `N_H/N_C` | PLANNED |
+| M9.116a | Build the conformal Ricci tensor from the evolved metric and couple the screen-density tidal source | DONE; REDUCED SCALAR-SOURCE CARRIER |
+| M9.116b | Add exact-Fourier STF tensor-momentum correction and damp the conformal-connection constraint | DONE; DIFFERENTIAL CONSTRAINT DAMPING |
+| M9.116c | Execute analytic manufactured-source checks and three-grid Cauchy refinement | DONE; FINITE-GRID CONSISTENCY, NOT CONTINUUM PROOF |
+| M9.117 | Construct or falsify a dynamical coarse-graining mechanism for `N_H/N_C` | NEXT |
 | M9.118 | Execute an independently calibrated physical screen-density campaign | BLOCKED ON EXTERNAL ANCHOR |
 | M9.119 | Replace reduced color/chiral carriers with gauge-covariant non-Abelian/electroweak systems | PLANNED |
 | M9.120 | Connect stable candidate carriers to spectra, decays, and phenomenology | PLANNED |
@@ -28,10 +30,16 @@ unit determinant control                 constructed
 trace-free conformal curvature           constructed
 1+log lapse evolution                    constructed
 Gamma-driver shift evolution             constructed
-Hamiltonian/momentum constraints         reported
+metric-built conformal Ricci tensor      constructed
+screen-source tidal curvature            constructed
+STF tensor-momentum damping               constructed
+Gamma-constraint damping                 constructed
+three-grid manufactured refinement       completed
+finite-grid Cauchy consistency            established
+continuum BSSN convergence proof          open
 production BSSN                          open
 full general Einstein evolution          open
 external physical calibration            open
 ```
 
-The BSSN-style carrier removes additional algebraic and gauge restrictions but remains a reduced periodic model. Determinant control is not full constraint propagation, the synthetic screen anchor is not physical calibration, and the current gauge drivers are implementation choices rather than unique physical observables.
+The enhanced carrier now evolves metric-built Ricci and a declared scalar screen-source tidal tensor while damping two differential constraints. The manufactured source and tensor-divergence bridges close to numerical precision across three odd grids, and integrated curvature diagnostics are Cauchy-consistent. This remains a reduced periodic model: the scalar tidal source is not the complete spatial stress tensor, finite-grid consistency is not a continuum theorem, and the synthetic screen anchor is not physical calibration.
