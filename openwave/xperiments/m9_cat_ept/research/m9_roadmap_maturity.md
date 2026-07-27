@@ -1,42 +1,24 @@
 # M9 maturity-based roadmap
 
-M9.123 corrected the physics scorecard away from particle spectroscopy. M9.124 now resolves the internal time taxonomy by separating relational, modular, and entropic clocks.
+M9.124 separated Page-Wootters relational ordering, modular reversible flow, and entropic irreversible accumulation. M9.125 places those roles on one reduced carrier and makes their parameter maps and evidence protocol executable.
 
 | Task | Target | State |
 | --- | --- | --- |
-| M9.100--M9.123 | Historical maturity, evidence governance, and non-particle physics benchmark | DONE; PHYSICAL AXES SEPARATE |
-| M9.124a | Identify Page-Wootters, modular, and entropic clock roles and all pairwise bridges | DONE; ROLES ARE DISTINCT |
-| M9.124b | Execute reduced conditioning, modular-flow, and entropic-arrow controls | DONE; INTERNAL CONTROLS ONLY |
-| M9.124c | Require a common carrier, derivation, calibration maps, composed dynamics, and held-out test before unified-clock promotion | DONE; UNIFIED CLOCK BLOCKED |
-| M9.125 | Execute one real non-particle held-out benchmark with an independent scale and no refitting | NEXT; EXTERNAL INPUT REQUIRED |
+| M9.124a--c | Three clock role profile, reduced controls, and fail-closed synthesis requirements | DONE; CLOCK PARAMETERS DISTINCT |
+| M9.125a | Construct one shared full-rank carrier for conditioned, modular, and entropic evolution | DONE; FINITE REDUCED CARRIER |
+| M9.125b | Construct invertible internal Page-Wootters/modular/nominal-proper maps and a branch-invertible entropic map | DONE; NOT INDEPENDENT PHYSICAL CALIBRATION |
+| M9.125c | Freeze three-clock predictions and provide a blocked live holdout evaluator | DONE; SYNTHETIC FIXTURE ONLY |
+| M9.126 | Supply independent clock identity, physical units, proper-time calibration, and held-out observations without refitting | NEXT; EXTERNAL INPUT REQUIRED |
 
-## Three-clock interpretation
-
-```text
-Page-Wootters   relational ordering: system change conditioned on a clock subsystem
-modular flow    reversible state-dependent thermal/automorphism time
-entropic time   irreversible accumulated dissipation and relaxation age
-```
-
-The previous external benchmark target is moved from M9.124 to M9.125 because the user requested the missing three-clock synthesis first. The external-evidence requirement is preserved, not removed.
-
-## Remaining unified-clock obligations
+## Remaining universal-clock obligations
 
 ```text
-full Hamiltonian-constraint -> conditioned dynamics theorem
-explicit identification of the conditioned generator with modular K
-common carrier for modular and dissipative directions
-calibration tau_PW <-> s_mod <-> tau_ent
-calibration of all three against proper/laboratory time
-end-to-end reversible + irreversible evolution theorem
-held-out physical test
+constraint-to-conditioned-dynamics theorem
+continuum or field-level shared carrier
+independent temperature and dissipation scales
+external calibration to laboratory/proper time
+held-out relational/modular/entropic comparison
+carrier-independent clock-equivalence theorem
 ```
 
-## Current authorities
-
-```text
-OpenWave main baseline      0284618a8d5e05295dc1f63b0efc58f517ce4714
-Physlib merged baseline     master@80c2b0bb25ba0b28d2c3dd8b038071e0f49261ef
-Physlib clock development   entropic-physlib-linear-full@af78ea63ee0b39456d8dab023761482196b8c172
-public zil-lean             c671f02d8b6dcf7ba689afc86477ff7e35465c35
-```
+M9.126 cannot be closed by another synthetic fixture or by choosing internal conversion constants.
