@@ -6,10 +6,16 @@ def test_reduced_bssn_targets_close():
     result = run_bssn_screen_gravity()
     assert result["passed"]
     assert result["acceptance"]["conformal_metric_unit_determinant_is_enforced"]
-    assert result["acceptance"]["conformal_extrinsic_curvature_remains_trace_free"]
+    assert result["acceptance"][
+        "conformal_extrinsic_curvature_remains_trace_free"
+    ]
     assert result["acceptance"]["conformal_connection_constraint_is_measured"]
     assert result["acceptance"]["one_plus_log_lapse_is_evolved"]
     assert result["acceptance"]["gamma_driver_shift_is_evolved"]
+    assert result["acceptance"]["metric_built_ricci_is_evolved"]
+    assert result["acceptance"]["screen_source_tidal_term_is_evolved"]
+    assert result["acceptance"]["tensor_momentum_constraint_is_damped"]
+    assert result["acceptance"]["gamma_constraint_is_damped"]
 
 
 def test_bssn_registration_preserves_scope():
