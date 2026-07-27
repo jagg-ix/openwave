@@ -1,80 +1,105 @@
-# OpenWave M9 CAT/EPT comparison profile
+# OpenWave M9 CAT/EPT current comparison profile
 
-The canonical conformance profile is `model_conformance_m109.py`, schema v22. The canonical registration is `model_registration_m109.py`, schema v13.
+M9 is integrated through **M9.117**. Stable callers should use the unversioned current entry points:
+
+```text
+conformance   openwave/xperiments/m9_cat_ept/model_conformance_current.py
+registration  openwave/xperiments/m9_cat_ept/model_registration_current.py
+launcher      openwave/xperiments/m9_cat_ept/_launcher.py
+```
+
+Current schemas:
+
+```text
+openwave.m9.models-conformance.v22
+openwave.model-registration.v21
+openwave.m9.platform-integration-contract.v1
+```
+
+The conformance schema remains v22 because M9.110--M9.117 add implementation and scale-flow evidence without promoting the evidence-derived 21-criterion headlines last changed at M9.109. The registration advances through schema v21 and records those later layers explicitly.
 
 ## Authorities
 
 ```text
-OpenWave base  bd0367fc73f2ffac2a033576bce94e51972bad8c
-Physlib        398ba1976ce7602e30ed05ecbd0f228027335584
-zil-lean       e09723a44185a1e70031ad2661c8009dc98bef74
+Physlib repository  jagg-ix/entropic-physlib-private
+Physlib branch      entropic-physlib-linear-full
+Physlib head        bca7617e1294c4645a13bc9eae9aa6d97de78430
+zil-lean head       e09723a44185a1e70031ad2661c8009dc98bef74
 ```
 
-## M9.109a — formal G authority
+The M9.117 formal contract pins exact Hamiltonian-renormalisation and dimensional-scaling source blobs. Lean remains proof authority. OpenWave provides numerical adapters, finite-grid evidence, and falsification gates.
 
-Current Physlib anchors the entropic clock to the Compton frequency and proves:
+## Evidence-derived maturity policy
+
+M9 is not summarized by a single validated/partial count. Each of the 21 shared criteria carries separate axes for:
+
+- formal status;
+- numerical state construction;
+- stability or dynamical closure;
+- calibration;
+- physical identity;
+- prediction and external validation.
+
+A reduced carrier can be constructed while calibration, identity, or prediction readiness remains open. Later numerical evidence cannot promote those axes unless its own authority gate closes them.
+
+The canonical 21-row maturity payload is produced by `criterion_maturity_m109.py` and composed with M9.117 evidence by `model_conformance_current.py`.
+
+## Integrated milestone lineage
+
+| Milestone | Constructed evidence | Retained boundary |
+| --- | --- | --- |
+| M9.109 | Newton-G clock theorem/evidence audit and evidence-derived maturity | algebraic equivalence is not an external G prediction |
+| M9.110--M9.113 | holographic `N_H/N_C` hierarchy, one screen G, shared initial data and synchronized weak/nonlinear histories | physical screen calibration remains open |
+| M9.114 | TT metric modes, trace-free extrinsic curvature and shift dynamics | reduced generalized ADM, not general GR |
+| M9.115 | conformal connection, unit determinant, trace-free variables, 1+log and Gamma-driver gauges | BSSN-style carrier, not production BSSN |
+| M9.116 | metric-built conformal Ricci, reduced screen-tidal source, tensor/Gamma damping and manufactured refinement | finite-grid consistency is not continuum constraint propagation |
+| M9.117a | continuous Planck-bit/Compton-cell count flow and finite heat/block semigroup | endpoint particle mass is not derived |
+| M9.117b | Gaussian covariance pullback, fixed-point adapter and principal/image limits | free-field fixed point is not interacting CAT/EPT RG closure |
+| M9.117c | one-G multi-resolution Poisson/tidal gravity campaign | synthetic scale fixture is not physical calibration or Einstein equivalence |
+
+## Current decisions
 
 ```text
-hbar*omega0 = m*c^2
-G = hbar*c/m^2
-G = c^5/(hbar*omega0^2)
-G = hbar*c*sigma0^4
+universal holographic G                         preserved
+one screen G shared across gravity carriers     constructed
+source-coupled reduced BSSN layer                constructed
+finite three-grid refinement                     completed
+dynamic count and block flow                     constructed
+Gaussian covariance scale adapter                constructed
+one-G multi-resolution gravity                   constructed
+particle mass endpoint derivation                open
+interacting CAT/EPT fixed point                  open
+continuum BSSN/Einstein convergence              open
+external physical screen calibration             open
+out-of-sample physical prediction                not promoted
 ```
-
-The source and graph audit make `constant:newton-G` a canonical derived quantity. The same source explicitly retains that the mass value and three-origin mass coincidence are conditional.
-
-## M9.109b — species universality audit
-
-`newton_g_clock_universality.py` evaluates electron, muon, and proton Compton clocks against measured Newton `G`. The mass and clock forms agree algebraically for every species, but their effective couplings differ by millions between species and by 38--45 orders of magnitude from measured `G`.
-
-Decision:
-
-```text
-formal equivalence                         preserved
-ordinary particle clock = gravity anchor   false
-one universal Planck-scale anchor required true
-Planck inversion control = prediction      false
-```
-
-## M9.109c — anchor and gravity coupling protocol
-
-`newton_g_anchor_protocol.py` rejects:
-
-- particle-scoped clocks;
-- anchors derived by inverting measured `G`;
-- target-fitted anchors;
-- natural-unit `G=1` as physical evidence.
-
-`newton_g_gravity_adapter.py` requires an explicit unit conversion
-
-```text
-G_dimensionless = G_SI * mass_unit * time_unit^2 / length_unit^3
-```
-
-and derives the numerical inference width only after calibration. One frozen dimensionless coupling must feed both weak-field and nonlinear gravity.
-
-The current default has no independent universal anchor, so no external prediction or calibrated injection is executed.
 
 ## Reproduction
 
+Stable reports:
+
 ```bash
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_109_formal_G_authority.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_109_G_clock_universality.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_109_G_anchor_protocol.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_109_current_registration.py
+python -m openwave.xperiments.m9_cat_ept._launcher --current-conformance
+python -m openwave.xperiments.m9_cat_ept._launcher --current-registration
+python -m openwave.xperiments.m9_cat_ept._launcher --platform-contract
 ```
 
-Committed result records:
+Direct scripts:
 
-```text
-research/results/m9_109_newton_g_clock_universality.json
-research/results/m9_109_newton_g_anchor_protocol.json
+```bash
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_current_conformance.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_current_registration.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_current_platform_contract.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_117a_screen_scale_flow.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_117b_gaussian_covariance_flow.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_117c_coarse_grained_gravity.py
 ```
 
 ## Boundaries
 
-- a derived relation is not a numerical prediction;
-- an ordinary particle clock is not automatically a universal gravity clock;
-- a Planck scale calculated from measured `G` is not independent evidence;
-- a natural-unit coupling is not an SI calibration;
-- a calibrated `G` still does not make the reduced conformal metric a general Einstein solver.
+- a theorem-guided adapter is not a new Lean proof;
+- a finite-grid campaign is not a continuum theorem;
+- a synthetic screen anchor is not physical measurement;
+- the Compton-cell count does not replace the microscopic holographic count in Newton's coupling;
+- a constructed reduced carrier does not establish observed-particle identity;
+- no external experimental validation is claimed by the current registration.
