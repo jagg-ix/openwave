@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
-from .model_registration_m109 import M9_REGISTRATION
+from .model_registration import M9_REGISTRATION
 from .model_registration_m117 import (
     canonical_registration_payload,
     fingerprint as _fingerprint,
