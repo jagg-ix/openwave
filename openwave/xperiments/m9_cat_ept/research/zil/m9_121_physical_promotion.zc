@@ -4,6 +4,7 @@ claim:m9_121_open_decay#formalized_by@lean:Physlib.QuantumMechanics.OpenSystems.
 claim:m9_121_open_decay#implemented_by@campaign:openwave_m9_121a.
 claim:m9_121_open_decay#axiom_status@status:kernel_clean.
 claim:m9_121_open_decay#reproduced_by@runner:m9_121a_open_decay.
+claim:m9_121_open_decay#committed_before_reveal@commitment:prediction_digest.
 claim:m9_121_open_decay#calibration_state@state:external_anchor_missing.
 claim:m9_121_open_decay#validation_state@state:holdout_sealed.
 
