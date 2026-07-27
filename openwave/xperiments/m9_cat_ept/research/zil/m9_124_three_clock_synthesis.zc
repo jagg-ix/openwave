@@ -1,0 +1,49 @@
+MODULE openwave.m9.three_clock_synthesis.
+
+clock:page_wootters#kind@time:relational.
+clock:page_wootters#formalized_by@lean:QuantumMechanics.RelationalTime.PageWootters.
+clock:modular#kind@time:reversible_state_dependent.
+clock:modular#formalized_by@lean:Physlib.QuantumMechanics.RelationalTime.Complementarity.
+clock:entropic#kind@time:irreversible_accumulated.
+clock:entropic#formalized_by@lean:Physlib.QuantumMechanics.Lindblad.ThreeClockReversibilitySpectrum.
+
+bridge:pw_entropic#connects@clock:page_wootters.
+bridge:pw_entropic#connects@clock:entropic.
+bridge:modular_entropic#connects@clock:modular.
+bridge:modular_entropic#connects@clock:entropic.
+bridge:pw_modular#connects@clock:page_wootters.
+bridge:pw_modular#connects@clock:modular.
+
+claim:three_aspect_time#has_role@clock:page_wootters.
+claim:three_aspect_time#has_role@clock:modular.
+claim:three_aspect_time#has_role@clock:entropic.
+claim:three_aspect_time#implemented_by@benchmark:m9_124_three_clock.
+
+claim:unified_physical_clock#requires@theorem:constraint_to_conditioned_dynamics.
+claim:unified_physical_clock#requires@identity:conditioned_generator_is_modular_K.
+claim:unified_physical_clock#requires@identity:common_modular_dissipative_carrier.
+claim:unified_physical_clock#requires@calibration:pw_to_modular.
+claim:unified_physical_clock#requires@calibration:modular_to_entropic.
+claim:unified_physical_clock#requires@calibration:all_to_proper_time.
+claim:unified_physical_clock#requires@dynamics:reversible_irreversible_composition.
+claim:unified_physical_clock#requires@evidence:heldout_three_clock_test.
+
+RULE three_aspect_ready:
+IF claim:three_aspect_time#has_role@clock:page_wootters AND
+   claim:three_aspect_time#has_role@clock:modular AND
+   claim:three_aspect_time#has_role@clock:entropic AND
+   claim:three_aspect_time#implemented_by@benchmark:m9_124_three_clock
+THEN claim:three_aspect_time#status@status:internal_ready.
+
+RULE unified_clock_blocker:
+IF claim:unified_physical_clock#requires@?requirement
+THEN claim:unified_physical_clock#blocked_by@?requirement.
+
+QUERY clock_roles:
+FIND ?clock ?kind WHERE ?clock#kind@?kind.
+
+QUERY pairwise_bridges:
+FIND ?bridge ?clock WHERE ?bridge#connects@?clock.
+
+QUERY unification_blockers:
+FIND ?claim ?requirement WHERE ?claim#blocked_by@?requirement.
