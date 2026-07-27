@@ -30,6 +30,15 @@ def canonical_registration_payload() -> dict[str, Any]:
             "G_is_derived_not_primitive": components["formal_G_clock_authority"][
                 "G_is_derived_not_primitive"
             ],
+            "theorem_and_paper_scope_audited": components[
+                "theorem_and_paper_scope"
+            ]["campaign_passed"],
+            "Lean_theorems_contradicted": components[
+                "theorem_and_paper_scope"
+            ]["Lean_theorems_contradicted"],
+            "papers_validate_full_G_chain": components[
+                "theorem_and_paper_scope"
+            ]["papers_validate_full_G_chain"],
             "particle_clock_universality_audited": components["clock_universality"][
                 "campaign_passed"
             ],
@@ -51,6 +60,8 @@ def canonical_registration_payload() -> dict[str, Any]:
         "claim_boundary": {
             **previous["claim_boundary"],
             "derived_G_is_predicted_G": False,
+            "species_audit_falsifies_Lean_theorem": False,
+            "clock_papers_validate_full_CAT_EPT_G_chain": False,
             "particle_clock_is_universal_gravity_clock": False,
             "Planck_inversion_is_independent_measurement": False,
             "natural_unit_G_is_physical_calibration": False,
@@ -72,6 +83,8 @@ def run_model_registration_study() -> dict[str, Any]:
     current = payload["m9_109"]
     boundaries = (
         "derived_G_is_predicted_G",
+        "species_audit_falsifies_Lean_theorem",
+        "clock_papers_validate_full_CAT_EPT_G_chain",
         "particle_clock_is_universal_gravity_clock",
         "Planck_inversion_is_independent_measurement",
         "natural_unit_G_is_physical_calibration",
@@ -84,6 +97,13 @@ def run_model_registration_study() -> dict[str, Any]:
             "G_clock_formal_authority_registered"
         ]
         and current["G_is_derived_not_primitive"],
+        "scope_audit_preserves_Lean_theorems": current[
+            "theorem_and_paper_scope_audited"
+        ]
+        and not current["Lean_theorems_contradicted"],
+        "paper_support_is_not_overpromoted": not current[
+            "papers_validate_full_G_chain"
+        ],
         "particle_clock_universality_failure_is_preserved": not current[
             "particle_clocks_define_universal_G"
         ],
@@ -109,6 +129,8 @@ def run_model_registration_study() -> dict[str, Any]:
         "decision": {
             "m109_registration_is_current": True,
             "Newton_G_formal_maturity_changed": True,
+            "current_Lean_theorem_falsified": False,
+            "broad_particle_clock_interpretation_rejected": True,
             "Newton_G_physical_prediction_changed": False,
             "M9_110_remains_blocked_on_calibrated_universal_anchor": True,
         },
