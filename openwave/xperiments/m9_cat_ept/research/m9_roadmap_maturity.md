@@ -1,6 +1,6 @@
 # M9 maturity-based roadmap
 
-M9.100--M9.108 established evidence-derived maturity, coupled particle/field campaigns, nonlinear reduced gravity, and dynamical candidate states. M9.109 audited the Compton-clock specialization. M9.110--M9.117 restore the holographic area-per-bit hierarchy, advance its gravity carrier through source-coupled BSSN-style refinement, and construct an explicit theorem-guided coarse-graining flow.
+M9.100--M9.108 established evidence-derived maturity, coupled particle/field campaigns, nonlinear reduced gravity, and dynamical candidate states. M9.109 audited the Compton-clock specialization. M9.110--M9.117 restore the holographic area-per-bit hierarchy, advance its gravity carrier through source-coupled BSSN-style refinement, and construct an explicit theorem-guided coarse-graining flow. M9.119 replaces the scalar strong/chiral reductions with finite local gauge-covariant SU(3) and SU(2)xU(1) carriers.
 
 | Task | Target | State |
 | --- | --- | --- |
@@ -13,26 +13,28 @@ M9.100--M9.108 established evidence-derived maturity, coupled particle/field cam
 | M9.115a | Add conformal connection functions and their differential constraint | DONE; REDUCED BSSN-STYLE |
 | M9.115b | Enforce unit determinant and trace-free conformal variables | DONE; ALGEBRAIC CONTROL |
 | M9.115c | Add 1+log lapse and Gamma-driver shift evolution | DONE; GAUGE REFINEMENT |
-| M9.116a | Build the conformal Ricci tensor from the evolved metric and couple the screen-density tidal source | DONE; REDUCED SCALAR-SOURCE CARRIER |
+| M9.116a | Build conformal Ricci from the evolved metric and couple the screen-density tidal source | DONE; REDUCED SCALAR-SOURCE CARRIER |
 | M9.116b | Add exact-Fourier STF tensor-momentum correction and damp the conformal-connection constraint | DONE; DIFFERENTIAL CONSTRAINT DAMPING |
 | M9.116c | Execute analytic manufactured-source checks and three-grid Cauchy refinement | DONE; FINITE-GRID CONSISTENCY, NOT CONTINUUM PROOF |
 | M9.117a | Construct continuous count flow and finite heat/block-spin screen flow while preserving `A/N_H` | DONE; ENDPOINT MASS SELECTION OPEN |
 | M9.117b | Bind Gaussian covariance pullback, composable injections, semigroup flow, and principal/image limits to Physlib | DONE; FREE-FIELD FIXED POINT ONLY |
 | M9.117c | Inject one screen `G` across three gravity resolutions and compare low-mode Poisson/tidal observables | DONE; SCALE CONSISTENCY, NOT CALIBRATION |
 | M9.118 | Execute an independently calibrated physical screen-density campaign | BLOCKED ON EXTERNAL ANCHOR |
-| M9.119 | Replace reduced color/chiral carriers with gauge-covariant non-Abelian/electroweak systems | NEXT |
-| M9.120 | Connect stable candidate carriers to spectra, decays, and phenomenology | PLANNED |
+| M9.119a | Replace the scalar color-flux reduction with local SU(3) links, covariant color transport, plaquettes, and finite Wilson loops | DONE; FINITE GAUGE CARRIER, NOT QCD |
+| M9.119b | Replace the scalar weak mediator with local SU(2)xU(1) links and a gauge-covariant Higgs doublet with quartic vacuum flow | DONE; BOSONIC CARRIER, FERMIONS/CALIBRATION OPEN |
+| M9.119c | Pin Physlib gauge/Higgs authorities and compose local-gauge covariance, evidence, registration, and platform-drift gates | DONE; THEOREM-GUIDED NUMERICAL LAYER |
+| M9.120 | Connect stable candidate carriers to spectra, decays, and phenomenology | NEXT |
 
 ## Corrected holographic implication
 
-The primary gravitational equation is
+The primary gravitational equation remains
 
 ```text
 G = (A/N_H) c^3/hbar,
 A/N_H = l_P^2.
 ```
 
-For an entanglement screen based on a particle Compton scale, both `A` and `N_H` vary as `m^-2`; their ratio remains universal. The mass-dependent expression `hbar*c/m^2` is obtained only after replacing the Planck-area bit count with the coarser Compton-cell count. The M9.117 coarse-graining flow does not make that replacement in the definition of `G`; it preserves microscopic area per bit while grouping Planck bits into coarser cells.
+For an entanglement screen based on a particle Compton scale, both `A` and `N_H` vary as `m^-2`; their ratio remains universal. The mass-dependent expression `hbar*c/m^2` is obtained only after replacing the Planck-area bit count with the coarser Compton-cell count. M9.117 does not make that replacement in the definition of `G`; it preserves microscopic area per bit while grouping Planck bits into coarser cells.
 
 ## Current decision
 
@@ -40,38 +42,33 @@ For an entanglement screen based on a particle Compton scale, both `A` and `N_H`
 universal holographic G                  preserved
 N_H/N_C exact count ratio                closed
 one screen G shared across carriers      constructed
-shared matter/source histories           constructed
-conformal connection functions           constructed
-unit determinant control                 constructed
-trace-free conformal curvature           constructed
-1+log lapse evolution                    constructed
-Gamma-driver shift evolution             constructed
-metric-built conformal Ricci tensor      constructed
-screen-source tidal curvature            constructed
-STF tensor-momentum damping               constructed
-Gamma-constraint damping                 constructed
+source-coupled reduced BSSN              constructed
 three-grid manufactured refinement       completed
-finite-grid Cauchy consistency            established
-dynamic N_H/N_C count flow               constructed
-finite heat/block-spin screen flow       constructed
-Gaussian covariance pullback             constructed
-free-field covariance fixed point        reproduced
-principal/image continuum limits         reproduced
+dynamic count/heat/block flow            constructed
+Gaussian covariance scale adapter        constructed
 one-G multi-resolution gravity           constructed
-particle mass endpoint derivation        open
+local SU(3) link carrier                  constructed
+covariant color-matter evolution         constructed
+plaquette and finite Wilson loops         constructed
+local SU(2)xU(1) link carrier             constructed
+covariant Higgs-doublet evolution         constructed
+quartic Higgs vacuum orbit                constructed
+QCD confinement                          open
+full chiral electroweak theory            open
+physical gauge/Higgs calibration          open
+particle mass endpoint derivation         open
 interacting CAT/EPT fixed point           open
-continuum BSSN convergence proof          open
-production BSSN                          open
-full general Einstein evolution          open
-external physical calibration            open
+continuum BSSN/Einstein proof             open
+external physical validation              open
 ```
 
 ## Current upstream authorities
 
 ```text
-OpenWave integration head  agent/m9-generalized-adm-screen-114
-Physlib                    bca7617e1294c4645a13bc9eae9aa6d97de78430
-zil-lean                   e09723a44185a1e70031ad2661c8009dc98bef74
+OpenWave main  d1adb951e9edeb9094af00b01d8e0279ae9cc117
+Physlib        bca7617e1294c4645a13bc9eae9aa6d97de78430
+Physlib root   38e3e4d5b1fcdebf5a4335fb4741a57774a6c0d1
+zil-lean       e09723a44185a1e70031ad2661c8009dc98bef74
 ```
 
-The M9.117 flow gives the exact count ratio a composable finite and continuous scale mechanism while keeping the microscopic area per bit fixed. The Gaussian adapter reproduces the formal free-field fixed-point structure, and low Fourier-mode gravity observables agree across three odd grids. These results do not derive a particle mass, establish the interacting CAT/EPT renormalisation fixed point, supply an external screen calibration, or constitute production numerical relativity.
+The M9.119 strong carrier verifies local SU(3) covariance, special-unitary link preservation, and gauge-invariant finite Wilson observables. The electroweak carrier verifies local SU(2)xU(1) covariance, the Physlib-compatible U(1)^3 Higgs action, quartic vacuum relaxation, and a residual U(1) stabilizer. These finite classical systems do not establish confinement, complete Standard Model fermion content, calibrated couplings, observed masses, particle identity, or external experimental validation.
