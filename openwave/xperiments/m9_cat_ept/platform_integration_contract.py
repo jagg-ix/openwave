@@ -109,7 +109,7 @@ def run_platform_integration_contract() -> dict[str, Any]:
                 SCHEMA,
                 "CPTP",
                 "independent physical anchor supplied  false",
-                "external physical promotion additionally requires",
+                "External physical promotion additionally requires",
             )
         ),
         "package_description_reaches_M9_121": "M9.121" in package,
