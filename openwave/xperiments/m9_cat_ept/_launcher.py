@@ -1,4 +1,4 @@
-"""Launcher for the validated M9 scalar, radial, and transverse sectors."""
+"""Launcher for current M9 CAT/EPT instrumentation and authority reports."""
 
 from __future__ import annotations
 
@@ -15,8 +15,26 @@ from openwave.xperiments.m9_cat_ept.instrumentation import (
 
 
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="M9 CAT/EPT research instrumentation")
-    parser.add_argument("--list", action="store_true", help="list deterministic presets")
+    parser = argparse.ArgumentParser(
+        description="M9 CAT/EPT instrumentation and current M9.117 authority reports"
+    )
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--list", action="store_true", help="list deterministic presets")
+    mode.add_argument(
+        "--current-registration",
+        action="store_true",
+        help="print the stable current registration (M9.117, schema v21)",
+    )
+    mode.add_argument(
+        "--current-conformance",
+        action="store_true",
+        help="print the current evidence-derived 21-criterion conformance report",
+    )
+    mode.add_argument(
+        "--platform-contract",
+        action="store_true",
+        help="audit canonical aliases and public M9 documentation for drift",
+    )
     parser.add_argument(
         "--preset",
         action="append",
@@ -45,11 +63,51 @@ def _print_panels(panels) -> None:
     print(json.dumps([panel.to_dict() for panel in panels], indent=2, sort_keys=True))
 
 
+def _print_current_registration() -> bool:
+    from openwave.xperiments.m9_cat_ept.model_registration_current import (
+        result_to_json,
+        run_model_registration_study,
+    )
+
+    result = run_model_registration_study()
+    print(result_to_json(result), end="")
+    return bool(result["passed"])
+
+
+def _print_current_conformance() -> bool:
+    from openwave.xperiments.m9_cat_ept.model_conformance_current import (
+        result_to_json,
+        run_conformance_study,
+    )
+
+    result = run_conformance_study()
+    print(result_to_json(result), end="")
+    return bool(result["passed"])
+
+
+def _print_platform_contract() -> bool:
+    from openwave.xperiments.m9_cat_ept.platform_integration_contract import (
+        result_to_json,
+        run_platform_integration_contract,
+    )
+
+    result = run_platform_integration_contract()
+    print(result_to_json(result), end="")
+    return bool(result["passed"])
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     if args.list:
         _print_list()
         return 0
+    if args.current_registration:
+        return 0 if _print_current_registration() else 1
+    if args.current_conformance:
+        return 0 if _print_current_conformance() else 1
+    if args.platform_contract:
+        return 0 if _print_platform_contract() else 1
+
     panels = build_panels(args.preset, refresh=args.refresh)
     _print_panels(panels)
     if args.export_dir is not None:
