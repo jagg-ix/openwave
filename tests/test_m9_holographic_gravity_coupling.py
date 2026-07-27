@@ -10,10 +10,13 @@ def test_screen_density_is_primary_coupling():
     assert result["default_physical_injection_blocked"]
 
 
-def test_nonlinear_injection_gap_is_not_hidden():
+def test_nonlinear_injection_gap_is_closed_without_overclaim():
     result = run_holographic_gravity_coupling()
-    assert result["synthetic_contract"]["weak_uses_screen_coupling"]
-    assert result["synthetic_contract"]["nonlinear_requires_explicit_injection"]
+    contract = result["synthetic_contract"]
+    assert contract["weak_uses_screen_coupling"]
+    assert contract["nonlinear_uses_screen_coupling"]
+    assert contract["weak_and_nonlinear_share_one_G"]
+    assert not result["decision"]["current_default_is_physically_calibrated"]
 
 
 def test_registration_preserves_boundaries():
@@ -22,5 +25,7 @@ def test_registration_preserves_boundaries():
     current = result["m9_110"]
     assert current["universal_holographic_G_preserved"]
     assert not current["dynamical_renormalization_constructed"]
-    assert not current["nonlinear_screen_G_injection"]
+    assert current["nonlinear_screen_G_injection"]
+    assert current["one_screen_G_shared"]
+    assert not current["physical_calibration_complete"]
     assert current["physical_claims_promoted"] == []

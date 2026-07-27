@@ -23,7 +23,7 @@ def run_m110_holographic_evidence_authority() -> dict[str, Any]:
     coarse = run_holographic_coarse_graining()
     coupling = run_holographic_gravity_coupling()
     payload = {
-        "schema": "openwave.m9.m110-holographic-evidence-authority.v1",
+        "schema": "openwave.m9.m110-holographic-evidence-authority.v2",
         "task": "M9.110",
         "previous_authority": previous,
         "components": {
@@ -52,9 +52,12 @@ def run_m110_holographic_evidence_authority() -> dict[str, Any]:
                 "weak_screen_G_injection_constructed": coupling["synthetic_contract"][
                     "weak_uses_screen_coupling"
                 ],
-                "nonlinear_screen_G_injection_constructed": not coupling[
+                "nonlinear_screen_G_injection_constructed": coupling[
                     "synthetic_contract"
-                ]["nonlinear_requires_explicit_injection"],
+                ]["nonlinear_uses_screen_coupling"],
+                "one_screen_G_shared": coupling["synthetic_contract"][
+                    "weak_and_nonlinear_share_one_G"
+                ],
                 "physical_calibration_complete": coupling["decision"][
                     "current_default_is_physically_calibrated"
                 ],
@@ -64,29 +67,49 @@ def run_m110_holographic_evidence_authority() -> dict[str, Any]:
             "species_count_ratio_falsifies_holographic_G": False,
             "exact_count_ratio_is_dynamical_coarse_graining": False,
             "synthetic_screen_anchor_is_physical_evidence": False,
-            "weak_injection_implies_nonlinear_injection": False,
+            "shared_implementation_coupling_is_physical_calibration": False,
         },
     }
     acceptance = {
         "previous_authority_is_preserved": bool(previous["passed"]),
-        "three_holographic_campaigns_execute": hierarchy["passed"] and coarse["passed"] and coupling["passed"],
-        "universal_holographic_G_is_preserved": payload["components"]["count_hierarchy"]["universal_holographic_G"],
-        "count_ratio_is_not_overpromoted": not payload["components"]["coarse_graining"]["dynamical_renormalization_constructed"],
-        "nonlinear_injection_gap_is_explicit": not payload["components"]["gravity_coupling"]["nonlinear_screen_G_injection_constructed"],
+        "three_holographic_campaigns_execute": hierarchy["passed"]
+        and coarse["passed"]
+        and coupling["passed"],
+        "universal_holographic_G_is_preserved": payload["components"][
+            "count_hierarchy"
+        ]["universal_holographic_G"],
+        "count_ratio_is_not_overpromoted": not payload["components"][
+            "coarse_graining"
+        ]["dynamical_renormalization_constructed"],
+        "weak_and_nonlinear_injection_close": payload["components"][
+            "gravity_coupling"
+        ]["weak_screen_G_injection_constructed"]
+        and payload["components"]["gravity_coupling"][
+            "nonlinear_screen_G_injection_constructed"
+        ]
+        and payload["components"]["gravity_coupling"]["one_screen_G_shared"],
+        "physical_calibration_remains_open": not payload["components"][
+            "gravity_coupling"
+        ]["physical_calibration_complete"],
         "no_claim_boundary_is_crossed": not any(payload["claim_boundary"].values()),
         "fingerprint_is_deterministic": fingerprint(payload) == fingerprint(payload),
     }
     return {
         **payload,
-        "component_results": {"hierarchy": hierarchy, "coarse_graining": coarse, "coupling": coupling},
+        "component_results": {
+            "hierarchy": hierarchy,
+            "coarse_graining": coarse,
+            "coupling": coupling,
+        },
         "acceptance": acceptance,
         "passed": all(acceptance.values()),
         "fingerprint": fingerprint(payload),
         "decision": {
             "M9_110a_count_hierarchy_complete": True,
             "M9_110b_coarse_graining_diagnostic_complete": True,
-            "M9_110c_screen_G_adapter_partial": True,
-            "next_target_is_nonlinear_screen_G_injection": True,
+            "M9_110c_screen_G_adapter_complete": True,
+            "M9_110d_nonlinear_screen_G_injection_complete": True,
+            "next_target_is_integrated_screen_G_gravity_execution": True,
         },
     }
 
