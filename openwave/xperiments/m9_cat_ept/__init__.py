@@ -1,31 +1,25 @@
-"""M9 CAT/EPT entropic particle, gravity, gauge, and spectral dynamics.
+"""M9 CAT/EPT entropic particle, gravity, gauge, spectral, and open-system dynamics.
 
 The package contains the 21-criterion evidence-derived maturity profile, reusable
-numerical kernels, exact Physlib/ZIL source contracts, reproducible snapshots, and
-executable falsification campaigns.
+numerical kernels, exact Physlib/ZIL source contracts, reproducible snapshots,
+and executable falsification campaigns.
 
 Current integrated lineage:
 
-* M9.106--M9.108: reduced nonlinear gravity, coupled interaction sectors, and
-  dynamical candidate states;
+* M9.106--M9.108: reduced nonlinear gravity and coupled interaction sectors;
 * M9.109: Compton-clock/Newton-G theorem and evidence-scope audit;
-* M9.110--M9.113: one holographic screen coupling shared by weak and nonlinear
-  gravity, including synchronized histories;
-* M9.114--M9.116: generalized ADM and source-coupled, constraint-damped
-  BSSN-style finite-grid refinement;
-* M9.117: continuous count flow, finite heat/block coarse graining, Gaussian
-  covariance scale flow, and one-G multi-resolution gravity;
-* M9.119: local SU(3) Wilson-link color transport and local SU(2)xU(1) Higgs
-  transport with gauge-covariant matter/link evolution;
-* M9.120: gauge-invariant finite spectra, gauge-invariant source response,
-  Higgs radial/tangent selection, and odd-grid spectral refinement.
+* M9.110--M9.117: shared holographic gravity, BSSN-style refinement, and scale flow;
+* M9.119: local SU(3) and SU(2)xU(1) gauge-covariant carriers;
+* M9.120: gauge-invariant finite spectra, response, and spectral refinement;
+* M9.121: CPTP model-unit decay, blind calibration commitments, and a fail-closed
+  physical-promotion gate.
 
-Lean remains proof authority. The M9.120 construction supplies dimensionless
-finite spectra, response functions, and improving grid sequences. It does not
-identify observed particles, construct intrinsic decay, prove a continuum
-spectrum, calibrate physical units, or provide external experimental validation.
+Lean remains proof authority. M9.121 constructs intrinsic irreversible decay in
+model units and governance for future calibration. It does not calibrate physical
+widths, identify observed particles, reveal a held-out measurement, or complete
+external experimental validation.
 """
 
-CURRENT_MILESTONE = "M9.120"
-CURRENT_REGISTRATION_SCHEMA = "openwave.model-registration.v23"
+CURRENT_MILESTONE = "M9.121"
+CURRENT_REGISTRATION_SCHEMA = "openwave.model-registration.v24"
 CURRENT_CONFORMANCE_SCHEMA = "openwave.m9.models-conformance.v22"
