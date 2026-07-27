@@ -6,10 +6,10 @@ from openwave.xperiments.m9_cat_ept.non_abelian_lattice_gauge import (
     gauge_transform,
     initialize_links,
     initialize_matter,
-    kinetic_action,
     link_determinant_error,
     link_unitarity_error,
     local_gauge_transformation,
+    matter_kinetic_action,
     run_non_abelian_lattice_gauge,
     wilson_action,
 )
@@ -23,8 +23,8 @@ def test_local_su3_observables_are_gauge_invariant() -> None:
     transformed_matter, transformed_links = gauge_transform(matter, links, gauge)
 
     assert np.isclose(
-        kinetic_action(matter, links),
-        kinetic_action(transformed_matter, transformed_links),
+        matter_kinetic_action(matter, links),
+        matter_kinetic_action(transformed_matter, transformed_links),
         rtol=2.0e-12,
         atol=2.0e-12,
     )
