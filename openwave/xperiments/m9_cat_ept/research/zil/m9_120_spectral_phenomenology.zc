@@ -1,0 +1,39 @@
+MODULE openwave.m9.spectral_phenomenology.
+
+component:m9_120#contains@target:gauge_invariant_spectrum.
+component:m9_120#contains@target:gauge_invariant_response.
+component:m9_120#contains@target:spectral_refinement.
+
+claim:merged_periodic_spectral_authority#head@commit:3923d802339c957066fcccd579362f739775797a.
+claim:draft_physlib_19#head@commit:128bebd375cd895af1431444974a7a591c872a31.
+claim:draft_physlib_19#status@state:draft_unmerged.
+claim:draft_physlib_20#head@commit:e192104955fc516f1ba267f8653f0dcf8d18ab51.
+claim:draft_physlib_20#status@state:draft_unmerged.
+
+target:gauge_invariant_spectrum#depends@proof:finite_resonance_matrix_hermitian.
+target:gauge_invariant_spectrum#depends@proof:resonance_residual_zero_iff.
+target:gauge_invariant_spectrum#depends@claim:local_gauge_similarity.
+target:gauge_invariant_spectrum#does_not_prove@claim:observed_particle_mass_spectrum.
+
+target:gauge_invariant_response#depends@proof:formal_source_derivatives_commute.
+target:gauge_invariant_response#depends@proof:green_source_coefficient_recovery.
+target:gauge_invariant_response#depends@claim:spectral_completeness_sum_rule.
+target:gauge_invariant_response#does_not_prove@claim:intrinsic_decay_width.
+
+target:spectral_refinement#depends@proof:finite_bloch_localization.
+target:spectral_refinement#depends@claim:spacing_scaled_smooth_links.
+target:spectral_refinement#does_not_prove@claim:continuum_spectrum_theorem.
+
+claim:physical_mass_calibration#status@state:open.
+claim:particle_identity#status@state:open.
+claim:external_spectral_validation#status@state:open.
+claim:open_system_decay_dynamics#status@state:next.
+
+QUERY m120_targets:
+FIND ?target WHERE component:m9_120#contains@?target.
+
+QUERY retained_boundaries:
+FIND ?target ?claim WHERE ?target#does_not_prove@?claim.
+
+QUERY pending_formal_candidates:
+FIND ?claim ?head WHERE ?claim#status@state:draft_unmerged AND ?claim#head@?head.
