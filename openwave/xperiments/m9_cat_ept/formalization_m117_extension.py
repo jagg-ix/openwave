@@ -13,7 +13,7 @@ import json
 from typing import Any, Mapping
 
 from .formalization_m109_extension import (
-    CURRENT_FORMAL_HEAD,
+    CURRENT_FORMAL_HEAD as PREVIOUS_FORMAL_HEAD,
     FORMAL_BRANCH,
     FORMAL_REPOSITORY,
     PHYSLIB_ROOT_BLOB,
@@ -21,6 +21,8 @@ from .formalization_m109_extension import (
     run_formalization_m109_extension,
 )
 
+
+CURRENT_FORMAL_HEAD = "bca7617e1294c4645a13bc9eae9aa6d97de78430"
 
 FORMAL_SOURCES = (
     {
@@ -97,6 +99,7 @@ def canonical_payload() -> dict[str, Any]:
         "formal_repository": {
             "name": FORMAL_REPOSITORY,
             "branch": FORMAL_BRANCH,
+            "previous_head": PREVIOUS_FORMAL_HEAD,
             "current_head": CURRENT_FORMAL_HEAD,
             "physlib_root_blob": PHYSLIB_ROOT_BLOB,
         },
