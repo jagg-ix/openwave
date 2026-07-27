@@ -1,6 +1,6 @@
 """Fail-closed contract for M9 canonical platform exposure.
 
-The scientific modules are versioned evidence records.  This contract verifies that
+The scientific modules are versioned evidence records. This contract verifies that
 stable imports and public documents point to the same current milestone without
 promoting numerical construction to physical validation.
 """
@@ -18,6 +18,7 @@ from .model_conformance_current import (
     canonical_payload as current_conformance_payload,
 )
 from .model_registration_current import (
+    CURRENT_CONFORMANCE_RUNNER,
     CURRENT_SCHEMA as CURRENT_REGISTRATION_SCHEMA,
     canonical_registration_payload,
 )
@@ -61,6 +62,9 @@ def run_platform_integration_contract() -> dict[str, Any]:
         "current_milestone": CURRENT_MILESTONE,
         "current_registration_schema": registration["schema"],
         "current_conformance_schema": conformance["schema"],
+        "current_conformance_runner": registration["registration"][
+            "conformance_runner"
+        ],
         "document_fingerprints": {
             path: _digest(text) for path, text in documents.items()
         },
@@ -74,6 +78,10 @@ def run_platform_integration_contract() -> dict[str, Any]:
     acceptance = {
         "stable_registration_points_to_schema_v21": registration["schema"]
         == CURRENT_REGISTRATION_SCHEMA,
+        "stable_registration_metadata_points_to_current_conformance": registration[
+            "registration"
+        ]["conformance_runner"]
+        == CURRENT_CONFORMANCE_RUNNER,
         "stable_conformance_preserves_schema_v22": conformance["schema"]
         == CURRENT_CONFORMANCE_SCHEMA,
         "stable_conformance_composes_M9_117_evidence": conformance[
