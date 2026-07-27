@@ -1,0 +1,24 @@
+# M9.110 holographic count hierarchy
+
+screen:holographic#primary-coupling@equation:G-equals-area-over-bits-times-c-cubed-over-hbar.
+screen:entanglement#area@equation:A-equals-four-pi-lambda-C-squared-log-K-squared.
+screen:holographic#bits@equation:N-H-equals-A-over-planck-area.
+screen:compton#cells@equation:N-C-equals-A-over-lambda-C-squared.
+screen:count-ratio#equation@N-H-over-N-C-equals-lambda-C-squared-over-planck-area.
+screen:count-ratio#equation@N-H-over-N-C-equals-planck-mass-over-particle-mass-squared.
+screen:holographic#invariant@A-over-N-H-equals-planck-area.
+screen:holographic#invariant@G-is-species-independent-when-A-and-N-H-co-vary.
+screen:compton#boundary@N-C-is-not-the-microscopic-holographic-bit-count.
+screen:compton#boundary@hbar-c-over-m-squared-is-the-compton-cell-specialization-not-primary-G.
+screen:planck#crossover@N-H-equals-N-C-only-at-planck-mass.
+screen:coarse-graining#candidate@one-sub-planckian-compton-cell-represents-many-planck-bits.
+screen:coarse-graining#boundary@exact-count-ratio-is-not-yet-renormalization-dynamics.
+gravity:weak#coupling-source@screen-area-per-bit.
+gravity:nonlinear#coupling-source@screen-area-per-bit.
+gravity:nonlinear#open@explicit-screen-coupling-injection.
+gravity:calibration#boundary@synthetic-screen-anchor-is-not-physical-evidence.
+
+query:holographic_invariants#select@screen:holographic.
+query:count_hierarchy#select@screen:count-ratio.
+query:retained_boundaries#select@screen:compton.
+query:gravity_injection_gap#select@gravity:nonlinear.
