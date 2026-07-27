@@ -65,9 +65,23 @@ d log(N_H/N_C) / d log(m/m_P) = -2
 
 through the Planck crossover. This is an exact count ratio. It is not yet a dynamical renormalization or degeneracy derivation.
 
-### M9.110c — screen-density coupling
+### M9.110c-d — one screen coupling for both gravity carriers
 
-`holographic_gravity_coupling.py` makes `A/N` the primary OpenWave coupling source. It requires an independent screen anchor before physical injection. The weak-field configuration accepts the resulting coupling. The nonlinear configuration still reconstructs its own default through `matter_config()`, so the nonlinear one-G injection remains an explicit failed sub-gate and the next implementation target.
+`holographic_gravity_coupling.py` makes `A/N` the primary OpenWave coupling source and blocks internal or target-dependent anchors from physical injection.
+
+`screen_coupled_nonlinear_gravity.py` closes the former nonlinear gap. It derives the carrier's required inference width only after the screen anchor supplies
+
+```text
+G_screen = (A/N)c^3/hbar,
+sigma0 = (G_screen/(hbar c))^(1/4).
+```
+
+The same frozen `G_screen` now reaches:
+
+- `ElectrograviticEvolutionConfig` for weak gravity;
+- `ScreenCoupledNonlinearMetricConfig` and its matter layer for nonlinear conformal-ADM gravity.
+
+This is implementation closure, not external physical calibration.
 
 ## Reproduction
 
@@ -75,11 +89,13 @@ through the Planck crossover. This is an exact count ratio. It is not yet a dyna
 python openwave/xperiments/m9_cat_ept/research/scripts/m9_110_holographic_counts.py
 python openwave/xperiments/m9_cat_ept/research/scripts/m9_110_holographic_coarse_graining.py
 python openwave/xperiments/m9_cat_ept/research/scripts/m9_110_screen_gravity_coupling.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_110_current_registration.py
 ```
 
 ## Boundaries
 
 - exact `N_H/N_C` is not yet a microscopic coarse-graining dynamics;
 - a synthetic `A/N` fixture is not external calibration;
-- weak-field injection does not imply nonlinear injection;
+- one shared implementation coupling is not experimental validation;
+- the next target is integrated weak/nonlinear execution and comparison from one frozen screen anchor;
 - this work preserves the holographic universal `G`; it does not repeat the earlier particle-clock no-go as a primary-`G` conclusion.
