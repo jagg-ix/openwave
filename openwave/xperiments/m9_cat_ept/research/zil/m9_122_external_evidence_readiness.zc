@@ -1,0 +1,52 @@
+MODULE openwave.m9.external_evidence_readiness.
+
+claim:m9_122#has_schema@schema:external_evidence_package_v1.
+claim:m9_122#has_evaluator@component:blinded_external_evaluator.
+claim:m9_122#has_identity_contract@component:independent_identity_bridge.
+claim:m9_122#prediction_committed@commitment:m9_121_digest.
+claim:m9_122#live_package_state@state:incomplete.
+claim:m9_122#live_holdout_state@state:sealed.
+claim:m9_122#live_identity_state@state:uninstantiated.
+
+fixture:m9_122_synthetic#evidence_class@class:synthetic.
+fixture:m9_122_synthetic#structurally_complete@state:true.
+fixture:m9_122_synthetic#forbids_promotion@state:true.
+
+RULE evidence_package_ready:
+IF ?claim#package_digest_verified@state:true AND
+   ?claim#commitment_precedes_reveal@state:true AND
+   ?claim#calibrated_by@anchor:independent AND
+   ?claim#tested_against@observation:heldout AND
+   ?claim#identity_supported_by@bridge:independent
+THEN ?claim#evidence_state@state:external_package_ready.
+
+RULE evaluation_ready:
+IF ?claim#evidence_state@state:external_package_ready AND
+   ?claim#has_evaluator@component:blinded_external_evaluator
+THEN ?claim#evaluation_state@state:ready.
+
+RULE package_blocked:
+IF ?claim#live_package_state@state:incomplete
+THEN ?claim#blocked_by@requirement:real_external_package.
+
+RULE holdout_blocked:
+IF ?claim#live_holdout_state@state:sealed
+THEN ?claim#blocked_by@requirement:heldout_reveal.
+
+RULE identity_blocked:
+IF ?claim#live_identity_state@state:uninstantiated
+THEN ?claim#blocked_by@requirement:independent_identity_bridge.
+
+RULE synthetic_never_promotes:
+IF ?fixture#evidence_class@class:synthetic AND
+   ?fixture#forbids_promotion@state:true
+THEN ?fixture#promotion_state@state:ineligible.
+
+QUERY ready:
+FIND ?claim WHERE ?claim#evaluation_state@state:ready.
+
+QUERY blockers:
+FIND ?claim ?requirement WHERE ?claim#blocked_by@?requirement.
+
+QUERY synthetic_ineligible:
+FIND ?fixture WHERE ?fixture#promotion_state@state:ineligible.

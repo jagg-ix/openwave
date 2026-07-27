@@ -1,46 +1,39 @@
 # M9 maturity-based roadmap
 
-M9.100--M9.120 established evidence-derived maturity, reduced gravity and gauge carriers, gauge-invariant spectra and response, and controlled finite-grid refinement. M9.121 adds the first intrinsic irreversible decay carrier and the governance required before any physical promotion.
+M9.100--M9.121 established multi-axis maturity, reduced gravity and gauge carriers, finite spectra and response, controlled refinement, CPTP model-unit decay, blind commitment, and fail-closed physical-promotion governance. M9.122 makes the external-evidence path executable without fabricating evidence.
 
 | Task | Target | State |
 | --- | --- | --- |
-| M9.100--M9.109 | Evidence authority, coupled dynamics, clock/Newton-G audit, and multi-axis maturity | DONE; PHYSICAL IDENTITY SEPARATE |
-| M9.110--M9.117 | Shared holographic gravity, generalized ADM/BSSN-style refinement, and scale flow | DONE; CALIBRATION AND CONTINUUM PROOF OPEN |
-| M9.118 | Independently calibrated physical screen-density campaign | BLOCKED ON EXTERNAL ANCHOR |
-| M9.119a--c | Local SU(3) and SU(2)xU(1) carriers, gauge covariance, and formal registration | DONE; FINITE CARRIERS, NOT QCD/SM |
-| M9.120a--c | Gauge-invariant spectra, source response, completeness, and four-grid refinement | DONE; DIMENSIONLESS FINITE EVIDENCE |
-| M9.121a | Construct a CPTP amplitude-damping channel from finite response gaps and strengths; verify semigroup, generator, positivity, lifetime, and half-life | DONE; MODEL-UNIT DECAY, NOT MEASURED WIDTH |
-| M9.121b | Commit blind model-unit predictions and reject target leakage, tampering, and unsourced unit conversion | DONE; INDEPENDENT ANCHOR AND HOLDOUT STILL MISSING |
-| M9.121c | Require formal proof, numerical implementation, kernel-clean status, reproduction, calibration, pre-reveal commitment, held-out test, and identity bridge before physical promotion | DONE; EXTERNAL PROMOTION FAILS CLOSED |
-| M9.122 | Supply an independently grounded physical scale, freeze the prediction, reveal held-out data, and test one identified transition without refitting | NEXT; EXTERNAL INPUT REQUIRED |
+| M9.100--M9.121 | Formal/numerical carriers, model-unit decay, commitment, and promotion governance | DONE; PHYSICAL AXES SEPARATE |
+| M9.122a | Canonical evidence package with artifact digests, commitment ordering, target-leakage checks, and incomplete live template | DONE; NO REAL PACKAGE INGESTED |
+| M9.122b | Blinded evaluator that blocks before reveal and computes preregistered metrics only for a valid package | DONE; SYNTHETIC FIXTURE ONLY |
+| M9.122c | Independent transition-identity bridge requiring discriminants and negative controls | DONE; OBSERVED IDENTITY OPEN |
+| M9.123 | Ingest one real independent anchor, reveal a precommitted holdout, and execute one externally identified transition test without refitting | NEXT; EXTERNAL INPUT REQUIRED |
 
 ## Current decision
 
 ```text
-universal holographic G                  preserved
-source-coupled reduced BSSN              constructed
-local gauge-covariant sectors            constructed
-gauge-invariant finite spectra           constructed
-finite response and refinement           constructed
-intrinsic CPTP model-unit decay           constructed
-blind prediction commitment               constructed
-holdout-safe calibration protocol         constructed
-fail-closed physical promotion gate       constructed
-independent physical anchor               missing
-held-out comparison                       not revealed
-observed particle/transition identity     open
+external-evidence package schema          constructed
+artifact integrity checks                 constructed
+commitment-before-reveal check            constructed
+target-leakage rejection                  constructed
+blinded external evaluator                constructed
+identity-bridge contract                  constructed
+real independent anchor                   missing
+real held-out observation                 not revealed
+observed transition identity              open
 external validation                       open
 ```
 
 ## Current upstream authorities
 
 ```text
-OpenWave main base  da6a79205c7189cb830559cdca1c1902b34e0e5f
-Physlib merged head 3923d802339c957066fcccd579362f739775797a
-Physlib root        d225e3cdb0e3239eb6c83f20af25968ddb9ec37b
-Physlib draft #19   128bebd375cd895af1431444974a7a591c872a31
-Physlib draft #20   e192104955fc516f1ba267f8653f0dcf8d18ab51
-public zil-lean     c671f02d8b6dcf7ba689afc86477ff7e35465c35
+OpenWave main base    0b25d14e0e14a30b4b4ac46a95e9de4c72083134
+Physlib merged branch master
+Physlib merged head   80c2b0bb25ba0b28d2c3dd8b038071e0f49261ef
+Physlib root          f953c09c428eb83d9894c1944e1fd44a7ffe95a1
+development branch    private/entropic-physlib-linear-full
+public zil-lean       c671f02d8b6dcf7ba689afc86477ff7e35465c35
 ```
 
-M9.122 cannot be closed by another internal algebraic identity or finite diagonalization. It requires a genuinely independent anchor and held-out observation.
+M9.123 cannot be closed by synthetic fixtures, another algebraic identity, or another finite diagonalization. It requires a real evidence package whose sources are independent of the target observables.
