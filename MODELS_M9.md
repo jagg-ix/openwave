@@ -1,6 +1,6 @@
 # OpenWave M9 CAT/EPT current comparison profile
 
-M9 is integrated through **M9.120**. Stable callers should use the unversioned current entry points:
+M9 is integrated through **M9.121**. Stable callers should use:
 
 ```text
 conformance   openwave/xperiments/m9_cat_ept/model_conformance_current.py
@@ -12,136 +12,119 @@ Current schemas:
 
 ```text
 openwave.m9.models-conformance.v22
-openwave.model-registration.v23
-openwave.m9.platform-integration-contract.v3
+openwave.model-registration.v24
+openwave.m9.platform-integration-contract.v4
 ```
 
-The conformance schema remains v22 because M9.110--M9.120 add implementation evidence without promoting the evidence-derived 21-criterion headlines last changed at M9.109. Registration advances to schema v23 and records finite gauge spectra, response, and refinement explicitly.
+The conformance schema remains v22 because the evidence-derived 21-criterion headlines last changed at M9.109. M9.110--M9.121 add implementation evidence without promoting calibration, identity, or external-validation axes.
 
 ## Authorities
 
 ```text
-Physlib repository  jagg-ix/entropic-physlib-private
-Physlib branch      entropic-physlib-linear-full
-merged Physlib head 3923d802339c957066fcccd579362f739775797a
-Physlib root blob   d225e3cdb0e3239eb6c83f20af25968ddb9ec37b
-zil-lean head       e09723a44185a1e70031ad2661c8009dc98bef74
+Physlib repository   jagg-ix/entropic-physlib-private
+Physlib branch       entropic-physlib-linear-full
+merged Physlib head  3923d802339c957066fcccd579362f739775797a
+Physlib root blob    d225e3cdb0e3239eb6c83f20af25968ddb9ec37b
+public zil-lean head c671f02d8b6dcf7ba689afc86477ff7e35465c35
 ```
 
-M9.120 pins exact merged source blobs for finite Hermitian resonance matrices and residuals, finite/infinite Bloch localization, entropic spectral mismatch weights, formal Green-function source jets, and the quartic Higgs potential.
+M9.121 pins merged Physlib surfaces for finite GKSL generators, bounded `C0` semigroups, trace-class density operators, and constructive nuclear density evolution. It also pins the public ZIL stratified Datalog evaluator. Physlib PRs #19 and #20 remain `draft/open/unmerged` and are not used as merged proof authority.
 
-Two newer Physlib heads are recorded as candidates only:
-
-```text
-PR #19  128bebd375cd895af1431444974a7a591c872a31  draft/open/unmerged
-PR #20  e192104955fc516f1ba267f8653f0dcf8d18ab51  draft/open/unmerged
-```
-
-They are not used as merged proof authority. Lean remains proof authority; OpenWave supplies finite numerical carriers and falsification gates.
-
-## Evidence-derived maturity policy
-
-M9 is not summarized by a single validated/partial count. Each of the 21 shared criteria carries separate axes for formal status, numerical construction, stability, calibration, physical identity, prediction, and external validation.
-
-A reduced carrier can be constructed while calibration, identity, or prediction readiness remains open. Later numerical evidence cannot promote those axes unless its own authority gate closes them.
-
-The canonical 21-row maturity payload is produced by `criterion_maturity_m109.py` and composed with M9.120 evidence by `model_conformance_current.py`.
-
-## Integrated milestone lineage
+## Integrated lineage
 
 | Milestone | Constructed evidence | Retained boundary |
 | --- | --- | --- |
-| M9.109 | Newton-G clock theorem/evidence audit and evidence-derived maturity | algebraic equivalence is not an external G prediction |
-| M9.110--M9.113 | holographic `N_H/N_C` hierarchy, one screen G, shared initial data and synchronized weak/nonlinear histories | physical screen calibration remains open |
-| M9.114--M9.116 | generalized ADM and source-coupled BSSN-style refinement | finite-grid gravity is not production numerical relativity or a continuum proof |
-| M9.117 | count/block flow, Gaussian covariance scale adapter and one-G multi-resolution gravity | particle mass, interacting fixed point and physical screen calibration remain open |
-| M9.119 | local SU(3) and SU(2)xU(1) gauge links with covariant matter/link evolution | finite carriers are not QCD or the full electroweak Standard Model |
-| M9.120a | Hermitian covariant operators, locally gauge-invariant spectra, eigenpair residuals and Higgs tangent/radial curvature modes | finite eigenvalues are not observed masses |
-| M9.120b | gauge-invariant site-source response, spectral completeness sum rules and radial/tangent selection | Lorentzian broadening is not an intrinsic decay width |
-| M9.120c | flat and smooth four-grid spectral refinement plus a dimensionless phenomenology ledger | improving finite-grid sequences are not continuum or external-validation results |
+| M9.109 | evidence-derived 21-criterion maturity and Newton-G clock audit | algebraic G relations are not a withheld prediction |
+| M9.110--M9.117 | shared holographic gravity, reduced BSSN-style refinement, and scale flow | no external screen calibration or continuum Einstein theorem |
+| M9.119 | local SU(3) and SU(2)xU(1) gauge-covariant carriers | not QCD or the full electroweak theory |
+| M9.120 | gauge-invariant finite spectra, source response, and four-grid refinement | not observed masses, widths, or a continuum theorem |
+| M9.121a | exact two-level CPTP amplitude-damping channel, semigroup law, Lindblad right derivative, positivity, lifetime and half-life | rates and lifetimes are in model units; the two-level carrier is not full radiative QFT |
+| M9.121b | deterministic blind prediction commitment, target-leakage rejection, and tamper detection | no independent physical scale or revealed held-out observation |
+| M9.121c | Python and ZIL fail-closed promotion requirements | internal model closure is not external physical validation |
 
-## M9.120 numerical gates
+## M9.121a open-system gates
 
-### Gauge spectra
-
-```text
-SU(3) and SU(2)xU(1) operators       Hermitian and nonnegative
-local-gauge spectral invariance      closed to numerical precision
-low-mode eigenpair residuals         closed
-Higgs tangent modes                  three zero-curvature directions
-Higgs radial curvature               4 mu^2 in model units
-physical mass interpretation         not promoted
-```
-
-### Transition response
+For the strongest nonzero response transition in each finite gauge carrier, M9.121 constructs
 
 ```text
-site-scalar source                    commutes with local gauge rotations
-broadened spectral response           gauge invariant
-spectral completeness sum rule        closed
-radial/tangent Higgs selection        closed
-intrinsic irreversible decay          not constructed
-physical transition identification    not promoted
+gamma = coupling^2 * gap^3 * relative_transition_strength
+eta(t) = exp(-gamma t)
 ```
 
-### Refinement
+and the Kraus channel
 
 ```text
-fixed physical two-torus              used
-link scaling                           U = exp(i h A)
-odd grids                              5, 7, 9, 11
-flat first-mode error                  monotonically decreasing
-smooth strong low-cluster change       monotonically decreasing
-smooth electroweak low-cluster change  monotonically decreasing
-continuum theorem                      open
-physical-unit calibration             open
+K0 = diag(1, sqrt(eta) exp(-i omega t))
+K1 = sqrt(1-eta) |0><1|.
 ```
+
+The campaign checks Kraus completeness, trace preservation, positivity, exact semigroup composition, agreement with the GKSL right derivative, exponential excited-state population, lifetime `1/gamma`, and half-life `ln(2)/gamma`. The earlier Lorentzian plotting broadening is not reused as the decay rate.
+
+## M9.121b calibration and holdout protocol
+
+The model-unit spectrum and lifetime payload is hashed before any holdout can be revealed. The protocol rejects:
+
+- using either target decay observable to set the calibration anchor;
+- changing the committed prediction payload;
+- treating a missing independent anchor as inferred;
+- converting model units to physical units without a supplied scale.
+
+The current plan intentionally records:
+
+```text
+independent physical anchor supplied  false
+held-out observation revealed         false
+physical calibration complete         false
+external validation complete          false
+```
+
+## M9.121c physical promotion gate
+
+Internal model promotion requires:
+
+```text
+formalized_by:lean_theorem
+implemented_by:numerical_campaign
+axiom_status:kernel_clean
+reproduced_by:deterministic_runner
+```
+
+External physical promotion additionally requires:
+
+```text
+calibrated_by:independent_anchor
+committed_before_reveal:prediction_digest
+tested_against:heldout_observation
+identity_supported_by:independent_bridge
+```
+
+The present CAT/EPT state passes the internal gate and fails the external gate. Every external relation is individually load-bearing: deleting any one from a complete synthetic record makes promotion fail.
 
 ## Current decisions
 
 ```text
 universal holographic G                         preserved
-source-coupled reduced BSSN layer                constructed
-local SU(3) gauge carrier                        constructed
-local SU(2)xU(1) Higgs carrier                   constructed
-gauge-invariant finite spectra                   constructed
-gauge-invariant finite response                  constructed
+source-coupled reduced BSSN                     constructed
+local SU(3) and SU(2)xU(1) carriers             constructed
+gauge-invariant finite spectra and response     constructed
 finite spectral refinement                       constructed
-dimensionless phenomenology ledger               constructed
-QCD confinement                                  open
-complete electroweak theory                      open
-intrinsic decay dynamics                         open
-physical mass and coupling calibration           open
-continuum spectrum theorem                       open
+CPTP intrinsic model-unit decay                  constructed
+blind prediction commitment                      constructed
+holdout-safe calibration protocol                constructed
+fail-closed physical promotion gate              constructed
+independent physical anchor                      missing
+held-out physical comparison                     not revealed
 observed-particle identity                       open
 external physical validation                     open
 ```
 
 ## Reproduction
 
-Stable reports:
-
 ```bash
-python -m openwave.xperiments.m9_cat_ept._launcher --current-conformance
-python -m openwave.xperiments.m9_cat_ept._launcher --current-registration
-python -m openwave.xperiments.m9_cat_ept._launcher --platform-contract
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_121a_open_decay.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_121b_calibration_holdout.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_121c_promotion_gate.py
+python openwave/xperiments/m9_cat_ept/research/scripts/m9_121_current_registration.py
 ```
 
-Direct M9.120 scripts:
-
-```bash
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_120a_gauge_spectrum.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_120b_linear_response.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_120c_spectral_refinement.py
-python openwave/xperiments/m9_cat_ept/research/scripts/m9_120_current_registration.py
-```
-
-## Boundaries
-
-- a theorem-guided adapter is not a new Lean proof;
-- an unmerged draft Physlib PR is not merged formal authority;
-- finite lattice spectra are not calibrated particle masses;
-- numerical broadening is not an intrinsic decay width;
-- four-grid Cauchy improvement is not a continuum theorem;
-- dimensionless response and spectrum ledgers are not external phenomenology;
-- no observed-particle identity or external experimental validation is claimed.
+A theorem-guided adapter is not a new Lean proof. A CPTP channel in model units is not a measured lifetime. A calibration protocol is not calibration. A sealed holdout is not a successful external test.
