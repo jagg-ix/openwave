@@ -1,0 +1,50 @@
+MODULE openwave.m9.physical_promotion.
+
+claim:m9_121_open_decay#formalized_by@lean:Physlib.QuantumMechanics.OpenSystems.LindbladDrivenLeads.
+claim:m9_121_open_decay#implemented_by@campaign:openwave_m9_121a.
+claim:m9_121_open_decay#axiom_status@status:kernel_clean.
+claim:m9_121_open_decay#reproduced_by@runner:m9_121a_open_decay.
+claim:m9_121_open_decay#committed_before_reveal@commitment:prediction_digest.
+claim:m9_121_open_decay#calibration_state@state:external_anchor_missing.
+claim:m9_121_open_decay#validation_state@state:holdout_sealed.
+
+requirement:formalized#token@relation:formalized_by.
+requirement:implemented#token@relation:implemented_by.
+requirement:kernel_clean#token@relation:axiom_status.
+requirement:reproduced#token@relation:reproduced_by.
+requirement:calibrated#token@relation:calibrated_by.
+requirement:committed#token@relation:committed_before_reveal.
+requirement:heldout_test#token@relation:tested_against.
+requirement:identity_bridge#token@relation:identity_supported_by.
+
+RULE internally_ready:
+IF ?claim#formalized_by@?lean AND
+   ?claim#implemented_by@?campaign AND
+   ?claim#axiom_status@status:kernel_clean AND
+   ?claim#reproduced_by@?runner
+THEN ?claim#promotion_state@state:internal_model_ready.
+
+RULE externally_ready:
+IF ?claim#promotion_state@state:internal_model_ready AND
+   ?claim#calibrated_by@anchor:independent AND
+   ?claim#committed_before_reveal@commitment:prediction_digest AND
+   ?claim#tested_against@observation:heldout AND
+   ?claim#identity_supported_by@bridge:independent
+THEN ?claim#promotion_state@state:external_physical_ready.
+
+RULE calibration_blocked:
+IF ?claim#calibration_state@state:external_anchor_missing
+THEN ?claim#blocked_by@requirement:independent_anchor.
+
+RULE validation_blocked:
+IF ?claim#validation_state@state:holdout_sealed
+THEN ?claim#blocked_by@requirement:heldout_reveal.
+
+QUERY internal_ready:
+FIND ?claim WHERE ?claim#promotion_state@state:internal_model_ready.
+
+QUERY external_ready:
+FIND ?claim WHERE ?claim#promotion_state@state:external_physical_ready.
+
+QUERY blockers:
+FIND ?claim ?requirement WHERE ?claim#blocked_by@?requirement.

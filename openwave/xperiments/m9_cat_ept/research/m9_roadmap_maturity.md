@@ -1,67 +1,46 @@
 # M9 maturity-based roadmap
 
-M9.100--M9.108 established evidence-derived maturity, coupled particle/field campaigns, nonlinear reduced gravity, and dynamical candidate states. M9.109 audited the Compton-clock specialization. M9.110--M9.117 restore the holographic area-per-bit hierarchy, advance its gravity carrier through source-coupled BSSN-style refinement, and construct theorem-guided coarse graining. M9.119 replaces scalar strong/chiral reductions with finite local gauge-covariant carriers. M9.120 adds gauge-invariant spectra, source response, and controlled spectral refinement.
+M9.100--M9.120 established evidence-derived maturity, reduced gravity and gauge carriers, gauge-invariant spectra and response, and controlled finite-grid refinement. M9.121 adds the first intrinsic irreversible decay carrier and the governance required before any physical promotion.
 
 | Task | Target | State |
 | --- | --- | --- |
-| M9.100--M9.108 | Evidence authority, coupled dynamics, reduced nonlinear gravity, interaction sectors, candidate states | DONE; PHYSICAL IDENTITY SEPARATE |
-| M9.109 | Formal clock identities, anchor protocol, theorem/paper scope, and evidence-derived maturity | DONE; NO LEAN THEOREM FALSIFIED |
-| M9.110--M9.113 | Holographic count hierarchy, one screen G, shared initial data and synchronized gravity histories | DONE; PHYSICAL CALIBRATION SEPARATE |
-| M9.114--M9.116 | Generalized ADM and source-coupled, constraint-damped BSSN-style refinement | DONE; FINITE REDUCED CARRIER |
-| M9.117a | Continuous count flow and finite heat/block-spin flow preserving `A/N_H` | DONE; ENDPOINT MASS SELECTION OPEN |
-| M9.117b | Gaussian covariance pullback, composable injections and principal/image limits | DONE; FREE-FIELD FIXED POINT ONLY |
-| M9.117c | One screen G across three gravity resolutions | DONE; SCALE CONSISTENCY, NOT CALIBRATION |
+| M9.100--M9.109 | Evidence authority, coupled dynamics, clock/Newton-G audit, and multi-axis maturity | DONE; PHYSICAL IDENTITY SEPARATE |
+| M9.110--M9.117 | Shared holographic gravity, generalized ADM/BSSN-style refinement, and scale flow | DONE; CALIBRATION AND CONTINUUM PROOF OPEN |
 | M9.118 | Independently calibrated physical screen-density campaign | BLOCKED ON EXTERNAL ANCHOR |
-| M9.119a | Local SU(3) links, covariant color transport, plaquettes and finite Wilson loops | DONE; FINITE GAUGE CARRIER, NOT QCD |
-| M9.119b | Local SU(2)xU(1) links and gauge-covariant Higgs doublet with quartic vacuum flow | DONE; BOSONIC CARRIER, FERMIONS/CALIBRATION OPEN |
-| M9.119c | Exact gauge/Higgs formal contract, composed authority and platform integration | DONE; THEOREM-GUIDED NUMERICAL LAYER |
-| M9.120a | Construct Hermitian gauge-covariant finite operators, spectra, residuals and Higgs tangent/radial curvature modes | DONE; DIMENSIONLESS FINITE SPECTRA |
-| M9.120b | Construct locally gauge-invariant source response, completeness sum rules and radial/tangent selection | DONE; NO INTRINSIC DECAY IN CLOSED CARRIER |
-| M9.120c | Execute flat/smooth four-grid spectral refinement and a dimensionless phenomenology ledger | DONE; FINITE-GRID EVIDENCE, NOT CONTINUUM OR CALIBRATION |
-| M9.121 | Add an explicitly open-system gauge-covariant response/decay carrier and external-calibration contract | NEXT; LINEWIDTHS AND IDENTITIES MUST REMAIN EVIDENCE-GATED |
-
-## Corrected holographic implication
-
-The primary gravitational equation remains
-
-```text
-G = (A/N_H) c^3/hbar,
-A/N_H = l_P^2.
-```
-
-M9.117 preserves microscopic area per bit while grouping Planck bits into coarser cells. No later gauge or spectral layer replaces `N_H` by the coarser Compton-cell count in Newton's coupling.
+| M9.119a--c | Local SU(3) and SU(2)xU(1) carriers, gauge covariance, and formal registration | DONE; FINITE CARRIERS, NOT QCD/SM |
+| M9.120a--c | Gauge-invariant spectra, source response, completeness, and four-grid refinement | DONE; DIMENSIONLESS FINITE EVIDENCE |
+| M9.121a | Construct a CPTP amplitude-damping channel from finite response gaps and strengths; verify semigroup, generator, positivity, lifetime, and half-life | DONE; MODEL-UNIT DECAY, NOT MEASURED WIDTH |
+| M9.121b | Commit blind model-unit predictions and reject target leakage, tampering, and unsourced unit conversion | DONE; INDEPENDENT ANCHOR AND HOLDOUT STILL MISSING |
+| M9.121c | Require formal proof, numerical implementation, kernel-clean status, reproduction, calibration, pre-reveal commitment, held-out test, and identity bridge before physical promotion | DONE; EXTERNAL PROMOTION FAILS CLOSED |
+| M9.122 | Supply an independently grounded physical scale, freeze the prediction, reveal held-out data, and test one identified transition without refitting | NEXT; EXTERNAL INPUT REQUIRED |
 
 ## Current decision
 
 ```text
 universal holographic G                  preserved
 source-coupled reduced BSSN              constructed
-dynamic count/Gaussian scale flow        constructed
-local SU(3) and SU(2)xU(1) carriers      constructed
+local gauge-covariant sectors            constructed
 gauge-invariant finite spectra           constructed
-Higgs tangent/radial curvature split     constructed
-gauge-invariant source response          constructed
-spectral completeness sum rules          closed
-four-grid spectral refinement            completed
-dimensionless phenomenology ledger       constructed
-intrinsic irreversible decay             not constructed
-QCD confinement                          open
-full chiral electroweak theory            open
-physical gauge/Higgs calibration          open
-continuum spectral theorem                open
-observed particle/sector identity         open
-external physical validation              open
+finite response and refinement           constructed
+intrinsic CPTP model-unit decay           constructed
+blind prediction commitment               constructed
+holdout-safe calibration protocol         constructed
+fail-closed physical promotion gate       constructed
+independent physical anchor               missing
+held-out comparison                       not revealed
+observed particle/transition identity     open
+external validation                       open
 ```
 
 ## Current upstream authorities
 
 ```text
-OpenWave main       0f38834c6f7cb0dfaa0f0df5671e81803c45a4b2
+OpenWave main base  da6a79205c7189cb830559cdca1c1902b34e0e5f
 Physlib merged head 3923d802339c957066fcccd579362f739775797a
 Physlib root        d225e3cdb0e3239eb6c83f20af25968ddb9ec37b
 Physlib draft #19   128bebd375cd895af1431444974a7a591c872a31
 Physlib draft #20   e192104955fc516f1ba267f8653f0dcf8d18ab51
-zil-lean            e09723a44185a1e70031ad2661c8009dc98bef74
+public zil-lean     c671f02d8b6dcf7ba689afc86477ff7e35465c35
 ```
 
-The two draft Physlib heads are recorded as candidate theorem layers only. They are not merged proof authority. M9.120 uses the merged resonance-matrix, Bloch-localization, entropic-selection, Green-source-jet, and Higgs-potential surfaces. Its finite eigenvalues, response peaks, and improving grid sequences are not calibrated masses, decay rates, continuum theorems, particle identities, or external predictions.
+M9.122 cannot be closed by another internal algebraic identity or finite diagonalization. It requires a genuinely independent anchor and held-out observation.
