@@ -1,8 +1,8 @@
 """Stable current M9 conformance entry point through M9.117.
 
-The 21-criterion maturity profile last changed at M9.109.  M9.110--M9.117 add
+The 21-criterion maturity profile last changed at M9.109. M9.110--M9.117 add
 screen-gravity, BSSN-style and coarse-graining evidence without promoting physical
-identity, calibration or external-prediction axes.  This module composes those later
+identity, calibration or external-prediction axes. This module composes those later
 authorities over the immutable M9.109 conformance record.
 """
 from __future__ import annotations
@@ -17,7 +17,10 @@ from .m117_coarse_graining_evidence_authority import (
 from .model_conformance_dynamics import CRITERIA  # compatibility: 21 Criterion objects
 from .model_conformance_m109 import canonical_payload as _m109_payload
 from .model_conformance_m109 import run_conformance_study as _run_m109_conformance
-from .model_registration_m117 import canonical_registration_payload
+from .model_registration_current import (
+    CURRENT_CONFORMANCE_RUNNER,
+    canonical_registration_payload,
+)
 
 CURRENT_MILESTONE = "M9.117"
 CURRENT_CONFORMANCE_MODULE = "openwave.xperiments.m9_cat_ept.model_conformance_m109"
@@ -49,6 +52,8 @@ def canonical_payload() -> dict[str, Any]:
         },
         "latest_registration": {
             "schema": registration["schema"],
+            "registration": registration["registration"],
+            "current_alias": registration["current_alias"],
             "m9_117": registration["m9_117"],
         },
         "claim_boundary": {
@@ -79,6 +84,10 @@ def run_conformance_study() -> dict[str, Any]:
         == CURRENT_CONFORMANCE_SCHEMA,
         "current_registration_is_v21": current_registration["schema"]
         == CURRENT_REGISTRATION_SCHEMA,
+        "current_registration_points_back_to_stable_conformance": current_registration[
+            "registration"
+        ]["conformance_runner"]
+        == CURRENT_CONFORMANCE_RUNNER,
         "later_evidence_does_not_promote_physical_claims": current_registration["m9_117"][
             "physical_claims_promoted"
         ]
