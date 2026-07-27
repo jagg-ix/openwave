@@ -1,4 +1,4 @@
-"""Stable current M9 registration entry point through M9.119.
+"""Stable current M9 registration entry point through M9.120.
 
 Versioned registration modules remain immutable evidence records. Callers that need
 the current CAT/EPT model state should import this module rather than guessing the
@@ -13,14 +13,14 @@ import json
 from typing import Any, Mapping
 
 from .model_registration import M9_REGISTRATION as HISTORICAL_M9_REGISTRATION
-from .model_registration_m119 import (
-    canonical_registration_payload as _m119_payload,
-    run_model_registration_study as _run_m119_registration,
+from .model_registration_m120 import (
+    canonical_registration_payload as _m120_payload,
+    run_model_registration_study as _run_m120_registration,
 )
 
-CURRENT_MILESTONE = "M9.119"
-CURRENT_SCHEMA = "openwave.model-registration.v22"
-CURRENT_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_m119"
+CURRENT_MILESTONE = "M9.120"
+CURRENT_SCHEMA = "openwave.model-registration.v23"
+CURRENT_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_m120"
 CURRENT_ALIAS_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_current"
 CURRENT_CONFORMANCE_RUNNER = (
     "openwave.xperiments.m9_cat_ept.model_conformance_current:run_conformance_study"
@@ -34,7 +34,7 @@ M9_REGISTRATION = replace(
 
 
 def canonical_registration_payload() -> dict[str, Any]:
-    versioned = _m119_payload()
+    versioned = _m120_payload()
     return {
         **versioned,
         "registration": asdict(M9_REGISTRATION),
@@ -54,23 +54,29 @@ def canonical_payload() -> dict[str, Any]:
 def registration_fingerprint(payload: Mapping[str, Any] | None = None) -> str:
     selected = canonical_registration_payload() if payload is None else dict(payload)
     return sha256(
-        json.dumps(selected, sort_keys=True, separators=(",", ":"), default=str).encode()
+        json.dumps(
+            selected, sort_keys=True, separators=(",", ":"), default=str
+        ).encode()
     ).hexdigest()
 
 
 def run_model_registration_study() -> dict[str, Any]:
-    versioned = _run_m119_registration()
+    versioned = _run_m120_registration()
     payload = canonical_registration_payload()
     acceptance = {
         **versioned["acceptance"],
-        "stable_alias_preserves_schema_v22": payload["schema"] == CURRENT_SCHEMA,
+        "stable_alias_preserves_schema_v23": payload["schema"] == CURRENT_SCHEMA,
         "stable_registration_points_to_current_conformance": payload["registration"][
             "conformance_runner"
         ]
         == CURRENT_CONFORMANCE_RUNNER,
-        "stable_profile_is_MODELS_M9": payload["registration"]["comparison_profile"]
+        "stable_profile_is_MODELS_M9": payload["registration"][
+            "comparison_profile"
+        ]
         == "MODELS_M9.md",
-        "current_alias_fingerprint_is_deterministic": registration_fingerprint(payload)
+        "current_alias_fingerprint_is_deterministic": registration_fingerprint(
+            payload
+        )
         == registration_fingerprint(payload),
     }
     return {
