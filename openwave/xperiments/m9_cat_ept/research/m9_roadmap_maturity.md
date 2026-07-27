@@ -7,7 +7,8 @@ M9.100--M9.108 established evidence-derived maturity, coupled particle/field cam
 | M9.100--M9.108 | Evidence authority, coupled dynamics, reduced nonlinear gravity, interaction sectors, candidate states | DONE; PHYSICAL IDENTITY SEPARATE |
 | M9.109 | Formal clock identities, anchor protocol, theorem/paper scope, and numerical Compton-cell interpretation | DONE; NO LEAN THEOREM FALSIFIED |
 | M9.110a--d | Separate `N_H`/`N_C`, preserve universal `A/N_H`, and inject one screen `G` into both gravity carriers | DONE; PHYSICAL CALIBRATION SEPARATE |
-| M9.110e--M9.113 | Compare shared initial data and synchronized weak/nonlinear histories | DONE; REDUCED CONFORMAL-ADM SCOPE |
+| M9.110e | Execute both carriers from one screen anchor and compare shared source, potential, metric seed, and initial constraints | DONE; INITIAL-STATE CONSISTENCY ONLY |
+| M9.110f--M9.113 | Compare synchronized weak/nonlinear histories and retain nonlinear-only curvature and constraints | DONE; REDUCED CONFORMAL-ADM SCOPE |
 | M9.114a--c | Add TT metric modes, trace-free extrinsic curvature, and shift dynamics | DONE; REDUCED GENERALIZED ADM |
 | M9.115a | Add conformal connection functions and their differential constraint | DONE; REDUCED BSSN-STYLE |
 | M9.115b | Enforce unit determinant and trace-free conformal variables | DONE; ALGEBRAIC CONTROL |
@@ -22,11 +23,24 @@ M9.100--M9.108 established evidence-derived maturity, coupled particle/field cam
 | M9.119 | Replace reduced color/chiral carriers with gauge-covariant non-Abelian/electroweak systems | NEXT |
 | M9.120 | Connect stable candidate carriers to spectra, decays, and phenomenology | PLANNED |
 
+## Corrected holographic implication
+
+The primary gravitational equation is
+
+```text
+G = (A/N_H) c^3/hbar,
+A/N_H = l_P^2.
+```
+
+For an entanglement screen based on a particle Compton scale, both `A` and `N_H` vary as `m^-2`; their ratio remains universal. The mass-dependent expression `hbar*c/m^2` is obtained only after replacing the Planck-area bit count with the coarser Compton-cell count. The M9.117 coarse-graining flow does not make that replacement in the definition of `G`; it preserves microscopic area per bit while grouping Planck bits into coarser cells.
+
 ## Current decision
 
 ```text
 universal holographic G                  preserved
+N_H/N_C exact count ratio                closed
 one screen G shared across carriers      constructed
+shared matter/source histories           constructed
 conformal connection functions           constructed
 unit determinant control                 constructed
 trace-free conformal curvature           constructed
@@ -52,4 +66,12 @@ full general Einstein evolution          open
 external physical calibration            open
 ```
 
-The M9.117 flow gives the exact count ratio a composable finite and continuous scale mechanism while keeping the microscopic area per bit fixed. The Gaussian adapter reproduces the formal free-field fixed-point structure, and low Fourier-mode gravity observables agree across three odd grids. These results do not derive a particle mass, establish the interacting CAT/EPT renormalisation fixed point, or supply an external screen calibration.
+## Current upstream authorities
+
+```text
+OpenWave integration head  agent/m9-generalized-adm-screen-114
+Physlib                    bca7617e1294c4645a13bc9eae9aa6d97de78430
+zil-lean                   e09723a44185a1e70031ad2661c8009dc98bef74
+```
+
+The M9.117 flow gives the exact count ratio a composable finite and continuous scale mechanism while keeping the microscopic area per bit fixed. The Gaussian adapter reproduces the formal free-field fixed-point structure, and low Fourier-mode gravity observables agree across three odd grids. These results do not derive a particle mass, establish the interacting CAT/EPT renormalisation fixed point, supply an external screen calibration, or constitute production numerical relativity.
