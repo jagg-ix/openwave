@@ -1,0 +1,7 @@
+MODULE openwave.m9.existing_data_import_m131.
+claim:source_manifest#implemented_by@python:openwave.xperiments.m9_cat_ept.existing_data_source_manifest_m131.
+claim:dataset_adapters#implemented_by@python:openwave.xperiments.m9_cat_ept.existing_data_adapters_m131.
+claim:leakage_audit#implemented_by@python:openwave.xperiments.m9_cat_ept.existing_data_publication_audit_m131.
+claim:physical_promotion#blocked_by@premise:real_source_artifacts_imported.
+claim:physical_promotion#blocked_by@premise:real_digests_verified.
+claim:physical_promotion#blocked_by@premise:real_heldout_report_complete.
