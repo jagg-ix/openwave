@@ -1,0 +1,10 @@
+model:m9-115-bssn#preserves@constant:newton-G.
+model:m9-115-bssn#derives@field:conformal-connection.
+model:m9-115-bssn#enforces@constraint:unit-determinant.
+model:m9-115-bssn#enforces@constraint:tracefree-extrinsic-curvature.
+model:m9-115-bssn#evolves@gauge:one-plus-log-lapse.
+model:m9-115-bssn#evolves@gauge:gamma-driver-shift.
+model:m9-115-bssn#measures@constraint:tensor-momentum.
+model:m9-115-bssn#measures@constraint:gamma-connection.
+model:m9-115-bssn#forbids@claim:production-numerical-relativity.
+model:m9-115-bssn#forbids@claim:physical-calibration-from-synthetic-anchor.
