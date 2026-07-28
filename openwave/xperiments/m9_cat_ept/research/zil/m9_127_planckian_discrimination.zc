@@ -1,0 +1,11 @@
+MODULE openwave.m9.planckian_discrimination_m127.
+claim:fixed_planckian_aggregate_advantage#status@status:constructed.
+claim:paper_fold_preference#status@status:mixed.
+claim:existing_dataset_discriminates_entropic_time#status@status:rejected.
+claim:prospective_raw_data_contract#status@status:constructed.
+claim:qualified_live_dataset#status@status:missing.
+claim:physical_promotion#blocked_by@claim:qualified_live_dataset.
+QUERY current_status:
+FIND ?claim ?status WHERE ?claim#status@?status.
+QUERY blockers:
+FIND ?claim ?blocker WHERE ?claim#blocked_by@?blocker.
