@@ -1,0 +1,17 @@
+MODULE openwave.m9.experimental_evidence_m126.
+evidence:planckian_registry#record_count@value:8.
+evidence:planckian_registry#paper_count@value:3.
+evidence:planckian_registry#retrospective_holdout@state:complete.
+evidence:planckian_registry#prospective_commitment@state:missing.
+evidence:planckian_registry#raw_uncertainties@state:missing.
+evidence:planckian_registry#unique_entropic_discriminator@state:missing.
+RULE retrospective_ready:
+IF evidence:planckian_registry#retrospective_holdout@state:complete
+THEN evidence:planckian_registry#status@status:retrospective_ready.
+RULE promotion_blocked:
+IF evidence:planckian_registry#prospective_commitment@state:missing
+THEN evidence:planckian_registry#promotion@status:blocked.
+QUERY evidence_status:
+FIND ?status WHERE evidence:planckian_registry#status@?status.
+QUERY promotion_status:
+FIND ?status WHERE evidence:planckian_registry#promotion@?status.
