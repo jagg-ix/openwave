@@ -1,0 +1,44 @@
+{
+  "schema": "openwave.m10.formal-action-ledger.v1",
+  "model_id": "M10",
+  "milestone": "M10.1",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "agent/dirac-cartan-2i-compton-yukawa",
+  "terms": [
+    {
+      "id": "binary-icosahedral-spin-action",
+      "equation": "psi -> diag(U(q),U(q)) psi, q in 2I",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/BinaryIcosahedralDiracSpinor.lean",
+      "numerical_source": "binary_icosahedral_quaternions / dirac_2i_matrix",
+      "established": "120 unit quaternions, multiplication closure, unitarity, central-pair density descent"
+    },
+    {
+      "id": "dirac-u1-operator",
+      "equation": "H = -i alpha^i (partial_i-iqA_i) + beta M + q A_0",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/DiracCartanComptonYukawaBridge.lean",
+      "numerical_source": "dirac_hamiltonian_action",
+      "established": "four-spinor carrier and exact free Dirac mass-shell matrix identity"
+    },
+    {
+      "id": "cartan-axial-contact",
+      "equation": "K_a=kappa J5_a; L_HD=-(kappa/2) sum_a J5_a^2",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/EinsteinCartanAxialTorsion.lean",
+      "numerical_source": "cartan_fields / dirac_hamiltonian_action",
+      "established": "algebraic spin-source residual and eliminated axial contact density"
+    },
+    {
+      "id": "yukawa-compton-mass",
+      "equation": "m_Y=yv/sqrt(2)=hbar omega_C/c^2",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/DiracCartanComptonYukawaBridge.lean",
+      "numerical_source": "DiracCartan2IYukawaConfig.yukawa_mass / compton_frequency",
+      "established": "one real mass and one internal clock ledger"
+    },
+    {
+      "id": "complex-yukawa-entropy",
+      "equation": "M=m_Y+i Sdot_I/c^2; Sdot_I=y omega_C/(2 hbar)",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/Yukawa/ComplexMassContour.lean",
+      "numerical_source": "imaginary_mass / entropy_rate",
+      "established": "imaginary rest energy equals the Yukawa CAT/EPT entropy rate"
+    }
+  ]
+}
