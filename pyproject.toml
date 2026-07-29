@@ -56,6 +56,8 @@ openwave = [
     "xperiments/m9_cat_ept/formal/*.json",
     "xperiments/m9_cat_ept/research/data/*.json",
     "xperiments/m9_cat_ept/research/presets/*.json",
+    "xperiments/m10_cat_ept/formal/*.json",
+    "xperiments/m10_cat_ept/research/zil/*.zc",
 ]
 
 [tool.black]
