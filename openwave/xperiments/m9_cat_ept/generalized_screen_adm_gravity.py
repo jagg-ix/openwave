@@ -91,16 +91,14 @@ def symmetric_trace_free(tensor: Tensor) -> Tensor:
 
 
 def tensor_divergence(tensor: Tensor, geometry: Any) -> Vector:
-    rows = []
-    for i in range(3):
-        value = np.zeros_like(tensor[0, 0])
-        for j, derivative in enumerate(geometry.gradient(tensor[i, j])):
-            if j == 0:
-                value = value + derivative
-        # The loop above would repeatedly select x derivatives. Use explicit gradients.
-        value = sum(geometry.gradient(tensor[i, j])[j] for j in range(3))
-        rows.append(np.asarray(value, dtype=np.float64))
-    return tuple(rows)  # type: ignore[return-value]
+    """Return ``partial_j tensor[i,j]`` for each tensor row."""
+    return tuple(
+        np.asarray(
+            sum(geometry.gradient(tensor[i, j])[j] for j in range(3)),
+            dtype=np.float64,
+        )
+        for i in range(3)
+    )  # type: ignore[return-value]
 
 
 def approximate_transverse_projection(tensor: Tensor, geometry: Any) -> Tensor:

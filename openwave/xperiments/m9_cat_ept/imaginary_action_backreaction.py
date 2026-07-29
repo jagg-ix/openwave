@@ -4,16 +4,9 @@ The selected control evolves an unnormalized two-level state by
 
     d psi / dt = (-i H_R - Gamma) psi,
 
-with positive-semidefinite ``Gamma``.  For the scalar-loss gate
-``Gamma = gamma I`` and a normalized initial state,
-
-    ||psi(t)||^2 = exp(-2 gamma t),
-    tau_ent(t) = -1/2 log ||psi(t)||^2 = gamma t,
-    |W(t)| = exp(-tau_ent(t)).
-
-This is a selected non-Hermitian model, not a derivation of physical time.
+with positive-semidefinite ``Gamma``. For scalar loss ``Gamma = gamma I``,
+``tau_ent = -1/2 log ||psi||^2`` and ``|W| = exp(-tau_ent)``.
 """
-
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
@@ -27,7 +20,6 @@ from numpy.typing import NDArray
 
 ComplexVector = NDArray[np.complex128]
 ComplexMatrix = NDArray[np.complex128]
-RealArray = NDArray[np.float64]
 
 SIGMA_X: ComplexMatrix = np.asarray([[0.0, 1.0], [1.0, 0.0]], dtype=np.complex128)
 SIGMA_Z: ComplexMatrix = np.asarray([[1.0, 0.0], [0.0, -1.0]], dtype=np.complex128)
@@ -50,8 +42,7 @@ class ImaginaryActionParameters:
 
 def initial_state() -> ComplexVector:
     state = np.asarray(
-        [math.sqrt(0.7), math.sqrt(0.3) * np.exp(0.3j)],
-        dtype=np.complex128,
+        [math.sqrt(0.7), math.sqrt(0.3) * np.exp(0.3j)], dtype=np.complex128
     )
     return state / np.linalg.norm(state)
 
@@ -75,10 +66,7 @@ def exact_uniform_state(
     return np.exp(-parameters.gamma * time) * (unitary @ state)
 
 
-def rhs_uniform(
-    state: ComplexVector,
-    parameters: ImaginaryActionParameters,
-) -> ComplexVector:
+def rhs_uniform(state: ComplexVector, parameters: ImaginaryActionParameters) -> ComplexVector:
     return (-1j * real_hamiltonian(parameters) - parameters.gamma * IDENTITY) @ state
 
 
@@ -112,14 +100,13 @@ def evolve_uniform(
         time = step * actual_dt
         norm = float(np.vdot(state, state).real)
         tau = -0.5 * math.log(max(norm, np.finfo(float).tiny))
-        exact_norm = math.exp(-2.0 * parameters.gamma * time)
         records.append(
             {
                 "time": time,
                 "norm": norm,
                 "tau_ent": tau,
                 "weight_modulus": math.sqrt(norm),
-                "exact_norm": exact_norm,
+                "exact_norm": math.exp(-2.0 * parameters.gamma * time),
                 "exact_tau_ent": parameters.gamma * time,
             }
         )
@@ -131,28 +118,23 @@ def evolve_uniform(
             record(step)
 
     exact = exact_uniform_state(parameters.final_time, parameters)
-    error = float(np.linalg.norm(state - exact))
     norms = np.asarray([item["norm"] for item in records])
     taus = np.asarray([item["tau_ent"] for item in records])
     return {
         "dt": actual_dt,
         "steps": steps,
-        "state_error_l2": error,
+        "state_error_l2": float(np.linalg.norm(state - exact)),
         "final_norm": records[-1]["norm"],
         "final_exact_norm": records[-1]["exact_norm"],
         "final_tau_ent": records[-1]["tau_ent"],
         "final_exact_tau_ent": records[-1]["exact_tau_ent"],
-        "max_norm_error": float(
-            max(abs(item["norm"] - item["exact_norm"]) for item in records)
-        ),
-        "max_tau_error": float(
-            max(abs(item["tau_ent"] - item["exact_tau_ent"]) for item in records)
-        ),
+        "max_norm_error": float(max(abs(item["norm"] - item["exact_norm"]) for item in records)),
+        "max_tau_error": float(max(abs(item["tau_ent"] - item["exact_tau_ent"]) for item in records)),
         "norm_monotone": bool(np.all(np.diff(norms) <= 2.0e-13)),
         "tau_monotone": bool(np.all(np.diff(taus) >= -2.0e-13)),
         "weight_identity_error": float(
             max(
-                abs(item["weight_modulus"] - math.exp(mitem["tau_ent"]))
+                abs(item["weight_modulus"] - math.exp(-item["tau_ent"]))
                 for item in records
             )
         ),
@@ -217,9 +199,7 @@ def zero_loss_study(
     }
 
 
-def refinement_study(
-    steps: Sequence[float] = (0.2, 0.1, 0.05),
-) -> dict[str, Any]:
+def refinement_study(steps: Sequence[float] = (0.2, 0.1, 0.05)) -> dict[str, Any]:
     records = [evolve_uniform(dt, samples=81) for dt in steps]
     errors = [float(item["state_error_l2"]) for item in records]
     orders = [
@@ -229,11 +209,7 @@ def refinement_study(
     return {
         "requested_dts": list(steps),
         "records": [
-            {
-                key: value
-                for key, value in item.items()
-                if key != "records"
-            }
+            {key: value for key, value in item.items() if key != "records"}
             for item in records
         ],
         "errors": errors,
