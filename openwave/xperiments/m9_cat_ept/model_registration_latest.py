@@ -5,7 +5,7 @@ from hashlib import sha256
 import json
 from typing import Any, Mapping
 
-from .canonical_particle_model_m140 import (
+from .canonical_particle_model_m141 import (
     MILESTONE,
     SCHEMA as CONTRACT_SCHEMA,
     canonical_payload as canonical_contract_payload,
@@ -17,7 +17,7 @@ from .model_registration_current import (
     canonical_registration_payload as stable_registration_payload,
 )
 
-LATEST_SCHEMA = "openwave.model-registration.latest.v1"
+LATEST_SCHEMA = "openwave.model-registration.latest.v2"
 LATEST_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_latest"
 LATEST_CONFORMANCE_RUNNER = (
     "openwave.xperiments.m9_cat_ept.model_conformance_latest:run_conformance_study"
@@ -42,9 +42,10 @@ def canonical_registration_payload() -> dict[str, Any]:
             **stable["registration"],
             "conformance_runner": LATEST_CONFORMANCE_RUNNER,
             "canonical_model_api": contract["canonical_api"],
+            "canonical_carrier_api": contract["carrier_api"],
             "canonical_contract": (
                 "openwave.xperiments.m9_cat_ept."
-                "canonical_particle_model_m140:run_canonical_model_contract"
+                "canonical_particle_model_m141:run_canonical_model_contract"
             ),
             "latest_module": LATEST_MODULE,
         },
@@ -53,6 +54,7 @@ def canonical_registration_payload() -> dict[str, Any]:
             "milestone": contract["milestone"],
             "components": contract["components"],
             "action_term_map": contract["action_term_map"],
+            "capabilities": contract["capabilities"],
             "next_model_gates": contract["next_model_gates"],
         },
         "claim_boundary": dict(contract["claim_boundary"]),
@@ -70,7 +72,7 @@ def run_model_registration_study() -> dict[str, Any]:
     payload = canonical_registration_payload()
     contract = run_canonical_model_contract()
     acceptance = {
-        "latest_milestone_is_M9_140": payload["latest_milestone"] == "M9.140",
+        "latest_milestone_is_M9_141": payload["latest_milestone"] == "M9.141",
         "stable_M9_126_alias_is_preserved": (
             payload["stable_compatibility"]["milestone"] == "M9.126"
             and payload["stable_compatibility"]["schema"]
@@ -81,9 +83,9 @@ def run_model_registration_study() -> dict[str, Any]:
             payload["latest_registration"]["conformance_runner"]
             == LATEST_CONFORMANCE_RUNNER
         ),
-        "canonical_api_is_registered": payload["latest_registration"][
-            "canonical_model_api"
-        ].endswith(":CanonicalCatEptModel"),
+        "canonical_3d_carrier_is_registered": payload["latest_registration"][
+            "canonical_carrier_api"
+        ].endswith(":PauliHartreeU1State"),
         "physical_identity_remains_unassigned": (
             payload["latest_registration"]["physical_identity_default"] is None
             and not payload["claim_boundary"]["physical_particle_identity"]
@@ -96,7 +98,7 @@ def run_model_registration_study() -> dict[str, Any]:
     }
     return {
         **payload,
-        "task": "M9.140b",
+        "task": "M9.141e",
         "fingerprint": fingerprint(payload),
         "contract_fingerprint": contract["fingerprint"],
         "acceptance": acceptance,
@@ -104,6 +106,7 @@ def run_model_registration_study() -> dict[str, Any]:
         "decision": {
             "latest_registration_is_available": True,
             "stable_current_alias_is_not_rewritten": True,
+            "three_dimensional_charged_carrier_registered": True,
             "physical_claims_promoted": [],
         },
     }
