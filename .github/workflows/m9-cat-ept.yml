@@ -59,4 +59,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
           MPLBACKEND: Agg
         run: |
-          python -m pytest -ra --durations=30 tests/test_m9_*.py
+          python -m pytest \
+            --continue-on-collection-errors \
+            -ra --durations=30 \
+            tests/test_m9_*.py
