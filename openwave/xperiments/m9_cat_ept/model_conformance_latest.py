@@ -5,11 +5,11 @@ from hashlib import sha256
 import json
 from typing import Any, Mapping
 
-from .canonical_particle_model_m140 import MILESTONE, run_canonical_model_contract
+from .canonical_particle_model_m141 import MILESTONE, run_canonical_model_contract
 from .model_conformance_current import canonical_payload as stable_conformance_payload
 from .model_registration_latest import canonical_registration_payload
 
-LATEST_SCHEMA = "openwave.m9.models-conformance.latest.v1"
+LATEST_SCHEMA = "openwave.m9.models-conformance.latest.v2"
 
 
 def canonical_payload() -> dict[str, Any]:
@@ -30,7 +30,11 @@ def canonical_payload() -> dict[str, Any]:
             "canonical_model_api": registration["latest_registration"][
                 "canonical_model_api"
             ],
+            "canonical_carrier_api": registration["latest_registration"][
+                "canonical_carrier_api"
+            ],
         },
+        "latest_capabilities": registration["canonical_contract"]["capabilities"],
         "claim_boundary": {
             **stable["claim_boundary"],
             **registration["claim_boundary"],
@@ -54,11 +58,18 @@ def run_conformance_study() -> dict[str, Any]:
         "status_profile_is_unchanged": status_counts
         == {"validated": 7, "partial": 13, "negative": 1, "not_yet": 0},
         "latest_contract_passes": bool(contract["passed"]),
-        "latest_model_integration_is_M9_140": payload["latest_milestone"] == "M9.140",
+        "latest_model_integration_is_M9_141": payload["latest_milestone"]
+        == "M9.141",
         "stable_evidence_lineage_is_preserved": payload["lineage"][
             "stable_evidence"
         ]
         == "M9.126",
+        "three_dimensional_carrier_is_recorded_without_promotion": (
+            payload["latest_capabilities"][
+                "three_dimensional_pauli_hartree_u1_state"
+            ]
+            and not payload["claim_boundary"]["stable_charged_stationary_branch"]
+        ),
         "no_claim_boundary_is_crossed": not any(
             value
             for key, value in payload["claim_boundary"].items()
@@ -69,13 +80,14 @@ def run_conformance_study() -> dict[str, Any]:
     }
     return {
         **payload,
-        "task": "M9.140c",
+        "task": "M9.141f",
         "fingerprint": fingerprint(payload),
         "contract_fingerprint": contract["fingerprint"],
         "acceptance": acceptance,
         "passed": all(acceptance.values()),
         "decision": {
             "latest_model_contract_is_registered": True,
+            "three_dimensional_charged_carrier_is_available": True,
             "criterion_headlines_changed": False,
             "criterion_rows_promoted": [],
             "physical_particle_identity": False,
