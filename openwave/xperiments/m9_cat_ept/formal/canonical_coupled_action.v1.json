@@ -1,0 +1,66 @@
+{
+  "schema": "openwave.m9.canonical-coupled-action.v1",
+  "milestone": "M9.140",
+  "model": "M9 CAT/EPT",
+  "formal_authority": {
+    "repository": "jagg-ix/entropic-physlib-private",
+    "branch": "entropic-physlib-linear-full",
+    "equation_contract": "openwave.xperiments.m9_cat_ept.formal_numerical_equation_contract_current"
+  },
+  "real_action_terms": [
+    {
+      "id": "kinetic",
+      "target": "hbar^2 |D psi|^2 / (2m)",
+      "status": "implemented across existing carriers with an explicit mass-map requirement"
+    },
+    {
+      "id": "hartree",
+      "target": "attractive Newton/Hartree interaction",
+      "status": "implemented in reduced dynamics; not yet one 3D charged stationary carrier"
+    },
+    {
+      "id": "local-interaction",
+      "target": "supplied local cubic--quintic interaction",
+      "status": "implemented; coefficients remain model parameters"
+    },
+    {
+      "id": "u1",
+      "target": "gauge-covariant matter and F=dA",
+      "status": "implemented in a reduced 1D carrier"
+    },
+    {
+      "id": "pauli",
+      "target": "Foldy--Wouthuysen Pauli, Darwin, and spin--orbit structure",
+      "status": "formal and numerical bridges exist but are not one coupled particle equation"
+    }
+  ],
+  "imaginary_action_terms": [
+    {
+      "id": "centered-hamiltonian-relaxation",
+      "target": "entropicTimeGradient = E_I / hbar",
+      "status": "effective numerical law",
+      "open_obligation": "derive the evolution from one explicit discrete imaginary functional S_I"
+    }
+  ],
+  "canonical_next_state": {
+    "carrier": "3D Pauli--Hartree--U(1)",
+    "required_fields": [
+      "two-component spinor",
+      "Hartree potential",
+      "scalar or declared-gauge potential",
+      "vector potential",
+      "electric field",
+      "entropic time",
+      "measured winding density",
+      "simulation time"
+    ]
+  },
+  "claim_boundary": {
+    "canonical_3d_coupled_state_implemented": false,
+    "stable_charged_stationary_branch": false,
+    "physical_particle_identity": false,
+    "physical_calibration": false,
+    "external_prediction": false,
+    "criterion_rows_promoted": []
+  }
+}
