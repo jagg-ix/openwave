@@ -1,0 +1,8 @@
+m9:registration-lineage#has-version@m9:96.
+m9:registration-lineage#has-version@m9:97.
+m9:registration-lineage#has-version@m9:98.
+m9:registration-lineage#has-current@m9:126.
+m9:96#depends-on@m9:conformance-m96.
+m9:98#depends-on@m9:registration-m97.
+m9:126#depends-on@m9:registration-m126.
+m9:registration-lineage#physical-promotion@false.
