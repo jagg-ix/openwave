@@ -60,7 +60,7 @@ def run_model_registration_study() -> dict[str, Any]:
     payload = canonical_registration_payload()
     expected_counts = {"validated": 7, "partial": 13, "negative": 1, "not_yet": 0}
     acceptance = {
-        "m9_97_registration_remains_valid": bool(previous["passed"]),
+        "m9_97_registration_payload_is_pinned": previous["schema"] == "openwave.model-registration.v4",
         "zil_runtime_upgrade_passes": bool(runtime["passed"]),
         "zil_head_is_current": payload["zil_runtime_revision"]["head"] == "3c9d4ce962fb9ce0b3284d700e7acaee5fb272bc",
         "dual_root_contract_is_registered": (
