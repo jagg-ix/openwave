@@ -24,8 +24,13 @@ concurrency:
 
 jobs:
   complete-cat-ept-tests:
+    name: CAT/EPT shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
 
     steps:
       - name: Check out repository
@@ -44,22 +49,48 @@ jobs:
 
       - name: Inventory CAT/EPT tests
         run: |
-          find tests -maxdepth 1 -type f -name 'test_m9_*.py' -print | sort | tee /tmp/m9-tests.txt
+          find tests -maxdepth 1 -type f -name 'test_m9_*.py' -print | sort > /tmp/m9-tests.txt
           test -s /tmp/m9-tests.txt
           echo "M9 test files: $(wc -l < /tmp/m9-tests.txt)"
 
       - name: Compile CAT/EPT Python modules
+        if: matrix.shard == 0
         run: |
           find openwave/xperiments/m9_cat_ept -type f -name '*.py' -print0 \
             | sort -z \
             | xargs -0 python -m py_compile
 
-      - name: Run complete CAT/EPT test suite
+      - name: Select deterministic shard
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARD_COUNT: 8
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          tests = sorted(Path("tests").glob("test_m9_*.py"))
+          shard = int(os.environ["SHARD"])
+          count = int(os.environ["SHARD_COUNT"])
+          selected = tests[shard::count]
+          Path("/tmp/m9-shard.txt").write_text(
+              "\n".join(str(path) for path in selected) + "\n",
+              encoding="utf-8",
+          )
+          print(f"shard {shard}/{count}: {len(selected)} files")
+          for path in selected:
+              print(path)
+          if not selected:
+              raise SystemExit("empty CAT/EPT shard")
+          PY
+
+      - name: Run complete CAT/EPT test shard
         env:
           PYTHONPATH: ${{ github.workspace }}
           MPLBACKEND: Agg
         run: |
+          mapfile -t tests < /tmp/m9-shard.txt
           python -m pytest \
             --continue-on-collection-errors \
             -ra --durations=30 \
-            tests/test_m9_*.py
+            "${tests[@]}"
