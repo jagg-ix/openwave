@@ -1,4 +1,4 @@
-from openwave.xperiments.m9_cat_ept.model_registration_current import (
+from openwave.xperiments.m9_cat_ept.model_registration import (
     M9_REGISTRATION,
     canonical_registration_payload,
     registration_fingerprint,

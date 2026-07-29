@@ -5,10 +5,7 @@ from hashlib import sha256
 import json
 from typing import Any, Mapping
 
-# Keep the exported historical criterion tuple dependency-neutral.  Importing it
-# from model_conformance_dynamics created a cycle because that overlay imports
-# this module to obtain its previous profile.
-from .model_conformance import CRITERIA
+from .model_conformance_m96 import CRITERIA, ROW_REPLACEMENTS
 
 CURRENT_MILESTONE = "M9.126"
 CURRENT_CONFORMANCE_MODULE = "openwave.xperiments.m9_cat_ept.model_conformance_m109"
@@ -18,7 +15,6 @@ CURRENT_REGISTRATION_SCHEMA = "openwave.model-registration.v29"
 
 
 def _dependencies():
-    """Load the current authority graph lazily to avoid registration cycles."""
     from .m126_existing_experimental_evidence_authority import (
         run_m126_existing_experimental_evidence_authority,
     )
@@ -26,22 +22,18 @@ def _dependencies():
         canonical_payload as base_payload,
         run_conformance_study as base_run,
     )
-    from .model_registration_current import (
-        CURRENT_CONFORMANCE_RUNNER,
-        canonical_registration_payload,
-    )
+    from .model_registration_m126 import canonical_registration_payload
 
     return (
         run_m126_existing_experimental_evidence_authority,
         base_payload,
         base_run,
-        CURRENT_CONFORMANCE_RUNNER,
         canonical_registration_payload,
     )
 
 
 def canonical_payload() -> dict[str, Any]:
-    evidence_runner, base_payload, _, _, registration_payload = _dependencies()
+    evidence_runner, base_payload, _, registration_payload = _dependencies()
     base = base_payload()
     evidence = evidence_runner()
     registration = registration_payload()
@@ -64,7 +56,6 @@ def canonical_payload() -> dict[str, Any]:
         "latest_registration": {
             "schema": registration["schema"],
             "registration": registration["registration"],
-            "current_alias": registration["current_alias"],
             "m9_126": registration["m9_126"],
         },
         "claim_boundary": {**base["claim_boundary"], **evidence["claim_boundary"]},
@@ -79,7 +70,7 @@ def fingerprint(payload: Mapping[str, Any] | None = None) -> str:
 
 
 def run_conformance_study() -> dict[str, Any]:
-    evidence_runner, _, base_run, current_runner, _ = _dependencies()
+    evidence_runner, _, base_run, _ = _dependencies()
     base = base_run()
     evidence = evidence_runner()
     payload = canonical_payload()
@@ -90,8 +81,9 @@ def run_conformance_study() -> dict[str, Any]:
         "all_21_criteria_remain_present": len(payload["maturity"]["criteria"]) == 21,
         "conformance_schema_remains_v22": payload["schema"] == CURRENT_CONFORMANCE_SCHEMA,
         "current_registration_is_v29": current["schema"] == CURRENT_REGISTRATION_SCHEMA,
-        "current_registration_points_back_to_stable_conformance": (
-            current["registration"]["conformance_runner"] == current_runner
+        "current_registration_points_to_versioned_conformance": (
+            current["registration"]["conformance_runner"]
+            == "openwave.xperiments.m9_cat_ept.model_conformance_m109:run_conformance_study"
         ),
         "existing_evidence_is_recognized_without_promotion": (
             current["m9_126"]["existing_evidence_qualified"]
