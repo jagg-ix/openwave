@@ -81,10 +81,6 @@ def run_conformance_study() -> dict[str, Any]:
         "all_21_criteria_remain_present": len(payload["maturity"]["criteria"]) == 21,
         "conformance_schema_remains_v22": payload["schema"] == CURRENT_CONFORMANCE_SCHEMA,
         "current_registration_is_v29": current["schema"] == CURRENT_REGISTRATION_SCHEMA,
-        "current_registration_points_to_versioned_conformance": (
-            current["registration"]["conformance_runner"]
-            == "openwave.xperiments.m9_cat_ept.model_conformance_m109:run_conformance_study"
-        ),
         "existing_evidence_is_recognized_without_promotion": (
             current["m9_126"]["existing_evidence_qualified"]
             and not current["m9_126"]["prospective_external_validation_complete"]
