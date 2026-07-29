@@ -18,7 +18,7 @@ def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
             "M9 CAT/EPT instrumentation, stable M9.126 evidence aliases, "
-            "and latest M9.140 model integration"
+            "and latest M9.141 model integration"
         )
     )
     mode = parser.add_mutually_exclusive_group()
@@ -41,17 +41,17 @@ def _parser() -> argparse.ArgumentParser:
     mode.add_argument(
         "--latest-registration",
         action="store_true",
-        help="print the latest integrated registration (M9.140)",
+        help="print the latest integrated registration (M9.141)",
     )
     mode.add_argument(
         "--latest-conformance",
         action="store_true",
-        help="print latest M9.140 integration over unchanged criterion statuses",
+        help="print latest M9.141 integration over unchanged criterion statuses",
     )
     mode.add_argument(
         "--canonical-contract",
         action="store_true",
-        help="audit the M9.140 canonical particle-model contract",
+        help="audit the M9.141 canonical particle-model contract",
     )
     mode.add_argument(
         "--latest-platform-contract",
@@ -142,7 +142,7 @@ def _print_latest_conformance() -> bool:
 
 
 def _print_canonical_contract() -> bool:
-    from openwave.xperiments.m9_cat_ept.canonical_particle_model_m140 import (
+    from openwave.xperiments.m9_cat_ept.canonical_particle_model_m141 import (
         result_to_json,
         run_canonical_model_contract,
     )
@@ -153,7 +153,7 @@ def _print_canonical_contract() -> bool:
 
 
 def _print_latest_platform_contract() -> bool:
-    from openwave.xperiments.m9_cat_ept.platform_integration_latest_m140 import (
+    from openwave.xperiments.m9_cat_ept.platform_integration_latest_m141 import (
         result_to_json,
         run_platform_integration_contract,
     )
