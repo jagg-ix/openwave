@@ -1,0 +1,51 @@
+name: M10 CAT-EPT models
+
+on:
+  pull_request:
+    paths:
+      - "openwave/xperiments/m10_cat_ept/**"
+      - "openwave/xperiments/m9_cat_ept/compatible_discrete_geometry.py"
+      - "openwave/xperiments/m9_cat_ept/charged_field_tools.py"
+      - "openwave/xperiments/m9_cat_ept/spatial_3d_operators.py"
+      - "tests/test_m10_*.py"
+      - "pyproject.toml"
+      - ".github/workflows/m10-cat-ept-models.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "openwave/xperiments/m10_cat_ept/**"
+      - "tests/test_m10_*.py"
+      - "pyproject.toml"
+      - ".github/workflows/m10-cat-ept-models.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  m10-models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install focused test dependencies
+        run: python -m pip install --upgrade pip "numpy>=2.3,<3.0" "pytest>=8,<10"
+
+      - name: Compile M10 modules
+        run: python -m compileall -q openwave/xperiments/m10_cat_ept
+
+      - name: Validate formal ledger
+        run: python -m json.tool openwave/xperiments/m10_cat_ept/formal/dirac_cartan_2i_yukawa.v1.json >/dev/null
+
+      - name: Run M10 tests
+        env:
+          PYTHONPATH: .
+        run: pytest -q tests/test_m10_*.py
