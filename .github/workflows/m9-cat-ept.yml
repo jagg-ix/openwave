@@ -23,9 +23,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  focused-model-tests:
+  complete-cat-ept-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
 
     steps:
       - name: Check out repository
@@ -37,24 +37,26 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Install focused test dependencies
-        run: python -m pip install --upgrade pip pytest "numpy>=2.3,<3.0"
-
-      - name: Compile coupled model modules
+      - name: Install OpenWave and test dependencies
         run: |
-          python -m py_compile \
-            openwave/xperiments/m9_cat_ept/coupled_cat_ept_evolution_m132.py \
-            openwave/xperiments/m9_cat_ept/coupled_cat_ept_campaign_m132.py \
-            openwave/xperiments/m9_cat_ept/m132_coupled_cat_ept_authority.py \
-            openwave/xperiments/m9_cat_ept/gauge_coupled_cat_ept_m133.py \
-            openwave/xperiments/m9_cat_ept/gauge_exchange_refinement_m133.py \
-            openwave/xperiments/m9_cat_ept/m133_gauge_coupled_authority.py
+          python -m pip install --upgrade pip
+          python -m pip install -e .
 
-      - name: Run M9.132 and M9.133 model tests
+      - name: Inventory CAT/EPT tests
+        run: |
+          find tests -maxdepth 1 -type f -name 'test_m9_*.py' -print | sort | tee /tmp/m9-tests.txt
+          test -s /tmp/m9-tests.txt
+          echo "M9 test files: $(wc -l < /tmp/m9-tests.txt)"
+
+      - name: Compile CAT/EPT Python modules
+        run: |
+          find openwave/xperiments/m9_cat_ept -type f -name '*.py' -print0 \
+            | sort -z \
+            | xargs -0 python -m py_compile
+
+      - name: Run complete CAT/EPT test suite
         env:
           PYTHONPATH: ${{ github.workspace }}
+          MPLBACKEND: Agg
         run: |
-          python -m pytest -q \
-            tests/test_m9_coupled_cat_ept_evolution_m132.py \
-            tests/test_m9_coupled_cat_ept_campaign_m132.py \
-            tests/test_m9_gauge_coupled_cat_ept_m133.py
+          python -m pytest -ra --durations=30 tests/test_m9_*.py
