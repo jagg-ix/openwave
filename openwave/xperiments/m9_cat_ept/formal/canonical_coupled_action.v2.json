@@ -1,0 +1,70 @@
+{
+  "schema": "openwave.m9.canonical-coupled-action.v2",
+  "milestone": "M9.141",
+  "model": "M9 CAT/EPT",
+  "formal_authority": {
+    "repository": "jagg-ix/entropic-physlib-private",
+    "branch": "entropic-physlib-linear-full",
+    "sources": [
+      {
+        "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/CubicQuinticMildFlow.lean",
+        "blob": "82a89eabf1179eff2373b2f005317e63cbd62cba",
+        "role": "Hartree/Newton plus supplied local interaction target"
+      },
+      {
+        "path": "Physlib/QuantumMechanics/ComplexAction/Dirac/PauliEquationSpinOrbit.lean",
+        "blob": "9752e6c317b1e3bd714c2e36bc4dd5152a6289df",
+        "role": "Pauli magnetic, Darwin, and spin-orbit matrix structure"
+      },
+      {
+        "path": "Physlib/QuantumMechanics/ComplexAction/Electromagnetic/MaxwellContinuityCovariant.lean",
+        "blob": "553c9c77b895cfcb1681b594dc370a82675412b1",
+        "role": "F=dA, continuity, and conditional Maxwell reconstruction"
+      },
+      {
+        "path": "Physlib/Mathematics/LovelockRund/ComplexActionVariational.lean",
+        "blob": "5a70e8935b9102da1278daba06a9c4beb4e1acf0",
+        "role": "imaginary residual and entropic-time gradient interface"
+      }
+    ]
+  },
+  "carrier": {
+    "state": "PauliHartreeU1State",
+    "spatial_grid": "odd 17x17x17 periodic Fourier grid",
+    "matter": "two-component Pauli spinor",
+    "real_action_terms": [
+      "kinetic coefficient D=1/(2m)",
+      "local cubic-quintic density interaction",
+      "attractive Hartree potential",
+      "U(1) scalar and vector potentials",
+      "tree-level Pauli sigma.B coupling"
+    ],
+    "topology": "winding three measured from the first spinor component",
+    "constraints": "static periodic Gauss, Ampere, and div B projection"
+  },
+  "imaginary_action": {
+    "name": "frozen-H centered squared norm",
+    "functional": "S_I^n[psi] = gamma/2 ||(H_n-mu_n) psi||_2^2",
+    "gradient": "delta S_I^n / delta psi* = gamma (H_n-mu_n)^2 psi",
+    "relaxation": "dpsi/dt = -gamma (H_n-mu_n)^2 psi",
+    "entropic_rate": "d tau_ent/dt = gamma ||(H_n-mu_n) psi||_2^2 / hbar^2",
+    "scope": "discrete frozen-operator substep; not a full nonlinear continuum CAT/EPT derivation"
+  },
+  "closed": [
+    "one three-dimensional Pauli-Hartree-U(1) state contract",
+    "one odd-grid Fourier differential complex",
+    "consistent Schrodinger/Pauli mass map",
+    "field-measured nonzero winding",
+    "static Maxwell constraint projection",
+    "nonnegative discrete entropic-time production"
+  ],
+  "open": [
+    "stable charged stationary branch",
+    "constraint-preserving real-time continuity evolution",
+    "continuum and grid convergence",
+    "Foldy-Wouthuysen packet-position observables",
+    "physical calibration",
+    "withheld external prediction"
+  ],
+  "physical_claims_promoted": []
+}
