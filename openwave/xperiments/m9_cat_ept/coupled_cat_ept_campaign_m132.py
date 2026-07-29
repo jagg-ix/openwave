@@ -14,6 +14,20 @@ def _terminal(result: Mapping[str, Any]) -> Mapping[str, float]:
     return result["records"][-1]
 
 
+def _common_run_health(result: Mapping[str, Any]) -> bool:
+    acceptance = result["acceptance"]
+    return all(
+        acceptance[key]
+        for key in (
+            "matter_norm_is_preserved",
+            "entropic_time_is_monotone",
+            "matter_distribution_is_dynamical",
+            "feedback_error_is_finite",
+            "all_diagnostics_are_finite",
+        )
+    )
+
+
 def run_feedback_balance_campaign() -> dict[str, Any]:
     cfg = CoupledCATEPTConfig()
     result = run_with_config(cfg)
@@ -92,11 +106,20 @@ def run_shared_parameter_baselines() -> dict[str, Any]:
         ),
         "entropic_gain_coupled": coupled_t["entropic_time"],
         "entropic_gain_dissipation_off": dissipation_t["entropic_time"],
+        "gravity_off_potential_l2": gravity_t["potential_l2"],
     }
     acceptance = {
-        "all_four_campaigns_pass": all(
-            item["passed"] for item in (coupled, gravity_off, dissipation_off, uncoupled)
+        "all_four_campaigns_are_numerically_healthy": all(
+            _common_run_health(item)
+            for item in (coupled, gravity_off, dissipation_off, uncoupled)
         ),
+        "coupled_run_activates_both_sectors": coupled["passed"],
+        "gravity_off_run_keeps_geometry_disabled": metrics["gravity_off_potential_l2"]
+        <= 1.0e-12,
+        "dissipation_off_run_keeps_entropic_clock_frozen": metrics[
+            "entropic_gain_dissipation_off"
+        ]
+        <= 1.0e-12,
         "one_parameter_set_is_shared": all(
             result["config"][key] == coupled["config"][key]
             for result in (gravity_off, dissipation_off, uncoupled)
