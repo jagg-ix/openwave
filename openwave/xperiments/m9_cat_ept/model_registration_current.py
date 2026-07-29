@@ -1,33 +1,23 @@
 """Stable current M9 registration entry point through M9.126."""
 from __future__ import annotations
 
-from dataclasses import asdict, replace
+from dataclasses import asdict
 from hashlib import sha256
 import json
 from typing import Any, Mapping
 
-from .model_registration import M9_REGISTRATION as HISTORICAL_M9_REGISTRATION
+from .model_registration import M9_REGISTRATION
 
 CURRENT_MILESTONE = "M9.126"
 CURRENT_SCHEMA = "openwave.model-registration.v29"
 CURRENT_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_m126"
 CURRENT_ALIAS_MODULE = "openwave.xperiments.m9_cat_ept.model_registration_current"
 CURRENT_CONFORMANCE_RUNNER = (
-    "openwave.xperiments.m9_cat_ept.model_conformance_current:run_conformance_study"
-)
-
-# This constant is required by historical registration/ZIL modules while their
-# lineage is still importing.  It must therefore be available without importing
-# the versioned M9.126 chain back into that lineage.
-M9_REGISTRATION = replace(
-    HISTORICAL_M9_REGISTRATION,
-    conformance_runner=CURRENT_CONFORMANCE_RUNNER,
-    comparison_profile="MODELS_M9.md",
+    "openwave.xperiments.m9_cat_ept.model_conformance_m109:run_conformance_study"
 )
 
 
 def _versioned_dependencies():
-    """Load M9.126 only when a current payload or study is requested."""
     from .model_registration_m126 import (
         canonical_registration_payload,
         run_model_registration_study,
@@ -41,7 +31,10 @@ def canonical_registration_payload() -> dict[str, Any]:
     payload = versioned_payload()
     return {
         **payload,
-        "registration": asdict(M9_REGISTRATION),
+        "registration": {
+            **asdict(M9_REGISTRATION),
+            "conformance_runner": CURRENT_CONFORMANCE_RUNNER,
+        },
         "current_alias": {
             "milestone": CURRENT_MILESTONE,
             "module": CURRENT_ALIAS_MODULE,
@@ -69,7 +62,7 @@ def run_model_registration_study() -> dict[str, Any]:
     acceptance = {
         **versioned["acceptance"],
         "stable_alias_preserves_schema_v29": payload["schema"] == CURRENT_SCHEMA,
-        "stable_registration_points_to_current_conformance": (
+        "stable_registration_points_to_versioned_conformance": (
             payload["registration"]["conformance_runner"] == CURRENT_CONFORMANCE_RUNNER
         ),
         "stable_profile_is_MODELS_M9": (
