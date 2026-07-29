@@ -5,6 +5,7 @@ from openwave.xperiments.m10_cat_ept.dirac_cartan_2i_yukawa_model import (
     construct_state,
     run_m10_core_study,
 )
+from openwave.xperiments.m10_cat_ept.formal_authority import FORMAL_HEAD
 from openwave.xperiments.m10_cat_ept.model_registration import (
     run_model_registration_study,
 )
@@ -38,10 +39,16 @@ def test_m10_core_study_establishes_all_registered_relations() -> None:
     assert result["dirac_mass_shell_error"] <= 2.0e-14
 
 
-def test_m10_registration_is_separate_from_m9() -> None:
+def test_m10_registration_is_separate_and_formally_pinned() -> None:
     result = run_model_registration_study()
     assert result["passed"]
     assert result["model_id"] == "M10"
     assert result["milestone"] == "M10.1"
+    assert result["formal_authority"]["head"] == FORMAL_HEAD
+    assert result["formal_authority"]["pull_request"] == 41
+    assert all(
+        len(source["sha"]) == 40 for source in result["formal_authority"]["sources"]
+    )
     assert result["decision"]["m10_registered_as_separate_model"]
+    assert result["decision"]["formal_theorem_authority_is_content_pinned"]
     assert not result["decision"]["m9_registration_rewritten"]
