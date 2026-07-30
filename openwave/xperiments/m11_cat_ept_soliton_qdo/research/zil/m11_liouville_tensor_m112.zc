@@ -1,0 +1,6 @@
+model:m11.2#extends@model:m11.1.
+model:m11.2#tensor@liouville:rho-psi.
+liouville:rho-psi#defined-by@equation:rho-ij-equals-ai-conjugate-aj.
+liouville:rho-psi#finite-cutoff-of@lean:LiouvilleSecondQuantization.kernelMode_infinite.
+liouville:rho-psi#fixed-particle-sector@lean:LiouvilleSecondQuantization.kernelOccupationBasis_particleNumber.
+liouville:rho-psi#pointwise-actions-commute@lean:LiouvilleSecondQuantization.leftPointwise_rightPointwise_commute.
