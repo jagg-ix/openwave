@@ -2,15 +2,6 @@
 from .model_registration import ScaleDilationSolitonConfig, run_scale_dilation_soliton_study
 from .holographic_bcj_twistor_wilson_m132 import HolographicAmplitudeConfig, run_holographic_amplitude_study
 from .yukawa_dilation_gkp_m133 import YukawaDilationGKPConfig, run_yukawa_dilation_gkp_study
-
-run_m13_model_study = run_yukawa_dilation_gkp_study
-
-__all__ = [
-    "ScaleDilationSolitonConfig",
-    "HolographicAmplitudeConfig",
-    "YukawaDilationGKPConfig",
-    "run_scale_dilation_soliton_study",
-    "run_holographic_amplitude_study",
-    "run_yukawa_dilation_gkp_study",
-    "run_m13_model_study",
-]
+from .yukawa_rt_holographic_entropy_m134 import YukawaRTHolographicConfig, run_yukawa_rt_holographic_study
+run_m13_model_study=run_yukawa_rt_holographic_study
+__all__=["ScaleDilationSolitonConfig","HolographicAmplitudeConfig","YukawaDilationGKPConfig","YukawaRTHolographicConfig","run_scale_dilation_soliton_study","run_holographic_amplitude_study","run_yukawa_dilation_gkp_study","run_yukawa_rt_holographic_study","run_m13_model_study"]
