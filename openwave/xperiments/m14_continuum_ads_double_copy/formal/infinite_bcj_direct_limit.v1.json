@@ -1,0 +1,53 @@
+{
+  "schema": "openwave.m14.infinite-bcj-direct-limit-ledger.v1",
+  "model_id": "M14",
+  "milestone": "M14.2",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "ea6c394fcb1d55546d11cd6af3df6556c610d52e",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/BCJDoubleCopy/ColorKinematicsDoubleCopy.lean",
+      "sha": "110a42b466c7fcf8be68be4326cb1d0c9197043c",
+      "theorems": [
+        "threeChannelNumerator_in_jacobiKernel_iff",
+        "cubicDoubleCopy_eq_weightedBilinear",
+        "cubicDoubleCopyAmplitudeFinite_comm",
+        "cubicDoubleCopy_shift_left_of_orthogonal",
+        "generalizedGaugeEquivalent_preserves_partialAmplitude_ext"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean",
+      "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831",
+      "theorems": [
+        "memContinuumKernel_eLpNorm_lt_top",
+        "leftPointwise_rightPointwise_commute",
+        "spacePointwiseKernelOperator_hasDenseDomain",
+        "spacePointwiseKernelOperator_apply_ae",
+        "continuumMatrixUnit_apply"
+      ]
+    },
+    {
+      "path": "formalization/zil/rivers-scalar-green-functions-continuum.zc",
+      "sha": "b078ef6cfa21dc460952c78143de074adb02e264",
+      "claims": [
+        "continuum_scalar_l2_carrier",
+        "continuum_two_point_l2_kernel",
+        "continuum_pointwise_source_dense_domain",
+        "left_right_continuum_multipliers_commute",
+        "continuum_propagator_ds_hierarchy",
+        "continuum_vacuum_kernel_operator"
+      ]
+    }
+  ],
+  "openwave_dependencies": [
+    "M14.1",
+    "M13.8"
+  ],
+  "claim_boundaries": {
+    "continuum_limit": "defined by an explicit square-summable weighted series with a tail bound",
+    "bcj_authority": "finite Lean algebra transported through visible summability and pointwise Jacobi premises",
+    "generalized_gauge": "weighted orthogonality is checked and not inferred automatically"
+  }
+}

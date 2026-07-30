@@ -1,0 +1,7 @@
+model:m14.2#requires@model:m14.1.
+model:m14.2#reuses@physlib:finite-bcj-weighted-bilinear.
+model:m14.2#reuses@physlib:continuum-liouville-l2-and-pointwise-kernels.
+model:m14.2#checks@claim:every-mode-obeys-color-and-kinematic-jacobi.
+model:m14.2#checks@claim:finite-bcj-truncations-converge-with-an-explicit-tail-bound.
+model:m14.2#checks@claim:weighted-orthogonal-generalized-gauge-shifts-remain-invisible-in-the-limit.
+model:m14.2#forbids@claim:finite-bcj-lean-theorem-is-unconditional-continuum-convergence.
