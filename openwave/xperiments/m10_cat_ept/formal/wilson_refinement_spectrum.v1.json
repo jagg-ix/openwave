@@ -1,0 +1,64 @@
+{
+  "schema": "openwave.m10.wilson-refinement-spectrum-ledger.v1",
+  "milestone": "M10.8",
+  "model_id": "M10",
+  "equations": [
+    {
+      "id": "plaquette-refinement",
+      "equation": "1-Re Tr(P_a)/3 = O(a^4)",
+      "formal_theorem": "wilsonAction_nonneg"
+    },
+    {
+      "id": "area-perimeter-fit",
+      "equation": "-log W(R,T)=sigma RT+mu 2(R+T)+c",
+      "formal_theorem": "areaLaw_implies_decay"
+    },
+    {
+      "id": "creutz-ratio",
+      "equation": "chi(R,T)=-log[W(R+1,T+1)W(R,T)/(W(R+1,T)W(R,T+1))]",
+      "formal_theorem": "areaLaw_implies_decay"
+    },
+    {
+      "id": "polyakov-center",
+      "equation": "|z L|=|L| for z in Z(3)",
+      "formal_theorem": "center_preserves_norm"
+    },
+    {
+      "id": "history-spectrum",
+      "equation": "D_ab=w_a conjugate(w_b) exp(-gamma ||F_a-F_b||^2)",
+      "formal_theorem": "decoherenceFunctional_isDecoherenceFunctional"
+    },
+    {
+      "id": "offdiagonal-bound",
+      "equation": "|D_ab|^2 <= D_aa D_bb",
+      "formal_theorem": "decoherence_offdiag_bound"
+    }
+  ],
+  "formal_sources": [
+    {
+      "path": "Physlib/QFT/Lattice/WilsonLoopAreaLaw.lean",
+      "sha": "ffd0b7e6dc1ec8b39851755aeda3ae753a5c42d0",
+      "theorem": "areaLaw_implies_decay"
+    },
+    {
+      "path": "Physlib/QFT/Lattice/PolyakovLoopCenterSymmetry.lean",
+      "sha": "dc0ab4c581c6028e951b1f657422e534571142cc",
+      "theorem": "center_preserves_norm"
+    },
+    {
+      "path": "Physlib/QFT/PathIntegral/FiniteWilsonGaugeModel.lean",
+      "sha": "870efa65de9037ea7c8e617628b15c19fb3de521",
+      "theorem": "expectation_and_connectedGeneratingFunctional_tendsto"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/DecoherenceFunctionalSorkinJohnston.lean",
+      "sha": "52c99efa2e5bb53cd051ac2a15c5eeca08a07cef",
+      "theorem": "decoherenceFunctional_isDecoherenceFunctional"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/DowkerHalliwellDecoherenceFunctional.lean",
+      "sha": "69675c275b4e7b4d29b597f1218c0ee0023afa13",
+      "theorem": "decoherence_offdiag_bound"
+    }
+  ]
+}

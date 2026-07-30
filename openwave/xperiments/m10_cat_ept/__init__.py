@@ -33,6 +33,10 @@ from .su3_link_backreaction_m105 import (
     construct_link_state,
     run_su3_link_backreaction_study,
 )
+from .wilson_refinement_spectrum_m108 import (
+    WilsonRefinementSpectrumConfig,
+    run_wilson_refinement_spectrum_study,
+)
 
 __all__ = [
     "ColorMatterGaussConfig",
@@ -46,6 +50,7 @@ __all__ = [
     "SecondQuantizedFockState",
     "SU3LinkBackreactionConfig",
     "SU3LinkBackreactionState",
+    "WilsonRefinementSpectrumConfig",
     "construct_state",
     "construct_fock_state",
     "construct_link_state",
@@ -56,4 +61,5 @@ __all__ = [
     "run_su3_link_backreaction_study",
     "run_periodic_su3_hamiltonian_study",
     "run_color_matter_gauss_study",
+    "run_wilson_refinement_spectrum_study",
 ]

@@ -6,8 +6,7 @@ import json
 from typing import Any, Mapping
 
 from .color_matter_gauss_m107 import (
-    MILESTONE,
-    SCHEMA as MODEL_SCHEMA,
+    MILESTONE as MATTER_MILESTONE,
     canonical_payload as matter_payload,
     run_color_matter_gauss_study,
 )
@@ -49,8 +48,15 @@ from .su3_link_backreaction_m105 import (
     canonical_payload as su3_payload,
     run_su3_link_backreaction_study,
 )
+from .wilson_refinement_spectrum_m108 import (
+    FORMAL_SOURCES as SPECTRUM_FORMAL_SOURCES,
+    MILESTONE,
+    SCHEMA as MODEL_SCHEMA,
+    canonical_payload as spectrum_payload,
+    run_wilson_refinement_spectrum_study,
+)
 
-SCHEMA = "openwave.model-registration.m10.v7"
+SCHEMA = "openwave.model-registration.m10.v8"
 COLOR_MATTER_FORMAL_SOURCES = (
     {
         "path": "Physlib/QuantumMechanics/ComplexAction/YangMillsGaugeDynamics.lean",
@@ -82,16 +88,12 @@ def canonical_registration_payload() -> dict[str, Any]:
     su3 = su3_payload()
     hamiltonian = hamiltonian_payload()
     matter = matter_payload()
+    spectrum = spectrum_payload()
     formal = formal_authority_payload()
-    matter_authority = {
-        "repository": "jagg-ix/entropic-physlib-private",
-        "branch": "entropic-physlib-linear-full",
-        "sources": list(COLOR_MATTER_FORMAL_SOURCES),
-    }
     return {
         "schema": SCHEMA,
         "model_id": "M10",
-        "model": matter["model"],
+        "model": spectrum["model"],
         "milestone": MILESTONE,
         "carrier_milestone": CARRIER_MILESTONE,
         "closure_milestone": "M10.2",
@@ -99,40 +101,46 @@ def canonical_registration_payload() -> dict[str, Any]:
         "qcd_milestone": QCD_MILESTONE,
         "su3_milestone": SU3_MILESTONE,
         "hamiltonian_milestone": HAMILTONIAN_MILESTONE,
+        "matter_milestone": MATTER_MILESTONE,
         "carrier_schema": CARRIER_SCHEMA,
         "fock_schema": fock["schema"],
         "qcd_schema": qcd["schema"],
         "su3_schema": su3["schema"],
         "hamiltonian_schema": hamiltonian["schema"],
+        "matter_schema": matter["schema"],
         "model_schema": MODEL_SCHEMA,
         "construction_api": carrier["construction_api"],
         "state_api": carrier["state_api"],
         "fock_construction_api": fock["construction_api"],
-        "fock_study_api": fock["study_api"],
         "qcd_functional_study_api": qcd["study_api"],
         "su3_link_construction_api": su3["construction_api"],
-        "su3_link_study_api": su3["study_api"],
         "hamiltonian_lattice_study_api": hamiltonian["study_api"],
         "color_matter_study_api": matter["study_api"],
+        "wilson_spectrum_study_api": spectrum["study_api"],
         "formal_authority": formal,
         "formal_authority_fingerprint": formal_authority_fingerprint(formal),
         "second_quantized_formal_authority": dict(fock["formal_authority"]),
         "qcd_functional_formal_authority": dict(qcd["formal_authority"]),
         "su3_link_formal_authority": dict(su3["formal_authority"]),
         "hamiltonian_lattice_formal_authority": dict(hamiltonian["formal_authority"]),
-        "color_matter_formal_authority": matter_authority,
+        "color_matter_formal_authority": {
+            "repository": "jagg-ix/entropic-physlib-private",
+            "branch": "entropic-physlib-linear-full",
+            "sources": list(COLOR_MATTER_FORMAL_SOURCES),
+        },
+        "wilson_spectrum_formal_authority": dict(spectrum["formal_authority"]),
         "establishes": [
             *carrier["establishes"],
-            "fermionic Fock second quantization and finite QCD history functional",
-            "matrix-valued SU3 links and periodic Hamiltonian electric dynamics",
-            "gauge-covariant fundamental-color hopping and exact matter evolution",
-            "scalar and traceless adjoint color continuity",
-            "minimum-norm covariant sourced Gauss-law solution",
-            "Yukawa CAT/EPT history suppression on the color-matter trajectory",
+            "fermionic Fock and finite QCD history functional",
+            "matrix-valued and periodic Hamiltonian SU3 gauge dynamics",
+            "gauge-covariant fundamental-color matter and sourced Gauss law",
+            "nested Wilson-loop refinement and area-perimeter diagnostics",
+            "Polyakov center invariance and positive Creutz ratio",
+            "positive normalized environment decoherence spectra",
         ],
         "comparison_role": (
-            "second-quantized relativistic Hamiltonian color-matter QCD comparison "
-            "model to M9 Pauli-Hartree-U1"
+            "second-quantized relativistic non-Abelian color-matter confinement "
+            "comparison model to M9 Pauli-Hartree-U1"
         ),
     }
 
@@ -158,15 +166,17 @@ def run_model_registration_study() -> dict[str, Any]:
     su3 = run_su3_link_backreaction_study()
     hamiltonian = run_periodic_su3_hamiltonian_study()
     matter = run_color_matter_gauss_study()
+    spectrum = run_wilson_refinement_spectrum_study()
     formal = payload["formal_authority"]
     fock_formal = payload["second_quantized_formal_authority"]
     qcd_formal = payload["qcd_functional_formal_authority"]
     su3_formal = payload["su3_link_formal_authority"]
     hamiltonian_formal = payload["hamiltonian_lattice_formal_authority"]
     matter_formal = payload["color_matter_formal_authority"]
+    spectrum_formal = payload["wilson_spectrum_formal_authority"]
     acceptance = {
         "model_id_is_M10": payload["model_id"] == "M10",
-        "latest_milestone_is_M10_7": payload["milestone"] == "M10.7",
+        "latest_milestone_is_M10_8": payload["milestone"] == "M10.8",
         "lineage_is_retained": (
             payload["carrier_milestone"] == "M10.1"
             and payload["closure_milestone"] == "M10.2"
@@ -174,9 +184,11 @@ def run_model_registration_study() -> dict[str, Any]:
             and payload["qcd_milestone"] == "M10.4"
             and payload["su3_milestone"] == "M10.5"
             and payload["hamiltonian_milestone"] == "M10.6"
+            and payload["matter_milestone"] == "M10.7"
         ),
         "all_executable_studies_pass": all(
-            result["passed"] for result in (core, fock, qcd, su3, hamiltonian, matter)
+            result["passed"]
+            for result in (core, fock, qcd, su3, hamiltonian, matter, spectrum)
         ),
         "one_particle_authority_is_pinned": (
             formal["head"] == FORMAL_HEAD and _pinned(formal, 3)
@@ -192,23 +204,26 @@ def run_model_registration_study() -> dict[str, Any]:
             and _pinned(su3_formal, len(SU3_FORMAL_SOURCES))
             and _pinned(hamiltonian_formal, len(HAMILTONIAN_FORMAL_SOURCES))
             and _pinned(matter_formal, len(COLOR_MATTER_FORMAL_SOURCES))
+            and _pinned(spectrum_formal, len(SPECTRUM_FORMAL_SOURCES))
         ),
-        "color_matter_theorems_are_registered": {
-            source["theorem"] for source in matter_formal["sources"]
+        "wilson_spectrum_theorems_are_registered": {
+            source["theorem"] for source in spectrum_formal["sources"]
         }
         == {
-            "yangMillsEquation_gauge_covariant",
-            "gellMann_structure_constants",
-            "su3_adjoint_eq_gluonCount",
-            "yukawaEntropyRate_eq_const_mul_mass",
+            "areaLaw_implies_decay",
+            "center_preserves_norm",
+            "expectation_and_connectedGeneratingFunctional_tendsto",
+            "decoherenceFunctional_isDecoherenceFunctional",
+            "decoherence_offdiag_bound",
         },
-        "all_model_apis_are_registered": (
+        "all_latest_apis_are_registered": (
             payload["construction_api"].endswith(":construct_state")
             and payload["fock_construction_api"].endswith(":construct_fock_state")
             and payload["qcd_functional_study_api"].endswith(":run_qcd_functional_decoherence_study")
             and payload["su3_link_construction_api"].endswith(":construct_link_state")
             and payload["hamiltonian_lattice_study_api"].endswith(":run_periodic_su3_hamiltonian_study")
             and payload["color_matter_study_api"].endswith(":run_color_matter_gauss_study")
+            and payload["wilson_spectrum_study_api"].endswith(":run_wilson_refinement_spectrum_study")
         ),
         "formal_fingerprint_is_deterministic": (
             payload["formal_authority_fingerprint"] == formal_authority_fingerprint(formal)
@@ -217,7 +232,7 @@ def run_model_registration_study() -> dict[str, Any]:
     }
     return {
         **payload,
-        "task": "M10.7n",
+        "task": "M10.8l",
         "fingerprint": fingerprint(payload),
         "core_fingerprint": core["fingerprint"],
         "fock_fingerprint": fock["fingerprint"],
@@ -225,11 +240,12 @@ def run_model_registration_study() -> dict[str, Any]:
         "su3_fingerprint": su3["fingerprint"],
         "hamiltonian_fingerprint": hamiltonian["fingerprint"],
         "matter_fingerprint": matter["fingerprint"],
+        "spectrum_fingerprint": spectrum["fingerprint"],
         "acceptance": acceptance,
         "passed": all(acceptance.values()),
         "decision": {
             "m10_registered_as_separate_model": True,
-            "m10_color_matter_gauss_is_latest": True,
+            "m10_wilson_refinement_spectrum_is_latest": True,
             "all_formal_authorities_are_content_pinned": True,
             "m9_registration_rewritten": False,
         },
