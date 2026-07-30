@@ -1,0 +1,4 @@
+"""Canonical M14 registration."""
+from .smooth_continuum_ads_double_copy_m144 import SmoothContinuumAdSDoubleCopyConfig, run_smooth_continuum_ads_double_copy_study
+run_model_study=run_smooth_continuum_ads_double_copy_study
+__all__=["SmoothContinuumAdSDoubleCopyConfig","run_smooth_continuum_ads_double_copy_study","run_model_study"]

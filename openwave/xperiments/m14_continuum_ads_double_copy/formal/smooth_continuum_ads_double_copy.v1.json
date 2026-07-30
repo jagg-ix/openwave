@@ -1,0 +1,59 @@
+{
+  "schema": "openwave.m14.smooth-continuum-ads-double-copy-ledger.v1",
+  "model_id": "M14",
+  "milestone": "M14.4",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "ea6c394fcb1d55546d11cd6af3df6556c610d52e",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/SmoothLorentzianDirectLimit.lean",
+      "sha": "613f1ed3a5888ea036f1ec77090aafae2f176357",
+      "theorems": [
+        "OpenChartedDevelopmentSystem.gluedIsManifold",
+        "OpenChartedDevelopmentSystem.CompatibleMetricFamily.gluedMetricVal_symm",
+        "OpenChartedDevelopmentSystem.CompatibleMetricFamily.gluedMetricVal_nondegenerate",
+        "OpenChartedDevelopmentSystem.CompatibleMetricFamily.gluedPseudoRiemannianMetric"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/HarmonicGaugeLocalEinstein.lean",
+      "sha": "21aaafb7bf9e0736d3fbadd14dcc4a604325607d",
+      "theorems": [
+        "HarmonicGaugeADMCauchyData.harmonicGauge_propagates",
+        "HarmonicGaugeADMCauchyData.exists_local_harmonicEinstein_evolution",
+        "HarmonicGaugeADMCauchyData.local_harmonicEinstein_evolution_unique",
+        "local_harmonicEinstein_unique_up_to_fixedCauchy_isometry"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/GloballyHyperbolicGreenHadamard.lean",
+      "sha": "bcdef861f5cd3843051a13061adb4e856b686dfe",
+      "theorems": [
+        "MaxwellLaxMilgramGraphData.curvedHOneFour_caticha_maxwell_causal_distributional_hadamard_propagation",
+        "MaxwellLaxMilgramGraphData.caticha_maxwell_causal_distributional_hadamard_atlas_chain",
+        "MaxwellLaxMilgramGraphData.curvedHOneFour_causalSourceQuotient_phaseSpace"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Electromagnetic/EMComplexEinsteinAdSCFT.lean",
+      "sha": "eaa50fbe34c8d5f773826ee6f63265b70f07326c",
+      "theorems": [
+        "d3_adsCFT_BCJ_doubleCopy",
+        "d3_boundaryCentralCharge_complexEinstein_conservationFamily"
+      ]
+    }
+  ],
+  "openwave_dependencies": [
+    "M14.1",
+    "M14.2",
+    "M14.3",
+    "M13.10"
+  ],
+  "claim_boundaries": {
+    "status": "conditional-model",
+    "direct_limit": "nested chart and metric compatibility are explicit model data",
+    "einstein": "local harmonic existence and fixed-Cauchy uniqueness retain formal analytic premises",
+    "scope": "no unconditional global AdS double-copy theorem, loop amplitudes, or nonperturbative quantum gravity"
+  }
+}

@@ -1,0 +1,8 @@
+model:m14.4#requires@model:m14.1.
+model:m14.4#requires@model:m14.2.
+model:m14.4#requires@model:m14.3.
+model:m14.4#reuses@physlib:smooth-lorentzian-direct-limit.
+model:m14.4#reuses@physlib:harmonic-gauge-local-einstein-fixed-cauchy-isometry.
+model:m14.4#checks@claim:nested-harmonic-slabs-metrics-and-causal-green-domains-form-compatible-direct-systems.
+model:m14.4#formalizes@claim:conditional-continuum-ads-double-copy-closure-with-visible-pde-summability-and-gluing-premises.
+model:m14.4#forbids@claim:unconditional-global-ads-double-copy-loop-level-or-nonperturbative-quantum-gravity-theorem.
