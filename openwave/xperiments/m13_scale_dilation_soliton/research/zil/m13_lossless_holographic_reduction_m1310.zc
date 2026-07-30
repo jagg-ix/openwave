@@ -1,0 +1,7 @@
+model:m13.10#requires@model:m13.9.
+model:m13.10#reuses@physlib:johnson-lindenstrauss-holographic-reduction.
+model:m13.10#checks@claim:zero-distortion-holographic-reduction-is-an-exact-isometry.
+model:m13.10#checks@claim:stereographic-boundary-roundtrip-is-lossless.
+model:m13.10#checks@claim:boundary-sphere-is-the-dual-sphere-carrier.
+model:m13.10#checks@claim:jl-target-dimension-is-logarithmic-and-monotone.
+model:m13.10#forbids@claim:random-jl-existence-or-full-su22-twistor-representation.
