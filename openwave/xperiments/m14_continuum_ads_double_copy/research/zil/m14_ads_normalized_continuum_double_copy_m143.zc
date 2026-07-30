@@ -1,0 +1,7 @@
+model:m14.3#requires@model:m14.2.
+model:m14.3#reuses@physlib:d3-ads-cft-bcj-double-copy.
+model:m14.3#reuses@physlib:gkp-witten-source-hessian-and-rt-normalization.
+model:m14.3#checks@claim:the-same-d3-boundary-coupling-normalizes-the-continuum-bcj-series-gkp-kernel-rt-and-complex-einstein-faces.
+model:m14.3#checks@claim:positive-frequency-boundary-quadrature-converges-to-a-positive-source-kernel.
+model:m14.3#separates@claim:bcj-amplitude-from-rt-entropy.
+model:m14.3#forbids@claim:interacting-continuum-witten-functional-or-derived-ads-cft-duality.
