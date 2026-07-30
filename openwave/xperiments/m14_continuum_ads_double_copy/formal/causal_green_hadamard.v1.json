@@ -1,0 +1,38 @@
+{
+  "schema": "openwave.m14.causal-green-hadamard-ledger.v1",
+  "model_id": "M14",
+  "milestone": "M14.1",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "ea6c394fcb1d55546d11cd6af3df6556c610d52e",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/GloballyHyperbolicGreenHadamard.lean",
+      "sha": "bcdef861f5cd3843051a13061adb4e856b686dfe",
+      "theorems": [
+        "MaxwellLaxMilgramGraphData.curvedHOneFourMaxwell_causal_exists_energy",
+        "MaxwellLaxMilgramGraphData.curvedHOneFourMaxwellGreen_intrinsic_graphEnergy",
+        "MaxwellLaxMilgramGraphData.curvedHOneFour_causalGreen_intrinsic_homogeneous_energy",
+        "MaxwellLaxMilgramGraphData.curvedHOneFour_caticha_maxwell_causal_distributional_hadamard_propagation",
+        "GreenHadamardPropagation.wavefront_eq"
+      ]
+    },
+    {
+      "path": "Physlib/Mathematics/Distribution/Basic.lean",
+      "sha": "30c098b5466b759a769a58e79fccc12c096a8445",
+      "theorems": [
+        "hasRapidFourierDecayOn_congr",
+        "distributionalWavefrontSet_eq_of_probe_pairing_eq",
+        "distributionalWavefrontSet_covector_ne_zero"
+      ]
+    }
+  ],
+  "openwave_dependencies": [
+    "M13.8"
+  ],
+  "claim_boundaries": {
+    "continuum_green": "finite spectral adapter backed by a formal continuum theorem interface",
+    "pde_inputs": "causal support closedness coercivity and wave-operator identification remain explicit",
+    "hadamard": "positive-frequency probe carrier; exact formal wavefront equality requires regularity/singularity premises"
+  }
+}

@@ -1,0 +1,7 @@
+model:m14.1#requires@model:m13.8.
+model:m14.1#pins@formal-tip:ea6c394f.
+model:m14.1#reuses@physlib:globally-hyperbolic-green-hadamard.
+model:m14.1#checks@claim:retarded-and-advanced-green-equations-with-causal-support-and-energy-bounds.
+model:m14.1#checks@claim:pauli-jordan-propagator-is-skew-homogeneous-and-positive-frequency-hadamard-probes-transport.
+model:m14.1#requires@premise:coercive-causal-sobolev-data-and-microlocal-regularity-singularity-inputs.
+model:m14.1#forbids@claim:global-hyperbolicity-alone-implies-green-hadamard-existence.
