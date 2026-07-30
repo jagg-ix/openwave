@@ -1,5 +1,10 @@
 """M10 CAT/EPT Dirac--Cartan--binary-icosahedral particle model."""
 
+from .color_matter_gauss_m107 import (
+    ColorMatterGaussConfig,
+    ColorMatterGaussState,
+    run_color_matter_gauss_study,
+)
 from .dirac_cartan_2i_yukawa_model import (
     DiracCartan2IYukawaConfig,
     DiracCartan2IYukawaState,
@@ -30,6 +35,8 @@ from .su3_link_backreaction_m105 import (
 )
 
 __all__ = [
+    "ColorMatterGaussConfig",
+    "ColorMatterGaussState",
     "DiracCartan2IYukawaConfig",
     "DiracCartan2IYukawaState",
     "PeriodicSU3HamiltonianConfig",
@@ -48,4 +55,5 @@ __all__ = [
     "run_qcd_functional_decoherence_study",
     "run_su3_link_backreaction_study",
     "run_periodic_su3_hamiltonian_study",
+    "run_color_matter_gauss_study",
 ]
