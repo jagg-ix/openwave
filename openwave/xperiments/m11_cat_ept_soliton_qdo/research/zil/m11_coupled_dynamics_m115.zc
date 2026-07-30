@@ -1,0 +1,7 @@
+model:m11.5#extends@model:m11.4.
+model:m11.5#dynamics@integrator:velocity-verlet.
+integrator:velocity-verlet#evolves@potential:lennard-jones-plus-atm.
+model:m11.5#entropic-clock@clock:tau-ent.
+clock:tau-ent#monotone-by@energy:dissipated.
+model:m11.5#decoheres@liouville:rho-psi.
+model:m11.5#registered-as@openwave:model-m11.
