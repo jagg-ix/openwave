@@ -1,0 +1,27 @@
+{
+  "schema": "openwave.m13.penrose-holographic-mass-entropy-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.9",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/PenroseHolographicMassEntropyBound.lean",
+      "sha": "410aef276dfe4389b54a0af81bd5ea19fd12861b",
+      "theorems": ["horizonImaginaryAction_le_penrose", "horizonImaginaryAction_schwarzschild", "nnPathWeight_norm_ge_penrose"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/MassOrigin/GravitationalMassHorizonEntropyNoYukawa.lean",
+      "sha": "a7ff039e9f23a10dac72a818862a1a057108f9f7",
+      "theorems": ["gravitationalMass_eq", "gravitationalWidth_eq", "norm_nnPathWeight_horizon"]
+    }
+  ],
+  "openwave_dependencies": ["M13.4", "M13.8"],
+  "claim_boundaries": {
+    "penrose": "geometric mass-area hypothesis",
+    "horizon_area": "not RT area",
+    "area_growth": "not static area",
+    "mass_origin": "not derived"
+  }
+}
