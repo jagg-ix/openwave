@@ -1,0 +1,33 @@
+{
+  "schema": "openwave.m13.bcj-gkp-source-kernel-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.8",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/BCJDoubleCopy/ColorKinematicsDoubleCopy.lean",
+      "sha": "110a42b466c7fcf8be68be4326cb1d0c9197043c",
+      "theorems": ["threeChannelNumerator_in_jacobiKernel_iff", "weightedBilinear_comm", "cubicDoubleCopy_eq_weightedBilinear", "cubicDoubleCopy_shift_left_of_orthogonal"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenAdSCFTDictionary.lean",
+      "sha": "d9f9bf5e00fd1a4880520cab6c4e5458ee4aa1d3",
+      "theorems": ["massDimension_relation", "cftTwoPoint_scaling", "gkpWitten_regularized_source_response", "gkpWitten_affine_source_hessian"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/QCDFundamentalBCJRelations.lean",
+      "sha": "5756653f5dbd58ac14fef7307d03223e7bf81304",
+      "theorems": ["forwardBCJRelation_iff_backwardBCJRelation", "qcdPrimitiveBCJ_backward_relation"]
+    }
+  ],
+  "openwave_dependencies": ["M13.7"],
+  "claim_boundaries": {
+    "kernel": "finite positive regulator constructed from BCJ graph weights",
+    "gkp_response": "finite quadratic source carrier",
+    "witten_diagram": "not evaluated",
+    "ads_double_copy": "not claimed",
+    "continuum_correlator": "not constructed"
+  }
+}

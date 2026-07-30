@@ -1,0 +1,7 @@
+model:m13.7#requires@model:m13.6.
+model:m13.7#reuses@openwave:m10.8-wilson-refinement.
+model:m13.7#checks@claim:center-vortex-wilson-loops-have-positive-monotone-string-tension.
+model:m13.7#checks@claim:wilson-exponents-scale-quadratically-with-boundary-length.
+model:m13.7#checks@claim:rt-entropy-is-invariant-when-interval-and-cutoff-share-a-dilation.
+model:m13.7#compares@observable:wilson-area-law-with-observable:rt-minimal-surface.
+model:m13.7#forbids@claim:wilson-loop-equals-rt-entropy-or-finite-tension-equals-continuum-string-tension.

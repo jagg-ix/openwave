@@ -1,0 +1,7 @@
+model:m13.8#requires@model:m13.7.
+model:m13.8#reuses@physlib:bcj-weighted-bilinear-amplitude.
+model:m13.8#reuses@physlib:gkp-witten-affine-source-hessian.
+model:m13.8#checks@claim:jacobi-numerator-basis-produces-a-symmetric-positive-source-kernel.
+model:m13.8#checks@claim:the-bcj-double-copy-bilinear-equals-the-finite-gkp-source-bilinear.
+model:m13.8#checks@claim:weighted-orthogonal-generalized-gauge-shifts-leave-the-source-response-invariant.
+model:m13.8#forbids@claim:interacting-witten-diagram-ads-double-copy-theorem-or-continuum-boundary-correlator.

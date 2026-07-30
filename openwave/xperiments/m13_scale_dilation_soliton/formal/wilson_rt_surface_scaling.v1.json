@@ -1,0 +1,37 @@
+{
+  "schema": "openwave.m13.wilson-rt-surface-scaling-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.7",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QFT/Lattice/WilsonLoopAreaLaw.lean",
+      "sha": "ffd0b7e6dc1ec8b39851755aeda3ae753a5c42d0",
+      "theorems": ["areaLaw_implies_decay", "vortexStringTension_pos", "vortexStringTension_strictMono_on", "vortexAreaLaw_exp", "linear_potential_pos"]
+    },
+    {
+      "path": "Physlib/QFT/PathIntegral/FiniteWilsonGaugeModel.lean",
+      "sha": "870efa65de9037ea7c8e617628b15c19fb3de521",
+      "theorems": ["boltzmannFactor_pos", "sourceCoupledPartition_linearSource_hasDerivAt_zero"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/RyuTakayanagiFormulaAlgebra.lean",
+      "sha": "c14aede2c8654bdbdb4aedfca543c36872c65e55",
+      "theorems": ["rtAreaEntropy_nonneg", "rt_log_square_prefactor_identity", "rtPoincareLineDensity_regulated_integral_eq_neg_two_log"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/ScaleDilationLogMetric.lean",
+      "sha": "0c8262bac90d2dff03a04cc8e15efb21ee87ff0e",
+      "theorems": ["dilation_isometry", "scaleDistance_eq_dist_log"]
+    }
+  ],
+  "openwave_dependencies": ["M10.8", "M13.6"],
+  "claim_boundaries": {
+    "wilson_surface": "finite area-law observable",
+    "rt_surface": "finite regulated entanglement surface",
+    "surface_equality": "explicitly not asserted",
+    "string_tension": "finite fitted coefficient, not a continuum derivation"
+  }
+}
