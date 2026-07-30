@@ -1,0 +1,16 @@
+model:m13.1#formal-authority@physlib:scale-dilation-log-metric.
+model:m13.1#reuses@openwave:m11-pointwise-soliton.
+model:m13.1#reuses@openwave:m11-infinite-mode-liouville-tensor.
+model:m13.1#reuses@openwave:m12-particle-mass-inputs.
+model:m13.1#checks@claim:scale-lagrangian-dilation-invariance.
+model:m13.1#checks@claim:noether-dilation-charge-is-the-flow-generator.
+model:m13.1#checks@claim:log-scale-distance-is-dilation-invariant.
+model:m13.1#checks@claim:blockspin-ladder-has-equal-log-two-steps.
+model:m13.1#checks@claim:square-root-two-is-one-half-blockspin-step.
+model:m13.1#checks@claim:entropic-horizon-decay-is-generator-minus-two-orbit.
+model:m13.1#checks@claim:gauss-zero-charge-sector-is-dilation-fixed.
+model:m13.1#checks@claim:pointwise-soliton-norm-and-liouville-tensor-invariants-survive-scale-transport.
+model:m13.1#records@input:charged-lepton-masses.
+model:m13.1#excludes@claim:first-principles-particle-mass-prediction.
+model:m13.1#excludes@claim:completed-infinite-particle-fock-space.
+model:m13.1#excludes@claim:new-lattice-data-or-complete-holographic-dictionary.

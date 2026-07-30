@@ -1,0 +1,61 @@
+{
+  "schema": "openwave.m13.scale-dilation-soliton-tensor-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.1",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/ScaleDilationLogMetric.lean",
+      "sha": "0c8262bac90d2dff03a04cc8e15efb21ee87ff0e",
+      "theorems": [
+        "scaleLagrangian_dilation_invariant",
+        "noether_dilation_charge",
+        "dilationFlow_log_derivative",
+        "entropicEnergyDecay_eq_dilationFlow",
+        "dilation_isometry",
+        "scaleDistance_eq_dist_log",
+        "blockspin_ladder",
+        "sqrtTwo_half_blockspin",
+        "blockspin_geodesic",
+        "gauss_iff_dilation_invariant",
+        "chargedSector_scaleDistance"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/ComptonClock/EntropicProperDistance.lean",
+      "sha": "6ea714cbb98e94aa9b42602f800c9d6f81295c94",
+      "theorems": [
+        "entropicProperDistance_eq_entropicAction",
+        "expEntropicDistance_eq_schmidtNumber"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/ComplexNoetherChargeEntropicHorizon.lean",
+      "sha": "79c6994ca14c661cccdf81a4844ad37943ed3e62",
+      "theorems": [
+        "entropicEnergyDecay_hasDerivAt",
+        "complexNoetherChargePath_hasDerivAt_zero"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean",
+      "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831",
+      "theorems": [
+        "kernelMode_infinite",
+        "kernelOccupationBasis_particleNumber",
+        "continuumKernelNormSq_nonneg"
+      ]
+    }
+  ],
+  "openwave_dependencies": ["M11.1", "M11.2", "M12.3"],
+  "claim_boundaries": {
+    "scale_geometry": "exact theorem mirror",
+    "pointwise_soliton": "reuses M11 exact control carrier",
+    "infinite_mode_tensor": "finite cutoff over an infinite mode set with fixed finite particle number",
+    "particle_masses": "supplied M12 empirical inputs",
+    "qcd_ladder": "scale-geometry interpretation, not new lattice data",
+    "holography": "radial metric identity only, no additional dictionary"
+  }
+}
