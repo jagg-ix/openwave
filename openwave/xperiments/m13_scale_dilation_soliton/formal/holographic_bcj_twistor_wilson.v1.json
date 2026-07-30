@@ -1,0 +1,129 @@
+{
+  "schema": "openwave.m13.holographic-bcj-twistor-wilson-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.2",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenAdSCFTDictionary.lean",
+      "sha": "d9f9bf5e00fd1a4880520cab6c4e5458ee4aa1d3",
+      "theorems": [
+        "massDimension_relation",
+        "bulkToBoundaryKernel_scaling",
+        "bulkToBoundaryKernel_boundary_limit",
+        "cubicWittenDensity_jacobian_covariance",
+        "gkpWitten_affine_source_hessian"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenCasimir.lean",
+      "sha": "61d5bf1a710c835ca957b5586cc1570dad9c41c8",
+      "theorems": [
+        "conformalDimension_gegenbauer",
+        "conformalDimension_reggeCasimir",
+        "conformalDimension_cutkosky"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenOperatorSpectrum.lean",
+      "sha": "f968c21eeb7ad34cd03a4372d490d9def7e208ed",
+      "theorems": [
+        "hydrogenOperator_twoPoint",
+        "hydrogen_shadow_dimension",
+        "regge_dimension_succ",
+        "gegenbauerOperator_twoPoint"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/FiniteBaryonDensityPhaseTransition.lean",
+      "sha": "979bd61e9badb423aa04c303074db23f2bd1d606",
+      "theorems": [
+        "sRen_hasDerivAt",
+        "grandPotential_hasDerivAt_transition",
+        "density_slope_transition",
+        "grandPotential_shift"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/LovelockEntanglementAdSCoefficients.lean",
+      "sha": "bc2a7a6ba42c561c4f423aae95ccf2ea7b543627",
+      "theorems": [
+        "adsOnShellLovelockCoeff_pos_iff_le_M",
+        "waldEntropyAreaCoeff_einstein",
+        "waldEntropyAreaCoeff_pos_iff",
+        "symplecticFlowCoeff_eq_mul_area"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/RyuTakayanagiFormulaAlgebra.lean",
+      "sha": "c14aede2c8654bdbdb4aedfca543c36872c65e55",
+      "theorems": [
+        "rt_log_square_prefactor_identity",
+        "rtPoincareLineDensity_regulated_integral_eq_neg_two_log",
+        "cftEntropyVacuumLine_strongSubadditivity",
+        "cftEntropyFiniteT_strongSubadditivity"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/PenroseTwistorSpace.lean",
+      "sha": "dbb5cd4a0e264b491c1dd255469564fce0d7711a",
+      "theorems": [
+        "twistorDirection_smul",
+        "isNullTwistor_smul",
+        "incident_isNull",
+        "sl2c_twistorDirection"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/BCJDoubleCopy/ColorKinematicsDoubleCopy.lean",
+      "sha": "110a42b466c7fcf8be68be4326cb1d0c9197043c",
+      "theorems": [
+        "bcjDoubleCopy_diagonal_nonneg",
+        "faradayBCJDuality",
+        "cubicDoubleCopy_eq_cubicAmplitude_colorReplacement"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/QCDFundamentalBCJRelations.lean",
+      "sha": "5756653f5dbd58ac14fef7307d03223e7bf81304",
+      "theorems": [
+        "forwardBCJRelation_iff_backwardBCJRelation",
+        "threePoint_fundamentalBCJ",
+        "fundamentalBCJ_inductionStep_closes",
+        "qcdPrimitiveBCJ_KLT_pole_cancellations_tetrad_invariant"
+      ]
+    },
+    {
+      "path": "Physlib/QFT/PathIntegral/FiniteWilsonGaugeModel.lean",
+      "sha": "870efa65de9037ea7c8e617628b15c19fb3de521",
+      "theorems": [
+        "boltzmannFactor_pos",
+        "sourceCoupledPartition_linearSource_hasDerivAt_zero"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/ABJMWilsonLoopsFermiGas/AnchorsBPSWilsonLoops.lean",
+      "sha": "257e17018234a3cf7da7dbefb5bdadfa12291c05",
+      "theorems": [
+        "abjm_effectivePlanck_eq_two_pi_level",
+        "abjmFermiGasKernel_eq_chi_momentumKernel",
+        "abjm_convergentLevel_iff",
+        "abjmOneSixthWilson_eq_wittenNormalizedExpectation"
+      ]
+    }
+  ],
+  "openwave_dependencies": [
+    "M10.8",
+    "M13.1"
+  ],
+  "claim_boundaries": {
+    "ads_cft": "finite GKP/RT dictionary, Casimir/operator towers, finite-density thermodynamics, Lovelock AdS coefficients, scaling, boundary limits and source response; no derivation of the duality, anomalous dimensions, evaluated interacting Witten diagram or full conformal bootstrap",
+    "twistor": "projective direction, incidence/nullity and SL2C boundary action; no full SU(2,2) conformal action",
+    "bcj_qcd": "finite tree algebra and supplied primitive-QCD BCJ analytic obligations; no independent BCFW/CHY derivation or loop amplitudes",
+    "wilson": "reuses finite M10 Wilson-loop campaign and finite Wilson path-integral identities; no continuum limit theorem",
+    "abjm": "algebraic Fermi-gas/Wilson carriers; full Fredholm/Tracy-Widom analysis remains analytic input",
+    "gauge_string": "no equality between Wilson and RT observables and no derived gauge/string dictionary"
+  }
+}
