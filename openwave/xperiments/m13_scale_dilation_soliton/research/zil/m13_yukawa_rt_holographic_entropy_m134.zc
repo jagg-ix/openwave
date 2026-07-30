@@ -1,0 +1,6 @@
+model:m13.4#requires@model:m13.3.
+model:m13.4#reuses@physlib:ryu-takayanagi-formula-algebra.
+model:m13.4#chooses@adapter:compton-wavelength-as-rt-ultraviolet-cutoff.
+model:m13.4#checks@claim:rt-entropy-is-invariant-when-interval-and-compton-cutoff-share-one-dilation.
+model:m13.4#checks@claim:yukawa-clock-mass-can-match-the-horizon-area-rate-mass-under-a-supplied-equality.
+model:m13.4#separates@claim:rt-area-from-horizon-area-growth-rate.

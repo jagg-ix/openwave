@@ -1,0 +1,20 @@
+{
+  "claim_boundaries": {
+    "compton_cutoff": "explicit UV-cutoff adapter",
+    "mass_origin_equality": "requires supplied equality hypothesis",
+    "rt_area": "not identified with horizon area growth"
+  },
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_sources": [
+    {"path":"Physlib/QuantumMechanics/ComplexAction/AdSCFT/RyuTakayanagiFormulaAlgebra.lean","sha":"c14aede2c8654bdbdb4aedfca543c36872c65e55","theorems":["rt_log_square_prefactor_identity","cftEntropyVacuumLine_strongSubadditivity"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/MassOrigin/GravitationalMassHorizonEntropyNoYukawa.lean","sha":"a7ff039e9f23a10dac72a818862a1a057108f9f7","theorems":["gravitationalMass_eq","gravitationalWidth_eq"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/MassOrigin/HiggsClockThreeOrigins.lean","sha":"377374eb2e0861e671a6f5fcf08da44f1ca52a1c","theorems":["higgsClockFrequency_eq","higgs_clock_three_origins"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/ScaleDilationLogMetric.lean","sha":"0c8262bac90d2dff03a04cc8e15efb21ee87ff0e","theorems":["dilation_isometry","adsRadial_dilation_invariant"]}
+  ],
+  "milestone": "M13.4",
+  "model_id": "M13",
+  "openwave_dependencies": ["M13.2", "M13.3"],
+  "schema": "openwave.m13.yukawa-rt-entropy-ledger.v1"
+}
