@@ -1,93 +1,95 @@
 # OpenWave M10 CAT/EPT Dirac--Cartan--2I--Compton--Yukawa model
 
-M10 is the relativistic and second-quantized comparison model to the M9 Pauli--Hartree--U(1) carrier.
+M10 is the relativistic, second-quantized, and QCD-functional comparison model to the M9 Pauli--Hartree--U(1) carrier.
 
 ## M10.1 one-particle carrier
 
-M10.1 constructs one executable three-dimensional four-spinor state with:
-
-- the complete 120-element binary icosahedral quaternion set `2I`;
-- a unitary `2I` action lifted to all four spinor components;
-- central-pair descent of the complete spinor density from `2I` to the `A5` rotation shadow;
-- a minimally coupled Dirac--U(1) operator;
-- field-measured winding and normalized charge;
-- the canonical gamma-matrix axial current `J5^mu`;
-- algebraic Cartan contorsion `K_mu = kappa J5_mu` and the eliminated Hehl--Datta contact interaction;
-- a Yukawa mass `m_Y = yv/sqrt(2)`;
-- the Compton clock `omega_C = m_Y c^2/hbar`;
-- the complex mass `M = m_Y + i Sdot_I/c^2`;
-- the CAT/EPT entropy rate `Sdot_I = y omega_C/(2 hbar)`;
-- self-consistent periodic electric and magnetic fields.
-
-The model checks the full finite `2I` multiplication table, unitarity of all 120 Dirac lifts, the free Dirac mass-shell matrix identity, the Cartan spin-source residual, the mass-clock identity, the complex-mass entropy identity, winding quantization, charge normalization, and static Maxwell constraints.
+M10.1 constructs one executable three-dimensional four-spinor state with the complete 120-element binary icosahedral group, minimally coupled U(1) fields, measured winding, the canonical axial current, algebraic Cartan contorsion and Hehl--Datta contact interaction, Yukawa mass, Compton clock, complex CAT/EPT mass, and self-consistent electromagnetic fields.
 
 ## M10.2 stationary and robustness closure
 
-M10.2 adds an adaptive normalized stationary solver. Each accepted line-search step strictly lowers the frozen real-operator stationary residual and advances entropic time by a positive residual-squared increment.
-
-The closure campaign additionally establishes:
-
-- retention of winding, norm, charge, and the mass-clock identity on `9^3`, `13^3`, and `17^3` odd grids;
-- bounded localization-radius variation across those grids;
-- preservation of winding and normalization inside a deterministic smooth amplitude/phase perturbation tube;
-- bounded stationary residual throughout that tube;
-- central-pair descent of the interacting Dirac operator, density, and Cartan contact density;
-- integrated continuity closure for the real Dirac evolution on the periodic Fourier grid.
+M10.2 establishes residual-reducing stationary descent, positive entropic-time advance, nested odd-grid retention of winding/norm/charge, bounded localization-radius variation, perturbation-tube stability, interacting central-pair descent, and integrated Dirac continuity.
 
 ## M10.3 fermionic second quantization
 
-M10.3 constructs the complete four-mode fermionic Fock realization of the M10 internal Dirac carrier.
-
-The finite Fock basis has dimension
+M10.3 constructs the complete four-mode fermionic Fock realization of the internal Dirac carrier:
 
 ```text
-2^4 = 16
+Fock dimension: 2^4 = 16
+sector dimensions: 1, 4, 6, 4, 1
 ```
 
-with occupation-sector dimensions
+It establishes exact Jordan--Wigner CAR, Pauli exclusion, determinant exterior-power lifts for all 120 binary-icosahedral transformations, all 14,400 functorial group products, creation intertwining, central sign as fermion parity, the occupation Hamiltonian `dGamma(E_C I_4)=E_C N`, the finite fermion partition function, and occupation-dependent CAT/EPT suppression.
+
+## M10.4 finite QCD functional and history decoherence
+
+M10.4 couples the M10.3 occupation sector to a complete finite center-valued Wilson ensemble.
+
+Four `Z3 subset SU(3)` plaquettes give
 
 ```text
-1, 4, 6, 4, 1.
+3^4 = 81
 ```
 
-The executable carrier establishes:
-
-- exact Jordan--Wigner canonical anticommutation relations;
-- Pauli exclusion for every internal mode;
-- the determinant exterior-power lift `Gamma(U)_{I,J}=det U[I,J]`;
-- unitary Fock lifts for all 120 binary-icosahedral transformations;
-- functorial composition for all 14,400 group products;
-- creation intertwining `Gamma(U) a_i^dagger = sum_j U_ji a_j^dagger Gamma(U)`;
-- central-sign descent as fermion parity `Gamma(-U)=(-1)^N Gamma(U)`;
-- the second-quantized Hamiltonian
+histories. Every history carries
 
 ```text
-dGamma(E_C I_4) = E_C N,
-E_C = hbar omega_C = m_Y c^2;
+S_R[c] = theta n_c
+S_I[c] = beta S_W[c] + N Sdot_I t
+w[c] = exp(i S_R[c] - S_I[c]/hbar).
 ```
 
-- the finite fermion partition function `(1 + exp(-beta E_C))^4`;
-- occupation-dependent CAT/EPT suppression `exp(-2 N Sdot_I t/hbar)`.
+The executable functional establishes:
+
+- exact enumeration of all 81 finite Wilson histories;
+- nonnegative Wilson action;
+- theta-phase, confinement-damping, and Fock-entropy factorization;
+- QCD charge-conjugation pairing and a real total partition;
+- the source-coupled partition `Z[J]`;
+- `d log Z/dJ = <O>`;
+- `d2 log Z/dJ2 = <O^2>-<O>^2`;
+- occupation multiplication of the Yukawa entropy contribution to the partition;
+- the Feynman-parameter identity for two propagator denominators;
+- convergence of the QCD scalar-bubble finite part to `-2`;
+- a history decoherence matrix
+
+```text
+D_ab = w_a conjugate(w_b)
+       exp[-(2 M gamma t/beta_env) ||x_a-x_b||^2];
+```
+
+- Hermiticity, unit trace, Born diagonal, positive semidefiniteness, and the Dowker--Halliwell off-diagonal bound;
+- strict suppression of every pair of distinct histories;
+- stronger suppression when the environment coupling is increased.
 
 ## Exact formal authority
 
-The one-particle bridge is content-pinned to Physlib PR **#41**, branch `agent/dirac-cartan-2i-compton-yukawa`, commit:
+The one-particle bridge is pinned to Physlib PR **#41** at:
 
 ```text
 b894a64e180b46c9bc1dd7e0100422b0cc6fb143
 ```
 
-The second-quantized bridge is content-pinned to Physlib PR **#42**, branch `agent/dirac-cartan-2i-second-quantized-qcd`, commit:
+The second-quantized bridge is pinned to Physlib PR **#42** at:
 
 ```text
 45269fa04dc16ae1588925f0a8c167ee9dfbc7b8
 ```
 
-Its load-bearing source blob and theorem are recorded in `formal/second_quantized_fock.v1.json`:
+The QCD/functionals/decoherence ledger content-pins:
+
+- `QCDComplexActionUnification.qcd_theta_confinement_factorization`;
+- `FiniteWilsonGaugeModel.connectedGeneratingFunctional_linearSource_hasDerivAt_zero`;
+- `CaldeiraLeggettInfluenceFunctional.feynmanVernon_modulus_is_decoherence`;
+- `DecoherenceFunctionalSorkinJohnston.decoherenceFunctional_isDecoherenceFunctional`;
+- `OneLoopScalarIntegralsQCD.feynman_parametrization`.
+
+The machine-readable maps are:
 
 ```text
-DiracCartan2ISecondQuantizedQCD.lean@033a992c8b144554c5edfdccdb4d95e7d6e4a3b9
-dirac_cartan_2I_second_quantized_qcd_assembly
+formal/dirac_cartan_2i_yukawa.v1.json
+formal/second_quantized_fock.v1.json
+formal/qcd_functional_decoherence.v1.json
 ```
 
 ## Reproduction
@@ -98,6 +100,7 @@ from openwave.xperiments.m10_cat_ept import (
     run_m10_core_study,
     run_m10_closure_study,
     run_second_quantized_fock_study,
+    run_qcd_functional_decoherence_study,
 )
 from openwave.xperiments.m10_cat_ept.model_registration import run_model_registration_study
 import json
@@ -105,6 +108,7 @@ for result in (
     run_m10_core_study(),
     run_m10_closure_study(),
     run_second_quantized_fock_study(),
+    run_qcd_functional_decoherence_study(),
     run_model_registration_study(),
 ):
     print(json.dumps(result, indent=2, sort_keys=True, default=float))
@@ -113,4 +117,4 @@ PY
 
 ## Next development
 
-M10.4 couples the finite Fock occupation sectors to a finite Wilson/QCD source functional, its connected correlators, the complex-action history decoherence matrix, and an explicit environment-induced suppression law.
+The next layer can replace the finite center ensemble with sampled non-Abelian `SU(3)` link matrices, add dynamical color-fermion backreaction, and compare the resulting confinement/decoherence spectrum with the existing M9 and M10 stationary carriers.
