@@ -1,0 +1,46 @@
+{
+  "schema": "openwave.m10.second-quantized-fock-ledger.v1",
+  "model_id": "M10",
+  "milestone": "M10.3",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_pull_request": 42,
+  "formal_branch": "agent/dirac-cartan-2i-second-quantized-qcd",
+  "formal_head": "45269fa04dc16ae1588925f0a8c167ee9dfbc7b8",
+  "formal_source": {
+    "path": "Physlib/QuantumMechanics/ComplexAction/DiracCartan2ISecondQuantizedQCD.lean",
+    "blob": "033a992c8b144554c5edfdccdb4d95e7d6e4a3b9",
+    "theorem": "dirac_cartan_2I_second_quantized_qcd_assembly"
+  },
+  "terms": [
+    {
+      "id": "finite-fermion-car",
+      "equation": "{a_i,a_j^dagger}=delta_ij; {a_i,a_j}=0; (a_i^dagger)^2=0",
+      "numerical_source": "annihilation_matrix / creation_matrix",
+      "established": "exact Jordan-Wigner CAR on the 16-dimensional four-mode Fock space"
+    },
+    {
+      "id": "binary-icosahedral-fock-functor",
+      "equation": "Gamma(U)_{I,J}=det(U[I,J])",
+      "numerical_source": "exterior_fock_lift",
+      "established": "unitary exterior-power lift, functorial composition, and creation intertwining for all 120 elements"
+    },
+    {
+      "id": "central-sign-parity",
+      "equation": "Gamma(-U)=(-1)^N Gamma(U)",
+      "numerical_source": "parity_operator / exterior_fock_lift",
+      "established": "the central binary-icosahedral sign is fermion parity on every occupation sector"
+    },
+    {
+      "id": "second-quantized-compton-energy",
+      "equation": "dGamma(E_C I_4)=E_C N; E_C=hbar omega_C=m_Y c^2",
+      "numerical_source": "second_quantized_one_body / real_hamiltonian",
+      "established": "occupation-additive Compton-Yukawa rest energy"
+    },
+    {
+      "id": "occupation-entropy",
+      "equation": "|w_N(t)|^2=exp[-2 N Sdot_I t/hbar]",
+      "numerical_source": "born_weights_by_occupation",
+      "established": "strictly increasing entropic suppression with fermion occupation"
+    }
+  ]
+}

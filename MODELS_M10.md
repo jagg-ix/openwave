@@ -1,8 +1,8 @@
 # OpenWave M10 CAT/EPT Dirac--Cartan--2I--Compton--Yukawa model
 
-M10 is the relativistic comparison model to the M9 Pauli--Hartree--U(1) carrier.
+M10 is the relativistic and second-quantized comparison model to the M9 Pauli--Hartree--U(1) carrier.
 
-## M10.1 carrier
+## M10.1 one-particle carrier
 
 M10.1 constructs one executable three-dimensional four-spinor state with:
 
@@ -21,7 +21,7 @@ M10.1 constructs one executable three-dimensional four-spinor state with:
 
 The model checks the full finite `2I` multiplication table, unitarity of all 120 Dirac lifts, the free Dirac mass-shell matrix identity, the Cartan spin-source residual, the mass-clock identity, the complex-mass entropy identity, winding quantization, charge normalization, and static Maxwell constraints.
 
-## M10.2 closure
+## M10.2 stationary and robustness closure
 
 M10.2 adds an adaptive normalized stationary solver. Each accepted line-search step strictly lowers the frozen real-operator stationary residual and advances entropic time by a positive residual-squared increment.
 
@@ -34,35 +34,83 @@ The closure campaign additionally establishes:
 - central-pair descent of the interacting Dirac operator, density, and Cartan contact density;
 - integrated continuity closure for the real Dirac evolution on the periodic Fourier grid.
 
+## M10.3 fermionic second quantization
+
+M10.3 constructs the complete four-mode fermionic Fock realization of the M10 internal Dirac carrier.
+
+The finite Fock basis has dimension
+
+```text
+2^4 = 16
+```
+
+with occupation-sector dimensions
+
+```text
+1, 4, 6, 4, 1.
+```
+
+The executable carrier establishes:
+
+- exact Jordan--Wigner canonical anticommutation relations;
+- Pauli exclusion for every internal mode;
+- the determinant exterior-power lift `Gamma(U)_{I,J}=det U[I,J]`;
+- unitary Fock lifts for all 120 binary-icosahedral transformations;
+- functorial composition for all 14,400 group products;
+- creation intertwining `Gamma(U) a_i^dagger = sum_j U_ji a_j^dagger Gamma(U)`;
+- central-sign descent as fermion parity `Gamma(-U)=(-1)^N Gamma(U)`;
+- the second-quantized Hamiltonian
+
+```text
+dGamma(E_C I_4) = E_C N,
+E_C = hbar omega_C = m_Y c^2;
+```
+
+- the finite fermion partition function `(1 + exp(-beta E_C))^4`;
+- occupation-dependent CAT/EPT suppression `exp(-2 N Sdot_I t/hbar)`.
+
 ## Exact formal authority
 
-The formal bridge is content-pinned to Physlib PR **#41**, branch `agent/dirac-cartan-2i-compton-yukawa`, commit:
+The one-particle bridge is content-pinned to Physlib PR **#41**, branch `agent/dirac-cartan-2i-compton-yukawa`, commit:
 
 ```text
 b894a64e180b46c9bc1dd7e0100422b0cc6fb143
 ```
 
-The load-bearing theorem sources are pinned by Git blob and declaration name in `openwave/xperiments/m10_cat_ept/formal_authority.py`:
+The second-quantized bridge is content-pinned to Physlib PR **#42**, branch `agent/dirac-cartan-2i-second-quantized-qcd`, commit:
 
-- `BinaryIcosahedralDiracSpinor.binary_icosahedral_dirac_spinor_assembly`;
-- `EinsteinCartanAxialTorsion.dirac_cartan_axial_elimination_assembly`;
-- `DiracCartanComptonYukawaBridge.dirac_cartan_2I_compton_yukawa_assembly`.
+```text
+45269fa04dc16ae1588925f0a8c167ee9dfbc7b8
+```
 
-The machine-readable equation map is `openwave/xperiments/m10_cat_ept/formal/dirac_cartan_2i_yukawa.v1.json`.
+Its load-bearing source blob and theorem are recorded in `formal/second_quantized_fock.v1.json`:
+
+```text
+DiracCartan2ISecondQuantizedQCD.lean@033a992c8b144554c5edfdccdb4d95e7d6e4a3b9
+dirac_cartan_2I_second_quantized_qcd_assembly
+```
 
 ## Reproduction
 
 ```bash
 python - <<'PY'
-from openwave.xperiments.m10_cat_ept import run_m10_core_study, run_m10_closure_study
+from openwave.xperiments.m10_cat_ept import (
+    run_m10_core_study,
+    run_m10_closure_study,
+    run_second_quantized_fock_study,
+)
 from openwave.xperiments.m10_cat_ept.model_registration import run_model_registration_study
 import json
-print(json.dumps(run_m10_core_study(), indent=2, sort_keys=True, default=float))
-print(json.dumps(run_model_registration_study(), indent=2, sort_keys=True, default=float))
-print(json.dumps(run_m10_closure_study(), indent=2, sort_keys=True, default=float))
+for result in (
+    run_m10_core_study(),
+    run_m10_closure_study(),
+    run_second_quantized_fock_study(),
+    run_model_registration_study(),
+):
+    print(json.dumps(result, indent=2, sort_keys=True, default=float))
 PY
 ```
 
 ## Next development
 
-The next development lifts the internal `2I` action to a simultaneous spatial rotation of the grid, adds a dynamic tetrad/spin-connection carrier, and compares the M9 and M10 stationary branches under the same refinement and perturbation protocol.
+M10.4 couples the finite Fock occupation sectors to a finite Wilson/QCD source functional, its connected correlators, the complex-action history decoherence matrix, and an explicit environment-induced suppression law.
