@@ -1,44 +1,56 @@
 {
-  "schema": "openwave.m10.formal-action-ledger.v1",
+  "schema": "openwave.m10.formal-action-ledger.v2",
   "model_id": "M10",
   "milestone": "M10.1",
   "formal_repository": "jagg-ix/entropic-physlib-private",
   "formal_branch": "agent/dirac-cartan-2i-compton-yukawa",
+  "formal_head": "b894a64e180b46c9bc1dd7e0100422b0cc6fb143",
+  "formal_pull_request": 41,
   "terms": [
     {
       "id": "binary-icosahedral-spin-action",
-      "equation": "psi -> diag(U(q),U(q)) psi, q in 2I",
+      "equation": "Psi -> diag(U(q),U(q)) Psi, q in 2I",
       "formal_source": "Physlib/QuantumMechanics/ComplexAction/BinaryIcosahedralDiracSpinor.lean",
+      "formal_sha": "6c42acf2f9b1ca2d22a6332adbd0a49d5d700f6d",
+      "formal_theorem": "binary_icosahedral_dirac_spinor_assembly",
       "numerical_source": "binary_icosahedral_quaternions / dirac_2i_matrix",
-      "established": "120 unit quaternions, multiplication closure, unitarity, central-pair density descent"
+      "established": "120 unit quaternions, multiplication closure, unitary four-spinor lift, total-density preservation, and central-pair descent"
     },
     {
       "id": "dirac-u1-operator",
       "equation": "H = -i alpha^i (partial_i-iqA_i) + beta M + q A_0",
       "formal_source": "Physlib/QuantumMechanics/ComplexAction/DiracCartanComptonYukawaBridge.lean",
+      "formal_sha": "f5aedde7ca9f4b378b70fa093f322bb5185722e3",
+      "formal_theorem": "diracHamiltonian4_sq_yukawaClock",
       "numerical_source": "dirac_hamiltonian_action",
-      "established": "four-spinor carrier and exact free Dirac mass-shell matrix identity"
+      "established": "four-spinor carrier and exact free Dirac mass-shell matrix identity with the Yukawa-Compton mass"
     },
     {
       "id": "cartan-axial-contact",
-      "equation": "K_a=kappa J5_a; L_HD=-(kappa/2) sum_a J5_a^2",
+      "equation": "J5^mu=Re(Psi^dagger gamma0 gamma^mu gamma5 Psi); K_mu=kappa J5_mu; L_HD=-(kappa/2) sum_mu J5_mu^2",
       "formal_source": "Physlib/QuantumMechanics/ComplexAction/EinsteinCartanAxialTorsion.lean",
-      "numerical_source": "cartan_fields / dirac_hamiltonian_action",
-      "established": "algebraic spin-source residual and eliminated axial contact density"
+      "formal_sha": "e963184d07364916516955a0d1bc403255227228",
+      "formal_theorem": "dirac_cartan_axial_elimination_assembly",
+      "numerical_source": "axial_current / cartan_fields / dirac_hamiltonian_action",
+      "established": "canonical gamma-matrix axial current, algebraic Cartan spin-source residual, and eliminated Hehl-Datta contact density"
     },
     {
       "id": "yukawa-compton-mass",
       "equation": "m_Y=yv/sqrt(2)=hbar omega_C/c^2",
       "formal_source": "Physlib/QuantumMechanics/ComplexAction/DiracCartanComptonYukawaBridge.lean",
+      "formal_sha": "f5aedde7ca9f4b378b70fa093f322bb5185722e3",
+      "formal_theorem": "yukawaClock_restEnergy",
       "numerical_source": "DiracCartan2IYukawaConfig.yukawa_mass / compton_frequency",
-      "established": "one real mass and one internal clock ledger"
+      "established": "one real mass and one internal Compton clock ledger"
     },
     {
       "id": "complex-yukawa-entropy",
       "equation": "M=m_Y+i Sdot_I/c^2; Sdot_I=y omega_C/(2 hbar)",
-      "formal_source": "Physlib/QuantumMechanics/ComplexAction/Yukawa/ComplexMassContour.lean",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/DiracCartanComptonYukawaBridge.lean",
+      "formal_sha": "f5aedde7ca9f4b378b70fa093f322bb5185722e3",
+      "formal_theorem": "yukawaComplexEnergy_im_is_entropicRate",
       "numerical_source": "imaginary_mass / entropy_rate",
-      "established": "imaginary rest energy equals the Yukawa CAT/EPT entropy rate"
+      "established": "the imaginary complex rest energy equals the Yukawa CAT/EPT entropy-production rate"
     }
   ]
 }
