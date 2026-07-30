@@ -1,8 +1,15 @@
-# OpenWave M13 CAT/EPT scale-dilation soliton-tensor model
+# OpenWave M13 CAT/EPT scale-dilation and holographic-amplitude model
 
-M13 isolates the exact scale geometry underlying the CAT/EPT entropic-time arc and applies it to the existing M11 pointwise soliton and finite-cutoff infinite-mode Liouville tensor.
+M13 isolates the exact scale geometry underlying the CAT/EPT entropic-time arc, applies it to the M11 pointwise/infinite-mode carrier, and then composes that scale line with the finite AdS/CFT, twistor, BCJ-QCD and Wilson-loop theorem surfaces of `entropic-physlib-linear-full`.
 
-## M13.1 executable surface
+## Lineage
+
+| Milestone | Executable result |
+| --- | --- |
+| M13.1 | dilation/Noether group, invariant logarithmic metric, block-spin ladder, `sqrt(2)` half-step, M11 soliton/tensor scale transport |
+| M13.2 | GKP/RT and extended AdS/CFT checks, projective twistor incidence, finite BCJ and primitive-QCD relations, M10 Wilson-loop reuse and ABJM Wilson algebra |
+
+## M13.1 scale and carrier surface
 
 - dilation group `lambda(t) = exp(H t)`, including composition and inverses;
 - scale Lagrangian `L = 1/2 (lambda_dot/lambda)^2` and common-dilation invariance;
@@ -10,28 +17,51 @@ M13 isolates the exact scale geometry underlying the CAT/EPT entropic-time arc a
 - conserved Noether charge `Q = lambda_dot/lambda = H`;
 - invariant scale metric `d(x,y) = |log(x/y)|` and exact log-coordinate transport;
 - entropic proper distance `r = lambda_C log K`;
-- block-spin ladder `a_n = 2^n a_0` with exact `log 2` steps;
-- `sqrt(2)` half-step and continuous `2^r` geodesic;
-- entropic-horizon energy decay as the `H = -2` orbit;
-- SU(2) abelian Gauss fixed-point and charged-sector metric checks;
-- norm-preserving pointwise soliton scale family;
-- trace, Hermiticity, positivity and purity of each finite-cutoff Liouville tensor;
-- charged-lepton Compton-scale distances from supplied M12 mass data.
+- block-spin ladder `a_n = 2^n a_0`, `sqrt(2)` half-step and continuous `2^r` geodesic;
+- pointwise-soliton and finite-cutoff infinite-mode Liouville-tensor transport.
+
+## M13.2 holographic amplitude closure
+
+### AdS/CFT
+
+- GKP--Witten mass/dimension relation, BF stability margin and conformal roots;
+- bulk-to-boundary kernel covariance and normalized noncoincident boundary limit;
+- cubic contact Witten-density/Jacobian covariance;
+- finite regularized source response and Hessian;
+- Ryu--Takayanagi regulated semicircle length, Brown--Henneaux prefactor, vacuum and BTZ adjacent-interval strong subadditivity;
+- Regge/hydrogen, Cutkosky and Gegenbauer conformal dimensions and operator tower;
+- finite-baryon-density second-order transition and mean-field scaling;
+- Lovelock on-shell, Wald-area and symplectic-flow coefficient termination on AdS.
+
+### Twistor and amplitudes
+
+- projective Weyl/twistor direction and scale-invariant nullity;
+- Penrose incidence with a Hermitian spacetime point implies a null twistor;
+- the `SL(2,C)` spinor action agrees with the boundary Möbius action;
+- color and kinematic Jacobi identities;
+- finite BCJ gauge and double-copy amplitudes and color replacement;
+- primitive-QCD forward/backward BCJ equivalence, three-point closure and supplied contour-residue obligations.
+
+### Wilson observables
+
+- reuses M10.8 nested-lattice SU(3) Wilson loops, area/perimeter fit, Creutz ratio, Polyakov-center and gauge-invariance diagnostics;
+- checks finite Wilson damping/source-insertion authority;
+- checks ABJM effective Planck constant, positive/factorized Fermi-gas kernel, convergence range and normalized `1/6` Wilson-loop algebra.
 
 ## Claim boundary
 
-The group, Noether, metric, ladder and half-step relations are executable mirrors of exact Lean theorems. M11 supplies the pointwise and infinite-mode carriers. M12 particle masses remain empirical input labels. M13 does not claim a completed infinite-particle Fock space, a first-principles mass spectrum, new lattice simulation data, or a complete holographic dictionary.
+M13.2 is a finite and algebraic closure. It does not derive AdS/CFT or gauge/string duality, evaluate or holographically renormalize an interacting Witten diagram, derive anomalous dimensions or the conformal bootstrap, independently prove BCFW/CHY falloff from QCD Feynman rules, construct loop amplitudes, formalize the full `SU(2,2)` twistor action, or prove the continuum QCD limit. Wilson and RT observables are both executed, but they are not asserted to be equal.
 
 ## Formal authority
 
-`jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, TIP `8bafa9ab93cbb39e85909fc3837bb4b6e0dec748`, principally `ScaleDilationLogMetric.lean@0c8262ba`.
+`jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, TIP `8bafa9ab93cbb39e85909fc3837bb4b6e0dec748`. The M13.2 ledger pins the exact GKP--Witten, RT, operator-spectrum, finite-density, Lovelock, twistor, BCJ-QCD, finite-Wilson and ABJM source blobs.
 
 ## Reproduction
 
 ```bash
 PYTHONPATH=. python - <<'PY'
-from openwave.xperiments.m13_scale_dilation_soliton import run_scale_dilation_soliton_study
+from openwave.xperiments.m13_scale_dilation_soliton import run_m13_model_study
 import json
-print(json.dumps(run_scale_dilation_soliton_study(), indent=2, sort_keys=True, default=str))
+print(json.dumps(run_m13_model_study(), indent=2, sort_keys=True, default=str))
 PY
 ```
