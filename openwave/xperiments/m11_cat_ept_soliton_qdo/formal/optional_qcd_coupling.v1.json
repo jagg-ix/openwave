@@ -1,0 +1,15 @@
+{
+  "schema": "openwave.m11.optional-qcd-coupling-ledger.v1",
+  "model_id": "M11",
+  "milestone": "M11.4",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "reuses": ["M10.5", "M10.6", "M10.7"],
+  "formal_sources": [
+    {"path": "Physlib/QuantumMechanics/ComplexAction/YangMillsGaugeDynamics.lean", "sha": "4fe7ae3471057b5c7b64fc22705d76f854d66766", "theorem": "yangMillsEquation_gauge_covariant"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Particles/GellMannStructureConstants.lean", "sha": "b721ea5e04a72430a81d84c6a0a6c20b3f9558a0", "theorem": "gellMann_structure_constants"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Particles/SuNGaugeSector.lean", "sha": "4585ddf9bc44396b5f9dce14321c4d6b2826cb8a", "theorem": "su3_adjoint_eq_gluonCount"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/HorizonCell/QCDComplexActionUnification.lean", "sha": "c5d7108ec4781eee3068898d0d844b689230a6fa", "theorem": "qcd_theta_confinement_factorization"}
+  ]
+}

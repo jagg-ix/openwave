@@ -1,0 +1,7 @@
+model:m11.4#extends@model:m11.3.
+model:m11.4#optional-sector@qcd:su3-color.
+qcd:su3-color#reuses@openwave:m10.5-matrix-links.
+qcd:su3-color#reuses@openwave:m10.6-periodic-hamiltonian.
+qcd:su3-color#reuses@openwave:m10.7-color-matter-gauss.
+qcd:su3-color#covariant-by@lean:YangMillsGaugeDynamics.yangMillsEquation_gauge_covariant.
+model:m11.4#retains@sector:neutral-qdo.

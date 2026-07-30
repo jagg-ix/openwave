@@ -1,0 +1,8 @@
+model:m11.3#extends@model:m11.2.
+model:m11.3#pair-interaction@potential:lennard-jones.
+potential:lennard-jones#splits@lean:LennardJonesDispersion.ljPotential_split.
+potential:lennard-jones#tail@equation:minus-c6-over-r6.
+equation:minus-c6-over-r6#identified-with@lean:LennardJonesDispersion.lj_tail_eq_vdw_dispersionEnergy.
+qdo:c6#equals@coefficient:lj-c6.
+qdo:c6#related-to@qdo:c9.
+qdo:c9#controls@potential:axilrod-teller-muto.
