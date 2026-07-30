@@ -1,0 +1,18 @@
+{
+  "schema": "openwave.m11.coupled-dynamics-registration-ledger.v1",
+  "model_id": "M11",
+  "milestone": "M11.5",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "equations": [
+    {"id": "center-dynamics", "equation": "m Xddot=-grad(E_LJ+E_ATM)", "numerical_source": "velocity_verlet"},
+    {"id": "entropic-time", "equation": "Delta tau_ent=Delta E_diss/hbar>=0", "numerical_source": "velocity_verlet"},
+    {"id": "dephasing", "equation": "rho_ij -> rho_ij exp(-gamma(i-j)^2/N^2)", "numerical_source": "dephased_density"}
+  ],
+  "formal_sources": [
+    {"path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/CubicQuinticMildFlow.lean", "sha": "82a89eabf1179eff2373b2f005317e63cbd62cba", "theorem": "target_tendsto_and_normalized_of_minimizing_energySplit"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/CubicQuinticOrbitalStability.lean", "sha": "fb47b98296a771eee44570ce42b5c2ab03d450a3", "theorem": "exists_constrained_hOne_minimizer_of_bounded_minimizingSequence"},
+    {"path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean", "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831", "theorem": "spacePointwiseKernelOperator_apply_ae"}
+  ]
+}
