@@ -1,0 +1,22 @@
+{
+  "claim_boundaries": {
+    "dilatonic_charge": "separate Weyl-Cartan sector, not the global dilation group",
+    "gkp_dictionary": "standard prescription, not derived",
+    "inverse_mass_scaling": "explicit model adapter from linearity in v",
+    "yukawa_coupling": "supplied input"
+  },
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_sources": [
+    {"path":"Physlib/QuantumMechanics/ComplexAction/Yukawa/MassDecoherenceProportionality.lean","sha":"578152c3b9d73b3baec98f845bca2f566f59e93e","theorems":["yukawaWidth_div_mass","yukawaEntropyRate_eq_const_mul_mass","yukawaMass_yukawaCoupling"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/Yukawa/CouplingIsolation.lean","sha":"527116982460e59e62c5736249a624f836d2f102","theorems":["yukawa_isolated_explicit","clockFrequency_sets_entropyRate"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/EntropicTime/ScaleDilationLogMetric.lean","sha":"0c8262bac90d2dff03a04cc8e15efb21ee87ff0e","theorems":["dilationGroupHom","dilation_isometry","scaleDistance_eq_dist_log"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenAdSCFTDictionary.lean","sha":"d9f9bf5e00fd1a4880520cab6c4e5458ee4aa1d3","theorems":["massDimension_relation","conformalDimension_sum"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/WeylCartanDilatonicCharge.lean","sha":"d29eabad8399b6bc90c3a55b260a4272273c5523","theorems":["weylForce_zero_of_no_dilatonicCharge","homotheticCurvature_antisymm"]}
+  ],
+  "milestone": "M13.3",
+  "model_id": "M13",
+  "openwave_dependencies": ["M10.1", "M13.1"],
+  "schema": "openwave.m13.yukawa-dilation-gkp-ledger.v1"
+}

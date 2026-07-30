@@ -8,6 +8,7 @@ M13 isolates the exact scale geometry underlying the CAT/EPT entropic-time arc, 
 | --- | --- |
 | M13.1 | dilation/Noether group, invariant logarithmic metric, block-spin ladder, `sqrt(2)` half-step, M11 soliton/tensor scale transport |
 | M13.2 | GKP/RT and extended AdS/CFT checks, projective twistor incidence, finite BCJ and primitive-QCD relations, M10 Wilson-loop reuse and ABJM Wilson algebra |
+| M13.3 | Yukawa mass and Compton clock transported by the dilation group with invariant mass-radius product and GKP dimension |
 
 ## M13.1 scale and carrier surface
 
@@ -48,13 +49,20 @@ M13 isolates the exact scale geometry underlying the CAT/EPT entropic-time arc, 
 - checks finite Wilson damping/source-insertion authority;
 - checks ABJM effective Planck constant, positive/factorized Fermi-gas kernel, convergence range and normalized `1/6` Wilson-loop algebra.
 
+## M13.3 Yukawa--dilation--GKP bridge
+
+- holds the supplied Yukawa coupling fixed while the Higgs scale and mass transform inversely under the scale flow;
+- scales the AdS radius oppositely, preserving the dimensionless mass-radius product and both GKP conformal roots;
+- checks the isolated Yukawa/Compton-clock identity;
+- keeps the Weyl--Cartan dilatonic charge distinct from the global dilation group.
+
 ## Claim boundary
 
-M13.2 is a finite and algebraic closure. It does not derive AdS/CFT or gauge/string duality, evaluate or holographically renormalize an interacting Witten diagram, derive anomalous dimensions or the conformal bootstrap, independently prove BCFW/CHY falloff from QCD Feynman rules, construct loop amplitudes, formalize the full `SU(2,2)` twistor action, or prove the continuum QCD limit. Wilson and RT observables are both executed, but they are not asserted to be equal.
+M13.3 remains a finite adapter over the M13.2 closure. It does not derive the Yukawa coupling, the inverse-mass scale law, AdS/CFT, or a dilaton gauge theory. The Weyl--Cartan dilatonic charge is recorded separately from the global dilation group.
 
 ## Formal authority
 
-`jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, TIP `8bafa9ab93cbb39e85909fc3837bb4b6e0dec748`. The M13.2 ledger pins the exact GKP--Witten, RT, operator-spectrum, finite-density, Lovelock, twistor, BCJ-QCD, finite-Wilson and ABJM source blobs.
+`jagg-ix/entropic-physlib-private`, branch `entropic-physlib-linear-full`, TIP `8bafa9ab93cbb39e85909fc3837bb4b6e0dec748`. The M13.3 ledger pins the Yukawa, dilation, GKP and Weyl--Cartan source blobs.
 
 ## Reproduction
 
