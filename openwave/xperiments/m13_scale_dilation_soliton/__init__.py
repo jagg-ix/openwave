@@ -5,5 +5,6 @@ from .yukawa_dilation_gkp_m133 import YukawaDilationGKPConfig, run_yukawa_dilati
 from .yukawa_rt_holographic_entropy_m134 import YukawaRTHolographicConfig, run_yukawa_rt_holographic_study
 from .bcj_yukawa_holographic_synthesis_m135 import BCJYukawaHolographicConfig, run_bcj_yukawa_holographic_study
 from .holographic_rg_cutoff_flow_m136 import HolographicRGConfig, run_holographic_rg_study
-run_m13_model_study=run_holographic_rg_study
-__all__=["ScaleDilationSolitonConfig","HolographicAmplitudeConfig","YukawaDilationGKPConfig","YukawaRTHolographicConfig","BCJYukawaHolographicConfig","HolographicRGConfig","run_scale_dilation_soliton_study","run_holographic_amplitude_study","run_yukawa_dilation_gkp_study","run_yukawa_rt_holographic_study","run_bcj_yukawa_holographic_study","run_holographic_rg_study","run_m13_model_study"]
+from .wilson_rt_surface_scaling_m137 import WilsonRTScalingConfig, run_wilson_rt_scaling_study
+run_m13_model_study=run_wilson_rt_scaling_study
+__all__=["ScaleDilationSolitonConfig","HolographicAmplitudeConfig","YukawaDilationGKPConfig","YukawaRTHolographicConfig","BCJYukawaHolographicConfig","HolographicRGConfig","WilsonRTScalingConfig","run_scale_dilation_soliton_study","run_holographic_amplitude_study","run_yukawa_dilation_gkp_study","run_yukawa_rt_holographic_study","run_bcj_yukawa_holographic_study","run_holographic_rg_study","run_wilson_rt_scaling_study","run_m13_model_study"]
