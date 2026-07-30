@@ -9,7 +9,7 @@ OpenWave hosts multiple candidate field-theoretic models. Historical M4--M8 resu
 | **M10** | **CAT/EPT Dirac--Cartan--2I--Compton--Yukawa and SU(3) color matter** | **`MODELS_M10.md`** | **latest M10.8 registration, Wilson refinement and decoherence spectra** |
 | **M11** | **CAT/EPT pointwise soliton--Liouville--QDO model** | **`MODELS_M11.md`** | **M11.1--M11.5 executable lineage and theorem-pinned ledgers** |
 | **M12** | **CAT/EPT particle-zoo coverage model** | **`MODELS_M12.md`** | **M12.1--M12.3 executable identity, electroweak, flavor, hadron and QCD coverage** |
-| **M13** | **CAT/EPT scale-dilation and holographic-amplitude model** | **`MODELS_M13.md`** | **M13.2 GKP/RT, twistor, BCJ-QCD, Wilson and ABJM closure over the M13.1 scale carrier** |
+| **M13** | **CAT/EPT scale-dilation and holographic-amplitude model** | **`MODELS_M13.md`** | **M13.3 Yukawa/dilation/GKP invariant mass-radius bridge** |
 
 ## M9 stable and latest lineage
 
@@ -31,4 +31,4 @@ M12 mirrors the particle-zoo theorem surfaces as executable checks: the 17 Stand
 
 ## M13 scale-dilation soliton-tensor model
 
-M13 places the M11 pointwise soliton and finite-cutoff infinite-mode tensor on the exact multiplicative scale line formalized by CAT/EPT. M13.2 composes that carrier with finite GKP--Witten and Ryu--Takayanagi identities, conformal operator towers, finite-density and Lovelock AdS data, projective twistors, BCJ/primitive-QCD relations, M10 Wilson loops and ABJM Wilson algebra while retaining explicit finite/algebraic claim boundaries.
+M13 places the M11 pointwise soliton and finite-cutoff infinite-mode tensor on the exact multiplicative scale line formalized by CAT/EPT. M13.2 composes that carrier with finite GKP--Witten and Ryu--Takayanagi identities, conformal operator towers, finite-density and Lovelock AdS data, projective twistors, BCJ/primitive-QCD relations, M10 Wilson loops and ABJM Wilson algebra while retaining explicit finite/algebraic claim boundaries. M13.3 additionally links the supplied Yukawa mass and Compton clock to the exact dilation group and GKP mass--dimension relation through the invariant mass-radius product.

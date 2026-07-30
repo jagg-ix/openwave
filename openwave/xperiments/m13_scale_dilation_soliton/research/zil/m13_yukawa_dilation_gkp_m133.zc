@@ -1,0 +1,7 @@
+model:m13.3#reuses@openwave:m10-yukawa-carrier.
+model:m13.3#reuses@openwave:m13.1-dilation-group.
+model:m13.3#checks@claim:yukawa-mass-scales-inversely-when-the-higgs-scale-is-dilated-inversely.
+model:m13.3#checks@claim:mass-times-ads-radius-is-invariant-under-the-paired-dilation.
+model:m13.3#checks@claim:gkp-conformal-dimension-is-invariant-under-the-paired-dilation.
+model:m13.3#separates@claim:weyl-cartan-dilatonic-charge-from-global-scale-dilation.
+model:m13.3#forbids@claim:first-principles-yukawa-coupling.
