@@ -1,0 +1,7 @@
+model:m13.9#requires@model:m13.8.
+model:m13.9#reuses@physlib:penrose-holographic-mass-entropy-bound.
+model:m13.9#checks@claim:horizon-information-is-bounded-by-four-pi-mass-squared.
+model:m13.9#checks@claim:schwarzschild-horizon-saturates-the-bound.
+model:m13.9#checks@claim:nagao-nielsen-path-weight-obeys-the-penrose-mass-floor.
+model:m13.9#separates@claim:static-horizon-area-from-area-growth-and-rt-area.
+model:m13.9#forbids@claim:first-principles-mass-origin.
