@@ -1,0 +1,7 @@
+{
+  "schema": "openwave.m10.reproduction-contract.v1",
+  "milestone": "M10.5",
+  "entrypoint": "openwave.xperiments.m10_cat_ept:run_su3_link_backreaction_study",
+  "documentation": "openwave/xperiments/m10_cat_ept/research/README_M10_5.md",
+  "zil": "openwave/xperiments/m10_cat_ept/research/zil/m10_5_reproduction.zc"
+}
