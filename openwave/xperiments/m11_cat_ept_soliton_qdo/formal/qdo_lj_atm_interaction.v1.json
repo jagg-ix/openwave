@@ -1,0 +1,21 @@
+{
+  "schema": "openwave.m11.qdo-lj-atm-interaction-ledger.v1",
+  "model_id": "M11",
+  "milestone": "M11.3",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "equations": [
+    {"id": "lj-split", "equation": "E_LJ=ljRepulsive-ljAttractive", "formal_theorem": "ljPotential_split"},
+    {"id": "lj-tail", "equation": "-ljAttractive=-C6_LJ/r^6", "formal_theorem": "lj_tail_dispersion_form"},
+    {"id": "qdo-c6", "equation": "C6_LJ=C6_QDO=3/4 alpha1^2 hbar omega", "formal_theorem": "lj_tail_is_qdo_C6"},
+    {"id": "qdo-c9", "equation": "alpha1 C6=4 C9", "formal_theorem": "lattice_couplings_qdo_related"}
+  ],
+  "formal_sources": [
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Particles/LennardJonesAxilrodTeller.lean", "sha": "93f5e1b55d1fbfe44dc5b8106b7331d08bdb5159", "theorem": "ljPotential_split"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Particles/LennardJonesAxilrodTeller.lean", "sha": "93f5e1b55d1fbfe44dc5b8106b7331d08bdb5159", "theorem": "lj_tail_dispersion_form"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Particles/LennardJonesAxilrodTeller.lean", "sha": "93f5e1b55d1fbfe44dc5b8106b7331d08bdb5159", "theorem": "lj_tail_eq_vdw_dispersionEnergy"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Particles/LennardJonesAxilrodTeller.lean", "sha": "93f5e1b55d1fbfe44dc5b8106b7331d08bdb5159", "theorem": "lj_tail_is_qdo_C6"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Particles/LennardJonesAxilrodTeller.lean", "sha": "93f5e1b55d1fbfe44dc5b8106b7331d08bdb5159", "theorem": "lattice_couplings_qdo_related"}
+  ]
+}
