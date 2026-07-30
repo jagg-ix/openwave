@@ -1,0 +1,21 @@
+{
+  "schema": "openwave.m13.lossless-holographic-reduction-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.10",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/JohnsonLindenstraussHolographicReduction.lean",
+      "sha": "087b3e89c427e2fb16089bcc05ca1a3fa9f56d2f",
+      "theorems": ["JLBound_of_isometry", "JLBound_zero_iff", "jlTargetDim_mono", "holographic_reduction_is_exact_JL", "stereographic_boundary_chart_lossless", "stereographic_roundtrip_is_exact_JL", "stereographic_domain_is_dualSphere"]
+    }
+  ],
+  "openwave_dependencies": ["M13.2", "M13.9"],
+  "claim_boundaries": {
+    "exact_reduction": "formal zero-distortion adapter",
+    "random_jl_existence": "not derived",
+    "full_twistor_group": "not claimed"
+  }
+}
