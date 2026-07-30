@@ -1,0 +1,40 @@
+{
+  "schema": "openwave.m12.standard-model-zoo-ledger.v1",
+  "model_id": "M12",
+  "milestone": "M12.1",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/StandardModelParticleContent.lean",
+      "sha": "1a6164c30723eb78c9bccdaa91ead58fbad7cab9",
+      "theorem": "card_SMParticle"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/GaugeBosonZoo.lean",
+      "sha": "97a7272bdbc981d52920bb368265ceb335792793",
+      "theorem": "gauge_boson_sector"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/ParticleZooCPT.lean",
+      "sha": "a26a50038f02ac49ca50b6c5d19ef36e76d611de",
+      "theorem": "zoo_cpt_invariance"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/BaryonLeptonNumberConservation.lean",
+      "sha": "3c887c6c5f504312bd063d125f5b176ea63a499a",
+      "theorem": "beta_decay_conserves"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/ExperimentalParticleReactions.lean",
+      "sha": "b57128a851619b9bcbc1c6198e259f5a4a37ba9e",
+      "theorem": "observed_reactions_conserve"
+    }
+  ],
+  "claim_boundaries": {
+    "particle_quantum_numbers": "empirical dictionary",
+    "conservation": "exact additive checks",
+    "rates": "not claimed"
+  }
+}
