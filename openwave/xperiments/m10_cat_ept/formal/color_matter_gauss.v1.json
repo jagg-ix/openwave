@@ -1,0 +1,59 @@
+{
+  "schema": "openwave.m10.color-matter-gauss-ledger.v1",
+  "milestone": "M10.7",
+  "model_id": "M10",
+  "equations": [
+    {
+      "id": "covariant-hopping",
+      "equation": "Hpsi_x=(m+4k)psi_x-k sum_mu(U_xmu psi_x+mu+U_x-mu,mu^dag psi_x-mu)",
+      "formal_theorem": "yangMillsEquation_gauge_covariant"
+    },
+    {
+      "id": "fundamental-color-density",
+      "equation": "rho_x=psi_x psi_x^dag-(|psi_x|^2/3)I",
+      "formal_theorem": "gellMann_structure_constants"
+    },
+    {
+      "id": "adjoint-link-current",
+      "equation": "J_xmu=-ik(A_xmu-A_xmu^dag)-Tr[-ik(A_xmu-A_xmu^dag)]I/3",
+      "formal_theorem": "su3_adjoint_eq_gluonCount"
+    },
+    {
+      "id": "color-continuity",
+      "equation": "dot rho_x+sum_mu(J_xmu-U_x-mu,mu^dag J_x-mu,mu U_x-mu,mu)=0",
+      "formal_theorem": "yangMillsEquation_gauge_covariant"
+    },
+    {
+      "id": "sourced-gauss",
+      "equation": "D_mu E_xmu=g rho_x",
+      "formal_theorem": "yangMillsEquation_gauge_covariant"
+    },
+    {
+      "id": "yukawa-born-weight",
+      "equation": "|w(t)|^2=exp(-2 Sdot_I t/hbar)",
+      "formal_theorem": "yukawaEntropyRate_eq_const_mul_mass"
+    }
+  ],
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/YangMillsGaugeDynamics.lean",
+      "sha": "4fe7ae3471057b5c7b64fc22705d76f854d66766",
+      "theorem": "yangMillsEquation_gauge_covariant"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/GellMannStructureConstants.lean",
+      "sha": "b721ea5e04a72430a81d84c6a0a6c20b3f9558a0",
+      "theorem": "gellMann_structure_constants"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/SuNGaugeSector.lean",
+      "sha": "4585ddf9bc44396b5f9dce14321c4d6b2826cb8a",
+      "theorem": "su3_adjoint_eq_gluonCount"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Yukawa/MassDecoherenceProportionality.lean",
+      "sha": "578152c3b9d73b3baec98f845bca2f566f59e93e",
+      "theorem": "yukawaEntropyRate_eq_const_mul_mass"
+    }
+  ]
+}
