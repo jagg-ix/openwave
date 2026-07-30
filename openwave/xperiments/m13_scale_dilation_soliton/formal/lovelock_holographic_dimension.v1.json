@@ -1,0 +1,31 @@
+{
+  "schema": "openwave.m13.lovelock-holographic-dimension-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.11",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/LovelockHolographicDimensionalReduction.lean",
+      "sha": "681c4b78f1d485822d3ec46a9b5d47a655d16af7",
+      "theorems": ["lovelock_dynamical_iff_boundary_dim", "einstein_dynamical_iff_boundary_ge_two", "gaussBonnet_dynamical_iff_boundary_ge_four", "lovelock_topological_at_critical_boundary"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenAdSCFTDictionary.lean",
+      "sha": "d9f9bf5e00fd1a4880520cab6c4e5458ee4aa1d3",
+      "theorems": ["massDimension_relation", "conformalDimension_sum"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/RyuTakayanagiFormulaAlgebra.lean",
+      "sha": "c14aede2c8654bdbdb4aedfca543c36872c65e55",
+      "theorems": ["rtAreaEntropy_nonneg", "brownHenneaux_third"]
+    }
+  ],
+  "openwave_dependencies": ["M13.2", "M13.10"],
+  "claim_boundaries": {
+    "activation": "dimension-counting theorem",
+    "couplings": "not derived",
+    "corrected_entropy_functional": "not constructed"
+  }
+}

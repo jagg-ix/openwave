@@ -1,0 +1,7 @@
+model:m13.11#requires@model:m13.10.
+model:m13.11#reuses@physlib:lovelock-holographic-dimensional-reduction.
+model:m13.11#checks@claim:order-n-lovelock-dynamics-activate-at-boundary-dimension-two-n.
+model:m13.11#checks@claim:einstein-activates-at-cft2-and-gauss-bonnet-at-cft4.
+model:m13.11#checks@claim:critical-dimension-is-topological-and-one-step-up-is-dynamical.
+model:m13.11#checks@claim:gkp-and-rt-share-the-same-boundary-dimension-counter.
+model:m13.11#forbids@claim:derived-lovelock-couplings-or-complete-corrected-entropy-functional.
