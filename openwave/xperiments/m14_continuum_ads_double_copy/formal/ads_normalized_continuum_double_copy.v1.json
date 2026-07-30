@@ -1,0 +1,52 @@
+{
+  "schema": "openwave.m14.ads-normalized-continuum-double-copy-ledger.v1",
+  "model_id": "M14",
+  "milestone": "M14.3",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "ea6c394fcb1d55546d11cd6af3df6556c610d52e",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Electromagnetic/EMComplexEinsteinAdSCFT.lean",
+      "sha": "eaa50fbe34c8d5f773826ee6f63265b70f07326c",
+      "theorems": [
+        "d3_adsCFT_BCJ_doubleCopy",
+        "d3_gkpWittenHessian_complexEinsteinCoupling",
+        "d3_gkpWittenHessian_boundaryCentralCharge",
+        "d3_rtEntropy_complexEinsteinCoupling",
+        "d3_rtEntropy_boundaryCentralCharge",
+        "d3_boundaryCentralCharge_complexEinstein_conservationFamily"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenAdSCFTDictionary.lean",
+      "sha": "d9f9bf5e00fd1a4880520cab6c4e5458ee4aa1d3",
+      "theorems": [
+        "massDimension_relation",
+        "cftTwoPoint_scaling",
+        "gkpWitten_regularized_source_response",
+        "gkpWitten_affine_source_hessian"
+      ]
+    },
+    {
+      "path": "Physlib/QFT/ScalarGreenFunctions.lean",
+      "sha": "b985c5442a61615f81ebbaaaea45d165338f344a",
+      "modules": [
+        "Continuum",
+        "ContinuumDysonSchwinger",
+        "ContinuumVacuum",
+        "PropagatorHierarchy",
+        "TraceLog"
+      ]
+    }
+  ],
+  "openwave_dependencies": [
+    "M14.2",
+    "M13.8"
+  ],
+  "claim_boundaries": {
+    "ads_normalization": "D3 and boundary-central-charge dictionary is exact under supplied compactification data",
+    "gkp": "positive-frequency quadrature kernel and finite quadratic response, not an interacting Witten functional",
+    "rt": "normalization identity only; no amplitude-entropy equality"
+  }
+}
