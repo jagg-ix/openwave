@@ -9,6 +9,7 @@ OpenWave hosts multiple candidate field-theoretic models. Historical M4--M8 resu
 | **M10** | **CAT/EPT Dirac--Cartan--2I--Compton--Yukawa and SU(3) color matter** | **`MODELS_M10.md`** | **latest M10.8 registration, Wilson refinement and decoherence spectra** |
 | **M11** | **CAT/EPT pointwise soliton--Liouville--QDO model** | **`MODELS_M11.md`** | **M11.1--M11.5 executable lineage and theorem-pinned ledgers** |
 | **M12** | **CAT/EPT particle-zoo coverage model** | **`MODELS_M12.md`** | **M12.1--M12.3 executable identity, electroweak, flavor, hadron and QCD coverage** |
+| **M13** | **CAT/EPT scale-dilation soliton-tensor model** | **`MODELS_M13.md`** | **M13.1 dilation/Noether/log-metric, block-spin ladder, half-step and M11 tensor transport** |
 
 ## M9 stable and latest lineage
 
@@ -27,3 +28,7 @@ M11 begins from an exact normalized pointwise bright soliton, constructs its pur
 ## M12 particle-zoo coverage model
 
 M12 mirrors the particle-zoo theorem surfaces as executable checks: the 17 Standard-Model particle types and 12 gauge states, CPT and additive selection rules, tree-level electroweak/lepton/neutrino relations, named-hadron flavor composition, SU(3) mass formulas and one-loop QCD running. Empirical masses, lifetimes, branching fractions, couplings and mixing parameters remain explicitly supplied inputs.
+
+## M13 scale-dilation soliton-tensor model
+
+M13 places the M11 pointwise soliton and finite-cutoff infinite-mode tensor on the exact multiplicative scale line formalized by CAT/EPT: the Noether dilation flow, invariant logarithmic metric, lattice `log 2` ladder, `sqrt(2)` half-step, entropic-horizon `H=-2` orbit, and supplied particle Compton-scale labels.
