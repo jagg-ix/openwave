@@ -1,0 +1,10 @@
+model:m12.3#extends@model:m12.2.
+model:m12.3#formal-authority@physlib:hadron-flavor-model.
+model:m12.3#formal-authority@physlib:hadron-mass-spectrum.
+model:m12.3#formal-authority@physlib:quark-mass-spectrum-running.
+model:m12.3#reuses@openwave:m10-su3-color-dynamics.
+model:m12.3#checks@claim:strong-gell-mann-nishijima-for-named-hadrons.
+model:m12.3#checks@claim:gell-mann-okubo-octet-and-decuplet-relations.
+model:m12.3#checks@claim:one-loop-alpha-s-asymptotic-freedom.
+model:m12.3#records@input:pdg-quark-and-hadron-masses.
+model:m12.3#excludes@claim:first-principles-hadron-mass-prediction.

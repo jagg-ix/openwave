@@ -1,0 +1,35 @@
+{
+  "schema": "openwave.m12.electroweak-lepton-neutrino-ledger.v1",
+  "model_id": "M12",
+  "milestone": "M12.2",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/ElectroweakGaugeBosonPhenomenology.lean",
+      "sha": "da3d6dafa85b1aa9f2bbfc0d2a2b7ccd3f466ab2",
+      "theorem": "electroweakGaugeBosonPhenomenology_checked"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/LeptonFlavorNumbers.lean",
+      "sha": "000cbb4e074c5a55592ba8fd9da7562a6ac1c1a5",
+      "theorem": "sargent_universality_ratio"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/MichelDecayFlavor.lean",
+      "sha": "aa0d6a5b05193b4fe108d9c0de462449b67d25c6",
+      "theorem": "michel_decay_complete"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/NeutrinoModel.lean",
+      "sha": "97cf848ed10ccbc434f89830d765fa9ebe481e11",
+      "theorem": "deltaM21Sq_pos_of_normal"
+    }
+  ],
+  "claim_boundaries": {
+    "couplings_masses_angles": "supplied inputs",
+    "relations": "tree-level executable checks",
+    "radiative_corrections": "not claimed"
+  }
+}

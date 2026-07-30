@@ -1,0 +1,36 @@
+{
+  "schema": "openwave.m12.quark-hadron-qcd-spectrum-ledger.v1",
+  "model_id": "M12",
+  "milestone": "M12.3",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/HadronFlavorModel.lean",
+      "sha": "dcf30b22a28719ccddff788adcbf3d8f4a970ed9",
+      "theorem": "gmn_strong_baryon"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/HadronMassSpectrum.lean",
+      "sha": "302e185e6db321d3795561b7bcf372b999120427",
+      "theorem": "gellMannOkubo_octet"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/HadronMassSpectrum.lean",
+      "sha": "302e185e6db321d3795561b7bcf372b999120427",
+      "theorem": "decuplet_omega_prediction"
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/Particles/QuarkMassSpectrumRunning.lean",
+      "sha": "c13f282173ad4587030178727dc93e9e5aafff7d",
+      "theorem": "alphaS_decreases"
+    }
+  ],
+  "claim_boundaries": {
+    "quark_hadron_masses": "PDG inputs",
+    "mass_relations": "SU3 ansatz consequences",
+    "qcd_running": "one-loop",
+    "nonabelian_dynamics": "reused from M10"
+  }
+}

@@ -8,6 +8,7 @@ OpenWave hosts multiple candidate field-theoretic models. Historical M4--M8 resu
 | **M9** | **CAT/EPT Pauli--Hartree--U(1) dynamics** | **`MODELS_M9.md`** | **stable M9.126 evidence aliases plus latest M9.141 integration aliases** |
 | **M10** | **CAT/EPT Dirac--Cartan--2I--Compton--Yukawa and SU(3) color matter** | **`MODELS_M10.md`** | **latest M10.8 registration, Wilson refinement and decoherence spectra** |
 | **M11** | **CAT/EPT pointwise soliton--Liouville--QDO model** | **`MODELS_M11.md`** | **M11.1--M11.5 executable lineage and theorem-pinned ledgers** |
+| **M12** | **CAT/EPT particle-zoo coverage model** | **`MODELS_M12.md`** | **M12.1--M12.3 executable identity, electroweak, flavor, hadron and QCD coverage** |
 
 ## M9 stable and latest lineage
 
@@ -22,3 +23,7 @@ M10 constructs a distinct four-spinor model rather than replacing M9. Its curren
 ## M11 pointwise soliton--Liouville--QDO comparison model
 
 M11 begins from an exact normalized pointwise bright soliton, constructs its pure Liouville density tensor in controlled finite cutoffs of an infinite mode set, and derives the Lennard--Jones `-C6/R6` and Axilrod--Teller `C9/R9` interactions from one QDO response model. Its optional QCD sector reuses M10's SU(3) engine. The final campaign adds conservative and entropic center dynamics plus tensor dephasing without claiming a completed infinite-particle Fock space or a calibrated physical particle identity.
+
+## M12 particle-zoo coverage model
+
+M12 mirrors the particle-zoo theorem surfaces as executable checks: the 17 Standard-Model particle types and 12 gauge states, CPT and additive selection rules, tree-level electroweak/lepton/neutrino relations, named-hadron flavor composition, SU(3) mass formulas and one-loop QCD running. Empirical masses, lifetimes, branching fractions, couplings and mixing parameters remain explicitly supplied inputs.
