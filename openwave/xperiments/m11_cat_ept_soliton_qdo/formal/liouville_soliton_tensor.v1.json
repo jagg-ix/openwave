@@ -1,0 +1,19 @@
+{
+  "schema": "openwave.m11.liouville-soliton-tensor-ledger.v1",
+  "model_id": "M11",
+  "milestone": "M11.2",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "equations": [
+    {"id": "pure-density-tensor", "equation": "rho_ij=a_i conjugate(a_j)", "numerical_source": "construct_liouville_tensor"},
+    {"id": "pointwise-actions", "equation": "L_a R_b rho=R_b L_a rho", "formal_theorem": "leftPointwise_rightPointwise_commute"},
+    {"id": "fixed-particle-sector", "equation": "sum_k n_k=N", "formal_theorem": "kernelOccupationBasis_particleNumber"}
+  ],
+  "formal_sources": [
+    {"path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean", "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831", "theorem": "leftPointwise_rightPointwise_commute"},
+    {"path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean", "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831", "theorem": "kernelMode_infinite"},
+    {"path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean", "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831", "theorem": "kernelOccupationBasis_particleNumber"},
+    {"path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean", "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831", "theorem": "continuumKernelNormSq_nonneg"}
+  ]
+}
