@@ -1,0 +1,6 @@
+model:m11#milestone@m11.1.
+model:m11.1#carrier@pointwise:bright-soliton.
+pointwise:bright-soliton#satisfies@equation:cubic-nls-stationary.
+pointwise:bright-soliton#standing-wave@equation:time-dependent-phase.
+pointwise:bright-soliton#controlled-by@lean:SinhGordonSoliton.bps_implies_sinhGordon.
+pointwise:bright-soliton#bridged-to@lean:SelfBoundSchrodingerNewtonPDE.standingWave_solves_full_schrodingerNewton.
