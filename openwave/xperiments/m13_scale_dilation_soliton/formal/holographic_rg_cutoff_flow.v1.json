@@ -1,0 +1,37 @@
+{
+  "schema": "openwave.m13.holographic-rg-cutoff-flow-ledger.v1",
+  "model_id": "M13",
+  "milestone": "M13.6",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_sources": [
+    {
+      "path": "Physlib/QFT/HamiltonianRenormalisation/FreeScalarCovarianceFlow.lean",
+      "sha": "7d878d9658f0c7f191fdd9a02ec682757b1c9767",
+      "theorems": ["covariance_flow_step", "fixedPoint_covariance_flow"]
+    },
+    {
+      "path": "Physlib/QFT/HamiltonianRenormalisation/DirectHamiltonianFlow.lean",
+      "sha": "b75e77e371938663ac744b52efff2018f31d0925",
+      "theorems": ["gaussianWeyl_flow", "covariance_fixedPoint_automatic", "couplingFunction_tendsto_one", "couplingFunction_tendsto_zero"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/ScaleDilationLogMetric.lean",
+      "sha": "0c8262bac90d2dff03a04cc8e15efb21ee87ff0e",
+      "theorems": ["blockspin_ladder", "scaleDistance_eq_dist_log", "blockspin_geodesic"]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/RyuTakayanagiFormulaAlgebra.lean",
+      "sha": "c14aede2c8654bdbdb4aedfca543c36872c65e55",
+      "theorems": ["brownHenneaux_third", "cftEntropyVacuumLine_strongSubadditivity"]
+    }
+  ],
+  "openwave_dependencies": ["M13.5"],
+  "claim_boundaries": {
+    "renormalisation": "finite free-scalar Gaussian covariance flow",
+    "rt_cutoff": "explicit boundary cutoff adapter",
+    "interacting_fixed_point": "not claimed",
+    "holographic_c_theorem": "not claimed"
+  }
+}

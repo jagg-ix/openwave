@@ -1,0 +1,7 @@
+model:m13.6#requires@model:m13.5.
+model:m13.6#reuses@physlib:free-scalar-covariance-flow.
+model:m13.6#reuses@physlib:direct-hamiltonian-flow.
+model:m13.6#checks@claim:the-hyperbolic-covariance-is-a-blockspin-fixed-point.
+model:m13.6#checks@claim:the-principal-coupling-survives-while-image-couplings-freeze.
+model:m13.6#checks@claim:rt-cutoff-entropy-advances-linearly-along-log-two-scale-steps.
+model:m13.6#forbids@claim:interacting-rg-fixed-point-or-holographic-c-theorem.
