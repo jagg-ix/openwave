@@ -1,0 +1,10 @@
+model:m12.2#extends@model:m12.1.
+model:m12.2#formal-authority@physlib:electroweak-gauge-boson-phenomenology.
+model:m12.2#formal-authority@physlib:lepton-flavor-numbers.
+model:m12.2#formal-authority@physlib:michel-decay-flavor.
+model:m12.2#formal-authority@physlib:neutrino-model.
+model:m12.2#checks@claim:neutral-mass-matrix-photon-zero-z-mass.
+model:m12.2#checks@claim:tree-level-cross-sections-and-widths.
+model:m12.2#checks@claim:michel-and-tau-family-selection-rules.
+model:m12.2#checks@claim:pmns-unitarity-and-vacuum-probability-normalization.
+model:m12.2#excludes@claim:predicted-pmns-angles-or-radiative-corrections.
