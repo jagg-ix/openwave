@@ -1,0 +1,23 @@
+{
+  "claim_boundaries": {
+    "bcj_rt": "no amplitude-entropy equality",
+    "continuum": "no continuum QCD or string duality claim",
+    "mass": "same supplied Yukawa mass used across adapters",
+    "wilson_tension": "finite effective fit coefficient"
+  },
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_sources": [
+    {"path":"Physlib/QuantumMechanics/ComplexAction/BCJDoubleCopy/ColorKinematicsDoubleCopy.lean","sha":"110a42b466c7fcf8be68be4326cb1d0c9197043c","theorems":["bcjDoubleCopy_diagonal_nonneg","cubicDoubleCopy_eq_cubicAmplitude_colorReplacement"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/Particles/QCDFundamentalBCJRelations.lean","sha":"5756653f5dbd58ac14fef7307d03223e7bf81304","theorems":["forwardBCJRelation_iff_backwardBCJRelation","fundamentalBCJ_inductionStep_closes"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/Yukawa/ReggeStringMassYukawaReplacement.lean","sha":"71a75b6e6b94be3ec9a0fdb4915551accf08e0eb","theorems":["reggeTrajectory_at_massSq","reggeWidth_at_mass_eq_widthFromRate_iff"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenAdSCFTDictionary.lean","sha":"d9f9bf5e00fd1a4880520cab6c4e5458ee4aa1d3","theorems":["massDimension_relation","cftTwoPoint_scaling"]},
+    {"path":"Physlib/QuantumMechanics/ComplexAction/AdSCFT/RyuTakayanagiFormulaAlgebra.lean","sha":"c14aede2c8654bdbdb4aedfca543c36872c65e55","theorems":["rtAreaEntropy_nonneg","rt_log_square_prefactor_identity"]},
+    {"path":"Physlib/QFT/PathIntegral/FiniteWilsonGaugeModel.lean","sha":"870efa65de9037ea7c8e617628b15c19fb3de521","theorems":["boltzmannFactor_pos","sourceCoupledPartition_linearSource_hasDerivAt_zero"]}
+  ],
+  "milestone": "M13.5",
+  "model_id": "M13",
+  "openwave_dependencies": ["M10.8", "M13.2", "M13.4"],
+  "schema": "openwave.m13.bcj-yukawa-holographic-synthesis-ledger.v1"
+}

@@ -1,0 +1,7 @@
+model:m13.5#requires@model:m13.4.
+model:m13.5#reuses@openwave:m10.8-wilson-loop-campaign.
+model:m13.5#checks@claim:massive-bcj-color-and-kinematic-jacobi-identities.
+model:m13.5#checks@claim:wilson-effective-string-tension-defines-a-regge-slope-reproducing-the-supplied-yukawa-mass.
+model:m13.5#checks@claim:the-same-supplied-mass-enters-bcj-propagators-gkp-dimension-and-rt-cutoff.
+model:m13.5#forbids@claim:bcj-amplitude-equals-rt-entropy.
+model:m13.5#forbids@claim:continuum-gauge-string-duality.
