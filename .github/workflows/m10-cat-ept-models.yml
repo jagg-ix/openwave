@@ -42,8 +42,11 @@ jobs:
       - name: Compile M10 modules
         run: python -m compileall -q openwave/xperiments/m10_cat_ept
 
-      - name: Validate formal ledger
-        run: python -m json.tool openwave/xperiments/m10_cat_ept/formal/dirac_cartan_2i_yukawa.v1.json >/dev/null
+      - name: Validate all formal ledgers
+        run: |
+          for ledger in openwave/xperiments/m10_cat_ept/formal/*.json; do
+            python -m json.tool "$ledger" >/dev/null
+          done
 
       - name: Run M10 tests
         env:
