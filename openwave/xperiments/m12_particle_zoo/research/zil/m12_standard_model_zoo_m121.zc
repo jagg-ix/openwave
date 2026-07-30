@@ -1,0 +1,9 @@
+model:m12.1#formal-authority@physlib:standard-model-particle-content.
+model:m12.1#formal-authority@physlib:particle-zoo-cpt.
+model:m12.1#formal-authority@physlib:experimental-particle-reactions.
+model:m12.1#establishes@claim:seventeen-standard-model-particle-types.
+model:m12.1#establishes@claim:twelve-gauge-boson-states.
+model:m12.1#checks@claim:zoo-wide-cpt-pair-annihilation.
+model:m12.1#checks@claim:observed-reaction-qbl-conservation.
+model:m12.1#checks@claim:mu-to-e-gamma-family-selection-rule.
+model:m12.1#excludes@claim:decay-rates-or-matrix-elements.
