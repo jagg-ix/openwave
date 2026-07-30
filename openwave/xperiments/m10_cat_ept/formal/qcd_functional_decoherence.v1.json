@@ -1,0 +1,55 @@
+{
+  "schema": "openwave.m10.qcd-functional-decoherence-ledger.v1",
+  "model_id": "M10",
+  "milestone": "M10.4",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "second_quantized_bridge": {
+    "pull_request": 42,
+    "head": "45269fa04dc16ae1588925f0a8c167ee9dfbc7b8",
+    "theorem": "dirac_cartan_2I_second_quantized_qcd_assembly"
+  },
+  "terms": [
+    {
+      "id": "finite-center-wilson-functional",
+      "equation": "Z[J]=sum_c exp(i theta n_c-beta S_W[c]-N Sdot_I t/hbar+J O_c)",
+      "formal_source": "Physlib/QFT/PathIntegral/FiniteWilsonGaugeModel.lean@870efa65de9037ea7c8e617628b15c19fb3de521",
+      "numerical_source": "source_coupled_partition",
+      "established": "complete source-coupled sum over all 81 Z3-center Wilson histories"
+    },
+    {
+      "id": "connected-generating-functional",
+      "equation": "d log Z/dJ=<O>; d2 log Z/dJ2=<O2>-<O>2",
+      "formal_source": "Physlib/QFT/PathIntegral/FiniteWilsonGaugeModel.lean@870efa65de9037ea7c8e617628b15c19fb3de521",
+      "numerical_source": "normalized_expectation / connected_two_point",
+      "established": "first and second source derivatives reproduce normalized and connected insertions"
+    },
+    {
+      "id": "qcd-complex-action-factorization",
+      "equation": "w_c=exp(i theta n_c) exp(-beta S_W[c]/hbar) exp(-N Sdot_I t/hbar)",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/HorizonCell/QCDComplexActionUnification.lean@c5d7108ec4781eee3068898d0d844b689230a6fa",
+      "numerical_source": "history_weights",
+      "established": "theta phase, Wilson confinement, and Fock Yukawa entropy are one complex-action history weight"
+    },
+    {
+      "id": "influence-functional-decoherence",
+      "equation": "D_ab=w_a conjugate(w_b) exp[-(2 M gamma t/beta_env)||x_a-x_b||2]",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/CaldeiraLeggettInfluenceFunctional.lean@c58d579b0c9b260cd998fa4784f3325ce434acce",
+      "numerical_source": "history_decoherence_matrix",
+      "established": "Hermitian normalized positive-semidefinite decoherence matrix with environment-strength suppression"
+    },
+    {
+      "id": "history-born-and-offdiagonal-bound",
+      "equation": "D_aa=|w_a|2; |D_ab|2<=D_aa D_bb",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/DecoherenceFunctionalSorkinJohnston.lean@52c99efa2e5bb53cd051ac2a15c5eeca08a07cef",
+      "numerical_source": "history_decoherence_matrix / offdiag_bound_error",
+      "established": "Born diagonal and Dowker-Halliwell off-diagonal inequality"
+    },
+    {
+      "id": "one-loop-qcd-functionals",
+      "equation": "integral_0^1 dx/[xA+(1-x)B]^2=1/(AB); integral_0^1 log(x(1-x)) dx=-2",
+      "formal_source": "Physlib/QuantumMechanics/ComplexAction/PathIntegral/OneLoopScalarIntegralsQCD.lean@5266ab5fa8bcd4eaa2f65581e368306f55beb1c5",
+      "numerical_source": "one_loop_diagnostics",
+      "established": "Feynman-parameter identity and convergent bubble finite part"
+    }
+  ]
+}
