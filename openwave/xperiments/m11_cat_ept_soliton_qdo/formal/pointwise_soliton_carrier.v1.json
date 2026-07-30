@@ -1,0 +1,18 @@
+{
+  "schema": "openwave.m11.pointwise-soliton-carrier-ledger.v1",
+  "model_id": "M11",
+  "milestone": "M11.1",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "8bafa9ab93cbb39e85909fc3837bb4b6e0dec748",
+  "equations": [
+    {"id": "bright-soliton", "equation": "-D psi_xx-g psi^3=mu psi", "numerical_source": "construct_pointwise_soliton"},
+    {"id": "standing-wave", "equation": "Psi(t,x)=exp(-i mu t/hbar) psi(x)", "numerical_source": "PointwiseSolitonState.wave"},
+    {"id": "bps-control", "equation": "phi'=2 sinh(phi/2) => phi''=sinh(phi)", "formal_theorem": "bps_implies_sinhGordon"}
+  ],
+  "formal_sources": [
+    {"path": "Physlib/QuantumMechanics/ComplexAction/SinhGordonSoliton.lean", "sha": "b2eb056dd4d66d224adf2d118da874e48a4a63cc", "theorem": "bps_implies_sinhGordon"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/SelfBoundSchrodingerNewtonPDE.lean", "sha": "d84c06718e292dd18e03653efb34d237a4e2899a", "theorem": "standingWave_solves_full_schrodingerNewton"},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/EntropicTime/CubicQuinticOrbitalStability.lean", "sha": "fb47b98296a771eee44570ce42b5c2ab03d450a3", "theorem": "cubicQuinticDensity_coercive"}
+  ]
+}

@@ -1,0 +1,45 @@
+name: M11 CAT-EPT soliton-QDO model
+
+on:
+  pull_request:
+    paths:
+      - "openwave/xperiments/m11_cat_ept_soliton_qdo/**"
+      - "tests/test_m11_*.py"
+      - "MODELS.md"
+      - "MODELS_M11.md"
+      - ".github/workflows/m11-cat-ept-models.yml"
+  push:
+    branches: [main]
+    paths:
+      - "openwave/xperiments/m11_cat_ept_soliton_qdo/**"
+      - "tests/test_m11_*.py"
+      - "MODELS.md"
+      - "MODELS_M11.md"
+      - ".github/workflows/m11-cat-ept-models.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  m11-models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install focused dependencies
+        run: python -m pip install --upgrade pip "numpy>=2.3,<3.0" "pytest>=8,<10"
+      - name: Compile M11 modules
+        run: python -m compileall -q openwave/xperiments/m11_cat_ept_soliton_qdo
+      - name: Validate formal ledgers
+        run: |
+          for ledger in openwave/xperiments/m11_cat_ept_soliton_qdo/formal/*.json; do
+            python -m json.tool "$ledger" >/dev/null
+          done
+      - name: Run M11 tests
+        env:
+          PYTHONPATH: .
+        run: pytest -q tests/test_m11_*.py
