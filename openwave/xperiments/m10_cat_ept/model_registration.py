@@ -16,6 +16,13 @@ from .formal_authority import (
     canonical_payload as formal_authority_payload,
     fingerprint as formal_authority_fingerprint,
 )
+from .periodic_su3_hamiltonian_m106 import (
+    FORMAL_SOURCES as HAMILTONIAN_FORMAL_SOURCES,
+    MILESTONE,
+    SCHEMA as MODEL_SCHEMA,
+    canonical_payload as hamiltonian_payload,
+    run_periodic_su3_hamiltonian_study,
+)
 from .qcd_functional_decoherence_m104 import (
     FORMAL_SOURCES as QCD_FORMAL_SOURCES,
     MILESTONE as QCD_MILESTONE,
@@ -33,13 +40,12 @@ from .second_quantized_fock_m103 import (
 )
 from .su3_link_backreaction_m105 import (
     FORMAL_SOURCES as SU3_FORMAL_SOURCES,
-    MILESTONE,
-    SCHEMA as MODEL_SCHEMA,
+    MILESTONE as SU3_MILESTONE,
     canonical_payload as su3_payload,
     run_su3_link_backreaction_study,
 )
 
-SCHEMA = "openwave.model-registration.m10.v5"
+SCHEMA = "openwave.model-registration.m10.v6"
 
 
 def canonical_registration_payload() -> dict[str, Any]:
@@ -47,19 +53,22 @@ def canonical_registration_payload() -> dict[str, Any]:
     fock = fock_payload()
     qcd = qcd_payload()
     su3 = su3_payload()
+    hamiltonian = hamiltonian_payload()
     formal = formal_authority_payload()
     return {
         "schema": SCHEMA,
         "model_id": "M10",
-        "model": su3["model"],
+        "model": hamiltonian["model"],
         "milestone": MILESTONE,
         "carrier_milestone": CARRIER_MILESTONE,
         "closure_milestone": "M10.2",
         "fock_milestone": FOCK_MILESTONE,
         "qcd_milestone": QCD_MILESTONE,
+        "su3_milestone": SU3_MILESTONE,
         "carrier_schema": CARRIER_SCHEMA,
         "fock_schema": fock["schema"],
         "qcd_schema": qcd["schema"],
+        "su3_schema": su3["schema"],
         "model_schema": MODEL_SCHEMA,
         "construction_api": carrier["construction_api"],
         "state_api": carrier["state_api"],
@@ -68,21 +77,24 @@ def canonical_registration_payload() -> dict[str, Any]:
         "qcd_functional_study_api": qcd["study_api"],
         "su3_link_construction_api": su3["construction_api"],
         "su3_link_study_api": su3["study_api"],
+        "hamiltonian_lattice_study_api": hamiltonian["study_api"],
         "formal_authority": formal,
         "formal_authority_fingerprint": formal_authority_fingerprint(formal),
         "second_quantized_formal_authority": dict(fock["formal_authority"]),
         "qcd_functional_formal_authority": dict(qcd["formal_authority"]),
         "su3_link_formal_authority": dict(su3["formal_authority"]),
+        "hamiltonian_lattice_formal_authority": dict(hamiltonian["formal_authority"]),
         "establishes": [
             *carrier["establishes"],
             "finite fermionic CAR Fock space over four Dirac modes",
-            "finite center-valued Wilson/QCD source functional and history decoherence",
-            "matrix-valued SU3 link transport and local gauge covariance",
-            "adjoint quark color current and covariant link backreaction",
+            "finite center-valued Wilson/QCD functional and history decoherence",
+            "matrix-valued SU3 link transport and color backreaction",
+            "periodic SU3 Hamiltonian lattice with electric fields and Gauss law",
+            "symmetric reversible leapfrog and finite Wilson-loop diagnostics",
         ],
         "comparison_role": (
-            "second-quantized relativistic non-Abelian QCD comparison model to "
-            "M9 Pauli-Hartree-U1"
+            "second-quantized relativistic Hamiltonian non-Abelian QCD comparison "
+            "model to M9 Pauli-Hartree-U1"
         ),
     }
 
@@ -100,33 +112,37 @@ def run_model_registration_study() -> dict[str, Any]:
     fock = run_second_quantized_fock_study()
     qcd = run_qcd_functional_decoherence_study()
     su3 = run_su3_link_backreaction_study()
+    hamiltonian = run_periodic_su3_hamiltonian_study()
     formal = payload["formal_authority"]
     fock_formal = payload["second_quantized_formal_authority"]
     qcd_formal = payload["qcd_functional_formal_authority"]
     su3_formal = payload["su3_link_formal_authority"]
+    hamiltonian_formal = payload["hamiltonian_lattice_formal_authority"]
     theorem_names = {source["theorem"] for source in formal["sources"]}
     qcd_theorems = {source["theorem"] for source in qcd_formal["sources"]}
     su3_theorems = {source["theorem"] for source in su3_formal["sources"]}
+    hamiltonian_theorems = {source["theorem"] for source in hamiltonian_formal["sources"]}
     acceptance = {
         "model_id_is_M10": payload["model_id"] == "M10",
-        "latest_milestone_is_M10_5": payload["milestone"] == "M10.5",
+        "latest_milestone_is_M10_6": payload["milestone"] == "M10.6",
         "lineage_is_retained": (
             payload["carrier_milestone"] == "M10.1"
             and payload["closure_milestone"] == "M10.2"
             and payload["fock_milestone"] == "M10.3"
             and payload["qcd_milestone"] == "M10.4"
+            and payload["su3_milestone"] == "M10.5"
         ),
         "carrier_core_study_passes": bool(core["passed"]),
         "second_quantized_study_passes": bool(fock["passed"]),
         "qcd_functional_study_passes": bool(qcd["passed"]),
         "su3_link_backreaction_study_passes": bool(su3["passed"]),
+        "hamiltonian_lattice_study_passes": bool(hamiltonian["passed"]),
         "one_particle_formal_head_is_exactly_pinned": formal["head"] == FORMAL_HEAD,
         "one_particle_formal_sources_are_blob_pinned": (
             len(formal["sources"]) == 3
             and all(len(source["sha"]) == 40 for source in formal["sources"])
         ),
-        "one_particle_theorems_are_registered": theorem_names
-        == {
+        "one_particle_theorems_are_registered": theorem_names == {
             "binary_icosahedral_dirac_spinor_assembly",
             "dirac_cartan_axial_elimination_assembly",
             "dirac_cartan_2I_compton_yukawa_assembly",
@@ -141,8 +157,7 @@ def run_model_registration_study() -> dict[str, Any]:
             len(qcd_formal["sources"]) == len(QCD_FORMAL_SOURCES)
             and all(len(source["sha"]) == 40 for source in qcd_formal["sources"])
         ),
-        "qcd_load_bearing_theorems_are_registered": qcd_theorems
-        == {
+        "qcd_theorems_are_registered": qcd_theorems == {
             "qcd_theta_confinement_factorization",
             "connectedGeneratingFunctional_linearSource_hasDerivAt_zero",
             "feynmanVernon_modulus_is_decoherence",
@@ -153,45 +168,49 @@ def run_model_registration_study() -> dict[str, Any]:
             len(su3_formal["sources"]) == len(SU3_FORMAL_SOURCES)
             and all(len(source["sha"]) == 40 for source in su3_formal["sources"])
         ),
-        "su3_load_bearing_theorems_are_registered": su3_theorems
-        == {
+        "su3_theorems_are_registered": su3_theorems == {
             "gellMann_structure_constants",
             "three_vertex_jacobi",
             "su3_adjoint_eq_gluonCount",
             "sourceCoupledPartition_linearSource_hasDerivAt_zero",
             "qcd_theta_confinement_factorization",
         },
+        "hamiltonian_formal_sources_are_content_pinned": (
+            len(hamiltonian_formal["sources"]) == len(HAMILTONIAN_FORMAL_SOURCES)
+            and all(len(source["sha"]) == 40 for source in hamiltonian_formal["sources"])
+        ),
+        "hamiltonian_theorems_are_registered": hamiltonian_theorems == {
+            "yangMillsEquation_gauge_covariant",
+            "wilsonAction_nonneg",
+            "gellMann_structure_constants",
+            "boltzmannFactor_le_one",
+        },
         "all_model_apis_are_registered": (
             payload["construction_api"].endswith(":construct_state")
-            and payload["state_api"].endswith(":DiracCartan2IYukawaState")
             and payload["fock_construction_api"].endswith(":construct_fock_state")
-            and payload["qcd_functional_study_api"].endswith(
-                ":run_qcd_functional_decoherence_study"
-            )
+            and payload["qcd_functional_study_api"].endswith(":run_qcd_functional_decoherence_study")
             and payload["su3_link_construction_api"].endswith(":construct_link_state")
-            and payload["su3_link_study_api"].endswith(
-                ":run_su3_link_backreaction_study"
-            )
+            and payload["hamiltonian_lattice_study_api"].endswith(":run_periodic_su3_hamiltonian_study")
         ),
         "formal_fingerprint_is_deterministic": (
-            payload["formal_authority_fingerprint"]
-            == formal_authority_fingerprint(formal)
+            payload["formal_authority_fingerprint"] == formal_authority_fingerprint(formal)
         ),
         "registration_fingerprint_is_deterministic": fingerprint(payload) == fingerprint(payload),
     }
     return {
         **payload,
-        "task": "M10.5o",
+        "task": "M10.6i",
         "fingerprint": fingerprint(payload),
         "core_fingerprint": core["fingerprint"],
         "fock_fingerprint": fock["fingerprint"],
         "qcd_fingerprint": qcd["fingerprint"],
         "su3_fingerprint": su3["fingerprint"],
+        "hamiltonian_fingerprint": hamiltonian["fingerprint"],
         "acceptance": acceptance,
         "passed": all(acceptance.values()),
         "decision": {
             "m10_registered_as_separate_model": True,
-            "m10_su3_link_backreaction_is_latest": True,
+            "m10_periodic_su3_hamiltonian_is_latest": True,
             "all_formal_authorities_are_content_pinned": True,
             "m9_registration_rewritten": False,
         },

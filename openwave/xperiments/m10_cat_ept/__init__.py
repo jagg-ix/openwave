@@ -6,6 +6,11 @@ from .dirac_cartan_2i_yukawa_model import (
     construct_state,
     run_m10_core_study,
 )
+from .periodic_su3_hamiltonian_m106 import (
+    PeriodicSU3HamiltonianConfig,
+    PeriodicSU3HamiltonianState,
+    run_periodic_su3_hamiltonian_study,
+)
 from .qcd_functional_decoherence_m104 import (
     QCDFunctionalDecoherenceConfig,
     run_qcd_functional_decoherence_study,
@@ -27,6 +32,8 @@ from .su3_link_backreaction_m105 import (
 __all__ = [
     "DiracCartan2IYukawaConfig",
     "DiracCartan2IYukawaState",
+    "PeriodicSU3HamiltonianConfig",
+    "PeriodicSU3HamiltonianState",
     "QCDFunctionalDecoherenceConfig",
     "SecondQuantizedFockConfig",
     "SecondQuantizedFockState",
@@ -40,4 +47,5 @@ __all__ = [
     "run_second_quantized_fock_study",
     "run_qcd_functional_decoherence_study",
     "run_su3_link_backreaction_study",
+    "run_periodic_su3_hamiltonian_study",
 ]

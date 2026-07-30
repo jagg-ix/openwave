@@ -2,85 +2,79 @@
 
 M10 is the relativistic, second-quantized, and non-Abelian QCD comparison model to the M9 Pauli--Hartree--U(1) carrier.
 
-## M10.1 one-particle carrier
+## M10.1--M10.5 established lineage
 
-M10.1 constructs one executable three-dimensional four-spinor state with the complete 120-element binary icosahedral group, minimally coupled U(1) fields, measured winding, the canonical axial current, algebraic Cartan contorsion and Hehl--Datta contact interaction, Yukawa mass, Compton clock, complex CAT/EPT mass, and self-consistent electromagnetic fields.
+- **M10.1:** four-spinor Dirac--Cartan--2I--Compton--Yukawa carrier.
+- **M10.2:** stationary descent, refinement, perturbation and continuity closure.
+- **M10.3:** 16-dimensional four-mode fermionic Fock realization with CAR and fermion parity.
+- **M10.4:** finite `Z3 subset SU(3)` functional, connected correlators and history decoherence.
+- **M10.5:** genuine matrix-valued `SU(3)` links, local gauge covariance and quark-color backreaction.
 
-## M10.2 stationary and robustness closure
+## M10.6 periodic Hamiltonian SU(3) lattice
 
-M10.2 establishes residual-reducing stationary descent, positive entropic-time advance, nested odd-grid retention of winding, norm and charge, perturbation-tube stability, interacting central-pair descent, and integrated Dirac continuity.
-
-## M10.3 fermionic second quantization
-
-M10.3 constructs the complete four-mode fermionic Fock realization:
-
-```text
-Fock dimension: 2^4 = 16
-sector dimensions: 1, 4, 6, 4, 1
-```
-
-It establishes exact Jordan--Wigner CAR, Pauli exclusion, determinant exterior-power lifts for all 120 binary-icosahedral transformations, all 14,400 group products, creation intertwining, central sign as fermion parity, `dGamma(E_C I_4)=E_C N`, the finite fermion partition function, and occupation-dependent CAT/EPT suppression.
-
-## M10.4 finite QCD functional and history decoherence
-
-M10.4 couples the Fock occupation sector to all `3^4=81` histories of a four-plaquette `Z3 subset SU(3)` Wilson ensemble. It establishes the theta/confinement/Fock-entropy complex-action weight, source-coupled partitions, connected correlators, one-loop scalar functional checks, and an `81 x 81` positive environment-suppressed history decoherence matrix.
-
-## M10.5 matrix-valued SU(3) links and color backreaction
-
-M10.5 strictly extends the center reduction to genuine `3 x 3` link matrices generated from the eight Gell-Mann directions.
-
-The four links of one oriented plaquette transform locally as
+M10.6 places the matrix-valued links on a `2 x 2` periodic lattice. Eight oriented links carry
 
 ```text
-U_xy -> G_x U_xy G_y^dagger,
-P -> G_0 P G_0^dagger,
-S_W = 1 - Re Tr(P)/3.
+U_x,mu in SU(3)
+E_x,mu = E_x,mu^dagger
+Tr(E_x,mu) = 0.
 ```
 
-A normalized quark color vector supplies the traceless adjoint current
+Each periodic plaquette is
 
 ```text
-J_x = |q_x><q_x| - I/3.
+P_x = U_x,0 U_x+0,1 U_x+1,0^dagger U_x,1^dagger
 ```
 
-The target-end current is parallel transported to the source and the link is advanced by
+and the Hamiltonian is
 
 ```text
-K_xy = J_x - U_xy J_y U_xy^dagger,
-U_xy' = exp(i epsilon K_xy) U_xy.
+H = (1/2) sum_links Tr(E_l^2)
+    + beta sum_plaquettes (1 - Re Tr(P_p)/3).
 ```
 
-The executable campaign establishes:
+The source-free lattice Gauss generator is
 
-- Hermiticity, tracelessness and `Tr(lambda_a lambda_b)=2 delta_ab` for the eight Gell-Mann matrices;
-- the representative commutator `[lambda_1,lambda_2]=2 i lambda_3` and the Jacobi identity;
-- the fundamental Casimir `sum_a (lambda_a/2)^2=(4/3)I`;
-- unitarity and unit determinant for every original and updated link;
-- genuine link noncommutativity in every deterministic sample;
+```text
+G_x = sum_mu(E_x,mu - U_x-mu,mu^dagger E_x-mu,mu U_x-mu,mu).
+```
+
+A symmetric kick--drift--kick trajectory advances the fields:
+
+```text
+E_n+1/2 = E_n + (dt/2) F(U_n)
+U_n+1   = exp(i dt E_n+1/2 / 2) U_n
+E_n+1   = E_n+1/2 + (dt/2) F(U_n+1).
+```
+
+The reference campaign establishes:
+
 - local plaquette covariance and Wilson-action gauge invariance;
-- adjoint covariance of every quark color current;
-- exact reconstruction of each current from its eight color components;
-- gauge covariance of the current-gradient backreaction step;
-- a nonzero Wilson-action and partition response in every sampled configuration;
-- source-functional first and connected second derivatives for the oriented plaquette observable.
+- preservation of link unitarity and unit determinant;
+- preservation of electric-field Hermiticity and tracelessness;
+- source-free Gauss-law closure through the trajectory;
+- relative Hamiltonian drift below `2e-8`;
+- forward/backward reversibility near `1e-12`;
+- nontrivial magnetic evolution;
+- finite `1 x 1` and winding `2 x 1` Wilson loops.
 
 ## Exact formal authority
 
-The one-particle and second-quantized bridges remain pinned to Physlib PRs **#41** and **#42**. The QCD and matrix-valued `SU(3)` ledgers additionally content-pin:
+The M10 lineage remains pinned to Physlib PRs **#41** and **#42**. M10.6 additionally content-pins:
 
+- `YangMillsGaugeDynamics.yangMillsEquation_gauge_covariant`;
+- `WilsonLoopAreaLaw.wilsonAction_nonneg`;
 - `GellMannStructureConstants.gellMann_structure_constants`;
-- `NonAbelianThreeVertex.three_vertex_jacobi`;
-- `SuNGaugeSector.su3_adjoint_eq_gluonCount`;
-- `FiniteWilsonGaugeModel.sourceCoupledPartition_linearSource_hasDerivAt_zero`;
-- `QCDComplexActionUnification.qcd_theta_confinement_factorization`.
+- `FiniteWilsonGaugeModel.boltzmannFactor_le_one`.
 
-The machine-readable maps are:
+Machine-readable ledgers:
 
 ```text
 formal/dirac_cartan_2i_yukawa.v1.json
 formal/second_quantized_fock.v1.json
 formal/qcd_functional_decoherence.v1.json
 formal/su3_link_backreaction.v1.json
+formal/periodic_su3_hamiltonian.v1.json
 ```
 
 ## Reproduction
@@ -93,6 +87,7 @@ from openwave.xperiments.m10_cat_ept import (
     run_second_quantized_fock_study,
     run_qcd_functional_decoherence_study,
     run_su3_link_backreaction_study,
+    run_periodic_su3_hamiltonian_study,
 )
 from openwave.xperiments.m10_cat_ept.model_registration import run_model_registration_study
 import json
@@ -102,6 +97,7 @@ for result in (
     run_second_quantized_fock_study(),
     run_qcd_functional_decoherence_study(),
     run_su3_link_backreaction_study(),
+    run_periodic_su3_hamiltonian_study(),
     run_model_registration_study(),
 ):
     print(json.dumps(result, indent=2, sort_keys=True, default=float))
@@ -110,4 +106,4 @@ PY
 
 ## Next development
 
-The next layer can place these links on a multi-plaquette periodic lattice, evolve color electric fields with a symplectic update, and compare gauge-invariant Wilson-loop and decoherence spectra across lattice refinement.
+M10.7 adds dynamical fundamental-color matter, gauge-covariant hopping, link currents, sourced Gauss law and discrete continuity. M10.8 then closes Wilson-loop/refinement and confinement-spectrum diagnostics.
