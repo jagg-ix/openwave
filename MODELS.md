@@ -11,7 +11,7 @@ OpenWave hosts multiple candidate field-theoretic models. Historical M4--M8 resu
 | **M12** | **CAT/EPT particle-zoo coverage model** | **`MODELS_M12.md`** | **M12.1--M12.3 executable identity, electroweak, flavor, hadron and QCD coverage** |
 | **M13** | **CAT/EPT scale-dilation and holographic-amplitude model** | **`MODELS_M13.md`** | **M13 holographic and amplitude lineage** |
 | **M14** | **CAT/EPT continuum AdS double-copy model** | **`MODELS_M14.md`** | **M14.1--M14.4 causal Green, infinite BCJ, AdS normalization and smooth conditional closure** |
-| **M15** | **CAT/EPT Kuchař relational-time consistency model** | **`MODELS_M15.md`** | **M15.1 local constraint, clock-choice and physical-inner-product diagnostics** |
+| **M15** | **CAT/EPT Kuchař relational-time and AdS double-copy model** | **`MODELS_M15.md`** | **M15.1--M15.4 clock consistency plus finite, pointwise, infinite and continuum BCJ/AdS coverage** |
 
 ## M9 stable and latest lineage
 
@@ -39,9 +39,6 @@ M13 places the M11 pointwise soliton and finite-cutoff infinite-mode tensor on t
 
 M14 uses the latest formal TIP to compose causal Maxwell Green/Hadamard operators, pointwise and `L²` continuum kernel infrastructure, an explicitly convergent infinite BCJ weighted series, D3/boundary-central-charge AdS normalization, and compatible smooth harmonic-Einstein direct limits. The final result is a conditional executable closure, not an unconditional global, interacting or loop-level AdS double-copy theorem.
 
-## M15 Kuchař relational-time consistency model
+## M15 relational-time AdS double-copy model
 
-M15 executes the Kuchař absolute-time, embedding Hamilton--Jacobi, functional
-Schrödinger, anomaly-closure, clock-choice and embedding-independent-inner-product
-contracts against finite supplied carriers. It records local semantic consistency
-without claiming a global preferred time or global Kuchař decomposition.
+M15 places the complete executable M13/M14 BCJ and AdS surface behind the Kuchař relational-time consistency gates. Its final status is conditional and keeps global-time, analytic PDE, summability, compactification and loop-level obligations explicit.
