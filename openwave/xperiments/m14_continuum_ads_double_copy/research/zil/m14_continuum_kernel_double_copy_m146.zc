@@ -1,0 +1,9 @@
+model:m14.6#requires@model:m14.2.
+model:m14.6#pins@toolchain:lean-4.31.0.
+model:m14.6#pins@repository:jagg-ix-zil-lean-6daee269.
+model:m14.6#reuses@physlib:continuum-l2-kernel-and-maximal-pointwise-operators.
+model:m14.6#checks@claim:jacobi-closes-on-the-x-times-x-kernel.
+model:m14.6#checks@claim:weighted-double-copy-density-has-a-hilbert-schmidt-limit.
+model:m14.6#checks@claim:left-and-right-pointwise-kernel-actions-commute.
+model:m14.6#checks@claim:positive-background-kernel-composition-is-positive.
+model:m14.6#forbids@claim:arbitrary-interacting-continuum-double-copy.
