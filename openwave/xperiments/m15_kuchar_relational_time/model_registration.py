@@ -1,11 +1,11 @@
 """Canonical M15 registration."""
-from .kuchar_relational_time_m151 import (
-    KucharRelationalTimeConfig,
-    run_kuchar_relational_time_study,
+from .kuchar_full_ads_double_copy_m154 import (
+    KucharFullAdSDoubleCopyConfig,
+    run_kuchar_full_ads_double_copy_study,
 )
-run_model_study = run_kuchar_relational_time_study
+run_model_study = run_kuchar_full_ads_double_copy_study
 __all__ = [
-    "KucharRelationalTimeConfig",
-    "run_kuchar_relational_time_study",
+    "KucharFullAdSDoubleCopyConfig",
+    "run_kuchar_full_ads_double_copy_study",
     "run_model_study",
 ]
