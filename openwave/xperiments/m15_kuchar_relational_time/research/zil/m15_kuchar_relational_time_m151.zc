@@ -1,0 +1,9 @@
+model:m15.1#reuses@physlib:kuchar-sections-one-two.
+model:m15.1#reuses@physlib:problem-of-time.
+model:m15.1#reuses@physlib:kuchar-page-wootters-wheeler-dewitt-bridge.
+model:m15.1#checks@claim:absolute-time-and-embedding-hamilton-jacobi-residuals-close.
+model:m15.1#checks@claim:functional-schrodinger-and-dirac-commutator-residuals-close.
+model:m15.1#checks@claim:selected-clock-quantizations-are-equivalent-on-declared-invariants.
+model:m15.1#checks@claim:selected-physical-inner-product-is-embedding-independent.
+model:m15.1#checks@claim:entropic-clock-definition-is-monotone-on-the-supplied-trajectory.
+model:m15.1#forbids@claim:global-preferred-time-global-kuchar-decomposition-or-unique-quantization.
