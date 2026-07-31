@@ -1,0 +1,9 @@
+model:m14.7#requires@model:m14.3.
+model:m14.7#pins@toolchain:lean-4.31.0.
+model:m14.7#pins@repository:jagg-ix-zil-lean-6daee269.
+model:m14.7#reuses@physlib:d3-normalized-ads-bcj-gkp-rt-dictionary.
+model:m14.7#checks@claim:poisson-radial-transport-preserves-pointwise-jacobi.
+model:m14.7#checks@claim:bulk-numerator-fields-converge-to-boundary-data.
+model:m14.7#checks@claim:one-d3-coupling-normalizes-bcj-gkp-and-rt-faces.
+model:m14.7#forbids@claim:bcj-amplitude-equals-rt-entropy.
+model:m14.7#forbids@claim:interacting-witten-or-global-loop-level-ads-double-copy.
