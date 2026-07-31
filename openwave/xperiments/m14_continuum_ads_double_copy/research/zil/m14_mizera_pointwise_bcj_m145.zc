@@ -1,0 +1,9 @@
+model:m14.5#requires@model:m14.2.
+model:m14.5#requires@model:m14.4.
+model:m14.5#pins@toolchain:lean-4.31.0.
+model:m14.5#pins@repository:jagg-ix-zil-lean-6daee269.
+model:m14.5#reuses@physlib:mizera-four-puncture-residue-and-twisted-cohomology.
+model:m14.5#checks@claim:continuous-pointwise-numerators-obey-jacobi.
+model:m14.5#checks@claim:finite-residues-reconstruct-all-three-channels.
+model:m14.5#checks@claim:twisted-exact-shifts-do-not-change-channel-residues.
+model:m14.5#forbids@claim:full-chy-or-loop-level-double-copy.
