@@ -1,0 +1,7 @@
+model:m15.4#requires@model:m15.3.
+model:m15.4#reuses@model:m14.3.
+model:m15.4#reuses@model:m14.4.
+model:m15.4#checks@claim:finite-pointwise-infinite-continuum-bcj-and-ads-gkp-rt-surfaces-are-registered.
+model:m15.4#checks@claim:smooth-harmonic-einstein-direct-limit-is-compatible-with-selected-relational-time-contract.
+model:m15.4#formalizes@claim:conditional-relational-continuum-ads-double-copy-model.
+model:m15.4#forbids@claim:global-preferred-time-loop-double-copy-or-amplitude-entropy-equality.
