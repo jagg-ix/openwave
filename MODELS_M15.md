@@ -1,41 +1,35 @@
-# OpenWave M15 CAT/EPT Kuchař relational-time model
+# OpenWave M15 CAT/EPT Kuchař relational-time and AdS double-copy model
 
-M15 executes the semantic contracts formalized for Kuchař Sections 1--2 and
-connects them to the existing Page--Wootters, Wheeler--DeWitt, Dirac-constraint,
-ADM entropic-time, and physical-kernel-inner-product theorem families.
+M15 begins with the Kuchař Sections 1--2 relational-time consistency contract,
+then composes every executable BCJ/AdS surface already present in M13 and M14.
 
-## M15.1 executable surface
+## Lineage
 
-The campaign verifies:
+| Milestone | Executable coverage |
+| --- | --- |
+| M15.1 | absolute-time, Hamilton--Jacobi, functional Schrödinger, anomaly, clock-choice and physical-inner-product consistency |
+| M15.2 | finite BCJ, primitive QCD, massive/Yukawa BCJ, weighted GKP source kernel, generalized gauge checks and explicit pointwise Jacobi modes |
+| M15.3 | square-summable infinite BCJ direct limit, quantitative tails, causal Green/Pauli--Jordan transport and Hadamard probe compatibility |
+| M15.4 | D3/central-charge normalization, continuum GKP kernel, RT/Complex-Einstein identities, smooth Lorentzian direct limit and harmonic-Einstein uniqueness |
 
-- the absolute-time constraint `P_T + h = 0`;
-- the embedding Hamilton--Jacobi residual `δS/δX^A + h_A = 0`;
-- the functional Schrödinger residual `i δΨ/δX^A - h_A Ψ = 0`;
-- vanishing embedding and Dirac commutator anomaly channels;
-- Page--Wootters/Wheeler--DeWitt clock-system anti-balance;
-- equivalence of the selected clock quantizations on declared spectral invariants;
-- embedding independence of the selected physical inner product;
-- monotonicity of the supplied entropic clock `τ_ent = S_I / ℏ`.
+## Coverage boundary
+
+M15.4 registers finite, pointwise, infinite and continuum double-copy surfaces in
+one relational-time model. The status remains
+**conditional-relational-continuum-ads-double-copy-model**.
+
+It does not infer a global preferred time, automatic Green/Hadamard existence,
+convergence of arbitrary numerator families, loop-level color--kinematics
+duality, an interacting renormalized Witten functional, or equality between a
+BCJ amplitude and RT entropy.
 
 ## Formal authority
-
-The model is pinned to:
 
 ```text
 jagg-ix/entropic-physlib-private
 entropic-physlib-linear-full
 1061988e0c356075562ced1bd88758ba4922375c
 ```
-
-The primary new authority is
-`Physlib/Gravity/Canonical/KucharSectionsOneTwo.lean`.
-
-## Claim boundary
-
-M15.1 is a **local-consistency model**. It does not prove that full general
-relativity has a global preferred time, that every Dirac-closed canonical system
-admits a global Kuchař decomposition, that all clock choices yield equivalent
-quantizations, or that one preferred physical inner product has been derived.
 
 ## Reproduction
 
