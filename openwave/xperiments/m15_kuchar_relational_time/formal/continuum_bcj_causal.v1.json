@@ -1,0 +1,15 @@
+{
+  "schema": "openwave.m15.kuchar-continuum-bcj-causal-ledger.v1",
+  "model_id": "M15",
+  "milestone": "M15.3",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "1061988e0c356075562ced1bd88758ba4922375c",
+  "formal_sources": [
+    {"path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/GloballyHyperbolicGreenHadamard.lean", "sha": "bcdef861f5cd3843051a13061adb4e856b686dfe", "theorems": ["MaxwellLaxMilgramGraphData.curvedHOneFour_causalSourceQuotient_phaseSpace", "MaxwellLaxMilgramGraphData.curvedHOneFour_caticha_maxwell_causal_distributional_hadamard_propagation"]},
+    {"path": "Physlib/QuantumMechanics/OpenSystems/LiouvilleSecondQuantization.lean", "sha": "9d2c905c940480f1ed570cf0be965d5a9b6c4831", "theorems": ["continuumKernelNormSq_nonneg", "leftPointwise_rightPointwise_commute", "spacePointwiseKernelOperator_hasDenseDomain"]},
+    {"path": "Physlib/QFT/ScalarGreenFunctions.lean", "sha": "b985c5442a61615f81ebbaaaea45d165338f344a", "theorems": ["continuum propagator and pointwise kernel aggregate"]}
+  ],
+  "openwave_dependencies": ["M15.2", "M14.1", "M14.2"],
+  "claim_boundaries": {"summability": "explicit model input and tail bound", "hadamard": "analytic premises remain visible", "global_time": "not inferred"}
+}
