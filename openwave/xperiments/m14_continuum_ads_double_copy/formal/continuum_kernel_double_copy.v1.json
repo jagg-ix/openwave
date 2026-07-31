@@ -1,0 +1,65 @@
+{
+  "schema": "openwave.m14.continuum-kernel-double-copy-ledger.v1",
+  "model_id": "M14",
+  "milestone": "M14.6",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "35f98f147771a4e250ec01b4cbf2afab72313db7",
+  "formal_toolchain": {
+    "lean": "4.31.0",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "zil_repository": "jagg-ix/zil-lean",
+    "zil_commit": "6daee2698304feb203c6adb91b2e8853613f85b5"
+  },
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/BCJDoubleCopy/ColorKinematicsDoubleCopy.lean",
+      "sha": "96e5f7feb002125a633d90c3940e1af513bb8484",
+      "theorems": [
+        "cubicDoubleCopy_eq_weightedBilinear",
+        "cubicDoubleCopyAmplitudeFinite_comm",
+        "cubicDoubleCopy_shift_left_of_orthogonal",
+        "cubicDoubleCopy_shift_right_of_orthogonal",
+        "mizera_intersectionLeadingTerm_eq_doubleCopy"
+      ]
+    },
+    {
+      "path": "Physlib/QFT/ScalarGreenFunctions/Continuum.lean",
+      "sha": "2bfb570363cbb89479ff53698195ce4e819e3cec",
+      "theorems": [
+        "coe_mkContinuumScalarKernel_ae",
+        "continuumScalarMulOperator_hasDenseDomain",
+        "continuumScalarMulOperator_apply_ae",
+        "left_right_continuumScalarKernelAction_commute",
+        "pointwiseKernelComposition",
+        "pointwiseKernelComposition_zero"
+      ]
+    },
+    {
+      "path": "Physlib/Mathematics/LovelockRund/PointwiseOperators.lean",
+      "sha": "bc2e08633fb9a6c3ec067aad54df6ba4df4c1816",
+      "theorems": [
+        "continuumField_memLp",
+        "pointwiseFieldOperator_hasDenseDomain",
+        "pointwiseFieldOperator_apply_ae"
+      ]
+    },
+    {
+      "path": "Physlib/Mathematics/LpAeConvergence.lean",
+      "sha": "6898c8e2264fe30d5f1f41f6a3180cc4a942e4b0",
+      "theorems": [
+        "eLpNorm_tendsto_zero_of_aeBound",
+        "ae_subseq_of_eLpNorm_tendsto"
+      ]
+    }
+  ],
+  "openwave_dependencies": [
+    "M14.2",
+    "M14.5"
+  ],
+  "claim_boundaries": {
+    "kernel": "explicit L2/Hilbert-Schmidt quadrature carrier",
+    "operator": "maximal-domain and measurability premises remain visible",
+    "continuum": "no arbitrary interacting continuum amplitude is inferred"
+  }
+}
