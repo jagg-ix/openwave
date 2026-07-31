@@ -1,0 +1,6 @@
+model:m15.3#requires@model:m15.2.
+model:m15.3#reuses@model:m14.1.
+model:m15.3#reuses@model:m14.2.
+model:m15.3#checks@claim:square-summable-infinite-bcj-series-has-quantitative-tail-control.
+model:m15.3#checks@claim:causal-green-pauli-jordan-and-hadamard-transport-remain-compatible.
+model:m15.3#forbids@claim:global-hyperbolicity-alone-supplies-all-analytic-inputs.
