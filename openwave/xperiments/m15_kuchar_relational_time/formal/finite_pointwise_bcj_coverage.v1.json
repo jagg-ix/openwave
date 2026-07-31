@@ -1,0 +1,15 @@
+{
+  "schema": "openwave.m15.kuchar-bcj-pointwise-coverage-ledger.v1",
+  "model_id": "M15",
+  "milestone": "M15.2",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "1061988e0c356075562ced1bd88758ba4922375c",
+  "formal_sources": [
+    {"path": "Physlib/Gravity/Canonical/KucharSectionsOneTwo.lean", "sha": "6a5a72396e5b0ae32376e78adb840a01fc8f28d0", "theorems": ["KucharAbsoluteTimeConstraint.satisfies_iff_momentum_eq_neg", "KucharFunctionalSchrodingerData.satisfies_iff_equation", "no_functionalEvolutionProblem_of_quantumFunctionalEvolution"]},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/ColorKinematicsDoubleCopy.lean", "sha": "110a42b466c7fcf8be68be4326cb1d0c9197043c", "theorems": ["gravityAmplitude_eq_weightedBilinear", "doubleCopy_invariant_of_weightedOrthogonal_shift"]},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/PrimitiveQCDColorKinematics.lean", "sha": "5756653f5dbd58ac14fef7307d03223e7bf81304", "theorems": ["primitiveQCD_forward_sum", "primitiveQCD_backward_sum"]}
+  ],
+  "openwave_dependencies": ["M15.1", "M13.2", "M13.5", "M13.8"],
+  "claim_boundaries": {"scope": "finite and explicit pointwise modes", "continuum": "not inferred here", "clock": "selected Kuchar consistency gate only"}
+}

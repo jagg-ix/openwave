@@ -1,0 +1,7 @@
+model:m15.2#requires@model:m15.1.
+model:m15.2#reuses@model:m13.2.
+model:m15.2#reuses@model:m13.5.
+model:m15.2#reuses@model:m13.8.
+model:m15.2#checks@claim:finite-color-kinematics-massive-qcd-source-kernel-and-pointwise-jacobi-coverage.
+model:m15.2#checks@claim:selected-kuchar-clock-consistency-is-an-independent-gate.
+model:m15.2#forbids@claim:finite-bcj-implies-continuum-double-copy.
