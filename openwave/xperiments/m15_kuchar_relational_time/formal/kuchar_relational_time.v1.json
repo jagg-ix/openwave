@@ -1,0 +1,50 @@
+{
+  "schema": "openwave.m15.kuchar-relational-time-ledger.v1",
+  "model_id": "M15",
+  "milestone": "M15.1",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "1061988e0c356075562ced1bd88758ba4922375c",
+  "formal_sources": [
+    {
+      "path": "Physlib/Gravity/Canonical/KucharSectionsOneTwo.lean",
+      "sha": "6a5a72396e5b0ae32376e78adb840a01fc8f28d0",
+      "theorems": [
+        "KucharAbsoluteTimeConstraint.satisfies_iff_momentum_eq_neg",
+        "KucharEmbeddingHamiltonJacobiData.satisfies_iff_derivative_eq_neg_flux",
+        "embeddingHamiltonJacobi_residual_eq_embeddingConstraint",
+        "KucharFunctionalSchrodingerData.satisfies_iff_equation",
+        "no_functionalEvolutionProblem_of_quantumFunctionalEvolution",
+        "no_multipleChoiceProblem_of_clock_independent",
+        "no_hilbertSpaceProblem_of_embedding_independent"
+      ]
+    },
+    {
+      "path": "Physlib/Gravity/Canonical/ProblemOfTime.lean",
+      "sha": "171f3d253fbbe76bf4fce553be862fcf0ed838ec",
+      "theorems": [
+        "KucharWDWSplit.clock_eq_neg_system",
+        "wdwSplit_constraint_iff_antibalance",
+        "strong_implies_local",
+        "strong_implies_obstruction_problem"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/ComplexAction/TimeOperator/KucharProblemOfTime.lean",
+      "sha": "43955d48f3afc428e834e6ca5662773c3c71e820",
+      "theorems": [
+        "pageWoottersBipartite_realizes_kuchar_timeless_form",
+        "wheelerDeWitt_induces_kuchar_timeless_form",
+        "physlib_kuchar_bridge_links",
+        "kuchar_expanded_contract_linked_to_physlib"
+      ]
+    }
+  ],
+  "claim_boundaries": {
+    "status": "local-consistency-model",
+    "global_preferred_time": "not established",
+    "global_kuchar_decomposition": "not established",
+    "unique_clock_quantization": "not established",
+    "preferred_physical_inner_product": "not established"
+  }
+}
