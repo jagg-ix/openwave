@@ -1,0 +1,17 @@
+{
+  "schema": "openwave.m15.kuchar-full-ads-double-copy-ledger.v1",
+  "model_id": "M15",
+  "milestone": "M15.4",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "1061988e0c356075562ced1bd88758ba4922375c",
+  "formal_sources": [
+    {"path": "Physlib/QuantumMechanics/ComplexAction/Electromagnetic/EMComplexEinsteinAdSCFT.lean", "sha": "eaa50fbe34c8d5f773826ee6f63265b70f07326c", "theorems": ["d3_adsCFT_BCJ_doubleCopy", "d3_boundaryCentralCharge_complexEinstein_conservationFamily"]},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/GKPWittenAdSCFTDictionary.lean", "sha": "d9f9bf5e00fd1a4880520cab6c4e5458ee4aa1d3", "theorems": ["massDimension_relation", "conformalDimension_sum"]},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/AdSCFT/RyuTakayanagiFormulaAlgebra.lean", "sha": "c14aede2c8654bdbdb4aedfca543c36872c65e55", "theorems": ["rtAreaEntropy_nonneg", "brownHenneaux_third"]},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/SmoothLorentzianDirectLimit.lean", "sha": "613f1ed3a5888ea036f1ec77090aafae2f176357", "theorems": ["OpenChartedDevelopmentSystem.gluedIsManifold", "OpenChartedDevelopmentSystem.CompatibleMetricFamily.gluedPseudoRiemannianMetric"]},
+    {"path": "Physlib/QuantumMechanics/ComplexAction/CanonicalTetradGravity/HarmonicGaugeLocalEinstein.lean", "sha": "21aaafb7bf9e0736d3fbadd14dcc4a604325607d", "theorems": ["HarmonicGaugeADMCauchyData.harmonicGauge_propagates", "local_harmonicEinstein_unique_up_to_fixedCauchy_isometry"]}
+  ],
+  "openwave_dependencies": ["M15.3", "M14.3", "M14.4"],
+  "claim_boundaries": {"status": "conditional-relational-continuum-ads-double-copy-model", "loop_level": "not claimed", "global_preferred_time": "not claimed", "amplitude_entropy_equality": "forbidden"}
+}
