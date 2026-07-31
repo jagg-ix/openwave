@@ -11,9 +11,14 @@ from .kuchar_continuum_bcj_causal_m153 import (
     KucharContinuumBCJConfig,
     run_kuchar_continuum_bcj_causal_study,
 )
-run_m15_model_study = run_kuchar_continuum_bcj_causal_study
+from .kuchar_full_ads_double_copy_m154 import (
+    KucharFullAdSDoubleCopyConfig,
+    run_kuchar_full_ads_double_copy_study,
+)
+run_m15_model_study = run_kuchar_full_ads_double_copy_study
 __all__ = [
     "KucharRelationalTimeConfig", "KucharBCJPointwiseConfig", "KucharContinuumBCJConfig",
-    "run_kuchar_relational_time_study", "run_kuchar_bcj_pointwise_coverage_study",
-    "run_kuchar_continuum_bcj_causal_study", "run_m15_model_study",
+    "KucharFullAdSDoubleCopyConfig", "run_kuchar_relational_time_study",
+    "run_kuchar_bcj_pointwise_coverage_study", "run_kuchar_continuum_bcj_causal_study",
+    "run_kuchar_full_ads_double_copy_study", "run_m15_model_study",
 ]
