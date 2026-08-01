@@ -1,0 +1,7 @@
+model:m15.6#requires@model:m15.5.
+model:m15.6#reuses@physlib:three-clock-functoriality.
+model:m15.6#checks@claim:deterministic-post-processing-preserves-conditioning.
+model:m15.6#checks@claim:observables-and-predicates-transport-from-conditioned-to-direct-states.
+model:m15.6#checks@claim:post-processing-composes-exactly.
+model:m15.6#checks@claim:clock-endomorphism-conjugation-preserves-identity-and-composition.
+model:m15.6#forbids@claim:conditioning-equality-or-clock-calibration-is-generated-without-input-data.

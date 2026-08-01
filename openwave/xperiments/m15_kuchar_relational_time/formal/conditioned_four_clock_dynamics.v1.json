@@ -1,0 +1,37 @@
+{
+  "schema": "openwave.m15.conditioned-four-clock-dynamics-ledger.v1",
+  "model_id": "M15",
+  "milestone": "M15.5",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "b44d8ab215568d2239ab2ea20aca483df3b1076b",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/RelationalTime/ThreeClockClosure.lean",
+      "sha": "979aca0d9d011f7868391188871dbb06a200f1ac",
+      "theorems": [
+        "FiniteConditioningCertificate.all_conditioned_states_recovered",
+        "ThreeClockCalibration.pwToEntropic_injective",
+        "ThreeClockCalibration.pwToEntropic_surjective"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/RelationalTime/ThreeClockDynamics.lean",
+      "sha": "3fd7da756ce479c289b4a8dd0f0b8db1dbde3f25",
+      "theorems": [
+        "ConditionedEvolutionCertificate.conditioned_evolves",
+        "FourClockCalibration.pw_modular_entropic_proper_commutes",
+        "FourClockCalibration.pwToProper_injective",
+        "FourClockCalibration.pwToProper_surjective",
+        "OrderedFourClockCalibration.pwToProper_strictMono",
+        "OrderedFourClockCalibration.pw_lt_implies_proper_lt"
+      ]
+    }
+  ],
+  "openwave_dependencies": ["M15.1", "M15.4"],
+  "claim_boundaries": {
+    "status": "conditional-calibration-model",
+    "calibration_maps": "supplied invertible strictly monotone maps",
+    "global_clock_identification": "not claimed"
+  }
+}

@@ -1,0 +1,8 @@
+model:m15.7#requires@model:m15.6.
+model:m15.7#reuses@physlib:entropic-clock-synthesis.
+model:m15.7#checks@claim:reversible-clock-step-preserves-kl-divergence.
+model:m15.7#checks@claim:tick-conjugate-free-energy-force-equals-minus-mean-energy-over-tick.
+model:m15.7#checks@claim:shared-randomness-chsh-remains-below-two.
+model:m15.7#checks@claim:eight-clock-character-attains-two-root-two.
+model:m15.7#checks@claim:complex-clock-energy-produces-the-expected-damping.
+model:m15.7#forbids@claim:one-action-derives-clock-information-force-correlation-or-einstein-from-bell.

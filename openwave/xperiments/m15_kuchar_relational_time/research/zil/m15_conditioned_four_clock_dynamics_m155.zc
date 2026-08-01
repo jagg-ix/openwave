@@ -1,0 +1,8 @@
+model:m15.5#requires@model:m15.1.
+model:m15.5#requires@model:m15.4.
+model:m15.5#reuses@physlib:three-clock-closure.
+model:m15.5#reuses@physlib:conditioned-four-clock-dynamics.
+model:m15.5#checks@claim:conditioned-system-dynamics-transport-exactly.
+model:m15.5#checks@claim:page-wootters-modular-entropic-proper-calibration-commutes.
+model:m15.5#checks@claim:strict-relational-order-is-preserved-in-proper-time.
+model:m15.5#forbids@claim:global-physical-clock-identification-without-supplied-calibration.

@@ -1,0 +1,35 @@
+{
+  "schema": "openwave.m15.entropic-clock-synthesis-ledger.v1",
+  "model_id": "M15",
+  "milestone": "M15.7",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "b44d8ab215568d2239ab2ea20aca483df3b1076b",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/EntropicClockSynthesis.lean",
+      "sha": "f5570588d9807d4163b5031b58f3d555618c6086",
+      "theorems": [
+        "cogwheelNatStep_injective",
+        "cogwheel_channel_keeps_kl",
+        "tick_force_virial",
+        "sharedRandomness_chsh_bound",
+        "tsirelson_on_eight_clock",
+        "compton_tick_primitive_root",
+        "clock_reading_advances",
+        "damped_clock_phase",
+        "damped_clock_norm_sq",
+        "bell_information_gravity_chain",
+        "bell_information_gravity_chain_hypotheses",
+        "entropic_clock_synthesis"
+      ]
+    }
+  ],
+  "openwave_dependencies": ["M15.6"],
+  "claim_boundaries": {
+    "status": "four-face-exact-synthesis",
+    "single_unified_action": "not claimed",
+    "pinsker_bound": "not proved",
+    "einstein_from_bell": "not claimed"
+  }
+}

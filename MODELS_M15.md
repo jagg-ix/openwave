@@ -1,7 +1,9 @@
-# OpenWave M15 CAT/EPT Kuchař relational-time and AdS double-copy model
+# OpenWave M15 CAT/EPT Kuchař relational-time, AdS double-copy, and clock-synthesis model
 
 M15 begins with the Kuchař Sections 1--2 relational-time consistency contract,
-then composes every executable BCJ/AdS surface already present in M13 and M14.
+composes the executable BCJ/AdS surfaces already present in M13 and M14, and
+then adds the latest conditioned-dynamics, functorial-calibration, and
+information/force/correlation clock theorems.
 
 ## Lineage
 
@@ -11,25 +13,36 @@ then composes every executable BCJ/AdS surface already present in M13 and M14.
 | M15.2 | finite BCJ, primitive QCD, massive/Yukawa BCJ, weighted GKP source kernel, generalized gauge checks and explicit pointwise Jacobi modes |
 | M15.3 | square-summable infinite BCJ direct limit, quantitative tails, causal Green/Pauli--Jordan transport and Hadamard probe compatibility |
 | M15.4 | D3/central-charge normalization, continuum GKP kernel, RT/Complex-Einstein identities, smooth Lorentzian direct limit and harmonic-Einstein uniqueness |
+| M15.5 | exact conditioned evolution and ordered Page--Wootters/modular/entropic/proper-time calibration |
+| M15.6 | functorial conditioning, observable/predicate transport, and conjugated clock endomorphisms |
+| M15.7 | reversible KL clock, tick-conjugate force, classical CHSH ceiling, eight-clock quantum optimum, and damped clock phase |
 
-## Coverage boundary
-
-M15.4 registers finite, pointwise, infinite and continuum double-copy surfaces in
-one relational-time model. The status remains
-**conditional-relational-continuum-ads-double-copy-model**.
-
-It does not infer a global preferred time, automatic Green/Hadamard existence,
-convergence of arbitrary numerator families, loop-level color--kinematics
-duality, an interacting renormalized Witten functional, or equality between a
-BCJ amplitude and RT entropy.
-
-## Formal authority
+## Latest formal authority
 
 ```text
 jagg-ix/entropic-physlib-private
 entropic-physlib-linear-full
-1061988e0c356075562ced1bd88758ba4922375c
+b44d8ab215568d2239ab2ea20aca483df3b1076b
 ```
+
+The new M15.5--M15.7 authority is concentrated in:
+
+- `ThreeClockClosure.lean`;
+- `ThreeClockDynamics.lean`;
+- `ThreeClockFunctoriality.lean`;
+- `EntropicClockSynthesis.lean`.
+
+## Coverage boundary
+
+M15.7 has status **conditional-relational-clock-synthesis-model**.
+
+The conditioned-state equality, clock equivalences, strict monotonicity of the
+physical calibration maps, and selected finite thermodynamic inputs remain
+explicit premises. The model does not infer a global preferred time, automatic
+equivalence of arbitrary clocks, a single action deriving all clock,
+information, force and correlation faces, a Pinsker-type quantitative
+information/correlation inequality, loop-level color--kinematics duality, or
+Einstein equations from a Bell certificate.
 
 ## Reproduction
 
