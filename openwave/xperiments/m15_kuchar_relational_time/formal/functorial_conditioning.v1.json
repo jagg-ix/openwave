@@ -1,0 +1,38 @@
+{
+  "schema": "openwave.m15.functorial-conditioning-ledger.v1",
+  "model_id": "M15",
+  "milestone": "M15.6",
+  "formal_repository": "jagg-ix/entropic-physlib-private",
+  "formal_branch": "entropic-physlib-linear-full",
+  "formal_head": "b44d8ab215568d2239ab2ea20aca483df3b1076b",
+  "formal_sources": [
+    {
+      "path": "Physlib/QuantumMechanics/RelationalTime/ThreeClockClosure.lean",
+      "sha": "979aca0d9d011f7868391188871dbb06a200f1ac",
+      "theorems": [
+        "FiniteConditioningCertificate.all_conditioned_states_recovered",
+        "ThreeClockCalibration.pwToEntropic_injective"
+      ]
+    },
+    {
+      "path": "Physlib/QuantumMechanics/RelationalTime/ThreeClockFunctoriality.lean",
+      "sha": "c9dcb1f12b4be8264deefbc0f880d76f546b436c",
+      "theorems": [
+        "FiniteConditioningCertificate.mapSystem",
+        "FiniteConditioningCertificate.observable_transport",
+        "FiniteConditioningCertificate.predicate_transport",
+        "FiniteConditioningCertificate.mapSystem_comp",
+        "ThreeClockCalibration.conjugatePWEndomorphism_apply",
+        "ThreeClockCalibration.conjugatePWEndomorphism_id",
+        "ThreeClockCalibration.conjugatePWEndomorphism_comp",
+        "ThreeClockCalibration.conjugatePWEndomorphism_injective"
+      ]
+    }
+  ],
+  "openwave_dependencies": ["M15.5"],
+  "claim_boundaries": {
+    "conditioning_equality": "supplied certificate",
+    "clock_equivalence": "supplied calibration",
+    "functorial_consequences": "derived and executed"
+  }
+}
